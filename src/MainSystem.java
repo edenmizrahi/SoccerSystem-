@@ -14,6 +14,12 @@ public class MainSystem {
         this.users = users;
     }
 
+    public MainSystem() {
+        this.complaints = null;
+        this.systemManagers = null;
+        this.leagues = null;
+        this.users = null;
+    }
 
     public boolean action(){// the function needs to accept Permission[], and Action - both enum
      return true;

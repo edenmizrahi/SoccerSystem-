@@ -1,4 +1,4 @@
-public class Player extends PageOwner {
+public class Player extends  Subscription implements PageOwner {
 
 
     PrivatePage playerPage;
@@ -6,5 +6,15 @@ public class Player extends PageOwner {
 
     Player(){
         super();
+    }
+
+    @Override
+    public void openPage() {
+
+    }
+
+    @Override
+    public void managePage() {
+
     }
 }

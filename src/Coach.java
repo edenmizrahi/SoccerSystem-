@@ -1,4 +1,4 @@
-public class Coach extends PageOwner{
+public class Coach  extends  Subscription implements PageOwner{
 
 
     Team coachTeam;
@@ -6,6 +6,16 @@ public class Coach extends PageOwner{
 
     Coach(){
         super();
+    }
+
+    @Override
+    public void openPage() {
+
+    }
+
+    @Override
+    public void managePage() {
+
     }
 
 

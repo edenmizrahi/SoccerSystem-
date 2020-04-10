@@ -1,13 +1,7 @@
-public abstract class PageOwner extends Subscription {
+public interface PageOwner {
 
+    public void openPage();
 
-    PageOwner(){
-        super();
-    }
-
-
-    public void openPage(){ }
-
-    public void managePage(){ }
+    public void managePage();
 }
 

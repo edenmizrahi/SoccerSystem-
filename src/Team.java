@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class Team {
+public class Team implements PageOwner{
 
     private String name;
     private int budget;
@@ -16,7 +16,11 @@ public class Team {
     private Field field;
 
 
-    public Team(String name, int budget, TeamManager teamManager, League league, HashSet<Player> players, Coach coach, HashSet<TeamOwner> teamOwners, Field field) {
+    public Team(HashSet<Player> p,String name, int budget, TeamManager teamManager, League league, HashSet<Player> players, Coach coach, HashSet<TeamOwner> teamOwners, Field field) throws Exception {
+       if(p.size()<11){
+           throw new Exception();
+       }
+       this.players=p;
         this.name = name;
         this.budget = budget;
         this.teamManager = teamManager;
@@ -109,5 +113,15 @@ public class Team {
 
     public Field getField() {
         return field;
+    }
+
+    @Override
+    public void openPage() {
+
+    }
+
+    @Override
+    public void managePage() {
+
     }
 }

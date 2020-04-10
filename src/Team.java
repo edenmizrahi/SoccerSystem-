@@ -8,8 +8,7 @@ public class Team {
     private HashSet<Match> away;
     private TeamManager teamManager;
     private League league;
-    /**at diagram must hold private page , is it ?I dont think so.. **/
-    private PrivatePage privatePage;
+
     /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
     private  Coach coach;
@@ -53,9 +52,6 @@ public class Team {
         this.league = league;
     }
 
-    public void setPrivatePage(PrivatePage privatePage) {
-        this.privatePage = privatePage;
-    }
 
     public void setPlayers(HashSet<Player> players) {
         this.players = players;
@@ -97,9 +93,7 @@ public class Team {
         return league;
     }
 
-    public PrivatePage getPrivatePage() {
-        return privatePage;
-    }
+
 
     public HashSet<Player> getPlayers() {
         return players;

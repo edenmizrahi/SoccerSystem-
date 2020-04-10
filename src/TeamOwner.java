@@ -1,10 +1,11 @@
 import java.util.HashSet;
 
-public class TeamOwner extends Subscription{
+public class TeamOwner{
     private HashSet<Team> teams;
     private BudgetControl budgetControl;
     private HashSet<Notification> notifications;
     private MainSystem mainSystem;
+
 
     public TeamOwner(MainSystem ms,HashSet<Team> teams, BudgetControl budgetControl, HashSet<Notification> notifications) {
         this.teams = teams;

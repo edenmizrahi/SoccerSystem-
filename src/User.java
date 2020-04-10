@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class User {
     enum Permission {
         DeleteUser,
@@ -8,9 +10,9 @@ public class User {
         EditUserPermission
     }
     MainSystem system;
-    int[] permissions;
+    HashSet<Permission> permissions;
     User(){
         system = new MainSystem();
-        permissions = new int[6];
+        permissions = new HashSet<>();
     }
 }

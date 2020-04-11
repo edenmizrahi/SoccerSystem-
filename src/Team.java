@@ -16,16 +16,16 @@ public class Team implements PageOwner{
     private Field field;
 
 
-    public Team(String name, int budget, TeamManager teamManager, League league, HashSet<Player> players, Coach coach, Field field) throws Exception {
+    public Team(String name, int budget, League league, HashSet<Player> players, Coach coach, Field field) throws Exception {
        if(players.size() < 11){
            throw new Exception();
        }
         this.name = name;
         this.budget = budget;
-        this.teamManager = teamManager;
         this.league = league;
         this.players = players;
         this.coach = coach;
+        this.teamManager = null;
         this.teamOwners = new HashSet<>();
         this.field = field;
     }
@@ -119,7 +119,22 @@ public class Team implements PageOwner{
         return field;
     }
     //</editor-fold>
-
+    // adi
+    public void addTeamOwner(TeamOwner tO){
+        teamOwners.add(tO);
+    }
+    // adi
+    public void removeTeamOwner(TeamOwner tO){
+        teamOwners.remove(tO);
+    }
+    // adi
+    public void addTeamManager(TeamManager tM){
+        teamManager = tM;
+    }
+    // adi
+    public void removeTeamManager(TeamManager tM){
+        teamManager = null;
+    }
     @Override
     public void openPage() {
 
@@ -129,12 +144,5 @@ public class Team implements PageOwner{
     public void managePage() {
 
     }
-    // adi
-    public void addTeamOwner(TeamOwner tO){
-        teamOwners.add(tO);
-    }
-    // adi
-    public void removeTeamOwner(TeamOwner tO){
-        teamOwners.remove(tO);
-    }
+
 }

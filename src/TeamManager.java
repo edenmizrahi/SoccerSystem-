@@ -1,4 +1,3 @@
-import java.util.HashSet;
 import java.util.LinkedList;
 
 public class TeamManager extends Subscription{
@@ -8,7 +7,9 @@ public class TeamManager extends Subscription{
 
     public TeamManager(Subscription sub, MainSystem ms, Team team) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        ms.removeUser(sub);
         this.team = team;
+        this.team.setTeamManager(this);
         this.notifications = new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();

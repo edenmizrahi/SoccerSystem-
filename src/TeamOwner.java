@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -52,6 +53,24 @@ public class TeamOwner extends Subscription{
             team.removeTeamOwner(tO);
             ms.removeUser(tO);
             Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per){
+        TeamManager tM = new TeamManager(sub, ms, team);
+        tM.permissions.addAll(per);
+        mySubscriptions.put(tM, team);
+        return tM;
+    }
+    // adi
+    public boolean removeTeamManager (TeamManager tM, MainSystem ms, Team team){
+        if (mySubscriptions.containsKey(tM)){
+            mySubscriptions.remove(tM);
+            team.removeTeamManager(tM);
+            ms.removeUser(tM);
+            Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
             return true;
         }
         return false;

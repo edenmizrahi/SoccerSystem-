@@ -44,7 +44,7 @@ public class TeamOwner extends Subscription{
     public boolean removeTeamOwner (TeamOwner tO, MainSystem ms, Team team){
         if (mySubscriptions.containsKey(tO)){
             mySubscriptions.remove(tO);
-            for (Map.Entry<Subscription, Team> entry : mySubscriptions.entrySet()) {
+            for (Map.Entry<Subscription, Team> entry : tO.mySubscriptions.entrySet()) {
                 if (entry.getValue().equals(team)){
                     tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
                 }

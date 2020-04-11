@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainSystem {
@@ -15,14 +16,22 @@ public class MainSystem {
     }
 
     public MainSystem() {
-        this.complaints = null;
-        this.systemManagers = null;
-        this.leagues = null;
-        this.users = null;
+        this.complaints = new ArrayList<>();
+        this.systemManagers = new ArrayList<>();
+        this.leagues = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
 
     public boolean action(){// the function needs to accept Permission[], and Action - both enum
      return true;
+    }
+
+    public void startSystem(SystemManager systemManager){
+        //sign in to system????
+        this.systemManagers.add(systemManager);
+        //link external systems
+        //read from the external DB
+        System.out.println("The system was started correctly!");
     }
 
     public List<Complaint> getComplaints() {

@@ -1,17 +1,18 @@
-import java.util.HashSet;
+import java.util.LinkedList;
 
 public class TeamOwner extends Subscription{
 
-    private HashSet<Team> teams;
+    private LinkedList<Team> teams;
     private BudgetControl budgetControl;
-    private HashSet<Notification> notifications;
+    private LinkedList<Notification> notifications;
 
     //if already team owner of other teams
-    public TeamOwner(Subscription sub, MainSystem ms,HashSet<Team> teams) {
+    public TeamOwner(Subscription sub, MainSystem ms, LinkedList<Team> teams) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        ms.removeUser(sub);
         this.teams = teams;
         this.budgetControl = new BudgetControl();
-        notifications = new HashSet<>();
+        notifications = new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -19,10 +20,12 @@ public class TeamOwner extends Subscription{
     //first time team owner
     public TeamOwner(Subscription sub, MainSystem ms, Team team) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        ms.removeUser(sub);
         this.budgetControl = new BudgetControl();
-        this.teams = new HashSet<>();
+        this.teams = new LinkedList<>();
         teams.add(team);
-        notifications = new HashSet<>();
+        team.addTeamOwner(this);
+        notifications = new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -31,19 +34,9 @@ public class TeamOwner extends Subscription{
         //create TeamOwner
         TeamOwner tO = new TeamOwner(sub, ms, team);
         //remove sub from system
-        if(ms.removeUser(sub)){
-            //add tO to system
-            if (ms.addUser(tO)){
-                return tO;
-            }
-        }
-        return null;
+        return tO;
     }
     //<editor-fold desc="setters and getters">
-    public void setTeams(HashSet<Team> teams) {
-        this.teams = teams;
-    }
-
     public void setTeam(Team team) {
         this.teams.add(team);
     }
@@ -52,20 +45,12 @@ public class TeamOwner extends Subscription{
         this.budgetControl = budgetControl;
     }
 
-    public void setNotifications(HashSet<Notification> notifications) {
-        this.notifications = notifications;
-    }
-
-    public HashSet<Team> getTeams() {
+    public LinkedList<Team> getTeams() {
         return teams;
     }
 
     public BudgetControl getBudgetControl() {
         return budgetControl;
-    }
-
-    public HashSet<Notification> getNotifications() {
-        return notifications;
     }
 
     //</editor-fold>

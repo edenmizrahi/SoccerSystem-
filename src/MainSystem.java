@@ -15,6 +15,12 @@ public class MainSystem {
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
     }
+    public MainSystem() {
+        this.complaints = new LinkedList<>();
+        this.systemManagers = new LinkedList<>();
+        this.leagues = new LinkedList<>();
+        this.users = new LinkedList<>();
+    }
     public boolean removeUser(User user){
         if (users.contains(user)){
             users.remove(user);

@@ -12,8 +12,8 @@ public class User {
     MainSystem system;
     HashSet<Permission> permissions;
 
-    User(){
-        system = new MainSystem();
+    User(MainSystem ms){
+        system = ms;
         permissions = new HashSet<>();
     }
 }

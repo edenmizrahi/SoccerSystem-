@@ -1,8 +1,10 @@
 public class MainReferee extends Referee {
 
 
-    public MainReferee(){
-        super();
+    public MainReferee(Subscription sub, MainSystem ms){
+        super(sub, ms);
+        //TODO add permissions
+        //this.permissions.add();
     }
 
 

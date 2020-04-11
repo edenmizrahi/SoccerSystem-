@@ -1,11 +1,11 @@
-public class Player extends  Subscription implements PageOwner {
-
-
+public class Player extends Subscription implements PageOwner {
     PrivatePage playerPage;
     Team playerTeam;
 
-    Player(){
-        super();
+    Player(Subscription sub, MainSystem ms){
+        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        //TODO add permissions
+        //this.permissions.add();
     }
 
     @Override

@@ -7,30 +7,23 @@ public class TeamOwner extends Subscription{
     private HashSet<Notification> notifications;
     private MainSystem mainSystem;
 
-
-    public TeamOwner(MainSystem ms,HashSet<Team> teams, BudgetControl budgetControl, HashSet<Notification> notifications) {
-        this.teams = teams;
-        this.budgetControl = budgetControl;
-        this.notifications = notifications;
-        this.mainSystem=ms;
-    }
-
     public TeamOwner(MainSystem ms,HashSet<Team> teams, BudgetControl budgetControl) {
         this.teams = teams;
         this.budgetControl = budgetControl;
-        this.mainSystem=ms;
-
+        this.mainSystem = ms;
+        notifications = new HashSet<>();
     }
 
-    public TeamOwner(MainSystem ms,BudgetControl budgetControl , Team team) {
+    public TeamOwner(MainSystem ms, BudgetControl budgetControl, Team team) {
         this.budgetControl = budgetControl;
-        this.teams=new HashSet<>();
+        this.teams = new HashSet<>();
         teams.add(team);
-        this.mainSystem=ms;
-
+        this.mainSystem = ms;
+        notifications = new HashSet<>();
     }
 
 
+    //<editor-fold desc="setters and getters">
     public void setTeams(HashSet<Team> teams) {
         this.teams = teams;
     }
@@ -66,4 +59,5 @@ public class TeamOwner extends Subscription{
     public MainSystem getMainSystem() {
         return mainSystem;
     }
+    //</editor-fold>
 }

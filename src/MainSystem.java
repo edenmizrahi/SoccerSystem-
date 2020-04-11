@@ -1,35 +1,40 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class MainSystem {
 
-    private List<Complaint> complaints;// *
-    private List<SystemManager> systemManagers; // 1..*
-    private List<League> leagues;//*
-    private List<User> users;//*
+    LinkedList<Complaint> complaints;// *
+    LinkedList<SystemManager> systemManagers; // 1..*
+    LinkedList<League> leagues;//*
+    LinkedList<User> users;//*
 
-    public MainSystem(List<Complaint> complaints, List<SystemManager> systemManagers, List<League> leagues, List<User> users) {
-        this.complaints = complaints;
-        this.systemManagers = systemManagers;
-        this.leagues = leagues;
-        this.users = users;
+    public MainSystem(SystemManager sm) {
+        this.complaints = new LinkedList<>();
+        this.systemManagers = new LinkedList<>();
+        systemManagers.add(sm);
+        this.leagues = new LinkedList<>();
+        this.users = new LinkedList<>();
     }
-
-    public MainSystem() {
-        this.complaints = null;
-        this.systemManagers = null;
-        this.leagues = null;
-        this.users = null;
+    public boolean removeUser(User user){
+        if (users.contains(user)){
+            users.remove(user);
+            return true;
+        }
+        return false;
     }
-
-    public boolean action(){// the function needs to accept Permission[], and Action - both enum
-     return true;
+    public boolean addUser(User user){
+        if (users.contains(user)){
+            return false;
+        }
+        users.add(user);
+        return true;
     }
-
+    //<editor-fold desc="getters and setters">
     public List<Complaint> getComplaints() {
         return complaints;
     }
 
-    public void setComplaints(List<Complaint> complaints) {
+    public void setComplaints(LinkedList<Complaint> complaints) {
         this.complaints = complaints;
     }
 
@@ -37,7 +42,7 @@ public class MainSystem {
         return systemManagers;
     }
 
-    public void setSystemManagers(List<SystemManager> systemManagers) {
+    public void setSystemManagers(LinkedList<SystemManager> systemManagers) {
         this.systemManagers = systemManagers;
     }
 
@@ -45,7 +50,7 @@ public class MainSystem {
         return leagues;
     }
 
-    public void setLeagues(List<League> leagues) {
+    public void setLeagues(LinkedList<League> leagues) {
         this.leagues = leagues;
     }
 
@@ -53,7 +58,8 @@ public class MainSystem {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(LinkedList<User> users) {
         this.users = users;
     }
+    //</editor-fold>
 }

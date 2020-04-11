@@ -14,7 +14,13 @@ public class TeamOwnerTest {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
         Assert.assertEquals(2, ms.users.size());
         Assert.assertEquals(2, team.getTeamOwners().size());
-
+    }
+    @Test
+    public void removeTeamOwnerTest() {
+        TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
+        tOYossi.removeTeamOwner(tOMoshe, ms, team);
+        Assert.assertEquals(2, ms.users.size());
+        Assert.assertEquals(1, team.getTeamOwners().size());
     }
 
 }

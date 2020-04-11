@@ -1,10 +1,13 @@
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class TeamOwner extends Subscription{
 
     private LinkedList<Team> teams;
     private BudgetControl budgetControl;
     private LinkedList<Notification> notifications;
+    private HashMap<Subscription, Team> mySubscriptions;
 
     //if already team owner of other teams
     public TeamOwner(Subscription sub, MainSystem ms, LinkedList<Team> teams) {
@@ -13,6 +16,7 @@ public class TeamOwner extends Subscription{
         this.teams = teams;
         this.budgetControl = new BudgetControl();
         notifications = new LinkedList<>();
+        mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -26,15 +30,31 @@ public class TeamOwner extends Subscription{
         teams.add(team);
         team.addTeamOwner(this);
         notifications = new LinkedList<>();
+        mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();
     }
-
+    // adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team){
-        //create TeamOwner
         TeamOwner tO = new TeamOwner(sub, ms, team);
-        //remove sub from system
+        mySubscriptions.put(tO, team);
         return tO;
+    }
+    // adi
+    public boolean removeTeamOwner (TeamOwner tO, MainSystem ms, Team team){
+        if (mySubscriptions.containsKey(tO)){
+            mySubscriptions.remove(tO);
+            for (Map.Entry<Subscription, Team> entry : mySubscriptions.entrySet()) {
+                if (entry.getValue().equals(team)){
+                    tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
+                }
+            }
+            team.removeTeamOwner(tO);
+            ms.removeUser(tO);
+            Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+            return true;
+        }
+        return false;
     }
     //<editor-fold desc="setters and getters">
     public void setTeam(Team team) {
@@ -47,6 +67,10 @@ public class TeamOwner extends Subscription{
 
     public LinkedList<Team> getTeams() {
         return teams;
+    }
+
+    public HashMap<Subscription, Team> getMySubscriptions() {
+        return mySubscriptions;
     }
 
     public BudgetControl getBudgetControl() {

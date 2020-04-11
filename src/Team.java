@@ -29,7 +29,7 @@ public class Team implements PageOwner{
         this.teamOwners = new HashSet<>();
         this.field = field;
     }
-    //added just for unitTests
+    //added just for unitTests, adi
     public Team(){
         teamOwners = new HashSet<>();
     }
@@ -129,8 +129,12 @@ public class Team implements PageOwner{
     public void managePage() {
 
     }
-
+    // adi
     public void addTeamOwner(TeamOwner tO){
         teamOwners.add(tO);
+    }
+    // adi
+    public void removeTeamOwner(TeamOwner tO){
+        teamOwners.remove(tO);
     }
 }

@@ -1,13 +1,13 @@
 public class Subscription extends User
 {
     private String name;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
     private String userName;
     private String password;
 
 
-    public Subscription(MainSystem ms, String name, int phoneNumber, String email, String userName, String password) {
+    public Subscription(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
         super(ms);
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -25,11 +25,11 @@ public class Subscription extends User
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

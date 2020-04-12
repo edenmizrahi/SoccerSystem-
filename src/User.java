@@ -9,6 +9,7 @@ public class User {
     public User(MainSystem ms){
         system = ms;
         permissions = new HashSet<>();
+        system.addUser(this);
     }
 
 

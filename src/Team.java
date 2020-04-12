@@ -11,28 +11,32 @@ public class Team implements PageOwner{
 
     /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
-    private  Coach coach;
-    private  HashSet<TeamOwner> teamOwners;
+    private Coach coach;
+    private HashSet<TeamOwner> teamOwners;
     private Field field;
 
     private PrivatePage privatePage;//added
 
-    public Team(HashSet<Player> p,String name, int budget, TeamManager teamManager, League league, HashSet<Player> players, Coach coach, HashSet<TeamOwner> teamOwners, Field field) throws Exception {
-       if(p.size()<11){
+    public Team(String name, int budget, League league, HashSet<Player> players, Coach coach, Field field) throws Exception {
+       if(players.size() < 11){
            throw new Exception();
        }
-       this.players=p;
         this.name = name;
         this.budget = budget;
-        this.teamManager = teamManager;
         this.league = league;
         this.players = players;
         this.coach = coach;
-        this.teamOwners = teamOwners;
+        this.teamManager = null;
+        this.teamOwners = new HashSet<>();
         this.field = field;
+    }
+    //added just for unitTests, adi
+    public Team(){
+        teamOwners = new HashSet<>();
     }
 
 
+    //<editor-fold desc="getters and setters">
     public void setName(String name) {
         this.name = name;
     }
@@ -115,7 +119,23 @@ public class Team implements PageOwner{
     public Field getField() {
         return field;
     }
-
+    //</editor-fold>
+    // adi
+    public void addTeamOwner(TeamOwner tO){
+        teamOwners.add(tO);
+    }
+    // adi
+    public void removeTeamOwner(TeamOwner tO){
+        teamOwners.remove(tO);
+    }
+    // adi
+    public void addTeamManager(TeamManager tM){
+        teamManager = tM;
+    }
+    // adi
+    public void removeTeamManager(TeamManager tM){
+        teamManager = null;
+    }
     @Override
     public void openPage() {
 
@@ -141,4 +161,5 @@ public class Team implements PageOwner{
     public PrivatePage getPage() {
         return privatePage;
     }
+
 }

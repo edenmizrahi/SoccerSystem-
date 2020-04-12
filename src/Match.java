@@ -1,7 +1,9 @@
+import javafx.beans.InvalidationListener;
+
 import java.util.HashSet;
+import java.util.Observable;
 
-public class Match {
-
+public class Match extends Observable{
     private int homeScore;
     private int guestScore;
     private Match match;
@@ -22,6 +24,8 @@ public class Match {
         this.events = events;
         this.referees = referees;
     }
+
+
 
     public int getHomeScore() { return homeScore; }
 
@@ -46,4 +50,6 @@ public class Match {
     public void addEvent(Event e){
 
     }
+
+
 }

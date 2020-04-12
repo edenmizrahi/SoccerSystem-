@@ -1,9 +1,15 @@
+import java.util.Date;
+
 public class Player extends Subscription implements PageOwner {
     private PrivatePage privatePage;
     private Team playerTeam;
+    private Date dateOfBirth;
+    private String roleAtField;
 
     public Player(Subscription sub, MainSystem ms){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        this.roleAtField = roleAtField;
+        this.dateOfBirth = dateOfBirth;
         //TODO add permissions
         //this.permissions.add();
         this.privatePage=null;

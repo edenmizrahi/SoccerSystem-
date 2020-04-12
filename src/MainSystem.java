@@ -20,8 +20,13 @@ public class MainSystem {
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
     }
-
-
+    public MainSystem() {
+        this.complaints = new LinkedList<>();
+        this.systemManagers = new LinkedList<>();
+        this.leagues = new LinkedList<>();
+        this.users = new LinkedList<>();
+    }
+    // adi
     public boolean removeUser(User user){
         if (users.contains(user)){
             users.remove(user);
@@ -29,6 +34,7 @@ public class MainSystem {
         }
         return false;
     }
+    // adi
     public boolean addUser(User user){
         if (users.contains(user)){
             return false;

@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SoccerSystem" />
+        <module name="soccerSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="SoccerSystem" target="1.8" />
+      <module name="soccerSystem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

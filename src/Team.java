@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Team implements PageOwner{
@@ -7,7 +8,7 @@ public class Team implements PageOwner{
     private HashSet<Match> home;
     private HashSet<Match> away;
     private TeamManager teamManager;
-    private League league;
+    private HashMap<Season,League> leaguePerSeason;
 
     /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
@@ -17,13 +18,13 @@ public class Team implements PageOwner{
 
     private PrivatePage privatePage;//added
 
-    public Team(String name, int budget, League league, HashSet<Player> players, Coach coach, Field field) throws Exception {
+    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field) throws Exception {
        if(players.size() < 11){
            throw new Exception();
        }
+        leaguePerSeason=new HashMap<>();
         this.name = name;
         this.budget = budget;
-        this.league = league;
         this.players = players;
         this.coach = coach;
         this.teamManager = null;
@@ -57,9 +58,6 @@ public class Team implements PageOwner{
         this.teamManager = teamManager;
     }
 
-    public void setLeague(League league) {
-        this.league = league;
-    }
 
 
     public void setPlayers(HashSet<Player> players) {
@@ -98,9 +96,6 @@ public class Team implements PageOwner{
         return teamManager;
     }
 
-    public League getLeague() {
-        return league;
-    }
 
 
 
@@ -157,9 +152,22 @@ public class Team implements PageOwner{
         return false;
     }
 
+    /**
+     * this function connect the team to the current season and current league.
+     * The function called only!!!! from Season\League while adding the team
+     * and connect them to the teams at current season and current league.
+     * @param s- season
+     * @param l- league
+     */
+    public void addLeagueAndSeason(Season s,League l){
+        leaguePerSeason.put(s,l);
+    }
     @Override
     public PrivatePage getPage() {
         return privatePage;
     }
 
+    public HashMap<Season, League> getLeaguePerSeason() {
+        return leaguePerSeason;
+    }
 }

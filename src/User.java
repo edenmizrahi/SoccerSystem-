@@ -99,9 +99,9 @@ public class User {
         List<PrivatePage> ans= new LinkedList<>();
         for (Season s:system.getSeasons()) {
             if(s.getYear()== seasonYear){
-                for (League l:s.getLeagueWithPolicy().keySet()) {
-                    ans.addAll(getPrivatePagefromLeague(l));
-                }
+//                for (League l:s.getLeagueWithPolicy().keySet()) {
+//                    ans.addAll(getPrivatePagefromLeague(l));
+//                }
             }
 
         }
@@ -113,11 +113,11 @@ public class User {
     public List<PrivatePage> searchByTeamName(String teamName){
         List<PrivatePage> ans= new LinkedList<>();
             for (League l:system.getLeagues()) {
-                for (Team t:l.getTeams()) {
-                    if(t.getName().equals(teamName)){
-                        ans.addAll(getPrivatePagefromTeam(t));
-                    }
-                }
+//                for (Team t:l.getTeams()) {
+//                    if(t.getName().equals(teamName)){
+//                        ans.addAll(getPrivatePagefromTeam(t));
+//                    }
+//                }
             }
         return ans;
     }
@@ -125,9 +125,9 @@ public class User {
     //or - private func helps with search
     private List<PrivatePage> getPrivatePagefromLeague(League l){
         List<PrivatePage> ans= new LinkedList<>();
-        for (Team t:l.getTeams()) {
-            ans.addAll(getPrivatePagefromTeam(t));
-        }
+//        for (Team t:l.getTeams()) {
+//            ans.addAll(getPrivatePagefromTeam(t));
+//        }
         return ans;
     }
 
@@ -191,11 +191,11 @@ public class User {
     public List<PrivatePage> searchByTeam(){
         List<PrivatePage> ans= new LinkedList<>();
         for (League l:system.getLeagues()) {
-            for (Team t:l.getTeams()) {
-                if( t.getPage() != null && ! ans.contains(t.getPage())){
-                    ans.add(t.getPage());
-                }
-            }
+//            for (Team t:l.getTeams()) {
+//                if( t.getPage() != null && ! ans.contains(t.getPage())){
+//                    ans.add(t.getPage());
+//                }
+//            }
         }
         return ans;
     }

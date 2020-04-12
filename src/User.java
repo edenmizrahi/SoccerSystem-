@@ -3,8 +3,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class User {
-    private MainSystem system;
-    private HashSet<Permission> permissions;
+    protected MainSystem system;
+    protected HashSet<Permission> permissions;
 
     public User(MainSystem ms){
         system = ms;

@@ -16,13 +16,13 @@ public class Player extends Subscription implements PageOwner {
         this.playerTeam=null;
     }
 
-    public Player(MainSystem ms, String name, int phoneNumber, String email, String userName, String password) {
+    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
         super(ms, name, phoneNumber, email, userName, password);
         this.privatePage=null;
         this.playerTeam=null;
     }
 
-    public Player(MainSystem ms, String name, int phoneNumber, String email, String userName, String password, PrivatePage privatePage, Team playerTeam) {
+    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, PrivatePage privatePage, Team playerTeam) {
         super(ms, name, phoneNumber, email, userName, password);
         this.privatePage = privatePage;
         this.playerTeam = playerTeam;

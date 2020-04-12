@@ -14,17 +14,17 @@ public class TeamOwnerTest {
     @Test
     public void subscribeTeamOwnerTest() {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
-        Assert.assertEquals(3, ms.users.size());
+        Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
     }
     @Test
     public void removeTeamOwnerTest() {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
         TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
-        Assert.assertEquals(3, ms.users.size());
+        Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(3, team.getTeamOwners().size());
         tOYossi.removeTeamOwner(tOMoshe, ms, team);
-        Assert.assertEquals(3, ms.users.size());
+        Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(1, team.getTeamOwners().size());
     }
     @Test
@@ -32,7 +32,7 @@ public class TeamOwnerTest {
         HashSet<Permission> per = new HashSet<>();
         per.add(Permission.DeleteUser);
         TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
-        Assert.assertEquals(3, ms.users.size());
+        Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(tMDavid, team.getTeamManager());
     }
     @Test
@@ -41,7 +41,7 @@ public class TeamOwnerTest {
         per.add(Permission.DeleteUser);
         TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
         tOYossi.removeTeamManager(tMDavid, ms, team);
-        Assert.assertEquals(3, ms.users.size());
+        Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(null, team.getTeamManager());
     }
 }

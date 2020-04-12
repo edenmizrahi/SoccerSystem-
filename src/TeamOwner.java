@@ -60,7 +60,7 @@ public class TeamOwner extends Subscription{
     // adi
     public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per){
         TeamManager tM = new TeamManager(sub, ms, team);
-        tM.permissions.addAll(per);
+       // tM.permissions.addAll(per);
         mySubscriptions.put(tM, team);
         return tM;
     }

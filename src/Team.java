@@ -15,6 +15,7 @@ public class Team implements PageOwner{
     private HashSet<TeamOwner> teamOwners;
     private Field field;
 
+    private PrivatePage privatePage;//added
 
     public Team(String name, int budget, League league, HashSet<Player> players, Coach coach, Field field) throws Exception {
        if(players.size() < 11){
@@ -143,6 +144,22 @@ public class Team implements PageOwner{
     @Override
     public void managePage() {
 
+    }
+
+    @Override
+    public boolean createPrivatePage() {
+        PrivatePage p = new PrivatePage();
+        if(this.privatePage==null){// you can have only one page
+            this.privatePage=p;
+            p.setPageOwner(this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public PrivatePage getPage() {
+        return privatePage;
     }
 
 }

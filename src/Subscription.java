@@ -1,4 +1,5 @@
-public class Subscription extends User{
+public class Subscription extends User
+{
     private String name;
     private String phoneNumber;
     private String email;
@@ -55,7 +56,8 @@ public class Subscription extends User{
     public void setPassword(String password) {
         this.password = password;
     }
-    //</editor-fold>
 
+
+    //</editor-fold>
 
 }

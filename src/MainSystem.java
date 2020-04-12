@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +9,8 @@ public class MainSystem {
     private LinkedList<SystemManager> systemManagers; // 1..*
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
+    private LinkedList<Season> seasons;//*
+
 
     public MainSystem(SystemManager sm) {
         this.complaints = new LinkedList<>();
@@ -14,6 +18,7 @@ public class MainSystem {
         systemManagers.add(sm);
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
+        this.seasons= new LinkedList<>();
     }
     public MainSystem() {
         this.complaints = new LinkedList<>();
@@ -69,5 +74,26 @@ public class MainSystem {
     public void setUsers(LinkedList<User> users) {
         this.users = users;
     }
+
+    public LinkedList<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(LinkedList<Season> seasons) {
+        this.seasons = seasons;
+    }
+
     //</editor-fold>
+
+    //or- not done
+    public void startSystem(SystemManager systemManager){
+        //sign in to system????
+        this.systemManagers.add(systemManager);
+        //link external systems
+        //read from the external DB
+        System.out.println("The system was started correctly!");
+    }
+
+
+
 }

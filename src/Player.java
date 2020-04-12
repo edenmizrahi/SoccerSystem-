@@ -1,6 +1,6 @@
 public class Player extends Subscription implements PageOwner {
-    PrivatePage playerPage;
-    Team playerTeam;
+    private PrivatePage playerPage;
+    private Team playerTeam;
 
     Player(Subscription sub, MainSystem ms){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());

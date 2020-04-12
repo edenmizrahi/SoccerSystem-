@@ -1,7 +1,7 @@
 public class Coach extends Subscription implements PageOwner{
 
-    Team coachTeam;
-    PrivatePage coachPage;
+    private Team coachTeam;
+    private PrivatePage coachPage;
 
     Coach(Subscription sub, MainSystem ms){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());

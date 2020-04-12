@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Fan extends Subscription{
 
-    List<PrivatePage> myPages;
-    List<Notification> myNotifications;
-    List<Complaint> myComplaints;
+    private List<PrivatePage> myPages;
+    private List<Notification> myNotifications;
+    private List<Complaint> myComplaints;
 
 
     Fan(Subscription sub, MainSystem ms){

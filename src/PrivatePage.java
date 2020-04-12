@@ -1,10 +1,10 @@
 import java.util.HashSet;
 
 public class PrivatePage {
-    int id;
-    String[] records;
-    PageOwner pageOwner;
-    HashSet <Fan> fans;
+    private int id;
+    private String[] records;
+    private PageOwner pageOwner;
+    private HashSet <Fan> fans;
 
     public PrivatePage(int id, PageOwner pageOwner) {
         this.id = id;

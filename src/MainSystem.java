@@ -3,10 +3,10 @@ import java.util.List;
 
 public class MainSystem {
 
-    LinkedList<Complaint> complaints;// *
-    LinkedList<SystemManager> systemManagers; // 1..*
-    LinkedList<League> leagues;//*
-    LinkedList<User> users;//*
+    private LinkedList<Complaint> complaints;// *
+    private LinkedList<SystemManager> systemManagers; // 1..*
+    private LinkedList<League> leagues;//*
+    private LinkedList<User> users;//*
 
     public MainSystem(SystemManager sm) {
         this.complaints = new LinkedList<>();

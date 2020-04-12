@@ -2,16 +2,16 @@ import java.util.HashSet;
 
 public class Notification {
 
-    String text;
+    private String text;
     /**should hold many?*/
-    SystemManager systemManager ;
+    private SystemManager systemManager ;
 
     /**must hold all?**/
-    HashSet<TeamManager> teamManagers;
-    HashSet<TeamOwner> teamOwners;
-    HashSet<Referee> referees;
-    HashSet<Fan> fans;
-    HashSet<Rfa> rfas;
+    private HashSet<TeamManager> teamManagers;
+    private HashSet<TeamOwner> teamOwners;
+    private HashSet<Referee> referees;
+    private HashSet<Fan> fans;
+    private HashSet<Rfa> rfas;
 
     public Notification(String text) {
         this.text = text;

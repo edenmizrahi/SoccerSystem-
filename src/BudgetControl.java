@@ -2,8 +2,8 @@ import java.util.List;
 
 public class BudgetControl {
 
-    List<TeamOwner> teamOwnerList;
-    List<Rfa> rfaList;
+    private List<TeamOwner> teamOwnerList;
+    private List<Rfa> rfaList;
 
     public void manageBudget(){}
 }

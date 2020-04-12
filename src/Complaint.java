@@ -1,7 +1,7 @@
 public class Complaint {
-int id;
-Fan fan;
-MainSystem system;
+    private int id;
+    private Fan fan;
+    private MainSystem system;
 
     public Complaint(Fan fan, MainSystem system) {
         this.fan = fan;

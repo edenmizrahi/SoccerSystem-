@@ -1,11 +1,10 @@
 import java.util.LinkedList;
-import java.util.List;
 
 public class Referee extends Subscription{
 
-    LinkedList<Notification> notifications;
-    LinkedList<Match> matches;
-    LinkedList<Event> events;
+    private LinkedList<Notification> notifications;
+    private LinkedList<Match> matches;
+    private LinkedList<Event> events;
 
 
     Referee(Subscription sub, MainSystem ms){

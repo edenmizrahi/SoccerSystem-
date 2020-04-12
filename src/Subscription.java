@@ -1,12 +1,19 @@
-public class Subscription {
+public class Subscription extends User
+{
     private String name;
     private int phoneNumber;
     private String email;
     private String userName;
     private String password;
 
-    Subscription(){
 
+    public Subscription(MainSystem ms, String name, int phoneNumber, String email, String userName, String password) {
+        super(ms);
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
     }
 
     //<editor-fold desc="getters and setters">
@@ -49,10 +56,8 @@ public class Subscription {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
     //</editor-fold>
-
-    public void editDetails(){
-
-    }
 
 }

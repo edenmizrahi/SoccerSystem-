@@ -1,29 +1,31 @@
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class PrivatePage {
-    int id;
-    String[] records;
-    PageOwner pageOwner;
-    HashSet <Fan> fans;
 
-    public PrivatePage(int id, PageOwner pageOwner) {
-        this.id = id;
+    private List<String> records;
+    private PageOwner pageOwner;
+    private HashSet <Fan> fans;
+
+    public PrivatePage( PageOwner pageOwner) {
         this.pageOwner = pageOwner;
+        this.fans=new HashSet<>();
+        this.records= new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
+    public PrivatePage() {
+        this.pageOwner=null;
+        this.fans=new HashSet<>();
+        this.records= new ArrayList<>();
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String[] getRecords() {
+    public List<String> getRecords() {
         return records;
     }
 
-    public void setRecords(String[] records) {
+    public void setRecords(List<String> records) {
         this.records = records;
     }
 
@@ -41,5 +43,14 @@ public class PrivatePage {
 
     public void setFans(HashSet<Fan> fans) {
         this.fans = fans;
+    }
+
+    //OR
+    public String getRecordsAsString(){
+        String ans="";
+        for (String s:records) {
+            ans=ans+ s +",";
+        }
+        return ans;
     }
 }

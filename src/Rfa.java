@@ -1,24 +1,28 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class Rfa extends Subscription {
 
     private BudgetControl budgetControl;//1
-    private List<Notification> notifications;// *
+    private LinkedList<Notification> notifications;// *
 
-    public Rfa(BudgetControl budgetControl, List<Notification> notifications) {
-        this.budgetControl = budgetControl;
-        this.notifications = notifications;
+    public Rfa(Subscription sub, MainSystem ms) {
+        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        this.budgetControl = new BudgetControl();
+        this.notifications = new LinkedList<>();
+        //TODO add permissions
+        //this.permissions.add();
     }
 
-    public void addRefree(){
+    public void addReferee(){
 
     }
 
-    public void addLegue(){
+    public void addLeague(){
 
     }
 
-    public void deleteRefree(){
+    public void deleteReferee(){
 
     }
 
@@ -38,7 +42,4 @@ public class Rfa extends Subscription {
         return notifications;
     }
 
-    public void setNotifications(List<Notification> notifications) {
-        this.notifications = notifications;
-    }
 }

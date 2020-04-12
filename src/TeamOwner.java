@@ -5,32 +5,41 @@ public class TeamOwner extends Subscription{
     private HashSet<Team> teams;
     private BudgetControl budgetControl;
     private HashSet<Notification> notifications;
-    private MainSystem mainSystem;
 
-
-    public TeamOwner(MainSystem ms,HashSet<Team> teams, BudgetControl budgetControl, HashSet<Notification> notifications) {
+    //if already team owner of other teams
+    public TeamOwner(Subscription sub, MainSystem ms,HashSet<Team> teams) {
+        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         this.teams = teams;
-        this.budgetControl = budgetControl;
-        this.notifications = notifications;
-        this.mainSystem=ms;
+        this.budgetControl = new BudgetControl();
+        notifications = new HashSet<>();
+        //TODO add permissions
+        //this.permissions.add();
     }
 
-    public TeamOwner(MainSystem ms,HashSet<Team> teams, BudgetControl budgetControl) {
-        this.teams = teams;
-        this.budgetControl = budgetControl;
-        this.mainSystem=ms;
-
-    }
-
-    public TeamOwner(MainSystem ms,BudgetControl budgetControl , Team team) {
-        this.budgetControl = budgetControl;
-        this.teams=new HashSet<>();
+    //first time team owner
+    public TeamOwner(Subscription sub, MainSystem ms, Team team) {
+        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        this.budgetControl = new BudgetControl();
+        this.teams = new HashSet<>();
         teams.add(team);
-        this.mainSystem=ms;
-
+        notifications = new HashSet<>();
+        //TODO add permissions
+        //this.permissions.add();
     }
 
-
+    public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team){
+        //create TeamOwner
+        TeamOwner tO = new TeamOwner(sub, ms, team);
+        //remove sub from system
+        if(ms.removeUser(sub)){
+            //add tO to system
+            if (ms.addUser(tO)){
+                return tO;
+            }
+        }
+        return null;
+    }
+    //<editor-fold desc="setters and getters">
     public void setTeams(HashSet<Team> teams) {
         this.teams = teams;
     }
@@ -47,10 +56,6 @@ public class TeamOwner extends Subscription{
         this.notifications = notifications;
     }
 
-    public void setMainSystem(MainSystem mainSystem) {
-        this.mainSystem = mainSystem;
-    }
-
     public HashSet<Team> getTeams() {
         return teams;
     }
@@ -63,7 +68,5 @@ public class TeamOwner extends Subscription{
         return notifications;
     }
 
-    public MainSystem getMainSystem() {
-        return mainSystem;
-    }
+    //</editor-fold>
 }

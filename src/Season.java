@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class Season {
 
     private HashMap<League,Policy> leagueWithPolicy;
+    private MainSystem mainSystem;
     private int year;
 
     public Season(HashMap<League, Policy> leagueWithPolicy, int year) {
@@ -27,4 +28,13 @@ public class Season {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public MainSystem getMainSystem() {
+        return mainSystem;
+    }
+
+    public void setMainSystem(MainSystem mainSystem) {
+        this.mainSystem = mainSystem;
+    }
+
 }

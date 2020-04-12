@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String [] args){
-        System.out.println("Heyyyyyyyyyyyy");
-        System.out.println(":)");
+       PageOwner p= new Player(null,null);
+
     }
 }

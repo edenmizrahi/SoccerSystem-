@@ -1,11 +1,12 @@
-public class Coach  extends  Subscription implements PageOwner{
+public class Coach extends Subscription implements PageOwner{
 
+    private Team coachTeam;
+    private PrivatePage privatePage;
 
-    Team coachTeam;
-    PrivatePage coachPage;
-
-    Coach(){
-        super();
+    Coach(Subscription sub, MainSystem ms){
+        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        //TODO add permissions
+        //this.permissions.add();
     }
 
     @Override
@@ -16,6 +17,22 @@ public class Coach  extends  Subscription implements PageOwner{
     @Override
     public void managePage() {
 
+    }
+
+    @Override
+    public boolean createPrivatePage() {
+        PrivatePage p = new PrivatePage();
+        if(this.privatePage==null){// you can have only one page
+            this.privatePage=p;
+            p.setPageOwner(this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public PrivatePage getPage() {
+        return privatePage;
     }
 
 

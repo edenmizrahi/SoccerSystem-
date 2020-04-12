@@ -2,9 +2,13 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class User {
     protected MainSystem system;
     protected HashSet<Permission> permissions;
+
 
     public User(MainSystem ms){
         system = ms;

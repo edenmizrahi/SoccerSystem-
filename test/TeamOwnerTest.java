@@ -11,12 +11,15 @@ public class TeamOwnerTest {
     TeamOwner tOYossi = new TeamOwner(yossi, ms, team);
     Subscription moshe = new Subscription(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
     Subscription david = new Subscription(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
+
+    //adi
     @Test
     public void subscribeTeamOwnerTest() {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
     }
+    //adi
     @Test
     public void removeTeamOwnerTest() {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
@@ -27,6 +30,7 @@ public class TeamOwnerTest {
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(1, team.getTeamOwners().size());
     }
+    //adi
     @Test
     public void subscribeTeamManagerTest(){
         HashSet<Permission> per = new HashSet<>();
@@ -35,6 +39,7 @@ public class TeamOwnerTest {
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(tMDavid, team.getTeamManager());
     }
+    //adi
     @Test
     public void removeTeamManagerTest() {
         HashSet<Permission> per = new HashSet<>();

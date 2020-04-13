@@ -1,10 +1,13 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Policy {
 
-    private League league;//1
     private Season season;//1
+    private static final Logger LOG = LogManager.getLogger();
 
-    public Policy(League league, Season season) {
-        this.league = league;
+
+    public Policy( Season season) {
         this.season = season;
     }
 
@@ -12,13 +15,6 @@ public class Policy {
         return 0;
     }
 
-    public League getLeague() {
-        return league;
-    }
-
-    public void setLeague(League league) {
-        this.league = league;
-    }
 
     public Season getSeason() {
         return season;

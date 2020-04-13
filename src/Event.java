@@ -1,11 +1,14 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.print.attribute.standard.DateTimeAtCreation;
 
 public abstract class Event  {
 
     private Referee referee;
     private Match match;
-
     private DateTimeAtCreation dateTime;// i dont know how to do timestamp
+    private static final Logger LOG = LogManager.getLogger();
     /****Who keeps and maintains an events calender ?****/
 
     public Event(Referee referee, Match match, DateTimeAtCreation dateTime) {

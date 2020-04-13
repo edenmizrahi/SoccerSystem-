@@ -1,25 +1,37 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Coach extends Subscription implements PageOwner{
 
     private Team coachTeam;
-    private PrivatePage coachPage;
     private PrivatePage privatePage;
     private String roleAtTeam;
+    private static final Logger LOG = LogManager.getLogger();
 
-    Coach(Subscription sub, MainSystem ms, String roleAtTeam){
+    public Coach(Subscription sub, MainSystem ms, String roleAtTeam){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         //TODO add permissions
         //this.permissions.add();
         this.roleAtTeam = roleAtTeam;
     }
 
-    @Override
-    public void openPage() {
-
+    public Coach(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms,name,phoneNumber,email,userName,password);
+        this.privatePage=null;
+        this.roleAtTeam=null;
+        this.coachTeam=null;
+        //TODO add permissions
+        //this.permissions.add();
     }
 
     @Override
-    public void managePage() {
+    public void addRecordToPage(String record) {
+        this.privatePage.addRecords(record);
+    }
 
+    @Override
+    public void removeRecordFromPage(String record) {
+        this.privatePage.removeRecord(record);
     }
 
     @Override

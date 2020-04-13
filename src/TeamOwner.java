@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -9,6 +12,7 @@ public class TeamOwner extends Subscription{
     private BudgetControl budgetControl;
     private LinkedList<Notification> notifications;
     private HashMap<Subscription, Team> mySubscriptions;
+    private static final Logger LOG = LogManager.getLogger();
 
     //if already team owner of other teams
     public TeamOwner(Subscription sub, MainSystem ms, LinkedList<Team> teams) {

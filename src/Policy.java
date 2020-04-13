@@ -1,10 +1,8 @@
 public class Policy {
 
-    private League league;//1
     private Season season;//1
 
-    public Policy(League league, Season season) {
-        this.league = league;
+    public Policy( Season season) {
         this.season = season;
     }
 
@@ -12,13 +10,6 @@ public class Policy {
         return 0;
     }
 
-    public League getLeague() {
-        return league;
-    }
-
-    public void setLeague(League league) {
-        this.league = league;
-    }
 
     public Season getSeason() {
         return season;

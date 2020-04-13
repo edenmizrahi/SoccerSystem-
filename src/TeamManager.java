@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import org.apache.logging.log4j.LogManager;
 
 public class TeamManager extends Subscription{
 
@@ -6,6 +7,7 @@ public class TeamManager extends Subscription{
     private LinkedList<Notification> notifications;
 
     public TeamManager(Subscription sub, MainSystem ms, Team team) {
+
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         ms.removeUser(sub);
         this.team = team;

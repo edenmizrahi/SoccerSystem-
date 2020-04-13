@@ -10,13 +10,13 @@ public class League {
     private String name;
     private MainSystem mainSystem; //1
     private HashMap<Season,Policy> seasonsWithPolicy; // 1..*
-    //    private List<Team> teams;//aggregation (?)
     private static final Logger LOG = LogManager.getLogger();
     /**
      * hold the teams in this league and in specific Seasons
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
     private Season currSeason;
+
 
     public League(String name, MainSystem mainSystem, HashMap<Season, Policy> seasonsWithPolicy, Season currSeason) {
         this.name = name;

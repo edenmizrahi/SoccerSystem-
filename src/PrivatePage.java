@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -6,6 +9,7 @@ public class PrivatePage {
     private List<String> records;
     private PageOwner pageOwner;
     private HashSet <Fan> fans;
+    private static final Logger LOG = LogManager.getLogger();
 
     public PrivatePage( PageOwner pageOwner) {
         this.pageOwner = pageOwner;
@@ -44,7 +48,7 @@ public class PrivatePage {
         this.fans = fans;
     }
 
-    //OR
+    /**Or**/
     public String getRecordsAsString(){
         String ans="";
         for (String s:records) {
@@ -52,4 +56,15 @@ public class PrivatePage {
         }
         return ans;
     }
+
+    /**Or**/
+    public void addRecords(String record){
+        records.add(record);
+    }
+
+    /**Or**/
+    public void removeRecord(String record){
+        records.remove(record);
+    }
+
 }

@@ -1,25 +1,29 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class League {
 
     private String name;
     private MainSystem mainSystem; //1
     private HashMap<Season,Policy> seasonsWithPolicy; // 1..*
-//    private List<Team> teams;//aggregation (?)
-
-
+    private static final Logger LOG = LogManager.getLogger();
     /**
      * hold the teams in this league and in specific Seasons
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
+    private Season currSeason;
 
 
-    public League(String name, MainSystem mainSystem, HashMap<Season, Policy> seasonsWithPolicy) {
+    public League(String name, MainSystem mainSystem, HashMap<Season, Policy> seasonsWithPolicy, Season currSeason) {
         this.name = name;
         teamsInSeason=new HashMap<>();
         this.mainSystem = mainSystem;
         this.seasonsWithPolicy = seasonsWithPolicy;
+        this.currSeason= currSeason;
     }
 
     public String getName() {
@@ -44,6 +48,18 @@ public class League {
 
     public void setSeasonsWithPolicy(HashMap<Season, Policy> seasonsWithPolicy) {
         this.seasonsWithPolicy = seasonsWithPolicy;
+    }
+
+    public void setTeamsInSeason(HashMap<Season, HashSet<Team>> teamsInSeason) {
+        this.teamsInSeason = teamsInSeason;
+    }
+
+    public Season getCurrSeason() {
+        return currSeason;
+    }
+
+    public void setCurrSeason(Season currSeason) {
+        this.currSeason = currSeason;
     }
 
     /**
@@ -74,5 +90,6 @@ public class League {
     public HashMap<Season, HashSet<Team>> getTeamsInSeason() {
         return teamsInSeason;
     }
+
 
 }

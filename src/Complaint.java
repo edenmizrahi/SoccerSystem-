@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Observable;
@@ -10,6 +13,7 @@ public class Complaint extends Observable {
     private String  content;
     private String answer;
     private List<SystemManager> systemManagers;
+    private static final Logger LOG = LogManager.getLogger();
 
 /**Eden*/
     public Complaint(Fan fan, MainSystem system) {

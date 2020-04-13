@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashSet;
 
 public class Field {
@@ -5,6 +8,7 @@ public class Field {
     private String nameOfField;
     private HashSet<Match> matches;
     private HashSet<Team> teams;
+    private static final Logger LOG = LogManager.getLogger();
     /******possible attribute*********/
     //private boolean isFree;
 

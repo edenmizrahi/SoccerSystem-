@@ -1,21 +1,26 @@
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
+
 
 public class Season {
-    private HashMap<League, HashSet<Team >> teamsInCurrentSeesonleagus;
-    private Policy policy;
 
+    private HashMap<League, HashSet<Team >> teamsInCurrentSeasonLeagues;
+
+    private Policy policy;
     private MainSystem mainSystem;
     private int year;
+    private static final Logger LOG = LogManager.getLogger();
 
     public Season( Policy p, int year) {
         this.policy = p;
         this.year = year;
-        teamsInCurrentSeesonleagus=new HashMap<>();
+        teamsInCurrentSeasonLeagues=new HashMap<>();
     }
     /**
      * Add teams by league to this season.
@@ -28,16 +33,16 @@ public class Season {
     public void addLeagueWithTeams(League l, HashSet <Team> teams){
         boolean teamsAdded=false;
         /**check if league already exist**/
-        if(!teamsInCurrentSeesonleagus.containsKey(l)) {
-            teamsInCurrentSeesonleagus.put(l, teams);
+        if(!teamsInCurrentSeasonLeagues.containsKey(l)) {
+            teamsInCurrentSeasonLeagues.put(l, teams);
             l.addSeasonWithTeams(this,teams);
             teamsAdded=true;
         }
         else{
             /**if league already exist- check is it already hold the input teams*/
-            if(!teamsInCurrentSeesonleagus.get(l).equals(teams))
-             teams.addAll(teamsInCurrentSeesonleagus.get(l));
-             teamsInCurrentSeesonleagus.put(l, teams);
+            if(!teamsInCurrentSeasonLeagues.get(l).equals(teams))
+                teams.addAll(teamsInCurrentSeasonLeagues.get(l));
+            teamsInCurrentSeasonLeagues.put(l, teams);
             l.addSeasonWithTeams(this,teams);
             teamsAdded=true;
 
@@ -69,12 +74,12 @@ public class Season {
         this.mainSystem = mainSystem;
     }
 
-    public HashMap<League, HashSet<Team>> getTeamsInCurrentSeesonleagus() {
-        return teamsInCurrentSeesonleagus;
+    public HashMap<League, HashSet<Team>> getTeamsInCurrentSeasonleagues() {
+        return teamsInCurrentSeasonLeagues;
     }
 
     public void setTeamsInCurrentSeesonleagus(HashMap<League, HashSet<Team>> teamsInCurrentSeesonleagus) {
-        this.teamsInCurrentSeesonleagus = teamsInCurrentSeesonleagus;
+        this.teamsInCurrentSeasonLeagues = teamsInCurrentSeesonleagus;
     }
 
     public Policy getPolicy() {
@@ -87,3 +92,6 @@ public class Season {
 
 
 }
+
+
+

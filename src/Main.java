@@ -6,17 +6,11 @@ import org.apache.logging.log4j.core.config.Configurator;
 public class Main {
 
     private static final Logger LOG = LogManager.getLogger();
+
     public static void main(String [] args){
-        //System.setProperty("log4j.configurationFile","resources/log4j2.xml");
-// org.apache.logging.log4j.core.config.Configurator;
-        //Configurator.setLevel("com.example.Foo", Level.DEBUG);
-
-        // You can also set the root logger:
-        Configurator.setRootLevel(Level.INFO);
-
-        LOG.info(String.format("Logging level: %s", LOG.getLevel()));
-        LOG.info("Server starter at %s!");
-        LOG.info("try this");
-        LOG.debug("try in debug");
+        User user= new User(new MainSystem());
+        Player p= new Player(new MainSystem(),"name","054","@","oral","021390");
+        System.out.println(user instanceof  User);
+        System.out.println(p instanceof Subscription);
     }
 }

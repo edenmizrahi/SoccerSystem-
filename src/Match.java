@@ -1,4 +1,6 @@
 import javafx.beans.InvalidationListener;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
 import java.util.Observable;
@@ -12,6 +14,7 @@ public class Match extends Observable{
     private Field field;
     private HashSet<Event> events;
     private HashSet<Referee> referees;
+    private static final Logger LOG = LogManager.getLogger();
 
 
     public Match(int homeScore, int guestScore, Match match, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees) {

@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.LinkedList;
 
 public class Referee extends Subscription{
@@ -6,10 +9,10 @@ public class Referee extends Subscription{
     private LinkedList<Match> matches;
     private LinkedList<Event> events;
     private String qualification;
+    private static final Logger LOG = LogManager.getLogger();
 
 
-
-    Referee(Subscription sub, MainSystem ms, String qualification){
+    public Referee(Subscription sub, MainSystem ms, String qualification){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         matches = new LinkedList<>();
         events = new LinkedList<>();
@@ -19,6 +22,15 @@ public class Referee extends Subscription{
         //this.permissions.add();
     }
 
+    public Referee (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, String qualification) {
+        super(ms,name,phoneNumber,email,userName,password);
+        matches = new LinkedList<>();
+        events = new LinkedList<>();
+        notifications = new LinkedList<>();
+        this.qualification=qualification;
+        //TODO add permissions
+        //this.permissions.add();
+    }
     public LinkedList<Notification> getNotifications() {
         return notifications;
     }

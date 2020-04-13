@@ -9,7 +9,7 @@ public class LeagueTest {
 
     @Test
     public void addSeasonWithTeams() throws Exception {
-        League l=new League("hahal",null,null);
+        League l=new League("hahal",null,null, null);
         Season s=new Season(null,1884);
         MainSystem sys=new MainSystem(null);
         HashSet<Team> teams1=new HashSet<Team>();
@@ -26,18 +26,18 @@ public class LeagueTest {
         teams1.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams1);
         /**check if both are equals**/
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeesonleagus().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
         HashSet<Team> teams2=new HashSet<Team>();
         teams2.add(new Team("beitar",12,players,null,null));
         teams2.add(new Team("beitar2",12,players,null,null));
         teams2.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams2);
         /**add more teams and check if both are equals**/
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeesonleagus().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
 
         /**double add again- both with no changes and equals*/
         l.addSeasonWithTeams(s,teams2);
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeesonleagus().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
         Assert.assertTrue(l.getTeamsInSeason().get(s).size()==6);
 
     }

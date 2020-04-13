@@ -40,7 +40,25 @@ public class User {
     }
     //</editor-fold>
 
-
+    public boolean checkValidDetails(String userName, String password, String phoneNumber){
+        //check that username in unique
+        for (User user:system.getUsers()) {
+            if(user instanceof Subscription){
+                if(((Subscription)user).getUserName().equals(userName)){
+                    return false;
+                }
+            }
+        }
+        //password length is 6 or more
+        if(password.length()<6){
+            return false;
+        }
+        // phone number is 10 digits
+        if( !phoneNumber.matches("^[0-9]*$") || phoneNumber.length()!=10){
+            return false;
+        }
+        return true;
+    }
     //or
     //the user chooses to search by name and enters the name in the text box
     public List<PrivatePage> searchByName(String name){

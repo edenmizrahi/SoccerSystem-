@@ -11,10 +11,12 @@ public class Match extends Observable{
     private Team homeTeam;
     private Field field;
     private HashSet<Event> events;
+    private Referee mainReferee;
     private HashSet<Referee> referees;
 
 
-    public Match(int homeScore, int guestScore, Match match, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees) {
+    public Match(int homeScore, int guestScore, Match match, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees
+    ,Referee mainReferee) {
         this.homeScore = homeScore;
         this.guestScore = guestScore;
         this.match = match;
@@ -23,9 +25,17 @@ public class Match extends Observable{
         this.field = field;
         this.events = events;
         this.referees = referees;
+        this.mainReferee = mainReferee;
     }
 
 
+    public Referee getMainReferee() {
+        return mainReferee;
+    }
+
+    public void setMainReferee(Referee mainReferee) {
+        this.mainReferee = mainReferee;
+    }
 
     public int getHomeScore() { return homeScore; }
 

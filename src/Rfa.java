@@ -11,19 +11,34 @@ public class Rfa extends Subscription {
         this.budgetControl = new BudgetControl();
         this.notifications = new LinkedList<>();
         //TODO add permissions
-        //this.permissions.add();
+
     }
 
-    public void addReferee(){
-
+    //yarden
+    public boolean addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification){
+        if(checkValidDetails(userName,password,phoneNumber)){
+            Referee newRef= new Referee(system,name,phoneNumber,email,userName,password,qualification);
+            system.addUser(newRef);
+            return true;
+        }
+        return false;
     }
 
     public void addLeague(){
 
     }
 
-    public void deleteReferee(){
-
+    //yarden
+    public boolean deleteReferee(Referee ref){
+        //check the all matches that the referee is refereeing
+        for (Match m : ref.getMatches()) {
+            //can't delete, match can't be without referee
+            if(m.getReferees().size() == 1){
+                System.out.println("You can not delete this referee");
+                return false;
+            }
+        }
+        return system.removeUser(ref);
     }
 
     public void addPolicy(){

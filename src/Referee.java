@@ -7,7 +7,12 @@ public class Referee extends Subscription{
     private LinkedList<Event> events;
     private String qualification;
 
-
+    Referee(Subscription sub, MainSystem ms){
+        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        matches = new LinkedList<>();
+        events = new LinkedList<>();
+        notifications = new LinkedList<>();
+    }
 
     Referee(Subscription sub, MainSystem ms, String qualification){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
@@ -15,6 +20,16 @@ public class Referee extends Subscription{
         events = new LinkedList<>();
         notifications = new LinkedList<>();
         this.qualification = qualification;
+        //TODO add permissions
+        //this.permissions.add();
+    }
+
+    public Referee (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, String qualification) {
+        super(ms,name,phoneNumber,email,userName,password);
+        matches = new LinkedList<>();
+        events = new LinkedList<>();
+        notifications = new LinkedList<>();
+        this.qualification=qualification;
         //TODO add permissions
         //this.permissions.add();
     }

@@ -36,7 +36,7 @@ public class Referee extends Subscription{
         //this.permissions.add();
     }
 
-
+    //<editor-fold desc="getter and setters">
     public LinkedList<Match> getMatches() {
         return matches;
     }
@@ -59,6 +59,7 @@ public class Referee extends Subscription{
         this.qualification = qualification;
     }
 
+    //</editor-fold>
     /**Yarden**/
     public void addEvent(Match match){
 

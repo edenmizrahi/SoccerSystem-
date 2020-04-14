@@ -1,5 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.platform.commons.util.PackageUtils;
 
 import java.util.Date;
 
@@ -36,16 +37,18 @@ public class Player extends Subscription implements PageOwner {
         this.roleAtField = null;
     }
 
+    //<editor-fold desc="Page Owner Functions">
+    /**Or**/
     @Override
-    public void addRecordToPage(String record) {
+    public void addRecordToPage(String record) throws Exception {
         this.privatePage.addRecords(record);
     }
-
+    /**Or**/
     @Override
-    public void removeRecordFromPage(String record) {
+    public void removeRecordFromPage(String record) throws Exception {
         this.privatePage.removeRecord(record);
     }
-
+    /**Or**/
     @Override
     public boolean createPrivatePage() {
         PrivatePage p = new PrivatePage();
@@ -56,13 +59,52 @@ public class Player extends Subscription implements PageOwner {
         }
         return false;
     }
-
+    /**Or**/
     @Override
     public PrivatePage getPage() {
         return privatePage;
     }
 
+    //</editor-fold>
+
+
+
+    //<editor-fold desc="getters and setters">
     public Team getTeam() {
         return playerTeam;
     }
+
+
+    public PrivatePage getPrivatePage() {
+        return privatePage;
+    }
+
+    public void setPrivatePage(PrivatePage privatePage) {
+        this.privatePage = privatePage;
+    }
+
+
+    public void setPlayerTeam(Team playerTeam) {
+        this.playerTeam = playerTeam;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getRoleAtField() {
+        return roleAtField;
+    }
+
+    public void setRoleAtField(String roleAtField) {
+        this.roleAtField = roleAtField;
+    }
+    //</editor-fold>
+
+
+
 }

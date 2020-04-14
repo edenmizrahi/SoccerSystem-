@@ -10,9 +10,10 @@ public class LeagueTest {
 
     @Test
     public void addSeasonWithTeams() throws Exception {
-        League l=new League("hahal",null,null, null);
-        Season s=new Season(null,1884);
-        MainSystem sys=new MainSystem(null);
+        MainSystem sys=new MainSystem();
+        League l=new League("hahal",sys,null, null);
+        Season s=new Season(sys,null,1884);
+
         HashSet<Team> teams1=new HashSet<Team>();
         HashSet<Player> players=new HashSet<>();
         Subscription sub=new Subscription(sys,"ttt","tt","tt","tt","ttt");
@@ -24,17 +25,21 @@ public class LeagueTest {
             System.out.println("fjj");
             System.out.println("fjj");
         }
-        teams1.add(new Team("hahalufa",12,players,null,null));
-        teams1.add(new Team("hapuel",12,players,null,null));
-        teams1.add(new Team("macabi",12,players,null,null));
-        Team teamFor2Tests =new Team("hapuel-Rishon",12,players,null,null);
+        Subscription yossi = new Subscription(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+        //or added because the change in Team constructor
+        TeamOwner teamOwner = new TeamOwner(yossi, sys, new Team());
+        //
+        teams1.add(new Team("hahalufa",12,players,null,null,teamOwner));
+        teams1.add(new Team("hapuel",12,players,null,null,teamOwner));
+        teams1.add(new Team("macabi",12,players,null,null,teamOwner));
+        Team teamFor2Tests =new Team("hapuel-Rishon",12,players,null,null,teamOwner);
         teams1.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams1);
         /**check if both are equals**/
         Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonleagues().get(l));
         HashSet<Team> teams2=new HashSet<Team>();
-        teams2.add(new Team("beitar",12,players,null,null));
-        teams2.add(new Team("beitar2",12,players,null,null));
+        teams2.add(new Team("beitar",12,players,null,null,teamOwner));
+        teams2.add(new Team("beitar2",12,players,null,null,teamOwner));
         teams2.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams2);
         /**add more teams and check if both are equals**/

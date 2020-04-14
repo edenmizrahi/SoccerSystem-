@@ -58,13 +58,36 @@ public class PrivatePage {
     }
 
     /**Or**/
-    public void addRecords(String record){
+    public void addRecords(String record) throws Exception {
+        if(record==null){
+            throw new Exception("record in null");
+        }
+        if(record.length()==0){
+            throw new Exception("record empty");
+        }
         records.add(record);
+        LOG.info(String.format("%s - %s", pageOwner, "added record to page"));
     }
 
     /**Or**/
-    public void removeRecord(String record){
+    public void removeRecord(String record) throws Exception {
+        if(record==null){
+            throw new Exception("record in null");
+        }
+        if(record.length()==0){
+            throw new Exception("record empty");
+        }
         records.remove(record);
+        LOG.info(String.format("%s - %s", pageOwner, "added record to page"));
+    }
+
+    /**Or**/
+    public void addFan(Fan fan) throws Exception {
+        if(fan==null){
+            throw new Exception("fan null");
+        }
+        fans.add(fan);
+        LOG.info(String.format("%s - %s", pageOwner, "add fan to page, fane username: "+fan.getUserName()));
     }
 
 }

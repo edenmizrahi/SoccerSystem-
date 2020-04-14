@@ -31,7 +31,7 @@ public class Rfa extends Subscription {
 
     /**Yarden**/
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification) throws Exception {
-        if (checkValidDetails(userName, password, phoneNumber)) {
+        if (checkValidDetails(userName, password, phoneNumber,email)) {
             Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification);
             system.addUser(newRef);
         }

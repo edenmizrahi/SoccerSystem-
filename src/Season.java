@@ -19,10 +19,13 @@ public class Season {
     private int year;
     private static final Logger LOG = LogManager.getLogger();
 
-    public Season( Policy p, int year) {
+    public Season( MainSystem ms, Policy p, int year) {
         this.policy = p;
         this.year = year;
-        teamsInCurrentSeasonLeagues=new HashMap<>();
+        this.teamsInCurrentSeasonLeagues=new HashMap<>();
+        this.mainSystem=ms;
+
+        mainSystem.addSeason(this);
     }
     /**
      * Add teams by league to this season.

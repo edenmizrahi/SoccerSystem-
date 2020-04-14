@@ -40,7 +40,10 @@ public class TeamOwner extends Subscription{
         //this.permissions.add();
     }
     // adi
-    public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team){
+    public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
+        if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)){
+            throw new Exception("ddk");
+        }
         TeamOwner tO = new TeamOwner(sub, ms, team);
         mySubscriptions.put(tO, team);
         return tO;

@@ -14,14 +14,14 @@ public class TeamOwnerTest {
 
     //adi
     @Test
-    public void subscribeTeamOwnerTest() {
+    public void subscribeTeamOwnerTest() throws Exception {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
     }
     //adi
     @Test
-    public void removeTeamOwnerTest() {
+    public void removeTeamOwnerTest() throws Exception {
         TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
         TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());

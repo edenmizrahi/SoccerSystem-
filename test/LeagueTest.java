@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
@@ -16,7 +17,8 @@ public class LeagueTest {
         HashSet<Player> players=new HashSet<>();
         Subscription sub=new Subscription(sys,"ttt","tt","tt","tt","ttt");
         for(int i=0;i<13 ;i++){
-            players.add(new Player(sub,sys));
+            Date d=new Date();
+            players.add(new Player(sub,sys,d));
 
         }
         teams1.add(new Team("hahalufa",12,players,null,null));

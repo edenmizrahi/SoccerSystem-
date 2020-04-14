@@ -216,12 +216,5 @@ public class Team implements PageOwner{
         return leaguePerSeason;
     }
 
-    /**
-     * delete Player from Team
-     * @param userToDelete
-     * @codeBy Eden
-     */
-    public void removePlayer(Player userToDelete) {
-        players.remove(userToDelete);
-    }
+
 }

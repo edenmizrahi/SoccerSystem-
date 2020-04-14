@@ -36,7 +36,7 @@ public class TeamOwner extends Subscription{
         //TODO add permissions
         //this.permissions.add();
     }
-    // adi
+    //  adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
         if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)){
             throw new Exception("ddk");

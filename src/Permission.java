@@ -4,7 +4,10 @@ public enum Permission {
         DeleteUserFromTeam,
         ManageComplaint,
         BuildRecSystem,
-        EditUserPermission
+        EditUserPermission,
 
+        /**yarden**/
+//        AddReferee,
+//        RemoveReferee;
 }
 

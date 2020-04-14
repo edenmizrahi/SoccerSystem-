@@ -48,16 +48,17 @@ public class TeamOwner extends Subscription{
     // adi
     public boolean removeTeamOwner (TeamOwner tO, MainSystem ms, Team team){
         if (mySubscriptions.containsKey(tO)){
-            mySubscriptions.remove(tO);
-            for (Map.Entry<Subscription, Team> entry : tO.mySubscriptions.entrySet()) {
-                if (entry.getValue().equals(team)){
-                    tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
+            if(team.removeTeamOwner(tO)) {
+                mySubscriptions.remove(tO);
+                for (Map.Entry<Subscription, Team> entry : tO.mySubscriptions.entrySet()) {
+                    if (entry.getValue().equals(team)) {
+                        tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
+                    }
                 }
+                ms.removeUser(tO);
+                Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+                return true;
             }
-            team.removeTeamOwner(tO);
-            ms.removeUser(tO);
-            Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
-            return true;
         }
         return false;
     }
@@ -71,14 +72,53 @@ public class TeamOwner extends Subscription{
     // adi
     public boolean removeTeamManager (TeamManager tM, MainSystem ms, Team team){
         if (mySubscriptions.containsKey(tM)){
-            mySubscriptions.remove(tM);
-            team.removeTeamManager(tM);
-            ms.removeUser(tM);
-            Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
+            if(team.removeTeamManager(tM)) {
+                mySubscriptions.remove(tM);
+                ms.removeUser(tM);
+                Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
+                return true;
+            }
+        }
+        return false;
+    }
+    //adi
+    public void addTeamManager(TeamManager tM, Team team){
+        team.addTeamManager(tM);
+    }
+    //adi
+    public void addCoach(Coach coach, Team team){
+        team.setCoach(coach);
+    }
+    //adi
+    public boolean removeCoach(Coach coach, Team team){
+        if(team.removeCoach(coach)){
             return true;
         }
         return false;
     }
+    //adi
+    public void addPlayer(Player player, Team team){
+        team.addPlayer(player);
+    }
+    //adi
+    public boolean removePlayer(Player player, Team team){
+        if(team.removePlayer(player)){
+            return true;
+        }
+        return false;
+    }
+    //adi
+    public void addField(Field field, Team team) {
+        team.setField(field);
+    }
+    //adi
+    public boolean removeField(Field field, Team team){
+        if(team.removeField(field)){
+            return true;
+        }
+        return false;
+    }
+
     //<editor-fold desc="setters and getters">
     public void setTeam(Team team) {
         this.teams.add(team);

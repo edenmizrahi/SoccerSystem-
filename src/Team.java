@@ -125,18 +125,55 @@ public class Team implements PageOwner{
         teamOwners.add(tO);
     }
     // adi
-    public void removeTeamOwner(TeamOwner tO){
-        teamOwners.remove(tO);
+    public boolean removeTeamOwner(TeamOwner tO){
+
+        if (teamOwners.contains(tO)){
+            teamOwners.remove(tO);
+            return true;
+        }
+        return false;
     }
     // adi
     public void addTeamManager(TeamManager tM){
         teamManager = tM;
     }
     // adi
-    public void removeTeamManager(TeamManager tM){
-        teamManager = null;
-    }
+    public boolean removeTeamManager(TeamManager tM){
 
+        if (tM.equals(teamManager)) {
+            teamManager = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean removeCoach(Coach c){
+        if (this.coach.equals(c)){
+            coach = null;
+            return true;
+        }
+        return false;
+    }
+    //adi
+    public void addPlayer(Player p){
+        players.add(p);
+    }
+    //adi
+    public boolean removePlayer(Player p){
+        if(players.contains(p) && players.size() > 11){
+            players.remove(p);
+            return true;
+        }
+        return false;
+    }
+    //adi
+    public boolean removeField(Field f){
+        if(field.equals(f)){
+            field = null;
+            return true;
+        }
+        return false;
+    }
     @Override
     public PrivatePage getPage() {
         return privatePage;

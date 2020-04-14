@@ -98,8 +98,6 @@ public class Team implements PageOwner{
         this.teamManager = teamManager;
     }
 
-
-
     public void setPlayers(HashSet<Player> players) {
         this.players = players;
     }
@@ -170,6 +168,7 @@ public class Team implements PageOwner{
     }
 
     //</editor-fold>
+    
     //<editor-fold desc="add and remove functions">
     // adi
     public void addTeamOwner(TeamOwner tO){
@@ -229,6 +228,7 @@ public class Team implements PageOwner{
             throw new Exception("This field doesn't exist in this team");
         }
     }
+    //</editor-fold>
 
     //<editor-fold desc="Page Owner Functions">
     /**Or**/

@@ -11,10 +11,10 @@ public class Main {
 
     public static void main(String [] args){
         User user= new User(new MainSystem());
-        Player p= new Player(new MainSystem(),"name","054","@","oral","021390");
+//        Player p= new Player(new MainSystem(),"name","054","@","oral","021390");
         System.out.println(user instanceof  User);
-        System.out.println(p instanceof Subscription);
+//        System.out.println(p instanceof Subscription);
 
-        LOG.info(String.format("%s - action", p.getUserName()));
+//        LOG.info(String.format("%s - action", p.getUserName()));
     }
 }

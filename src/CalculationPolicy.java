@@ -5,6 +5,6 @@ public class CalculationPolicy extends Policy {
     private static final Logger LOG = LogManager.getLogger();
 
     public CalculationPolicy(League league, Season season) {
-        super(league, season);
+            super( season);
     }
 }

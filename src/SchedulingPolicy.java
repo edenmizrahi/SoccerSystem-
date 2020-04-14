@@ -6,6 +6,6 @@ public class SchedulingPolicy extends Policy{
     private static final Logger LOG = LogManager.getLogger();
 
     public SchedulingPolicy(League league, Season season) {
-        super(league, season);
+        super(season);
     }
 }

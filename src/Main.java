@@ -12,5 +12,9 @@ public class Main {
         Player p= new Player(new MainSystem(),"name","054","@","oral","021390");
         System.out.println(user instanceof  User);
         System.out.println(p instanceof Subscription);
+        //Subscription sub = new;
+
+
+        LOG.info(String.format("%s - %s", p.getUserName(), "action?"));
     }
 }

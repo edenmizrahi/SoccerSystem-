@@ -10,4 +10,8 @@ public class BudgetControl {
     private static final Logger LOG = LogManager.getLogger();
 
     public void manageBudget(){}
+
+    public void removeRfa(Rfa rfa) {
+        rfaList.remove(rfa);
+    }
 }

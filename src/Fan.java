@@ -9,7 +9,6 @@ import java.util.Observer;
 public class Fan extends Subscription implements Observer {
 
     private List<PrivatePage> myPages;
-    private List<Notification> myNotifications;
     private List<Complaint> myComplaints;
     private LinkedList <Match> matchesFollow;
     private LinkedList<String> searchHisroty;
@@ -19,7 +18,6 @@ public class Fan extends Subscription implements Observer {
     public Fan(Subscription sub, MainSystem ms){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         myPages = new LinkedList<>();
-        myNotifications = new LinkedList<>();
         myComplaints = new LinkedList<>();
         matchesFollow=new LinkedList<>();
         //TODO add permissions
@@ -29,7 +27,6 @@ public class Fan extends Subscription implements Observer {
     public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
         super(ms,name,phoneNumber,email,userName,password);
         this.myPages= new LinkedList<>();
-        this.myNotifications= new LinkedList<>();
         this.myComplaints= new LinkedList<>();
         this.matchesFollow= new LinkedList<>();
         this.searchHisroty= new LinkedList<>();

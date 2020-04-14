@@ -9,18 +9,18 @@ import java.util.List;
 public class MainSystem {
 
     private LinkedList<Complaint> complaints;// *
-    private LinkedList<SystemManager> systemManagers; // 1..*
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
     private LinkedList<Team> teams; // *
+    private LinkedList<Rfa> rfas; // *
+
     private static final Logger LOG = LogManager.getLogger();
 
 
     public MainSystem(SystemManager sm) {
         this.complaints = new LinkedList<>();
-        this.systemManagers = new LinkedList<>();
-        systemManagers.add(sm);
+        users.add(sm);
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
@@ -28,7 +28,6 @@ public class MainSystem {
     }
     public MainSystem() {
         this.complaints = new LinkedList<>();
-        this.systemManagers = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
@@ -101,12 +100,15 @@ public class MainSystem {
     }
 
     public List<SystemManager> getSystemManagers() {
-        return systemManagers;
+        List<SystemManager> res=new LinkedList<>();
+        for(User u: users){
+            if(u instanceof SystemManager){
+                res.add(((SystemManager)u));
+            }
+        }
+        return res;
     }
 
-    public void setSystemManagers(LinkedList<SystemManager> systemManagers) {
-        this.systemManagers = systemManagers;
-    }
 
     public List<League> getLeagues() {
         return leagues;
@@ -145,10 +147,25 @@ public class MainSystem {
     //or- not done
     public void startSystem(SystemManager systemManager){
         //sign in to system????
-        this.systemManagers.add(systemManager);
+        users.add(systemManager);
         //link external systems
         //read from the external DB
         System.out.println("The system was started correctly!");
+    }
+
+    /**
+     * check how many RFA users at system
+     * @return number of RFA
+     * @codeBy Eden
+     */
+    public int numOfRfa(){
+        int sum=0;
+        for(User u :users){
+            if(u instanceof Rfa){
+               sum++;
+            }
+        }
+        return sum;
     }
 
 

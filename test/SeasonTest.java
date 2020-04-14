@@ -7,7 +7,6 @@ import java.util.Iterator;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SeasonTest {
-
     /**Eden*/
     @Test
     void addLeagueWithTeams() throws Exception {

@@ -10,7 +10,6 @@ public class TeamOwner extends Subscription{
 
     private LinkedList<Team> teams;
     private BudgetControl budgetControl;
-    private LinkedList<Notification> notifications;
     private HashMap<Subscription, Team> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
 
@@ -20,7 +19,6 @@ public class TeamOwner extends Subscription{
         ms.removeUser(sub);
         this.teams = teams;
         this.budgetControl = new BudgetControl();
-        notifications = new LinkedList<>();
         mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();
@@ -34,7 +32,6 @@ public class TeamOwner extends Subscription{
         this.teams = new LinkedList<>();
         teams.add(team);
         team.addTeamOwner(this);
-        notifications = new LinkedList<>();
         mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();

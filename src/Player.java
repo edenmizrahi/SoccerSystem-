@@ -69,4 +69,8 @@ public class Player extends Subscription implements PageOwner {
     public PrivatePage getPage() {
         return privatePage;
     }
+
+    public Team getTeam() {
+        return playerTeam;
+    }
 }

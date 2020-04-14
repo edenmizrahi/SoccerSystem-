@@ -178,4 +178,13 @@ public class Team implements PageOwner{
     public HashMap<Season, League> getLeaguePerSeason() {
         return leaguePerSeason;
     }
+
+    /**
+     * delete Player from Team
+     * @param userToDelete
+     * @codeBy Eden
+     */
+    public void removePlayer(Player userToDelete) {
+        players.remove(userToDelete);
+    }
 }

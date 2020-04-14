@@ -7,13 +7,11 @@ import java.util.List;
 public class Rfa extends Subscription {
 
     private BudgetControl budgetControl;//1
-    private LinkedList<Notification> notifications;// *
     private static final Logger LOG = LogManager.getLogger();
 
     public Rfa(Subscription sub, MainSystem ms) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         this.budgetControl = new BudgetControl();
-        this.notifications = new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -21,7 +19,6 @@ public class Rfa extends Subscription {
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
         super(ms,name,phoneNumber,email,userName,password);
         this.budgetControl = new BudgetControl();
-        this.notifications = new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -49,8 +46,5 @@ public class Rfa extends Subscription {
         this.budgetControl = budgetControl;
     }
 
-    public List<Notification> getNotifications() {
-        return notifications;
-    }
 
 }

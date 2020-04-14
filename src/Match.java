@@ -2,6 +2,8 @@ import javafx.beans.InvalidationListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Observable;
 
@@ -14,10 +16,11 @@ public class Match extends Observable{
     private Field field;
     private HashSet<Event> events;
     private HashSet<Referee> referees;
+    Date matchDate;
     private static final Logger LOG = LogManager.getLogger();
 
 
-    public Match(int homeScore, int guestScore, Match match, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees) {
+    public Match(Date matchDate,int homeScore, int guestScore, Match match, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees) {
         this.homeScore = homeScore;
         this.guestScore = guestScore;
         this.match = match;
@@ -26,6 +29,7 @@ public class Match extends Observable{
         this.field = field;
         this.events = events;
         this.referees = referees;
+        this.matchDate=matchDate;
     }
 
 
@@ -55,4 +59,7 @@ public class Match extends Observable{
     }
 
 
+    public Date getDate() {
+    return matchDate;
+    }
 }

@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 public class Referee extends Subscription{
 
-    private LinkedList<Notification> notifications;
     private LinkedList<Match> matches;
     private LinkedList<Event> events;
     private String qualification;
@@ -16,7 +15,6 @@ public class Referee extends Subscription{
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         matches = new LinkedList<>();
         events = new LinkedList<>();
-        notifications = new LinkedList<>();
         this.qualification = qualification;
         //TODO add permissions
         //this.permissions.add();
@@ -26,18 +24,11 @@ public class Referee extends Subscription{
         super(ms,name,phoneNumber,email,userName,password);
         matches = new LinkedList<>();
         events = new LinkedList<>();
-        notifications = new LinkedList<>();
         this.qualification=qualification;
         //TODO add permissions
         //this.permissions.add();
     }
-    public LinkedList<Notification> getNotifications() {
-        return notifications;
-    }
 
-    public void setNotifications(LinkedList<Notification> notifications) {
-        this.notifications = notifications;
-    }
 
     public LinkedList<Match> getMatches() {
         return matches;

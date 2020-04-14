@@ -10,6 +10,8 @@ import java.util.Iterator;
 
 public class Season {
 
+
+
     private HashMap<League, HashSet<Team >> teamsInCurrentSeasonLeagues;
 
     private Policy policy;
@@ -88,6 +90,10 @@ public class Season {
 
     public void setPolicy(Policy policy) {
         this.policy = policy;
+    }
+
+    public HashMap<League, HashSet<Team>> getTeamsInCurrentSeasonLeagues() {
+        return teamsInCurrentSeasonLeagues;
     }
 
 

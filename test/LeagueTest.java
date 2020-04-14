@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
@@ -9,14 +10,15 @@ public class LeagueTest {
 
     @Test
     public void addSeasonWithTeams() throws Exception {
-        League l=new League("hahal",null,null);
+        League l=new League("hahal",null,null, null);
         Season s=new Season(null,1884);
         MainSystem sys=new MainSystem(null);
         HashSet<Team> teams1=new HashSet<Team>();
         HashSet<Player> players=new HashSet<>();
         Subscription sub=new Subscription(sys,"ttt","tt","tt","tt","ttt");
         for(int i=0;i<13 ;i++){
-            players.add(new Player(sub,sys));
+            Date d=new Date();
+            players.add(new Player(sub,sys,d));
 
         }
         teams1.add(new Team("hahalufa",12,players,null,null));
@@ -26,18 +28,18 @@ public class LeagueTest {
         teams1.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams1);
         /**check if both are equals**/
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeesonleagus().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
         HashSet<Team> teams2=new HashSet<Team>();
         teams2.add(new Team("beitar",12,players,null,null));
         teams2.add(new Team("beitar2",12,players,null,null));
         teams2.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams2);
         /**add more teams and check if both are equals**/
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeesonleagus().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
 
         /**double add again- both with no changes and equals*/
         l.addSeasonWithTeams(s,teams2);
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeesonleagus().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
         Assert.assertTrue(l.getTeamsInSeason().get(s).size()==6);
 
     }

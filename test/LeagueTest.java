@@ -22,6 +22,7 @@ public class LeagueTest {
             /*****/
             /*****/
             System.out.println("fjj");
+            System.out.println("fjj");
         }
         teams1.add(new Team("hahalufa",12,players,null,null));
         teams1.add(new Team("hapuel",12,players,null,null));

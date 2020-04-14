@@ -62,7 +62,37 @@ public class Player extends Subscription implements PageOwner {
         return privatePage;
     }
 
+    //<editor-fold desc="getters and setters">
     public Team getTeam() {
         return playerTeam;
     }
+
+    public PrivatePage getPrivatePage() {
+        return privatePage;
+    }
+
+    public void setPrivatePage(PrivatePage privatePage) {
+        this.privatePage = privatePage;
+    }
+
+    public void setPlayerTeam(Team playerTeam) {
+        this.playerTeam = playerTeam;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getRoleAtField() {
+        return roleAtField;
+    }
+
+    public void setRoleAtField(String roleAtField) {
+        this.roleAtField = roleAtField;
+    }
+    //</editor-fold>
 }

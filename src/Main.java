@@ -10,7 +10,7 @@ public class Main {
     public static void main(String [] args){
 
 
-//        LOG.info(String.format("%s - %s", p.getUserName(), "action?"));
+        LOG.info(String.format("%s - %s", "try", "action?"));
 //        User user= new User(new MainSystem());
 //        Player p= new Player(new MainSystem(),"name","054","@","oral","021390");
 //        System.out.println(user instanceof  User);

@@ -39,47 +39,44 @@ public class TeamOwner extends Subscription{
     // adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
         if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)){
-            throw new Exception("ddk");
+            throw new Exception("Already Team Owner in this team");
         }
         TeamOwner tO = new TeamOwner(sub, ms, team);
         mySubscriptions.put(tO, team);
         return tO;
     }
     // adi
-    public boolean removeTeamOwner (TeamOwner tO, MainSystem ms, Team team){
+    public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (mySubscriptions.containsKey(tO)){
-            if(team.removeTeamOwner(tO)) {
-                mySubscriptions.remove(tO);
-                for (Map.Entry<Subscription, Team> entry : tO.mySubscriptions.entrySet()) {
-                    if (entry.getValue().equals(team)) {
-                        tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
-                    }
+            team.removeTeamOwner(tO);
+            mySubscriptions.remove(tO);
+            for (Map.Entry<Subscription, Team> entry : tO.mySubscriptions.entrySet()) {
+                if (entry.getValue().equals(team)) {
+                    tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
                 }
-                ms.removeUser(tO);
-                Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
-                return true;
             }
+            ms.removeUser(tO);
+            Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
         }
-        return false;
     }
     // adi
-    public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per){
+    public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
+        if (sub instanceof TeamManager && team.getTeamManager().equals(sub)){
+            throw new Exception("Already Team Manager of this team");
+        }
         TeamManager tM = new TeamManager(sub, ms, team);
         tM.addPermissions(per);
         mySubscriptions.put(tM, team);
         return tM;
     }
     // adi
-    public boolean removeTeamManager (TeamManager tM, MainSystem ms, Team team){
+    public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
         if (mySubscriptions.containsKey(tM)){
-            if(team.removeTeamManager(tM)) {
-                mySubscriptions.remove(tM);
-                ms.removeUser(tM);
-                Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
-                return true;
-            }
+            team.removeTeamManager(tM);
+            mySubscriptions.remove(tM);
+            ms.removeUser(tM);
+            Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
         }
-        return false;
     }
     //adi
     public void addTeamManager(TeamManager tM, Team team){
@@ -90,35 +87,37 @@ public class TeamOwner extends Subscription{
         team.setCoach(coach);
     }
     //adi
-    public boolean removeCoach(Coach coach, Team team){
-        if(team.removeCoach(coach)){
-            return true;
-        }
-        return false;
+    public void removeCoach(Coach coach, Team team) throws Exception {
+        team.removeCoach(coach);
+    }
+    //adi
+    public void editCoachRole(Coach coach, String role){
+        coach.setRoleAtTeam(role);
     }
     //adi
     public void addPlayer(Player player, Team team){
         team.addPlayer(player);
     }
     //adi
-    public boolean removePlayer(Player player, Team team){
-        if(team.removePlayer(player)){
-            return true;
-        }
-        return false;
+    public void removePlayer (Player player, Team team) throws Exception {
+        team.removePlayer(player);
+    }
+    //adi
+    public void editPlayerRole(Player player, String role){
+        player.setRoleAtField(role);
     }
     //adi
     public void addField(Field field, Team team) {
         team.setField(field);
     }
     //adi
-    public boolean removeField(Field field, Team team){
-        if(team.removeField(field)){
-            return true;
-        }
-        return false;
+    public void removeField (Field field, Team team) throws Exception {
+        team.removeField(field);
     }
-
+    //adi
+    public void editFieldName(Field field, String name){
+        field.setNameOfField(name);
+    }
     //<editor-fold desc="setters and getters">
     public void setTeam(Team team) {
         this.teams.add(team);

@@ -27,8 +27,8 @@ public class Rfa extends Subscription {
         //this.permissions.add();
     }
 
-
-    public void addLeague(){
+    /**Yarden**/
+    public void createNewLeague(){
 
     }
 

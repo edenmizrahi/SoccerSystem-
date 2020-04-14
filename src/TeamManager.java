@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 public class TeamManager extends Subscription{
 
     private Team team;
-    private LinkedList<Notification> notifications;
     private static final Logger LOG = LogManager.getLogger();
 
     public TeamManager(Subscription sub, MainSystem ms, Team team) {
@@ -16,7 +15,6 @@ public class TeamManager extends Subscription{
         ms.removeUser(sub);
         this.team = team;
         this.team.setTeamManager(this);
-        this.notifications = new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -24,7 +22,6 @@ public class TeamManager extends Subscription{
     //<editor-fold desc="getters and setters">
     public Team getTeam() { return team; }
 
-    public LinkedList<Notification> getNotifications() { return notifications; }
 
     public void setTeam(Team team) { this.team = team; }
     //</editor-fold>

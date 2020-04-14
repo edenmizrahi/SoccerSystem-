@@ -10,39 +10,31 @@ public class Player extends Subscription implements PageOwner {
     private String roleAtField;
     private static final Logger LOG = LogManager.getLogger();
 
-    public Player(Subscription sub, MainSystem ms){
+    public Player(Subscription sub, MainSystem ms, Date dateOfBirth){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        this.roleAtField = roleAtField;
+        this.roleAtField = null;
         this.dateOfBirth = dateOfBirth;
         //TODO add permissions
         //this.permissions.add();
-        this.privatePage=null;
-        this.playerTeam=null;
-    }
-
-    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms, name, phoneNumber, email, userName, password);
-        this.privatePage=null;
-        this.playerTeam=null;
-        this.dateOfBirth= null;
-        this.roleAtField=null;
+        this.privatePage = null;
+        this.playerTeam = null;
     }
 
     public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
         super(ms, name, phoneNumber, email, userName, password);
-        this.dateOfBirth=dateOfBirth;
-        this.privatePage=null;
-        this.playerTeam=null;
-        this.roleAtField=null;
+        this.dateOfBirth = dateOfBirth;
+        this.privatePage = null;
+        this.playerTeam = null;
+        this.roleAtField = null;
     }
 
-    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, PrivatePage privatePage, Team playerTeam) {
+    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth, PrivatePage privatePage, Team playerTeam) {
         super(ms, name, phoneNumber, email, userName, password);
+        this.dateOfBirth = dateOfBirth;
         this.privatePage = privatePage;
         this.playerTeam = playerTeam;
+        this.roleAtField = null;
     }
-
-
 
     @Override
     public void addRecordToPage(String record) {
@@ -68,5 +60,9 @@ public class Player extends Subscription implements PageOwner {
     @Override
     public PrivatePage getPage() {
         return privatePage;
+    }
+
+    public Team getTeam() {
+        return playerTeam;
     }
 }

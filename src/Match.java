@@ -10,7 +10,6 @@ import java.util.Observable;
 public class Match extends Observable{
     private int homeScore;
     private int guestScore;
-    private Match match;
     private Team awayTeam;
     private Team homeTeam;
     private Field field;
@@ -21,11 +20,10 @@ public class Match extends Observable{
     private static final Logger LOG = LogManager.getLogger();
 
 
-    public Match(int homeScore, int guestScore, Match match, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees
+    public Match(int homeScore, int guestScore, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees
     , Referee mainReferee, Date date) {
         this.homeScore = homeScore;
         this.guestScore = guestScore;
-        this.match = match;
         this.awayTeam = awayTeam;
         this.homeTeam = homeTeam;
         this.field = field;
@@ -48,7 +46,6 @@ public class Match extends Observable{
 
     public int getGuestScore() { return guestScore; }
 
-    public Match getMatch() { return match; }
 
     public Date getDate() { return date; }
 

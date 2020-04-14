@@ -259,7 +259,9 @@ public class User {
         }
         return false;
     }
+
     /**OR**/
+    /*
     public boolean signInAsSystemManager(String name, String phoneNumber, String email, String userName, String password){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber)){
@@ -270,6 +272,7 @@ public class User {
         }
         return false;
     }
+    */
 
     /**OR**/
     public boolean signInAsRFA(String name, String phoneNumber, String email, String userName, String password){

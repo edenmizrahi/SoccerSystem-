@@ -18,6 +18,7 @@ public class User {
     public void addPermission(Permission per){
         permissions.add(per);
     }
+
     public void addPermissions(HashSet<Permission> pers){
         permissions.addAll(pers);
     }
@@ -49,7 +50,10 @@ public class User {
             if(user instanceof PageOwner){
                 if(((PageOwner)user).getPage() != null){
                     if(user instanceof Subscription && ((Subscription)user).getName().contains(name)){
+                        if(!ans.contains(((PageOwner)user).getPage())){// no duplicates
                             ans.add(((PageOwner)user).getPage());
+                        }
+
                     }
                 }
             }
@@ -67,7 +71,10 @@ public class User {
                 curr=(PageOwner)user;
                 if( curr.getPage() != null){// check if they have a page
                     if(curr.getPage().getRecordsAsString().contains(keyWord)){
+                        if(! ans.contains(curr.getPage())){// no duplicates
                             ans.add(curr.getPage());
+                        }
+
                     }
                 }
             }
@@ -129,7 +136,9 @@ public class User {
             //go through all the players
             for(Player p:t.getPlayers()){
                 if(p.getPage() != null){
+                    if(! ans .contains(p.getPage())){// no duplicates
                         ans.add(p.getPage());
+                    }
                 }
             }
             // coach page
@@ -141,6 +150,7 @@ public class User {
                 ans.add(t.getPage());
             }
         return ans;
+
     }
 
     //or
@@ -164,7 +174,9 @@ public class User {
         for (User user:system.getUsers()) {
             if(user instanceof  Coach){
                 if(((Coach)user).getPage() != null){
+                    if( ! ans.contains(((Coach)user).getPage())){
                         ans.add(((Coach)user).getPage());
+                    }
                 }
             }
         }

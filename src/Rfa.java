@@ -1,6 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class Rfa extends Subscription {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         this.budgetControl = new BudgetControl();
         //TODO add permissions
-        //this.permissions.add();
+
     }
 
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
@@ -22,16 +23,33 @@ public class Rfa extends Subscription {
         //TODO add permissions
         //this.permissions.add();
     }
-    public void addReferee(){
+
+    /**Yarden**/
+    public void createNewLeague(){
 
     }
 
-    public void addLeague(){
-
+    /**Yarden**/
+    public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification) throws Exception {
+        if (checkValidDetails(userName, password, phoneNumber)) {
+            Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification);
+            system.addUser(newRef);
+        }
+        else {
+            throw new Exception("Invalid details - You can not add this referee");
+        }
     }
 
-    public void deleteReferee(){
-
+    /**Yarden**/
+    public void deleteReferee(Referee ref) throws Exception {
+        //check the all matches that the referee is refereeing
+        for (Match m : ref.getMatches()) {
+            //can't delete, match still didn't take place
+            if (m.getDate().after(new Date(System.currentTimeMillis()))) {
+                throw new Exception("You can not delete this referee");
+            }
+        }
+        system.removeUser(ref);
     }
 
     public void addPolicy(){

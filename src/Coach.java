@@ -26,33 +26,8 @@ public class Coach extends Subscription implements PageOwner{
         //this.permissions.add();
     }
 
-    @Override
-    public void addRecordToPage(String record) {
-        this.privatePage.addRecords(record);
-    }
+    //<editor-fold desc="getter and setters">
 
-    @Override
-    public void removeRecordFromPage(String record) {
-        this.privatePage.removeRecord(record);
-    }
-
-    @Override
-    public boolean createPrivatePage() {
-        PrivatePage p = new PrivatePage();
-        if(this.privatePage==null){// you can have only one page
-            this.privatePage=p;
-            p.setPageOwner(this);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public PrivatePage getPage() {
-        return privatePage;
-    }
-
-    //<editor-fold desc="getters and setters">
     public Team getCoachTeam() {
         return coachTeam;
     }
@@ -76,5 +51,42 @@ public class Coach extends Subscription implements PageOwner{
     public void setRoleAtTeam(String roleAtTeam) {
         this.roleAtTeam = roleAtTeam;
     }
+
+
     //</editor-fold>
+
+
+    //<editor-fold desc="Page Owner Functions">
+    /**Or**/
+    @Override
+    public void addRecordToPage(String record) throws Exception {
+        this.privatePage.addRecords(record);
+    }
+
+    /**Or**/
+    @Override
+    public void removeRecordFromPage(String record) throws Exception {
+        this.privatePage.removeRecord(record);
+    }
+
+    /**Or**/
+    @Override
+    public boolean createPrivatePage() {
+        PrivatePage p = new PrivatePage();
+        if(this.privatePage==null){// you can have only one page
+            this.privatePage=p;
+            p.setPageOwner(this);
+            return true;
+        }
+        return false;
+    }
+
+    /**Or**/
+    @Override
+    public PrivatePage getPage() {
+        return privatePage;
+    }
+
+    //</editor-fold>
+
 }

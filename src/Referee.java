@@ -1,5 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sun.awt.image.ImageWatched;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -86,16 +87,19 @@ public class Referee extends Subscription{
 
     /**Yarden**/
     //just matches that still not take place
-    public void showMatches(){
+    public LinkedList<Match> showMatches(){
+
+        LinkedList<Match> matchesToShow = new LinkedList<>();
 
         for (Match m: matches) {
             if (m.getDate().after(new Date(System.currentTimeMillis()))){
                 //print details about the game
-                System.out.println("Date:"+m.getDate().toString()+""+"At field:"+m.getField().getNameOfField()+""+"Guest score:"+m.getGuestScore()
-                        +"Home score:"+""+ m.getHomeScore());
+                matchesToShow.add(m);
+//                System.out.println("Date:"+m.getDate().toString()+""+"At field:"+m.getField().getNameOfField()+""+"Guest score:"+m.getGuestScore()
+//                        +"Home score:"+""+ m.getHomeScore());
             }
         }
-
+        return matchesToShow;
     }
 
 }

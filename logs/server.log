@@ -1,3 +1,10 @@
 2020.04.12 15:11:04.630 INFO  Main - Logging level: INFO
 2020.04.12 15:11:04.632 INFO  Main - Server starter at %s!
 2020.04.12 15:11:04.632 INFO  Main - try this
+2020.04.12 15:57:16.126 INFO  Main - Logging level: INFO
+2020.04.12 15:57:16.130 INFO  Main - Server starter at %s!
+2020.04.12 15:57:16.131 INFO  Main - try this
+2020.04.14 10:19:03.973 INFO  Main - @s - action
+2020.04.14 10:19:25.490 INFO  Main - %s - action
+2020.04.14 10:21:48.708 INFO  Main - oral - action
+2020.04.14 10:56:43.562 INFO  Main - oral - action

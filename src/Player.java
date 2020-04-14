@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Date;
 
 public class Player extends Subscription implements PageOwner {
@@ -5,6 +8,7 @@ public class Player extends Subscription implements PageOwner {
     private Team playerTeam;
     private Date dateOfBirth;
     private String roleAtField;
+    private static final Logger LOG = LogManager.getLogger();
 
     public Player(Subscription sub, MainSystem ms){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
@@ -20,6 +24,16 @@ public class Player extends Subscription implements PageOwner {
         super(ms, name, phoneNumber, email, userName, password);
         this.privatePage=null;
         this.playerTeam=null;
+        this.dateOfBirth= null;
+        this.roleAtField=null;
+    }
+
+    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
+        super(ms, name, phoneNumber, email, userName, password);
+        this.dateOfBirth=dateOfBirth;
+        this.privatePage=null;
+        this.playerTeam=null;
+        this.roleAtField=null;
     }
 
     public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, PrivatePage privatePage, Team playerTeam) {
@@ -28,14 +42,16 @@ public class Player extends Subscription implements PageOwner {
         this.playerTeam = playerTeam;
     }
 
-    @Override
-    public void openPage() {
 
+
+    @Override
+    public void addRecordToPage(String record) {
+        this.privatePage.addRecords(record);
     }
 
     @Override
-    public void managePage() {
-
+    public void removeRecordFromPage(String record) {
+        this.privatePage.removeRecord(record);
     }
 
     @Override

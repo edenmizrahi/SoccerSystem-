@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -10,6 +13,8 @@ public class MainSystem {
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
+    private LinkedList<Team> teams; // *
+    private static final Logger LOG = LogManager.getLogger();
 
 
     public MainSystem(SystemManager sm) {
@@ -19,13 +24,19 @@ public class MainSystem {
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
+        this.teams= new LinkedList<>();
     }
     public MainSystem() {
         this.complaints = new LinkedList<>();
         this.systemManagers = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
+        this.seasons= new LinkedList<>();
+        this.teams= new LinkedList<>();
     }
+
+    //<editor-fold desc="add and remove from lists">
+
     // adi
     public boolean removeUser(User user){
         if (users.contains(user)){
@@ -42,6 +53,44 @@ public class MainSystem {
         users.add(user);
         return true;
     }
+
+    // or
+    public boolean removeTeam(Team team){
+        if (teams.contains(team)){
+            teams.remove(team);
+            return true;
+        }
+        return false;
+    }
+    // or
+    public boolean addTeam(Team team){
+        if (teams.contains(team)){
+            return false;
+        }
+        teams.add(team);
+        return true;
+    }
+
+    // adi
+    public boolean removeSeason(Season s){
+        if (seasons.contains(s)){
+            seasons.remove(s);
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean addSeason(Season s){
+        if (seasons.contains(s)){
+            return false;
+        }
+        seasons.add(s);
+        return true;
+    }
+
+    //</editor-fold>
+
+
     //<editor-fold desc="getters and setters">
     public List<Complaint> getComplaints() {
         return complaints;
@@ -83,6 +132,14 @@ public class MainSystem {
         this.seasons = seasons;
     }
 
+    public LinkedList<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(LinkedList<Team> teams) {
+        this.teams = teams;
+    }
+
     //</editor-fold>
 
     //or- not done
@@ -93,6 +150,7 @@ public class MainSystem {
         //read from the external DB
         System.out.println("The system was started correctly!");
     }
+
 
 
 

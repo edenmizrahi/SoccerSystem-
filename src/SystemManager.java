@@ -1,12 +1,24 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 public class SystemManager extends Subscription implements Observer {
 
     private LinkedList<Notification> notifications;//*
     private HashSet<Complaint> complaints;//*
+    private static final Logger LOG = LogManager.getLogger();
 
     public SystemManager(Subscription sub, MainSystem ms) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+        this.notifications = new LinkedList<>();
+        this.complaints = new HashSet<>();
+        //TODO add permissions
+        //this.permissions.add();
+    }
+
+    public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms,name,phoneNumber,email,userName,password);
         this.notifications = new LinkedList<>();
         this.complaints = new HashSet<>();
         //TODO add permissions

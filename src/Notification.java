@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashSet;
 
 public class Notification {
@@ -12,6 +15,7 @@ public class Notification {
     private HashSet<Referee> referees;
     private HashSet<Fan> fans;
     private HashSet<Rfa> rfas;
+    private static final Logger LOG = LogManager.getLogger();
 
     public Notification(String text) {
         this.text = text;

@@ -1,11 +1,17 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.LinkedList;
+import org.apache.logging.log4j.LogManager;
 
 public class TeamManager extends Subscription{
 
     private Team team;
     private LinkedList<Notification> notifications;
+    private static final Logger LOG = LogManager.getLogger();
 
     public TeamManager(Subscription sub, MainSystem ms, Team team) {
+
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         ms.removeUser(sub);
         this.team = team;

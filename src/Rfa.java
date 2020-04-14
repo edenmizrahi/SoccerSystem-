@@ -1,3 +1,7 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -5,6 +9,7 @@ public class Rfa extends Subscription {
 
     private BudgetControl budgetControl;//1
     private LinkedList<Notification> notifications;// *
+    private static final Logger LOG = LogManager.getLogger();
 
     public Rfa(Subscription sub, MainSystem ms) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
@@ -14,31 +19,40 @@ public class Rfa extends Subscription {
 
     }
 
-    //yarden
-    public boolean addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification){
-        if(checkValidDetails(userName,password,phoneNumber)){
-            Referee newRef= new Referee(system,name,phoneNumber,email,userName,password,qualification);
-            system.addUser(newRef);
-            return true;
-        }
-        return false;
+    public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms,name,phoneNumber,email,userName,password);
+        this.budgetControl = new BudgetControl();
+        this.notifications = new LinkedList<>();
+        //TODO add permissions
+        //this.permissions.add();
     }
+
 
     public void addLeague(){
 
     }
 
-    //yarden
-    public boolean deleteReferee(Referee ref){
+    /**Yarden**/
+    public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification) throws Exception {
+        if (checkValidDetails(userName, password, phoneNumber)) {
+            Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification);
+            system.addUser(newRef);
+        }
+        else {
+            throw new Exception("Invalid details - You can not add this referee");
+        }
+    }
+
+    /**Yarden**/
+    public void deleteReferee(Referee ref) throws Exception {
         //check the all matches that the referee is refereeing
         for (Match m : ref.getMatches()) {
-            //can't delete, match can't be without referee
-            if(m.getReferees().size() == 1){
-                System.out.println("You can not delete this referee");
-                return false;
+            //can't delete, match still didn't take place
+            if (m.getDate().after(new Date(System.currentTimeMillis()))) {
+                throw new Exception("You can not delete this referee");
             }
         }
-        return system.removeUser(ref);
+        system.removeUser(ref);
     }
 
     public void addPolicy(){

@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
@@ -9,15 +12,11 @@ public class Fan extends Subscription implements Observer {
     private List<Notification> myNotifications;
     private List<Complaint> myComplaints;
     private LinkedList <Match> matchesFollow;
-    private String name;
-    private String id;
-    private String email;
-    private String password;
+    private LinkedList<String> searchHisroty;
+    private static final Logger LOG = LogManager.getLogger();
 
 
-
-    LinkedList<String> searchHisroty;
-    Fan(Subscription sub, MainSystem ms){
+    public Fan(Subscription sub, MainSystem ms){
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         myPages = new LinkedList<>();
         myNotifications = new LinkedList<>();
@@ -27,6 +26,16 @@ public class Fan extends Subscription implements Observer {
         //this.permissions.add();
     }
 
+    public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms,name,phoneNumber,email,userName,password);
+        this.myPages= new LinkedList<>();
+        this.myNotifications= new LinkedList<>();
+        this.myComplaints= new LinkedList<>();
+        this.matchesFollow= new LinkedList<>();
+        this.searchHisroty= new LinkedList<>();
+        //TODO add permissions
+        //this.permissions.add();
+    }
     /**Eden*/
     public void  addMatchFollow(Match m){
         matchesFollow.add(m);
@@ -116,41 +125,9 @@ public class Fan extends Subscription implements Observer {
 
     }
 
-    @Override
-    public String getName() {
-        return name;
+    /**OR**/
+    public void addPage(PrivatePage page){
+        myPages.add(page);
     }
 
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

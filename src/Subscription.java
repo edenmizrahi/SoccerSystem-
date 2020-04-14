@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Subscription extends User
 {
     private String name;
@@ -5,6 +8,7 @@ public class Subscription extends User
     private String email;
     private String userName;
     private String password;
+    private static final Logger LOG = LogManager.getLogger();
 
 
     public Subscription(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
@@ -14,6 +18,8 @@ public class Subscription extends User
         this.email = email;
         this.userName = userName;
         this.password = password;
+        //TODO add permissions
+        //this.permissions.add();
     }
 
     //<editor-fold desc="getters and setters">

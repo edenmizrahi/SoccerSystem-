@@ -16,7 +16,7 @@ public class Team implements PageOwner{
     private HashSet<Match> away;
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
-
+    private TeamOwner founder;
 
     /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
@@ -289,5 +289,11 @@ public class Team implements PageOwner{
         return false;
     }
 
+    public TeamOwner getFounder() {
+        return founder;
+    }
 
+    public void setFounder(TeamOwner founder) {
+        this.founder = founder;
+    }
 }

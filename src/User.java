@@ -66,7 +66,7 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("Name: "+name);
         }
-
+        writeToLOG("searched by name: "+name);
         return ans;
     }
 
@@ -96,6 +96,8 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("KeyWord: "+keyWord);
         }
+
+        writeToLOG("searched by key word: "+keyWord);
         return ans;
     }
 
@@ -125,13 +127,15 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("League: "+leagueName);
         }
+
+        writeToLOG("searched league name: "+leagueName);
         return ans;
     }
 
     //or
     //the user chooses to search by season and chooses the season year from the options
     public LinkedHashSet<PrivatePage> searchBySeason(int seasonYear) throws Exception {
-        if(seasonYear<1970 || seasonYear>2020){// not a year
+        if(seasonYear<1970 || seasonYear>2021){// not a year
             throw new Exception("year not valid");
         }
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
@@ -150,6 +154,8 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("Season: "+seasonYear);
         }
+
+        writeToLOG("searched season year: "+seasonYear);
         return ans;
     }
 
@@ -163,8 +169,8 @@ public class User {
             throw new Exception("teamName empty");
         }
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
-            for (Team t:system.getTeams()) {
-               if(t.getName().equals(teamName)){
+            for (Team t:system.getAllTeams()) {
+               if(t.getName().contains(teamName)){
                    ans.addAll(getPrivatePageforTeam(t));
                }
             }
@@ -173,6 +179,8 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("Team Name: "+teamName);
         }
+
+        writeToLOG("searched team name: "+teamName);
         return ans;
     }
 
@@ -220,12 +228,14 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("Search all Players");
         }
+
+        writeToLOG("searched all players in system");
         return ans;
     }
 
     //or
     //the user chooses to search all coaches , returns all the coaches who have pages
-    public LinkedHashSet<PrivatePage> searchAllCoachs(){
+    public LinkedHashSet<PrivatePage> searchAllCoaches(){
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
         for (User user:system.getUsers()) {
             if(user instanceof  Coach){
@@ -241,6 +251,8 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("Search all Coaches");
         }
+
+        writeToLOG("searched all coaches in system");
         return ans;
     }
 
@@ -248,7 +260,7 @@ public class User {
     //the user chooses to search all teams , returns all the teams who have pages
     public LinkedHashSet<PrivatePage> searchAllTeams(){
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
-            for (Team t:system.getTeams()) {
+            for (Team t:system.getAllTeams()) {
                 if( t.getPage() != null ){
                     ans.add(t.getPage());
                 }
@@ -258,6 +270,8 @@ public class User {
         if(this instanceof Fan){
             ((Fan)this).addToSearchHistory("Search All Teams");
         }
+
+        writeToLOG("searched all teams in system");
         return ans;
     }
 
@@ -267,6 +281,7 @@ public class User {
 
     /**OR**/
     public LinkedHashSet<PrivatePage> filterOnlyTeams(LinkedHashSet<PrivatePage> searchResults) throws Exception {
+        LinkedHashSet<PrivatePage> newSearchResults= new LinkedHashSet<>();
         if(searchResults==null){
             throw new Exception("searchResults null");
         }
@@ -274,15 +289,18 @@ public class User {
             throw new Exception("no results in list");
         }
         for (PrivatePage privatePage:searchResults) {
-            if(! (privatePage.getPageOwner() instanceof Team) ){
-                searchResults.remove(privatePage);
+            if((privatePage.getPageOwner() instanceof Team) ){
+               newSearchResults.add(privatePage);
             }
         }
-        return searchResults;
+
+        writeToLOG("search filter- only teams");
+        return newSearchResults;
     }
 
     /**OR**/
     public LinkedHashSet<PrivatePage> filterOnlyPlayers(LinkedHashSet<PrivatePage> searchResults) throws Exception {
+        LinkedHashSet<PrivatePage> newSearchResults= new LinkedHashSet<>();
         if(searchResults==null){
             throw new Exception("searchResults null");
         }
@@ -290,15 +308,18 @@ public class User {
             throw new Exception("no results in list");
         }
         for (PrivatePage privatePage:searchResults) {
-            if(! (privatePage.getPageOwner() instanceof Player) ){
-                searchResults.remove(privatePage);
+            if((privatePage.getPageOwner() instanceof Player) ){
+                newSearchResults.add(privatePage);
             }
         }
-        return searchResults;
+
+        writeToLOG("search filter- only players");
+        return newSearchResults;
     }
 
     /**OR**/
     public LinkedHashSet<PrivatePage> filterOnlyCoachs(LinkedHashSet<PrivatePage> searchResults) throws Exception {
+        LinkedHashSet<PrivatePage> newSearchResults= new LinkedHashSet<>();
         if(searchResults==null){
             throw new Exception("searchResults null");
         }
@@ -306,15 +327,18 @@ public class User {
             throw new Exception("no results in list");
         }
         for (PrivatePage privatePage:searchResults) {
-            if(! (privatePage.getPageOwner() instanceof Coach) ){
-                searchResults.remove(privatePage);
+            if(privatePage.getPageOwner() instanceof Coach){
+                newSearchResults.add(privatePage);
             }
         }
-        return searchResults;
+
+        writeToLOG("search filter- only coaches");
+        return newSearchResults;
     }
 
     /**OR**/
     public LinkedHashSet<PrivatePage> filterByLeagueName(LinkedHashSet<PrivatePage> searchResults, String leagueName) throws Exception {
+        LinkedHashSet<PrivatePage> newSearchResults= new LinkedHashSet<>();
         if(searchResults==null){
             throw new Exception("searchResults null");
         }
@@ -331,28 +355,31 @@ public class User {
         for (PrivatePage privatePage:searchResults) {
             //check if player's team is in this league
             if((privatePage.getPageOwner() instanceof Player) ){//if false
-                if(! (((Player) privatePage.getPageOwner()).getTeam().getLeaguePerSeason().get(currS).getName()== leagueName)){
-                    searchResults.remove(privatePage);
+                if( (((Player) privatePage.getPageOwner()).getTeam().getLeaguePerSeason().get(currS).getName()== leagueName)){
+                    newSearchResults.add(privatePage);
                 }
             }
             //check if coach's team is in this league
             else if((privatePage.getPageOwner() instanceof Coach) ){//if false
-                if(! (((Coach) privatePage.getPageOwner()).getCoachTeam().getLeaguePerSeason().get(currS).getName()== leagueName)){
-                    searchResults.remove(privatePage);
+                if( (((Coach) privatePage.getPageOwner()).getCoachTeam().getLeaguePerSeason().get(currS).getName()== leagueName)){
+                    newSearchResults.add(privatePage);
                 }
             }
             //check if team is in this league
             else if((privatePage.getPageOwner() instanceof Team)){//if false
-                if(! (((Team) privatePage.getPageOwner()).getLeaguePerSeason().get(currS).getName()== leagueName)){
-                    searchResults.remove(privatePage);
+                if( (((Team) privatePage.getPageOwner()).getLeaguePerSeason().get(currS).getName()== leagueName)){
+                    newSearchResults.add(privatePage);
                 }
             }
         }
-        return searchResults;
+
+        writeToLOG("search filter- by league name: "+leagueName);
+        return newSearchResults;
     }
 
     /**OR**/
     public LinkedHashSet<PrivatePage> filterBySeasonYear(LinkedHashSet<PrivatePage> searchResults, int seasonYear) throws Exception {
+        LinkedHashSet<PrivatePage> newSearchResults= new LinkedHashSet<>();
         if(searchResults==null){
             throw new Exception("searchResults null");
         }
@@ -365,28 +392,31 @@ public class User {
         for (PrivatePage privatePage:searchResults) {
             //check if player's team is in this season
             if((privatePage.getPageOwner() instanceof Player) ){
-                if(! (((Player) privatePage.getPageOwner()).getTeam().playedInSeason(seasonYear))){//if false
-                    searchResults.remove(privatePage);
+                if( (((Player) privatePage.getPageOwner()).getTeam().playedInSeason(seasonYear))){//if false
+                    newSearchResults.add(privatePage);
                 }
             }
             //check if coach's team is in this season
             else if((privatePage.getPageOwner() instanceof Coach) ){
-                if(! (((Coach) privatePage.getPageOwner()).getCoachTeam().playedInSeason(seasonYear))){//if false
-                    searchResults.remove(privatePage);
+                if( (((Coach) privatePage.getPageOwner()).getCoachTeam().playedInSeason(seasonYear))){//if false
+                    newSearchResults.add(privatePage);
                 }
             }
             //check if team is in this season
             else if((privatePage.getPageOwner() instanceof Team)){
-                if(! (((Team) privatePage.getPageOwner()).playedInSeason(seasonYear))){// if false
-                    searchResults.remove(privatePage);
+                if((((Team) privatePage.getPageOwner()).playedInSeason(seasonYear))){// if false
+                    newSearchResults.add(privatePage);
                 }
             }
         }
-        return searchResults;
+
+        writeToLOG("search filter- by season year : "+seasonYear);
+        return newSearchResults;
     }
 
     /**OR**/
     public LinkedHashSet<PrivatePage> filterByTeamName(LinkedHashSet<PrivatePage> searchResults, String teamName) throws Exception {
+        LinkedHashSet<PrivatePage> newSearchResults= new LinkedHashSet<>();
         if(searchResults==null){
             throw new Exception("searchResults null");
         }
@@ -402,24 +432,26 @@ public class User {
         for (PrivatePage privatePage:searchResults) {
             //check player's team
             if((privatePage.getPageOwner() instanceof Player) ){
-                if(! (((Player) privatePage.getPageOwner()).getTeam().getName().equals(teamName))){//if false
-                    searchResults.remove(privatePage);
+                if( (((Player) privatePage.getPageOwner()).getTeam().getName().equals(teamName))){//if false
+                    newSearchResults.add(privatePage);
                 }
             }
             //check if coach's team
             else if((privatePage.getPageOwner() instanceof Coach) ){
-                if(! (((Coach) privatePage.getPageOwner()).getCoachTeam().getName().equals(teamName))){//if false
-                    searchResults.remove(privatePage);
+                if( (((Coach) privatePage.getPageOwner()).getCoachTeam().getName().equals(teamName))){//if false
+                    newSearchResults.add(privatePage);
                 }
             }
             //check if team is in this season
             else if((privatePage.getPageOwner() instanceof Team)){
-                if(! (((Team) privatePage.getPageOwner()).getName().equals(teamName))){// if false
-                    searchResults.remove(privatePage);
+                if( (((Team) privatePage.getPageOwner()).getName().equals(teamName))){// if false
+                    newSearchResults.add(privatePage);
                 }
             }
         }
-        return searchResults;
+
+        writeToLOG("search filter- by team name: "+teamName);
+        return newSearchResults;
     }
 
     //</editor-fold>
@@ -555,17 +587,34 @@ public class User {
      * @param password
      * @return
      */
-    public User logIn(String userName, String password){
-        for (User user:system.getUsers()) {
-            if(user instanceof Subscription){
-                if(((Subscription)user).getUserName().equals(userName) && ((Subscription)user).getPassword().equals(password)){
+    public Subscription logIn(String userName, String password) throws Exception {
+        if(userName==null){
+            throw new Exception("userName null");
+        }
+        if(userName.length()==0){
+            throw new Exception("userName empty");
+        }
+        if(password==null){
+            throw new Exception("password null");
+        }
+        if(password.length()<6){
+            throw new Exception("password not valid");
+        }
+        for (Subscription sub:system.getSubscriptions()) {
+                if(sub.getUserName().equals(userName) && sub.getPassword().equals(password)){
                     LOG.info(String.format("%s - %s", userName, "loged in to system"));
-                    return user;
+                    return sub;
                 }
-            }
         }
         return null;
     }
 
-
+    private void writeToLOG(String message){
+        if(this instanceof Subscription){
+            LOG.info(String.format("%s - %s", ((Subscription)this).getUserName(), message));
+        }
+        else{
+            LOG.info(String.format("%s - %s", "Guest User", message));
+        }
+    }
 }

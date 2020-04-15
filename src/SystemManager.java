@@ -138,7 +138,8 @@ public class SystemManager extends Subscription implements Observer {
         return null;
     }
 
-    private List<Object> deleteTeamOwner(TeamOwner userToDelete) {
+    private List<Object> deleteTeamOwner(TeamOwner userToDelete)
+    {
         return null;
     }
 

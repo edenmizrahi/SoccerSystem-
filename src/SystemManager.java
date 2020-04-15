@@ -150,16 +150,21 @@ public class SystemManager extends Subscription implements Observer {
      * @param userToDelete
      * @codeBy Eden
      */
-    private List<Object> deleteTeamManager(TeamManager userToDelete) {
+    private List<Object> deleteTeamManager(TeamManager userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
         if(userToDelete.getTeam()!=null) {
             userToDelete.getTeam().setTeamManager(null);
         }
         system.removeUser(userToDelete);
+        HashMap<Subscription,Team> allSub= userToDelete.getMySubscriptions();
+        for(Map.Entry<Subscription,Team> sub: allSub.entrySet()){
+            if(sub instanceof TeamManager) {
+                removeTeamManager(((TeamManager)sub.getKey()), sub.getValue());
+            }
+        }
         return res;
 
-        // TODO: 15/04/2020  take from adi the function that remeove the subscribe.
     }
 
     /**
@@ -257,6 +262,31 @@ public class SystemManager extends Subscription implements Observer {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
         return res;
+    }
+
+    /**
+     * remove all the subscription of team manager.
+     * @param tM
+     * @param team
+     * @throws Exception
+     * @codeBy Eden Took from Adi (Team Owner class)
+     */
+    public void removeTeamManager (TeamManager tM, Team team) throws Exception{
+            team.removeTeamManager(tM);
+            for (Map.Entry<Subscription, Team> entry : tM.getMySubscriptions().entrySet()) {
+                if (entry.getValue().equals(team)) {
+                    if (entry.getKey() instanceof TeamOwner){
+                        tM.removeTeamOwner((TeamOwner) entry.getKey(), system, entry.getValue());
+                    }
+                    else{
+                        tM.removeTeamManager((TeamManager) entry.getKey(), system, entry.getValue());
+                    }
+                }
+            }
+            system.removeUser(tM);
+            tM.setTeam(null);
+            Subscription newSub = new Subscription(system, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
+
     }
 }
 

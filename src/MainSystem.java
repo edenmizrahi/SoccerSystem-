@@ -12,7 +12,6 @@ public class MainSystem {
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
-    private LinkedList<Team> teams; // *
     private Season currSeason;
 
     private static final Logger LOG = LogManager.getLogger();
@@ -24,7 +23,6 @@ public class MainSystem {
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
-        this.teams= new LinkedList<>();
         currSeason=null;
     }
     public MainSystem() {
@@ -32,7 +30,6 @@ public class MainSystem {
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
-        this.teams= new LinkedList<>();
         this.currSeason=null;
     }
 
@@ -67,6 +64,16 @@ public class MainSystem {
         return res;
     }
 
+    public HashSet<Team> getAllTeams(){
+        HashSet<Team> allTeams= new HashSet<>();
+        for (League l:leagues) {
+            for (HashSet<Team> teamsInSeason:l.getTeamsInSeason().values()) {
+                allTeams.addAll(teamsInSeason);
+            }
+        }
+        return allTeams;
+    }
+
 
     //<editor-fold desc="add and remove from lists">
 
@@ -87,22 +94,6 @@ public class MainSystem {
         return true;
     }
 
-    // or
-    public boolean removeTeam(Team team){
-        if (teams.contains(team)){
-            teams.remove(team);
-            return true;
-        }
-        return false;
-    }
-    // or
-    public boolean addTeam(Team team){
-        if (teams.contains(team)){
-            return false;
-        }
-        teams.add(team);
-        return true;
-    }
 
     // or
     public boolean removeLeague(League l){
@@ -177,13 +168,6 @@ public class MainSystem {
         this.seasons = seasons;
     }
 
-    public LinkedList<Team> getTeams() {
-        return teams;
-    }
-
-    public void setTeams(LinkedList<Team> teams) {
-        this.teams = teams;
-    }
 
 
     public Season getCurrSeason() {

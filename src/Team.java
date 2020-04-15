@@ -16,14 +16,11 @@ public class Team implements PageOwner{
     private HashSet<Match> away;
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
-
-    /**I think between 1..* there is no team without players.. **/
-    private HashSet<Player> players;
+    private HashSet<Player> players; /**I think between 1..* there is no team without players.. **/
     private Coach coach;
     private HashSet<TeamOwner> teamOwners;
     private Field field;
-
-    private PrivatePage privatePage;//added
+    private PrivatePage privatePage;
 
     public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner teamOwner) throws Exception {
         if(players.size() < 11){
@@ -39,8 +36,6 @@ public class Team implements PageOwner{
         this.teamOwners.add(teamOwner);
         this.field = field;
 
-        //add team to the team owner?!
-        teamOwner.getSystem().addTeam(this);
     }
 
     public Team(String name, HashSet<Player> players, TeamOwner teamOwner) throws Exception {
@@ -56,16 +51,10 @@ public class Team implements PageOwner{
         this.teamOwners = new HashSet<>();
         this.teamOwners.add(teamOwner);
         this.field = null;
-        //add team to the team owner?!
-        teamOwner.getSystem().addTeam(this);
     }
 
-    //added just for unitTests, adi
-    public Team(){
-        teamOwners = new HashSet<>();
-    }
-    //added just for unitTests, or
-    public Team(String name){
+
+    public Team(String name, TeamOwner teamOwner){
         this.leaguePerSeason = new HashMap<>();
         this.name = name;
         this.budget = 0;
@@ -73,8 +62,15 @@ public class Team implements PageOwner{
         this.coach = null;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
+        this.teamOwners.add(teamOwner);
         this.field = null;
     }
+    //added just for unitTests, adi
+    public Team(){
+        teamOwners = new HashSet<>();
+    }
+
+
 
 
     //<editor-fold desc="getters and setters">

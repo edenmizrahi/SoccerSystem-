@@ -15,6 +15,7 @@ public class Team implements PageOwner{
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
 
+
     /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
     private Coach coach;

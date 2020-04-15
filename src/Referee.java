@@ -16,7 +16,7 @@ public class Referee extends Subscription{
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         matches = new LinkedList<>();
         events = new LinkedList<>();
-        notifications = new LinkedList<>();
+//        notifications = new LinkedList<>();
     }
 
     Referee(Subscription sub, MainSystem ms, String qualification){

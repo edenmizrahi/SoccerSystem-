@@ -92,13 +92,14 @@ public class SystemManager extends Subscription implements Observer {
      * @throws Exception if the remove isnt valid
      * @codeBy Eden
      */
-    public List<Object> removeUser(User userToDelete) throws Exception {
+    public List<Object> removeUser(Subscription userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
 
-        /**delete with no other D**/
+
         if(userToDelete instanceof Rfa) {
+            /***must have at least one RFA at system**/
             if(system.numOfRfa()==1){
-                throw new Exception("Only 1 RFA left, you cannot delete it ");
+                throw new Exception("There is only one RFA left, you cannot delete it ");
             }
             objectsDeleted=deleteRfa(((Rfa)userToDelete));
         }
@@ -106,8 +107,9 @@ public class SystemManager extends Subscription implements Observer {
             if(userToDelete==this){
                 throw  new Exception("You Cannot Delete Yourself!!!");
             }
+            /***must have at least one system Manager at system**/
             if(system.getSystemManagers().size()==1){
-                throw new Exception("Only 1 System Manager left, you cannot delete it ");
+                throw new Exception("There is only one System Manager left, you cannot delete it ");
             }
             objectsDeleted=deleteSystemManager(((SystemManager)userToDelete));
         }
@@ -115,11 +117,20 @@ public class SystemManager extends Subscription implements Observer {
             objectsDeleted=deleteReferee(((Referee)userToDelete));
         }
         if(userToDelete instanceof Coach) {
+            /***canot remove coach that already connect to team**/
+
+            if(((Coach)userToDelete).getCoachTeam()!=null){
+                throw new Exception("you have to subscribe another Coach to "+((Coach)userToDelete).getCoachTeam().getName()+" Team first");
+            }
             objectsDeleted=deleteCoach(((Coach)userToDelete));
         }
         if(userToDelete instanceof Player) {
-            if(((Player)userToDelete).getTeam().getPlayers().size()<=11){
-                throw new Exception("You Cannot Delete Player From "+((Player)userToDelete).getTeam().getPlayers()+" Team , at team have to be at least 11 Players!");
+            /**can remove player only if he didnt have any team or
+             * at team has at least 11 player***/
+            if(((Player)userToDelete).getTeam()!=null) {
+                if (((Player) userToDelete).getTeam().getPlayers().size() <= 11) {
+                    throw new Exception("You Cannot Delete Player From " + ((Player) userToDelete).getTeam().getPlayers() + " Team , at team have to be at least 11 Players!");
+                }
             }
             objectsDeleted=deletePlayer(((Player)userToDelete));
         }
@@ -134,28 +145,74 @@ public class SystemManager extends Subscription implements Observer {
         return objectsDeleted;
     }
 
+    /**
+     * delete Team Manager and delete all his subscribe .
+     * @param userToDelete
+     * @codeBy Eden
+     */
     private List<Object> deleteTeamManager(TeamManager userToDelete) {
-        return null;
+        List<Object> res=new LinkedList<>();
+        res.add(userToDelete);
+        if(userToDelete.getTeam()!=null) {
+            userToDelete.getTeam().setTeamManager(null);
+        }
+        system.removeUser(userToDelete);
+        return res;
+
+        // TODO: 15/04/2020  take from adi the function that remeove the subscribe.
     }
 
-    private List<Object> deleteTeamOwner(TeamOwner userToDelete)
-    {
-        return null;
-    }
+    /**
+     * delete Team Owner only if he isn't a Founder of any team and delete all his subscribe .
+     * @param userToDelete
+     * @throws Exception if team owner is founder of any team.
+     * @codeBy Eden
+     */
+    private List<Object> deleteTeamOwner(TeamOwner userToDelete) throws Exception {
+        List<Object> res=new LinkedList<>();
+        res.add(userToDelete);
+        userToDelete.getBudgetControl().removeTeamOwner(userToDelete);
+        userToDelete.getSystem().removeUser(userToDelete);
+        /***remove all the subscription**/
+        LinkedList<Team> OwnerTeams =userToDelete.getTeams();
+        for(Team t: OwnerTeams){
+            if(t.getFounder()==userToDelete){
+                throw new Exception(userToDelete.getName()+" is founder if:"+ " "+t.getName() +"please change the fonder");
+            }
+        }
 
+        HashMap<Subscription, Team> subscriptions= userToDelete.getMySubscriptions();
+        for(Map.Entry<Subscription,Team> sub: subscriptions.entrySet()){
+            userToDelete.removeTeamOwner(((TeamOwner)sub.getKey()),system,sub.getValue());
+        }
+        return res;
+    }
+    /**
+     * delete Player only if the team has at least 11 other players
+     * @param userToDelete
+     * @throws Exception
+     * @codeBy Eden
+     */
     private List<Object> deletePlayer(Player userToDelete) throws Exception {
-       userToDelete.getTeam().removePlayer(userToDelete);
+        if( userToDelete.getTeam()!=null) {
+            userToDelete.getTeam().removePlayer(userToDelete);
+        }
         system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
         return res;
-
-
     }
 
+    /**
+     * delete Coach .
+     * @param userToDelete
+     * @codeBy Eden
+     */
     private List<Object> deleteCoach(Coach userToDelete) {
-        return null;
-
+        system.removeUser(userToDelete);
+        List<Object> re=new LinkedList<>();
+        re.add(userToDelete);
+        return  re;
     }
 
     /**
@@ -178,21 +235,28 @@ public class SystemManager extends Subscription implements Observer {
         return res;
     }
 
+    /**
+     * delete System Manager.
+     * @param userToDelete
+     * @codeBy Eden
+     */
     private List<Object> deleteSystemManager(SystemManager userToDelete) {
         system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
         return res;
     }
-
-    private List<Object> deleteRfa(Rfa rfa){
-        rfa.getBudgetControl().removeRfa(rfa);
-        system.removeUser(rfa);
+    /**
+     * delete RFA , disconnect from budget control and from system
+     * @param userToDelete
+     * @codeBy Eden
+     */
+    private List<Object> deleteRfa(Rfa userToDelete){
+        userToDelete.getBudgetControl().removeRfa(userToDelete);
+        system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
-        res.add(rfa);
+        res.add(userToDelete);
         return res;
     }
-
-    //</editor-fold>
 }
 

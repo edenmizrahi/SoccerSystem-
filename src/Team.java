@@ -16,13 +16,17 @@ public class Team implements PageOwner{
     private HashSet<Match> away;
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
-    private HashSet<Player> players; /**I think between 1..* there is no team without players.. **/
+    private TeamOwner founder;
+
+    /**I think between 1..* there is no team without players.. **/
+    private HashSet<Player> players;
     private Coach coach;
     private HashSet<TeamOwner> teamOwners;
     private Field field;
-    private PrivatePage privatePage;
 
-    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner teamOwner) throws Exception {
+    private PrivatePage privatePage;//added
+
+    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
         if(players.size() < 11){
             throw new Exception();
         }
@@ -33,8 +37,10 @@ public class Team implements PageOwner{
         this.coach = coach;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
-        this.teamOwners.add(teamOwner);
+        this.teamOwners.add(founder);
         this.field = field;
+        this.founder=founder;
+
     }
 
     public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
@@ -50,6 +56,8 @@ public class Team implements PageOwner{
         this.teamOwners = new HashSet<>();
         this.teamOwners.add(teamOwner);
         this.field = null;
+        this.founder=teamOwner;
+
     }
 
 // just for tests!
@@ -281,5 +289,11 @@ public class Team implements PageOwner{
         return false;
     }
 
+    public TeamOwner getFounder() {
+        return founder;
+    }
 
+    public void setFounder(TeamOwner founder) {
+        this.founder = founder;
+    }
 }

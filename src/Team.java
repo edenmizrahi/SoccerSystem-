@@ -38,13 +38,13 @@ public class Team implements PageOwner{
 
     }
 
-    public Team(String name, HashSet<Player> players, TeamOwner teamOwner) throws Exception {
+    public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
         if(players.size() < 11){
             throw new Exception();
         }
         this.name = name;
         this.players = players;
-        this.coach = null;
+        this.coach = coach;
         this.leaguePerSeason=new HashMap<>();
         this.budget = 0;
         this.teamManager = null;
@@ -53,7 +53,7 @@ public class Team implements PageOwner{
         this.field = null;
     }
 
-
+// just for tests!
     public Team(String name, TeamOwner teamOwner){
         this.leaguePerSeason = new HashMap<>();
         this.name = name;

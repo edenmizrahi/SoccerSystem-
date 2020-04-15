@@ -36,6 +36,15 @@ public class Field {
     public void setMatches(HashSet<Match> matches) { this.matches = matches; }
 
     public void setTeams(HashSet<Team> teams) { this.teams = teams; }
+
+    public void addTeam(Team team){
+        teams.add(team);
+    }
+    public void removeTeam(Team team){
+        if(teams.contains(team)){
+            teams.remove(team);
+        }
+    }
     //</editor-fold>
 
 }

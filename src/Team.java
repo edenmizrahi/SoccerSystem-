@@ -26,7 +26,7 @@ public class Team implements PageOwner{
 
     private PrivatePage privatePage;//added
 
-    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner teamOwner) throws Exception {
+    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
         if(players.size() < 11){
             throw new Exception();
         }
@@ -37,36 +37,31 @@ public class Team implements PageOwner{
         this.coach = coach;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
-        this.teamOwners.add(teamOwner);
+        this.teamOwners.add(founder);
         this.field = field;
+        this.founder=founder;
 
-        //add team to the team owner?!
-        teamOwner.getSystem().addTeam(this);
     }
 
-    public Team(String name, HashSet<Player> players, TeamOwner teamOwner) throws Exception {
+    public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
         if(players.size() < 11){
             throw new Exception();
         }
         this.name = name;
         this.players = players;
-        this.coach = null;
+        this.coach = coach;
         this.leaguePerSeason=new HashMap<>();
         this.budget = 0;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
         this.teamOwners.add(teamOwner);
         this.field = null;
-        //add team to the team owner?!
-        teamOwner.getSystem().addTeam(this);
+        this.founder=teamOwner;
+
     }
 
-    //added just for unitTests, adi
-    public Team(){
-        teamOwners = new HashSet<>();
-    }
-    //added just for unitTests, or
-    public Team(String name){
+// just for tests!
+    public Team(String name, TeamOwner teamOwner){
         this.leaguePerSeason = new HashMap<>();
         this.name = name;
         this.budget = 0;
@@ -74,8 +69,15 @@ public class Team implements PageOwner{
         this.coach = null;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
+        teamOwners.add(teamOwner);
         this.field = null;
     }
+    //added just for unitTests, adi
+    public Team(){
+        teamOwners = new HashSet<>();
+    }
+
+
 
 
     //<editor-fold desc="getters and setters">
@@ -169,7 +171,7 @@ public class Team implements PageOwner{
     }
 
     //</editor-fold>
-    
+
     //<editor-fold desc="add and remove functions">
     // adi
     public void addTeamOwner(TeamOwner tO){

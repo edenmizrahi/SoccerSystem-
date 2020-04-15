@@ -24,6 +24,15 @@ public class TeamManager extends Subscription{
     }
 
     //<editor-fold desc="getters and setters">
+
+    public HashMap<Subscription, Team> getMySubscriptions() {
+        return mySubscriptions;
+    }
+
+    public void setMySubscriptions(HashMap<Subscription, Team> mySubscriptions) {
+        this.mySubscriptions = mySubscriptions;
+    }
+
     public Team getTeam() { return team; }
 
     public void setTeam(Team team) { this.team = team; }
@@ -32,6 +41,9 @@ public class TeamManager extends Subscription{
     //<editor-fold desc="add remove and edit">
     // adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
+        if (sub == null || ms == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditTeamOwner)) {
             if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)) {
                 throw new Exception("Already Team Owner in this team");
@@ -46,13 +58,21 @@ public class TeamManager extends Subscription{
     }
     // adi
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
+        if (tO == null || ms == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditTeamOwner)) {
             if (mySubscriptions.containsKey(tO)) {
                 team.removeTeamOwner(tO);
                 mySubscriptions.remove(tO);
                 for (Map.Entry<Subscription, Team> entry : tO.getMySubscriptions().entrySet()) {
                     if (entry.getValue().equals(team)) {
-                        tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
+                        if (entry.getKey() instanceof TeamOwner){
+                            tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
+                        }
+                        else{
+                            tO.removeTeamManager((TeamManager) entry.getKey(), ms, entry.getValue());
+                        }
                     }
                 }
                 ms.removeUser(tO);
@@ -65,6 +85,9 @@ public class TeamManager extends Subscription{
     }
     // adi
     public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
+        if (sub == null || ms == null || team == null || per == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditTeamManager)) {
             if (sub instanceof TeamManager && team.getTeamManager().equals(sub)) {
                 throw new Exception("Already Team Manager of this team");
@@ -79,10 +102,23 @@ public class TeamManager extends Subscription{
     }
     // adi
     public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
+        if (tM == null || ms == null || team == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditTeamManager)) {
             if (mySubscriptions.containsKey(tM)) {
                 team.removeTeamManager(tM);
                 mySubscriptions.remove(tM);
+                for (Map.Entry<Subscription, Team> entry : tM.getMySubscriptions().entrySet()) {
+                    if (entry.getValue().equals(team)) {
+                        if (entry.getKey() instanceof TeamOwner){
+                            tM.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
+                        }
+                        else{
+                            tM.removeTeamManager((TeamManager) entry.getKey(), ms, entry.getValue());
+                        }
+                    }
+                }
                 ms.removeUser(tM);
                 Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
             }
@@ -94,6 +130,9 @@ public class TeamManager extends Subscription{
 
     //adi
     public void addCoach(Coach coach, Team team) throws Exception {
+        if (coach == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditCoach)) {
             team.setCoach(coach);
         }
@@ -103,6 +142,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void removeCoach(Coach coach, Team team) throws Exception {
+        if (coach == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditCoach)) {
             team.removeCoach(coach);
         }
@@ -112,6 +154,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void editCoachRole(Coach coach, String role)throws Exception {
+        if (coach == null || role == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditCoach)) {
             coach.setRoleAtTeam(role);
         }
@@ -121,6 +166,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void addPlayer(Player player, Team team)throws Exception {
+        if (player == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditPlayer)) {
             team.addPlayer(player);
         }
@@ -130,6 +178,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void removePlayer (Player player, Team team) throws Exception {
+        if (player == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditPlayer)) {
             team.removePlayer(player);
         }
@@ -139,6 +190,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void editPlayerRole(Player player, String role)throws Exception {
+        if (player == null || role == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditPlayer)) {
             player.setRoleAtField(role);
         }
@@ -148,6 +202,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void addField(Field field, Team team) throws Exception {
+        if (field == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditField)) {
             team.setField(field);
         }
@@ -157,6 +214,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void removeField (Field field, Team team) throws Exception {
+        if (field == null || team == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditField)) {
             team.removeField(field);
         }
@@ -166,6 +226,9 @@ public class TeamManager extends Subscription{
     }
     //adi
     public void editFieldName(Field field, String name) throws Exception {
+        if (field == null || name == null){
+            throw new NullPointerException();
+        }
         if (this.permissions.contains(Permission.addRemoveEditField)) {
             field.setNameOfField(name);
         }

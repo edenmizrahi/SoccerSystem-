@@ -64,8 +64,7 @@ public class TeamOwner extends Subscription{
         if (sub instanceof TeamManager && team.getTeamManager().equals(sub)){
             throw new Exception("Already Team Manager of this team");
         }
-        TeamManager tM = new TeamManager(sub, ms, team);
-        tM.addPermissions(per);
+        TeamManager tM = new TeamManager(sub, ms, team, per);
         mySubscriptions.put(tM, team);
         return tM;
     }

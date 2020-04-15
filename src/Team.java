@@ -168,7 +168,7 @@ public class Team implements PageOwner{
     }
 
     //</editor-fold>
-    
+
     //<editor-fold desc="add and remove functions">
     // adi
     public void addTeamOwner(TeamOwner tO){

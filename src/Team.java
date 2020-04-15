@@ -78,8 +78,6 @@ public class Team implements PageOwner{
     }
 
 
-
-
     //<editor-fold desc="getters and setters">
     public void setName(String name) {
         this.name = name;

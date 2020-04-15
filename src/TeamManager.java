@@ -67,16 +67,18 @@ public class TeamManager extends Subscription{
                 mySubscriptions.remove(tO);
                 for (Map.Entry<Subscription, Team> entry : tO.getMySubscriptions().entrySet()) {
                     if (entry.getValue().equals(team)) {
-                        if (entry.getKey() instanceof TeamOwner){
+                        if (entry.getKey() instanceof TeamOwner) {
                             tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
-                        }
-                        else{
+                        } else {
                             tO.removeTeamManager((TeamManager) entry.getKey(), ms, entry.getValue());
                         }
                     }
                 }
-                ms.removeUser(tO);
-                Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+                tO.removeTeam(team);
+                if (tO.getTeams().size() == 0) {
+                    ms.removeUser(tO);
+                    Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+                }
             }
         }
         else{
@@ -129,24 +131,26 @@ public class TeamManager extends Subscription{
     }
 
     //adi
-    public void addCoach(Coach coach, Team team) throws Exception {
-        if (coach == null || team == null){
+    public void addCoach(Coach coachToAdd, Team team) throws Exception {
+        if (coachToAdd == null || team == null){
             throw new NullPointerException();
         }
         if (this.permissions.contains(Permission.addRemoveEditCoach)) {
-            team.setCoach(coach);
+            team.setCoach(coachToAdd);
+            coachToAdd.setCoachTeam(team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
     //adi
-    public void removeCoach(Coach coach, Team team) throws Exception {
-        if (coach == null || team == null){
+    public void removeCoach(Coach coachToRemove, Team team) throws Exception {
+        if (coachToRemove == null || team == null){
             throw new NullPointerException();
         }
         if (this.permissions.contains(Permission.addRemoveEditCoach)) {
-            team.removeCoach(coach);
+            team.removeCoach(coachToRemove);
+            coachToRemove.setCoachTeam(null);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -171,6 +175,7 @@ public class TeamManager extends Subscription{
         }
         if (this.permissions.contains(Permission.addRemoveEditPlayer)) {
             team.addPlayer(player);
+            player.setPlayerTeam(team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -183,6 +188,7 @@ public class TeamManager extends Subscription{
         }
         if (this.permissions.contains(Permission.addRemoveEditPlayer)) {
             team.removePlayer(player);
+            player.setPlayerTeam(null);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -207,6 +213,7 @@ public class TeamManager extends Subscription{
         }
         if (this.permissions.contains(Permission.addRemoveEditField)) {
             team.setField(field);
+            field.addTeam(team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -219,6 +226,7 @@ public class TeamManager extends Subscription{
         }
         if (this.permissions.contains(Permission.addRemoveEditField)) {
             team.removeField(field);
+            field.removeTeam(team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");

@@ -115,9 +115,18 @@ public class Fan extends Subscription implements Observer {
         return searchHisroty;
     }
 
-    public void subToPage(int pageID){
 
+    /**Or**/
+    public void subToPage(PrivatePage privatePage) throws Exception {
+        if(privatePage== null){
+            throw new Exception("private page null");
+        }
+        myPages.add(privatePage);
+        privatePage.addFan(this);
+        LOG.info(String.format("%s - %s", getUserName(), "subscriped to page"));
     }
+
+
     public void addComplaint(){
 
     }

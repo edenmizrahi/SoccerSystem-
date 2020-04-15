@@ -62,4 +62,9 @@ public class Subscription extends User
 
     //</editor-fold>
 
+    /**OR**/
+    public void logOut(){
+        //nothing to do now.....
+        LOG.info(String.format("%s - %s", userName, "loged out from system"));
+    }
 }

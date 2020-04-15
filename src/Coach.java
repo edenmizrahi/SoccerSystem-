@@ -13,6 +13,8 @@ public class Coach extends Subscription implements PageOwner{
         //TODO add permissions
         //this.permissions.add();
         this.roleAtTeam = roleAtTeam;
+        this.privatePage=null;
+        this.coachTeam=null;
     }
 
     public Coach(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
@@ -24,16 +26,50 @@ public class Coach extends Subscription implements PageOwner{
         //this.permissions.add();
     }
 
+    //<editor-fold desc="getter and setters">
+
+    public Team getCoachTeam() {
+        return coachTeam;
+    }
+
+    public void setCoachTeam(Team coachTeam) {
+        this.coachTeam = coachTeam;
+    }
+
+    public PrivatePage getPrivatePage() {
+        return privatePage;
+    }
+
+    public void setPrivatePage(PrivatePage privatePage) {
+        this.privatePage = privatePage;
+    }
+
+    public String getRoleAtTeam() {
+        return roleAtTeam;
+    }
+
+    public void setRoleAtTeam(String roleAtTeam) {
+        this.roleAtTeam = roleAtTeam;
+    }
+
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="Page Owner Functions">
+    /**Or**/
     @Override
-    public void addRecordToPage(String record) {
+    public void addRecordToPage(String record) throws Exception {
         this.privatePage.addRecords(record);
     }
 
+    /**Or**/
     @Override
-    public void removeRecordFromPage(String record) {
+    public void removeRecordFromPage(String record) throws Exception {
         this.privatePage.removeRecord(record);
     }
 
+    /**Or**/
     @Override
     public boolean createPrivatePage() {
         PrivatePage p = new PrivatePage();
@@ -45,10 +81,12 @@ public class Coach extends Subscription implements PageOwner{
         return false;
     }
 
+    /**Or**/
     @Override
     public PrivatePage getPage() {
         return privatePage;
     }
 
+    //</editor-fold>
 
 }

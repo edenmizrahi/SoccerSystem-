@@ -32,7 +32,7 @@ public class TeamOwnerTest {
     }
     //adi
     @Test
-    public void subscribeTeamManagerTest(){
+    public void subscribeTeamManagerTest() throws Exception {
         HashSet<Permission> per = new HashSet<>();
         per.add(Permission.DeleteUser);
         TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
@@ -41,7 +41,7 @@ public class TeamOwnerTest {
     }
     //adi
     @Test
-    public void removeTeamManagerTest() {
+    public void removeTeamManagerTest() throws Exception {
         HashSet<Permission> per = new HashSet<>();
         per.add(Permission.DeleteUser);
         TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);

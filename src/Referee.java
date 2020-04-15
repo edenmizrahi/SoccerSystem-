@@ -16,7 +16,6 @@ public class Referee extends Subscription{
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         matches = new LinkedList<>();
         events = new LinkedList<>();
-//        notifications = new LinkedList<>();
     }
 
     Referee(Subscription sub, MainSystem ms, String qualification){
@@ -37,7 +36,7 @@ public class Referee extends Subscription{
         //this.permissions.add();
     }
 
-
+    //<editor-fold desc="getter and setters">
     public LinkedList<Match> getMatches() {
         return matches;
     }
@@ -60,6 +59,7 @@ public class Referee extends Subscription{
         this.qualification = qualification;
     }
 
+    //</editor-fold>
     /**Yarden**/
     public void addEvent(Match match){
 

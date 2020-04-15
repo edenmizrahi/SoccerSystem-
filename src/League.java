@@ -15,17 +15,27 @@ public class League {
      * hold the teams in this league and in specific Seasons
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
-    private Season currSeason;
-
 
     public League(String name, MainSystem mainSystem, HashMap<Season, Policy> seasonsWithPolicy, Season currSeason) {
         this.name = name;
         teamsInSeason=new HashMap<>();
         this.mainSystem = mainSystem;
         this.seasonsWithPolicy = seasonsWithPolicy;
-        this.currSeason= currSeason;
+
+        mainSystem.addLeague(this);
+
     }
 
+    public League(String name, MainSystem mainSystem) {
+        this.name = name;
+        this.mainSystem = mainSystem;
+        teamsInSeason=new HashMap<>();
+        this.seasonsWithPolicy = seasonsWithPolicy;
+
+        mainSystem.addLeague(this);
+    }
+
+    //<editor-fold desc="getter ans setters">
     public String getName() {
         return name;
     }
@@ -54,13 +64,7 @@ public class League {
         this.teamsInSeason = teamsInSeason;
     }
 
-    public Season getCurrSeason() {
-        return currSeason;
-    }
-
-    public void setCurrSeason(Season currSeason) {
-        this.currSeason = currSeason;
-    }
+    //</editor-fold>
 
     /**
      * Add teams by Season to this league.

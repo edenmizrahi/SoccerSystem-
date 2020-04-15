@@ -68,9 +68,11 @@ public class TeamOwner extends Subscription{
                     }
                 }
             }
-            ms.removeUser(tO);
             tO.removeTeam(team);
-            Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+            if (tO.getTeams().size() == 0){
+                ms.removeUser(tO);
+                Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
+            }
         }
     }
     // adi
@@ -117,20 +119,20 @@ public class TeamOwner extends Subscription{
         tM.setTeam(team);
     }
     //adi
-    public void addCoach(Coach coach, Team team){
-        if (coach == null || team == null){
+    public void addCoach(Coach coachToAdd, Team team){
+        if (coachToAdd == null || team == null){
             throw new NullPointerException();
         }
-        team.setCoach(coach);
-        coach.setCoachTeam(team);
+        team.setCoach(coachToAdd);
+        coachToAdd.setCoachTeam(team);
     }
     //adi
-    public void removeCoach(Coach coach, Team team) throws Exception {
-        if (coach == null || team == null){
+    public void removeCoach(Coach coachToRemove, Team team) throws Exception {
+        if (coachToRemove == null || team == null){
             throw new NullPointerException();
         }
-        team.removeCoach(coach);
-        coach.setCoachTeam(null);
+        team.removeCoach(coachToRemove);
+        coachToRemove.setCoachTeam(null);
     }
     //adi
     public void editCoachRole(Coach coach, String role){

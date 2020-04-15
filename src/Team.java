@@ -35,8 +35,6 @@ public class Team implements PageOwner{
         this.teamOwners = new HashSet<>();
         this.teamOwners.add(teamOwner);
         this.field = field;
-
-
     }
 
     public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
@@ -70,8 +68,6 @@ public class Team implements PageOwner{
     public Team(){
         teamOwners = new HashSet<>();
     }
-
-
 
 
     //<editor-fold desc="getters and setters">

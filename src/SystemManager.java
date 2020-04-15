@@ -138,11 +138,12 @@ public class SystemManager extends Subscription implements Observer {
         return null;
     }
 
-    private List<Object> deleteTeamOwner(TeamOwner userToDelete) {
+    private List<Object> deleteTeamOwner(TeamOwner userToDelete)
+    {
         return null;
     }
 
-    private List<Object> deletePlayer(Player userToDelete) {
+    private List<Object> deletePlayer(Player userToDelete) throws Exception {
        userToDelete.getTeam().removePlayer(userToDelete);
         system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();

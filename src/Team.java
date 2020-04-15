@@ -36,6 +36,7 @@ public class Team implements PageOwner{
         this.teamOwners.add(teamOwner);
         this.field = field;
 
+
     }
 
     public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
@@ -62,7 +63,7 @@ public class Team implements PageOwner{
         this.coach = null;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
-        this.teamOwners.add(teamOwner);
+        teamOwners.add(teamOwner);
         this.field = null;
     }
     //added just for unitTests, adi
@@ -93,8 +94,6 @@ public class Team implements PageOwner{
     public void setTeamManager(TeamManager teamManager) {
         this.teamManager = teamManager;
     }
-
-
 
     public void setPlayers(HashSet<Player> players) {
         this.players = players;
@@ -167,62 +166,66 @@ public class Team implements PageOwner{
 
     //</editor-fold>
 
-
-
+    //<editor-fold desc="add and remove functions">
     // adi
     public void addTeamOwner(TeamOwner tO){
         teamOwners.add(tO);
     }
     // adi
-    public boolean removeTeamOwner(TeamOwner tO){
-
+    public void removeTeamOwner(TeamOwner tO)throws Exception{
         if (teamOwners.contains(tO)){
             teamOwners.remove(tO);
-            return true;
         }
-        return false;
+        else{
+            throw new Exception("TeamOwner doesn't exist in this team");
+        }
     }
     // adi
     public void addTeamManager(TeamManager tM){
         teamManager = tM;
     }
     // adi
-    public boolean removeTeamManager(TeamManager tM){
+    public void removeTeamManager(TeamManager tM)throws Exception{
 
         if (tM.equals(teamManager)) {
             teamManager = null;
-            return true;
         }
-        return false;
+        else {
+            throw new Exception("This TeamManager doesn't exist in this team");
+        }
     }
     // adi
-    public boolean removeCoach(Coach c){
+    public void removeCoach(Coach c)throws Exception{
         if (this.coach.equals(c)){
             coach = null;
-            return true;
         }
-        return false;
+        else {
+            throw new Exception("This Coach doesn't exist in this team");
+        }
     }
     //adi
     public void addPlayer(Player p){
         players.add(p);
     }
     //adi
-    public boolean removePlayer(Player p){
+    public void removePlayer(Player p)throws Exception{
         if(players.contains(p) && players.size() > 11){
             players.remove(p);
-            return true;
         }
-        return false;
+        else {
+            throw new Exception("This Player doesn't exist in this team");
+        }
     }
     //adi
-    public boolean removeField(Field f){
+    public void removeField(Field f)throws Exception{
         if(field.equals(f)){
             field = null;
-            return true;
         }
-        return false;
+        else{
+            throw new Exception("This field doesn't exist in this team");
+        }
     }
+    //</editor-fold>
 
     //<editor-fold desc="Page Owner Functions">
     /**Or**/

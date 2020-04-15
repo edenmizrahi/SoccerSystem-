@@ -20,8 +20,11 @@ public class Field {
 
     public Field(String nameOfField) {
         this.nameOfField = nameOfField;
+        matches = new HashSet<>();
+        teams = new HashSet<>();
     }
 
+    //<editor-fold desc="getters and setters">
     public String getNameOfField() { return nameOfField; }
 
     public HashSet<Match> getMatches() { return matches; }
@@ -33,5 +36,6 @@ public class Field {
     public void setMatches(HashSet<Match> matches) { this.matches = matches; }
 
     public void setTeams(HashSet<Team> teams) { this.teams = teams; }
+    //</editor-fold>
 
 }

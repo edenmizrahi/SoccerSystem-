@@ -2,6 +2,8 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,32 +16,62 @@ public class Team implements PageOwner{
     private HashSet<Match> away;
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
-
-    /**I think between 1..* there is no team without players.. **/
-    private HashSet<Player> players;
+    private HashSet<Player> players; /**I think between 1..* there is no team without players.. **/
     private Coach coach;
     private HashSet<TeamOwner> teamOwners;
     private Field field;
+    private PrivatePage privatePage;
 
-    private PrivatePage privatePage;//added
-
-    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field) throws Exception {
+    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner teamOwner) throws Exception {
         if(players.size() < 11){
             throw new Exception();
         }
-        leaguePerSeason=new HashMap<>();
+        this.leaguePerSeason=new HashMap<>();
         this.name = name;
         this.budget = budget;
         this.players = players;
         this.coach = coach;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
+        this.teamOwners.add(teamOwner);
         this.field = field;
+
+
+    }
+
+    public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
+        if(players.size() < 11){
+            throw new Exception();
+        }
+        this.name = name;
+        this.players = players;
+        this.coach = coach;
+        this.leaguePerSeason=new HashMap<>();
+        this.budget = 0;
+        this.teamManager = null;
+        this.teamOwners = new HashSet<>();
+        this.teamOwners.add(teamOwner);
+        this.field = null;
+    }
+
+// just for tests!
+    public Team(String name, TeamOwner teamOwner){
+        this.leaguePerSeason = new HashMap<>();
+        this.name = name;
+        this.budget = 0;
+        this.players = new LinkedHashSet<>();
+        this.coach = null;
+        this.teamManager = null;
+        this.teamOwners = new HashSet<>();
+        teamOwners.add(teamOwner);
+        this.field = null;
     }
     //added just for unitTests, adi
     public Team(){
         teamOwners = new HashSet<>();
     }
+
+
 
 
     //<editor-fold desc="getters and setters">
@@ -62,8 +94,6 @@ public class Team implements PageOwner{
     public void setTeamManager(TeamManager teamManager) {
         this.teamManager = teamManager;
     }
-
-
 
     public void setPlayers(HashSet<Player> players) {
         this.players = players;
@@ -102,8 +132,6 @@ public class Team implements PageOwner{
     }
 
 
-
-
     public HashSet<Player> getPlayers() {
         return players;
     }
@@ -119,76 +147,106 @@ public class Team implements PageOwner{
     public Field getField() {
         return field;
     }
+
+    public void setLeaguePerSeason(HashMap<Season, League> leaguePerSeason) {
+        this.leaguePerSeason = leaguePerSeason;
+    }
+
+    public PrivatePage getPrivatePage() {
+        return privatePage;
+    }
+
+    public void setPrivatePage(PrivatePage privatePage) {
+        this.privatePage = privatePage;
+    }
+
+    public HashMap<Season, League> getLeaguePerSeason() {
+        return leaguePerSeason;
+    }
+
     //</editor-fold>
+
+    //<editor-fold desc="add and remove functions">
     // adi
     public void addTeamOwner(TeamOwner tO){
         teamOwners.add(tO);
     }
     // adi
-    public boolean removeTeamOwner(TeamOwner tO){
-
+    public void removeTeamOwner(TeamOwner tO)throws Exception{
         if (teamOwners.contains(tO)){
             teamOwners.remove(tO);
-            return true;
         }
-        return false;
+        else{
+            throw new Exception("TeamOwner doesn't exist in this team");
+        }
     }
     // adi
     public void addTeamManager(TeamManager tM){
         teamManager = tM;
     }
     // adi
-    public boolean removeTeamManager(TeamManager tM){
+    public void removeTeamManager(TeamManager tM)throws Exception{
 
         if (tM.equals(teamManager)) {
             teamManager = null;
-            return true;
         }
-        return false;
+        else {
+            throw new Exception("This TeamManager doesn't exist in this team");
+        }
     }
     // adi
-    public boolean removeCoach(Coach c){
+    public void removeCoach(Coach c)throws Exception{
         if (this.coach.equals(c)){
             coach = null;
-            return true;
         }
-        return false;
+        else {
+            throw new Exception("This Coach doesn't exist in this team");
+        }
     }
     //adi
     public void addPlayer(Player p){
         players.add(p);
     }
     //adi
-    public boolean removePlayer(Player p){
+    public void removePlayer(Player p)throws Exception{
         if(players.contains(p) && players.size() > 11){
             players.remove(p);
-            return true;
         }
-        return false;
+        else {
+            throw new Exception("This Player doesn't exist in this team");
+        }
     }
     //adi
-    public boolean removeField(Field f){
+    public void removeField(Field f)throws Exception{
         if(field.equals(f)){
             field = null;
-            return true;
         }
-        return false;
+        else{
+            throw new Exception("This field doesn't exist in this team");
+        }
     }
+    //</editor-fold>
+
+    //<editor-fold desc="Page Owner Functions">
+    /**Or**/
     @Override
     public PrivatePage getPage() {
         return privatePage;
     }
 
+    /**Or**/
     @Override
-    public void addRecordToPage(String record) {
+    public void addRecordToPage(String record) throws Exception {
         this.privatePage.addRecords(record);
     }
 
+    /**Or**/
     @Override
-    public void removeRecordFromPage(String record) {
+    public void removeRecordFromPage(String record) throws Exception {
         this.privatePage.removeRecord(record);
     }
 
+    /**Or**/
     @Override
     public boolean createPrivatePage() {
         PrivatePage p = new PrivatePage();
@@ -199,6 +257,8 @@ public class Team implements PageOwner{
         }
         return false;
     }
+
+    //</editor-fold>
 
     /**
      * this function connect the team to the current season and current league.
@@ -211,9 +271,18 @@ public class Team implements PageOwner{
         leaguePerSeason.put(s,l);
     }
 
-
-    public HashMap<Season, League> getLeaguePerSeason() {
-        return leaguePerSeason;
+    /**OR
+     * this function checks if the team has this season in the hash map
+     * @param seasonYear
+     * @return
+     */
+    public boolean playedInSeason(int seasonYear){
+        for (Season s: getLeaguePerSeason().keySet()) {
+            if(s.getYear()==seasonYear){
+                return true;
+            }
+        }
+        return false;
     }
 
 

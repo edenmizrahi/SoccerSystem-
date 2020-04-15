@@ -32,21 +32,37 @@ public class TeamOwnerTest {
     }
     //adi
     @Test
-    public void subscribeTeamManagerTest(){
+    public void subscribeTeamManagerTest() throws Exception {
         HashSet<Permission> per = new HashSet<>();
-        per.add(Permission.DeleteUser);
+        per.add(Permission.addRemoveEditPlayer);
         TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(tMDavid, team.getTeamManager());
     }
     //adi
     @Test
-    public void removeTeamManagerTest() {
+    public void removeTeamManagerTest() throws Exception {
         HashSet<Permission> per = new HashSet<>();
-        per.add(Permission.DeleteUser);
+        per.add(Permission.addRemoveEditPlayer);
         TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
         tOYossi.removeTeamManager(tMDavid, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(null, team.getTeamManager());
+    }
+    //adi
+    @Test
+    public void addTeamManagerTest() throws Exception {
+        HashSet<Permission> per = new HashSet<>();
+        per.add(Permission.addRemoveEditPlayer);
+        TeamManager tMDavid = new TeamManager(david, ms, team, per);
+        tOYossi.addTeamManager(tMDavid, team);
+        Assert.assertEquals(tMDavid, team.getTeamManager());
+    }
+    //adi
+    @Test
+    public void addCoachTest() throws Exception {
+        Coach cDavid = new Coach(david, ms, "mainCoach");
+        tOYossi.addCoach(cDavid, team);
+        Assert.assertEquals(cDavid, team.getCoach());
     }
 }

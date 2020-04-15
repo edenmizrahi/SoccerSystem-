@@ -12,8 +12,7 @@ public class MainSystem {
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
-    private LinkedList<Team> teams; // *
-    private LinkedList<Rfa> rfas; // *
+    private Season currSeason;
 
     private static final Logger LOG = LogManager.getLogger();
 
@@ -24,15 +23,57 @@ public class MainSystem {
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
-        this.teams= new LinkedList<>();
+        currSeason=null;
     }
     public MainSystem() {
         this.complaints = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
-        this.teams= new LinkedList<>();
+        this.currSeason=null;
     }
+
+    /**OR**/
+    public LinkedList<Subscription> getSubscriptions(){
+        LinkedList<Subscription> ans= new LinkedList<>();
+        for (User user:users) {
+            if(user instanceof  Subscription){
+                ans.add((Subscription)user);
+            }
+        }
+        return ans;
+    }
+
+    public List<SystemManager> getSystemManagers() {
+        List<SystemManager> res=new LinkedList<>();
+        for(User u: users){
+            if(u instanceof SystemManager){
+                res.add(((SystemManager)u));
+            }
+        }
+        return res;
+    }
+
+    public List<Rfa> getRfas() {
+        List<Rfa> res=new LinkedList<>();
+        for(User u: users){
+            if(u instanceof Rfa){
+                res.add(((Rfa)u));
+            }
+        }
+        return res;
+    }
+
+    public HashSet<Team> getAllTeams(){
+        HashSet<Team> allTeams= new HashSet<>();
+        for (League l:leagues) {
+            for (HashSet<Team> teamsInSeason:l.getTeamsInSeason().values()) {
+                allTeams.addAll(teamsInSeason);
+            }
+        }
+        return allTeams;
+    }
+
 
     //<editor-fold desc="add and remove from lists">
 
@@ -53,20 +94,21 @@ public class MainSystem {
         return true;
     }
 
+
     // or
-    public boolean removeTeam(Team team){
-        if (teams.contains(team)){
-            teams.remove(team);
+    public boolean removeLeague(League l){
+        if (leagues.contains(l)){
+            leagues.remove(l);
             return true;
         }
         return false;
     }
     // or
-    public boolean addTeam(Team team){
-        if (teams.contains(team)){
+    public boolean addLeague(League l){
+        if (leagues.contains(l)){
             return false;
         }
-        teams.add(team);
+        leagues.add(l);
         return true;
     }
 
@@ -87,6 +129,8 @@ public class MainSystem {
         return true;
     }
 
+
+
     //</editor-fold>
 
 
@@ -97,16 +141,6 @@ public class MainSystem {
 
     public void setComplaints(LinkedList<Complaint> complaints) {
         this.complaints = complaints;
-    }
-
-    public List<SystemManager> getSystemManagers() {
-        List<SystemManager> res=new LinkedList<>();
-        for(User u: users){
-            if(u instanceof SystemManager){
-                res.add(((SystemManager)u));
-            }
-        }
-        return res;
     }
 
 
@@ -134,23 +168,26 @@ public class MainSystem {
         this.seasons = seasons;
     }
 
-    public LinkedList<Team> getTeams() {
-        return teams;
+
+
+    public Season getCurrSeason() {
+        return currSeason;
     }
 
-    public void setTeams(LinkedList<Team> teams) {
-        this.teams = teams;
+    public void setCurrSeason(Season currSeason) {
+        this.currSeason = currSeason;
     }
 
     //</editor-fold>
 
     //or- not done
-    public void startSystem(SystemManager systemManager){
-        //sign in to system????
-        users.add(systemManager);
-        //link external systems
+    public void startSystem(){
+        //create user for system manager
+        SystemManager defultSM= new SystemManager(this,"Defult system Manager","0541234567","defult@google.com","systemManager","systemManager101");
+        users.add(defultSM);
+        //link external systems....
         //read from the external DB
-        System.out.println("The system was started correctly!");
+        LOG.info(String.format("%s - %s", this.getClass(), "system was started"));
     }
 
     /**

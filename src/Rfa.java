@@ -4,13 +4,13 @@ import org.apache.logging.log4j.Logger;
 import java.util.Date;
 import java.util.HashSet;
 
-public class Rfa extends Subscription {
+public class Rfa extends Fan {
 
     private BudgetControl budgetControl;//1
     private static final Logger LOG = LogManager.getLogger();
 
-    public Rfa(Subscription sub, MainSystem ms) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+    public Rfa(Fan fan, MainSystem ms) {
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
         this.budgetControl = new BudgetControl();
         //TODO add permissions
 

@@ -12,6 +12,7 @@ public class Report {
         this.reason = reason;
         this.amount = amount;
         this.now = new Date();
+        dateFormat.format(this.now);
     }
 
     public String getReason() {

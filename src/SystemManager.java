@@ -6,13 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
-public class SystemManager extends Subscription implements Observer {
+public class SystemManager extends Fan implements Observer {
 
     private HashSet<Complaint> complaints;//*
     private static final Logger LOG = LogManager.getLogger();
 
-    public SystemManager(Subscription sub, MainSystem ms) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+    public SystemManager(Fan fan, MainSystem ms) {
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
         this.complaints = new HashSet<>();
         //TODO add permissions
         //this.permissions.add();

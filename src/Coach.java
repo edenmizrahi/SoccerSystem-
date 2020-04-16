@@ -1,29 +1,25 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Coach extends Subscription implements PageOwner{
-
+public class Coach implements PageOwner{
+    private TeamRole teamRole;
     private Team coachTeam;
     private PrivatePage privatePage;
     private String roleAtTeam;
     private static final Logger LOG = LogManager.getLogger();
 
-    public Coach(Subscription sub, MainSystem ms, String roleAtTeam){
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        //TODO add permissions
-        //this.permissions.add();
+    public Coach(Team team, String roleAtTeam, TeamRole teamRole){
         this.roleAtTeam = roleAtTeam;
+        this.coachTeam = team;
         this.privatePage = null;
-        this.coachTeam = null;
+        this.teamRole= teamRole;
     }
 
-    public Coach(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms,name,phoneNumber,email,userName,password);
+    public Coach(TeamRole teamRole) {
         this.privatePage=null;
         this.roleAtTeam=null;
         this.coachTeam=null;
-        //TODO add permissions
-        //this.permissions.add();
+        this.teamRole= teamRole;
     }
 
     //<editor-fold desc="getter and setters">

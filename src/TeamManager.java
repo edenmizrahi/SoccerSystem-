@@ -8,28 +8,28 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 
-public class TeamManager extends Subscription{
-
+public class TeamManager {
+    private TeamRole teamRole;
     private Team team;
-    private HashMap<Subscription, Team> mySubscriptions;
+    private HashMap<Subscription, Team> mySubscriptions;// TODO: need to change to hashmap to be TeamRole instead of subscription??
     private static final Logger LOG = LogManager.getLogger();
+    private HashSet<Permission> permissions;
 
-    public TeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> pers) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        ms.removeUser(sub);
+    public TeamManager(TeamRole teamRole,Team team, HashSet<Permission> pers) {
         this.team = team;
         this.team.setTeamManager(this);
         mySubscriptions = new HashMap<>();
         this.permissions.addAll(pers);
+        this.teamRole= teamRole;
     }
 
     //<editor-fold desc="getters and setters">
 
-    public HashMap<Subscription, Team> getMySubscriptions() {
+    public HashMap<TeamRole, Team> getMySubscriptions() {
         return mySubscriptions;
     }
 
-    public void setMySubscriptions(HashMap<Subscription, Team> mySubscriptions) {
+    public void setMySubscriptions(HashMap<TeamRole, Team> mySubscriptions) {
         this.mySubscriptions = mySubscriptions;
     }
 

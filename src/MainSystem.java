@@ -40,11 +40,11 @@ public class MainSystem {
     }
 
     /**OR**/
-    public LinkedList<Subscription> getSubscriptions(){
-        LinkedList<Subscription> ans= new LinkedList<>();
+    public LinkedList<Fan> getAllFans(){
+        LinkedList<Fan> ans= new LinkedList<>();
         for (User user:users) {
-            if(user instanceof  Subscription){
-                ans.add((Subscription)user);
+            if(user instanceof  Fan){
+                ans.add((Fan)user);
             }
         }
         return ans;
@@ -69,16 +69,41 @@ public class MainSystem {
         }
         return res;
     }
-//
-//    public HashSet<Team> getAllTeams(){
-//        HashSet<Team> allTeams= new HashSet<>();
-//        for (League l:leagues) {
-//            for (HashSet<Team> teamsInSeason:l.getTeamsInSeason().values()) {
-//                allTeams.addAll(teamsInSeason);
-//            }
-//        }
-//        return allTeams;
-//    }
+
+    /**OR**/
+    public List<TeamRole> getTeamRoles(){
+        List<TeamRole> teamroles= new LinkedList<>();
+        for (User user:users) {
+            if(user instanceof  TeamRole){
+                teamroles.add((TeamRole)user);
+            }
+        }
+        return teamroles;
+    }
+
+    /**OR**/
+    public List<Player> getAllPlayer(){
+        List<Player> players= new LinkedList<>();
+        for(TeamRole teamRole: getTeamRoles()){
+            if(teamRole.isPlayer()){
+                players.add(teamRole.getPlayer());
+            }
+        }
+        return players;
+    }
+
+    /**OR**/
+    public List<Coach> getAllCoach(){
+        List<Coach> coaches= new LinkedList<>();
+        for(TeamRole teamRole: getTeamRoles()){
+            if(teamRole.isCoach()){
+                coaches.add(teamRole.getCoach());
+            }
+        }
+        return coaches;
+    }
+
+
 
 
     //<editor-fold desc="add and remove from lists">

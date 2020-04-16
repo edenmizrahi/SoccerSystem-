@@ -4,37 +4,28 @@ import org.junit.platform.commons.util.PackageUtils;
 
 import java.util.Date;
 
-public class Player extends Subscription implements PageOwner {
+public class Player implements PageOwner {
     private PrivatePage privatePage;
     private Team playerTeam;
     private Date dateOfBirth;
     private String roleAtField;
+    private TeamRole teamRole;
     private static final Logger LOG = LogManager.getLogger();
 
-    public Player(Subscription sub, MainSystem ms, Date dateOfBirth){
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        this.roleAtField = null;
-        this.dateOfBirth = dateOfBirth;
-        //TODO add permissions
-        //this.permissions.add();
-        this.privatePage = null;
-        this.playerTeam = null;
-    }
-
-    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
-        super(ms, name, phoneNumber, email, userName, password);
+    public Player(TeamRole teamRole,Date dateOfBirth){
         this.dateOfBirth = dateOfBirth;
         this.privatePage = null;
         this.playerTeam = null;
         this.roleAtField = null;
+        this.teamRole= teamRole;
     }
 
-    public Player(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth, PrivatePage privatePage, Team playerTeam) {
-        super(ms, name, phoneNumber, email, userName, password);
+    public Player(TeamRole teamRole,Date dateOfBirth, Team playerTeam) {
         this.dateOfBirth = dateOfBirth;
-        this.privatePage = privatePage;
+        this.privatePage = null;
         this.playerTeam = playerTeam;
         this.roleAtField = null;
+        this.teamRole= teamRole;
     }
 
     //<editor-fold desc="Page Owner Functions">

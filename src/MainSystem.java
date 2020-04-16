@@ -1,6 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -13,7 +14,8 @@ public class MainSystem {
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
     private Season currSeason;
-
+//    public static final String pattern = "dd-M-yyyy hh:mm:ss";
+    public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
     private static final Logger LOG = LogManager.getLogger();
 
 

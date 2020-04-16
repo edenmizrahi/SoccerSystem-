@@ -1,4 +1,3 @@
-import jdk.nashorn.internal.runtime.ECMAException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -168,7 +167,7 @@ public class SystemManager extends Subscription implements Observer {
     private List<Object> deleteReferee(Referee userToDelete) throws Exception {
         //check the all matches that the referee is refereeing
         for (Match m : userToDelete.getMatches()) {
-            if (m.getDate().after(new Date(System.currentTimeMillis()))) {
+            if (m.getStartDate().after(new Date(System.currentTimeMillis()))) {
                 throw new Exception("You cannot remove referee , he has matches in this season");
             }
         }

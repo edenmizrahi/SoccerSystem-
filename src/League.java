@@ -26,13 +26,18 @@ public class League {
 
     }
 
-    public League(String name, MainSystem mainSystem) {
-        this.name = name;
-        this.mainSystem = mainSystem;
-        teamsInSeason=new HashMap<>();
-        this.seasonsWithPolicy = seasonsWithPolicy;
+    public League(String name, MainSystem mainSystem) throws Exception {
+        if (name != null && mainSystem != null) {
+            this.name = name;
+            this.mainSystem = mainSystem;
+            teamsInSeason = new HashMap<>();
+            this.seasonsWithPolicy = seasonsWithPolicy;
 
-        mainSystem.addLeague(this);
+            mainSystem.addLeague(this);
+        }
+        else{
+            throw new Exception("Please insert valid details in order to create the new League properly");
+        }
     }
 
     //<editor-fold desc="getter ans setters">

@@ -181,13 +181,20 @@ public class MainSystem {
         this.currSeason = currSeason;
     }
 
+    public StubExternalSystem getExtSystem() {
+        return extSystem;
+    }
+
+    public void setExtSystem(StubExternalSystem extSystem) {
+        this.extSystem = extSystem;
+    }
+
     //</editor-fold>
 
     /**OR**/
     public void firstStartSystem(){
         //create user for system manager
         SystemManager defultSM= new SystemManager(this,"Defult system Manager","0541234567","defult@google.com","systemManager","systemManager101");
-        users.add(defultSM);
         //link external systems....
         extSystem.connectToSystem(this);
         LOG.info(String.format("%s - %s", this.getClass(), "system was started for the first time"));

@@ -28,18 +28,19 @@ public class LeagueTest {
         Subscription yossi = new Subscription(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
         //or added because the change in Team constructor
         TeamOwner teamOwner = new TeamOwner(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+        Field field = new Field("Beer Sheva Field");
         //
-        teams1.add(new Team("hahalufa",12,players,null,null,teamOwner));
-        teams1.add(new Team("hapuel",12,players,null,null,teamOwner));
-        teams1.add(new Team("macabi",12,players,null,null,teamOwner));
-        Team teamFor2Tests =new Team("hapuel-Rishon",12,players,null,null,teamOwner);
+        teams1.add(new Team("hahalufa",players,null,field,teamOwner));
+        teams1.add(new Team("hapuel",players,null,field, teamOwner));
+        teams1.add(new Team("macabi",players,null,field,teamOwner));
+        Team teamFor2Tests =new Team("hapuel-Rishon",players,null,field,teamOwner);
         teams1.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams1);
         /**check if both are equals**/
         Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonleagues().get(l));
         HashSet<Team> teams2=new HashSet<Team>();
-        teams2.add(new Team("beitar",12,players,null,null,teamOwner));
-        teams2.add(new Team("beitar2",12,players,null,null,teamOwner));
+        teams2.add(new Team("beitar",players,null,field,teamOwner));
+        teams2.add(new Team("beitar2",players,null,field,teamOwner));
         teams2.add(teamFor2Tests);
         l.addSeasonWithTeams(s,teams2);
         /**add more teams and check if both are equals**/

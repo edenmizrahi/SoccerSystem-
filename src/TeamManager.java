@@ -86,51 +86,6 @@ public class TeamManager extends Subscription{
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
-    // adi
-    public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
-        if (sub == null || ms == null || team == null || per == null){
-            throw new NullPointerException();
-        }
-        if (this.permissions.contains(Permission.addRemoveEditTeamManager)) {
-            if (sub instanceof TeamManager && team.getTeamManager().equals(sub)) {
-                throw new Exception("Already Team Manager of this team");
-            }
-            TeamManager tM = new TeamManager(sub, ms, team, per);
-            mySubscriptions.put(tM, team);
-            return tM;
-        }
-        else{
-            throw new Exception("This user doesn't have the permission to do this action");
-        }
-    }
-    // adi
-    public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
-        if (tM == null || ms == null || team == null || team == null){
-            throw new NullPointerException();
-        }
-        if (this.permissions.contains(Permission.addRemoveEditTeamManager)) {
-            if (mySubscriptions.containsKey(tM)) {
-                team.removeTeamManager(tM);
-                mySubscriptions.remove(tM);
-                for (Map.Entry<Subscription, Team> entry : tM.getMySubscriptions().entrySet()) {
-                    if (entry.getValue().equals(team)) {
-                        if (entry.getKey() instanceof TeamOwner){
-                            tM.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
-                        }
-                        else{
-                            tM.removeTeamManager((TeamManager) entry.getKey(), ms, entry.getValue());
-                        }
-                    }
-                }
-                ms.removeUser(tM);
-                Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
-            }
-        }
-        else{
-            throw new Exception("This user doesn't have the permission to do this action");
-        }
-    }
-
     //adi
     public void addCoach(Coach coachToAdd, Team team) throws Exception {
         if (coachToAdd == null || team == null){
@@ -145,16 +100,17 @@ public class TeamManager extends Subscription{
         }
     }
     //adi
-    public void removeCoach(Coach coachToRemove, Team team) throws Exception {
+    public void removeCoach(Coach coachToRemove, Coach coachToAdd, Team team) throws Exception {
         if (coachToRemove == null || team == null){
             throw new NullPointerException();
         }
-        if (this.permissions.contains(Permission.addRemoveEditCoach)) {
-            team.removeCoach(coachToRemove);
+        if (team.getCoach().equals(coachToRemove)) {
+            team.removeCoach(coachToRemove, coachToAdd);
             coachToRemove.setCoachTeam(null);
+            coachToAdd.setCoachTeam(team);
         }
-        else{
-            throw new Exception("This user doesn't have the permission to do this action");
+        else {
+            throw new Exception("This Coach doesn't exist in this team");
         }
     }
     //adi

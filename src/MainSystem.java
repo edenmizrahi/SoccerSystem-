@@ -19,6 +19,7 @@ public class MainSystem {
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
     private static final Logger LOG = LogManager.getLogger();
     private static MainSystem mainSystem_instance= null;
+    private HashSet<Team> teams;
 
     private MainSystem() {
         this.complaints = new LinkedList<>();
@@ -27,6 +28,8 @@ public class MainSystem {
         this.seasons= new LinkedList<>();
         this.currSeason=null;
         this.extSystem=new StubExternalSystem();
+        teams=new HashSet<>();
+
     }
 
     public static MainSystem getInstance(){
@@ -66,16 +69,16 @@ public class MainSystem {
         }
         return res;
     }
-
-    public HashSet<Team> getAllTeams(){
-        HashSet<Team> allTeams= new HashSet<>();
-        for (League l:leagues) {
-            for (HashSet<Team> teamsInSeason:l.getTeamsInSeason().values()) {
-                allTeams.addAll(teamsInSeason);
-            }
-        }
-        return allTeams;
-    }
+//
+//    public HashSet<Team> getAllTeams(){
+//        HashSet<Team> allTeams= new HashSet<>();
+//        for (League l:leagues) {
+//            for (HashSet<Team> teamsInSeason:l.getTeamsInSeason().values()) {
+//                allTeams.addAll(teamsInSeason);
+//            }
+//        }
+//        return allTeams;
+//    }
 
 
     //<editor-fold desc="add and remove from lists">
@@ -229,6 +232,11 @@ public class MainSystem {
     }
 
 
+    public HashSet<Team> getAllTeams() {
+        return teams;
+    }
 
-
+    public void setTeams(Team team) {
+        this.teams.add(team);
+    }
 }

@@ -1,9 +1,9 @@
 public enum Permission {
         addRemoveEditTeamOwner,
-        addRemoveEditTeamManager,
         addRemoveEditPlayer,
         addRemoveEditCoach,
         addRemoveEditField,
+        addToBudgetControl,
         /**yarden**/
 //        AddReferee,
 //        RemoveReferee;

@@ -1,12 +1,13 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MainSystem {
-
     private LinkedList<Complaint> complaints;// *
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
@@ -14,6 +15,8 @@ public class MainSystem {
     private Season currSeason;
     private StubExternalSystem extSystem;
 
+//    public static final String pattern = "dd-M-yyyy hh:mm:ss";
+    public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
     private static final Logger LOG = LogManager.getLogger();
     private static MainSystem mainSystem_instance= null;
 

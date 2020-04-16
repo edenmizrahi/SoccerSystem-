@@ -1,24 +1,52 @@
-//import org.apache.logging.log4j.Level;
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.core.config.Configurator;
-//
-//import java.text.ParseException;
-//import java.text.SimpleDateFormat;
-//import java.util.Collections;
-//import java.util.Date;
-//import java.util.HashSet;
-//
-//public class Main {
-//
-//    private static final Logger LOG = LogManager.getLogger();
-//
-//    public static void main(String [] args){
-//
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Date;
+import java.util.HashSet;
+
+public class Main {
+
+    private static final Logger LOG = LogManager.getLogger();
+
+    public static void main(String [] args) throws Exception {
+
 //        /**LOGGER FORAMT**/
 ////        LOG.info(String.format("%s - %s", "try", "action?"));
 //
-//
+        MainSystem ms = new MainSystem();
+        Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+        Team team1 = new Team();
+        Team team2 = new Team();
+        Field field1 = new Field("field1");
+        Field field2 = new Field("field2");
+        HashSet<Event> events = new HashSet<>();
+        HashSet<Referee> referees = new HashSet<>();
+        TeamOwner tOYossi = new TeamOwner(yossi, ms, team1);
+        Subscription moshe = new Subscription(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
+        Subscription david = new Subscription(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
+        Referee mos = new Referee(moshe,ms);
+        Match m = new Match(5,5,team1,team2,field1,events,referees,mos,"15-04-2020 21:20:00");
+        /**DATE**/
+        Date d = m.getStartDate();
+        Date noe = new Date(System.currentTimeMillis());
+        if(m.getStartDate().after(new Date(System.currentTimeMillis()))){
+            System.out.println("true");
+        }
+        else{
+            System.out.println("false");
+        }
+        Date d1 = new Date();
+        /**Add minutes to specific date**/
+        d1 = DateUtils.addMinutes(d,90);
+        int x;
+
+///**CREATE DATE BY FORMAT**/
+//        String pattern = "dd-M-yyyy hh:mm:ss";
+//        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern);
+//        String date = simpleDateFormat.format(new Date());
+//        System.out.println(date);
+
 //
 ////        Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
 ////        Team team = new Team();
@@ -37,6 +65,7 @@
 ////                e.printStackTrace();
 ////            }
 //////    Player player1=new Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
+//
 //
 //        MainSystem ms = new MainSystem();
 //        /**CREATE SEASON 2020 IN LEAGUE- curr season**/
@@ -61,7 +90,7 @@
 //        HashSet<Team> teamsForLeague2= new HashSet<Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
-//
-//
-//    }
-//}
+
+
+    }
+}

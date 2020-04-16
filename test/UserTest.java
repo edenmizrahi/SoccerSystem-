@@ -486,40 +486,5 @@ public class UserTest {
         }
     }
 
-    @Test
-    public void filterByLeagueName() {
-        ms.setCurrSeason(season2020);
-        HashSet<Team> teamsForLeague1= new HashSet<Team>();
-        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
-        season2020.addLeagueWithTeams(league1,teamsForLeague1);
-        hapoelBeerSheva.addPlayer(player1);
-        beitarYerushalaim.addPlayer(player2);
-        player1.setPrivatePage(pp1);
-        pp1.setPageOwner(player1);
-        player2.setPrivatePage(pp2);
-        pp2.setPageOwner(player2);
-        hapoelKfarSaba.setPrivatePage(pp3);
-        pp3.setPageOwner(hapoelKfarSaba);
 
-        HashSet<Team> teamsForLeague2= new HashSet<Team>();
-        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
-        season2019.addLeagueWithTeams(league2,teamsForLeague2);
-
-        try {
-            user.filterByLeagueName(null,null);
-            fail("expected exception was not occurred.");
-        } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("searchResults null",e.getMessage());
-        }
-
-        try {
-            user.filterOnlyCoachs(null);
-            fail("expected exception was not occurred.");
-        } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("searchResults null",e.getMessage());
-
-        }
-    }
 }

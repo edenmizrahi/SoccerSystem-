@@ -14,4 +14,8 @@ public class BudgetControl {
     public void removeRfa(Rfa rfa) {
         rfaList.remove(rfa);
     }
+
+    public void removeTeamOwner(TeamOwner to) {
+        teamOwnerList.remove(to);
+    }
 }

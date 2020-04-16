@@ -1,11 +1,9 @@
 public enum Permission {
-        DeleteUser,
-        ShowLog,
-        DeleteUserFromTeam,
-        ManageComplaint,
-        BuildRecSystem,
-        EditUserPermission,
-
+        addRemoveEditTeamOwner,
+        addRemoveEditTeamManager,
+        addRemoveEditPlayer,
+        addRemoveEditCoach,
+        addRemoveEditField,
         /**yarden**/
 //        AddReferee,
 //        RemoveReferee;

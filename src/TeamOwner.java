@@ -9,26 +9,23 @@ import java.util.Map;
 public class TeamOwner extends Subscription{
 
     private LinkedList<Team> teams;
-    private BudgetControl budgetControl;
     private HashMap<Subscription, Team> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
 
-    //if already team owner of other teams
-    public TeamOwner(Subscription sub, MainSystem ms, LinkedList<Team> teams) {
+    //team owner founder
+    public TeamOwner(Subscription sub, MainSystem ms) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         ms.removeUser(sub);
-        this.teams = teams;
-        this.budgetControl = new BudgetControl();
+        this.teams = new LinkedList<>();
+        //teams.add(team);
+        //team.addTeamOwner(this);
         mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();
     }
-
-    //first time team owner
     public TeamOwner(Subscription sub, MainSystem ms, Team team) {
         super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
         ms.removeUser(sub);
-        this.budgetControl = new BudgetControl();
         this.teams = new LinkedList<>();
         teams.add(team);
         team.addTeamOwner(this);
@@ -38,6 +35,15 @@ public class TeamOwner extends Subscription{
     }
 
     //<editor-fold desc="add remove and edit">
+    //adi
+    public void createTeam (String name, HashSet<Player> players ,Coach coach, Field field) throws Exception{
+        if(name == null || players == null || coach == null){
+            throw new NullPointerException();
+        }
+        Team team = new Team(name, players, coach, field, this);
+        this.teams.add(team);
+    }
+
     // adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
         if (sub == null || ms == null || team == null){
@@ -100,9 +106,6 @@ public class TeamOwner extends Subscription{
                     if (entry.getKey() instanceof TeamOwner){
                         tM.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
                     }
-                    else{
-                        tM.removeTeamManager((TeamManager) entry.getKey(), ms, entry.getValue());
-                    }
                 }
             }
             ms.removeUser(tM);
@@ -127,12 +130,18 @@ public class TeamOwner extends Subscription{
         coachToAdd.setCoachTeam(team);
     }
     //adi
-    public void removeCoach(Coach coachToRemove, Team team) throws Exception {
-        if (coachToRemove == null || team == null){
+    public void removeCoach(Coach coachToRemove, Coach coachToAdd, Team team) throws Exception {
+        if (coachToRemove == null || coachToAdd == null || team == null){
             throw new NullPointerException();
         }
-        team.removeCoach(coachToRemove);
-        coachToRemove.setCoachTeam(null);
+        if (team.getCoach().equals(coachToRemove)) {
+            team.removeCoach(coachToRemove, coachToAdd);
+            coachToRemove.setCoachTeam(null);
+            coachToAdd.setCoachTeam(team);
+        }
+        else {
+            throw new Exception("This Coach doesn't exist in this team");
+        }
     }
     //adi
     public void editCoachRole(Coach coach, String role){
@@ -199,20 +208,12 @@ public class TeamOwner extends Subscription{
         }
     }
 
-    public void setBudgetControl(BudgetControl budgetControl) {
-        this.budgetControl = budgetControl;
-    }
-
     public LinkedList<Team> getTeams() {
         return teams;
     }
 
     public HashMap<Subscription, Team> getMySubscriptions() {
         return mySubscriptions;
-    }
-
-    public BudgetControl getBudgetControl() {
-        return budgetControl;
     }
 
     //</editor-fold>

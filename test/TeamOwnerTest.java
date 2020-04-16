@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.HashSet;
 
 public class TeamOwnerTest {
@@ -60,9 +61,42 @@ public class TeamOwnerTest {
     }
     //adi
     @Test
-    public void addCoachTest() throws Exception {
+    public void addRemoveEditCoachTest() throws Exception {
         Coach cDavid = new Coach(david, ms, "mainCoach");
         tOYossi.addCoach(cDavid, team);
         Assert.assertEquals(cDavid, team.getCoach());
+        Assert.assertEquals(team, cDavid.getCoachTeam());
+        tOYossi.editCoachRole(cDavid, "trainer");
+        Assert.assertEquals("trainer", cDavid.getRoleAtTeam());
+        //tOYossi.removeCoach(cDavid, team);
+        Assert.assertEquals(null, team.getCoach());
     }
+    //adi
+    @Test(expected = Exception.class)
+    public void addRemoveEditPlayerTest() throws Exception {
+        Date d = new Date();
+        Player pDavid = new Player(david, ms, d);
+        tOYossi.addPlayer(pDavid, team);
+        Assert.assertTrue(team.getPlayers().contains(pDavid));
+        Assert.assertEquals(team, pDavid.getTeam());
+        tOYossi.editPlayerRole(pDavid, "defense");
+        Assert.assertEquals("defense", pDavid.getRoleAtField());
+        //doesnt remove player because less than 11, returns exception
+        tOYossi.removePlayer(pDavid, team);
+    }
+    //adi
+    @Test
+    public void addRemoveEditFieldTest() throws Exception {
+        Field field = new Field("Beer Sheva Field");
+        tOYossi.addField(field, team);
+        Assert.assertTrue(field.getTeams().contains(team));
+        Assert.assertEquals(field, team.getField());
+        Assert.assertEquals("Beer Sheva Field", field.getNameOfField());
+        tOYossi.editFieldName(field, "Bash Field");
+        Assert.assertEquals("Bash Field", field.getNameOfField());
+        tOYossi.removeField(field, team);
+        Assert.assertEquals(null, team.getField());
+        Assert.assertFalse(field.getTeams().contains(team));
+    }
+
 }

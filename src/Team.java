@@ -8,63 +8,42 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Team implements PageOwner{
-
     private static final Logger LOG = LogManager.getLogger();
     private String name;
-    private int budget;
     private HashSet<Match> home;
     private HashSet<Match> away;
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
     private TeamOwner founder;
-
     /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
     private Coach coach;
     private HashSet<TeamOwner> teamOwners;
     private Field field;
-
     private PrivatePage privatePage;//added
+    private BudgetControl budgetControl;
 
-    public Team(String name, int budget,  HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
+    public Team(String name, HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
         if(players.size() < 11){
-            throw new Exception();
+            throw new Exception("The number of players are less than 11");
         }
         this.leaguePerSeason=new HashMap<>();
         this.name = name;
-        this.budget = budget;
         this.players = players;
         this.coach = coach;
         this.teamManager = null;
         this.teamOwners = new HashSet<>();
         this.teamOwners.add(founder);
         this.field = field;
-        this.founder=founder;
-
+        this.founder = founder;
+        this.budgetControl = new BudgetControl();
     }
 
-    public Team(String name, HashSet<Player> players, TeamOwner teamOwner,Coach coach) throws Exception {
-        if(players.size() < 11){
-            throw new Exception();
-        }
-        this.name = name;
-        this.players = players;
-        this.coach = coach;
-        this.leaguePerSeason=new HashMap<>();
-        this.budget = 0;
-        this.teamManager = null;
-        this.teamOwners = new HashSet<>();
-        this.teamOwners.add(teamOwner);
-        this.field = null;
-        this.founder=teamOwner;
-
-    }
 
 // just for tests!
     public Team(String name, TeamOwner teamOwner){
         this.leaguePerSeason = new HashMap<>();
         this.name = name;
-        this.budget = 0;
         this.players = new LinkedHashSet<>();
         this.coach = null;
         this.teamManager = null;
@@ -75,16 +54,13 @@ public class Team implements PageOwner{
     //added just for unitTests, adi
     public Team(){
         teamOwners = new HashSet<>();
+        players = new HashSet<>();
     }
 
 
     //<editor-fold desc="getters and setters">
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setBudget(int budget) {
-        this.budget = budget;
     }
 
     public void setHome(HashSet<Match> home) {
@@ -117,10 +93,6 @@ public class Team implements PageOwner{
 
     public String getName() {
         return name;
-    }
-
-    public int getBudget() {
-        return budget;
     }
 
     public HashSet<Match> getHome() {
@@ -168,6 +140,14 @@ public class Team implements PageOwner{
         return leaguePerSeason;
     }
 
+    public TeamOwner getFounder() {
+        return founder;
+    }
+
+    public void setFounder(TeamOwner founder) {
+        this.founder = founder;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc="add and remove functions">
@@ -199,9 +179,9 @@ public class Team implements PageOwner{
         }
     }
     // adi
-    public void removeCoach(Coach c)throws Exception{
-        if (this.coach.equals(c)){
-            coach = null;
+    public void removeCoach(Coach coachToRemove, Coach coachToAdd)throws Exception{
+        if (this.coach.equals(coachToRemove)){
+            coach = coachToAdd;
         }
         else {
             throw new Exception("This Coach doesn't exist in this team");
@@ -213,8 +193,13 @@ public class Team implements PageOwner{
     }
     //adi
     public void removePlayer(Player p)throws Exception{
-        if(players.contains(p) && players.size() > 11){
-            players.remove(p);
+        if(players.contains(p)){
+            if(players.size() > 11) {
+                players.remove(p);
+            }
+            else{
+                throw new Exception("The team has only 11 or less players");
+            }
         }
         else {
             throw new Exception("This Player doesn't exist in this team");
@@ -289,11 +274,5 @@ public class Team implements PageOwner{
         return false;
     }
 
-    public TeamOwner getFounder() {
-        return founder;
-    }
 
-    public void setFounder(TeamOwner founder) {
-        this.founder = founder;
-    }
 }

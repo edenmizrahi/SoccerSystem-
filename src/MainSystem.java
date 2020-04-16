@@ -1,6 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -12,24 +13,27 @@ public class MainSystem {
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
     private Season currSeason;
+    private StubExternalSystem extSystem;
 
+//    public static final String pattern = "dd-M-yyyy hh:mm:ss";
+    public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
     private static final Logger LOG = LogManager.getLogger();
+    private static MainSystem mainSystem_instance= null;
 
-
-    public MainSystem(SystemManager sm) {
-        this.complaints = new LinkedList<>();
-        users.add(sm);
-        this.leagues = new LinkedList<>();
-        this.users = new LinkedList<>();
-        this.seasons= new LinkedList<>();
-        currSeason=null;
-    }
-    public MainSystem() {
+    private MainSystem() {
         this.complaints = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
         this.currSeason=null;
+        this.extSystem=new StubExternalSystem();
+    }
+
+    public static MainSystem getInstance(){
+        if(mainSystem_instance==null){
+            mainSystem_instance= new MainSystem();
+        }
+        return mainSystem_instance;
     }
 
     /**OR**/
@@ -179,14 +183,27 @@ public class MainSystem {
 
     //</editor-fold>
 
-    //or- not done
-    public void startSystem(){
+    /**OR**/
+    public void firstStartSystem(){
         //create user for system manager
         SystemManager defultSM= new SystemManager(this,"Defult system Manager","0541234567","defult@google.com","systemManager","systemManager101");
         users.add(defultSM);
         //link external systems....
-        //read from the external DB
-        LOG.info(String.format("%s - %s", this.getClass(), "system was started"));
+        extSystem.connectToSystem(this);
+        LOG.info(String.format("%s - %s", this.getClass(), "system was started for the first time"));
+    }
+
+    /**OR**/
+    public void startSystem(){
+        //read things from DB.....
+        if(users.size()==0){
+            firstStartSystem();
+        }else{
+            //link external systems....
+            extSystem.connectToSystem(this);
+            LOG.info(String.format("%s - %s", this.getClass(), "system was started"));
+        }
+
     }
 
     /**

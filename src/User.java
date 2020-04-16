@@ -550,6 +550,18 @@ public class User {
         return false;
     }
 
+    /**OR**/
+    public boolean signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password){
+        // first check valid details
+        if(checkValidDetails(userName,password,phoneNumber,email)){
+            TeamOwner teamOwner= new TeamOwner(system,name,phoneNumber,email,userName,password);
+            system.removeUser(this);
+            system.addUser(teamOwner);
+            LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
+            return true;
+        }
+        return false;
+    }
 
 
     public boolean checkValidDetails(String userName, String password, String phoneNumber, String email){

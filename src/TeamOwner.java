@@ -33,6 +33,15 @@ public class TeamOwner extends Subscription{
         //TODO add permissions
         //this.permissions.add();
     }
+    //first time team owner- with no team
+    public TeamOwner(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms, name, phoneNumber, email, userName, password);
+        this.budgetControl = new BudgetControl();
+        this.teams = new LinkedList<>();
+        mySubscriptions = new HashMap<>();
+        //TODO add permissions
+        //this.permissions.add();
+    }
 
     //<editor-fold desc="add remove and edit">
     //adi
@@ -44,6 +53,7 @@ public class TeamOwner extends Subscription{
         this.teams.add(team);
     }
 
+
     // adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
         if (sub == null || ms == null || team == null){
@@ -52,9 +62,10 @@ public class TeamOwner extends Subscription{
         if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)){
             throw new Exception("Already Team Owner in this team");
         }
-        TeamOwner tO = new TeamOwner(sub, ms, team);
-        mySubscriptions.put(tO, team);
-        return tO;
+        //TeamOwner tO = new TeamOwner(sub, ms, team);
+       // mySubscriptions.put(tO, team);
+       // return tO;
+        return null;// just for compilation
     }
     // adi
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{

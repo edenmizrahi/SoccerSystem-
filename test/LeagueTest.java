@@ -10,7 +10,7 @@ public class LeagueTest {
 
     @Test
     public void addSeasonWithTeams() throws Exception {
-        MainSystem sys=new MainSystem();
+        MainSystem sys=MainSystem.getInstance();
         League l=new League("hahal",sys,null, null);
         Season s=new Season(sys,null,1884);
 
@@ -27,7 +27,7 @@ public class LeagueTest {
         }
         Subscription yossi = new Subscription(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
         //or added because the change in Team constructor
-        TeamOwner teamOwner = new TeamOwner(yossi, sys, new Team());
+        TeamOwner teamOwner = new TeamOwner(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
         Field field = new Field("Beer Sheva Field");
         //
         teams1.add(new Team("hahalufa",players,null,field,teamOwner));

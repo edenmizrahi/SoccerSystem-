@@ -2,28 +2,34 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.print.attribute.standard.DateTimeAtCreation;
+import java.text.ParseException;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
+import static java.time.temporal.ChronoUnit.MINUTES;
+import static java.time.temporal.ChronoUnit.SECONDS;
 
 public abstract class Event  {
 
     private Referee referee;
     private Match match;
-    private DateTimeAtCreation dateTime;// i dont know how to do timestamp
+    private Date dateTime;
     private static final Logger LOG = LogManager.getLogger();
-    /****Who keeps and maintains an events calender ?****/
+    private int minuteOfMatch;
 
-    public Event(Referee referee, Match match, DateTimeAtCreation dateTime) {
+    public Event(Referee referee, Match match) throws ParseException {
         this.referee = referee;
         this.match = match;
-        this.dateTime = dateTime;
+        Date currentDate = new Date(System.currentTimeMillis());
+        this.dateTime = MainSystem.simpleDateFormat.parse(currentDate.toString());
+        this.minuteOfMatch = (int)(currentDate.getTime() - match.getStartDate().getTime());
     }
 
     public Referee getReferee() { return referee; }
 
     public Match getMatch() { return match; }
 
-    public DateTimeAtCreation getDateTime() { return dateTime; }
+    public Date getDateTime() { return dateTime; }
 
-    public void setReferee(Referee referee) { this.referee = referee; }
-
-    public void setMatch(Match match) { this.match = match; }
+    public int getMinuteOfMatch() { return minuteOfMatch; }
 }

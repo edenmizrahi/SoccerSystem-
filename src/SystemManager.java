@@ -1,4 +1,3 @@
-import jdk.nashorn.internal.runtime.ECMAException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -150,16 +149,25 @@ public class SystemManager extends Subscription implements Observer {
      * @param userToDelete
      * @codeBy Eden
      */
-    private List<Object> deleteTeamManager(TeamManager userToDelete) {
+    private List<Object> deleteTeamManager(TeamManager userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
         if(userToDelete.getTeam()!=null) {
             userToDelete.getTeam().setTeamManager(null);
         }
         system.removeUser(userToDelete);
+        HashMap<Subscription,Team> allSub= userToDelete.getMySubscriptions();
+        for(Map.Entry<Subscription,Team> sub: allSub.entrySet()){
+            if(sub instanceof TeamManager) {
+                ((TeamManager)sub).removeTeamManager(((TeamManager)sub.getKey()),system, sub.getValue());
+            }
+            else{
+                ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
+
+            }
+        }
         return res;
 
-        // TODO: 15/04/2020  take from adi the function that remeove the subscribe.
     }
 
     /**
@@ -225,7 +233,7 @@ public class SystemManager extends Subscription implements Observer {
     private List<Object> deleteReferee(Referee userToDelete) throws Exception {
         //check the all matches that the referee is refereeing
         for (Match m : userToDelete.getMatches()) {
-            if (m.getDate().after(new Date(System.currentTimeMillis()))) {
+            if (m.getStartDate().after(new Date(System.currentTimeMillis()))) {
                 throw new Exception("You cannot remove referee , he has matches in this season");
             }
         }
@@ -258,5 +266,28 @@ public class SystemManager extends Subscription implements Observer {
         res.add(userToDelete);
         return res;
     }
+
+    /**
+     * Switch between team owner which is founder to another team owner and remove from system's user the first.
+     * @param toDelete- the team owner to delete
+     * @param toAdd- the team owner to subscribe as founder
+     * @param team
+     * @return the removed objects
+     * @throws Exception
+     */
+    public List<Object> switchTeamOwner(TeamOwner toDelete, TeamOwner toAdd, Team team) throws Exception {
+        List<Object> res=new LinkedList<>();
+        if(team.getFounder()==toDelete){
+            team.setFounder(toAdd);
+            team.getTeamOwners().add(toAdd);
+            toAdd.setTeam(team);
+            res=removeUser(toDelete);
+        }
+        else{
+            throw new Exception("wrong team owner and team");
+        }
+        return res;
+    }
+
 }
 

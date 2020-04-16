@@ -12,7 +12,7 @@ import java.util.LinkedHashSet;
 import static org.junit.Assert.*;
 
 public class UserTest {
-    MainSystem ms = new MainSystem();
+    MainSystem ms = MainSystem.getInstance();
     User user = new User(ms);
     SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
     Date date;
@@ -36,7 +36,7 @@ public class UserTest {
     Season season2019 = new Season(ms,null,2019);
     Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
     //or added because the change in Team constructor
-    TeamOwner teamOwner = new TeamOwner(yossi, ms, new Team());
+    TeamOwner teamOwner = new TeamOwner(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
     //
     Team hapoelBeerSheva= new Team("Hapoel Beer Sheva",teamOwner);
     Team hapoelKfarSaba= new Team("Hapoel Kfar Saba",teamOwner);
@@ -45,11 +45,10 @@ public class UserTest {
     Team beitarYerushalaim= new Team("Beitar Yerushalaim",teamOwner);
     Team hapoelRaanana= new Team ("Hapoel Raanana",teamOwner);
     Coach coach1= new Coach(ms,"ali baba","0523456789","coach@gmail.com","coach123","coach123");
-    @Before
-    public void init() {
 
-
+    public UserTest() throws Exception {
     }
+
 
     /**Or**/
     @Test

@@ -1,3 +1,4 @@
+import com.sun.corba.se.impl.ior.iiop.MaxStreamFormatVersionComponentImpl;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +15,7 @@ public class Main {
 //        /**LOGGER FORAMT**/
 ////        LOG.info(String.format("%s - %s", "try", "action?"));
 //
-        MainSystem ms = new MainSystem();
+        MainSystem ms = MainSystem.getInstance();
         Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
         Team team1 = new Team();
         Team team2 = new Team();
@@ -22,7 +23,7 @@ public class Main {
         Field field2 = new Field("field2");
         HashSet<Event> events = new HashSet<>();
         HashSet<Referee> referees = new HashSet<>();
-        TeamOwner tOYossi = new TeamOwner(yossi, ms, team1);
+        //TeamOwner tOYossi = new TeamOwner(yossi, ms, team1);
         Subscription moshe = new Subscription(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
         Subscription david = new Subscription(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
         Referee mos = new Referee(moshe,ms);

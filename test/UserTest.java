@@ -46,6 +46,9 @@ public class UserTest {
     Team hapoelRaanana= new Team ("Hapoel Raanana",teamOwner);
     Coach coach1= new Coach(ms,"ali baba","0523456789","coach@gmail.com","coach123","coach123");
 
+    public UserTest() throws Exception {
+    }
+
 
     /**Or**/
     @Test

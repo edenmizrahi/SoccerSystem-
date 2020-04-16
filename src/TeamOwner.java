@@ -13,31 +13,19 @@ public class TeamOwner extends Subscription{
     private HashMap<Subscription, Team> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
 
-    //if already team owner of other teams
-    public TeamOwner(Subscription sub, MainSystem ms, LinkedList<Team> teams) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        ms.removeUser(sub);
-        this.teams = teams;
-        this.budgetControl = new BudgetControl();
-        mySubscriptions = new HashMap<>();
-        //TODO add permissions
-        //this.permissions.add();
-    }
 
-    //first time team owner
-    public TeamOwner(Subscription sub, MainSystem ms, Team team) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        ms.removeUser(sub);
+    //first time team owner- with no team
+    public TeamOwner(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms, name, phoneNumber, email, userName, password);
         this.budgetControl = new BudgetControl();
         this.teams = new LinkedList<>();
-        teams.add(team);
-        team.addTeamOwner(this);
         mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();
     }
 
     //<editor-fold desc="add remove and edit">
+
     // adi
     public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
         if (sub == null || ms == null || team == null){
@@ -46,9 +34,10 @@ public class TeamOwner extends Subscription{
         if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)){
             throw new Exception("Already Team Owner in this team");
         }
-        TeamOwner tO = new TeamOwner(sub, ms, team);
-        mySubscriptions.put(tO, team);
-        return tO;
+        //TeamOwner tO = new TeamOwner(sub, ms, team);
+       // mySubscriptions.put(tO, team);
+       // return tO;
+        return null;// just for compilation
     }
     // adi
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{

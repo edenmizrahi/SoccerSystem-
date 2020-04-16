@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 public class RfaTest {
 
-    MainSystem ms = new MainSystem();
+    MainSystem ms = MainSystem.getInstance();
     Rfa nadav = new Rfa(ms,"nadav","052","nadav@","nadavS", "nadav123");
 //    Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a");
 

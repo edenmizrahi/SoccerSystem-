@@ -10,10 +10,7 @@ import java.util.Iterator;
 
 public class Season {
 
-
-
     private HashMap<League, HashSet<Team >> teamsInCurrentSeasonLeagues;
-
     private Policy policy;
     private MainSystem mainSystem;
     private int year;
@@ -24,7 +21,6 @@ public class Season {
         this.year = year;
         this.teamsInCurrentSeasonLeagues=new HashMap<>();
         this.mainSystem=ms;
-
         mainSystem.addSeason(this);
     }
     /**
@@ -47,10 +43,9 @@ public class Season {
             /**if league already exist- check is it already hold the input teams*/
             if(!teamsInCurrentSeasonLeagues.get(l).equals(teams))
                 teams.addAll(teamsInCurrentSeasonLeagues.get(l));
-            teamsInCurrentSeasonLeagues.put(l, teams);
-            l.addSeasonWithTeams(this,teams);
-            teamsAdded=true;
-
+                teamsInCurrentSeasonLeagues.put(l, teams);
+                l.addSeasonWithTeams(this,teams);
+                teamsAdded=true;
         }
         /**connect the teams to the current league and season*/
         if(teamsAdded) {

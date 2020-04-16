@@ -158,13 +158,7 @@ public class SystemManager extends Subscription implements Observer {
         system.removeUser(userToDelete);
         HashMap<Subscription,Team> allSub= userToDelete.getMySubscriptions();
         for(Map.Entry<Subscription,Team> sub: allSub.entrySet()){
-            if(sub instanceof TeamManager) {
-                ((TeamManager)sub).removeTeamManager(((TeamManager)sub.getKey()),system, sub.getValue());
-            }
-            else{
-                ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
-
-            }
+            ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
         }
         return res;
 
@@ -179,7 +173,7 @@ public class SystemManager extends Subscription implements Observer {
     private List<Object> deleteTeamOwner(TeamOwner userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
-        userToDelete.getBudgetControl().removeTeamOwner(userToDelete);
+        //userToDelete.getBudgetControl().removeTeamOwner(userToDelete);
         userToDelete.getSystem().removeUser(userToDelete);
         /***remove all the subscription**/
         LinkedList<Team> OwnerTeams =userToDelete.getTeams();
@@ -260,7 +254,7 @@ public class SystemManager extends Subscription implements Observer {
      * @codeBy Eden
      */
     private List<Object> deleteRfa(Rfa userToDelete){
-        userToDelete.getBudgetControl().removeRfa(userToDelete);
+        //userToDelete.getBudgetControl().removeRfa(userToDelete);
         system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);

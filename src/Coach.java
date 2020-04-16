@@ -13,8 +13,8 @@ public class Coach extends Subscription implements PageOwner{
         //TODO add permissions
         //this.permissions.add();
         this.roleAtTeam = roleAtTeam;
-        this.privatePage=null;
-        this.coachTeam=null;
+        this.privatePage = null;
+        this.coachTeam = null;
     }
 
     public Coach(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {

@@ -160,7 +160,11 @@ public class SystemManager extends Subscription implements Observer {
         HashMap<Subscription,Team> allSub= userToDelete.getMySubscriptions();
         for(Map.Entry<Subscription,Team> sub: allSub.entrySet()){
             if(sub instanceof TeamManager) {
-                removeTeamManager(((TeamManager)sub.getKey()), sub.getValue());
+                ((TeamManager)sub).removeTeamManager(((TeamManager)sub.getKey()),system, sub.getValue());
+            }
+            else{
+                ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
+
             }
         }
         return res;
@@ -265,28 +269,26 @@ public class SystemManager extends Subscription implements Observer {
     }
 
     /**
-     * remove all the subscription of team manager.
-     * @param tM
+     * Switch between team owner which is founder to another team owner and remove from system's user the first.
+     * @param toDelete- the team owner to delete
+     * @param toAdd- the team owner to subscribe as founder
      * @param team
+     * @return the removed objects
      * @throws Exception
-     * @codeBy Eden Took from Adi (Team Owner class)
      */
-    public void removeTeamManager (TeamManager tM, Team team) throws Exception{
-            team.removeTeamManager(tM);
-            for (Map.Entry<Subscription, Team> entry : tM.getMySubscriptions().entrySet()) {
-                if (entry.getValue().equals(team)) {
-                    if (entry.getKey() instanceof TeamOwner){
-                        tM.removeTeamOwner((TeamOwner) entry.getKey(), system, entry.getValue());
-                    }
-                    else{
-                        tM.removeTeamManager((TeamManager) entry.getKey(), system, entry.getValue());
-                    }
-                }
-            }
-            system.removeUser(tM);
-            tM.setTeam(null);
-            Subscription newSub = new Subscription(system, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
-
+    public List<Object> switchTeamOwner(TeamOwner toDelete, TeamOwner toAdd, Team team) throws Exception {
+        List<Object> res=new LinkedList<>();
+        if(team.getFounder()==toDelete){
+            team.setFounder(toAdd);
+            team.getTeamOwners().add(toAdd);
+            toAdd.setTeam(team);
+            res=removeUser(toDelete);
+        }
+        else{
+            throw new Exception("wrong team owner and team");
+        }
+        return res;
     }
+
 }
 

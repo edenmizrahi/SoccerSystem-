@@ -158,13 +158,7 @@ public class SystemManager extends Subscription implements Observer {
         system.removeUser(userToDelete);
         HashMap<Subscription,Team> allSub= userToDelete.getMySubscriptions();
         for(Map.Entry<Subscription,Team> sub: allSub.entrySet()){
-            if(sub instanceof TeamManager) {
-                ((TeamManager)sub).removeTeamManager(((TeamManager)sub.getKey()),system, sub.getValue());
-            }
-            else{
-                ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
-
-            }
+            ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
         }
         return res;
 

@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class TeamOwnerTest {
 
-    MainSystem ms = new MainSystem();
+    MainSystem ms = MainSystem.getInstance();
     Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
     Team team = new Team();
     TeamOwner tOYossi = new TeamOwner(yossi, ms, team);

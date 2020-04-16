@@ -36,7 +36,6 @@ public class TeamOwner extends Subscription{
     //first time team owner- with no team
     public TeamOwner(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
         super(ms, name, phoneNumber, email, userName, password);
-        this.budgetControl = new BudgetControl();
         this.teams = new LinkedList<>();
         mySubscriptions = new HashMap<>();
         //TODO add permissions

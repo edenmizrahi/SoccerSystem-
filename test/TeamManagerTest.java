@@ -7,7 +7,7 @@ import java.util.HashSet;
 import static org.junit.Assert.*;
 
 public class TeamManagerTest {
-    MainSystem ms = new MainSystem();
+    MainSystem ms = MainSystem.getInstance();
     Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
     Team team = new Team();
     HashSet<Permission> per = new HashSet<>();

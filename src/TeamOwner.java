@@ -161,6 +161,7 @@ public class TeamOwner extends Subscription{
         coach.setRoleAtTeam(role);
     }
     //adi
+    //TODO player needs to receive role and add role to player
     public void addPlayer(Player player, Team team){
         if (player == null || team == null){
             throw new NullPointerException();
@@ -192,6 +193,7 @@ public class TeamOwner extends Subscription{
         field.addTeam(team);
     }
     //adi
+    //TODO CHANGE cant remove field, only change
     public void removeField (Field field, Team team) throws Exception {
         if (field == null || team == null){
             throw new NullPointerException();

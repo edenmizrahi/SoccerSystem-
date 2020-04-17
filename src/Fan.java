@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Fan extends Subscription implements Observer {
+public class Fan extends User implements Observer {
 
     private List<PrivatePage> myPages;
     private List<Complaint> myComplaints;
@@ -14,25 +14,99 @@ public class Fan extends Subscription implements Observer {
     private LinkedList<String> searchHisroty;
     private static final Logger LOG = LogManager.getLogger();
 
+    //from subscription:
+    private String name;
+    private String phoneNumber;
+    private String email;
+    private String userName;
+    private String password;
 
-    public Fan(Subscription sub, MainSystem ms){
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+    public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms);
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
         myPages = new LinkedList<>();
         myComplaints = new LinkedList<>();
         matchesFollow=new LinkedList<>();
-        //TODO add permissions
-        //this.permissions.add();
+        this.searchHisroty= new LinkedList<>();
     }
 
-    public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms,name,phoneNumber,email,userName,password);
-        this.myPages= new LinkedList<>();
-        this.myComplaints= new LinkedList<>();
-        this.matchesFollow= new LinkedList<>();
-        this.searchHisroty= new LinkedList<>();
-        //TODO add permissions
-        //this.permissions.add();
+    //<editor-fold desc="getters and setters">
+
+    public List<PrivatePage> getMyPages() {
+        return myPages;
     }
+
+    public void setMyPages(List<PrivatePage> myPages) {
+        this.myPages = myPages;
+    }
+
+    public List<Complaint> getMyComplaints() {
+        return myComplaints;
+    }
+
+    public void setMyComplaints(List<Complaint> myComplaints) {
+        this.myComplaints = myComplaints;
+    }
+
+    public LinkedList<Match> getMatchesFollow() {
+        return matchesFollow;
+    }
+
+    public void setMatchesFollow(LinkedList<Match> matchesFollow) {
+        this.matchesFollow = matchesFollow;
+    }
+
+    public void setSearchHisroty(LinkedList<String> searchHisroty) {
+        this.searchHisroty = searchHisroty;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    //</editor-fold>
+
+
     /**Eden*/
     public void  addMatchFollow(Match m){
         matchesFollow.add(m);
@@ -136,4 +210,9 @@ public class Fan extends Subscription implements Observer {
         myPages.add(page);
     }
 
+    /**OR**/
+    public void logOut(){
+        //nothing to do now.....
+        LOG.info(String.format("%s - %s", userName, "loged out from system"));
+    }
 }

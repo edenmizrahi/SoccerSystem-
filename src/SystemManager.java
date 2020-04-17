@@ -6,13 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
-public class SystemManager extends Subscription implements Observer {
+public class SystemManager extends Fan implements Observer {
 
     private HashSet<Complaint> complaints;//*
     private static final Logger LOG = LogManager.getLogger();
 
-    public SystemManager(Subscription sub, MainSystem ms) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+    public SystemManager(Fan fan, MainSystem ms) {
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
         this.complaints = new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
@@ -283,5 +283,24 @@ public class SystemManager extends Subscription implements Observer {
         return res;
     }
 
+    /**
+     * remove team from system , if team does not have future Matches(not belong to current season).
+     * doesnt delete all team matches.
+     * disconnect the team owners and managers.
+     * remove the team manager sub-> remove his subscriptions .
+     * disconnect the coach
+     * disconnect the players
+     * disconnect from user.
+     * @param teamToRemove
+     */
+    public void removeTeamFromSystem(Team teamToRemove) throws Exception {
+       if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
+           throw new Exception("team is play in the current season ,you cannot delete the team untill the end of the season");
+       }
+       system.getAllTeams().remove(teamToRemove);
+        for (TeamOwner curTeamOwner:teamToRemove.getTeamOwners()) {
+//            curTeamOwner.getTeams().
+        }
+    }
 }
 

@@ -6,21 +6,21 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-public class Referee extends Subscription{
+public class Referee extends Fan{
 
     private LinkedList<Match> matches;
     private LinkedList<Event> events;
     private String qualification;
     private static final Logger LOG = LogManager.getLogger();
 
-    Referee(Subscription sub, MainSystem ms){
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+    Referee(Fan fan, MainSystem ms){
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
         matches = new LinkedList<>();
         events = new LinkedList<>();
     }
 
-    Referee(Subscription sub, MainSystem ms, String qualification){
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
+    Referee(Fan fan, MainSystem ms, String qualification){
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification = qualification;

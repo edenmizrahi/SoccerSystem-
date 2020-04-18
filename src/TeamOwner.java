@@ -3,7 +3,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class TeamOwner implements Observer {
+public class TeamOwner implements Observer , NotificationsUser {
     private TeamRole teamRole;
     private LinkedList<Team> teams;
     private HashSet<TeamSubscription> mySubscriptions;
@@ -11,6 +11,8 @@ public class TeamOwner implements Observer {
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
     private static final Logger LOG = LogManager.getLogger();
+    HashSet<Notification> notifications;
+
 
     //team owner founder- with no team.
     public TeamOwner(TeamRole teamRole) {
@@ -379,18 +381,63 @@ public class TeamOwner implements Observer {
         team.addExpense(typeOfExpense,amount);
     }
 
-    /**OR**/
+    //<editor-fold desc="Notifications Handler" >
+    /**
+     * Notifications about:
+     *      1. team can be open\not
+     *      2.team removed
+     *@codeBy OR and Eden
+     * **/
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof Team){
             if(arg.equals(true)){// the team can be open
                requestedTeams.remove(o);
                approvedTeams.add((Team)o);
+               notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));
             }
             else if(arg.equals(false)){// the team cant be open
                 ((Team)o).deleteObservers();
                 requestedTeams.remove((Team)o);
+                notifications.add(new Notification(o,"Sorry but team "+((Team)o).getName()+" cant be open",false));
+
             }
         }
+
+        /**notification about close team forever*/
+        if(o instanceof Team && arg instanceof  String && ((String)arg).contains("removed")){
+            notifications.add(new Notification(o,arg,false));
+        }
     }
+
+
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    public void MarkAsReadNotification(Notification not){
+        not.isRead=true;
+    }
+
+    public HashSet<Notification> getNotificationsList() {
+        return notifications;
+    }
+
+    /***
+     * @return only the unread notifications . if not have return null - notify when user connect
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notifications){
+            if(n.isRead==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
+    //</editor-fold>
 }

@@ -6,14 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
-public class SystemManager extends Fan implements Observer {
+public class SystemManager extends Fan implements Observer ,NotificationsUser {
 
     private HashSet<Complaint> complaints;//*
     private static final Logger LOG = LogManager.getLogger();
+    HashSet<Notification> notifications;
 
     public SystemManager(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.complaints = new HashSet<>();
+        notifications=new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -21,6 +23,8 @@ public class SystemManager extends Fan implements Observer {
     public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
         this.complaints = new HashSet<>();
+        notifications=new HashSet<>();
+
         //TODO add permissions
         //this.permissions.add();
     }
@@ -33,28 +37,7 @@ public class SystemManager extends Fan implements Observer {
     }
 
 
-    /**Eden*/
-    @Override
-    public void update(Observable o, Object arg) {
-        if(o instanceof  Complaint){
 
-            if(arg instanceof Complaint){
-                /**if it's not an answer notify*/
-                if(((Complaint)arg).getAnswer()==null){
-                    // TODO: 11/04/2020 Notifies about new Complaint
-                }
-
-            }
-        }
-        if(o instanceof Team){
-            if( arg.equals("team deleted by team owner")){// the team was deleted by system manager and not active any more
-                // TODO: does something with the notification
-            }
-            else if(arg.equals("team reopened by team owner")){
-                // TODO: does something with the notification
-            }
-        }
-    }
 
     /**
      * create new SystemManager , connect to him all the complaints
@@ -69,7 +52,7 @@ public class SystemManager extends Fan implements Observer {
     public void answerToComplaint (Complaint com, String ans){
         if(complaints.contains(com)){
             com.setAnswer(ans);
-            com.send();
+            com.send(ans);
         }
     }
     /**Eden*/
@@ -272,12 +255,18 @@ public class SystemManager extends Fan implements Observer {
     private List<Object> deleteTeamOwner(TeamOwner userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
+        /**delete owner from deleted team**/
+        LinkedList<Team>teams= userToDelete.getDeletedTeams();
+        for(Team t : teams){
+            t.getTeamOwners().remove(userToDelete);
+        }
         /***remove all the subscription**/
         HashSet<TeamSubscription> subscriptions= userToDelete.getMySubscriptions();
         for(TeamSubscription sub: subscriptions){
             if(sub.role instanceof TeamOwner){
-                userToDelete.removeTeamOwner(((TeamOwner)sub.role),system,sub.team);
+                    userToDelete.removeTeamOwner(((TeamOwner) sub.role), system, sub.team);
             }
+
             if(sub.role instanceof TeamManager){
                 userToDelete.removeTeamManager(((TeamManager)sub.role),system,sub.team);
             }
@@ -370,6 +359,7 @@ public class SystemManager extends Fan implements Observer {
         /**delete team from owner*/
         HashSet<TeamOwner> teamOwners= teamToRemove.getTeamOwners();
         for(TeamOwner curTO:teamOwners){
+            teamToRemove.addObserver(curTO);
             curTO.getTeams().remove(teamToRemove);
             /** delete the team's subscriptions from team owner subscriptions list**/
             HashSet<TeamSubscription> toRemove=new HashSet<>();
@@ -384,6 +374,7 @@ public class SystemManager extends Fan implements Observer {
         /**remove team manager from team*/
         TeamManager teamManager= teamToRemove.getTeamManager();
         if(teamManager!=null) {
+            teamToRemove.addObserver(teamManager);
             teamManager.setTeam(null);
             teamManager.getTeamRole().deleteTeamManager();
         }
@@ -398,6 +389,7 @@ public class SystemManager extends Fan implements Observer {
 
         /**remove from system*/
         system.getActiveTeams().remove(teamToRemove);
+        teamToRemove.sendNotiAbouteClose();
 
     }
 
@@ -423,9 +415,80 @@ public class SystemManager extends Fan implements Observer {
             }
         }
     }
+
+
     //</editor-fold>
 
+    //<editor-fold desc="Notifications Handler">
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    @Override
+    public void MarkAsReadNotification(Notification not){
+        not.isRead=true;
+    }
+    @Override
+    public HashSet<Notification> getNotificationsList() {
+        return notifications;
+    }
 
+    /***
+     * @return only the unread notifications . if not have return null
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notifications){
+            if(n.isRead==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
 
+    /**
+     * Get notifications about:
+     *  1.Open Team request.
+     *  2.Get new complaint.
+     * @param o
+     * @param arg
+     * @codeBy Or and Eden
+     */
+    @Override
+    public void update(Observable o, Object arg) {
+        /**Eden**/
+        if(o instanceof  Complaint){
+            if(o instanceof Complaint){
+                /**if it's not an answer notify*/
+                if(((Complaint)o).getAnswer()==null){
+                    notifications.add(new Notification(o,arg,false));
+                }
+                /**if its an answer notify - remove from notifications(because system manager already handled )*/
+                else{
+                    for(Notification noti : notifications){
+                        if(noti.sender==o){
+                            noti.isRead=true;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        /***Or*/
+        if(o instanceof Team){
+            if( arg.equals("team deleted by team owner")){// the team was deleted by system manager and not active any more
+                notifications.add(new Notification(o,arg,false));
+            }
+            else if(arg.equals("team reopened by team owner")){
+                notifications.add(new Notification(o,arg,false));
+
+            }
+        }
+    }
+    //</editor-fold>
 }
 

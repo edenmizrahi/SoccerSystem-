@@ -27,9 +27,9 @@ public class Complaint extends Observable {
     }
 
     /**Eden*/
-    public void send(){
+    public void send(String s){
         setChanged();
-        notifyAll();
+        notifyObservers(s);
     }
 
     public int getId() {

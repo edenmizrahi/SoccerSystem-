@@ -8,9 +8,9 @@ public class LeagueTest {
 
     @Test
     public void addSeasonWithTeams() throws Exception {
-        MainSystem sys=MainSystem.getInstance();
-        League l=new League("hahal",sys,null, null);
-        Season s=new Season(sys,null,1884);
+        MainSystem sys = MainSystem.getInstance();
+        League l = new League("hahal", sys, null, null);
+        Season s = new Season(sys, null, 1884);
 
         HashSet<Team> teams1=new HashSet<Team>();
         HashSet<Player> players=new HashSet<>();
@@ -27,7 +27,7 @@ public class LeagueTest {
         //or added because the change in Team constructor
         TeamOwner teamOwner = new TeamOwner(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
         Field field = new Field("Beer Sheva Field");
-        //
+
         teams1.add(new Team("hahalufa",players,null,field,teamOwner));
         teams1.add(new Team("hapuel",players,null,field, teamOwner));
         teams1.add(new Team("macabi",players,null,field,teamOwner));

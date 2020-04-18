@@ -52,6 +52,9 @@ public class Coach implements PageOwner{
         return teamRole;
     }
 
+    public void setTeamRole(TeamRole teamRole) {
+        this.teamRole = teamRole;
+    }
 
     //</editor-fold>
 

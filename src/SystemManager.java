@@ -36,7 +36,9 @@ public class SystemManager extends Fan implements Observer {
     }
 
 
-    /**Eden*/
+    /**
+     * Eden
+     */
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof  Complaint){
@@ -56,10 +58,10 @@ public class SystemManager extends Fan implements Observer {
      * @param user
      * @codeBy Eden
      */
-//    public void addSystemManager(Subscription user){
-//        SystemManager newSystemManager=new SystemManager(user,system);
-//        newSystemManager.complaints=this.complaints;
-//    }
+    public void addSystemManager(Fan user){
+        SystemManager newSystemManager=new SystemManager(user,system);
+        newSystemManager.complaints=this.complaints;
+    }
     /**Eden*/
     public void answerToComplaint (Complaint com, String ans){
         if(complaints.contains(com)){
@@ -91,7 +93,7 @@ public class SystemManager extends Fan implements Observer {
      * @throws Exception if the remove isnt valid
      * @codeBy Eden
      */
-    public List<Object> removeUser(Subscription userToDelete) throws Exception {
+    public List<Object> removeUser(Fan userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
 
 
@@ -115,30 +117,10 @@ public class SystemManager extends Fan implements Observer {
         if(userToDelete instanceof Referee) {
             objectsDeleted=deleteReferee(((Referee)userToDelete));
         }
-        if(userToDelete instanceof Coach) {
-            /***canot remove coach that already connect to team**/
 
-            if(((Coach)userToDelete).getCoachTeam()!=null){
-                throw new Exception("you have to subscribe another Coach to "+((Coach)userToDelete).getCoachTeam().getName()+" Team first");
-            }
-            objectsDeleted=deleteCoach(((Coach)userToDelete));
-        }
-        if(userToDelete instanceof Player) {
-            /**can remove player only if he didnt have any team or
-             * at team has at least 11 player***/
-            if(((Player)userToDelete).getTeam()!=null) {
-                if (((Player) userToDelete).getTeam().getPlayers().size() <= 11) {
-                    throw new Exception("You Cannot Delete Player From " + ((Player) userToDelete).getTeam().getPlayers() + " Team , at team have to be at least 11 Players!");
-                }
-            }
-            objectsDeleted=deletePlayer(((Player)userToDelete));
-        }
 
-        if(userToDelete instanceof TeamOwner) {
-            objectsDeleted=deleteTeamOwner(((TeamOwner)userToDelete));
-        }
-        if(userToDelete instanceof TeamManager) {
-            objectsDeleted=deleteTeamManager(((TeamManager)userToDelete));
+        if(userToDelete instanceof TeamRole){
+            objectsDeleted= teamRoleRemove(((TeamRole)userToDelete));
         }
 
         return objectsDeleted;
@@ -155,14 +137,149 @@ public class SystemManager extends Fan implements Observer {
         if(userToDelete.getTeam()!=null) {
             userToDelete.getTeam().setTeamManager(null);
         }
-        system.removeUser(userToDelete);
-        HashMap<Subscription,Team> allSub= userToDelete.getMySubscriptions();
+        HashMap<Fan,Team> allSub= userToDelete.getMySubscriptions();
         for(Map.Entry<Subscription,Team> sub: allSub.entrySet()){
             ((TeamOwner)sub).removeTeamOwner(((TeamOwner)sub.getKey()),system, sub.getValue());
         }
         return res;
 
     }
+
+    /**
+     * Switch between team owner which is founder to another team owner.
+     * @param toReplaceUser- the team owner to delete
+     * @param toAddUser- the team owner to subscribe as founder
+     * @param team
+     * @return the removed objects
+     * @throws Exception
+     * @codeBy Eden
+     */
+    public void switchTeamOwnerFounder(TeamRole toReplaceUser, TeamRole toAddUser, Team team) throws Exception {
+        if(toReplaceUser.getTeamOwner()==null){
+            throw new Exception("team role is not a team owner");
+        }
+        if(toAddUser.getTeamOwner()==null){
+            toAddUser.becomeTeamOwner();
+        }
+        TeamOwner toDelete=toReplaceUser.getTeamOwner();
+        TeamOwner toAdd=toAddUser.getTeamOwner();
+
+        if(team.getFounder()==toDelete){
+            team.setFounder(toAdd);
+            team.getTeamOwners().add(toAdd);
+            toAdd.setTeam(team);
+        }
+        else{
+            throw new Exception("wrong team owner and team");
+        }
+    }
+
+    /**
+     * remove team from system ,
+     * if team does not have future Matches(not belong to current season).
+     * doesnt delete all team matches.
+     * disconnect the team owners and managers.
+     * remove the team manager sub-> remove his subscriptions .
+     * disconnect the coach
+     * disconnect the players
+     * disconnect from user.
+     * @param teamToRemove
+     * @codeBy Eden
+     */
+    public void removeTeamFromSystem(Team teamToRemove) throws Exception {
+       if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
+           throw new Exception("team is play in the current season ,you cannot delete the team untill the end of the season");
+       }
+       system.getAllTeams().remove(teamToRemove);
+        for (TeamOwner curTeamOwner:teamToRemove.getTeamOwners()) {
+//            curTeamOwner.getTeams().
+        }
+    }
+
+
+    /****
+     * TeamRole handling:
+     *  1.check if remove is valid ->(coach\TeamOwner\TeamManager\Player)
+     *  2.if coach!=null -> handlingCoachRemove
+     *  3.if TeamOwner!=null->handlingTeamOwnerRemove
+     *  4.if TeamManager!=null->handlingTeamManagerRemove
+     *  5.if player!=null->handlingPlayerRemove
+     *  6.disconnect user from system.
+     *
+     * @return lost of removed objects.
+     * @exception if the Deletion isn't valid
+     * @codeBy Eden
+     */
+
+    public List<Object> teamRoleRemove(TeamRole userToRemove) throws Exception {
+        isValidRemove(userToRemove);
+        /*******if not valid - exception thrown*******/
+        List<Object> removedObjects=new LinkedList<>();
+        /**if coach!=null -> handlingCoachRemove*/
+        if(userToRemove.getCoach()!=null)  {
+            removedObjects.addAll(deleteCoach(userToRemove.getCoach()));
+        }
+        /**if player!=null->handlingPlayerRemove*/
+        if(userToRemove.getPlayer()!=null)  {
+            removedObjects.addAll(deletePlayer(userToRemove.getPlayer()));
+        }
+        /**if TeamManager!=null->handlingTeamManagerRemove*/
+        if(userToRemove.getTeamManager()!=null)  {
+            removedObjects.addAll(deleteTeamManager(userToRemove.getTeamManager()));
+        }
+        /**if TeamOwner!=null->handlingTeamOwnerRemove*/
+        if(userToRemove.getTeamOwner()!=null)  {
+            removedObjects.addAll(deleteTeamOwner(userToRemove.getTeamOwner()));
+        }
+
+        /**disconnect user from system*/
+        system.removeUser(userToRemove);
+
+        return removedObjects;
+    }
+
+    /**
+     * check if SystemManager can remove the TeamRole:
+     *      1.if is coach and he connect to any team, throws Exception.
+     *      2.if is player belong to any Team which hasn't more than 11 player throws Exception.
+     *      3.if is TeamManager->always valid
+     *      4.if is TeamOwner and he is a founder of any Team from Team list which he hold->throws Exception
+     * @param userToRemove
+     * @throws Exception
+     */
+    private void isValidRemove(TeamRole userToRemove) throws Exception{
+        /**if is coach-> check if coach is not connected to any team ->
+        if connect throws Exception("you have to replace team coach")*/
+        if(userToRemove.getCoach()!=null) {
+            if(userToRemove.getCoach().getCoachTeam()!=null){
+                throw new Exception("you have to subscribe another Coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" Team first");
+            }
+        }
+        /**if is player-> check if the player belong to any Team , if so , check if team has more than 11 player ->
+        if not throws Exception ("you have to add more players to team before delete ")*/
+        if(userToRemove.getPlayer()!=null) {
+            if (userToRemove.getPlayer().getTeam() != null) {
+                if (userToRemove.getPlayer().getTeam().getPlayers().size() <= 11) {
+                    throw new Exception("You Cannot Delete Player From " + userToRemove.getPlayer().getTeam().getName() + " Team ,any team have to be at least 11 Players!");
+                }
+            }
+        }
+
+        /**if is TeamOwner-> if he is a founder of any Team from Team list which he hold->
+         *throws Exception("you have to replace team founder")*/
+        if(userToRemove.getTeamOwner()!=null){
+            LinkedList<Team> OwnerTeams =userToRemove.getTeamOwner().getTeams();
+            for(Team t: OwnerTeams){
+                if(t.getFounder()==userToRemove.getTeamOwner()){
+                    throw new Exception(userToRemove.getName()+" is founder of:"+ " "+t.getName() +"please replace the team's fonder");
+                }
+            }
+        }
+
+
+    }
+
+
 
     /**
      * delete Team Owner only if he isn't a Founder of any team and delete all his subscribe .
@@ -211,7 +328,6 @@ public class SystemManager extends Fan implements Observer {
      * @codeBy Eden
      */
     private List<Object> deleteCoach(Coach userToDelete) {
-        system.removeUser(userToDelete);
         List<Object> re=new LinkedList<>();
         re.add(userToDelete);
         return  re;
@@ -261,47 +377,5 @@ public class SystemManager extends Fan implements Observer {
         return res;
     }
 
-    /**
-     * Switch between team owner which is founder to another team owner and remove from system's user the first.
-     * @param toDelete- the team owner to delete
-     * @param toAdd- the team owner to subscribe as founder
-     * @param team
-     * @return the removed objects
-     * @throws Exception
-     */
-    public List<Object> switchTeamOwner(TeamOwner toDelete, TeamOwner toAdd, Team team) throws Exception {
-        List<Object> res=new LinkedList<>();
-        if(team.getFounder()==toDelete){
-            team.setFounder(toAdd);
-            team.getTeamOwners().add(toAdd);
-            toAdd.setTeam(team);
-            res=removeUser(toDelete);
-        }
-        else{
-            throw new Exception("wrong team owner and team");
-        }
-        return res;
-    }
-
-    /**
-     * remove team from system ,
-     * if team does not have future Matches(not belong to current season).
-     * doesnt delete all team matches.
-     * disconnect the team owners and managers.
-     * remove the team manager sub-> remove his subscriptions .
-     * disconnect the coach
-     * disconnect the players
-     * disconnect from user.
-     * @param teamToRemove
-     */
-    public void removeTeamFromSystem(Team teamToRemove) throws Exception {
-       if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
-           throw new Exception("team is play in the current season ,you cannot delete the team untill the end of the season");
-       }
-       system.getAllTeams().remove(teamToRemove);
-        for (TeamOwner curTeamOwner:teamToRemove.getTeamOwners()) {
-//            curTeamOwner.getTeams().
-        }
-    }
 }
 

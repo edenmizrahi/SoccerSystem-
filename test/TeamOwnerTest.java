@@ -7,96 +7,119 @@ import java.util.HashSet;
 public class TeamOwnerTest {
 
     MainSystem ms = MainSystem.getInstance();
-    Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+    Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
     Team team = new Team();
-    TeamOwner tOYossi = new TeamOwner(yossi, ms, team);
-    Subscription moshe = new Subscription(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
-    Subscription david = new Subscription(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
+    TeamRole tOYossi = new TeamRole(yossi);
+    Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
+    Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
 
     //adi
     @Test
     public void subscribeTeamOwnerTest() throws Exception {
-        TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
+        TeamOwner tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
+        Assert.assertTrue(tOMoshe.getTeams().contains(team));
+
     }
     //adi
     @Test
     public void removeTeamOwnerTest() throws Exception {
-        TeamOwner tOMoshe = tOYossi.subscribeTeamOwner(moshe, ms, team);
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
+        TeamOwner tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, ms, team);
         TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(3, team.getTeamOwners().size());
-        tOYossi.removeTeamOwner(tOMoshe, ms, team);
+        tOYossi.getTeamOwner().removeTeamOwner(tOMoshe, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(1, team.getTeamOwners().size());
     }
     //adi
     @Test
     public void subscribeTeamManagerTest() throws Exception {
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
         HashSet<Permission> per = new HashSet<>();
         per.add(Permission.addRemoveEditPlayer);
-        TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
+        TeamManager tMDavid = tOYossi.getTeamOwner().subscribeTeamManager(david, ms, team, per);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(tMDavid, team.getTeamManager());
     }
     //adi
     @Test
     public void removeTeamManagerTest() throws Exception {
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
         HashSet<Permission> per = new HashSet<>();
         per.add(Permission.addRemoveEditPlayer);
-        TeamManager tMDavid = tOYossi.subscribeTeamManager(david, ms, team, per);
-        tOYossi.removeTeamManager(tMDavid, ms, team);
+        TeamManager tMDavid = tOYossi.getTeamOwner().subscribeTeamManager(david, ms, team, per);
+        tOYossi.getTeamOwner().removeTeamManager(tMDavid, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(null, team.getTeamManager());
     }
     //adi
     @Test
-    public void addTeamManagerTest() throws Exception {
-        HashSet<Permission> per = new HashSet<>();
-        per.add(Permission.addRemoveEditPlayer);
-        TeamManager tMDavid = new TeamManager(david, ms, team, per);
-        tOYossi.addTeamManager(tMDavid, team);
-        Assert.assertEquals(tMDavid, team.getTeamManager());
-    }
-    //adi
-    @Test
     public void addRemoveEditCoachTest() throws Exception {
-        Coach cDavid = new Coach(david, ms, "mainCoach");
-        tOYossi.addCoach(cDavid, team);
-        Assert.assertEquals(cDavid, team.getCoach());
-        Assert.assertEquals(team, cDavid.getCoachTeam());
-        tOYossi.editCoachRole(cDavid, "trainer");
-        Assert.assertEquals("trainer", cDavid.getRoleAtTeam());
-        //tOYossi.removeCoach(cDavid, team);
-        Assert.assertEquals(null, team.getCoach());
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
+        TeamRole teamRoleMoshe = new TeamRole(moshe);
+        TeamRole teamRoleDavid = new TeamRole(david);
+        Assert.assertEquals(3, ms.getUsers().size());
+        Coach cDavid = new Coach(team, "mainCoach", teamRoleMoshe);
+        team.addCoach(cDavid);
+        tOYossi.getTeamOwner().removeAndReplaceCoach(cDavid, teamRoleDavid, "main", team);
+        Assert.assertEquals(teamRoleDavid, team.getCoach().getTeamRole());
+        Assert.assertEquals(team, teamRoleDavid.getCoach().getCoachTeam());
+        tOYossi.getTeamOwner().editCoachRole(teamRoleDavid.getCoach(), "trainer");
+        Assert.assertEquals("trainer", teamRoleDavid.getCoach().getRoleAtTeam());
     }
     //adi
     @Test(expected = Exception.class)
     public void addRemoveEditPlayerTest() throws Exception {
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
         Date d = new Date();
-        Player pDavid = new Player(david, ms, d);
-        tOYossi.addPlayer(pDavid, team);
-        Assert.assertTrue(team.getPlayers().contains(pDavid));
-        Assert.assertEquals(team, pDavid.getTeam());
-        tOYossi.editPlayerRole(pDavid, "defense");
-        Assert.assertEquals("defense", pDavid.getRoleAtField());
+        TeamRole teamRoleDavid = new TeamRole(david);
+        teamRoleDavid.becomePlayer(d);
+        tOYossi.getTeamOwner().addPlayer(teamRoleDavid, "defense", d, team);
+        Assert.assertTrue(team.getPlayers().contains(teamRoleDavid.getPlayer()));
+        Assert.assertEquals(team, teamRoleDavid.getPlayer().getTeam());
+        tOYossi.getTeamOwner().editPlayerRole(teamRoleDavid.getPlayer(), "defense");
+        Assert.assertEquals("defense", teamRoleDavid.getPlayer().getRoleAtField());
         //doesnt remove player because less than 11, returns exception
-        tOYossi.removePlayer(pDavid, team);
+        tOYossi.getTeamOwner().removePlayer(teamRoleDavid.getPlayer(), team);
     }
     //adi
     @Test
     public void addRemoveEditFieldTest() throws Exception {
+        tOYossi.becomeTeamOwner();
+        //should be createTeam instead
+        tOYossi.getTeamOwner().setTeam(team);
+        team.addTeamOwner(tOYossi.getTeamOwner());
         Field field = new Field("Beer Sheva Field");
-        tOYossi.addField(field, team);
-        Assert.assertTrue(field.getTeams().contains(team));
-        Assert.assertEquals(field, team.getField());
-        Assert.assertEquals("Beer Sheva Field", field.getNameOfField());
-        tOYossi.editFieldName(field, "Bash Field");
+        team.setField(field);
+        Field field2 = new Field("Beer Sheeeeeeeva Field");
+        tOYossi.getTeamOwner().removeAndReplaceField(field, field2, team);
+        Assert.assertTrue(field2.getTeams().contains(team));
+        Assert.assertEquals(field2, team.getField());
+        Assert.assertEquals("Beer Sheeeeeeeva Field", field2.getNameOfField());
+        tOYossi.getTeamOwner().editFieldName(field, "Bash Field");
         Assert.assertEquals("Bash Field", field.getNameOfField());
-        tOYossi.removeField(field, team);
-        Assert.assertEquals(null, team.getField());
-        Assert.assertFalse(field.getTeams().contains(team));
     }
 
 }

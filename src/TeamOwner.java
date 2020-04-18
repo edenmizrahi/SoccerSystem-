@@ -6,41 +6,23 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 
-public class TeamOwner extends Subscription{
-
+public class TeamOwner{
+    private TeamRole teamRole;
     private LinkedList<Team> teams;
-    private HashMap<Subscription, Team> mySubscriptions;
+    private HashMap<TeamRole, Team> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
 
-    //team owner founder
-    public TeamOwner(Subscription sub, MainSystem ms) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        ms.removeUser(sub);
-        this.teams = new LinkedList<>();
-        //teams.add(team);
-        //team.addTeamOwner(this);
-        mySubscriptions = new HashMap<>();
-        //TODO add permissions
-        //this.permissions.add();
-    }
-    public TeamOwner(Subscription sub, MainSystem ms, Team team) {
-        super(ms, sub.getName(), sub.getPhoneNumber(), sub.getEmail(), sub.getUserName(), sub.getPassword());
-        ms.removeUser(sub);
-        this.teams = new LinkedList<>();
-        teams.add(team);
-        team.addTeamOwner(this);
-        mySubscriptions = new HashMap<>();
-        //TODO add permissions
-        //this.permissions.add();
-    }
-    //first time team owner- with no team
-    public TeamOwner(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms, name, phoneNumber, email, userName, password);
+    //team owner founder- with no team.
+    public TeamOwner(TeamRole teamRole) {
         this.teams = new LinkedList<>();
         mySubscriptions = new HashMap<>();
         //TODO add permissions
         //this.permissions.add();
+        this.teamRole= teamRole;
     }
+
+
+
 
     //<editor-fold desc="add remove and edit">
     //adi
@@ -161,6 +143,7 @@ public class TeamOwner extends Subscription{
         coach.setRoleAtTeam(role);
     }
     //adi
+    //TODO player needs to receive role and add role to player
     public void addPlayer(Player player, Team team){
         if (player == null || team == null){
             throw new NullPointerException();
@@ -192,6 +175,7 @@ public class TeamOwner extends Subscription{
         field.addTeam(team);
     }
     //adi
+    //TODO CHANGE cant remove field, only change
     public void removeField (Field field, Team team) throws Exception {
         if (field == null || team == null){
             throw new NullPointerException();

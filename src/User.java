@@ -55,7 +55,7 @@ public class User {
         for (User user:system.getUsers()) {
             if(user instanceof PageOwner){
                 if(((PageOwner)user).getPage() != null){
-                    if(user instanceof Subscription && ((Subscription)user).getName().contains(name)){
+                    if(user instanceof Fan && ((Fan)user).getName().contains(name)){
                             ans.add(((PageOwner)user).getPage());
                     }
                 }
@@ -216,11 +216,9 @@ public class User {
     //the user chooses to search all players , returns all the player that have pages
     public LinkedHashSet<PrivatePage> searchAllPlayers(){
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
-        for (User user:system.getUsers()) {
-            if(user instanceof  Player){
-                if(((Player)user).getPage() != null){
-                    ans.add(((Player)user).getPage());
-                }
+        for (Player player:system.getAllPlayer()) {
+            if(player.getPage() != null){
+                ans.add(player.getPage());
             }
         }
 
@@ -237,15 +235,14 @@ public class User {
     //the user chooses to search all coaches , returns all the coaches who have pages
     public LinkedHashSet<PrivatePage> searchAllCoaches(){
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
-        for (User user:system.getUsers()) {
-            if(user instanceof  Coach){
-                if(((Coach)user).getPage() != null){
-                    if( ! ans.contains(((Coach)user).getPage())){
-                        ans.add(((Coach)user).getPage());
+        for (Coach coach:system.getAllCoach()) {
+                if(coach.getPage() != null) {
+                    if (!ans.contains(coach.getPage())) {
+                        ans.add(coach.getPage());
                     }
                 }
             }
-        }
+
 
         //if fan- save the search
         if(this instanceof Fan){
@@ -457,44 +454,31 @@ public class User {
     //</editor-fold>
 
     //<editor-fold desc="Sign in Functions">
-    /**OR**/
-    //if you sign in as team manager or team player
-    public boolean signInAsSub(String name, String phoneNumber, String email, String userName, String password){
-        // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
-            Subscription newSub= new Subscription(system,name,phoneNumber,email,userName,password);
-            system.removeUser(this);
-            system.addUser(newSub);
-            LOG.info(String.format("%s - %s", userName, "sign in as Subscription"));
-            return true;
-        }
-        return false;
-    }
 
     /**OR**/
-    public boolean signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
+    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            Player newPlayer= new Player(system,name,phoneNumber,email,userName,password,dateOfBirth);
+            TeamRole newPlayer= new TeamRole(system,name,phoneNumber,email,userName,password);
+            newPlayer.becomePlayer(dateOfBirth);
             system.removeUser(this);
-            system.addUser(newPlayer);
             LOG.info(String.format("%s - %s", userName, "sign in as Player"));
-            return true;
+            return newPlayer;
         }
-        return false;
+        return null;
     }
 
     /**OR**/
-    public boolean signInAsCoach(String name, String phoneNumber, String email, String userName, String password){
+    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            Coach newCoach= new Coach(system,name,phoneNumber,email,userName,password);
+            TeamRole newCoach= new TeamRole(system,name,phoneNumber,email,userName,password);
+            newCoach.becomeCoach();
             system.removeUser(this);
-            system.addUser(newCoach);
             LOG.info(String.format("%s - %s", userName, "sign in as Coach"));
-            return true;
+            return newCoach;
         }
-        return false;
+        return null;
     }
 
     /**OR**/
@@ -511,16 +495,15 @@ public class User {
     }
 */
     /**OR**/
-    public boolean signInAsFan(String name, String phoneNumber, String email, String userName, String password){
+    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
             Fan newFan= new Fan(system,name,phoneNumber,email,userName,password);
             system.removeUser(this);
-            system.addUser(newFan);
             LOG.info(String.format("%s - %s", userName, "sign in as Fan"));
-            return true;
+            return newFan;
         }
-        return false;
+        return null;
     }
 
     /**OR**/
@@ -538,41 +521,38 @@ public class User {
     */
 
     /**OR**/
-    public boolean signInAsRFA(String name, String phoneNumber, String email, String userName, String password){
+    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
             Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password);
             system.removeUser(this);
-            system.addUser(newRFA);
             LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
-            return true;
+            return newRFA;
         }
-        return false;
+        return null;
     }
 
     /**OR**/
-    public boolean signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password){
+    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            TeamOwner teamOwner= new TeamOwner(system,name,phoneNumber,email,userName,password);
+            TeamRole teamOwner= new TeamRole(system,name,phoneNumber,email,userName,password);
+            teamOwner.becomeTeamOwner();
             system.removeUser(this);
-            system.addUser(teamOwner);
             LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
-            return true;
+            return teamOwner;
         }
-        return false;
+        return null;
     }
 
 
     public boolean checkValidDetails(String userName, String password, String phoneNumber, String email){
         //check that username in unique
-        for (User user:system.getUsers()) {
-            if(user instanceof Subscription){
-                if(((Subscription)user).getUserName().equals(userName)){
+        for (Fan user:system.getAllFans()) {
+                if(user.getUserName().equals(userName)){
                     return false;
                 }
             }
-        }
         //password length is 6 or more
         if(password.length()<6){
             return false;
@@ -599,7 +579,7 @@ public class User {
      * @param password
      * @return
      */
-    public Subscription logIn(String userName, String password) throws Exception {
+    public Fan logIn(String userName, String password) throws Exception {
         if(userName==null){
             throw new Exception("userName null");
         }
@@ -612,18 +592,18 @@ public class User {
         if(password.length()<6){
             throw new Exception("password not valid");
         }
-        for (Subscription sub:system.getSubscriptions()) {
-                if(sub.getUserName().equals(userName) && sub.getPassword().equals(password)){
+        for (Fan fan:system.getAllFans()) {
+                if(fan.getUserName().equals(userName) && fan.getPassword().equals(password)){
                     LOG.info(String.format("%s - %s", userName, "loged in to system"));
-                    return sub;
+                    return fan;
                 }
         }
         return null;
     }
 
     private void writeToLOG(String message){
-        if(this instanceof Subscription){
-            LOG.info(String.format("%s - %s", ((Subscription)this).getUserName(), message));
+        if(this instanceof Fan){
+            LOG.info(String.format("%s - %s", ((Fan)this).getUserName(), message));
         }
         else{
             LOG.info(String.format("%s - %s", "Guest User", message));

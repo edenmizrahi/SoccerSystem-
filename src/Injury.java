@@ -12,6 +12,6 @@ public class Injury extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +", "+ player.getName()+" is injured";
+        return super.getDateTime() +","+super.getMinuteOfMatch() +", "+ player.getTeamRole().getName()+" is injured";
     }
 }

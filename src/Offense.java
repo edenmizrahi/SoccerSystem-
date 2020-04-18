@@ -12,7 +12,7 @@ public class Offense extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +", offense by "+ player.getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +", offense by "+ player.getTeamRole().getName();
     }
 
 }

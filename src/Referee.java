@@ -77,6 +77,7 @@ public class Referee extends Fan{
     }
 
     /**Yarden**/
+    // TODO: 18/04/2020 finisih implement
     public void editEventsSchedule(Match match) throws Exception {
         //just if you are a main referee
         if(match.getMainReferee().equals(this)) {
@@ -94,7 +95,6 @@ public class Referee extends Fan{
     /**Yarden**/
     public HashSet<Event> createReport(Match match) throws Exception {
         //just if you are a main referee
-
         if(match.getMainReferee().equals(this)){
             if(this.getMatches().contains(match)){
                 LOG.info(String.format("%s - %s", this.getUserName(), "create report by main referee"));
@@ -117,7 +117,7 @@ public class Referee extends Fan{
 
         for (Match m: matches) {
             if (m.getStartDate().after(new Date(System.currentTimeMillis()))){
-                //add just matche that still not take place
+                //add just match that still not take place
                 matchesToShow.add(m);
 //                System.out.println("Date:"+m.getStartDate().toString()+""+"At field:"+m.getField().getNameOfField()+""+"Guest score:"+m.getGuestScore()
 //                        +"Home score:"+""+ m.getHomeScore());
@@ -126,5 +126,38 @@ public class Referee extends Fan{
         LOG.info(String.format("%s - %s", this.getUserName(), "Show matches to referee"));
         return matchesToShow;
     }
+
+    /**Yarden**/
+    //<editor-fold desc="events creation">
+    public void createGoalEvent(Player p){
+
+    }
+
+    public void createYellowCardEvent(){
+
+    }
+
+    public void createRedCardEvent(){
+
+    }
+
+    public void createOffSideCardEvent(){
+
+    }
+
+    public void createOffenseEvent(){
+
+    }
+
+    public void createInjuryEvent(){
+
+    }
+
+    public void createExtraTimeEvent(){
+
+    }
+
+    //</editor-fold>
+
 
 }

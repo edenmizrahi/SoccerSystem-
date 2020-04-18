@@ -1,11 +1,7 @@
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.HashMap;
+import java.util.HashSet;
 
-public class SchedulingPolicy extends Policy{
+public interface SchedulingPolicy {
 
-    private static final Logger LOG = LogManager.getLogger();
-
-    public SchedulingPolicy(League league, Season season) {
-        super(season);
-    }
+    void assign(HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues, HashSet<Referee> referees, Referee mainRef);
 }

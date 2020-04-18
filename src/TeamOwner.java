@@ -26,6 +26,7 @@ public class TeamOwner{
         this.teams.add(team);
     }
 
+
     // adi
     public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
         if (fan == null || ms == null || team == null){

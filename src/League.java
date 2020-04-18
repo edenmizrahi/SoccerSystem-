@@ -9,21 +9,18 @@ public class League {
 
     private String name;
     private MainSystem mainSystem; //1
-    private HashMap<Season,Policy> seasonsWithPolicy; // 1..*
+
     private static final Logger LOG = LogManager.getLogger();
     /**
      * hold the teams in this league and in specific Seasons
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
 
-    public League(String name, MainSystem mainSystem, HashMap<Season, Policy> seasonsWithPolicy, Season currSeason) {
+    public League(String name, MainSystem mainSystem, Season currSeason) {
         this.name = name;
         teamsInSeason=new HashMap<>();
         this.mainSystem = mainSystem;
-        this.seasonsWithPolicy = seasonsWithPolicy;
-
         mainSystem.addLeague(this);
-
     }
 
     public League(String name, MainSystem mainSystem) throws Exception {
@@ -31,8 +28,6 @@ public class League {
             this.name = name;
             this.mainSystem = mainSystem;
             teamsInSeason = new HashMap<>();
-            this.seasonsWithPolicy = seasonsWithPolicy;
-
             mainSystem.addLeague(this);
         }
         else{
@@ -55,14 +50,6 @@ public class League {
 
     public void setMainSystem(MainSystem mainSystem) {
         this.mainSystem = mainSystem;
-    }
-
-    public HashMap<Season, Policy> getSeasonsWithPolicy() {
-        return seasonsWithPolicy;
-    }
-
-    public void setSeasonsWithPolicy(HashMap<Season, Policy> seasonsWithPolicy) {
-        this.seasonsWithPolicy = seasonsWithPolicy;
     }
 
     public void setTeamsInSeason(HashMap<Season, HashSet<Team>> teamsInSeason) {

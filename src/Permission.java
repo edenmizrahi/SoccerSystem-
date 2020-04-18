@@ -4,8 +4,5 @@ public enum Permission {
         addRemoveEditCoach,
         addRemoveEditField,
         addToBudgetControl,
-        /**yarden**/
-//        AddReferee,
-//        RemoveReferee;
 }
 

@@ -73,4 +73,11 @@ public class Match extends Observable{
 
     public void setStartDate(Date startDate) { this.startDate = startDate; }
 
+    public void setHomeScore(int homeScore) {
+        this.homeScore = homeScore;
+    }
+
+    public void setGuestScore(int guestScore) {
+        this.guestScore = guestScore;
+    }
 }

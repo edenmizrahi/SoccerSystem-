@@ -141,7 +141,7 @@ public class User {
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
         for (Season s:system.getSeasons()) {
             if(s.getYear()== seasonYear){
-                for (HashSet<Team> hashT:s.getTeamsInCurrentSeasonleagues().values()) {
+                for (HashSet<Team> hashT:s.getTeamsInCurrentSeasonLeagues().values()) {
                     for (Team t:hashT) {
                         ans.addAll(getPrivatePageforTeam(t));
                     }

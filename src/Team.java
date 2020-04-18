@@ -148,7 +148,6 @@ public class Team extends Observable implements PageOwner{
         return teamManager;
     }
 
-
     public HashSet<Player> getPlayers() {
         return players;
     }
@@ -371,11 +370,15 @@ public class Team extends Observable implements PageOwner{
         mainSystem.removeActiveTeam(this);
         LOG.info(String.format("%s - %s", name, "team was deleted by team owner"));
     }
-    public void addMatchToHomeMatch(Match match){
+
+    /**Yarden**/
+    public void addMatchToHomeMatches(Match match){
         this.getHome().add(match);
     }
 
-    public void addMatchToAwayMatch(Match match){
+    /**Yarden**/
+    public void addMatchToAwayMatches(Match match){
         this.getAway().add(match);
     }
+
 }

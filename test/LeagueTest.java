@@ -29,7 +29,7 @@ public class LeagueTest {
         //or added because the change in Team constructor
         TeamOwner teamOwner = new TeamOwner(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
         Field field = new Field("Beer Sheva Field");
-        //
+
         teams1.add(new Team("hahalufa",players,null,field,teamOwner));
         teams1.add(new Team("hapuel",players,null,field, teamOwner));
         teams1.add(new Team("macabi",players,null,field,teamOwner));

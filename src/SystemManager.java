@@ -36,7 +36,9 @@ public class SystemManager extends Fan implements Observer {
     }
 
 
-    /**Eden*/
+    /**
+     * Eden
+     */
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof  Complaint){
@@ -314,6 +316,7 @@ public class SystemManager extends Fan implements Observer {
         if( userToDelete.getTeam()!=null) {
             userToDelete.getTeam().removePlayer(userToDelete);
         }
+        system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
         return res;

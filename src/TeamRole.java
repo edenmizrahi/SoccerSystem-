@@ -11,6 +11,7 @@ public class TeamRole extends Fan {
     /**OR**/
     public TeamRole(Fan fan) {
         super(fan.system,fan.getName(),fan.getPhoneNumber(),fan.getEmail(),fan.getUserName(),fan.getPassword());
+        this.system.removeUser(fan);
         this.player=null;
         this.coach=null;
         this.teamManager=null;
@@ -29,7 +30,7 @@ public class TeamRole extends Fan {
     //<editor-fold desc="become functions">
     /**OR**/
     public boolean becomePlayer(Date dateOfBirth){
-        if(this.player != null){
+        if(this.player == null){
             player= new Player(this,dateOfBirth);
             return true;
         }
@@ -37,7 +38,7 @@ public class TeamRole extends Fan {
     }
     /**OR**/
     public boolean becomeCoach(){
-        if (this.coach!=null){
+        if (this.coach == null){
             coach= new Coach(this);
             return true;
         }
@@ -46,7 +47,7 @@ public class TeamRole extends Fan {
 
     /**OR**/
     public boolean becomeTeamManager(Team team, HashSet<Permission> pers){
-        if(this.teamManager!=null){
+        if(this.teamManager == null){
             teamManager= new TeamManager(this,team,pers);
             return true;
         }
@@ -54,13 +55,45 @@ public class TeamRole extends Fan {
     }
     /**OR**/
     public boolean becomeTeamOwner(){
-        if(this.teamOwner!=null){
+        if(this.teamOwner == null){
             teamOwner= new TeamOwner(this);
             return true;
         }
         return false;
     }
 
+    // adi
+    public boolean deletePlayer(){
+        if (player != null){
+            player = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean deleteCoach(){
+        if (coach != null){
+            coach = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean deleteTeamManager(){
+        if (teamManager != null){
+            teamManager = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean deleteTeamOwner(){
+        if (teamOwner != null){
+            teamOwner = null;
+            return true;
+        }
+        return false;
+    }
     //</editor-fold>
 
 

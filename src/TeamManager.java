@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 public class TeamManager {
     private TeamRole teamRole;
     private Team team;
-    private HashMap<TeamRole, Team> mySubscriptions;
+    private HashSet<TeamSubscription> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
     private HashSet<Permission> permissions;
 
@@ -23,11 +23,11 @@ public class TeamManager {
 
     //<editor-fold desc="getters and setters">
 
-    public HashMap<TeamRole, Team> getMySubscriptions() {
+    public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
     }
 
-    public void setMySubscriptions(HashMap<TeamRole, Team> mySubscriptions) {
+    public void setMySubscriptions(HashSet<TeamSubscription> mySubscriptions) {
         this.mySubscriptions = mySubscriptions;
     }
 

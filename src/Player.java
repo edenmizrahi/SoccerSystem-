@@ -62,10 +62,6 @@ public class Player implements PageOwner {
         return playerTeam;
     }
 
-    public TeamRole getTeamRole() {
-        return teamRole;
-    }
-
     public PrivatePage getPrivatePage() {
         return privatePage;
     }
@@ -87,7 +83,11 @@ public class Player implements PageOwner {
     public void setRoleAtField(String roleAtField) {
         this.roleAtField = roleAtField;
     }
-    
+
+    public TeamRole getTeamRole() {
+        return teamRole;
+    }
+
     public void setTeamRole(TeamRole teamRole) {
         this.teamRole = teamRole;
     }

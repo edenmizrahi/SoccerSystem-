@@ -1,9 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Observable;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,7 +33,6 @@ public class Team extends Observable implements PageOwner{
         this.founder=teamOwner;
         this.isActive=false;
         this.mainSystem= MainSystem.getInstance();
-        this.mainSystem.addNotActiveTeam(this);
 
         this.leaguePerSeason = new HashMap<>();
         this.players = new LinkedHashSet<>();
@@ -60,7 +56,6 @@ public class Team extends Observable implements PageOwner{
         this.teamOwners = new HashSet<>();
         this.isActive=false;
         this.mainSystem= MainSystem.getInstance();
-        this.mainSystem.addNotActiveTeam(this);
         this.leaguePerSeason = new HashMap<>();
         this.players = new LinkedHashSet<>();
         this.coach = null;
@@ -70,32 +65,7 @@ public class Team extends Observable implements PageOwner{
     }
 
 
-    public void becomeActive(HashSet<Player> players, Coach coach, Field field) throws Exception {
-        if(players.size() < 11){
-            throw new Exception("The number of players are less than 11");
-        }
-        this.players= players;
-        for (Player player:players) {
-            if(player.getTeam() == null){
-                player.setPlayerTeam(this);
-            }
-            else{
-                throw new Exception("one of the players team is not null");
-            }
-        }
-        this.coach = coach;
-        this.coach.setCoachTeam(this);
-        this.field = field;
-        this.field.addTeam(this);
 
-        //add team to active list in system
-        this.isActive=true;
-        this.mainSystem.removeNotActiveTeam(this);
-        this.mainSystem.addActiveTeam(this);
-
-        LOG.info(String.format("%s - %s", name, "team was activated"));
-
-    }
 
     //<editor-fold desc="getters and setters">
     public void setName(String name) {
@@ -328,12 +298,22 @@ public class Team extends Observable implements PageOwner{
         return false;
     }
 
-    /**OR**/
+    /**OR
+     * add income to budget control
+     * @param typeOfIncome
+     * @param amount
+     * @throws Exception
+     */
     public void addIncome(String typeOfIncome, long amount) throws Exception {
         this.budgetControl.addIncome(typeOfIncome,amount);
     }
 
-    /**OR**/
+    /**Or
+     * add expense in budget control
+     * @param typeOfExpense
+     * @param amount
+     * @throws Exception
+     */
     public void addExpense(String typeOfExpense, long amount) throws Exception {
         this.budgetControl.addExpense(typeOfExpense,amount);
     }
@@ -350,7 +330,10 @@ public class Team extends Observable implements PageOwner{
         return isActive;
     }
 
-    /**Or**/
+    /**Or
+     * when team is deleted by team owner
+     * delete the connections between player to team.
+     */
     public void deleteTeamByTeamOwner() {
         for (Player p:players) {
             p.setPlayerTeam(null);
@@ -365,15 +348,106 @@ public class Team extends Observable implements PageOwner{
             teamManager.setTeam(null);
             teamManager.getTeamRole().deleteTeamManager();
         }
+
         isActive=false;
         mainSystem.removeActiveTeam(this);
+        founder=null;
+
+        //remove the subscriptions of all team owners
+        for (TeamOwner teamOwner:teamOwners) {
+            Iterator<TeamSubscription> iter= teamOwner.getMySubscriptions().iterator();
+            TeamSubscription sub;
+            while (iter.hasNext()){
+                sub=iter.next();
+                if(sub.team.equals(this)){
+                    teamOwner.getMySubscriptions().remove(sub);
+                }
+            }
+            //remove the team from activeTeams and move to deletedTeams
+            teamOwner.getTeams().remove(this);
+            teamOwner.getDeletedTeams().add(this);
+        }
+
         LOG.info(String.format("%s - %s", name, "team was deleted by team owner"));
     }
-    public void addMatchToHomeMatch(Match match){
+
+    /**OR
+     * team becomes active
+     * @param players
+     * @param coach
+     * @param field
+     * @throws Exception
+     */
+    public void becomeActive(HashSet<Player> players, Coach coach, Field field) throws Exception {
+        if(players.size() < 11){
+            throw new Exception("The number of players are less than 11");
+        }
+        this.players= players;
+        for (Player player:players) {
+            if(player.getTeam() == null){
+                player.setPlayerTeam(this);
+            }
+            else{
+                throw new Exception("one of the players team is not null");
+            }
+        }
+        this.coach = coach;
+        this.coach.setCoachTeam(this);
+        this.field = field;
+        this.field.addTeam(this);
+
+        //add team to active list in system
+        this.isActive=true;
+        this.mainSystem.addActiveTeam(this);
+
+        LOG.info(String.format("%s - %s", name, "team was activated"));
+
+    }
+
+    /**OR
+     * the team owner calls this function whem he want to reOpen the team
+     * he is the only team owner now
+     * @param players- at least 11
+     * @param coach
+     * @param field
+     * @param newFounder- send himself
+     * @throws Exception
+     */
+    public void reopenTeam(HashSet<Player> players, Coach coach, Field field, TeamOwner newFounder) throws Exception {
+        this.founder=newFounder;
+
+        becomeActive(players,coach,field);
+
+
+        //remove all the other team owners
+        Iterator<TeamOwner> iter= teamOwners.iterator();
+        TeamOwner teamOwner;
+        while (iter.hasNext()){
+            teamOwner= iter.next();
+            if(! teamOwner.equals(newFounder)){
+                teamOwner.getDeletedTeams().remove(this);
+                teamOwners.remove(teamOwner);
+            }
+
+        }
+        LOG.info(String.format("%s - %s", name, "team was re-opened"));
+    }
+
+
+
+    /**Yarden**/
+    public void addMatchToHomeMatches(Match match){
         this.getHome().add(match);
     }
 
-    public void addMatchToAwayMatch(Match match){
+    /**Yarden**/
+    public void addMatchToAwayMatches(Match match){
         this.getAway().add(match);
     }
+
+
+    public void sendNotiAbouteClose() {
+        notifyObservers("Team "+name+" removed from system");
+    }
+
 }

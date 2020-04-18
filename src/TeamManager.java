@@ -5,12 +5,14 @@ import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 
-public class TeamManager {
+public class TeamManager implements Observer,NotificationsUser {
     private TeamRole teamRole;
     private Team team;
     private HashSet<TeamSubscription> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
     private HashSet<Permission> permissions;
+    private HashSet<Notification> notificationsList;
+
 
     public TeamManager(TeamRole teamRole,Team team, HashSet<Permission> pers) {
         this.team = team;
@@ -19,6 +21,7 @@ public class TeamManager {
         permissions = new HashSet<>();
         this.permissions.addAll(pers);
         this.teamRole= teamRole;
+        notificationsList=new HashSet<>();
     }
 
     //<editor-fold desc="getters and setters">
@@ -307,4 +310,48 @@ public class TeamManager {
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
+
+    //<editor-fold desc="Notifications Handler">
+    /**
+     * get notifications about close Team
+     * @param o
+     * @param arg
+     * @codeBy Eden
+     */
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof Team && arg instanceof  String && ((String)arg).contains("removed")){
+            notificationsList.add(new Notification(o,arg,false));
+        }
+    }
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    @Override
+    public void MarkAsReadNotification(Notification not){
+        not.isRead=true;
+    }
+    @Override
+    public HashSet<Notification> getNotificationsList() {
+        return notificationsList;
+    }
+
+    /***
+     * @return only the unread notifications . if not have return null
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notificationsList){
+            if(n.isRead==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
+    //</editor-fold>
 }

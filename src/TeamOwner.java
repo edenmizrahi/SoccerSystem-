@@ -3,7 +3,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class TeamOwner implements Observer {
+public class TeamOwner implements Observer , NotificationsUser {
     private TeamRole teamRole;
     private LinkedList<Team> teams;
     private HashSet<TeamSubscription> mySubscriptions;
@@ -11,6 +11,8 @@ public class TeamOwner implements Observer {
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
     private static final Logger LOG = LogManager.getLogger();
+    HashSet<Notification> notifications;
+
 
     //team owner founder- with no team.
     public TeamOwner(TeamRole teamRole) {
@@ -25,13 +27,24 @@ public class TeamOwner implements Observer {
     }
 
 
-    //or
+    /**OR
+     * request the opening new team
+     * @param name
+     */
     public void requestNewTeam(String name){
         Team t= new Team(name,this);
         //the request is sent in the Constructor
         requestedTeams.add(t);
     }
-    //or
+
+    /**Or
+     *  make approved team active
+     * @param team
+     * @param players
+     * @param coach
+     * @param field
+     * @throws Exception
+     */
     public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
         if(team == null || players == null || coach == null){
             throw new NullPointerException();
@@ -44,8 +57,11 @@ public class TeamOwner implements Observer {
         this.approvedTeams.remove(team);
     }
 
-    /**OR**/
-    //delete Team
+    /**OR
+     * delete the team- it become not active
+     * @param team
+     * @throws Exception
+     */
     public void deleteTeam(Team team) throws Exception {
         if(team==null){
             throw new NullPointerException();
@@ -66,29 +82,32 @@ public class TeamOwner implements Observer {
         }
 
         team.deleteTeamByTeamOwner();
-        teams.remove(team);
-        deletedTeams.add(team);
 
         for (SystemManager sm:teamRole.system.getSystemManagers()) {
             team.addObserver(sm);
         }
         team.notifyObservers("team deleted by team owner");
 
-        //TODO: founder =null
-        // for each teamowner go over the subscriptions and delete the sub of the team
-        //move the team to deleted for all the team owners
     }
 
-    /**Or**/
+    /**OR
+     * reopen deleted team- it becomes active and only this team owner is the founder and team owner!
+     * @param team
+     * @param players
+     * @param coach
+     * @param field
+     * @throws Exception
+     */
     public void reopenTeam(Team team,HashSet<Player> players, Coach coach, Field field) throws Exception {
-        //TODO: move the team to the active team list for all the team owners
+
         if(!deletedTeams.contains(team)){
             throw new Exception("the team was not deleted");
         }
         if(team ==null){
             throw new NullPointerException();
         }
-        team.becomeActive(players,coach,field);
+
+        team.reopenTeam(players,coach,field,this);
         deletedTeams.remove(team);
         teams.add(team);
 
@@ -98,10 +117,6 @@ public class TeamOwner implements Observer {
         }
         team.notifyObservers("team reopened by team owner");
 
-        //TODO: i AM THE ONLY FOUNDER- only team owner
-        //delete all the other team owners
-        //delete the team from the deletedteam list
-        // move the team to the active team list for all the team owners
     }
 
 
@@ -427,14 +442,27 @@ public class TeamOwner implements Observer {
 
     //</editor-fold>
 
-    /**or**/
+    /**OR
+     * add income to certain team
+     * @param team
+     * @param typeOfIncome
+     * @param amount
+     * @throws Exception
+     */
     public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
         if(team==null || typeOfIncome==null){
             throw  new NullPointerException();
         }
         team.addIncome(typeOfIncome,amount);
     }
-    /**or**/
+
+    /**or
+     * add income to certain team
+     * @param team
+     * @param typeOfExpense
+     * @param amount
+     * @throws Exception
+     */
     public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
         if(team==null || typeOfExpense==null){
             throw  new NullPointerException();
@@ -442,18 +470,63 @@ public class TeamOwner implements Observer {
         team.addExpense(typeOfExpense,amount);
     }
 
-    /**OR**/
+    //<editor-fold desc="Notifications Handler" >
+    /**
+     * Notifications about:
+     *      1. team can be open\not
+     *      2.team removed
+     *@codeBy OR and Eden
+     * **/
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof Team){
             if(arg.equals(true)){// the team can be open
                requestedTeams.remove(o);
                approvedTeams.add((Team)o);
+               notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));
             }
             else if(arg.equals(false)){// the team cant be open
                 ((Team)o).deleteObservers();
                 requestedTeams.remove((Team)o);
+                notifications.add(new Notification(o,"Sorry but team "+((Team)o).getName()+" cant be open",false));
+
             }
         }
+
+        /**notification about close team forever*/
+        if(o instanceof Team && arg instanceof  String && ((String)arg).contains("removed")){
+            notifications.add(new Notification(o,arg,false));
+        }
     }
+
+
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    public void MarkAsReadNotification(Notification not){
+        not.isRead=true;
+    }
+
+    public HashSet<Notification> getNotificationsList() {
+        return notifications;
+    }
+
+    /***
+     * @return only the unread notifications . if not have return null - notify when user connect
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notifications){
+            if(n.isRead==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
+    //</editor-fold>
 }

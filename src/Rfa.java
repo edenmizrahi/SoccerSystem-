@@ -13,7 +13,6 @@ public class Rfa extends Fan implements Observer{
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new LinkedList<>();
         //TODO add permissions
-
     }
 
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
@@ -59,18 +58,25 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**Yarden**/
-    public void defineSeasonToLeague(Policy p, int year, League l, HashSet<Team> teams){
-        Season newSeason = new Season(this.system,p,year);
+    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams){
+        Season newSeason = new Season(this.system,schedule,calculate,year);
         this.system.setCurrSeason(newSeason);
         newSeason.addLeagueWithTeams(l,teams);
         LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Rfa"));
     }
 
     /**Yarden**/
-    public void addPolicy(){
-
-
+    public void startchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
+        season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
     }
+
+    // TODO: 18/04/2020 sorted the hashSet of TeamsInCurrentSeasonleagues ?
+    /**Yarden**/
+    public void startCalculationPolicy(Season season){
+        season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
+        /**Sorted ?**/
+    }
+
 
     public BudgetControl getBudgetControl() { return budgetControl; }
 

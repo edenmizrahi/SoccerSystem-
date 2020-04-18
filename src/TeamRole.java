@@ -11,6 +11,7 @@ public class TeamRole extends Fan {
     /**OR**/
     public TeamRole(Fan fan) {
         super(fan.system,fan.getName(),fan.getPhoneNumber(),fan.getEmail(),fan.getUserName(),fan.getPassword(), fan.getDateOfBirth());
+        this.system.removeUser(fan);
         this.player=null;
         this.coach=null;
         this.teamManager=null;
@@ -54,13 +55,45 @@ public class TeamRole extends Fan {
     }
     /**OR**/
     public boolean becomeTeamOwner(){
-        if(this.teamOwner==null){
+        if(this.teamOwner == null){
             teamOwner= new TeamOwner(this);
             return true;
         }
         return false;
     }
 
+    // adi
+    public boolean deletePlayer(){
+        if (player != null){
+            player = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean deleteCoach(){
+        if (coach != null){
+            coach = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean deleteTeamManager(){
+        if (teamManager != null){
+            teamManager = null;
+            return true;
+        }
+        return false;
+    }
+    // adi
+    public boolean deleteTeamOwner(){
+        if (teamOwner != null){
+            teamOwner = null;
+            return true;
+        }
+        return false;
+    }
     //</editor-fold>
 
 
@@ -113,6 +146,8 @@ public class TeamRole extends Fan {
     public TeamManager getTeamManager() {
         return teamManager;
     }
+
+
 
     //</editor-fold>
 

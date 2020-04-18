@@ -16,7 +16,6 @@ public class Team extends Observable implements PageOwner{
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
     private TeamOwner founder;
-    /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
     private Coach coach;
     private HashSet<TeamOwner> teamOwners;
@@ -25,6 +24,7 @@ public class Team extends Observable implements PageOwner{
     protected BudgetControl budgetControl;
     private boolean isActive;
     private MainSystem mainSystem;
+    private int score;
 
 
 //Open team and wait for approval
@@ -44,7 +44,7 @@ public class Team extends Observable implements PageOwner{
         this.teamManager = null;
         this.field = null;
         this.budgetControl= new BudgetControl(this);
-
+        this.score = 0;
         //send request
         for (Rfa rfa:mainSystem.getRfas()) {
             addObserver(rfa);
@@ -228,10 +228,16 @@ public class Team extends Observable implements PageOwner{
             throw new Exception("This TeamManager doesn't exist in this team");
         }
     }
+    //adi
+    public void addCoach(Coach c){
+        if(this.coach == null && c != null){
+            coach = c;
+        }
+    }
     // adi
-    public void removeCoach(Coach coachToRemove, Coach coachToAdd)throws Exception{
+    public void removeCoach(Coach coachToRemove)throws Exception{
         if (this.coach.equals(coachToRemove)){
-            coach = coachToAdd;
+            coach = null;
         }
         else {
             throw new Exception("This Coach doesn't exist in this team");
@@ -333,6 +339,13 @@ public class Team extends Observable implements PageOwner{
     public void addExpense(String typeOfExpense, long amount) throws Exception {
         this.budgetControl.addExpense(typeOfExpense,amount);
     }
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     /**Or**/
     public boolean isActive(){
@@ -357,5 +370,12 @@ public class Team extends Observable implements PageOwner{
         isActive=false;
         mainSystem.removeActiveTeam(this);
         LOG.info(String.format("%s - %s", name, "team was deleted by team owner"));
+    }
+    public void addMatchToHomeMatch(Match match){
+        this.getHome().add(match);
+    }
+
+    public void addMatchToAwayMatch(Match match){
+        this.getAway().add(match);
     }
 }

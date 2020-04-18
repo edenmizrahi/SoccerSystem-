@@ -5,9 +5,10 @@ import java.util.*;
 
 public class TeamOwner implements Observer {
     private TeamRole teamRole;
+    private LinkedList<Team> teams;
+    private HashSet<TeamSubscription> mySubscriptions;
 
     private HashMap<TeamRole, Team> mySubscriptions;
-    private LinkedList<Team> teams;
     private LinkedList<Team> requestedTeams;
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
@@ -16,6 +17,8 @@ public class TeamOwner implements Observer {
     //team owner founder- with no team.
     public TeamOwner(TeamRole teamRole) {
         this.teams = new LinkedList<>();
+        mySubscriptions = new HashSet<>();
+        this.teamRole = teamRole;
         this.requestedTeams=new LinkedList<>();
         this.deletedTeams= new LinkedList<>();
         this.approvedTeams= new LinkedList<>();
@@ -111,100 +114,119 @@ public class TeamOwner implements Observer {
 
 
     // adi
-    public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
-        if (sub == null || ms == null || team == null){
+    public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
+        if (fan == null || ms == null || team == null){
             throw new NullPointerException();
         }
-        if (sub instanceof TeamOwner && team.getTeamOwners().contains(sub)){
-            throw new Exception("Already Team Owner in this team");
+        // check if already team owner of this team
+        if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner() && team.getTeamOwners().contains(((TeamRole) fan).getTeamOwner())){
+            throw new Exception("Already Team Owner of this team");
         }
-        //TeamOwner tO = new TeamOwner(sub, ms, team);
-       // mySubscriptions.put(tO, team);
-       // return tO;
-        return null;// just for compilation
+        TeamRole teamRole;
+        // check if already team owner of different team
+        if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner()){
+            ((TeamRole) fan).getTeamOwner().setTeam(team);
+            team.addTeamOwner(((TeamRole) fan).getTeamOwner());
+            teamRole = ((TeamRole) fan);
+        }
+        // check if already teamRole
+        else if (fan instanceof TeamRole){
+            ((TeamRole) fan).becomeTeamOwner();
+            ((TeamRole) fan).getTeamOwner().setTeam(team);
+            team.addTeamOwner(((TeamRole) fan).getTeamOwner());
+            teamRole = ((TeamRole) fan);
+        }
+        // else just a fan
+        else{
+            teamRole = new TeamRole(fan);
+            teamRole.becomeTeamOwner();
+            teamRole.getTeamOwner().setTeam(team);
+            team.addTeamOwner(teamRole.getTeamOwner());
+        }
+        TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
+        mySubscriptions.add(sub);
+        return teamRole.getTeamOwner();
     }
+
     // adi
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();
         }
-        if (mySubscriptions.containsKey(tO)){
-            team.removeTeamOwner(tO);
-            mySubscriptions.remove(tO);
-            for (Map.Entry<Subscription, Team> entry : tO.mySubscriptions.entrySet()) {
-                if (entry.getValue().equals(team)) {
-                    if (entry.getKey() instanceof TeamOwner){
-                        tO.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
-                    }
-                    else{
-                        tO.removeTeamManager((TeamManager) entry.getKey(), ms, entry.getValue());
-                    }
+        team.removeTeamOwner(tO);
+        mySubscriptions.remove(tO.getTeamRole());
+        for (Map.Entry<TeamRole, Team> entry : tO.getMySubscriptions().entrySet()) {
+            if (entry.getValue().equals(team)) {
+                if (entry.getKey().isTeamOwner()){
+                    tO.removeTeamOwner(entry.getKey().getTeamOwner(), ms, entry.getValue());
+                }
+                else{
+                    tO.removeTeamManager(entry.getKey().getTeamManager(), ms, entry.getValue());
                 }
             }
-            tO.removeTeam(team);
-            if (tO.getTeams().size() == 0){
-                ms.removeUser(tO);
-                Subscription newSub = new Subscription(ms, tO.getName(), tO.getPhoneNumber(), tO.getEmail(), tO.getUserName(), tO.getPassword());
-            }
         }
+        tO.removeTeam(team);
+
     }
     // adi
-    public TeamManager subscribeTeamManager(Subscription sub, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
-        if (sub == null || ms == null || team == null || per == null){
+    public TeamManager subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
+        if (fan == null || ms == null || team == null || per == null){
             throw new NullPointerException();
         }
-        if (sub instanceof TeamManager && team.getTeamManager().equals(sub)){
+        // check if already team manager of this team
+        if (fan instanceof TeamRole && ((TeamRole) fan).isTeamManager() && team.getTeamManager().equals(((TeamRole) fan).getTeamManager())){
             throw new Exception("Already Team Manager of this team");
         }
-        TeamManager tM = new TeamManager(sub, ms, team, per);
-        mySubscriptions.put(tM, team);
-        return tM;
+        TeamRole teamRole;
+        // check if already teamRole
+        if (fan instanceof TeamRole){
+            ((TeamRole) fan).becomeTeamManager(team, per);
+            ((TeamRole) fan).getTeamManager().setTeam(team);
+            team.addTeamManager(((TeamRole) fan).getTeamManager());
+            teamRole = ((TeamRole) fan);
+        }
+        // else just a fan
+        else{
+            teamRole = new TeamRole(fan);
+            teamRole.becomeTeamManager(team, per);
+            teamRole.getTeamManager().setTeam(team);
+            team.addTeamManager(teamRole.getTeamManager());
+        }
+        mySubscriptions.put(teamRole, team);
+        return teamRole.getTeamManager();
+
     }
     // adi
     public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
         if (tM == null || ms == null || team == null || team == null){
             throw new NullPointerException();
         }
-        if (mySubscriptions.containsKey(tM)){
+        if (mySubscriptions.containsKey(tM.getTeamRole())){
             team.removeTeamManager(tM);
-            mySubscriptions.remove(tM);
-            for (Map.Entry<Subscription, Team> entry : tM.getMySubscriptions().entrySet()) {
+            mySubscriptions.remove(tM.getTeamRole());
+            for (Map.Entry<TeamRole, Team> entry : tM.getMySubscriptions().entrySet()) {
                 if (entry.getValue().equals(team)) {
-                    if (entry.getKey() instanceof TeamOwner){
-                        tM.removeTeamOwner((TeamOwner) entry.getKey(), ms, entry.getValue());
-                    }
+                    tM.removeTeamOwner(entry.getKey().getTeamOwner(), ms, entry.getValue());
                 }
             }
-            ms.removeUser(tM);
             tM.setTeam(null);
-            Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
+            tM.getTeamRole().deleteTeamManager();
         }
     }
     //adi
-    public void addTeamManager(TeamManager tM, Team team){
-        if (tM == null || team == null){
-            throw new NullPointerException();
-        }
-        team.addTeamManager(tM);
-        tM.setTeam(team);
-    }
-    //adi
-    public void addCoach(Coach coachToAdd, Team team){
-        if (coachToAdd == null || team == null){
-            throw new NullPointerException();
-        }
-        team.setCoach(coachToAdd);
-        coachToAdd.setCoachTeam(team);
-    }
-    //adi
-    public void removeCoach(Coach coachToRemove, Coach coachToAdd, Team team) throws Exception {
+    public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
         if (coachToRemove == null || coachToAdd == null || team == null){
             throw new NullPointerException();
         }
         if (team.getCoach().equals(coachToRemove)) {
-            team.removeCoach(coachToRemove, coachToAdd);
+            team.removeCoach(coachToRemove);
             coachToRemove.setCoachTeam(null);
-            coachToAdd.setCoachTeam(team);
+            if (!coachToAdd.isCoach()){
+                coachToAdd.becomeCoach();
+            }
+            team.addCoach(coachToAdd.getCoach());
+            coachToAdd.getCoach().setCoachTeam(team);
+            coachToAdd.getCoach().setRoleAtTeam(newCoachRoleAtTeam);
         }
         else {
             throw new Exception("This Coach doesn't exist in this team");
@@ -217,13 +239,17 @@ public class TeamOwner implements Observer {
         }
         coach.setRoleAtTeam(role);
     }
-    //adi
-    public void addPlayer(Player player, Team team){
-        if (player == null || team == null){
+    //adi TODO CHANGE THAT DOESNT RECEIVE DATEOFBIRTH
+    public void addPlayer(TeamRole player, String role, Date dateofBirth, Team team){
+        if (player == null || role == null || team == null){
             throw new NullPointerException();
         }
-        team.addPlayer(player);
-        player.setPlayerTeam(team);
+        if (!player.isPlayer()){
+            player.becomePlayer(dateofBirth);
+        }
+        team.addPlayer(player.getPlayer());
+        player.getPlayer().setPlayerTeam(team);
+        player.getPlayer().setRoleAtField(role);
     }
     //adi
     public void removePlayer (Player player, Team team) throws Exception {
@@ -241,20 +267,14 @@ public class TeamOwner implements Observer {
         player.setRoleAtField(role);
     }
     //adi
-    public void addField(Field field, Team team) {
-        if (field == null || team == null){
+    public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
+        if (fieldtoRemove == null || fieldToAdd == null || team == null){
             throw new NullPointerException();
         }
-        team.setField(field);
-        field.addTeam(team);
-    }
-    //adi
-    public void removeField (Field field, Team team) throws Exception {
-        if (field == null || team == null){
-            throw new NullPointerException();
-        }
-        team.removeField(field);
-        field.removeTeam(team);
+        team.removeField(fieldtoRemove);
+        fieldtoRemove.removeTeam(team);
+        team.setField(fieldToAdd);
+        fieldToAdd.addTeam(team);
     }
     //adi
     public void editFieldName(Field field, String name){
@@ -279,9 +299,10 @@ public class TeamOwner implements Observer {
         return teams;
     }
 
-    public HashMap<Subscription, Team> getMySubscriptions() {
+    public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
     }
+
 
     public TeamRole getTeamRole() {
         return teamRole;

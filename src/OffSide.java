@@ -12,6 +12,6 @@ public class OffSide extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +", offSide by "+ player.getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +", offSide by "+ player.getTeamRole().getName();
     }
 }

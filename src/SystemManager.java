@@ -18,14 +18,14 @@ public class SystemManager extends Fan implements Observer {
         //this.permissions.add();
     }
 
-    public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms,name,phoneNumber,email,userName,password);
+    public SystemManager(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+        super(ms, name, phoneNumber, email, userName, password);
         this.complaints = new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
 
-    public void buildRecomandationSystem(){
+    public void buildRecomandationSystem() {
 
     }
 
@@ -36,14 +36,16 @@ public class SystemManager extends Fan implements Observer {
     }
 
 
-    /**Eden*/
+    /**
+     * Eden
+     */
     @Override
     public void update(Observable o, Object arg) {
-        if(o instanceof  Complaint){
+        if (o instanceof Complaint) {
 
-            if(arg instanceof Complaint){
+            if (arg instanceof Complaint) {
                 /**if it's not an answer notify*/
-                if(((Complaint)arg).getAnswer()==null){
+                if (((Complaint) arg).getAnswer() == null) {
                     // TODO: 11/04/2020 Notifies about new Complaint
                 }
 
@@ -60,14 +62,20 @@ public class SystemManager extends Fan implements Observer {
         SystemManager newSystemManager=new SystemManager(user,system);
         newSystemManager.complaints=this.complaints;
     }
-    /**Eden*/
-    public void answerToComplaint (Complaint com, String ans){
-        if(complaints.contains(com)){
+
+    /**
+     * Eden
+     */
+    public void answerToComplaint(Complaint com, String ans) {
+        if (complaints.contains(com)) {
             com.setAnswer(ans);
             com.send();
         }
     }
-    /**Eden*/
+
+    /**
+     * Eden
+     */
     public void addComplaint(Complaint complaint) {
         complaints.add(complaint);
         complaint.addObserver(this);
@@ -75,15 +83,16 @@ public class SystemManager extends Fan implements Observer {
 
     /**
      * Show details about the system events.
+     *
      * @return FileReader to the Log file
      * @throws FileNotFoundException
      * @codeby Eden
      */
     public FileReader showSystemInfo() throws FileNotFoundException {
-        File file =new File("LOG.text");
+        File file = new File("LOG.text");
         return new FileReader(file);
     }
-
+}
     /**
      * remove user if it a valid system operation.
      * @param userToDelete
@@ -299,7 +308,7 @@ public class SystemManager extends Fan implements Observer {
        }
        system.getAllTeams().remove(teamToRemove);
         for (TeamOwner curTeamOwner:teamToRemove.getTeamOwners()) {
-//            curTeamOwner.getTeams().
+            curTeamOwner.getTeams().
         }
     }
 }

@@ -15,12 +15,11 @@ public class Team implements PageOwner{
     private TeamManager teamManager;
     private HashMap<Season,League> leaguePerSeason;
     private TeamOwner founder;
-    /**I think between 1..* there is no team without players.. **/
     private HashSet<Player> players;
     private Coach coach;
     private HashSet<TeamOwner> teamOwners;
     private Field field;
-    private PrivatePage privatePage;//added
+    private PrivatePage privatePage;
     private BudgetControl budgetControl;
 
     public Team(String name, HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
@@ -38,7 +37,6 @@ public class Team implements PageOwner{
         this.founder = founder;
         this.budgetControl = new BudgetControl();
     }
-
 
 // just for tests!
     public Team(String name, TeamOwner teamOwner){
@@ -178,10 +176,16 @@ public class Team implements PageOwner{
             throw new Exception("This TeamManager doesn't exist in this team");
         }
     }
+    //adi
+    public void addCoach(Coach c){
+        if(this.coach == null && c != null){
+            coach = c;
+        }
+    }
     // adi
-    public void removeCoach(Coach coachToRemove, Coach coachToAdd)throws Exception{
+    public void removeCoach(Coach coachToRemove)throws Exception{
         if (this.coach.equals(coachToRemove)){
-            coach = coachToAdd;
+            coach = null;
         }
         else {
             throw new Exception("This Coach doesn't exist in this team");

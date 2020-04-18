@@ -3,13 +3,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class Fan extends User implements Observer {
+public class Fan extends User implements Observer, NotificationsUser {
 
     private List<PrivatePage> myPages;
     private List<Complaint> myComplaints;
     private LinkedList <Match> matchesFollow;
     private LinkedList<String> searchHisroty;
     private static final Logger LOG = LogManager.getLogger();
+    HashSet<Notification> notificationHashSet;
 
     //from subscription:
     private String name;
@@ -116,67 +117,14 @@ public class Fan extends User implements Observer {
         m.addObserver(this);
     }
 
-    /**Eden*/
-    @Override
-    public void update(Observable o, Object arg) {
-        if(o instanceof  Match){
-            /**change place or time event */
-            /**Game result*/
-            if(arg instanceof String){
-                /**result event**/
-                if(((String)arg).contains("Result") ){
 
-                }
-                else{
-                    /**change place event */
-                    if(((String)arg).contains("Place") ){
-
-                    }
-                    else{
-                        /**change time event */
-                        if(((String)arg).contains("Time") ){
-
-                        }
-                    }
-                }
-            }
-            else{
-                if(arg instanceof Goal){
-                    return;
-                }
-                if(arg instanceof RedCard){
-                    return;
-                }
-                if(arg instanceof YellowCard){
-                    return;
-                }
-                if(arg instanceof OffSide){
-                    return;
-                }
-                if(arg instanceof Offense){
-                    return;
-                }
-                if(arg instanceof Injury){
-                    return;
-                }
-                if(arg instanceof Replacement){
-                    return;
-                }
-            }
-        }
-        if(o instanceof Complaint){
-            Complaint comp=((Complaint)o);
-            String ans=comp.getAnswer();
-            // TODO: 11/04/2020 do something with ans..
-        }
-    }
 
     /**Eden*/
     public void addNewComplaint(String comp){
         Complaint complaint=new Complaint(this,system);
         myComplaints.add(complaint);
         complaint.setContent(comp);
-        complaint.send();
+        complaint.send("new Complaint from: "+userName);
 
         complaint.addObserver(this);
 
@@ -218,4 +166,94 @@ public class Fan extends User implements Observer {
         //nothing to do now.....
         LOG.info(String.format("%s - %s", userName, "loged out from system"));
     }
+
+
+    //<editor-fold desc="Notifications Handler">
+    /**Eden*/
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof  Match){
+            notificationHashSet.add(new Notification(o, arg, false));
+//            /**change place or time event */
+//            /**Game result*/
+//            if(arg instanceof String){
+//                /**result event**/
+//                if(((String)arg).contains("Result") ){
+//
+//                }
+//                else{
+//                    /**change place event */
+//                    if(((String)arg).contains("Place") ){
+//
+//                    }
+//                    else{
+//                        /**change time event */
+//                        if(((String)arg).contains("Time") ){
+//
+//                        }
+//                    }
+//                }
+//            }
+//            else{
+//                if(arg instanceof Goal){
+//                    return;
+//                }
+//                if(arg instanceof RedCard){
+//                    return;
+//                }
+//                if(arg instanceof YellowCard){
+//                    return;
+//                }
+//                if(arg instanceof OffSide){
+//                    return;
+//                }
+//                if(arg instanceof Offense){
+//                    return;
+//                }
+//                if(arg instanceof Injury){
+//                    return;
+//                }
+//                if(arg instanceof Replacement){
+//                    return;
+//                }
+//            }
+        }
+        if(o instanceof Complaint){
+            Complaint comp=((Complaint)o);
+            String ans=comp.getAnswer();
+            notificationHashSet.add(new Notification(o, "Answer: "+ans, false));
+
+        }
+    }
+
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    @Override
+    public void MarkAsReadNotification(Notification not){
+        not.isRead=true;
+    }
+    @Override
+    public HashSet<Notification> getNotificationsList() {
+        return notificationHashSet;
+    }
+
+    /***
+     * @return only the unread notifications . if not have return null
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notificationHashSet){
+            if(n.isRead==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
+    //</editor-fold>
 }

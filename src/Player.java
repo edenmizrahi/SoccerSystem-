@@ -82,9 +82,6 @@ public class Player implements PageOwner {
         this.roleAtField = roleAtField;
     }
 
-    public TeamRole getTeamRole() {
-        return teamRole;
-    }
 
     public void setTeamRole(TeamRole teamRole) {
         this.teamRole = teamRole;

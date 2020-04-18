@@ -16,7 +16,6 @@ public class MainSystem {
     private Season currSeason;
     private StubExternalSystem extSystem;
     private HashSet<Team> activeTeams;
-    private HashSet<Team> notActiveTeams;
 
 //    public static final String pattern = "dd-M-yyyy hh:mm:ss";
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
@@ -33,7 +32,6 @@ public class MainSystem {
         this.currSeason=null;
         this.extSystem=new StubExternalSystem();
         activeTeams=new HashSet<>();
-        notActiveTeams= new HashSet<>();
 
     }
 
@@ -175,14 +173,6 @@ public class MainSystem {
         return true;
     }
 
-    //or
-    public boolean addNotActiveTeam(Team team){
-        if( team.isActive() || notActiveTeams.contains(team)){
-            return false;
-        }
-        notActiveTeams.add(team);
-        return true;
-    }
 
     //or
     public boolean removeActiveTeam(Team team){
@@ -193,14 +183,6 @@ public class MainSystem {
         return true;
     }
 
-    //or
-    public boolean removeNotActiveTeam(Team team){
-        if(! notActiveTeams.contains(team)){
-            return false;
-        }
-        notActiveTeams.remove(team);
-        return true;
-    }
 
     //</editor-fold>
 
@@ -265,13 +247,6 @@ public class MainSystem {
         this.activeTeams = activeTeams;
     }
 
-    public HashSet<Team> getNotActiveTeams() {
-        return notActiveTeams;
-    }
-
-    public void setNotActiveTeams(HashSet<Team> notActiveTeams) {
-        this.notActiveTeams = notActiveTeams;
-    }
 
     //</editor-fold>
 

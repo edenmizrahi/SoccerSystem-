@@ -9,5 +9,6 @@ public class TeamSubscription {
         this.team = team;
         this.user = user;
     }
+
 }
 

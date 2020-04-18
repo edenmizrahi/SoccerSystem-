@@ -147,6 +147,8 @@ public class TeamRole extends Fan {
         return teamManager;
     }
 
+
+
     //</editor-fold>
 
 }

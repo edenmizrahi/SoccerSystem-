@@ -56,7 +56,8 @@ public class TeamOwner{
             teamRole.getTeamOwner().setTeam(team);
             team.addTeamOwner(teamRole.getTeamOwner());
         }
-        mySubscriptions.put(teamRole, team);
+        TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
+        mySubscriptions.add(sub);
         return teamRole.getTeamOwner();
     }
 
@@ -65,21 +66,20 @@ public class TeamOwner{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();
         }
-        if (mySubscriptions.containsKey(tO.getTeamRole())){
-            team.removeTeamOwner(tO);
-            mySubscriptions.remove(tO.getTeamRole());
-            for (Map.Entry<TeamRole, Team> entry : tO.getMySubscriptions().entrySet()) {
-                if (entry.getValue().equals(team)) {
-                    if (entry.getKey().isTeamOwner()){
-                        tO.removeTeamOwner(entry.getKey().getTeamOwner(), ms, entry.getValue());
-                    }
-                    else{
-                        tO.removeTeamManager(entry.getKey().getTeamManager(), ms, entry.getValue());
-                    }
+        team.removeTeamOwner(tO);
+        mySubscriptions.remove(tO.getTeamRole());
+        for (Map.Entry<TeamRole, Team> entry : tO.getMySubscriptions().entrySet()) {
+            if (entry.getValue().equals(team)) {
+                if (entry.getKey().isTeamOwner()){
+                    tO.removeTeamOwner(entry.getKey().getTeamOwner(), ms, entry.getValue());
+                }
+                else{
+                    tO.removeTeamManager(entry.getKey().getTeamManager(), ms, entry.getValue());
                 }
             }
-            tO.removeTeam(team);
         }
+        tO.removeTeam(team);
+
     }
     // adi
     public TeamManager subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{

@@ -7,8 +7,6 @@ public class TeamOwner implements Observer {
     private TeamRole teamRole;
     private LinkedList<Team> teams;
     private HashSet<TeamSubscription> mySubscriptions;
-
-    private HashMap<TeamRole, Team> mySubscriptions;
     private LinkedList<Team> requestedTeams;
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
@@ -27,13 +25,24 @@ public class TeamOwner implements Observer {
     }
 
 
-    //or
+    /**OR
+     * request the opening new team
+     * @param name
+     */
     public void requestNewTeam(String name){
         Team t= new Team(name,this);
         //the request is sent in the Constructor
         requestedTeams.add(t);
     }
-    //or
+
+    /**Or
+     *  make approved team active
+     * @param team
+     * @param players
+     * @param coach
+     * @param field
+     * @throws Exception
+     */
     public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
         if(team == null || players == null || coach == null){
             throw new NullPointerException();
@@ -46,8 +55,11 @@ public class TeamOwner implements Observer {
         this.approvedTeams.remove(team);
     }
 
-    /**OR**/
-    //delete Team
+    /**OR
+     * delete the team- it become not active
+     * @param team
+     * @throws Exception
+     */
     public void deleteTeam(Team team) throws Exception {
         if(team==null){
             throw new NullPointerException();
@@ -68,31 +80,32 @@ public class TeamOwner implements Observer {
         }
 
         team.deleteTeamByTeamOwner();
-        teams.remove(team);
-        deletedTeams.add(team);
 
         for (SystemManager sm:teamRole.system.getSystemManagers()) {
             team.addObserver(sm);
         }
         team.notifyObservers("team deleted by team owner");
 
-        //TODO: founder =null
-        // for each teamowner go over the subscriptions and delete the sub of the team
-        //move the team to deleted for all the team owners
-
-
     }
 
-    /**Or**/
+    /**OR
+     * reopen deleted team- it becomes active and only this team owner is the founder and team owner!
+     * @param team
+     * @param players
+     * @param coach
+     * @param field
+     * @throws Exception
+     */
     public void reopenTeam(Team team,HashSet<Player> players, Coach coach, Field field) throws Exception {
-        //TODO: move the team to the active team list for all the team owners
+
         if(!deletedTeams.contains(team)){
             throw new Exception("the team was not deleted");
         }
         if(team ==null){
             throw new NullPointerException();
         }
-        team.becomeActive(players,coach,field);
+
+        team.reopenTeam(players,coach,field,this);
         deletedTeams.remove(team);
         teams.add(team);
 
@@ -102,10 +115,6 @@ public class TeamOwner implements Observer {
         }
         team.notifyObservers("team reopened by team owner");
 
-        //TODO: i AM THE ONLY FOUNDER- only team owner
-        //delete all the other team owners
-        //delete the team from the deletedteam list
-        // move the team to the active team list for all the team owners
     }
 
 
@@ -342,14 +351,27 @@ public class TeamOwner implements Observer {
 
     //</editor-fold>
 
-    /**or**/
+    /**OR
+     * add income to certain team
+     * @param team
+     * @param typeOfIncome
+     * @param amount
+     * @throws Exception
+     */
     public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
         if(team==null || typeOfIncome==null){
             throw  new NullPointerException();
         }
         team.addIncome(typeOfIncome,amount);
     }
-    /**or**/
+
+    /**or
+     * add income to certain team
+     * @param team
+     * @param typeOfExpense
+     * @param amount
+     * @throws Exception
+     */
     public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
         if(team==null || typeOfExpense==null){
             throw  new NullPointerException();

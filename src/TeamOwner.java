@@ -6,13 +6,13 @@ import java.util.*;
 public class TeamOwner{
     private TeamRole teamRole;
     private LinkedList<Team> teams;
-    private HashMap<TeamRole, Team> mySubscriptions;
+    private HashSet<TeamSubscription> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
 
     //team owner founder- with no team.
     public TeamOwner(TeamRole teamRole) {
         this.teams = new LinkedList<>();
-        mySubscriptions = new HashMap<>();
+        mySubscriptions = new HashSet<>();
         this.teamRole = teamRole;
     }
 
@@ -212,7 +212,7 @@ public class TeamOwner{
         return teams;
     }
 
-    public HashMap<TeamRole, Team> getMySubscriptions() {
+    public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
     }
 

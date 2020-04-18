@@ -57,7 +57,7 @@ public class TeamManager {
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
-    // adi
+     adi
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();

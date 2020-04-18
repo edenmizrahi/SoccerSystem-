@@ -36,7 +36,7 @@ public class TeamOwner{
 
 
     // adi
-    public TeamOwner subscribeTeamOwner(Subscription sub, MainSystem ms, Team team) throws Exception{
+    public TeamOwner subscribeTeamOwner(TeamRole sub, MainSystem ms, Team team) throws Exception{
         if (sub == null || ms == null || team == null){
             throw new NullPointerException();
         }
@@ -48,6 +48,7 @@ public class TeamOwner{
        // return tO;
         return null;// just for compilation
     }
+
     // adi
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
@@ -105,6 +106,7 @@ public class TeamOwner{
             Subscription newSub = new Subscription(ms, tM.getName(), tM.getPhoneNumber(), tM.getEmail(), tM.getUserName(), tM.getPassword());
         }
     }
+
     //adi
     public void addTeamManager(TeamManager tM, Team team){
         if (tM == null || team == null){
@@ -206,9 +208,9 @@ public class TeamOwner{
         return teams;
     }
 
-    public HashMap<Subscription, Team> getMySubscriptions() {
-        return mySubscriptions;
-    }
+//    public HashMap<Subscription, Team> getMySubscriptions() {
+//        return mySubscriptions;
+//    }
 
     //</editor-fold>
 }

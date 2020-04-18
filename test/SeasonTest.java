@@ -3,9 +3,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SeasonTest {
 
@@ -38,18 +35,18 @@ class SeasonTest {
         teams1.add(teamFor2Tests);
         s.addLeagueWithTeams(l,teams1);
         /**check if both are equals**/
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonleagues().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
         HashSet<Team> teams2=new HashSet<Team>();
         teams2.add(new Team("beitar",12,players,null,null,teamOwner));
         teams2.add(new Team("beitar2",12,players,null,null,teamOwner));
         teams2.add(teamFor2Tests);
         s.addLeagueWithTeams(l,teams1);
         /**add more teams and check if both are equals**/
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonleagues().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
 
         /**double add again- both with no changes and equals*/
         s.addLeagueWithTeams(l,teams1);
-        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonleagues().get(l));
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
         Assert.assertTrue(l.getTeamsInSeason().get(s).size()==6);
 
     }

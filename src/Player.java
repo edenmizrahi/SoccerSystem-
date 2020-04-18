@@ -65,7 +65,9 @@ public class Player implements PageOwner {
         return playerTeam;
     }
 
-
+    public TeamRole getTeamRole() {
+        return teamRole;
+    }
     public PrivatePage getPrivatePage() {
         return privatePage;
     }

@@ -48,6 +48,10 @@ public class Coach implements PageOwner{
         this.roleAtTeam = roleAtTeam;
     }
 
+    public TeamRole getTeamRole() {
+        return teamRole;
+    }
+
 
     //</editor-fold>
 

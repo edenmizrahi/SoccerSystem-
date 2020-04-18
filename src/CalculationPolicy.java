@@ -1,10 +1,7 @@
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.HashMap;
+import java.util.HashSet;
 
-public class CalculationPolicy extends Policy {
-    private static final Logger LOG = LogManager.getLogger();
+public interface CalculationPolicy {
 
-    public CalculationPolicy(League league, Season season) {
-            super( season);
-    }
+    public void calculate(HashMap<League, HashSet<Team >> teamsInSeason);
 }

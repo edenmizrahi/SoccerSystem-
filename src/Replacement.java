@@ -15,6 +15,6 @@ public class Replacement extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +", replace "+ firstPlayer.getName()+" by " + secondPlayer.getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +", replace "+ firstPlayer.getTeamRole().getName()+" by " + secondPlayer.getTeamRole().getName();
     }
 }

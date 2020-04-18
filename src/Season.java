@@ -11,18 +11,21 @@ import java.util.Iterator;
 public class Season {
 
     private HashMap<League, HashSet<Team >> teamsInCurrentSeasonLeagues;
-    private Policy policy;
+    private SchedulingPolicy schedulingPolicy;
+    private CalculationPolicy calculationPolicy;
     private MainSystem mainSystem;
     private int year;
     private static final Logger LOG = LogManager.getLogger();
 
-    public Season( MainSystem ms, Policy p, int year) {
-        this.policy = p;
+    public Season( MainSystem ms, SchedulingPolicy schedule, CalculationPolicy calculate, int year) {
+        this.schedulingPolicy = schedule;
+        this.calculationPolicy = calculate;
         this.year = year;
         this.teamsInCurrentSeasonLeagues=new HashMap<>();
         this.mainSystem=ms;
         mainSystem.addSeason(this);
     }
+
     /**
      * Add teams by league to this season.
      * also add to the input league this season with the input teams.
@@ -53,10 +56,7 @@ public class Season {
             while (iter.hasNext())
                 ((Team) iter.next()).addLeagueAndSeason(this, l);
         }
-
     }
-
-
 
     public int getYear() {
         return year;
@@ -74,27 +74,21 @@ public class Season {
         this.mainSystem = mainSystem;
     }
 
-    public HashMap<League, HashSet<Team>> getTeamsInCurrentSeasonleagues() {
-        return teamsInCurrentSeasonLeagues;
-    }
-
-    public void setTeamsInCurrentSeesonleagus(HashMap<League, HashSet<Team>> teamsInCurrentSeesonleagus) {
-        this.teamsInCurrentSeasonLeagues = teamsInCurrentSeesonleagus;
-    }
-
-    public Policy getPolicy() {
-        return policy;
-    }
-
-    public void setPolicy(Policy policy) {
-        this.policy = policy;
-    }
-
     public HashMap<League, HashSet<Team>> getTeamsInCurrentSeasonLeagues() {
         return teamsInCurrentSeasonLeagues;
     }
 
+    public void setTeamsInCurrentSeesonleagus(HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues) {
+        this.teamsInCurrentSeasonLeagues = teamsInCurrentSeasonLeagues;
+    }
 
+    public SchedulingPolicy getSchedulingPolicy() { return schedulingPolicy; }
+
+    public void setSchedulingPolicy(SchedulingPolicy schedulingPolicy) { this.schedulingPolicy = schedulingPolicy; }
+
+    public CalculationPolicy getCalculationPolicy() { return calculationPolicy; }
+
+    public void setCalculationPolicy(CalculationPolicy calculationPolicy) { this.calculationPolicy = calculationPolicy; }
 }
 
 

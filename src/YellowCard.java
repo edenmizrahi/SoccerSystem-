@@ -11,6 +11,6 @@ public class YellowCard extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Yellow card to "+player.getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Yellow card to "+player.getTeamRole().getName();
     }
 }

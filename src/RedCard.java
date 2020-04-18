@@ -12,6 +12,6 @@ public class RedCard extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Red card to "+ player.getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Red card to "+ player.getTeamRole().getName();
     }
 }

@@ -56,10 +56,10 @@ public class SystemManager extends Fan implements Observer {
      * @param user
      * @codeBy Eden
      */
-    public void addSystemManager(Subscription user){
-        SystemManager newSystemManager=new SystemManager(user,system);
-        newSystemManager.complaints=this.complaints;
-    }
+//    public void addSystemManager(Subscription user){
+//        SystemManager newSystemManager=new SystemManager(user,system);
+//        newSystemManager.complaints=this.complaints;
+//    }
     /**Eden*/
     public void answerToComplaint (Complaint com, String ans){
         if(complaints.contains(com)){

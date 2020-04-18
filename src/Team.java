@@ -22,6 +22,7 @@ public class Team implements PageOwner{
     private Field field;
     private PrivatePage privatePage;//added
     private BudgetControl budgetControl;
+    private int score;
 
     public Team(String name, HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
         if(players.size() < 11){
@@ -37,6 +38,7 @@ public class Team implements PageOwner{
         this.field = field;
         this.founder = founder;
         this.budgetControl = new BudgetControl();
+        this.score = 0;
     }
 
 
@@ -274,5 +276,19 @@ public class Team implements PageOwner{
         return false;
     }
 
+    public int getScore() {
+        return score;
+    }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void addMatchToHomeMatch(Match match){
+        this.getHome().add(match);
+    }
+
+    public void addMatchToAwayMatch(Match match){
+        this.getAway().add(match);
+    }
 }

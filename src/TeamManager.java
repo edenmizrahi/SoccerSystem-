@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 public class TeamManager {
     private TeamRole teamRole;
     private Team team;
-    private HashMap<Subscription, Team> mySubscriptions;// TODO: need to change to hashmap to be TeamRole instead of subscription??
+    private HashMap<Fan, Team> mySubscriptions;// TODO: need to change to hashmap to be TeamRole instead of subscription??
     private static final Logger LOG = LogManager.getLogger();
     private HashSet<Permission> permissions;
 

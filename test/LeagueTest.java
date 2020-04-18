@@ -10,9 +10,9 @@ public class LeagueTest {
 
     @Test
     public void addSeasonWithTeams() throws Exception {
-        MainSystem sys=MainSystem.getInstance();
-        League l=new League("hahal",sys,null, null);
-        Season s=new Season(sys,null,1884);
+        MainSystem sys = MainSystem.getInstance();
+        League l = new League("hahal", sys, null, null);
+        Season s = new Season(sys, null, 1884);
 
         HashSet<Team> teams1=new HashSet<Team>();
         HashSet<Player> players=new HashSet<>();

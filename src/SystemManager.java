@@ -309,7 +309,7 @@ public class SystemManager extends Fan implements Observer {
        }
        system.getAllTeams().remove(teamToRemove);
         for (TeamOwner curTeamOwner:teamToRemove.getTeamOwners()) {
-            curTeamOwner.getTeams().
+            curTeamOwner.getTeams.
         }
     }
 }

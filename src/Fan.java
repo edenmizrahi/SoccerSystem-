@@ -1,10 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 public class Fan extends User implements Observer {
 
@@ -20,14 +17,16 @@ public class Fan extends User implements Observer {
     private String email;
     private String userName;
     private String password;
+    private Date dateOfBirth;
 
-    public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+    public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms);
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.userName = userName;
         this.password = password;
+        this.dateOfBirth=date;
         myPages = new LinkedList<>();
         myComplaints = new LinkedList<>();
         matchesFollow=new LinkedList<>();
@@ -92,16 +91,20 @@ public class Fan extends User implements Observer {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     //</editor-fold>

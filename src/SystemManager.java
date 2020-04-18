@@ -12,14 +12,14 @@ public class SystemManager extends Fan implements Observer {
     private static final Logger LOG = LogManager.getLogger();
 
     public SystemManager(Fan fan, MainSystem ms) {
-        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.complaints = new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
 
-    public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms,name,phoneNumber,email,userName,password);
+    public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
+        super(ms,name,phoneNumber,email,userName,password,date);
         this.complaints = new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
@@ -47,6 +47,14 @@ public class SystemManager extends Fan implements Observer {
                     // TODO: 11/04/2020 Notifies about new Complaint
                 }
 
+            }
+        }
+        if(o instanceof Team){
+            if( arg.equals("team deleted by team owner")){// the team was deleted by system manager and not active any more
+                // TODO: does something with the notification
+            }
+            else if(arg.equals("team reopened by team owner")){
+                // TODO: does something with the notification
             }
         }
     }

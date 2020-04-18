@@ -1,24 +1,24 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Date;
-import java.util.HashSet;
+import java.util.*;
 
-public class Rfa extends Fan {
+public class Rfa extends Fan implements Observer{
 
-    private BudgetControl budgetControl;//1
+    private BudgetControl budgetControl;//TODO: delete?!?!?!
     private static final Logger LOG = LogManager.getLogger();
+    private static LinkedList<Team> teamRequests;
 
     public Rfa(Fan fan, MainSystem ms) {
-        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
-        this.budgetControl = new BudgetControl();
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
+        this.teamRequests= new LinkedList<>();
         //TODO add permissions
 
     }
 
-    public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
-        super(ms,name,phoneNumber,email,userName,password);
-        this.budgetControl = new BudgetControl();
+    public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
+        super(ms,name,phoneNumber,email,userName,password,date);
+        this.teamRequests= new LinkedList<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -30,9 +30,9 @@ public class Rfa extends Fan {
     }
 
     /**Yarden**/
-    public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification) throws Exception {
+    public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
         if (checkValidDetails(userName, password, phoneNumber,email) && name!=null && qualification!=null) {
-            Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification);
+            Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
             system.addUser(newRef);
             LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Rfa"));
         }
@@ -76,4 +76,32 @@ public class Rfa extends Fan {
 
     public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
 
+    public static LinkedList<Team> getTeamRequests() {
+        return teamRequests;
+    }
+
+    public static void setTeamRequests(LinkedList<Team> teamRequests) {
+        Rfa.teamRequests = teamRequests;
+    }
+
+    /**Or**/
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof Team && arg instanceof Team){
+            if(arg.equals("request to open new team")){//open new team
+                this.teamRequests.add((Team)o);
+            }
+        }
+    }
+
+    /**Or**/
+    public void answerRequest(Team team, boolean desicion) throws Exception {
+        if( !teamRequests.contains(team)){
+            throw new Exception("team not in request list");
+        }
+        team.notifyObservers(desicion);
+        teamRequests.remove(team);
+
+
+    }
 }

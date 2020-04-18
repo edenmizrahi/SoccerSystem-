@@ -10,7 +10,7 @@ public class TeamRole extends Fan {
 
     /**OR**/
     public TeamRole(Fan fan) {
-        super(fan.system,fan.getName(),fan.getPhoneNumber(),fan.getEmail(),fan.getUserName(),fan.getPassword());
+        super(fan.system,fan.getName(),fan.getPhoneNumber(),fan.getEmail(),fan.getUserName(),fan.getPassword(), fan.getDateOfBirth());
         this.player=null;
         this.coach=null;
         this.teamManager=null;
@@ -18,8 +18,8 @@ public class TeamRole extends Fan {
     }
 
     /**OR**/
-    public TeamRole(MainSystem ms, String name, String phoneNumber, String email, String userName, String password){
-        super(ms,name,phoneNumber,email,userName,password);
+    public TeamRole(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date){
+        super(ms,name,phoneNumber,email,userName,password,date);
         this.player=null;
         this.coach=null;
         this.teamManager=null;
@@ -28,16 +28,16 @@ public class TeamRole extends Fan {
 
     //<editor-fold desc="become functions">
     /**OR**/
-    public boolean becomePlayer(Date dateOfBirth){
-        if(this.player != null){
-            player= new Player(this,dateOfBirth);
+    public boolean becomePlayer(){
+        if(this.player == null){
+            player= new Player(this);
             return true;
         }
         return false;
     }
     /**OR**/
     public boolean becomeCoach(){
-        if (this.coach!=null){
+        if (this.coach==null){
             coach= new Coach(this);
             return true;
         }
@@ -46,7 +46,7 @@ public class TeamRole extends Fan {
 
     /**OR**/
     public boolean becomeTeamManager(Team team, HashSet<Permission> pers){
-        if(this.teamManager!=null){
+        if(this.teamManager==null){
             teamManager= new TeamManager(this,team,pers);
             return true;
         }
@@ -54,7 +54,7 @@ public class TeamRole extends Fan {
     }
     /**OR**/
     public boolean becomeTeamOwner(){
-        if(this.teamOwner!=null){
+        if(this.teamOwner==null){
             teamOwner= new TeamOwner(this);
             return true;
         }

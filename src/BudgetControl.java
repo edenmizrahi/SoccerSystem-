@@ -1,35 +1,73 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 public class BudgetControl {
     private static final Logger LOG = LogManager.getLogger();
-    private long budget;
+    private long balance;
     private LinkedList<Report> incomeAndExpenses;
+    private Team team;
 
-    BudgetControl(){
+    BudgetControl(Team team){
         incomeAndExpenses = new LinkedList<>();
-        budget = 0;
+        balance = 0;
+        this.team=team;
     }
 
-    public void addIncome(String typeOfIncome, long amount){
+    /**OR**/
+    public void addIncome(String typeOfIncome, long amount) throws Exception {
+        if(typeOfIncome ==null || typeOfIncome.length()==0){
+            throw new Exception("type of income not valid");
+        }
+        if(amount<=0){
+            throw new Exception("amount of income is negative");
+        }
         incomeAndExpenses.add(new Report(typeOfIncome,amount));
-        budget += amount;
+        balance += amount;
+        LOG.info(String.format("%s - %s", this.team.getName(), "add income to team budget, type: "+typeOfIncome+" amount: "+amount));
     }
+
+    /**OR**/
     public void addExpense(String typeOfExpense, long amount) throws Exception{
-        if (budget - amount >= 0) {
-            amount = amount - amount * 2;
+        if(typeOfExpense ==null || typeOfExpense.length()==0){
+            throw new Exception("type of expense not valid");
+        }
+        if(amount<=0){
+            throw new Exception("amount of expense is negative");
+        }
+        if (balance - amount >= 0) {
+            amount = amount - amount * 2;// make the amount negative
             incomeAndExpenses.add(new Report(typeOfExpense, amount));
-            budget = budget - amount;
+            balance = balance - amount;
         }
         else{
             throw new Exception("Budget cannot be less than 0");
         }
+        LOG.info(String.format("%s - %s", this.team.getName(), "add expense to team budget, type: "+typeOfExpense+" amount: "+amount));
     }
 
+    public long getBalance() {
+        return balance;
+    }
 
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
 
+    public LinkedList<Report> getIncomeAndExpenses() {
+        return incomeAndExpenses;
+    }
+
+    public void setIncomeAndExpenses(LinkedList<Report> incomeAndExpenses) {
+        this.incomeAndExpenses = incomeAndExpenses;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 }

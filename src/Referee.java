@@ -14,13 +14,13 @@ public class Referee extends Fan{
     private static final Logger LOG = LogManager.getLogger();
 
     Referee(Fan fan, MainSystem ms){
-        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         matches = new LinkedList<>();
         events = new LinkedList<>();
     }
 
     Referee(Fan fan, MainSystem ms, String qualification){
-        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword());
+        super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(),fan.getDateOfBirth());
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification = qualification;
@@ -28,8 +28,8 @@ public class Referee extends Fan{
         //this.permissions.add();
     }
 
-    public Referee (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, String qualification) {
-        super(ms,name,phoneNumber,email,userName,password);
+    public Referee (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, String qualification, Date date) {
+        super(ms,name,phoneNumber,email,userName,password,date);
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification=qualification;

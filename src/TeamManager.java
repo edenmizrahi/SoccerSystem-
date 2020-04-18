@@ -202,4 +202,31 @@ public class TeamManager {
         }
     }
     //</editor-fold>
+
+    /**or**/
+    public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
+        if(this.permissions.contains(Permission.addToBudgetControl)){
+            team.addIncome(typeOfIncome,amount);
+        }
+        else{
+            throw new Exception("This user doesn't have the permission to do this action");
+        }
+
+    }
+
+    /**Or
+     *
+     * @param team
+     * @param typeOfExpense
+     * @param amount- positive!!! in budget conrtol in becomes negative
+     * @throws Exception
+     */
+    public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
+        if(this.permissions.contains(Permission.addToBudgetControl)){
+            team.addExpense(typeOfExpense,amount);
+        }
+        else{
+            throw new Exception("This user doesn't have the permission to do this action");
+        }
+    }
 }

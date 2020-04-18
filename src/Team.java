@@ -3,11 +3,12 @@ import org.apache.logging.log4j.LogManager;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Observable;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Team implements PageOwner{
+public class Team extends Observable implements PageOwner{
     private static final Logger LOG = LogManager.getLogger();
     private String name;
     private HashSet<Match> home;
@@ -21,42 +22,82 @@ public class Team implements PageOwner{
     private HashSet<TeamOwner> teamOwners;
     private Field field;
     private PrivatePage privatePage;//added
-    private BudgetControl budgetControl;
-
-    public Team(String name, HashSet<Player> players, Coach coach, Field field, TeamOwner founder) throws Exception {
-        if(players.size() < 11){
-            throw new Exception("The number of players are less than 11");
-        }
-        this.leaguePerSeason=new HashMap<>();
-        this.name = name;
-        this.players = players;
-        this.coach = coach;
-        this.teamManager = null;
-        this.teamOwners = new HashSet<>();
-        this.teamOwners.add(founder);
-        this.field = field;
-        this.founder = founder;
-        this.budgetControl = new BudgetControl();
-    }
+    protected BudgetControl budgetControl;
+    private boolean isActive;
+    private MainSystem mainSystem;
 
 
-// just for tests!
+//Open team and wait for approval
     public Team(String name, TeamOwner teamOwner){
-        this.leaguePerSeason = new HashMap<>();
         this.name = name;
+        this.teamOwners = new HashSet<>();
+        teamOwners.add(teamOwner);
+        addObserver(teamOwner);
+        this.founder=teamOwner;
+        this.isActive=false;
+        this.mainSystem= MainSystem.getInstance();
+        this.mainSystem.addNotActiveTeam(this);
+
+        this.leaguePerSeason = new HashMap<>();
         this.players = new LinkedHashSet<>();
         this.coach = null;
         this.teamManager = null;
-        this.teamOwners = new HashSet<>();
-        teamOwners.add(teamOwner);
         this.field = null;
-    }
-    //added just for unitTests, adi
-    public Team(){
-        teamOwners = new HashSet<>();
-        players = new HashSet<>();
+        this.budgetControl= new BudgetControl(this);
+
+        //send request
+        for (Rfa rfa:mainSystem.getRfas()) {
+            addObserver(rfa);
+        }
+        notifyObservers("request to open new team");
+
     }
 
+    //just for tests!!!!!1
+    public Team(){
+        System.out.println("THIS TEAM CONSTRUCTOR IS ONLY FOR TESTS");
+        this.name = null;
+        this.teamOwners = new HashSet<>();
+        this.isActive=false;
+        this.mainSystem= MainSystem.getInstance();
+        this.mainSystem.addNotActiveTeam(this);
+        this.leaguePerSeason = new HashMap<>();
+        this.players = new LinkedHashSet<>();
+        this.coach = null;
+        this.teamManager = null;
+        this.field = null;
+        this.budgetControl= new BudgetControl(this);
+
+
+    }
+
+
+    public void becomeActive(HashSet<Player> players, Coach coach, Field field) throws Exception {
+        if(players.size() < 11){
+            throw new Exception("The number of players are less than 11");
+        }
+        this.players= players;
+        for (Player player:players) {
+            if(player.getTeam() == null){
+                player.setPlayerTeam(this);
+            }
+            else{
+                throw new Exception("one of the players team is not null");
+            }
+        }
+        this.coach = coach;
+        this.coach.setCoachTeam(this);
+        this.field = field;
+        this.field.addTeam(this);
+
+        //add team to active list in system
+        this.isActive=true;
+        this.mainSystem.removeNotActiveTeam(this);
+        this.mainSystem.addActiveTeam(this);
+
+        LOG.info(String.format("%s - %s", name, "team was activated"));
+
+    }
 
     //<editor-fold desc="getters and setters">
     public void setName(String name) {
@@ -148,12 +189,21 @@ public class Team implements PageOwner{
         this.founder = founder;
     }
 
+    public BudgetControl getBudgetControl() {
+        return budgetControl;
+    }
+
+    public void setBudgetControl(BudgetControl budgetControl) {
+        this.budgetControl = budgetControl;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc="add and remove functions">
     // adi
     public void addTeamOwner(TeamOwner tO){
         teamOwners.add(tO);
+        addObserver(tO);
     }
     // adi
     public void removeTeamOwner(TeamOwner tO)throws Exception{
@@ -274,5 +324,38 @@ public class Team implements PageOwner{
         return false;
     }
 
+    /**OR**/
+    public void addIncome(String typeOfIncome, long amount) throws Exception {
+        this.budgetControl.addIncome(typeOfIncome,amount);
+    }
 
+    /**OR**/
+    public void addExpense(String typeOfExpense, long amount) throws Exception {
+        this.budgetControl.addExpense(typeOfExpense,amount);
+    }
+
+    /**Or**/
+    public boolean isActive(){
+        return isActive;
+    }
+
+    /**Or**/
+    public void deleteTeamByTeamOwner() {
+        for (Player p:players) {
+            p.setPlayerTeam(null);
+        }
+        coach.setCoachTeam(null);
+        field.removeTeam(this);
+        if(privatePage!=null){
+            privatePage.setPageOwner(null);
+            privatePage=null;
+        }
+        if(teamManager != null){
+            teamManager.setTeam(null);
+            teamManager.getTeamRole().deleteTeamManager();
+        }
+        isActive=false;
+        mainSystem.removeActiveTeam(this);
+        LOG.info(String.format("%s - %s", name, "team was deleted by team owner"));
+    }
 }

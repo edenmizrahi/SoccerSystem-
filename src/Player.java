@@ -7,24 +7,21 @@ import java.util.Date;
 public class Player implements PageOwner {
     private PrivatePage privatePage;
     private Team playerTeam;
-    private Date dateOfBirth;
     private String roleAtField;
     private TeamRole teamRole;
     private static final Logger LOG = LogManager.getLogger();
 
-    public Player(TeamRole teamRole,Date dateOfBirth){
-        this.dateOfBirth = dateOfBirth;
+    public Player(TeamRole teamRole){
         this.privatePage = null;
         this.playerTeam = null;
         this.roleAtField = null;
         this.teamRole= teamRole;
     }
 
-    public Player(TeamRole teamRole,Date dateOfBirth, Team playerTeam) {
-        this.dateOfBirth = dateOfBirth;
+    public Player(TeamRole teamRole, Team playerTeam, String roleAtField) {
         this.privatePage = null;
         this.playerTeam = playerTeam;
-        this.roleAtField = null;
+        this.roleAtField = roleAtField;
         this.teamRole= teamRole;
     }
 
@@ -79,13 +76,6 @@ public class Player implements PageOwner {
         this.playerTeam = playerTeam;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
     public String getRoleAtField() {
         return roleAtField;

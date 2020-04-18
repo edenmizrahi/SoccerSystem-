@@ -90,4 +90,9 @@ public class PrivatePage {
         LOG.info(String.format("%s - %s", pageOwner, "add fan to page, fane username: "+fan.getUserName()));
     }
 
+    /**Or**/
+    public void deletePage(){
+
+    }
+
 }

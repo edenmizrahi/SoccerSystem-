@@ -1,38 +1,113 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
-public class TeamOwner{
+public class TeamOwner implements Observer {
     private TeamRole teamRole;
-    private LinkedList<Team> teams;
+
     private HashMap<TeamRole, Team> mySubscriptions;
+    private LinkedList<Team> teams;
+    private LinkedList<Team> requestedTeams;
+    private LinkedList<Team> deletedTeams;
+    private LinkedList<Team> approvedTeams;
     private static final Logger LOG = LogManager.getLogger();
 
     //team owner founder- with no team.
     public TeamOwner(TeamRole teamRole) {
         this.teams = new LinkedList<>();
+        this.requestedTeams=new LinkedList<>();
+        this.deletedTeams= new LinkedList<>();
+        this.approvedTeams= new LinkedList<>();
         mySubscriptions = new HashMap<>();
-        //TODO add permissions
-        //this.permissions.add();
         this.teamRole= teamRole;
     }
 
 
+    //or
+    public void requestNewTeam(String name){
+        Team t= new Team(name,this);
+        //the request is sent in the Constructor
+        requestedTeams.add(t);
+    }
+    //or
+    public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
+        if(team == null || players == null || coach == null){
+            throw new NullPointerException();
+        }
+        if(! approvedTeams.contains(team)){
+            throw  new Exception("this team is not approved by RFA");
+        }
+        team.becomeActive(players,coach,field);
+        this.teams.add(team);
+        this.approvedTeams.remove(team);
+    }
+
+    /**OR**/
+    //delete Team
+    public void deleteTeam(Team team) throws Exception {
+        if(team==null){
+            throw new NullPointerException();
+        }
+        if(team.getLeaguePerSeason().containsKey(teamRole.system.getCurrSeason())){
+            throw new Exception("team is play in the current season ,you cannot delete the team untill the end of the season");
+        }
+        Date currDate= new Date(System.currentTimeMillis());
+        for (Match m:team.getHome()) {
+            if(m.getStartDate().after(currDate)){
+                throw  new Exception("cannot delete team with future matches");
+            }
+        }
+        for( Match m:team.getAway()){
+            if(m.getStartDate().after(currDate)){
+                throw  new Exception("cannot delete team with future matches");
+            }
+        }
+
+        team.deleteTeamByTeamOwner();
+        teams.remove(team);
+        deletedTeams.add(team);
+
+        for (SystemManager sm:teamRole.system.getSystemManagers()) {
+            team.addObserver(sm);
+        }
+        team.notifyObservers("team deleted by team owner");
+
+        //TODO: founder =null
+        // for each teamowner go over the subscriptions and delete the sub of the team
+        //move the team to deleted for all the team owners
+
+
+    }
+
+    /**Or**/
+    public void reopenTeam(Team team,HashSet<Player> players, Coach coach, Field field) throws Exception {
+        //TODO: move the team to the active team list for all the team owners
+        if(!deletedTeams.contains(team)){
+            throw new Exception("the team was not deleted");
+        }
+        if(team ==null){
+            throw new NullPointerException();
+        }
+        team.becomeActive(players,coach,field);
+        deletedTeams.remove(team);
+        teams.add(team);
+
+        //notify system managers
+        for (SystemManager sm:teamRole.system.getSystemManagers()) {
+            team.addObserver(sm);
+        }
+        team.notifyObservers("team reopened by team owner");
+
+        //TODO: i AM THE ONLY FOUNDER- only team owner
+        //delete all the other team owners
+        //delete the team from the deletedteam list
+        // move the team to the active team list for all the team owners
+    }
 
 
     //<editor-fold desc="add remove and edit">
-    //adi
-    public void createTeam (String name, HashSet<Player> players ,Coach coach, Field field) throws Exception{
-        if(name == null || players == null || coach == null){
-            throw new NullPointerException();
-        }
-        Team team = new Team(name, players, coach, field, this);
-        this.teams.add(team);
-    }
+
 
 
     // adi
@@ -208,5 +283,71 @@ public class TeamOwner{
         return mySubscriptions;
     }
 
+    public TeamRole getTeamRole() {
+        return teamRole;
+    }
+
+    public void setTeamRole(TeamRole teamRole) {
+        this.teamRole = teamRole;
+    }
+
+    public void setTeams(LinkedList<Team> teams) {
+        this.teams = teams;
+    }
+
+    public LinkedList<Team> getRequestedTeams() {
+        return requestedTeams;
+    }
+
+    public void setRequestedTeams(LinkedList<Team> requestedTeams) {
+        this.requestedTeams = requestedTeams;
+    }
+
+    public LinkedList<Team> getDeletedTeams() {
+        return deletedTeams;
+    }
+
+    public void setDeletedTeams(LinkedList<Team> deletedTeams) {
+        this.deletedTeams = deletedTeams;
+    }
+
+    public LinkedList<Team> getApprovedTeams() {
+        return approvedTeams;
+    }
+
+    public void setApprovedTeams(LinkedList<Team> approvedTeams) {
+        this.approvedTeams = approvedTeams;
+    }
+
     //</editor-fold>
+
+    /**or**/
+    public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
+        if(team==null || typeOfIncome==null){
+            throw  new NullPointerException();
+        }
+        team.addIncome(typeOfIncome,amount);
+    }
+    /**or**/
+    public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
+        if(team==null || typeOfExpense==null){
+            throw  new NullPointerException();
+        }
+        team.addExpense(typeOfExpense,amount);
+    }
+
+    /**OR**/
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof Team){
+            if(arg.equals(true)){// the team can be open
+               requestedTeams.remove(o);
+               approvedTeams.add((Team)o);
+            }
+            else if(arg.equals(false)){// the team cant be open
+                ((Team)o).deleteObservers();
+                requestedTeams.remove((Team)o);
+            }
+        }
+    }
 }

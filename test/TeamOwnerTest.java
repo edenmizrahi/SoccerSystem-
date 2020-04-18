@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -98,5 +99,17 @@ public class TeamOwnerTest {
         Assert.assertEquals(null, team.getField());
         Assert.assertFalse(field.getTeams().contains(team));
     }
+
+    /**or**/
+    @Test
+    public void openNewTeam() throws ParseException {
+        Rfa rfa= new Rfa(ms,"RFA","0543150912","rfa@gmail.com","rfa123","rfa123",MainSystem.birthDateFormat.parse("01-12-1995"));
+        TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+        teamOwner.becomeTeamOwner();
+        teamOwner.getTeamOwner().requestNewTeam("hapoel Beer Sheva");
+        Assert.assertTrue(rfa.getTeamRequests().size()==1);
+        Assert.assertTrue(teamOwner.getTeamOwner().getRequestedTeams().size()==1);
+    }
+
 
 }

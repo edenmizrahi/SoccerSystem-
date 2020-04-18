@@ -169,7 +169,7 @@ public class User {
             throw new Exception("teamName empty");
         }
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
-            for (Team t:system.getAllTeams()) {
+            for (Team t:system.getActiveTeams()) {
                if(t.getName().contains(teamName)){
                    ans.addAll(getPrivatePageforTeam(t));
                }
@@ -257,7 +257,7 @@ public class User {
     //the user chooses to search all teams , returns all the teams who have pages
     public LinkedHashSet<PrivatePage> searchAllTeams(){
         LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
-            for (Team t:system.getAllTeams()) {
+            for (Team t:system.getActiveTeams()) {
                 if( t.getPage() != null ){
                     ans.add(t.getPage());
                 }
@@ -459,8 +459,8 @@ public class User {
     public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            TeamRole newPlayer= new TeamRole(system,name,phoneNumber,email,userName,password);
-            newPlayer.becomePlayer(dateOfBirth);
+            TeamRole newPlayer= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
+            newPlayer.becomePlayer();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Player"));
             return newPlayer;
@@ -469,10 +469,10 @@ public class User {
     }
 
     /**OR**/
-    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password){
+    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            TeamRole newCoach= new TeamRole(system,name,phoneNumber,email,userName,password);
+            TeamRole newCoach= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newCoach.becomeCoach();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Coach"));
@@ -495,10 +495,10 @@ public class User {
     }
 */
     /**OR**/
-    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password){
+    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            Fan newFan= new Fan(system,name,phoneNumber,email,userName,password);
+            Fan newFan= new Fan(system,name,phoneNumber,email,userName,password, dateOfBirth);
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Fan"));
             return newFan;
@@ -521,10 +521,10 @@ public class User {
     */
 
     /**OR**/
-    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password){
+    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password);
+            Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password,dateOfBirth);
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
             return newRFA;
@@ -533,10 +533,10 @@ public class User {
     }
 
     /**OR**/
-    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password){
+    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
         // first check valid details
         if(checkValidDetails(userName,password,phoneNumber,email)){
-            TeamRole teamOwner= new TeamRole(system,name,phoneNumber,email,userName,password);
+            TeamRole teamOwner= new TeamRole(system,name,phoneNumber,email,userName,password, dateOfBirth);
             teamOwner.becomeTeamOwner();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as team owner"));

@@ -3,6 +3,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -16,7 +17,7 @@ public class Main {
 //        LOG.info(String.format("%s - %s", "try", "action?"));
 
         MainSystem ms = MainSystem.getInstance();
-        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         Team team1 = new Team();
         Team team2 = new Team();
         Field field1 = new Field("field1");
@@ -24,8 +25,8 @@ public class Main {
         HashSet<Event> events = new HashSet<>();
         HashSet<Referee> referees = new HashSet<>();
         //TeamOwner tOYossi = new TeamOwner(yossi, ms, team1);
-        Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
-        Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
+        Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         Referee mos = new Referee(moshe,ms);
         Match m = new Match(5,5,team1,team2,field1,events,referees,mos,"15-04-2020 21:20:00");
         /**DATE**/
@@ -68,30 +69,31 @@ public class Main {
 //            }
 ////    Player player1=new Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
 
-
-        MainSystem ms = new MainSystem();
-        /**CREATE SEASON 2020 IN LEAGUE- curr season**/
-        League league1 = new League("LIGAT HAALUFUT", ms);
-        Season season2020 = new Season(ms,null,2020);
-        ms.setCurrSeason(season2020);
-        Team hapoelBeerSheva= new Team("Hapoel Beer Sheva");
-        Team hapoelKfarSaba= new Team("Hapoel Kfar Saba");
-        Team macabiHaifa= new Team("Macabi Haifa");
-
-        HashSet<Team> teamsForLeague1= new HashSet<Team>();
-        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
-        season2020.addLeagueWithTeams(league1,teamsForLeague1);
-
-        /**CREATE SEASON 2019 IN LEAGUE**/
-        Season season2019= new Season(ms,null,2019);
-        League league2 = new League("LIGAT HAAL",ms);
-        Team macabiTelAviv= new Team("Macabi Tel Aviv");
-        Team beitarYerushalaim= new Team("Beitar Yerushalaim");
-        Team hapoelRaanana= new Team ("Hapoel Raanana");
-
-        HashSet<Team> teamsForLeague2= new HashSet<Team>();
-        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
-        season2019.addLeagueWithTeams(league2,teamsForLeague1);
+        /*
+//
+//        MainSystem ms = new MainSystem();
+//        /**CREATE SEASON 2020 IN LEAGUE- curr season**/
+//        League league1 = new League("LIGAT HAALUFUT", ms);
+//        Season season2020 = new Season(ms,null,2020);
+//        ms.setCurrSeason(season2020);
+//        Team hapoelBeerSheva= new Team("Hapoel Beer Sheva");
+//        Team hapoelKfarSaba= new Team("Hapoel Kfar Saba");
+//        Team macabiHaifa= new Team("Macabi Haifa");
+//
+//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
+//        season2020.addLeagueWithTeams(league1,teamsForLeague1);
+//
+//        /**CREATE SEASON 2019 IN LEAGUE**/
+//        Season season2019= new Season(ms,null,2019);
+//        League league2 = new League("LIGAT HAAL",ms);
+//        Team macabiTelAviv= new Team("Macabi Tel Aviv");
+//        Team beitarYerushalaim= new Team("Beitar Yerushalaim");
+//        Team hapoelRaanana= new Team ("Hapoel Raanana");
+//
+//        HashSet<Team> teamsForLeague2= new HashSet<Team>();
+//        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
+//        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
 
     }

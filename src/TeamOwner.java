@@ -245,7 +245,7 @@ public class TeamOwner implements Observer {
             throw new NullPointerException();
         }
         if (!player.isPlayer()){
-            player.becomePlayer(dateofBirth);
+            player.becomePlayer();
         }
         team.addPlayer(player.getPlayer());
         player.getPlayer().setPlayerTeam(team);

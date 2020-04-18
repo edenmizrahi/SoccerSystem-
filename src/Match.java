@@ -66,7 +66,7 @@ public class Match extends Observable{
     /**** startDate - timeStamp in event ? ****/
     public void addEvent(Event e){
 
-
+        notifyObservers(e);
     }
 
     public void setNumOfMinutes(int numOfMinutes) { this.numOfMinutes = numOfMinutes; }
@@ -75,9 +75,11 @@ public class Match extends Observable{
 
     public void setHomeScore(int homeScore) {
         this.homeScore = homeScore;
+        notifyObservers(homeTeam.getName()+" make GOAL, Team's score is: "+homeScore);
     }
 
     public void setGuestScore(int guestScore) {
         this.guestScore = guestScore;
+        notifyObservers(awayTeam.getName()+" make GOAL, Team's score is: "+guestScore);
     }
 }

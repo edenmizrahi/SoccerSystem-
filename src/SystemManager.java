@@ -293,7 +293,8 @@ public class SystemManager extends Fan implements Observer {
     }
 
     /**
-     * remove team from system , if team does not have future Matches(not belong to current season).
+     * remove team from system ,
+     * if team does not have future Matches(not belong to current season).
      * doesnt delete all team matches.
      * disconnect the team owners and managers.
      * remove the team manager sub-> remove his subscriptions .

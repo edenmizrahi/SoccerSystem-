@@ -16,7 +16,10 @@ public class Complaint extends Observable {
     private static final Logger LOG = LogManager.getLogger();
 
 /**Eden*/
-    public Complaint(Fan fan, MainSystem system) {
+    public Complaint(Fan fan, MainSystem system) throws Exception {
+        if(!system.getUsers().contains(fan)){
+            throw new Exception("fan not exist at system");
+        }
         this.fan = fan;
         this.system = system;
         answer=null;

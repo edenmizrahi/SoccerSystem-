@@ -94,6 +94,17 @@ public class MainSystem {
         }
         return players;
     }
+    /**Eden**/
+    public List<TeamOwner> getAllTeamOwners(){
+        List<TeamOwner> teamOwners= new LinkedList<>();
+        for(TeamRole teamRole: getTeamRoles()){
+            if(teamRole.isTeamOwner()){
+                teamOwners.add(teamRole.getTeamOwner());
+            }
+        }
+        return teamOwners;
+    }
+
 
     /**OR**/
     public List<Coach> getAllCoach(){
@@ -298,7 +309,6 @@ public class MainSystem {
         }
         return sum;
     }
-
 
 
 }

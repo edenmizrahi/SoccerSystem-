@@ -120,7 +120,7 @@ public class Fan extends User implements Observer, NotificationsUser {
 
 
     /**Eden*/
-    public void addNewComplaint(String comp){
+    public void addNewComplaint(String comp) throws Exception {
         Complaint complaint=new Complaint(this,system);
         myComplaints.add(complaint);
         complaint.setContent(comp);

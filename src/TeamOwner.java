@@ -34,6 +34,7 @@ public class TeamOwner implements Observer , NotificationsUser {
     public void requestNewTeam(String name){
         Team t= new Team(name,this);
         //the request is sent in the Constructor
+        //gh
         requestedTeams.add(t);
     }
 

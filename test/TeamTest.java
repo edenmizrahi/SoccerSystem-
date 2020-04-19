@@ -15,8 +15,52 @@ public class TeamTest {
     HashSet<Player> players= new HashSet<>();
     Field f= new Field("nameF");
     TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
+    HashSet<Permission> per = new HashSet<>();
 
 
+
+    /**adi**/
+    @Test
+    public void addAndRemoveTeamOwnerTest() throws Exception{
+        teamOwner.becomeTeamOwner();
+        t.addTeamOwner(teamOwner.getTeamOwner());
+        Assert.assertTrue(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
+        t.removeTeamOwner(teamOwner.getTeamOwner());
+        Assert.assertFalse(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
+    }
+    /**adi**/
+    @Test (expected = Exception.class)
+    public void removeTeamManagerTest() throws Exception{
+        per.add(Permission.addRemoveEditTeamOwner);
+        teamOwner.becomeTeamManager(t, per);
+        Assert.assertTrue(t.getTeamManager().equals(teamOwner.getTeamManager()));
+        t.removeTeamManager(teamOwner.getTeamManager());
+        Assert.assertFalse(t.getTeamManager().equals(teamOwner.getTeamManager()));
+    }
+    /**adi**/
+    @Test (expected = Exception.class)
+    public void addAndRemoveCoachTest() throws Exception{
+        coach.becomeCoach();
+        t.addCoach(coach.getCoach());
+        Assert.assertTrue(t.getCoach().equals(coach.getCoach()));
+        t.removeCoach(coach.getCoach());
+        Assert.assertFalse(t.getCoach().equals(coach.getCoach()));
+    }
+    /**adi**/
+    @Test (expected = Exception.class)
+    public void addAndRemovePlayerTest() throws Exception{
+        coach.becomePlayer();
+        t.addPlayer(coach.getPlayer());
+        Assert.assertTrue(t.getPlayers().contains(coach.getPlayer()));
+        t.removePlayer(coach.getPlayer());
+        Assert.assertTrue(t.getPlayers().contains(coach.getPlayer()));
+    }
+    /**adi**/
+    @Test (expected = Exception.class)
+    public void removeFieldTest() throws Exception{
+        t.removeField(f);
+        t.getField();
+    }
 
     /**or**/
     @Test

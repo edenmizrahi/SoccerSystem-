@@ -230,7 +230,6 @@ public class TeamOwner implements Observer , NotificationsUser {
         if (fan instanceof TeamRole){
             ((TeamRole) fan).becomeTeamManager(team, per);
             ((TeamRole) fan).getTeamManager().setTeam(team);
-            team.addTeamManager(((TeamRole) fan).getTeamManager());
             teamRole = ((TeamRole) fan);
         }
         // else just a fan
@@ -238,7 +237,6 @@ public class TeamOwner implements Observer , NotificationsUser {
             teamRole = new TeamRole(fan);
             teamRole.becomeTeamManager(team, per);
             teamRole.getTeamManager().setTeam(team);
-            team.addTeamManager(teamRole.getTeamManager());
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
         mySubscriptions.add(sub);

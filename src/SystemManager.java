@@ -402,7 +402,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
 
         /**remove from system*/
         system.getActiveTeams().remove(teamToRemove);
-        teamToRemove.sendNotiAbouteClose();
+        //teamToRemove.sendNotiAbouteClose();
 
     }
 

@@ -187,11 +187,6 @@ public class Team extends Observable implements PageOwner{
     }
     // adi
     //TODO test
-    public void addTeamManager(TeamManager tM){
-        teamManager = tM;
-    }
-    // adi
-    //TODO test
     public void removeTeamManager(TeamManager tM)throws Exception{
 
         if (tM.equals(teamManager)) {
@@ -202,7 +197,6 @@ public class Team extends Observable implements PageOwner{
         }
     }
     //adi
-    //TODO test
     public void addCoach(Coach c){
         if(this.coach == null && c != null){
             coach = c;
@@ -465,11 +459,6 @@ public class Team extends Observable implements PageOwner{
     //TODO test
     public void addMatchToAwayMatches(Match match){
         this.getAway().add(match);
-    }
-
-
-    public void sendNotiAbouteClose() {
-        notifyObservers("Team "+name+" removed from system");
     }
 
 }

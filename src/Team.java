@@ -447,9 +447,4 @@ public class Team extends Observable implements PageOwner{
         this.getAway().add(match);
     }
 
-
-    public void sendNotiAbouteClose() {
-        notifyObservers("Team "+name+" removed from system");
-    }
-
 }

@@ -93,6 +93,13 @@ public class Referee extends Fan{
     }
 
     /**Yarden**/
+    /**
+     *
+     * @param match
+     * @return
+     * @throws Exception
+     * @CodeBy Yarden
+     */
     public HashSet<Event> createReport(Match match) throws Exception {
         //just if you are a main referee
         if(match.getMainReferee().equals(this)){
@@ -110,7 +117,10 @@ public class Referee extends Fan{
     }
 
     /**Yarden**/
-    //just matches that still not take place
+    /**
+     * This function show the matches that are still not take place
+     * @return LinkedLis</Match>
+     */
     public LinkedList<Match> showMatches(){
 
         LinkedList<Match> matchesToShow = new LinkedList<>();

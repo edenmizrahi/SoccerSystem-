@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -8,12 +9,15 @@ import static org.junit.Assert.*;
 
 public class TeamManagerTest {
     MainSystem ms = MainSystem.getInstance();
-    Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+    Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123", MainSystem.birthDateFormat.parse("02-11-1996") );
     Team team = new Team();
     HashSet<Permission> per = new HashSet<>();
     TeamRole tMYossi = new TeamRole(yossi);
-    Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123" );
-    Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" );
+    Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123", MainSystem.birthDateFormat.parse("02-11-1996"));
+    Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123", MainSystem.birthDateFormat.parse("02-11-1996"));
+
+    public TeamManagerTest() throws ParseException {
+    }
 
     //adi
     @Test
@@ -60,8 +64,8 @@ public class TeamManagerTest {
         tMYossi.becomeTeamManager(team, per);
         Date d = new Date();
         TeamRole teamRoleDavid = new TeamRole(david);
-        teamRoleDavid.becomePlayer(d);
-        tMYossi.getTeamManager().addPlayer(teamRoleDavid, "defense", d, team);
+        teamRoleDavid.becomePlayer();
+        tMYossi.getTeamManager().addPlayer(teamRoleDavid, "defense", team);
         Assert.assertTrue(team.getPlayers().contains(teamRoleDavid.getPlayer()));
         Assert.assertEquals(team, teamRoleDavid.getPlayer().getTeam());
         tMYossi.getTeamManager().editPlayerRole(teamRoleDavid.getPlayer(), "defense");

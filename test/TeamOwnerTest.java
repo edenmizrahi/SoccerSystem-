@@ -8,11 +8,11 @@ import java.util.HashSet;
 public class TeamOwnerTest {
 
     MainSystem ms = MainSystem.getInstance();
-    Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("11-06-1990"));
+    Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123", MainSystem.birthDateFormat.parse("02-11-1996"));
     Team team = new Team();
     TeamRole tOYossi = new TeamRole(yossi);
-    Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123",MainSystem.birthDateFormat.parse("11-06-1990") );
-    Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123" ,MainSystem.birthDateFormat.parse("11-06-1990"));
+    Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123", MainSystem.birthDateFormat.parse("02-11-1996"));
+    Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123", MainSystem.birthDateFormat.parse("02-11-1996"));
 
     public TeamOwnerTest() throws ParseException {
     }
@@ -100,7 +100,7 @@ public class TeamOwnerTest {
         Date d = new Date();
         TeamRole teamRoleDavid = new TeamRole(david);
         teamRoleDavid.becomePlayer();
-        tOYossi.getTeamOwner().addPlayer(teamRoleDavid, "defense", d, team);
+        tOYossi.getTeamOwner().addPlayer(teamRoleDavid, "defense", team);
         Assert.assertTrue(team.getPlayers().contains(teamRoleDavid.getPlayer()));
         Assert.assertEquals(team, teamRoleDavid.getPlayer().getTeam());
         tOYossi.getTeamOwner().editPlayerRole(teamRoleDavid.getPlayer(), "defense");

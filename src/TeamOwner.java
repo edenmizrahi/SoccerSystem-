@@ -22,7 +22,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         this.requestedTeams=new LinkedList<>();
         this.deletedTeams= new LinkedList<>();
         this.approvedTeams= new LinkedList<>();
-        mySubscriptions = new HashMap<>();
+        mySubscriptions = new HashSet<>();
         this.teamRole= teamRole;
     }
 
@@ -122,9 +122,15 @@ public class TeamOwner implements Observer , NotificationsUser {
 
     //<editor-fold desc="add remove and edit">
 
-
-
-    // adi
+    /**
+     * adi
+     * this team owner subscribes a fan to become a team owner of a specific team
+     * @param fan - the person you want to make a team owner
+     * @param ms - main system
+     * @param team - the team you want to add a team owner
+     * @return the new team owner
+     * @throws Exception
+     */
     public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
         if (fan == null || ms == null || team == null){
             throw new NullPointerException();
@@ -159,27 +165,49 @@ public class TeamOwner implements Observer , NotificationsUser {
         return teamRole.getTeamOwner();
     }
 
-    // adi
+    /**
+     * adi
+     * this team owner removes a team owner that he subscribed in the past
+     * @param tO - team owner to remove
+     * @param ms - main system
+     * @param team - the team that the team owner will be removed from
+     * @throws Exception
+     */
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();
         }
         team.removeTeamOwner(tO);
-        mySubscriptions.remove(tO.getTeamRole());
-        for (Map.Entry<TeamRole, Team> entry : tO.getMySubscriptions().entrySet()) {
-            if (entry.getValue().equals(team)) {
-                if (entry.getKey().isTeamOwner()){
-                    tO.removeTeamOwner(entry.getKey().getTeamOwner(), ms, entry.getValue());
+        for(TeamSubscription sub : mySubscriptions){
+            if (sub.user.equals(tO.getTeamRole()) && sub.role.equals(tO)){
+                mySubscriptions.remove(sub);
+            }
+            break;
+        }
+        for (TeamSubscription sub : tO.mySubscriptions) {
+            if (sub.team.equals(team)) {
+                if (sub.role instanceof TeamOwner){
+                    tO.removeTeamOwner((TeamOwner) sub.role, ms, sub.team);
                 }
                 else{
-                    tO.removeTeamManager(entry.getKey().getTeamManager(), ms, entry.getValue());
+                    tO.removeTeamManager((TeamManager) sub.role, ms, sub.team);
                 }
             }
         }
         tO.removeTeam(team);
 
     }
-    // adi
+
+    /**
+     * adi
+     * this team owner subscribes a fan to become a team manager of a specific team
+     * @param fan - the person you want to make a team manager
+     * @param ms - main system
+     * @param team - the team you want to add a team manager
+     * @param per - the team managers allowed permissions
+     * @return the new team manager
+     * @throws Exception
+     */
     public TeamManager subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
         if (fan == null || ms == null || team == null || per == null){
             throw new NullPointerException();
@@ -203,28 +231,49 @@ public class TeamOwner implements Observer , NotificationsUser {
             teamRole.getTeamManager().setTeam(team);
             team.addTeamManager(teamRole.getTeamManager());
         }
-        mySubscriptions.put(teamRole, team);
+        TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
+        mySubscriptions.add(sub);
         return teamRole.getTeamManager();
 
     }
-    // adi
+    /**
+     * adi
+     * this team owner removes a team manager that he subscribed in the past
+     * @param tM - team manager to remove
+     * @param ms - main system
+     * @param team - the team that the team manager will be removed from
+     * @throws Exception
+     */
     public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
         if (tM == null || ms == null || team == null || team == null){
             throw new NullPointerException();
         }
-        if (mySubscriptions.containsKey(tM.getTeamRole())){
-            team.removeTeamManager(tM);
-            mySubscriptions.remove(tM.getTeamRole());
-            for (Map.Entry<TeamRole, Team> entry : tM.getMySubscriptions().entrySet()) {
-                if (entry.getValue().equals(team)) {
-                    tM.removeTeamOwner(entry.getKey().getTeamOwner(), ms, entry.getValue());
-                }
+        team.removeTeamManager(tM);
+        for(TeamSubscription sub : mySubscriptions){
+            if (sub.user.equals(tM.getTeamRole()) && sub.role.equals(tM)){
+                mySubscriptions.remove(sub);
             }
-            tM.setTeam(null);
-            tM.getTeamRole().deleteTeamManager();
+            break;
         }
+        for (TeamSubscription sub : tM.getMySubscriptions()) {
+            if (sub.team.equals(team)) {
+                tM.removeTeamOwner((TeamOwner) sub.role, ms, sub.team);
+
+            }
+        }
+        tM.setTeam(null);
+        tM.getTeamRole().deleteTeamManager();
     }
-    //adi
+
+    /**
+     * adi
+     * remove the current coach and replace with a new one
+     * @param coachToRemove - the coach to remove
+     * @param coachToAdd - the coach to add
+     * @param newCoachRoleAtTeam - the new coaches role
+     * @param team - the team that will have the changes
+     * @throws Exception
+     */
     public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
         if (coachToRemove == null || coachToAdd == null || team == null){
             throw new NullPointerException();
@@ -243,15 +292,28 @@ public class TeamOwner implements Observer , NotificationsUser {
             throw new Exception("This Coach doesn't exist in this team");
         }
     }
-    //adi
+
+    /**
+     * adi
+     * edit coach's role
+     * @param coach - the coach to edit
+     * @param role - the new role
+     */
     public void editCoachRole(Coach coach, String role){
         if (coach == null || role == null){
             throw new NullPointerException();
         }
         coach.setRoleAtTeam(role);
     }
-    //adi TODO CHANGE THAT DOESNT RECEIVE DATEOFBIRTH
-    public void addPlayer(TeamRole player, String role, Date dateofBirth, Team team){
+
+    /**
+     * adi
+     * add a player to a team
+     * @param player - player to add
+     * @param role - the players role
+     * @param team - the team to add the player
+     */
+    public void addPlayer(TeamRole player, String role, Team team){
         if (player == null || role == null || team == null){
             throw new NullPointerException();
         }
@@ -262,7 +324,14 @@ public class TeamOwner implements Observer , NotificationsUser {
         player.getPlayer().setPlayerTeam(team);
         player.getPlayer().setRoleAtField(role);
     }
-    //adi
+
+    /**
+     * adi
+     * remove a player from a team (only if team has more than 11 players)
+     * @param player - player to remove
+     * @param team - the team to remove the player
+     * @throws Exception
+     */
     public void removePlayer (Player player, Team team) throws Exception {
         if (player == null || team == null){
             throw new NullPointerException();
@@ -270,14 +339,28 @@ public class TeamOwner implements Observer , NotificationsUser {
         team.removePlayer(player);
         player.setPlayerTeam(null);
     }
-    //adi
+
+    /**
+     * adi
+     * edit the players role
+     * @param player - the player to edit
+     * @param role - the new role
+     */
     public void editPlayerRole(Player player, String role){
         if (player == null || role == null){
             throw new NullPointerException();
         }
         player.setRoleAtField(role);
     }
-    //adi
+
+    /**
+     * adi
+     * remove the current field and replace with new field
+     * @param fieldtoRemove - the field to remove
+     * @param fieldToAdd - the new field to add
+     * @param team - the team to change its field
+     * @throws Exception
+     */
     public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
         if (fieldtoRemove == null || fieldToAdd == null || team == null){
             throw new NullPointerException();
@@ -287,7 +370,13 @@ public class TeamOwner implements Observer , NotificationsUser {
         team.setField(fieldToAdd);
         fieldToAdd.addTeam(team);
     }
-    //adi
+
+    /**
+     * adi
+     * edit the fields name
+     * @param field - the field to edit
+     * @param name - the new name
+     */
     public void editFieldName(Field field, String name){
         if (field == null || name == null){
             throw new NullPointerException();

@@ -62,8 +62,6 @@ public class Team extends Observable implements PageOwner{
         this.teamManager = null;
         this.field = null;
         this.budgetControl= new BudgetControl(this);
-
-
     }
 
 

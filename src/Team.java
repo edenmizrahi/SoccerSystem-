@@ -183,10 +183,6 @@ public class Team extends Observable implements PageOwner{
         }
     }
     // adi
-    public void addTeamManager(TeamManager tM){
-        teamManager = tM;
-    }
-    // adi
     public void removeTeamManager(TeamManager tM)throws Exception{
 
         if (tM.equals(teamManager)) {

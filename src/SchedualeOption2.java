@@ -7,6 +7,8 @@ import java.util.HashSet;
 public class SchedualeOption2 implements SchedulingPolicy {
 
     /**Each pair of teams will play twice in the season, each time in one of the teams' home field**/
+    //TODO test
+
     @Override
     public void assign(HashMap<League, HashSet<Team>> teamsInSeason, HashSet<Referee> referees, Referee mainRef) throws Exception {
 

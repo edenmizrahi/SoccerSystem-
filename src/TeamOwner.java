@@ -31,6 +31,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * request the opening new team
      * @param name
      */
+    //TODO test
     public void requestNewTeam(String name){
         Team t= new Team(name,this);
         //the request is sent in the Constructor
@@ -46,6 +47,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param field
      * @throws Exception
      */
+    //TODO test
     public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
         if(team == null || players == null || coach == null){
             throw new NullPointerException();
@@ -60,9 +62,11 @@ public class TeamOwner implements Observer , NotificationsUser {
 
     /**OR
      * delete the team- it become not active
+     * the team moves from team list to deleted team list
      * @param team
      * @throws Exception
      */
+    //TODO test
     public void deleteTeam(Team team) throws Exception {
         if(team==null){
             throw new NullPointerException();
@@ -99,6 +103,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param field
      * @throws Exception
      */
+    //TODO test
     public void reopenTeam(Team team,HashSet<Player> players, Coach coach, Field field) throws Exception {
 
         if(!deletedTeams.contains(team)){
@@ -132,6 +137,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @return the new team owner
      * @throws Exception
      */
+    //TODO test
     public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
         if (fan == null || ms == null || team == null){
             throw new NullPointerException();
@@ -174,6 +180,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team that the team owner will be removed from
      * @throws Exception
      */
+    //TODO test
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();
@@ -209,6 +216,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @return the new team manager
      * @throws Exception
      */
+    //TODO test
     public TeamManager subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
         if (fan == null || ms == null || team == null || per == null){
             throw new NullPointerException();
@@ -245,6 +253,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team that the team manager will be removed from
      * @throws Exception
      */
+    //TODO test
     public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
         if (tM == null || ms == null || team == null || team == null){
             throw new NullPointerException();
@@ -275,6 +284,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team that will have the changes
      * @throws Exception
      */
+    //TODO test
     public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
         if (coachToRemove == null || coachToAdd == null || team == null){
             throw new NullPointerException();
@@ -300,6 +310,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param coach - the coach to edit
      * @param role - the new role
      */
+    //TODO test
     public void editCoachRole(Coach coach, String role){
         if (coach == null || role == null){
             throw new NullPointerException();
@@ -314,6 +325,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param role - the players role
      * @param team - the team to add the player
      */
+    //TODO test
     public void addPlayer(TeamRole player, String role, Team team){
         if (player == null || role == null || team == null){
             throw new NullPointerException();
@@ -333,6 +345,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team to remove the player
      * @throws Exception
      */
+    //TODO test
     public void removePlayer (Player player, Team team) throws Exception {
         if (player == null || team == null){
             throw new NullPointerException();
@@ -347,6 +360,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param player - the player to edit
      * @param role - the new role
      */
+    //TODO test
     public void editPlayerRole(Player player, String role){
         if (player == null || role == null){
             throw new NullPointerException();
@@ -362,6 +376,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team to change its field
      * @throws Exception
      */
+    //TODO test
     public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
         if (fieldtoRemove == null || fieldToAdd == null || team == null){
             throw new NullPointerException();
@@ -378,6 +393,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param field - the field to edit
      * @param name - the new name
      */
+    //TODO test
     public void editFieldName(Field field, String name){
         if (field == null || name == null){
             throw new NullPointerException();
@@ -450,6 +466,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param amount
      * @throws Exception
      */
+    //TODO test
     public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
         if(team==null || typeOfIncome==null){
             throw  new NullPointerException();
@@ -464,6 +481,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param amount
      * @throws Exception
      */
+    //TODO test
     public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
         if(team==null || typeOfExpense==null){
             throw  new NullPointerException();

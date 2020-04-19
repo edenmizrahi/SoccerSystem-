@@ -57,6 +57,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @return the new team owner
      * @throws Exception
      */
+    //TODO test
     public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
         if (fan == null || ms == null || team == null){
             throw new NullPointerException();
@@ -103,6 +104,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param team - the team that the team owner will be removed from
      * @throws Exception
      */
+    //TODO test
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();
@@ -140,6 +142,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param team - the team that will have the changes
      * @throws Exception
      */
+    //TODO test
     public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
         if (coachToRemove == null || coachToAdd == null || team == null){
             throw new NullPointerException();
@@ -169,6 +172,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param coach - the coach to edit
      * @param role - the new role
      */
+    //TODO test
     public void editCoachRole(Coach coach, String role)throws Exception {
         if (coach == null || role == null){
             throw new NullPointerException();
@@ -187,6 +191,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param role - the players role
      * @param team - the team to add the player
      */
+    //TODO test
     public void addPlayer(TeamRole player, String role, Team team) throws Exception{
         if (player == null || role == null || team == null){
             throw new NullPointerException();
@@ -211,6 +216,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param team - the team to remove the player
      * @throws Exception
      */
+    //TODO test
     public void removePlayer (Player player, Team team) throws Exception {
         if (player == null || team == null){
             throw new NullPointerException();
@@ -230,6 +236,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param player - the player to edit
      * @param role - the new role
      */
+    //TODO test
     public void editPlayerRole(Player player, String role)throws Exception {
         if (player == null || role == null){
             throw new NullPointerException();
@@ -250,6 +257,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param team - the team to change its field
      * @throws Exception
      */
+    //TODO test
     public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
         if (fieldtoRemove == null || fieldToAdd == null || team == null){
             throw new NullPointerException();
@@ -271,6 +279,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param field - the field to edit
      * @param name - the new name
      */
+    //TODO test
     public void editFieldName(Field field, String name) throws Exception {
         if (field == null || name == null){
             throw new NullPointerException();
@@ -285,6 +294,7 @@ public class TeamManager implements Observer,NotificationsUser {
     //</editor-fold>
 
     /**or**/
+    //TODO test
     public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
         if(this.permissions.contains(Permission.addToBudgetControl)){
             team.addIncome(typeOfIncome,amount);
@@ -302,6 +312,7 @@ public class TeamManager implements Observer,NotificationsUser {
      * @param amount- positive!!! in budget conrtol in becomes negative
      * @throws Exception
      */
+    //TODO test
     public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
         if(this.permissions.contains(Permission.addToBudgetControl)){
             team.addExpense(typeOfExpense,amount);

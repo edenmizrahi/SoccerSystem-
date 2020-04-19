@@ -10,6 +10,8 @@ public class SchedualeOption1 implements SchedulingPolicy {
 
     /**Each pair of teams will play against each other only once in a season**/
     // one match in a day, start at20:00
+
+    //TODO test
     @Override
     public void assign(HashMap<League, HashSet<Team>> teamsInSeason, HashSet<Referee> referees, Referee mainRef) throws Exception {
 

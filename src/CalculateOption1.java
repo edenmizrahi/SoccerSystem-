@@ -6,6 +6,7 @@ public class CalculateOption1 implements CalculationPolicy {
     //win- +2
     //lose- 0
     //tiko- +1,+1
+    //TODO test
     @Override
     public void calculate(HashMap<League, HashSet<Team >> teamsInSeason) {
 

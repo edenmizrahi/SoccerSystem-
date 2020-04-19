@@ -23,12 +23,14 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**Yarden**/
+    //TODO test
     public void createNewLeague(String nameOfLeague, MainSystem ms) throws Exception {
         League newLeague = new League(nameOfLeague, ms);
         LOG.info(String.format("%s - %s", this.getUserName(), "Create new league"));
     }
 
     /**Yarden**/
+    //TODO test
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
         if (checkValidDetails(userName, password, phoneNumber,email) && name!=null && qualification!=null) {
             Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
@@ -41,6 +43,7 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**Yarden**/
+    //TODO test
     public void deleteReferee(Referee ref) throws Exception {
         //check the all matches that the referee is refereeing
 
@@ -54,10 +57,13 @@ public class Rfa extends Fan implements Observer{
 
             system.removeUser(ref);
             LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Rfa"));
+        }else{
+            throw new Exception("refree is null");
         }
     }
 
     /**Yarden**/
+    //TODO test
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams){
         Season newSeason = new Season(this.system,schedule,calculate,year);
         this.system.setCurrSeason(newSeason);
@@ -66,12 +72,14 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**Yarden**/
+    //TODO test
     public void startchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
     }
 
     // TODO: 18/04/2020 sorted the hashSet of TeamsInCurrentSeasonleagues ?
     /**Yarden**/
+    //TODO test
     public void startCalculationPolicy(Season season){
         season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
         /**Sorted ?**/
@@ -92,6 +100,7 @@ public class Rfa extends Fan implements Observer{
 
     /**Or**/
     @Override
+    //TODO test
     public void update(Observable o, Object arg) {
         if(o instanceof Team && arg instanceof Team){
             if(arg.equals("request to open new team")){//open new team
@@ -101,6 +110,7 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**Or**/
+    //TODO test
     public void answerRequest(Team team, boolean desicion) throws Exception {
         if( !teamRequests.contains(team)){
             throw new Exception("team not in request list");

@@ -43,6 +43,7 @@ public class RfaTest {
 
         try {
             rfa.answerRequest(team,true);
+            fail();
         } catch (Exception e) {
             Assert.assertEquals(Exception.class, e.getClass());
             Assert.assertEquals("team not in request list",e.getMessage());

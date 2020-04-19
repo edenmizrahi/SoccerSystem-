@@ -16,8 +16,6 @@ public class TeamTest {
     Field f= new Field("nameF");
     TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
 
-    public TeamTest() throws ParseException {
-    }
 
 
     /**or**/
@@ -65,5 +63,17 @@ public class TeamTest {
         t.deleteTeamByTeamOwner();
         Assert.assertFalse(t.isActive());
         Assert.assertTrue(t.getCoach().getCoachTeam()==null);
+    }
+
+    @Test
+    public void addCoach() throws ParseException {
+        //TeamRole coach= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
+        coach.becomeCoach();
+        t.addCoach(null);
+
+        t.addCoach(coach.getCoach());
+        Assert.assertEquals(t.getCoach(),coach.getCoach());
+
+
     }
 }

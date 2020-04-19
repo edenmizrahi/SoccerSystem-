@@ -49,6 +49,7 @@ public class PrivatePage {
     }
 
     /**Or**/
+    //TODO test
     public String getRecordsAsString(){
         String ans="";
         for (String s:records) {
@@ -58,6 +59,7 @@ public class PrivatePage {
     }
 
     /**Or**/
+    //TODO test
     public void addRecords(String record) throws Exception {
         if(record==null){
             throw new Exception("record in null");
@@ -70,6 +72,7 @@ public class PrivatePage {
     }
 
     /**Or**/
+    //TODO test
     public void removeRecord(String record) throws Exception {
         if(record==null){
             throw new Exception("record in null");
@@ -82,6 +85,7 @@ public class PrivatePage {
     }
 
     /**Or**/
+    //TODO test
     public void addFan(Fan fan) throws Exception {
         if(fan==null){
             throw new Exception("fan null");

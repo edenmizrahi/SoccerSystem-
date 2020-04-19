@@ -37,7 +37,7 @@ public class Referee extends Fan{
         //this.permissions.add();
     }
 
-    //<editor-fold desc="getter and setters">
+
     public LinkedList<Match> getMatches() {
         return matches;
     }

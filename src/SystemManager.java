@@ -71,6 +71,8 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
         File file =new File("LOG.text");
         return new FileReader(file);
     }
+
+
     /**
      * Switch between team owner which is founder to another team owner.
      * @param toReplaceUser- the team owner to delete
@@ -80,6 +82,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
+    //TODO test
     public void switchTeamOwnerFounder(TeamRole toReplaceUser, TeamRole toAddUser, Team team) throws Exception {
         if(toReplaceUser.getTeamOwner()==null){
             throw new Exception("team role is not a team owner");
@@ -109,6 +112,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @throws Exception if the remove isnt valid
      * @codeBy Eden
      */
+    //TODO test
     public List<Object> removeUser(Fan userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
 
@@ -147,6 +151,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
+//TODO test
     private List<Object> deleteTeamManager(TeamManager userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -177,7 +182,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @exception if the Deletion isn't valid
      * @codeBy Eden
      */
-
+    //TODO test
     public List<Object> teamRoleRemove(TeamRole userToRemove) throws Exception {
         isValidRemove(userToRemove);
         /*******if not valid - exception thrown*******/
@@ -214,6 +219,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToRemove
      * @throws Exception
      */
+    //TODO test
     private void isValidRemove(TeamRole userToRemove) throws Exception{
         /**if is coach-> check if coach is not connected to any team ->
          if connect throws Exception("you have to replace team coach")*/
@@ -252,6 +258,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @throws Exception if team owner is founder of any team.
      * @codeBy Eden
      */
+    //TODO test
     private List<Object> deleteTeamOwner(TeamOwner userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -279,6 +286,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
+    //TODO test
     private List<Object> deletePlayer(Player userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -290,6 +298,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
+    //TODO test
     private List<Object> deleteCoach(Coach userToDelete) {
         List<Object> re=new LinkedList<>();
         re.add(userToDelete);
@@ -303,6 +312,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @throws Exception if referee has future matches.
      * @codeBy Eden
      */
+//TODO test
     private List<Object> deleteReferee(Referee userToDelete) throws Exception {
         //check the all matches that the referee is refereeing
         for (Match m : userToDelete.getMatches()) {
@@ -321,6 +331,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
+    //TODO test
     private List<Object> deleteSystemManager(SystemManager userToDelete) {
         system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
@@ -332,6 +343,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
+    //TODO test
     private List<Object> deleteRfa(Rfa userToDelete){
         //userToDelete.getBudgetControl().removeRfa(userToDelete);
         system.removeUser(userToDelete);
@@ -353,6 +365,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param teamToRemove
      * @codeBy Eden
      */
+    //TODO test
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
         checkValidTeam(teamToRemove);
@@ -399,6 +412,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
+    //TODO test
     private void checkValidTeam(Team teamToRemove) throws Exception {
         if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
             throw new Exception("cannot delete team in current season");

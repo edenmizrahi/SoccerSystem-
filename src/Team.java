@@ -168,12 +168,15 @@ public class Team extends Observable implements PageOwner{
     //</editor-fold>
 
     //<editor-fold desc="add and remove functions">
+
     // adi
+    //TODO test
     public void addTeamOwner(TeamOwner tO){
         teamOwners.add(tO);
         addObserver(tO);
     }
     // adi
+    //TODO test
     public void removeTeamOwner(TeamOwner tO)throws Exception{
         if (teamOwners.contains(tO)){
             teamOwners.remove(tO);
@@ -183,10 +186,12 @@ public class Team extends Observable implements PageOwner{
         }
     }
     // adi
+    //TODO test
     public void addTeamManager(TeamManager tM){
         teamManager = tM;
     }
     // adi
+    //TODO test
     public void removeTeamManager(TeamManager tM)throws Exception{
 
         if (tM.equals(teamManager)) {
@@ -197,12 +202,14 @@ public class Team extends Observable implements PageOwner{
         }
     }
     //adi
+    //TODO test
     public void addCoach(Coach c){
         if(this.coach == null && c != null){
             coach = c;
         }
     }
     // adi
+    //TODO test
     public void removeCoach(Coach coachToRemove)throws Exception{
         if (this.coach.equals(coachToRemove)){
             coach = null;
@@ -212,10 +219,12 @@ public class Team extends Observable implements PageOwner{
         }
     }
     //adi
+    //TODO test
     public void addPlayer(Player p){
         players.add(p);
     }
     //adi
+    //TODO test
     public void removePlayer(Player p)throws Exception{
         if(players.contains(p)){
             if(players.size() > 11) {
@@ -230,6 +239,7 @@ public class Team extends Observable implements PageOwner{
         }
     }
     //adi
+    //TODO test
     public void removeField(Field f)throws Exception{
         if(field.equals(f)){
             field = null;
@@ -242,24 +252,28 @@ public class Team extends Observable implements PageOwner{
 
     //<editor-fold desc="Page Owner Functions">
     /**Or**/
+    //TODO test
     @Override
     public PrivatePage getPage() {
         return privatePage;
     }
 
     /**Or**/
+    //TODO test
     @Override
     public void addRecordToPage(String record) throws Exception {
         this.privatePage.addRecords(record);
     }
 
     /**Or**/
+    //TODO test
     @Override
     public void removeRecordFromPage(String record) throws Exception {
         this.privatePage.removeRecord(record);
     }
 
     /**Or**/
+    //TODO test
     @Override
     public boolean createPrivatePage() {
         PrivatePage p = new PrivatePage();
@@ -280,6 +294,7 @@ public class Team extends Observable implements PageOwner{
      * @param s- season
      * @param l- league
      */
+    //TODO test
     public void addLeagueAndSeason(Season s,League l){
         leaguePerSeason.put(s,l);
     }
@@ -304,6 +319,7 @@ public class Team extends Observable implements PageOwner{
      * @param amount
      * @throws Exception
      */
+    //TODO test
     public void addIncome(String typeOfIncome, long amount) throws Exception {
         this.budgetControl.addIncome(typeOfIncome,amount);
     }
@@ -314,6 +330,7 @@ public class Team extends Observable implements PageOwner{
      * @param amount
      * @throws Exception
      */
+    //TODO test
     public void addExpense(String typeOfExpense, long amount) throws Exception {
         this.budgetControl.addExpense(typeOfExpense,amount);
     }
@@ -334,6 +351,7 @@ public class Team extends Observable implements PageOwner{
      * when team is deleted by team owner
      * delete the connections between player to team.
      */
+    //TODO test
     public void deleteTeamByTeamOwner() {
         for (Player p:players) {
             p.setPlayerTeam(null);
@@ -378,6 +396,7 @@ public class Team extends Observable implements PageOwner{
      * @param field
      * @throws Exception
      */
+    //TODO test
     public void becomeActive(HashSet<Player> players, Coach coach, Field field) throws Exception {
         if(players.size() < 11){
             throw new Exception("The number of players are less than 11");
@@ -413,6 +432,7 @@ public class Team extends Observable implements PageOwner{
      * @param newFounder- send himself
      * @throws Exception
      */
+    //TODO test
     public void reopenTeam(HashSet<Player> players, Coach coach, Field field, TeamOwner newFounder) throws Exception {
         this.founder=newFounder;
 
@@ -436,11 +456,13 @@ public class Team extends Observable implements PageOwner{
 
 
     /**Yarden**/
+    //TODO test
     public void addMatchToHomeMatches(Match match){
         this.getHome().add(match);
     }
 
     /**Yarden**/
+    //TODO test
     public void addMatchToAwayMatches(Match match){
         this.getAway().add(match);
     }

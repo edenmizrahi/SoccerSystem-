@@ -113,6 +113,7 @@ public class MainSystem {
     //<editor-fold desc="add and remove from lists">
 
     // adi
+    //TODO test
     public boolean removeUser(User user){
         if (users.contains(user)){
             users.remove(user);
@@ -121,6 +122,7 @@ public class MainSystem {
         return false;
     }
     // adi
+    //TODO test
     public boolean addUser(User user){
         if (users.contains(user)){
             return false;
@@ -131,6 +133,7 @@ public class MainSystem {
 
 
     // or
+    //TODO test
     public boolean removeLeague(League l){
         if (leagues.contains(l)){
             leagues.remove(l);
@@ -139,6 +142,7 @@ public class MainSystem {
         return false;
     }
     // or
+    //TODO test
     public boolean addLeague(League l){
         if (leagues.contains(l)){
             return false;
@@ -148,6 +152,7 @@ public class MainSystem {
     }
 
     // adi
+    //TODO test
     public boolean removeSeason(Season s){
         if (seasons.contains(s)){
             seasons.remove(s);
@@ -156,6 +161,7 @@ public class MainSystem {
         return false;
     }
     // adi
+    //TODO test
     public boolean addSeason(Season s){
         if (seasons.contains(s)){
             return false;
@@ -165,6 +171,7 @@ public class MainSystem {
     }
 
     //or
+    //TODO test
     public boolean addActiveTeam(Team team){
         if(! team.isActive() || activeTeams.contains(team)){
             return false;
@@ -175,6 +182,7 @@ public class MainSystem {
 
 
     //or
+    //TODO test
     public boolean removeActiveTeam(Team team){
         if(! activeTeams.contains(team)){
             return false;
@@ -251,6 +259,7 @@ public class MainSystem {
     //</editor-fold>
 
     /**OR**/
+    //TODO test
     public void firstStartSystem() throws ParseException {
 
         //create user for system manager
@@ -261,6 +270,7 @@ public class MainSystem {
     }
 
     /**OR**/
+    //TODO test
     public void startSystem() throws ParseException {
         //read things from DB.....
         if(users.size()==0){
@@ -278,6 +288,7 @@ public class MainSystem {
      * @return number of RFA
      * @codeBy Eden
      */
+    //TODO test
     public int numOfRfa(){
         int sum=0;
         for(User u :users){

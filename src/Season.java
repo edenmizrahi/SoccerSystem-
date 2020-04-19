@@ -34,6 +34,7 @@ public class Season {
      * @param teams teams to add to the current season with the league
      * @codeBy Eden
      */
+    //TODO test
     public void addLeagueWithTeams(League l, HashSet <Team> teams){
         boolean teamsAdded=false;
         /**check if league already exist**/

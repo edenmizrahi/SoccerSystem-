@@ -65,6 +65,8 @@ public class League {
      * @param teams teams to add to the current league with the league
      * @codeBy Eden
      */
+
+    //TODO test
     public void addSeasonWithTeams(Season season, HashSet<Team> teams) {
         /**check if season already exist**/
         if(!teamsInSeason.containsKey(season)) {

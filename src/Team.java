@@ -62,8 +62,6 @@ public class Team extends Observable implements PageOwner{
         this.teamManager = null;
         this.field = null;
         this.budgetControl= new BudgetControl(this);
-
-
     }
 
 
@@ -436,13 +434,17 @@ public class Team extends Observable implements PageOwner{
     }
 
 
-    public void addMatchToHomeMatch(Match match){
+
+    /**Yarden**/
+    public void addMatchToHomeMatches(Match match){
         this.getHome().add(match);
     }
 
-    public void addMatchToAwayMatch(Match match){
+    /**Yarden**/
+    public void addMatchToAwayMatches(Match match){
         this.getAway().add(match);
     }
+
 
     public void sendNotiAbouteClose() {
         notifyObservers("Team "+name+" removed from system");

@@ -16,6 +16,9 @@ public class TeamTest {
     Field f= new Field("nameF");
     TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
 
+    public TeamTest() throws ParseException {
+    }
+
 
     /**or**/
     @Test
@@ -43,7 +46,7 @@ public class TeamTest {
 
     /**or**/
     @Test
-    public void deleteTeamByTeamOwner() {
+    public void deleteTeamByTeamOwner() throws ParseException {
         //init
         int counter=0;
         while(counter<11){

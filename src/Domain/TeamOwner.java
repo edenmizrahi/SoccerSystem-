@@ -136,14 +136,13 @@ public class TeamOwner implements Observer , NotificationsUser {
      * adi
      * this team owner subscribes a fan to become a team owner of a specific team
      * @param fan - the person you want to make a team owner
-     * @param ms - main system
      * @param team - the team you want to add a team owner
      * @return the new team owner
      * @throws Exception
      */
     //TODO test
-    public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
-        if (fan == null || ms == null || team == null){
+    public TeamRole subscribeTeamOwner(Fan fan, Team team) throws Exception{
+        if (fan == null || team == null){
             throw new NullPointerException();
         }
         // check if already team owner of this team
@@ -173,20 +172,19 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
         mySubscriptions.add(sub);
-        return teamRole.getTeamOwner();
+        return teamRole;
     }
 
     /**
      * adi
      * this team owner removes a team owner that he subscribed in the past
      * @param tO - team owner to remove
-     * @param ms - main system
      * @param team - the team that the team owner will be removed from
      * @throws Exception
      */
     //TODO test
-    public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
-        if (tO == null || ms == null || team == null){
+    public void removeTeamOwner (TeamOwner tO, Team team)throws Exception{
+        if (tO == null || team == null){
             throw new NullPointerException();
         }
         team.removeTeamOwner(tO);
@@ -199,10 +197,10 @@ public class TeamOwner implements Observer , NotificationsUser {
         for (TeamSubscription sub : tO.mySubscriptions) {
             if (sub.team.equals(team)) {
                 if (sub.role instanceof TeamOwner){
-                    tO.removeTeamOwner((TeamOwner) sub.role, ms, sub.team);
+                    tO.removeTeamOwner((TeamOwner) sub.role, sub.team);
                 }
                 else{
-                    tO.removeTeamManager((TeamManager) sub.role, ms, sub.team);
+                    tO.removeTeamManager((TeamManager) sub.role, sub.team);
                 }
             }
         }
@@ -214,15 +212,14 @@ public class TeamOwner implements Observer , NotificationsUser {
      * adi
      * this team owner subscribes a fan to become a team manager of a specific team
      * @param fan - the person you want to make a team manager
-     * @param ms - main system
      * @param team - the team you want to add a team manager
      * @param per - the team managers allowed permissions
      * @return the new team manager
      * @throws Exception
      */
     //TODO test
-    public TeamManager subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
-        if (fan == null || ms == null || team == null || per == null){
+    public TeamManager subscribeTeamManager(Fan fan, Team team, HashSet<Permission> per) throws Exception{
+        if (fan == null  || team == null || per == null){
             throw new NullPointerException();
         }
         // check if already team manager of this team
@@ -251,13 +248,12 @@ public class TeamOwner implements Observer , NotificationsUser {
      * adi
      * this team owner removes a team manager that he subscribed in the past
      * @param tM - team manager to remove
-     * @param ms - main system
      * @param team - the team that the team manager will be removed from
      * @throws Exception
      */
     //TODO test
-    public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
-        if (tM == null || ms == null || team == null || team == null){
+    public void removeTeamManager (TeamManager tM, Team team) throws Exception{
+        if (tM == null || team == null || team == null){
             throw new NullPointerException();
         }
         team.removeTeamManager(tM);
@@ -269,7 +265,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         for (TeamSubscription sub : tM.getMySubscriptions()) {
             if (sub.team.equals(team)) {
-                tM.removeTeamOwner((TeamOwner) sub.role, ms, sub.team);
+                tM.removeTeamOwner((TeamOwner) sub.role, sub.team);
 
             }
         }

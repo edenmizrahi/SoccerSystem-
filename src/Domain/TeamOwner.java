@@ -218,7 +218,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @throws Exception
      */
     //TODO test
-    public TeamManager subscribeTeamManager(Fan fan, Team team, HashSet<Permission> per) throws Exception{
+    public TeamRole subscribeTeamManager(Fan fan, Team team, HashSet<Permission> per) throws Exception{
         if (fan == null  || team == null || per == null){
             throw new NullPointerException();
         }
@@ -241,7 +241,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
         mySubscriptions.add(sub);
-        return teamRole.getTeamManager();
+        return teamRole;
 
     }
     /**

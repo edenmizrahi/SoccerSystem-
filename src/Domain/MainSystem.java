@@ -72,8 +72,8 @@ public class MainSystem {
         return res;
     }
 
-    public List<Rfa> getRfas() {
-        List<Rfa> res=new LinkedList<>();
+    public LinkedList<Rfa> getRfas() {
+        LinkedList<Rfa> res=new LinkedList<>();
         for(User u: users){
             if(u instanceof Rfa){
                 res.add(((Rfa)u));
@@ -83,8 +83,8 @@ public class MainSystem {
     }
 
     /**OR**/
-    public List<TeamRole> getTeamRoles(){
-        List<TeamRole> teamroles= new LinkedList<>();
+    public LinkedList<TeamRole> getTeamRoles(){
+        LinkedList<TeamRole> teamroles= new LinkedList<>();
         for (User user:users) {
             if(user instanceof  TeamRole){
                 teamroles.add((TeamRole)user);
@@ -94,8 +94,8 @@ public class MainSystem {
     }
 
     /**OR**/
-    public List<Player> getAllPlayer(){
-        List<Player> players= new LinkedList<>();
+    public LinkedList<Player> getAllPlayer(){
+        LinkedList<Player> players= new LinkedList<>();
         for(TeamRole teamRole: getTeamRoles()){
             if(teamRole.isPlayer()){
                 players.add(teamRole.getPlayer());
@@ -104,8 +104,8 @@ public class MainSystem {
         return players;
     }
     /**Eden**/
-    public List<TeamOwner> getAllTeamOwners(){
-        List<TeamOwner> teamOwners= new LinkedList<>();
+    public LinkedList<TeamOwner> getAllTeamOwners(){
+        LinkedList<TeamOwner> teamOwners= new LinkedList<>();
         for(TeamRole teamRole: getTeamRoles()){
             if(teamRole.isTeamOwner()){
                 teamOwners.add(teamRole.getTeamOwner());
@@ -116,8 +116,8 @@ public class MainSystem {
 
 
     /**OR**/
-    public List<Coach> getAllCoach(){
-        List<Coach> coaches= new LinkedList<>();
+    public LinkedList<Coach> getAllCoach(){
+        LinkedList<Coach> coaches= new LinkedList<>();
         for(TeamRole teamRole: getTeamRoles()){
             if(teamRole.isCoach()){
                 coaches.add(teamRole.getCoach());

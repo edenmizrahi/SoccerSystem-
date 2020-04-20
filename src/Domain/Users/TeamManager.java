@@ -58,14 +58,13 @@ public class TeamManager implements Observer, NotificationsUser {
      * adi
      * this team manager subscribes a fan to become a team owner of a specific team
      * @param fan - the person you want to make a team owner
-     * @param ms - main system
      * @param team - the team you want to add a team owner
      * @return the new team owner
      * @throws Exception
      */
     //TODO test
-    public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
-        if (fan == null || ms == null || team == null){
+    public TeamRole subscribeTeamOwner(Fan fan, Team team) throws Exception{
+        if (fan == null || team == null){
             throw new NullPointerException();
         }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditTeamOwner)) {
@@ -96,7 +95,7 @@ public class TeamManager implements Observer, NotificationsUser {
             }
             TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
             mySubscriptions.add(sub);
-            return teamRole.getTeamOwner();
+            return teamRole;
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -111,8 +110,8 @@ public class TeamManager implements Observer, NotificationsUser {
      * @throws Exception
      */
     //TODO test
-    public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
-        if (tO == null || ms == null || team == null){
+    public void removeTeamOwner (TeamOwner tO, Team team)throws Exception{
+        if (tO == null || team == null){
             throw new NullPointerException();
         }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditTeamOwner)) {
@@ -126,10 +125,10 @@ public class TeamManager implements Observer, NotificationsUser {
             for (TeamSubscription sub : tO.getMySubscriptions()) {
                 if (sub.team.equals(team)) {
                     if (sub.role instanceof TeamOwner){
-                        tO.removeTeamOwner((TeamOwner) sub.role, ms, sub.team);
+                        tO.removeTeamOwner((TeamOwner) sub.role, sub.team);
                     }
                     else{
-                        tO.removeTeamManager((TeamManager) sub.role, ms, sub.team);
+                        tO.removeTeamManager((TeamManager) sub.role, sub.team);
                     }
                 }
             }

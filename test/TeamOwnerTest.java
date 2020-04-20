@@ -1,13 +1,19 @@
 import Domain.*;
+import Domain.Enums.TeamManagerPermissions;
+import Domain.Events.Event;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Match;
+import Domain.LeagueManagment.Team;
+import Domain.Users.*;
+import Stubs.TeamStubOr;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.HashSet;
 
 public class TeamOwnerTest {
-
+    Team t= new Team("name",null);
     MainSystem ms = MainSystem.getInstance();
     Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123", MainSystem.birthDateFormat.parse("02-11-1996"));
     TeamRole tOYossi = new TeamRole(yossi);
@@ -85,8 +91,8 @@ public class TeamOwnerTest {
     /**adi+or**/
     @Test
     public void subscribeTeamManagerTest() throws Exception {
-        HashSet<Permission> per = new HashSet<>();
-        per.add(Permission.addRemoveEditPlayer);
+        HashSet<TeamManagerPermissions> per = new HashSet<>();
+        per.add(TeamManagerPermissions.addRemoveEditPlayer);
 
         tOYossi.becomeTeamOwner();
         TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
@@ -116,8 +122,8 @@ public class TeamOwnerTest {
     /**adi+or**/
     @Test
     public void removeTeamManagerTest() {
-        HashSet<Permission> per = new HashSet<>();
-        per.add(Permission.addRemoveEditPlayer);
+        HashSet<TeamManagerPermissions> per = new HashSet<>();
+        per.add(TeamManagerPermissions.addRemoveEditPlayer);
 
         tOYossi.becomeTeamOwner();
         TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);

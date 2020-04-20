@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.Users.Fan;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

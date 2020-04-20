@@ -1,4 +1,13 @@
 import Domain.*;
+import Domain.Events.Event;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Match;
+import Domain.LeagueManagment.Team;
+import Domain.Users.Player;
+import Domain.Users.Referee;
+import Domain.Users.Rfa;
+import Domain.Users.TeamRole;
+import Stubs.TeamStub;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,7 +55,7 @@ public class RfaTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Domain.Referee is null",e.getMessage());
+            assertEquals("Domain.Users.Referee is null",e.getMessage());
         }
 
         /**everything is ok**/

@@ -1,5 +1,5 @@
 import Domain.MainSystem;
-import Domain.User;
+import Domain.Users.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,26 +19,26 @@ public class UserTest {
         }
     }
 
-//    Domain.Player player1=new Domain.Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);
-//    Domain.Player player2=new Domain.Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
+//    Domain.Users.Player player1=new Domain.Users.Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);
+//    Domain.Users.Player player2=new Domain.Users.Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
 //    Domain.PrivatePage pp1=new Domain.PrivatePage();
 //    Domain.PrivatePage pp2= new Domain.PrivatePage();
 //    Domain.PrivatePage pp3= new Domain.PrivatePage();
-//    Domain.League league1 = new Domain.League("LIGAT HAALUFUT", ms);
-//    Domain.League league2 = new Domain.League("LIGAT HAAL",ms);
-//    Domain.Season season2020 = new Domain.Season(ms,null,2020);
-//    Domain.Season season2019 = new Domain.Season(ms,null,2019);
+//    Domain.LeagueManagment.League league1 = new Domain.LeagueManagment.League("LIGAT HAALUFUT", ms);
+//    Domain.LeagueManagment.League league2 = new Domain.LeagueManagment.League("LIGAT HAAL",ms);
+//    Domain.LeagueManagment.Season season2020 = new Domain.LeagueManagment.Season(ms,null,2020);
+//    Domain.LeagueManagment.Season season2019 = new Domain.LeagueManagment.Season(ms,null,2019);
 //    Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
-//    //or added because the change in Domain.Team constructor
-//    Domain.TeamOwner teamOwner = new Domain.TeamOwner(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+//    //or added because the change in Domain.LeagueManagment.Team constructor
+//    Domain.Users.TeamOwner teamOwner = new Domain.Users.TeamOwner(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
 //    //
-//    Domain.Team hapoelBeerSheva= new Domain.Team("Hapoel Beer Sheva",teamOwner);
-//    Domain.Team hapoelKfarSaba= new Domain.Team("Hapoel Kfar Saba",teamOwner);
-//    Domain.Team macabiHaifa= new Domain.Team("Macabi Haifa",teamOwner);
-//    Domain.Team macabiTelAviv= new Domain.Team("Macabi Tel Aviv",teamOwner);
-//    Domain.Team beitarYerushalaim= new Domain.Team("Beitar Yerushalaim",teamOwner);
-//    Domain.Team hapoelRaanana= new Domain.Team ("Hapoel Raanana",teamOwner);
-//    Domain.Coach coach1= new Domain.Coach(ms,"ali baba","0523456789","coach@gmail.com","coach123","coach123");
+//    Domain.LeagueManagment.Team hapoelBeerSheva= new Domain.LeagueManagment.Team("Hapoel Beer Sheva",teamOwner);
+//    Domain.LeagueManagment.Team hapoelKfarSaba= new Domain.LeagueManagment.Team("Hapoel Kfar Saba",teamOwner);
+//    Domain.LeagueManagment.Team macabiHaifa= new Domain.LeagueManagment.Team("Macabi Haifa",teamOwner);
+//    Domain.LeagueManagment.Team macabiTelAviv= new Domain.LeagueManagment.Team("Macabi Tel Aviv",teamOwner);
+//    Domain.LeagueManagment.Team beitarYerushalaim= new Domain.LeagueManagment.Team("Beitar Yerushalaim",teamOwner);
+//    Domain.LeagueManagment.Team hapoelRaanana= new Domain.LeagueManagment.Team ("Hapoel Raanana",teamOwner);
+//    Domain.Users.Coach coach1= new Domain.Users.Coach(ms,"ali baba","0523456789","coach@gmail.com","coach123","coach123");
 //
 //    public UserTest() throws Exception {
 //    }
@@ -126,7 +126,7 @@ public class UserTest {
 //    @Test
 //    public void searchByLeague() throws Exception {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Domain.Team> teamsForLeague1= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -138,7 +138,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Domain.Team> teamsForLeague2= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 //
@@ -176,7 +176,7 @@ public class UserTest {
 //    @Test
 //    public void searchBySeason() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Domain.Team> teamsForLeague1= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -188,7 +188,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Domain.Team> teamsForLeague2= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
@@ -225,7 +225,7 @@ public class UserTest {
 //    @Test
 //    public void searchByTeamName() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Domain.Team> teamsForLeague1= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -237,7 +237,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Domain.Team> teamsForLeague2= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
@@ -276,7 +276,7 @@ public class UserTest {
 //    @Test
 //    public void searchAllPlayers() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Domain.Team> teamsForLeague1= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -295,7 +295,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Domain.Team> teamsForLeague2= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
@@ -312,7 +312,7 @@ public class UserTest {
 //    @Test
 //    public void searchAllCoaches() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Domain.Team> teamsForLeague1= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -350,7 +350,7 @@ public class UserTest {
 //            fail("no exception was expected");
 //        }
 //        ms.setCurrSeason(season2020);
-//        HashSet<Domain.Team> teamsForLeague1= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -362,7 +362,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Domain.Team> teamsForLeague2= new HashSet<Domain.Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //

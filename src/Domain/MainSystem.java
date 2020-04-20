@@ -1,5 +1,10 @@
 package Domain;
 
+import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Season;
+import Domain.LeagueManagment.Team;
+import Domain.Users.*;
+import Stubs.StubExternalSystem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,7 +55,7 @@ public class MainSystem {
     public LinkedList<Fan> getAllFans(){
         LinkedList<Fan> ans= new LinkedList<>();
         for (User user:users) {
-            if(user instanceof  Fan){
+            if(user instanceof Fan){
                 ans.add((Fan)user);
             }
         }

@@ -1,5 +1,5 @@
+import Domain.*;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -26,7 +26,7 @@ public class TeamTest {
     @Test
     public void addAndRemoveTeamOwnerTest() throws Exception{
 
-        /****Add TeamOwner****/
+        /****Add Domain.TeamOwner****/
         /**null check**/
         try {
             t.addTeamOwner(null);
@@ -34,7 +34,7 @@ public class TeamTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("TeamOwner is null",e.getMessage());
+            assertEquals("Domain.TeamOwner is null",e.getMessage());
         }
 
         /**ok**/
@@ -42,18 +42,18 @@ public class TeamTest {
         t.addTeamOwner(teamOwner.getTeamOwner());
         Assert.assertTrue(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
 
-        /**TeamOwner is already in the team**/
+        /**Domain.TeamOwner is already in the team**/
         try {
             t.addTeamOwner(teamOwner.getTeamOwner());
             fail();
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("TeamOwner is already in this team",e.getMessage());
+            assertEquals("Domain.TeamOwner is already in this team",e.getMessage());
         }
 
-        /****Remove TeamOwner****/
-        /**TeamOwner doesnt exist in the team**/
+        /****Remove Domain.TeamOwner****/
+        /**Domain.TeamOwner doesnt exist in the team**/
         teamOwner1.becomeTeamOwner();
         try {
             t.removeTeamOwner(teamOwner1.getTeamOwner());
@@ -61,7 +61,7 @@ public class TeamTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("TeamOwner doesn't exist in this team",e.getMessage());
+            assertEquals("Domain.TeamOwner doesn't exist in this team",e.getMessage());
         }
 
         /**ok**/
@@ -74,7 +74,7 @@ public class TeamTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("TeamOwner is null",e.getMessage());
+            assertEquals("Domain.TeamOwner is null",e.getMessage());
         }
 
     }
@@ -162,7 +162,7 @@ public class TeamTest {
 
     @Test
     public void addCoach() throws ParseException {
-        //TeamRole coach= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
+        //Domain.TeamRole coach= new Domain.TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",Domain.MainSystem.birthDateFormat.parse("01-11-2000"));
         coach.becomeCoach();
         t.addCoach(null);
 

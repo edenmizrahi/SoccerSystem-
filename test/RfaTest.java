@@ -1,8 +1,8 @@
+import Domain.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
@@ -46,7 +46,7 @@ public class RfaTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Referee is null",e.getMessage());
+            assertEquals("Domain.Referee is null",e.getMessage());
         }
 
         /**everything is ok**/

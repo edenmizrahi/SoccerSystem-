@@ -1,4 +1,4 @@
-import sun.applet.Main;
+import Domain.MainSystem;
 
 public class StubExternalSystem {
 

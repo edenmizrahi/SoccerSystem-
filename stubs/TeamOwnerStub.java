@@ -1,8 +1,8 @@
 //import java.util.HashMap;
-//public class TeamOwnerStub extends TeamOwner{
-//    public HashMap<Subscription, Team> mySubscriptions;
+//public class TeamOwnerStub extends Domain.TeamOwner{
+//    public HashMap<Subscription, Domain.Team> mySubscriptions;
 //
-//    public TeamOwnerStub(MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
+//    public TeamOwnerStub(Domain.MainSystem ms, String name, String phoneNumber, String email, String userName, String password) {
 //        super(ms, name, phoneNumber, email, userName, password);
 //    }
 //

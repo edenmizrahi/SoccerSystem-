@@ -1,11 +1,10 @@
+import Domain.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
-
-import static org.junit.Assert.*;
 
 public class TeamManagerTest {
     MainSystem ms = MainSystem.getInstance();
@@ -78,15 +77,15 @@ public class TeamManagerTest {
     public void addRemoveEditFieldTest() throws Exception {
         per.add(Permission.addRemoveEditField);
         tMYossi.becomeTeamManager(team, per);
-        Field field = new Field("Beer Sheva Field");
+        Field field = new Field("Beer Sheva Domain.Field");
         team.setField(field);
-        Field field2 = new Field("Beer Sheeeeeeeva Field");
+        Field field2 = new Field("Beer Sheeeeeeeva Domain.Field");
         tMYossi.getTeamManager().removeAndReplaceField(field, field2, team);
         Assert.assertTrue(field2.getTeams().contains(team));
         Assert.assertEquals(field2, team.getField());
-        Assert.assertEquals("Beer Sheeeeeeeva Field", field2.getNameOfField());
-        tMYossi.getTeamManager().editFieldName(field, "Bash Field");
-        Assert.assertEquals("Bash Field", field.getNameOfField());
+        Assert.assertEquals("Beer Sheeeeeeeva Domain.Field", field2.getNameOfField());
+        tMYossi.getTeamManager().editFieldName(field, "Bash Domain.Field");
+        Assert.assertEquals("Bash Domain.Field", field.getNameOfField());
     }
 
 }

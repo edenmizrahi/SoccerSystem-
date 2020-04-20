@@ -1,17 +1,17 @@
-2020.04.12 15:11:04.630 INFO  Main - Logging level: INFO
-2020.04.12 15:11:04.632 INFO  Main - Server starter at %s!
-2020.04.12 15:11:04.632 INFO  Main - try this
-2020.04.12 15:57:16.126 INFO  Main - Logging level: INFO
-2020.04.12 15:57:16.130 INFO  Main - Server starter at %s!
-2020.04.12 15:57:16.131 INFO  Main - try this
-2020.04.14 10:19:03.973 INFO  Main - @s - action
-2020.04.14 10:19:25.490 INFO  Main - %s - action
-2020.04.14 10:21:48.708 INFO  Main - oral - action
-2020.04.14 10:56:43.562 INFO  Main - oral - action
-2020.04.16 18:53:01.700 INFO  MainSystem - class MainSystem - system was started for the first time
-2020.04.16 18:53:27.204 INFO  MainSystem - class MainSystem - system was started for the first time
-2020.04.16 18:54:18.818 INFO  MainSystem - class MainSystem - system was started for the first time
-2020.04.16 18:54:55.374 INFO  MainSystem - class MainSystem - system was started for the first time
-2020.04.16 18:55:10.751 INFO  MainSystem - class MainSystem - system was started for the first time
-2020.04.16 18:56:37.018 INFO  MainSystem - class MainSystem - system was started for the first time
-2020.04.16 18:56:37.022 INFO  MainSystem - class MainSystem - system was started
+2020.04.12 15:11:04.630 INFO  Domain.Main - Logging level: INFO
+2020.04.12 15:11:04.632 INFO  Domain.Main - Server starter at %s!
+2020.04.12 15:11:04.632 INFO  Domain.Main - try this
+2020.04.12 15:57:16.126 INFO  Domain.Main - Logging level: INFO
+2020.04.12 15:57:16.130 INFO  Domain.Main - Server starter at %s!
+2020.04.12 15:57:16.131 INFO  Domain.Main - try this
+2020.04.14 10:19:03.973 INFO  Domain.Main - @s - action
+2020.04.14 10:19:25.490 INFO  Domain.Main - %s - action
+2020.04.14 10:21:48.708 INFO  Domain.Main - oral - action
+2020.04.14 10:56:43.562 INFO  Domain.Main - oral - action
+2020.04.16 18:53:01.700 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
+2020.04.16 18:53:27.204 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
+2020.04.16 18:54:18.818 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
+2020.04.16 18:54:55.374 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
+2020.04.16 18:55:10.751 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
+2020.04.16 18:56:37.018 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
+2020.04.16 18:56:37.022 INFO  Domain.MainSystem - class Domain.MainSystem - system was started

@@ -2,6 +2,7 @@ package Domain.Users;
 
 import Domain.*;
 import Domain.BudgetControl.BudgetControl;
+import Domain.BudgetControl.Report;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Match;
@@ -37,7 +38,6 @@ public class Rfa extends Fan implements Observer{
 
     //<editor-fold desc="rolls to budget control on teams">
 
-
     /**
      * This role - income for each month bigger than 100
      * @return HashSet<Team> of teams that do not fulfill the Rfa's role
@@ -51,7 +51,7 @@ public class Rfa extends Fan implements Observer{
         for (Team t: activeTeams) {
             ArrayList<Integer> moneyPerMonth = new ArrayList();
             LinkedList<Report> incomeAndExpansePerTeam = t.getBudgetControl().getIncomeAndExpenses();
-            //for each report-if it's income-add it to the relevant month
+            //for each report - if it's income-add it to the relevant month
             for (Report r: incomeAndExpansePerTeam) {
 
                 if (r.getAmount() > 0) {
@@ -73,6 +73,40 @@ public class Rfa extends Fan implements Observer{
         return budgetExceptionTeams;
     }
 
+    /**
+     * This role - income for each quarterly bigger than 1000
+     * @return HashSet<Team> of teams that do not fulfill the Rfa's role
+     */
+    public HashSet<Team> role2(){
+
+        HashSet<Team> budgetExceptionTeams = new HashSet<>();
+        HashSet<Team> activeTeams = this.getSystem().getActiveTeams();
+
+        //for each active team
+        for (Team t: activeTeams) {
+            ArrayList<Integer> moneyPerMonth = new ArrayList();
+            LinkedList<Report> incomeAndExpansePerTeam = t.getBudgetControl().getIncomeAndExpenses();
+
+            //for each report - if it's income-add it to the relevant month
+            for (Report r: incomeAndExpansePerTeam) {
+
+                if (r.getAmount() > 0) {
+                    LocalDate date = r.getNow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    moneyPerMonth.set(date.getMonthValue(), (int) (moneyPerMonth.get(date.getMonthValue())+r.getAmount()));
+                }
+            }
+
+            //for each quarterly, check if income bigger than 1000
+            if(moneyPerMonth.get(0)+moneyPerMonth.get(1)+moneyPerMonth.get(2) < 1000 ||
+                    moneyPerMonth.get(3)+moneyPerMonth.get(4)+moneyPerMonth.get(5) < 1000 ||
+                    moneyPerMonth.get(6)+moneyPerMonth.get(7)+moneyPerMonth.get(8) < 1000 ||
+                    moneyPerMonth.get(9)+moneyPerMonth.get(10)+moneyPerMonth.get(11) < 1000){
+
+                budgetExceptionTeams.add(t);
+            }
+        }
+        return budgetExceptionTeams;
+    }
 
     //</editor-fold>
 

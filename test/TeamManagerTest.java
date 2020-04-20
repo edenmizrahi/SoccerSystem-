@@ -1,3 +1,11 @@
+import Domain.*;
+import Domain.Enums.TeamManagerPermissions;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Team;
+import Domain.Users.Coach;
+import Domain.Users.Fan;
+import Domain.Users.TeamOwner;
+import Domain.Users.TeamRole;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -5,13 +13,11 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
 
-import static org.junit.Assert.*;
-
 public class TeamManagerTest {
     MainSystem ms = MainSystem.getInstance();
     Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123", MainSystem.birthDateFormat.parse("02-11-1996") );
     Team team = new Team();
-    HashSet<Permission> per = new HashSet<>();
+    HashSet<TeamManagerPermissions> per = new HashSet<>();
     TeamRole tMYossi = new TeamRole(yossi);
     Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123", MainSystem.birthDateFormat.parse("02-11-1996"));
     Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123", MainSystem.birthDateFormat.parse("02-11-1996"));
@@ -22,29 +28,30 @@ public class TeamManagerTest {
     //adi
     @Test
     public void subscribeTeamOwnerTest() throws Exception {
-        per.add(Permission.addRemoveEditTeamOwner);
+        per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
-        TeamOwner tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, ms, team);
+        TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(1, team.getTeamOwners().size());
     }
     //adi
     @Test
     public void removeTeamOwnerTest() throws Exception {
-        per.add(Permission.addRemoveEditTeamOwner);
+        per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
-        TeamOwner tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, ms, team);
-        TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
+        TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
+        //TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
-        tMYossi.getTeamManager().removeTeamOwner(tOMoshe, ms, team);
+
+        tMYossi.getTeamManager().removeTeamOwner(tOMoshe.getTeamOwner(), team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(0, team.getTeamOwners().size());
     }
     //adi
     @Test
     public void addRemoveEditCoachTest() throws Exception {
-        per.add(Permission.addRemoveEditCoach);
+        per.add(TeamManagerPermissions.addRemoveEditCoach);
         tMYossi.becomeTeamManager(team, per);
         TeamRole teamRoleMoshe = new TeamRole(moshe);
         TeamRole teamRoleDavid = new TeamRole(david);
@@ -60,7 +67,7 @@ public class TeamManagerTest {
     //adi
     @Test(expected = Exception.class)
     public void addRemoveEditPlayerTest() throws Exception {
-        per.add(Permission.addRemoveEditPlayer);
+        per.add(TeamManagerPermissions.addRemoveEditPlayer);
         tMYossi.becomeTeamManager(team, per);
         Date d = new Date();
         TeamRole teamRoleDavid = new TeamRole(david);
@@ -76,17 +83,17 @@ public class TeamManagerTest {
     //adi
     @Test
     public void addRemoveEditFieldTest() throws Exception {
-        per.add(Permission.addRemoveEditField);
+        per.add(TeamManagerPermissions.addRemoveEditField);
         tMYossi.becomeTeamManager(team, per);
-        Field field = new Field("Beer Sheva Field");
+        Field field = new Field("Beer Sheva Domain.LeagueManagment.Field");
         team.setField(field);
-        Field field2 = new Field("Beer Sheeeeeeeva Field");
+        Field field2 = new Field("Beer Sheeeeeeeva Domain.LeagueManagment.Field");
         tMYossi.getTeamManager().removeAndReplaceField(field, field2, team);
         Assert.assertTrue(field2.getTeams().contains(team));
         Assert.assertEquals(field2, team.getField());
-        Assert.assertEquals("Beer Sheeeeeeeva Field", field2.getNameOfField());
-        tMYossi.getTeamManager().editFieldName(field, "Bash Field");
-        Assert.assertEquals("Bash Field", field.getNameOfField());
+        Assert.assertEquals("Beer Sheeeeeeeva Domain.LeagueManagment.Field", field2.getNameOfField());
+        tMYossi.getTeamManager().editFieldName(field, "Bash Domain.LeagueManagment.Field");
+        Assert.assertEquals("Bash Domain.LeagueManagment.Field", field.getNameOfField());
     }
 
 }

@@ -1,7 +1,11 @@
+import Domain.*;
+import Domain.LeagueManagment.Team;
+import Domain.Users.Fan;
+import Domain.Users.SystemManager;
+import Domain.Users.TeamRole;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.text.ParseException;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
@@ -11,7 +15,7 @@ public class SystemManagerTest {
     @Test
     public void removeUser(){
         MainSystem system =MainSystem.getInstance();
-        //SystemManager sm= new SystemManager(system,"d","df","df","df","df");
+        //Domain.Users.SystemManager sm= new Domain.Users.SystemManager(system,"d","df","df","df","df");
 
     }
 
@@ -64,9 +68,9 @@ public class SystemManagerTest {
         Team t = new Team();
         t.setFounder(tr.getTeamOwner());
         t.getTeamOwners().add(tr.getTeamOwner());
-        tr.getTeamOwner().setTeam(t);
+        tr.getTeamOwner().addNewTeam(t);
 
-        /**get a user witch is not a TeamOwner**/
+        /**get a user witch is not a Domain.Users.TeamOwner**/
         try{
             sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),tr.getTeamOwner(),t);
             fail("expected exception was not occurred");

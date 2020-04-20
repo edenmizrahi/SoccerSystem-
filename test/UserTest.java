@@ -1,15 +1,9 @@
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import Domain.MainSystem;
+import Domain.Users.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-
-import static org.junit.Assert.*;
 
 public class UserTest {
     MainSystem ms = MainSystem.getInstance();
@@ -25,26 +19,26 @@ public class UserTest {
         }
     }
 
-//    Player player1=new Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);
-//    Player player2=new Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
-//    PrivatePage pp1=new PrivatePage();
-//    PrivatePage pp2= new PrivatePage();
-//    PrivatePage pp3= new PrivatePage();
-//    League league1 = new League("LIGAT HAALUFUT", ms);
-//    League league2 = new League("LIGAT HAAL",ms);
-//    Season season2020 = new Season(ms,null,2020);
-//    Season season2019 = new Season(ms,null,2019);
+//    Domain.Users.Player player1=new Domain.Users.Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);
+//    Domain.Users.Player player2=new Domain.Users.Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
+//    Domain.PrivatePage pp1=new Domain.PrivatePage();
+//    Domain.PrivatePage pp2= new Domain.PrivatePage();
+//    Domain.PrivatePage pp3= new Domain.PrivatePage();
+//    Domain.LeagueManagment.League league1 = new Domain.LeagueManagment.League("LIGAT HAALUFUT", ms);
+//    Domain.LeagueManagment.League league2 = new Domain.LeagueManagment.League("LIGAT HAAL",ms);
+//    Domain.LeagueManagment.Season season2020 = new Domain.LeagueManagment.Season(ms,null,2020);
+//    Domain.LeagueManagment.Season season2019 = new Domain.LeagueManagment.Season(ms,null,2019);
 //    Subscription yossi = new Subscription(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
-//    //or added because the change in Team constructor
-//    TeamOwner teamOwner = new TeamOwner(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+//    //or added because the change in Domain.LeagueManagment.Team constructor
+//    Domain.Users.TeamOwner teamOwner = new Domain.Users.TeamOwner(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
 //    //
-//    Team hapoelBeerSheva= new Team("Hapoel Beer Sheva",teamOwner);
-//    Team hapoelKfarSaba= new Team("Hapoel Kfar Saba",teamOwner);
-//    Team macabiHaifa= new Team("Macabi Haifa",teamOwner);
-//    Team macabiTelAviv= new Team("Macabi Tel Aviv",teamOwner);
-//    Team beitarYerushalaim= new Team("Beitar Yerushalaim",teamOwner);
-//    Team hapoelRaanana= new Team ("Hapoel Raanana",teamOwner);
-//    Coach coach1= new Coach(ms,"ali baba","0523456789","coach@gmail.com","coach123","coach123");
+//    Domain.LeagueManagment.Team hapoelBeerSheva= new Domain.LeagueManagment.Team("Hapoel Beer Sheva",teamOwner);
+//    Domain.LeagueManagment.Team hapoelKfarSaba= new Domain.LeagueManagment.Team("Hapoel Kfar Saba",teamOwner);
+//    Domain.LeagueManagment.Team macabiHaifa= new Domain.LeagueManagment.Team("Macabi Haifa",teamOwner);
+//    Domain.LeagueManagment.Team macabiTelAviv= new Domain.LeagueManagment.Team("Macabi Tel Aviv",teamOwner);
+//    Domain.LeagueManagment.Team beitarYerushalaim= new Domain.LeagueManagment.Team("Beitar Yerushalaim",teamOwner);
+//    Domain.LeagueManagment.Team hapoelRaanana= new Domain.LeagueManagment.Team ("Hapoel Raanana",teamOwner);
+//    Domain.Users.Coach coach1= new Domain.Users.Coach(ms,"ali baba","0523456789","coach@gmail.com","coach123","coach123");
 //
 //    public UserTest() throws Exception {
 //    }
@@ -73,13 +67,13 @@ public class UserTest {
 //            Assert.assertEquals("name empty",e.getMessage());
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchByName("tami"));
 //        } catch (Exception e) {
 //            fail("no exception was expected");
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp2);
 //            Assert.assertEquals(ans2,user.searchByName("Or"));
 //        } catch (Exception e) {
@@ -113,13 +107,13 @@ public class UserTest {
 //            Assert.assertEquals("keyWord empty",e.getMessage());
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchByKeyWord("tami"));
 //        } catch (Exception e) {
 //            fail("no exception was expected");
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp1);
 //            Assert.assertEquals(ans2,user.searchByKeyWord("record2"));
 //        } catch (Exception e) {
@@ -132,7 +126,7 @@ public class UserTest {
 //    @Test
 //    public void searchByLeague() throws Exception {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -144,7 +138,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Team> teamsForLeague2= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 //
@@ -164,13 +158,13 @@ public class UserTest {
 //            Assert.assertEquals("leagueName empty",e.getMessage());
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchByLeague("tami"));
 //        } catch (Exception e) {
 //            fail("no exception was expected");
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp1);
 //            ans2.add(pp3);
 //            Assert.assertEquals(ans2,user.searchByLeague("LIGAT HAALUFUT"));
@@ -182,7 +176,7 @@ public class UserTest {
 //    @Test
 //    public void searchBySeason() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -194,7 +188,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Team> teamsForLeague2= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
@@ -214,13 +208,13 @@ public class UserTest {
 //            Assert.assertEquals("year not valid",e.getMessage());
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchBySeason(2003));
 //        } catch (Exception e) {
 //            fail("no exception was expected");
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp2);
 //            Assert.assertEquals(ans2,user.searchBySeason(2019));
 //        } catch (Exception e) {
@@ -231,7 +225,7 @@ public class UserTest {
 //    @Test
 //    public void searchByTeamName() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -243,7 +237,7 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Team> teamsForLeague2= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
@@ -263,13 +257,13 @@ public class UserTest {
 //            Assert.assertEquals("teamName empty",e.getMessage());
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchByTeamName("not in system"));
 //        } catch (Exception e) {
 //            fail("no exception was expected");
 //        }
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp1);
 //            ans2.add(pp3);
 //            Assert.assertEquals(ans2,user.searchByTeamName("Hapoel"));
@@ -282,13 +276,13 @@ public class UserTest {
 //    @Test
 //    public void searchAllPlayers() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
 //        beitarYerushalaim.addPlayer(player2);
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchAllPlayers());
 //        } catch (Exception e) {
 //            fail("no exception was expected");
@@ -301,12 +295,12 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Team> teamsForLeague2= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp1);
 //            ans2.add(pp2);
 //            Assert.assertEquals(ans2,user.searchAllPlayers());
@@ -318,13 +312,13 @@ public class UserTest {
 //    @Test
 //    public void searchAllCoaches() {
 //        ms.setCurrSeason(season2020);
-//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
 //        beitarYerushalaim.addPlayer(player2);
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchAllCoaches());
 //        } catch (Exception e) {
 //            fail("no exception was expected");
@@ -339,7 +333,7 @@ public class UserTest {
 //
 //
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp1);
 //            Assert.assertEquals(ans2,user.searchAllCoaches());
 //        } catch (Exception e) {
@@ -350,13 +344,13 @@ public class UserTest {
 //    @Test
 //    public void searchAllTeams() {
 //        try {
-//            LinkedHashSet<PrivatePage> ans=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans=new LinkedHashSet<Domain.PrivatePage>();
 //            Assert.assertEquals(ans,user.searchAllTeams());
 //        } catch (Exception e) {
 //            fail("no exception was expected");
 //        }
 //        ms.setCurrSeason(season2020);
-//        HashSet<Team> teamsForLeague1= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague1= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague1,hapoelBeerSheva,hapoelKfarSaba,macabiHaifa);
 //        season2020.addLeagueWithTeams(league1,teamsForLeague1);
 //        hapoelBeerSheva.addPlayer(player1);
@@ -368,12 +362,12 @@ public class UserTest {
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
 //
-//        HashSet<Team> teamsForLeague2= new HashSet<Team>();
+//        HashSet<Domain.LeagueManagment.Team> teamsForLeague2= new HashSet<Domain.LeagueManagment.Team>();
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague2);
 //
 //        try {
-//            LinkedHashSet<PrivatePage> ans2=new LinkedHashSet<PrivatePage>();
+//            LinkedHashSet<Domain.PrivatePage> ans2=new LinkedHashSet<Domain.PrivatePage>();
 //            ans2.add(pp3);
 //            Assert.assertEquals(ans2,user.searchAllTeams());
 //        } catch (Exception e) {
@@ -392,9 +386,9 @@ public class UserTest {
 //        pp2.setPageOwner(player2);
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
-//        LinkedHashSet<PrivatePage> pp= new LinkedHashSet<>();
+//        LinkedHashSet<Domain.PrivatePage> pp= new LinkedHashSet<>();
 //        Collections.addAll(pp,pp1,pp2,pp3);
-//        LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
+//        LinkedHashSet<Domain.PrivatePage> ans= new LinkedHashSet<>();
 //        ans.add(pp3);
 //        try {
 //            user.filterOnlyTeams(null);
@@ -427,9 +421,9 @@ public class UserTest {
 //        pp2.setPageOwner(player2);
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
-//        LinkedHashSet<PrivatePage> pp= new LinkedHashSet<>();
+//        LinkedHashSet<Domain.PrivatePage> pp= new LinkedHashSet<>();
 //        Collections.addAll(pp,pp1,pp2,pp3);
-//        LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
+//        LinkedHashSet<Domain.PrivatePage> ans= new LinkedHashSet<>();
 //        ans.add(pp2);
 //        try {
 //            user.filterOnlyPlayers(null);
@@ -462,9 +456,9 @@ public class UserTest {
 //        pp2.setPageOwner(player2);
 //        hapoelKfarSaba.setPrivatePage(pp3);
 //        pp3.setPageOwner(hapoelKfarSaba);
-//        LinkedHashSet<PrivatePage> pp= new LinkedHashSet<>();
+//        LinkedHashSet<Domain.PrivatePage> pp= new LinkedHashSet<>();
 //        Collections.addAll(pp,pp1,pp2,pp3);
-//        LinkedHashSet<PrivatePage> ans= new LinkedHashSet<>();
+//        LinkedHashSet<Domain.PrivatePage> ans= new LinkedHashSet<>();
 //        ans.add(pp1);
 //        try {
 //            user.filterOnlyCoachs(null);

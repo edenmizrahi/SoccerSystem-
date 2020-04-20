@@ -1,8 +1,17 @@
+import Domain.*;
+import Domain.Events.Event;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Match;
+import Domain.LeagueManagment.Team;
+import Domain.Users.Player;
+import Domain.Users.Referee;
+import Domain.Users.Rfa;
+import Domain.Users.TeamRole;
+import Stubs.TeamStub;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
@@ -46,7 +55,7 @@ public class RfaTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Referee is null",e.getMessage());
+            assertEquals("Domain.Users.Referee is null",e.getMessage());
         }
 
         /**everything is ok**/
@@ -63,24 +72,25 @@ public class RfaTest {
         Team t1 = new Team();
         Team t2 = new Team();
 
-        Player p1 = new Player(teamRole1);
-        Player p2 = new Player(teamRole2);
-        Player p3 = new Player(teamRole3);
-        Player p4 = new Player(teamRole4);
-        Player p5 = new Player(teamRole5);
-        Player p6 = new Player(teamRole6);
-        Player p7 = new Player(teamRole7);
-        Player p8 = new Player(teamRole8);
+        teamRole1.becomePlayer();
+        teamRole2.becomePlayer();
+        teamRole3.becomePlayer();
+        teamRole4.becomePlayer();
+        teamRole5.becomePlayer();
+        teamRole6.becomePlayer();
+        teamRole7.becomePlayer();
+        teamRole8.becomePlayer();
 
-        t1.addPlayer(p1);
-        t1.addPlayer(p2);
-        t1.addPlayer(p3);
-        t1.addPlayer(p4);
+        t1.addPlayer(teamRole1.getPlayer());
+        t1.addPlayer(teamRole2.getPlayer());
+        t1.addPlayer(teamRole3.getPlayer());
+        t1.addPlayer(teamRole4.getPlayer());
 
-        t2.addPlayer(p5);
-        t2.addPlayer(p6);
-        t2.addPlayer(p7);
-        t2.addPlayer(p8);
+        t2.addPlayer(teamRole5.getPlayer());
+        t2.addPlayer(teamRole6.getPlayer());
+        t2.addPlayer(teamRole7.getPlayer());
+        t2.addPlayer(teamRole8.getPlayer());
+
         t1.setName("Hapoel");
         Match m1 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
                 , moshe,"17-04-2020 20:00:00");
@@ -130,12 +140,20 @@ public class RfaTest {
     @Test
     public void answerRequest() throws ParseException {
         TeamStub team = new TeamStub("name");
+        TeamRole owner= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
+        owner.becomeTeamOwner();
+        try {
+            team.addTeamOwner(owner.getTeamOwner());
+        } catch (Exception e) {
+            fail();
+        }
         Rfa rfa= new Rfa(ms,"nadav","052","nadav@gmail.com","nadavS", "nadav123", MainSystem.birthDateFormat.parse("01-02-1990"));
         rfa.getTeamRequests().add(team);
 
         try {
             rfa.answerRequest(team,true);
         } catch (Exception e) {
+            e.printStackTrace();
             fail();
         }
         Assert.assertTrue(rfa.getTeamRequests().size()==0);

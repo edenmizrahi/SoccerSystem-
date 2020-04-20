@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.*;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Team extends Observable implements PageOwner {
@@ -188,7 +189,7 @@ public class Team extends Observable implements PageOwner {
 
     //<editor-fold desc="add and remove functions">
     // adi
-    //TODO test
+    //TODO test - V
     public void addTeamOwner(TeamOwner tO) throws Exception {
         if(tO!=null) {
             teamOwners.add(tO);
@@ -199,7 +200,7 @@ public class Team extends Observable implements PageOwner {
         }
     }
     // adi
-    //TODO test
+    //TODO test - V
     public void removeTeamOwner(TeamOwner tO)throws Exception{
         if(tO!=null) {
             if (teamOwners.contains(tO)) {
@@ -213,7 +214,7 @@ public class Team extends Observable implements PageOwner {
         }
     }
     // adi
-    //TODO test
+    //TODO test - V
     public void removeTeamManager(TeamManager tM)throws Exception{
         if(tM!=null) {
             if (tM.equals(teamManager)) {
@@ -227,19 +228,33 @@ public class Team extends Observable implements PageOwner {
         }
     }
     //adi
-    public void addCoach(Coach c){
-        if(this.coach == null && c != null){
-            coach = c;
+    //TODO test - V
+    public void addCoach(Coach c) throws Exception {
+        if(c!=null) {
+            if (this.coach == null) {
+                coach = c;
+            }
+            else{
+                throw new Exception("There is coach to this team");
+            }
+        }
+        else{
+            throw new Exception("Coach is null");
         }
     }
     // adi
-    //TODO test
+    //TODO test - V
     public void removeCoach(Coach coachToRemove)throws Exception{
         if(coachToRemove != null) {
-            if (this.coach.equals(coachToRemove)) {
-                coach = null;
-            } else {
-                throw new Exception("This Coach doesn't exist in this team");
+            if(this.coach !=null) {
+                if (this.coach.equals(coachToRemove)) {
+                    coach = null;
+                } else {
+                    throw new Exception("This Coach doesn't exist in this team");
+                }
+            }
+            else{
+                throw new Exception("There isn't coach to remove in this team");
             }
         }
         else{
@@ -247,48 +262,59 @@ public class Team extends Observable implements PageOwner {
         }
     }
     //adi
-    //TODO test
-    //TODO check if the player isn't in more team
+    //TODO test - V
     public void addPlayer(Player p) throws Exception {
 
-        if(!p.equals(null)) {
-            if (p.getTeam().equals(null)) {
+        if(p!=null) {
                 players.add(p);
-            } else
-                throw new Exception("This player is already in another team");
-        }else
+        }
+        else
             throw new Exception("Player is null");
 
     }
     //adi
-    //TODO test
+    //TODO test - V
     public void removePlayer(Player p)throws Exception{
-        if(players.contains(p)){
-            if(players.size() > 11) {
-                players.remove(p);
+       if(p!=null) {
+           if (players.contains(p)) {
+               if (players.size() > 11) {
+                   players.remove(p);
+               } else {
+                   throw new Exception("The team has only 11 or less players");
+               }
+           } else {
+               throw new Exception("This Player doesn't exist in this team");
+           }
+       }
+       else {
+           throw new Exception("Player is null");
+       }
+    }
+
+    //adi
+    //TODO test - V
+    public void removeField(Field f)throws Exception{
+        if(f!=null) {
+            if(this.field!=null) {
+                if (this.field.equals(f)) {
+                    field = null;
+                } else {
+                    throw new Exception("This field doesn't exist in this team");
+                }
             }
             else{
-                throw new Exception("The team has only 11 or less players");
+                throw new Exception("There isn't field to remove");
             }
         }
-        else {
-            throw new Exception("This Player doesn't exist in this team");
-        }
-    }
-    //adi
-    //TODO test
-    public void removeField(Field f)throws Exception{
-        if(field.equals(f)){
-            field = null;
-        }
         else{
-            throw new Exception("This field doesn't exist in this team");
+            throw new Exception("Field is null");
         }
     }
 
     //</editor-fold>
 
     //<editor-fold desc="Page Owner Functions">
+
     /**Or**/
     //TODO test
     @Override
@@ -300,14 +326,24 @@ public class Team extends Observable implements PageOwner {
     //TODO test
     @Override
     public void addRecordToPage(String record) throws Exception {
-        this.privatePage.addRecords(record);
+        if(this.privatePage!=null) {
+            this.privatePage.addRecords(record);
+        }
+        else{
+            throw new Exception("The team hasn't private page");
+        }
     }
 
     /**Or**/
     //TODO test
     @Override
     public void removeRecordFromPage(String record) throws Exception {
-        this.privatePage.removeRecord(record);
+        if(this.privatePage!=null) {
+            this.privatePage.removeRecord(record);
+        }
+        else{
+            throw new Exception("The team hasn't private page");
+        }
     }
 
     /**Or**/
@@ -372,7 +408,6 @@ public class Team extends Observable implements PageOwner {
     public void addExpense(String typeOfExpense, long amount) throws Exception {
         this.budgetControl.addExpense(typeOfExpense,amount);
     }
-
 
     /**Or**/
     public boolean isActive(){
@@ -474,9 +509,7 @@ public class Team extends Observable implements PageOwner {
     //TODO test
     public void reopenTeam(HashSet<Player> players, Coach coach, Field field, TeamOwner newFounder) throws Exception {
         this.founder=newFounder;
-
         becomeActive(players,coach,field);
-
 
         //remove all the other team owners
         Iterator<TeamOwner> iter= teamOwners.iterator();
@@ -487,11 +520,9 @@ public class Team extends Observable implements PageOwner {
                 teamOwner.getDeletedTeams().remove(this);
                 teamOwners.remove(teamOwner);
             }
-
         }
 
         //notify system managers
-
         for (SystemManager sm: mainSystem.getSystemManagers()) {
             addObserver(sm);
         }
@@ -514,9 +545,9 @@ public class Team extends Observable implements PageOwner {
         this.getAway().add(match);
     }
 
-    public void sendDesicion(boolean desicion){
+    public void sendDecision(boolean decision){
         setChanged();
-        notifyObservers(desicion);
+        notifyObservers(decision);
     }
 
 }

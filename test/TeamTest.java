@@ -13,6 +13,7 @@ public class TeamTest {
     TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
     TeamRole teamOwner1 = new TeamRole(ms,"r","0522150912","owner1O@gmail.com","r1234","r1234",MainSystem.birthDateFormat.parse("09-12-1995"));
     Team t= new Team();
+    Team t1= new Team();
     HashSet<Player> players= new HashSet<>();
     Field f= new Field("nameF");
     TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
@@ -23,6 +24,7 @@ public class TeamTest {
 
 
     /**adi**/
+    /**Yarden**/
     @Test
     public void addAndRemoveTeamOwnerTest() throws Exception{
 
@@ -42,15 +44,6 @@ public class TeamTest {
         t.addTeamOwner(teamOwner.getTeamOwner());
         Assert.assertTrue(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
 
-        /**TeamOwner is already in the team**/
-        try {
-            t.addTeamOwner(teamOwner.getTeamOwner());
-            fail();
-        }
-        catch (Exception e){
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("TeamOwner is already in this team",e.getMessage());
-        }
 
         /****Remove TeamOwner****/
         /**TeamOwner doesnt exist in the team**/
@@ -67,6 +60,7 @@ public class TeamTest {
         /**ok**/
         t.removeTeamOwner(teamOwner.getTeamOwner());
         Assert.assertFalse(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
+
         /**null check**/
         try {
             t.removeTeamOwner(null);
@@ -80,13 +74,35 @@ public class TeamTest {
     }
 
     /**adi**/
-    @Test (expected = Exception.class)
+    @Test
     public void removeTeamManagerTest() throws Exception{
+        /**null check**/
+        try {
+            t.removeTeamManager(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("TeamManager is null",e.getMessage());
+        }
+        /**remove from team with permission**/
         per.add(Permission.addRemoveEditTeamOwner);
         teamOwner.becomeTeamManager(t, per);
-        Assert.assertTrue(t.getTeamManager().equals(teamOwner.getTeamManager()));
+        Assert.assertTrue(t.getTeamManager().equals(teamOwner.getTeamManager()));//check the subscription
         t.removeTeamManager(teamOwner.getTeamManager());
-        Assert.assertFalse(t.getTeamManager().equals(teamOwner.getTeamManager()));
+        Assert.assertNull(t.getTeamManager());//remove from team
+        Assert.assertNotNull(teamOwner.getTeamManager());//not remove from teamRole
+        /**TeamManager doesnt exist**/
+        try {
+            t1.removeTeamManager(teamOwner.getTeamManager());
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("This TeamManager doesn't exist in this team",e.getMessage());
+        }
+
+
     }
     /**adi**/
     @Test (expected = Exception.class)

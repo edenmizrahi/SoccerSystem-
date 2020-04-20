@@ -183,16 +183,8 @@ public class Team extends Observable implements PageOwner{
     //TODO test
     public void addTeamOwner(TeamOwner tO) throws Exception {
         if(tO!=null) {
-            //check if team has already this teamOwner
-            if(!tO.getTeams().contains(this)) {
-                teamOwners.add(tO);
-                //add the team to teamowner list of teams
-
-                addObserver(tO);
-            }
-            else{
-                throw new Exception("TeamOwner is already in this team");
-            }
+            teamOwners.add(tO);
+            addObserver(tO);
         }
         else{
             throw new Exception("TeamOwner is null");

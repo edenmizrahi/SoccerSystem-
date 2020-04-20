@@ -32,13 +32,13 @@ public class TeamOwnerTest {
         tOYossi.getTeamOwner().addNewTeam(teamForTest);
         teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
         try {
-            tOYossi.getTeamOwner().subscribeTeamOwner(null,null,null);
+            tOYossi.getTeamOwner().subscribeTeamOwner(null,null);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(NullPointerException.class, e.getClass());
         }
         try {
-            tOYossi.getTeamOwner().subscribeTeamOwner(tOYossi,ms,teamForTest);
+            tOYossi.getTeamOwner().subscribeTeamOwner(tOYossi,teamForTest);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(Exception.class, e.getClass());
@@ -47,7 +47,7 @@ public class TeamOwnerTest {
 
         TeamRole tOMoshe = null;
         try {
-            tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, ms, teamForTest);
+            tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, teamForTest);
             Assert.assertEquals(2, teamForTest.getTeamOwners().size());
             Assert.assertTrue(tOMoshe.getTeamOwner().getTeams().contains(teamForTest));
         } catch (Exception e) {
@@ -67,21 +67,21 @@ public class TeamOwnerTest {
         teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
 
         try {
-            tOYossi.getTeamOwner().removeTeamOwner(null,null,null);
+            tOYossi.getTeamOwner().removeTeamOwner(null,null);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(NullPointerException.class, e.getClass());
         }
         TeamRole tOMoshe = null;
         try {
-            tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, ms, teamForTest);
+            tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, teamForTest);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail();
         }
         Assert.assertEquals(2, teamForTest.getTeamOwners().size());
         try {
-            tOYossi.getTeamOwner().removeTeamOwner(tOMoshe.getTeamOwner(), ms, teamForTest);
+            tOYossi.getTeamOwner().removeTeamOwner(tOMoshe.getTeamOwner(), teamForTest);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail();
@@ -100,16 +100,16 @@ public class TeamOwnerTest {
         teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
 
         try {
-            tOYossi.getTeamOwner().subscribeTeamManager(null,null,null,null);
+            tOYossi.getTeamOwner().subscribeTeamManager(null,null,null);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(NullPointerException.class, e.getClass());
         }
 
         try {
-            TeamRole tMDavid = tOYossi.getTeamOwner().subscribeTeamManager(david, ms, teamForTest, per);
+            TeamRole tMDavid = tOYossi.getTeamOwner().subscribeTeamManager(david, teamForTest, per);
             Assert.assertEquals(tMDavid.getTeamManager(), teamForTest.getTeamManager());
-            tOYossi.getTeamOwner().subscribeTeamManager(tMDavid, ms, teamForTest, per);
+            tOYossi.getTeamOwner().subscribeTeamManager(tMDavid, teamForTest, per);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(Exception.class, e.getClass());
@@ -131,21 +131,21 @@ public class TeamOwnerTest {
         teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
 
         try {
-            tOYossi.getTeamOwner().removeTeamManager(null,null,null);
+            tOYossi.getTeamOwner().removeTeamManager(null,null);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(NullPointerException.class, e.getClass());
         }
         TeamRole tOMoshe = null;
         try {
-            tOMoshe = tOYossi.getTeamOwner().subscribeTeamManager(moshe, ms, teamForTest,per);
+            tOMoshe = tOYossi.getTeamOwner().subscribeTeamManager(moshe, teamForTest,per);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail();
         }
         Assert.assertEquals(tOMoshe.getTeamManager(), teamForTest.getTeamManager());
         try {
-            tOYossi.getTeamOwner().removeTeamManager(tOMoshe.getTeamManager(), ms, teamForTest);
+            tOYossi.getTeamOwner().removeTeamManager(tOMoshe.getTeamManager(), teamForTest);
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail();

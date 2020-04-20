@@ -214,7 +214,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         for(TeamSubscription sub: allSub){
             res.add(sub.role);
             if(sub.role instanceof TeamOwner){
-                userToDelete.removeTeamOwner(((TeamOwner)sub.role),system,sub.team);
+                userToDelete.removeTeamOwner(((TeamOwner)sub.role),sub.team);
             }
         }
         return res;
@@ -324,11 +324,11 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         HashSet<TeamSubscription> subscriptions= userToDelete.getMySubscriptions();
         for(TeamSubscription sub: subscriptions){
             if(sub.role instanceof TeamOwner){
-                    userToDelete.removeTeamOwner(((TeamOwner) sub.role), system, sub.team);
+                    userToDelete.removeTeamOwner(((TeamOwner) sub.role), sub.team);
             }
 
             if(sub.role instanceof TeamManager){
-                userToDelete.removeTeamManager(((TeamManager)sub.role),system,sub.team);
+                userToDelete.removeTeamManager(((TeamManager)sub.role),sub.team);
             }
         }
 

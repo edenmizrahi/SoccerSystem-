@@ -30,7 +30,7 @@ public class TeamManagerTest {
     public void subscribeTeamOwnerTest() throws Exception {
         per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
-        TeamOwner tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, ms, team);
+        TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(1, team.getTeamOwners().size());
     }
@@ -39,11 +39,12 @@ public class TeamManagerTest {
     public void removeTeamOwnerTest() throws Exception {
         per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
-        TeamOwner tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, ms, team);
+        TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
         //TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
-        tMYossi.getTeamManager().removeTeamOwner(tOMoshe, ms, team);
+
+        tMYossi.getTeamManager().removeTeamOwner(tOMoshe.getTeamOwner(), team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(0, team.getTeamOwners().size());
     }

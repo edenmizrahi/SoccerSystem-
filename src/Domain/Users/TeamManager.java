@@ -105,7 +105,6 @@ public class TeamManager implements Observer, NotificationsUser {
      * adi
      * this team manager removes a team owner that he subscribed in the past
      * @param tO - team owner to remove
-     * @param ms - main system
      * @param team - the team that the team owner will be removed from
      * @throws Exception
      */

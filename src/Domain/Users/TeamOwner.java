@@ -218,7 +218,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @throws Exception
      */
     //TODO test-V
-    public TeamRole subscribeTeamManager(Fan fan, Team team, HashSet<Permission> per) throws Exception{
+    public TeamRole subscribeTeamManager(Fan fan, Team team, HashSet<TeamManagerPermissions> per) throws Exception{
         if (fan == null  || team == null || per == null){
             throw new NullPointerException();
         }

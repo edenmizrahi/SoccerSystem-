@@ -1,5 +1,7 @@
 package Service;
 
+import Domain.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -47,7 +49,7 @@ public class SystemManagerController {
     }
 
     /**
-     * User name is an unique field so this function return one user if there is user with
+     * Domain.User name is an unique field so this function return one user if there is user with
      *
      * @param userName
      * @param user

@@ -1,3 +1,4 @@
+import Domain.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -115,22 +116,22 @@ public class TeamOwnerTest {
         //should be createTeam instead
         tOYossi.getTeamOwner().setTeam(team);
         team.addTeamOwner(tOYossi.getTeamOwner());
-        Field field = new Field("Beer Sheva Field");
+        Field field = new Field("Beer Sheva Domain.Field");
         team.setField(field);
-        Field field2 = new Field("Beer Sheeeeeeeva Field");
+        Field field2 = new Field("Beer Sheeeeeeeva Domain.Field");
         tOYossi.getTeamOwner().removeAndReplaceField(field, field2, team);
         Assert.assertTrue(field2.getTeams().contains(team));
         Assert.assertEquals(field2, team.getField());
-        Assert.assertEquals("Beer Sheeeeeeeva Field", field2.getNameOfField());
-        tOYossi.getTeamOwner().editFieldName(field, "Bash Field");
-        Assert.assertEquals("Bash Field", field.getNameOfField());
+        Assert.assertEquals("Beer Sheeeeeeeva Domain.Field", field2.getNameOfField());
+        tOYossi.getTeamOwner().editFieldName(field, "Bash Domain.Field");
+        Assert.assertEquals("Bash Domain.Field", field.getNameOfField());
     }
 
     /**or**/
     @Test
     public void requestNewTeam() throws ParseException {
         Rfa rfa= new Rfa(ms,"RFA","0543150912","rfa@gmail.com","rfa123","rfa123",MainSystem.birthDateFormat.parse("01-12-1995"));
-        TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+        TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123", MainSystem.birthDateFormat.parse("09-12-1995"));
         teamOwner.becomeTeamOwner();
         try {
             teamOwner.getTeamOwner().requestNewTeam("hapoel Beer Sheva");

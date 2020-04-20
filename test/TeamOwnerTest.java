@@ -12,6 +12,9 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.util.HashSet;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 public class TeamOwnerTest {
     Team t= new Team("name",null);
     MainSystem ms = MainSystem.getInstance();
@@ -19,6 +22,8 @@ public class TeamOwnerTest {
     TeamRole tOYossi = new TeamRole(yossi);
     Fan moshe = new Fan(ms, "Moshe Hamelech", "0549715678","moshe@gmail.com", "MosheHamelech", "Moshe123", MainSystem.birthDateFormat.parse("02-11-1996"));
     Fan david = new Fan(ms, "David Hamelech", "0541235678","david@gmail.com", "DavidHamelech", "David123", MainSystem.birthDateFormat.parse("02-11-1996"));
+//    Fan simchon = new Fan(ms, "Simchon Hamelech", "0541235678","Simchon@gmail.com", "SimchonHamelech", "Simchon123", MainSystem.birthDateFormat.parse("02-11-1996"));
+//    TeamRole tOsimchon = new TeamRole(simchon);
 
     public TeamOwnerTest() throws ParseException {
     }
@@ -155,7 +160,7 @@ public class TeamOwnerTest {
 
     /**adi+or**/
     @Test
-    public void removeAndReplaceCoach() {
+    public void removeAndReplaceCoach() throws Exception {
         tOYossi.becomeTeamOwner();
         TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
         tOYossi.getTeamOwner().addNewTeam(teamForTest);
@@ -189,7 +194,7 @@ public class TeamOwnerTest {
 
     /**adi+or**/
     @Test
-    public void editCoachRole() {
+    public void editCoachRole() throws Exception {
         tOYossi.becomeTeamOwner();
         TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
         tOYossi.getTeamOwner().addNewTeam(teamForTest);
@@ -207,9 +212,13 @@ public class TeamOwnerTest {
     @Test
     public void addPlayer() {
         tOYossi.becomeTeamOwner();
+//        tOsimchon.becomeTeamOwner();
         TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
+//        TeamStubOr teamForTest1= new TeamStubOr("hapoel beer-sheva",false);
         tOYossi.getTeamOwner().addNewTeam(teamForTest);
+//        tOsimchon.getTeamOwner().addNewTeam(teamForTest1);
         teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
+//        teamForTest1.getTeamOwners().add(tOsimchon.getTeamOwner());
 
         TeamRole teamRoleDavid = new TeamRole(david);
         teamRoleDavid.becomePlayer();
@@ -220,6 +229,15 @@ public class TeamOwnerTest {
             e.printStackTrace();
             Assert.fail();
         }
+
+//        try {
+//            tOsimchon.getTeamOwner().addPlayer(teamRoleDavid, "defense", teamForTest);
+//            fail();
+//        } catch (Exception e) {
+//            assertEquals(Exception.class, e.getClass());
+//            assertEquals("This player is already in another team",e.getMessage());
+//        }
+
         try {
             tOYossi.getTeamOwner().addPlayer(null,null,null);
             Assert.fail();

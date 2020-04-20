@@ -331,9 +331,15 @@ public class TeamOwner implements Observer , NotificationsUser {
         if (!player.isPlayer()){
             player.becomePlayer();
         }
-        team.addPlayer(player.getPlayer());
-        player.getPlayer().setPlayerTeam(team);
-        player.getPlayer().setRoleAtField(role);
+
+        if(player.getPlayer().getTeam()!=null) {
+            team.addPlayer(player.getPlayer());
+            player.getPlayer().setPlayerTeam(team);
+            player.getPlayer().setRoleAtField(role);
+        }
+        else{
+            throw new Exception("This player is already in another team");
+        }
     }
 
     /**

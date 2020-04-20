@@ -65,7 +65,7 @@ public class PrivatePage {
     //TODO test
     public void addRecords(String record) throws Exception {
         if(record==null){
-            throw new Exception("record in null");
+            throw new Exception("record is null");
         }
         if(record.length()==0){
             throw new Exception("record empty");

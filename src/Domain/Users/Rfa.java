@@ -12,7 +12,6 @@ import Domain.LeagueManagment.Team;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
@@ -231,7 +230,7 @@ public class Rfa extends Fan implements Observer{
         if( !teamRequests.contains(team)){
             throw new Exception("team not in request list");
         }
-        team.sendDesicion(desicion);
+        team.sendDecision(desicion);
         teamRequests.remove(team);
     }
 }

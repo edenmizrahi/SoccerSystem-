@@ -72,24 +72,25 @@ public class RfaTest {
         Team t1 = new Team();
         Team t2 = new Team();
 
-        Player p1 = new Player(teamRole1);
-        Player p2 = new Player(teamRole2);
-        Player p3 = new Player(teamRole3);
-        Player p4 = new Player(teamRole4);
-        Player p5 = new Player(teamRole5);
-        Player p6 = new Player(teamRole6);
-        Player p7 = new Player(teamRole7);
-        Player p8 = new Player(teamRole8);
+        teamRole1.becomePlayer();
+        teamRole2.becomePlayer();
+        teamRole3.becomePlayer();
+        teamRole4.becomePlayer();
+        teamRole5.becomePlayer();
+        teamRole6.becomePlayer();
+        teamRole7.becomePlayer();
+        teamRole8.becomePlayer();
 
-        t1.addPlayer(p1);
-        t1.addPlayer(p2);
-        t1.addPlayer(p3);
-        t1.addPlayer(p4);
+        t1.addPlayer(teamRole1.getPlayer());
+        t1.addPlayer(teamRole2.getPlayer());
+        t1.addPlayer(teamRole3.getPlayer());
+        t1.addPlayer(teamRole4.getPlayer());
 
-        t2.addPlayer(p5);
-        t2.addPlayer(p6);
-        t2.addPlayer(p7);
-        t2.addPlayer(p8);
+        t2.addPlayer(teamRole5.getPlayer());
+        t2.addPlayer(teamRole6.getPlayer());
+        t2.addPlayer(teamRole7.getPlayer());
+        t2.addPlayer(teamRole8.getPlayer());
+
         t1.setName("Hapoel");
         Match m1 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
                 , moshe,"17-04-2020 20:00:00");

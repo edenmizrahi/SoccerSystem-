@@ -351,5 +351,14 @@ public class MainSystem {
         return sum;
     }
 
+    public List<Referee> getAllReferees(){
+        List<Referee> referees= new LinkedList<>();
+        for(User r:users){
+            if(r instanceof Referee){
+                referees.add(((Referee)r));
+            }
+        }
+        return referees;
+    }
 
 }

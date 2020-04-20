@@ -105,6 +105,10 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
         if(toAdd==null||toDelete==null){
             throw  new Exception("null input");
         }
+        /**toAdd is already team owner of team**/
+        if(team.getTeamOwners().contains(toAdd)){
+            throw  new Exception("fail!The team owner you want to add already exist");
+        }
         if(team.getFounder()==toDelete){
             team.setFounder(toAdd);
             team.getTeamOwners().add(toAdd);

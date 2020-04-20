@@ -17,6 +17,8 @@ public class TeamTest {
     TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
     HashSet<Permission> per = new HashSet<>();
 
+    public TeamTest() throws ParseException {
+    }
 
 
     /**adi**/

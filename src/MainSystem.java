@@ -16,6 +16,8 @@ public class MainSystem {
     private Season currSeason;
     private StubExternalSystem extSystem;
     private HashSet<Team> activeTeams;
+    private HashSet<String> userNames;
+    private HashSet<String> teamNames;
 
 //    public static final String pattern = "dd-M-yyyy hh:mm:ss";
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
@@ -31,8 +33,9 @@ public class MainSystem {
         this.seasons= new LinkedList<>();
         this.currSeason=null;
         this.extSystem=new StubExternalSystem();
-        activeTeams=new HashSet<>();
-
+        this.activeTeams=new HashSet<>();
+        this.userNames= new HashSet<>();
+        this.teamNames= new HashSet<>();
     }
 
     public static MainSystem getInstance(){
@@ -124,7 +127,7 @@ public class MainSystem {
     //<editor-fold desc="add and remove from lists">
 
     // adi
-    //TODO test
+    //TODO test-V
     public boolean removeUser(User user){
         if (users.contains(user)){
             users.remove(user);
@@ -133,7 +136,7 @@ public class MainSystem {
         return false;
     }
     // adi
-    //TODO test
+    //TODO test-V
     public boolean addUser(User user){
         if (users.contains(user)){
             return false;
@@ -143,8 +146,9 @@ public class MainSystem {
     }
 
 
+
     // or
-    //TODO test
+    //TODO test-V
     public boolean removeLeague(League l){
         if (leagues.contains(l)){
             leagues.remove(l);
@@ -153,7 +157,7 @@ public class MainSystem {
         return false;
     }
     // or
-    //TODO test
+    //TODO test -V
     public boolean addLeague(League l){
         if (leagues.contains(l)){
             return false;
@@ -163,7 +167,7 @@ public class MainSystem {
     }
 
     // adi
-    //TODO test
+    //TODO test-V
     public boolean removeSeason(Season s){
         if (seasons.contains(s)){
             seasons.remove(s);
@@ -172,7 +176,7 @@ public class MainSystem {
         return false;
     }
     // adi
-    //TODO test
+    //TODO test-V
     public boolean addSeason(Season s){
         if (seasons.contains(s)){
             return false;
@@ -182,7 +186,7 @@ public class MainSystem {
     }
 
     //or
-    //TODO test
+    //TODO test-V
     public boolean addActiveTeam(Team team){
         if(! team.isActive() || activeTeams.contains(team)){
             return false;
@@ -193,7 +197,7 @@ public class MainSystem {
 
 
     //or
-    //TODO test
+    //TODO test-V
     public boolean removeActiveTeam(Team team){
         if(! activeTeams.contains(team)){
             return false;
@@ -202,7 +206,37 @@ public class MainSystem {
         return true;
     }
 
+    public boolean addUserName(String name){
+        if(userNames.contains(name)){
+            return false;
+        }
+        userNames.add(name);
+        return true;
+    }
 
+    public boolean addTeamName(String name){
+        if(teamNames.contains(name)){
+            return false;
+        }
+        teamNames.add(name);
+        return true;
+    }
+
+    public boolean removeUserName(String name){
+        if(! userNames.contains(name)){
+            return false;
+        }
+        userNames.remove(name);
+        return true;
+    }
+
+    public boolean removeTeamName(String name){
+        if( !teamNames.contains(name)){
+            return false;
+        }
+        teamNames.remove(name);
+        return true;
+    }
     //</editor-fold>
 
 
@@ -266,8 +300,15 @@ public class MainSystem {
         this.activeTeams = activeTeams;
     }
 
+    public HashSet<String> getUserNames() {
+        return userNames;
+    }
 
-    //</editor-fold>
+    public HashSet<String> getTeamNames() {
+        return teamNames;
+    }
+
+//</editor-fold>
 
     /**OR**/
     //TODO test
@@ -299,7 +340,7 @@ public class MainSystem {
      * @return number of RFA
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test-V
     public int numOfRfa(){
         int sum=0;
         for(User u :users){

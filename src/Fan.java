@@ -32,6 +32,9 @@ public class Fan extends User implements Observer, NotificationsUser {
         myComplaints = new LinkedList<>();
         matchesFollow=new LinkedList<>();
         this.searchHisroty= new LinkedList<>();
+
+        //add userName to the hashset
+        ms.addUserName(userName);
     }
 
     //<editor-fold desc="getters and setters">

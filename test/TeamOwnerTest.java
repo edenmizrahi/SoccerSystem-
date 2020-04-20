@@ -128,11 +128,15 @@ public class TeamOwnerTest {
 
     /**or**/
     @Test
-    public void openNewTeam() throws ParseException {
+    public void requestNewTeam() throws ParseException {
         Rfa rfa= new Rfa(ms,"RFA","0543150912","rfa@gmail.com","rfa123","rfa123",MainSystem.birthDateFormat.parse("01-12-1995"));
         TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
         teamOwner.becomeTeamOwner();
-        teamOwner.getTeamOwner().requestNewTeam("hapoel Beer Sheva");
+        try {
+            teamOwner.getTeamOwner().requestNewTeam("hapoel Beer Sheva");
+        } catch (Exception e) {
+            Assert.fail();
+        }
         Assert.assertTrue(rfa.getTeamRequests().size()==1);
         Assert.assertTrue(teamOwner.getTeamOwner().getRequestedTeams().size()==1);
     }

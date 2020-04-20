@@ -548,11 +548,9 @@ public class User {
 
     public boolean checkValidDetails(String userName, String password, String phoneNumber, String email){
         //check that username in unique
-        for (Fan user:system.getAllFans()) {
-                if(user.getUserName().equals(userName)){
-                    return false;
-                }
-            }
+        if(system.getUserNames().contains(userName)){
+            return false;
+        }
         //password length is 6 or more
         if(password.length()<6){
             return false;

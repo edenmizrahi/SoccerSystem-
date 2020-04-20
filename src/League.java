@@ -16,11 +16,13 @@ public class League {
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
 
-    public League(String name, MainSystem mainSystem, Season currSeason) {
+    public League(String name, MainSystem mainSystem, Season currSeason) throws Exception {
         this.name = name;
         teamsInSeason=new HashMap<>();
         this.mainSystem = mainSystem;
-        mainSystem.addLeague(this);
+        if(! mainSystem.addLeague(this)){
+            throw new Exception("There is already league with the same name");
+        }
     }
 
     public League(String name, MainSystem mainSystem) throws Exception {

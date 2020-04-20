@@ -32,10 +32,12 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param name
      */
     //TODO test
-    public void requestNewTeam(String name){
+    public void requestNewTeam(String name) throws Exception {
+        if(teamRole.system.getTeamNames().contains(name)){
+            throw new Exception("team name not unique, already exist in system");
+        }
         Team t= new Team(name,this);
         //the request is sent in the Constructor
-        //gh
         requestedTeams.add(t);
     }
 

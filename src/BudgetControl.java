@@ -16,7 +16,7 @@ public class BudgetControl {
     }
 
     /**OR**/
-    //TODO test
+    //TODO test - V
     public void addIncome(String typeOfIncome, long amount) throws Exception {
         if(typeOfIncome ==null || typeOfIncome.length()==0){
             throw new Exception("type of income not valid");
@@ -30,7 +30,7 @@ public class BudgetControl {
     }
 
     /**OR**/
-    //TODO test
+    //TODO test - V
     public void addExpense(String typeOfExpense, long amount) throws Exception{
         if(typeOfExpense ==null || typeOfExpense.length()==0){
             throw new Exception("type of expense not valid");

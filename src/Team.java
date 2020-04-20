@@ -26,6 +26,7 @@ public class Team extends Observable implements PageOwner{
 
 //Open team and wait for approval
     public Team(String name, TeamOwner teamOwner){
+        //TODO check the name in unique
         this.name = name;
         this.teamOwners = new HashSet<>();
         teamOwners.add(teamOwner);
@@ -41,11 +42,15 @@ public class Team extends Observable implements PageOwner{
         this.field = null;
         this.budgetControl= new BudgetControl(this);
         this.score = 0;
+
         //send request
         for (Rfa rfa:mainSystem.getRfas()) {
             addObserver(rfa);
         }
         notifyObservers("request to open new team");
+
+        //add team name to hash set
+        mainSystem.addTeamName(name);
 
     }
 
@@ -165,6 +170,10 @@ public class Team extends Observable implements PageOwner{
     public int getScore() { return score; }
 
     public void setScore(int score) { this.score = score; }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     //</editor-fold>
 

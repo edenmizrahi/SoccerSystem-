@@ -32,6 +32,7 @@ public class TeamStub extends Team {
         setTeamOwners(teamOwners);
         setField(null);
         setFounder(null);
+        setActive(true);
         this.budgetControl = new BudgetControl(this);
     }
 

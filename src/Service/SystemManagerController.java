@@ -1,3 +1,5 @@
+package Service;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -89,7 +91,7 @@ public class SystemManagerController {
      * @param fromTeam
      * @throws Exception if team is not in the team owner's teams list.
      */
-    public void replaceTeamFounder(SystemManager user,TeamOwner toAdd,TeamOwner toRemove ,Team fromTeam) throws Exception {
+    public void replaceTeamFounder(SystemManager user, TeamOwner toAdd, TeamOwner toRemove , Team fromTeam) throws Exception {
         user.replaceTeamOwnerFounder(toAdd,toRemove,fromTeam);
     }
 

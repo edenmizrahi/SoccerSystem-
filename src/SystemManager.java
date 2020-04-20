@@ -8,25 +8,30 @@ import java.util.*;
 
 public class SystemManager extends Fan implements Observer ,NotificationsUser {
 
-    private HashSet<Complaint> complaints;//*
+    public static  HashSet<Complaint> complaints=new HashSet<>();//*
     private static final Logger LOG = LogManager.getLogger();
     HashSet<Notification> notifications;
 
+    /***
+     * create system manager from fan:
+     *      1.adding system manager to system.
+     *      2.remove fan from system.
+     * @param fan
+     * @param ms
+     */
     public SystemManager(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
-        this.complaints = new HashSet<>();
+//        this.complaints = new HashSet<>();
         notifications=new HashSet<>();
-        //TODO add permissions
-        //this.permissions.add();
+        /**remove fan from system*/
+        ms.removeUser(fan);
     }
 
     public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
-        this.complaints = new HashSet<>();
+//        this.complaints = new HashSet<>();
         notifications=new HashSet<>();
 
-        //TODO add permissions
-        //this.permissions.add();
     }
 
 
@@ -38,27 +43,36 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
 
 
 
-
     /**
      * create new SystemManager , connect to him all the complaints
      * @param user
      * @codeBy Eden
      */
-    public void addSystemManager(Fan user){
+    public SystemManager addNewSystemManager(Fan user) throws Exception {
+        if(user==null){
+            throw new Exception("user is null");
+        }
+        /**constructor make connection to system**/
         SystemManager newSystemManager=new SystemManager(user,system);
-        newSystemManager.complaints=this.complaints;
+        /**delete Fan from system*/
+        system.removeUser(user);
+        return  newSystemManager;
+
     }
     /**Eden*/
-    public void answerToComplaint (Complaint com, String ans){
-        if(complaints.contains(com)){
+    public static void answerToComplaint (Complaint com, String ans){
+        if(SystemManager.complaints.contains(com)){
             com.setAnswer(ans);
             com.send(ans);
         }
     }
     /**Eden*/
-    public void addComplaint(Complaint complaint) {
-        complaints.add(complaint);
-        complaint.addObserver(this);
+    public static void addComplaint(Complaint complaint) {
+        SystemManager.complaints.add(complaint);
+        List<SystemManager> sm= MainSystem.getInstance().getSystemManagers();
+        for(SystemManager cur:sm) {
+            complaint.addObserver(cur);
+        }
     }
 
     /**
@@ -75,24 +89,18 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
 
     /**
      * Switch between team owner which is founder to another team owner.
-     * @param toReplaceUser- the team owner to delete
-     * @param toAddUser- the team owner to subscribe as founder
+     * @param toDelete- the team owner to delete
+     * @param toAdd- the team owner to subscribe as founder
      * @param team
      * @return the removed objects
      * @throws Exception
      * @codeBy Eden
      */
-    //TODO test
-    public void switchTeamOwnerFounder(TeamRole toReplaceUser, TeamRole toAddUser, Team team) throws Exception {
-        if(toReplaceUser.getTeamOwner()==null){
-            throw new Exception("team role is not a team owner");
-        }
-        if(toAddUser.getTeamOwner()==null){
-            toAddUser.becomeTeamOwner();
-        }
-        TeamOwner toDelete=toReplaceUser.getTeamOwner();
-        TeamOwner toAdd=toAddUser.getTeamOwner();
 
+    public void replaceTeamOwnerFounder(TeamOwner toAdd, TeamOwner toDelete, Team team) throws Exception {
+        if(toAdd==null||toDelete==null){
+            throw  new Exception("null input");
+        }
         if(team.getFounder()==toDelete){
             team.setFounder(toAdd);
             team.getTeamOwners().add(toAdd);
@@ -113,7 +121,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @codeBy Eden
      */
     //TODO test
-    public List<Object> removeUser(Fan userToDelete) throws Exception {
+    public List<Object> removeUser(User userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
 
 
@@ -151,7 +159,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
-//TODO test
+
     private List<Object> deleteTeamManager(TeamManager userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -183,7 +191,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @codeBy Eden
      */
     //TODO test
-    public List<Object> teamRoleRemove(TeamRole userToRemove) throws Exception {
+    private List<Object> teamRoleRemove(TeamRole userToRemove) throws Exception {
         isValidRemove(userToRemove);
         /*******if not valid - exception thrown*******/
         List<Object> removedObjects=new LinkedList<>();

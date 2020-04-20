@@ -22,15 +22,37 @@ public class Rfa extends Fan implements Observer{
         //this.permissions.add();
     }
 
-    /**Yarden**/
+    /**
+     * This function create new league
+     * @param nameOfLeague
+     * @param ms
+     * @throws Exception
+     */
     //TODO test
     public void createNewLeague(String nameOfLeague, MainSystem ms) throws Exception {
-        League newLeague = new League(nameOfLeague, ms);
-        LOG.info(String.format("%s - %s", this.getUserName(), "Create new league"));
+        if (nameOfLeague != null && ms != null) {
+            League newLeague = new League(nameOfLeague, ms);
+            LOG.info(String.format("%s - %s", this.getUserName(), "Create new league"));
+        }
+            else{
+            throw new Exception("Please insert valid details in order to create the new League properly");
+        }
+
     }
 
-    /**Yarden**/
-    //TODO test
+    /**
+     * This function gets all the parameters in order to create new referee and add him to the list of all the users
+     * @param name
+     * @param phoneNumber
+     * @param email
+     * @param userName
+     * @param password
+     * @param qualification
+     * @param birthDate
+     * @throws Exception
+     * @CodeBy Yarden
+     */
+    //TODO test - V
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
         if (checkValidDetails(userName, password, phoneNumber,email) && name!=null && qualification!=null) {
             Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
@@ -42,11 +64,16 @@ public class Rfa extends Fan implements Observer{
         }
     }
 
-    /**Yarden**/
-    //TODO test
+    /**
+     * This function gets Referee and remove him from the list of all the users
+     * cannot remove if he has a match in the future
+     * @param ref
+     * @throws Exception
+     * @CodeBy Yarden
+     */
+    //TODO test - V
     public void deleteReferee(Referee ref) throws Exception {
         //check the all matches that the referee is refereeing
-
         if(ref!=null) {
             for (Match m : ref.getMatches()) {
                 //can't delete, match still didn't take place
@@ -54,15 +81,22 @@ public class Rfa extends Fan implements Observer{
                     throw new Exception("You can not delete this referee");
                 }
             }
-
             system.removeUser(ref);
             LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Rfa"));
         }else{
-            throw new Exception("refree is null");
+            throw new Exception("Referee is null");
         }
     }
 
-    /**Yarden**/
+    /**
+     * Initializing Season To League
+     * @param schedule
+     * @param calculate
+     * @param year
+     * @param l
+     * @param teams
+     * @CodeBy Yarden
+     */
     //TODO test
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams){
         Season newSeason = new Season(this.system,schedule,calculate,year);
@@ -73,7 +107,7 @@ public class Rfa extends Fan implements Observer{
 
     /**Yarden**/
     //TODO test
-    public void startchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
+    public void startSchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
     }
 
@@ -82,7 +116,7 @@ public class Rfa extends Fan implements Observer{
     //TODO test
     public void startCalculationPolicy(Season season){
         season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
-        /**Sorted ?**/
+
     }
 
 
@@ -90,13 +124,9 @@ public class Rfa extends Fan implements Observer{
 
     public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
 
-    public static LinkedList<Team> getTeamRequests() {
-        return teamRequests;
-    }
+    public static LinkedList<Team> getTeamRequests() { return teamRequests; }
 
-    public static void setTeamRequests(LinkedList<Team> teamRequests) {
-        Rfa.teamRequests = teamRequests;
-    }
+    public static void setTeamRequests(LinkedList<Team> teamRequests) { Rfa.teamRequests = teamRequests; }
 
     /**Or**/
     @Override

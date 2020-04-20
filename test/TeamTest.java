@@ -11,6 +11,7 @@ public class TeamTest {
     /**or**/
     MainSystem ms= MainSystem.getInstance();
     TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+    TeamRole teamOwner1 = new TeamRole(ms,"r","0522150912","owner1O@gmail.com","r1234","r1234",MainSystem.birthDateFormat.parse("09-12-1995"));
     Team t= new Team();
     HashSet<Player> players= new HashSet<>();
     Field f= new Field("nameF");
@@ -24,12 +25,60 @@ public class TeamTest {
     /**adi**/
     @Test
     public void addAndRemoveTeamOwnerTest() throws Exception{
+
+        /****Add TeamOwner****/
+        /**null check**/
+        try {
+            t.addTeamOwner(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("TeamOwner is null",e.getMessage());
+        }
+
+        /**ok**/
         teamOwner.becomeTeamOwner();
         t.addTeamOwner(teamOwner.getTeamOwner());
         Assert.assertTrue(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
+
+        /**TeamOwner is already in the team**/
+        try {
+            t.addTeamOwner(teamOwner.getTeamOwner());
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("TeamOwner is already in this team",e.getMessage());
+        }
+
+        /****Remove TeamOwner****/
+        /**TeamOwner doesnt exist in the team**/
+        teamOwner1.becomeTeamOwner();
+        try {
+            t.removeTeamOwner(teamOwner1.getTeamOwner());
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("TeamOwner doesn't exist in this team",e.getMessage());
+        }
+
+        /**ok**/
         t.removeTeamOwner(teamOwner.getTeamOwner());
         Assert.assertFalse(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
+        /**null check**/
+        try {
+            t.removeTeamOwner(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("TeamOwner is null",e.getMessage());
+        }
+
     }
+
     /**adi**/
     @Test (expected = Exception.class)
     public void removeTeamManagerTest() throws Exception{

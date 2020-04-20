@@ -65,8 +65,6 @@ public class Team extends Observable implements PageOwner{
     }
 
 
-
-
     //<editor-fold desc="getters and setters">
     public void setName(String name) {
         this.name = name;
@@ -116,7 +114,6 @@ public class Team extends Observable implements PageOwner{
         return teamManager;
     }
 
-
     public HashSet<Player> getPlayers() {
         return players;
     }
@@ -165,35 +162,58 @@ public class Team extends Observable implements PageOwner{
         this.budgetControl = budgetControl;
     }
 
+    public int getScore() { return score; }
+
+    public void setScore(int score) { this.score = score; }
+
     //</editor-fold>
 
     //<editor-fold desc="add and remove functions">
-
     // adi
     //TODO test
-    public void addTeamOwner(TeamOwner tO){
-        teamOwners.add(tO);
-        addObserver(tO);
+    public void addTeamOwner(TeamOwner tO) throws Exception {
+        if(tO!=null) {
+            //check if team has already this teamOwner
+            if(!tO.getTeams().contains(this)) {
+                teamOwners.add(tO);
+                //add the team to teamowner list of teams
+
+                addObserver(tO);
+            }
+            else{
+                throw new Exception("TeamOwner is already in this team");
+            }
+        }
+        else{
+            throw new Exception("TeamOwner is null");
+        }
     }
     // adi
     //TODO test
     public void removeTeamOwner(TeamOwner tO)throws Exception{
-        if (teamOwners.contains(tO)){
-            teamOwners.remove(tO);
+        if(tO!=null) {
+            if (teamOwners.contains(tO)) {
+                teamOwners.remove(tO);
+            } else {
+                throw new Exception("TeamOwner doesn't exist in this team");
+            }
         }
         else{
-            throw new Exception("TeamOwner doesn't exist in this team");
+            throw new Exception("TeamOwner is null");
         }
     }
     // adi
     //TODO test
     public void removeTeamManager(TeamManager tM)throws Exception{
-
-        if (tM.equals(teamManager)) {
-            teamManager = null;
+        if(tM!=null) {
+            if (tM.equals(teamManager)) {
+                teamManager = null;
+            } else {
+                throw new Exception("This TeamManager doesn't exist in this team");
+            }
         }
-        else {
-            throw new Exception("This TeamManager doesn't exist in this team");
+        else{
+            throw new Exception("TeamManager is null");
         }
     }
     //adi
@@ -205,17 +225,30 @@ public class Team extends Observable implements PageOwner{
     // adi
     //TODO test
     public void removeCoach(Coach coachToRemove)throws Exception{
-        if (this.coach.equals(coachToRemove)){
-            coach = null;
+        if(coachToRemove != null) {
+            if (this.coach.equals(coachToRemove)) {
+                coach = null;
+            } else {
+                throw new Exception("This Coach doesn't exist in this team");
+            }
         }
-        else {
-            throw new Exception("This Coach doesn't exist in this team");
+        else{
+            throw new Exception("Coach is null");
         }
     }
     //adi
     //TODO test
-    public void addPlayer(Player p){
-        players.add(p);
+    //TODO check if the player isn't in more team
+    public void addPlayer(Player p) throws Exception {
+
+        if(!p.equals(null)) {
+            if (p.getTeam().equals(null)) {
+                players.add(p);
+            } else
+                throw new Exception("This player is already in another team");
+        }else
+            throw new Exception("Player is null");
+
     }
     //adi
     //TODO test
@@ -242,6 +275,7 @@ public class Team extends Observable implements PageOwner{
             throw new Exception("This field doesn't exist in this team");
         }
     }
+
     //</editor-fold>
 
     //<editor-fold desc="Page Owner Functions">
@@ -328,13 +362,7 @@ public class Team extends Observable implements PageOwner{
     public void addExpense(String typeOfExpense, long amount) throws Exception {
         this.budgetControl.addExpense(typeOfExpense,amount);
     }
-    public int getScore() {
-        return score;
-    }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
 
     /**Or**/
     public boolean isActive(){
@@ -446,7 +474,6 @@ public class Team extends Observable implements PageOwner{
         }
         LOG.info(String.format("%s - %s", name, "team was re-opened"));
     }
-
 
 
     /**Yarden**/

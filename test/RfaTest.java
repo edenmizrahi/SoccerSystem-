@@ -2,28 +2,127 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.util.Date;
+import java.util.HashSet;
 
 import static org.junit.Assert.*;
 
 public class RfaTest {
 
     MainSystem ms = MainSystem.getInstance();
-   // Rfa nadav = new Rfa(ms,"nadav","052","nadav@","nadavS", "nadav123");
-//    Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a");
+    Rfa nadav = new Rfa(ms,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
 
-    @Test
-    public void addReferee(){
-
-//        nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe123","moshe123","a");
-        assertEquals(2,ms.getUsers().size());
-        //invalid details
-//        nadav.addReferee("moshe","0546","moshe@gmail.com","moshe123","moshe123","a");
-        assertEquals(2,ms.getUsers().size());
+    public RfaTest() throws ParseException {
     }
 
+    /**Yarden**/
     @Test
-    public void deleteReferee(){
+    public void addReferee() throws Exception {
 
+        nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        assertEquals(2,ms.getUsers().size());
+        //invalid details
+
+        try {
+            nadav.addReferee("moshe", "0546", "moshe@gmail.com", "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
+            fail();
+        }
+        catch (Exception e) {
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Invalid details - You can not add this referee",e.getMessage());
+        }
+        assertEquals(2, ms.getUsers().size());
+
+    }
+
+    /**Yarden**/
+    @Test
+    public void deleteReferee() throws Exception {
+
+        /**referee is null**/
+        try {
+            nadav.deleteReferee(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Referee is null",e.getMessage());
+        }
+
+        /**everything is ok**/
+        Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        TeamRole teamRole1 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden123", "yarden123", MainSystem.birthDateFormat.parse("08-09-1995"));
+        TeamRole teamRole2 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden234", "yarden234", MainSystem.birthDateFormat.parse("09-09-1995"));
+        TeamRole teamRole3 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden345", "yarden345", MainSystem.birthDateFormat.parse("10-09-1995"));
+        TeamRole teamRole4 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden456", "yarden456", MainSystem.birthDateFormat.parse("11-09-1995"));
+        TeamRole teamRole5 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden567", "yarden567", MainSystem.birthDateFormat.parse("12-09-1995"));
+        TeamRole teamRole6 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden678", "yarden678", MainSystem.birthDateFormat.parse("13-09-1995"));
+        TeamRole teamRole7 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden789", "yarden789", MainSystem.birthDateFormat.parse("14-09-1995"));
+        TeamRole teamRole8 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden012", "yarden012", MainSystem.birthDateFormat.parse("15-09-1995"));
+
+        Team t1 = new Team();
+        Team t2 = new Team();
+
+        Player p1 = new Player(teamRole1);
+        Player p2 = new Player(teamRole2);
+        Player p3 = new Player(teamRole3);
+        Player p4 = new Player(teamRole4);
+        Player p5 = new Player(teamRole5);
+        Player p6 = new Player(teamRole6);
+        Player p7 = new Player(teamRole7);
+        Player p8 = new Player(teamRole8);
+
+        t1.addPlayer(p1);
+        t1.addPlayer(p2);
+        t1.addPlayer(p3);
+        t1.addPlayer(p4);
+
+        t2.addPlayer(p5);
+        t2.addPlayer(p6);
+        t2.addPlayer(p7);
+        t2.addPlayer(p8);
+        t1.setName("Hapoel");
+        Match m1 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , moshe,"17-04-2020 20:00:00");
+
+        nadav.deleteReferee(moshe);
+
+        /**there is a future match in his list**/
+        Referee ref = new Referee(ms,"ref","0546145795","moseh@gmail.com","ref123","ref123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        Match m2 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , ref,"21-04-2020 20:00:00");
+        try {
+            nadav.deleteReferee(ref);
+            fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("You can not delete this referee",e.getMessage());
+        }
+    }
+
+    /**Yarden**/
+    @Test
+    public void createNewLeague(){
+
+
+    }
+
+    /**Yarden**/
+    @Test
+    public void defineSeasonToLeague(){
+
+    }
+
+    /**Yarden**/
+    @Test
+    public void startSchedulingPolicy(){
+
+    }
+
+    /**Yarden**/
+    @Test
+    public void startCalculationPolicy(){
 
     }
 

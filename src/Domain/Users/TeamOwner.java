@@ -98,10 +98,7 @@ public class TeamOwner implements Observer , NotificationsUser {
             }
         }
 
-        /**add team owner - Eden**/
-        for (TeamOwner to:team.getTeamOwners()) {
-            team.addObserver(to);
-        }
+
 
         team.deleteTeamByTeamOwner();
 
@@ -124,11 +121,6 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         if(!deletedTeams.contains(team)){
             throw new Exception("the team was not deleted");
-        }
-
-        /**notify - all team owners **/
-        for(TeamOwner t: team.getTeamOwners()){
-            team.addObserver(t);
         }
 
 

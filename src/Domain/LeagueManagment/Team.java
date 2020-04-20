@@ -457,6 +457,10 @@ public class Team extends Observable implements PageOwner {
         for (SystemManager sm: mainSystem.getSystemManagers()) {
             addObserver(sm);
         }
+        /**add team owner - Eden**/
+        for (TeamOwner to:getTeamOwners()) {
+          addObserver(to);
+        }
         setChanged();
         notifyObservers("team deleted by team owner");
 
@@ -526,6 +530,10 @@ public class Team extends Observable implements PageOwner {
         for (SystemManager sm: mainSystem.getSystemManagers()) {
             addObserver(sm);
         }
+        /**notify - all team owners **/
+        for(TeamOwner t: getTeamOwners()){
+            addObserver(t);
+        }
         setChanged();
         notifyObservers("team reopened by team owner");
 
@@ -550,4 +558,8 @@ public class Team extends Observable implements PageOwner {
         notifyObservers(decision);
     }
 
+    public void sendNotiAbouteClose() {
+        setChanged();
+        notifyObservers(name+" removed from system by system manager");
+    }
 }

@@ -138,6 +138,11 @@ public class Referee extends Fan{
     }
 
     /**Yarden**/
+    public void addMatchToList(Match match){
+        this.getMatches().add(match);
+    }
+
+    /**Yarden**/
     //<editor-fold desc="events creation">
     public void createGoalEvent(Player p){
 

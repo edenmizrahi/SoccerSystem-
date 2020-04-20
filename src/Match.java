@@ -32,6 +32,11 @@ public class Match extends Observable{
             this.mainReferee = mainReferee;
             this.startDate = MainSystem.simpleDateFormat.parse(date);
             this.numOfMinutes = 90;
+            //update the referees about the matches
+            for ( Referee ref:referees) {
+                ref.addMatchToList(this);
+            }
+            mainReferee.addMatchToList(this);
         }
           else{//also exception for wrong startDate format
             throw new Exception("Please valid details that requires to create a match");

@@ -324,7 +324,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team to add the player
      */
     //TODO test
-    public void addPlayer(TeamRole player, String role, Team team){
+    public void addPlayer(TeamRole player, String role, Team team) throws Exception {
         if (player == null || role == null || team == null){
             throw new NullPointerException();
         }

@@ -28,7 +28,10 @@ public class League {
             this.name = name;
             this.mainSystem = mainSystem;
             teamsInSeason = new HashMap<>();
-            mainSystem.addLeague(this);
+            //if cannot ad the league, there is league with the same name
+            if(! mainSystem.addLeague(this)){
+                throw new Exception("There is already league with the same name");
+            }
         }
         else{
             throw new Exception("Please insert valid details in order to create the new League properly");

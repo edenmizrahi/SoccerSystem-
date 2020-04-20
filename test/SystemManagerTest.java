@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.util.HashSet;
 
 import static org.junit.Assert.*;
 
@@ -33,7 +34,9 @@ public class SystemManagerTest {
         Assert.assertTrue(!system.getUsers().contains(f1));
         Assert.assertTrue(!system.getUsers().contains(f2));
         /**complaint pass*/
-//        Assert.assertTrue(newSystemManager.getComplaints().contains(c));
+        HashSet<Complaint> complaints=sy.getComplaints();
+        Assert.assertTrue(newSystemManager.getComplaints().contains(c));
+        Assert.assertTrue(sy.getComplaints().contains(c));
 
         /**null check*/
         try{

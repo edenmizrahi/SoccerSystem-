@@ -47,6 +47,7 @@ public class Team extends Observable implements PageOwner{
         for (Rfa rfa:mainSystem.getRfas()) {
             addObserver(rfa);
         }
+        setChanged();
         notifyObservers("request to open new team");
 
         //add team name to hash set

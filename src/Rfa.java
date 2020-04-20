@@ -7,7 +7,7 @@ public class Rfa extends Fan implements Observer{
 
     private BudgetControl budgetControl;//TODO: delete?!?!?!
     private static final Logger LOG = LogManager.getLogger();
-    private static LinkedList<Team> teamRequests;
+    public static LinkedList<Team> teamRequests;
 
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());

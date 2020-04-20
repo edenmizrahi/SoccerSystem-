@@ -73,8 +73,8 @@ public class Complaint extends Observable {
     }
 
 
-
-
-
+    public List<SystemManager> getSystemManagers() {
+        return systemManagers;
+    }
 }
 

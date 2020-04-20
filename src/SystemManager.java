@@ -56,6 +56,10 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
         SystemManager newSystemManager=new SystemManager(user,system);
         /**delete Fan from system*/
         system.removeUser(user);
+        /**add the new system Manager to be observer of all complaints **/
+        for(Complaint c:this.getComplaints()){
+            c.addObserver(newSystemManager);
+        }
         return  newSystemManager;
 
     }
@@ -68,7 +72,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
     }
     /**Eden*/
     public static void addComplaint(Complaint complaint) {
-        SystemManager.complaints.add(complaint);
+        complaints.add(complaint);
         List<SystemManager> sm= MainSystem.getInstance().getSystemManagers();
         for(SystemManager cur:sm) {
             complaint.addObserver(cur);
@@ -123,6 +127,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
     //TODO test
     public List<Object> removeUser(User userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
+        boolean isFan=true;
 
 
         if(userToDelete instanceof Rfa) {
@@ -131,6 +136,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
                 throw new Exception("There is only one RFA left, you cannot delete it ");
             }
             objectsDeleted=deleteRfa(((Rfa)userToDelete));
+            isFan=false;
         }
         if(userToDelete instanceof SystemManager) {
             if(userToDelete==this){
@@ -141,17 +147,47 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
                 throw new Exception("There is only one System Manager left, you cannot delete it ");
             }
             objectsDeleted=deleteSystemManager(((SystemManager)userToDelete));
+            isFan=false;
         }
         if(userToDelete instanceof Referee) {
             objectsDeleted=deleteReferee(((Referee)userToDelete));
+            isFan=false;
+
         }
 
 
         if(userToDelete instanceof TeamRole){
             objectsDeleted= teamRoleRemove(((TeamRole)userToDelete));
+            isFan=false;
+
+        }
+
+        if(userToDelete instanceof Fan&& isFan){
+            objectsDeleted=fanRemove(((Fan)userToDelete));
         }
 
         return objectsDeleted;
+    }
+
+
+    /**
+     * remove fan from system , delete his all complaints-not relevant anyMore.
+     * @param userToDelete
+     * @return
+     * @codeBy Eden
+     */
+    //TODO test
+    private List<Object> fanRemove(Fan userToDelete) {
+        List<Object> res=new LinkedList<>();
+        res.add(userToDelete);
+        /**remove fan complaints from system manager**/
+        for(Complaint c:userToDelete.getMyComplaints()){
+            SystemManager.complaints.remove(c);
+            res.add(complaints);
+        }
+        /***remove user name from system*/
+        system.getUserNames().remove(userToDelete.getUserName());
+        return res;
     }
 
     /**
@@ -159,6 +195,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
+    //TODO test
 
     private List<Object> deleteTeamManager(TeamManager userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
@@ -270,7 +307,8 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
     private List<Object> deleteTeamOwner(TeamOwner userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
-        /**delete owner from deleted team**/
+
+        /**delete owner from deleted teams**/
         LinkedList<Team>teams= userToDelete.getDeletedTeams();
         for(Team t : teams){
             t.getTeamOwners().remove(userToDelete);
@@ -285,6 +323,12 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
             if(sub.role instanceof TeamManager){
                 userToDelete.removeTeamManager(((TeamManager)sub.role),system,sub.team);
             }
+        }
+
+        /**remove team request from RFA because the requests are not relevant**/
+        for(Team t:userToDelete.getRequestedTeams()){
+            Rfa.teamRequests.remove(t);
+            res.add(t);
         }
         return res;
     }
@@ -407,6 +451,9 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
         for(Player p : players){
             p.setPlayerTeam(null);
         }
+
+        /***remove team name from system*/
+        system.getTeamNames().remove(teamToRemove.getName());
 
         /**remove from system*/
         system.getActiveTeams().remove(teamToRemove);

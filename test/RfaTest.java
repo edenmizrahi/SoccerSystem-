@@ -1,4 +1,13 @@
 import Domain.*;
+import Domain.Events.Event;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Match;
+import Domain.LeagueManagment.Team;
+import Domain.Users.Player;
+import Domain.Users.Referee;
+import Domain.Users.Rfa;
+import Domain.Users.TeamRole;
+import Stubs.TeamStub;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,7 +55,7 @@ public class RfaTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Domain.Referee is null",e.getMessage());
+            assertEquals("Domain.Users.Referee is null",e.getMessage());
         }
 
         /**everything is ok**/
@@ -130,12 +139,20 @@ public class RfaTest {
     @Test
     public void answerRequest() throws ParseException {
         TeamStub team = new TeamStub("name");
+        TeamRole owner= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
+        owner.becomeTeamOwner();
+        try {
+            team.addTeamOwner(owner.getTeamOwner());
+        } catch (Exception e) {
+            fail();
+        }
         Rfa rfa= new Rfa(ms,"nadav","052","nadav@gmail.com","nadavS", "nadav123", MainSystem.birthDateFormat.parse("01-02-1990"));
         rfa.getTeamRequests().add(team);
 
         try {
             rfa.answerRequest(team,true);
         } catch (Exception e) {
+            e.printStackTrace();
             fail();
         }
         Assert.assertTrue(rfa.getTeamRequests().size()==0);

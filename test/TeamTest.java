@@ -1,4 +1,9 @@
 import Domain.*;
+import Domain.Enums.TeamManagerPermissions;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Team;
+import Domain.Users.Player;
+import Domain.Users.TeamRole;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +23,7 @@ public class TeamTest {
     HashSet<Player> players= new HashSet<>();
     Field f= new Field("nameF");
     TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
-    HashSet<Permission> per = new HashSet<>();
+    HashSet<TeamManagerPermissions> per = new HashSet<>();
 
     public TeamTest() throws ParseException {
     }
@@ -69,7 +74,7 @@ public class TeamTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("TeamOwner is null",e.getMessage());
+            assertEquals("Domain.TeamOwner is null",e.getMessage());
         }
 
     }
@@ -87,7 +92,7 @@ public class TeamTest {
             assertEquals("TeamManager is null",e.getMessage());
         }
         /**remove from team with permission**/
-        per.add(Permission.addRemoveEditTeamOwner);
+        per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         teamOwner.becomeTeamManager(t, per);
         Assert.assertTrue(t.getTeamManager().equals(teamOwner.getTeamManager()));//check the subscription
         t.removeTeamManager(teamOwner.getTeamManager());

@@ -1,4 +1,13 @@
 import Domain.*;
+import Domain.LeagueManagment.Calculation.CalculateOption1;
+import Domain.LeagueManagment.Calculation.CalculationPolicy;
+import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
+import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
+import Domain.LeagueManagment.Season;
+import Domain.Users.Rfa;
+import Domain.Users.User;
+import Stubs.TeamStub;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,7 +18,7 @@ import static org.junit.Assert.fail;
 public class MainSystemTest {
     MainSystem ms= MainSystem.getInstance();
 
-
+    /**or**/
     @Test
     public void removeUser() {
         User user= new User(ms);
@@ -18,6 +27,7 @@ public class MainSystemTest {
         Assert.assertTrue(ms.getUsers().size()==0);
     }
 
+    /**or**/
     @Test
     public void addUser() {
         User user= new User(ms);
@@ -27,6 +37,7 @@ public class MainSystemTest {
 
 
     @Test
+    /**or**/
     public void removeLeague() {
         try {
             League league= new League("Laliga",ms);
@@ -41,6 +52,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void addLeague() {
         try {
             League league= new League("Laliga",ms);
@@ -54,6 +66,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void removeSeason() {
         try {
             SchedulingPolicy sp= new SchedualeOption1();
@@ -70,6 +83,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void addSeason() {
         try {
             SchedulingPolicy sp= new SchedualeOption1();
@@ -85,6 +99,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void removeActiveTeam() {
         try {
             TeamStub team = new TeamStub("hapoel beersheva");
@@ -100,6 +115,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void addActiveTeam() {
         try {
             TeamStub team = new TeamStub("hapoel beersheva");
@@ -114,6 +130,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void firstStartSystem() throws ParseException {
         ms.startSystem();
         Assert.assertTrue(ms.getUsers().size()==1);
@@ -122,6 +139,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void startSystem() throws ParseException {
         ms.startSystem();
         ms.startSystem();
@@ -130,6 +148,7 @@ public class MainSystemTest {
     }
 
     @Test
+    /**or**/
     public void numOfRFA() throws ParseException {
         Assert.assertEquals(0,ms.numOfRfa());
         Rfa rfa= new Rfa(ms,"rfa123","0542150912","oralfasi@gmail.com","rfa1234","rfa1234",MainSystem.birthDateFormat.parse("09-12-1995"));

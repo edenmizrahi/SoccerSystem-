@@ -104,7 +104,7 @@ public class SystemManager extends Fan implements Observer ,NotificationsUser {
         if(team.getFounder()==toDelete){
             team.setFounder(toAdd);
             team.getTeamOwners().add(toAdd);
-            toAdd.setTeam(team);
+            toAdd.addNewTeam(team);
         }
         else{
             throw new Exception("wrong team owner and team");

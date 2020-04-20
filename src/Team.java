@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.omg.PortableServer.THREAD_POLICY_ID;
 
 public class Team extends Observable implements PageOwner{
     private static final Logger LOG = LogManager.getLogger();
@@ -42,11 +43,14 @@ public class Team extends Observable implements PageOwner{
         this.field = null;
         this.budgetControl= new BudgetControl(this);
         this.score = 0;
+        this.home= new HashSet<>();
+        this.away= new HashSet<>();
 
         //send request
         for (Rfa rfa:mainSystem.getRfas()) {
             addObserver(rfa);
         }
+        setChanged();
         notifyObservers("request to open new team");
 
         //add team name to hash set
@@ -67,6 +71,8 @@ public class Team extends Observable implements PageOwner{
         this.teamManager = null;
         this.field = null;
         this.budgetControl= new BudgetControl(this);
+        this.home= new HashSet<>();
+        this.away= new HashSet<>();
     }
 
 
@@ -182,16 +188,8 @@ public class Team extends Observable implements PageOwner{
     //TODO test
     public void addTeamOwner(TeamOwner tO) throws Exception {
         if(tO!=null) {
-            //check if team has already this teamOwner
-            if(!tO.getTeams().contains(this)) {
-                teamOwners.add(tO);
-                //add the team to teamowner list of teams
-
-                addObserver(tO);
-            }
-            else{
-                throw new Exception("TeamOwner is already in this team");
-            }
+            teamOwners.add(tO);
+            addObserver(tO);
         }
         else{
             throw new Exception("TeamOwner is null");
@@ -417,6 +415,13 @@ public class Team extends Observable implements PageOwner{
             teamOwner.getDeletedTeams().add(this);
         }
 
+        //notify systemManagers
+        for (SystemManager sm: mainSystem.getSystemManagers()) {
+            addObserver(sm);
+        }
+        setChanged();
+        notifyObservers("team deleted by team owner");
+
         LOG.info(String.format("%s - %s", name, "team was deleted by team owner"));
     }
 
@@ -481,6 +486,15 @@ public class Team extends Observable implements PageOwner{
             }
 
         }
+
+        //notify system managers
+
+        for (SystemManager sm: mainSystem.getSystemManagers()) {
+            addObserver(sm);
+        }
+        setChanged();
+        notifyObservers("team reopened by team owner");
+
         LOG.info(String.format("%s - %s", name, "team was re-opened"));
     }
 
@@ -495,6 +509,11 @@ public class Team extends Observable implements PageOwner{
     //TODO test
     public void addMatchToAwayMatches(Match match){
         this.getAway().add(match);
+    }
+
+    public void sendDesicion(boolean desicion){
+        setChanged();
+        notifyObservers(desicion);
     }
 
 }

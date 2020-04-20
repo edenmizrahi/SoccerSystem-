@@ -70,7 +70,7 @@ public class Match extends Observable{
     /**** minute of game ****/
     /**** startDate - timeStamp in event ? ****/
     public void addEvent(Event e){
-
+        setChanged();
         notifyObservers(e);
     }
 
@@ -80,11 +80,13 @@ public class Match extends Observable{
 
     public void setHomeScore(int homeScore) {
         this.homeScore = homeScore;
+        setChanged();
         notifyObservers(homeTeam.getName()+" make GOAL, Team's score is: "+homeScore);
     }
 
     public void setGuestScore(int guestScore) {
         this.guestScore = guestScore;
+        setChanged();
         notifyObservers(awayTeam.getName()+" make GOAL, Team's score is: "+guestScore);
     }
 }

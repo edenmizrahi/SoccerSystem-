@@ -131,7 +131,7 @@ public class Rfa extends Fan implements Observer{
     @Override
     //TODO test
     public void update(Observable o, Object arg) {
-        if(o instanceof Team && arg instanceof Team){
+        if(o instanceof Team){
             if(arg.equals("request to open new team")){//open new team
                 this.teamRequests.add((Team)o);
             }
@@ -139,14 +139,12 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**Or**/
-    //TODO test
+    //TODO test- V
     public void answerRequest(Team team, boolean desicion) throws Exception {
         if( !teamRequests.contains(team)){
             throw new Exception("team not in request list");
         }
-        team.notifyObservers(desicion);
+        team.sendDesicion(desicion);
         teamRequests.remove(team);
-
-
     }
 }

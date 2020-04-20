@@ -1,8 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.text.ParseException;
-
 import static org.junit.Assert.*;
 
 public class SystemManagerTest {
@@ -61,7 +59,7 @@ public class SystemManagerTest {
         Team t = new Team();
         t.setFounder(tr.getTeamOwner());
         t.getTeamOwners().add(tr.getTeamOwner());
-        tr.getTeamOwner().setTeam(t);
+        tr.getTeamOwner().addNewTeam(t);
 
         /**get a user witch is not a TeamOwner**/
         try{

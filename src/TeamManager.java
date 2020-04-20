@@ -3,8 +3,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-import org.apache.logging.log4j.LogManager;
-
 public class TeamManager implements Observer,NotificationsUser {
     private TeamRole teamRole;
     private Team team;
@@ -70,14 +68,14 @@ public class TeamManager implements Observer,NotificationsUser {
             TeamRole teamRole;
             // check if already team owner of different team
             if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner()){
-                ((TeamRole) fan).getTeamOwner().setTeam(team);
+                ((TeamRole) fan).getTeamOwner().addNewTeam(team);
                 team.addTeamOwner(((TeamRole) fan).getTeamOwner());
                 teamRole = ((TeamRole) fan);
             }
             // check if already teamRole
             else if (fan instanceof TeamRole){
                 ((TeamRole) fan).becomeTeamOwner();
-                ((TeamRole) fan).getTeamOwner().setTeam(team);
+                ((TeamRole) fan).getTeamOwner().addNewTeam(team);
                 team.addTeamOwner(((TeamRole) fan).getTeamOwner());
                 teamRole = ((TeamRole) fan);
             }
@@ -85,7 +83,7 @@ public class TeamManager implements Observer,NotificationsUser {
             else{
                 teamRole = new TeamRole(fan);
                 teamRole.becomeTeamOwner();
-                teamRole.getTeamOwner().setTeam(team);
+                teamRole.getTeamOwner().addNewTeam(team);
                 team.addTeamOwner(teamRole.getTeamOwner());
             }
             TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);

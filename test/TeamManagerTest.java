@@ -34,7 +34,7 @@ public class TeamManagerTest {
         per.add(Permission.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
         TeamOwner tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, ms, team);
-        TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
+        //TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
         Assert.assertEquals(3, ms.getUsers().size());
         Assert.assertEquals(2, team.getTeamOwners().size());
         tMYossi.getTeamManager().removeTeamOwner(tOMoshe, ms, team);

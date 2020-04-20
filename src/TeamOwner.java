@@ -11,7 +11,7 @@ public class TeamOwner implements Observer , NotificationsUser {
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
     private static final Logger LOG = LogManager.getLogger();
-    HashSet<Notification> notifications;
+    private HashSet<Notification> notifications;
 
 
     //team owner founder- with no team.
@@ -24,6 +24,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         this.approvedTeams= new LinkedList<>();
         mySubscriptions = new HashSet<>();
         this.teamRole= teamRole;
+        this.notifications= new HashSet<>();
     }
 
 
@@ -31,7 +32,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * request the opening new team
      * @param name
      */
-    //TODO test
+    //TODO test-V
     public void requestNewTeam(String name) throws Exception {
         if(teamRole.system.getTeamNames().contains(name)){
             throw new Exception("team name not unique, already exist in system");
@@ -42,16 +43,17 @@ public class TeamOwner implements Observer , NotificationsUser {
     }
 
     /**Or
-     *  make approved team active
+     *  check if the team can become active
+     *  if can- send to become active function in team
      * @param team
      * @param players
      * @param coach
      * @param field
-     * @throws Exception
+     * @throws Exception - one of the parameters is null, team was not approved by RFA
      */
-    //TODO test
+    //TODO test-V
     public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
-        if(team == null || players == null || coach == null){
+        if(team == null || players == null || coach == null || field==null){
             throw new NullPointerException();
         }
         if(! approvedTeams.contains(team)){
@@ -63,12 +65,11 @@ public class TeamOwner implements Observer , NotificationsUser {
     }
 
     /**OR
-     * delete the team- it become not active
-     * the team moves from team list to deleted team list
+     * this function checks if the team can be reopened- if can- send to team delete function
      * @param team
-     * @throws Exception
+     * @throws Exception - if team is null,team is playing in current season, team has a future match
      */
-    //TODO test
+    //TODO test-V
     public void deleteTeam(Team team) throws Exception {
         if(team==null){
             throw new NullPointerException();
@@ -90,40 +91,32 @@ public class TeamOwner implements Observer , NotificationsUser {
 
         team.deleteTeamByTeamOwner();
 
-        for (SystemManager sm:teamRole.system.getSystemManagers()) {
-            team.addObserver(sm);
-        }
-        team.notifyObservers("team deleted by team owner");
 
     }
 
     /**OR
-     * reopen deleted team- it becomes active and only this team owner is the founder and team owner!
+     * reopen deleted team- this function checks if the team can be reopened
+     * if yes- send to team reopen function
      * @param team
      * @param players
      * @param coach
      * @param field
      * @throws Exception
      */
-    //TODO test
+    //TODO test- V
     public void reopenTeam(Team team,HashSet<Player> players, Coach coach, Field field) throws Exception {
-
+        if(team ==null || players==null|| coach==null || field==null){
+            throw new NullPointerException();
+        }
         if(!deletedTeams.contains(team)){
             throw new Exception("the team was not deleted");
         }
-        if(team ==null){
-            throw new NullPointerException();
-        }
+
 
         team.reopenTeam(players,coach,field,this);
         deletedTeams.remove(team);
         teams.add(team);
 
-        //notify system managers
-        for (SystemManager sm:teamRole.system.getSystemManagers()) {
-            team.addObserver(sm);
-        }
-        team.notifyObservers("team reopened by team owner");
 
     }
 
@@ -139,8 +132,8 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @return the new team owner
      * @throws Exception
      */
-    //TODO test
-    public TeamOwner subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
+    //TODO test-V
+    public TeamRole subscribeTeamOwner(Fan fan, MainSystem ms, Team team) throws Exception{
         if (fan == null || ms == null || team == null){
             throw new NullPointerException();
         }
@@ -151,14 +144,14 @@ public class TeamOwner implements Observer , NotificationsUser {
         TeamRole teamRole;
         // check if already team owner of different team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner()){
-            ((TeamRole) fan).getTeamOwner().setTeam(team);
+            ((TeamRole) fan).getTeamOwner().addNewTeam(team);
             team.addTeamOwner(((TeamRole) fan).getTeamOwner());
             teamRole = ((TeamRole) fan);
         }
         // check if already teamRole
         else if (fan instanceof TeamRole){
             ((TeamRole) fan).becomeTeamOwner();
-            ((TeamRole) fan).getTeamOwner().setTeam(team);
+            ((TeamRole) fan).getTeamOwner().addNewTeam(team);
             team.addTeamOwner(((TeamRole) fan).getTeamOwner());
             teamRole = ((TeamRole) fan);
         }
@@ -166,12 +159,12 @@ public class TeamOwner implements Observer , NotificationsUser {
         else{
             teamRole = new TeamRole(fan);
             teamRole.becomeTeamOwner();
-            teamRole.getTeamOwner().setTeam(team);
+            teamRole.getTeamOwner().addNewTeam(team);
             team.addTeamOwner(teamRole.getTeamOwner());
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
         mySubscriptions.add(sub);
-        return teamRole.getTeamOwner();
+        return teamRole;
     }
 
     /**
@@ -182,7 +175,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team that the team owner will be removed from
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void removeTeamOwner (TeamOwner tO, MainSystem ms, Team team)throws Exception{
         if (tO == null || ms == null || team == null){
             throw new NullPointerException();
@@ -218,8 +211,8 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @return the new team manager
      * @throws Exception
      */
-    //TODO test
-    public TeamManager subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
+    //TODO test-V
+    public TeamRole subscribeTeamManager(Fan fan, MainSystem ms, Team team, HashSet<Permission> per) throws Exception{
         if (fan == null || ms == null || team == null || per == null){
             throw new NullPointerException();
         }
@@ -238,11 +231,11 @@ public class TeamOwner implements Observer , NotificationsUser {
         else{
             teamRole = new TeamRole(fan);
             teamRole.becomeTeamManager(team, per);
-            teamRole.getTeamManager().setTeam(team);
+            //teamRole.getTeamManager().setTeam(team);
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
         mySubscriptions.add(sub);
-        return teamRole.getTeamManager();
+        return teamRole;
 
     }
     /**
@@ -253,7 +246,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team that the team manager will be removed from
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void removeTeamManager (TeamManager tM, MainSystem ms, Team team) throws Exception{
         if (tM == null || ms == null || team == null || team == null){
             throw new NullPointerException();
@@ -284,9 +277,9 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team that will have the changes
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
-        if (coachToRemove == null || coachToAdd == null || team == null){
+        if (coachToRemove == null || coachToAdd == null || team == null || newCoachRoleAtTeam==null){
             throw new NullPointerException();
         }
         if (team.getCoach().equals(coachToRemove)) {
@@ -310,7 +303,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param coach - the coach to edit
      * @param role - the new role
      */
-    //TODO test
+    //TODO test-V
     public void editCoachRole(Coach coach, String role){
         if (coach == null || role == null){
             throw new NullPointerException();
@@ -325,7 +318,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param role - the players role
      * @param team - the team to add the player
      */
-    //TODO test
+    //TODO test-V
     public void addPlayer(TeamRole player, String role, Team team) throws Exception {
         if (player == null || role == null || team == null){
             throw new NullPointerException();
@@ -345,7 +338,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team to remove the player
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void removePlayer (Player player, Team team) throws Exception {
         if (player == null || team == null){
             throw new NullPointerException();
@@ -360,7 +353,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param player - the player to edit
      * @param role - the new role
      */
-    //TODO test
+    //TODO test-V
     public void editPlayerRole(Player player, String role){
         if (player == null || role == null){
             throw new NullPointerException();
@@ -376,7 +369,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param team - the team to change its field
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
         if (fieldtoRemove == null || fieldToAdd == null || team == null){
             throw new NullPointerException();
@@ -393,7 +386,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param field - the field to edit
      * @param name - the new name
      */
-    //TODO test
+    //TODO test-V
     public void editFieldName(Field field, String name){
         if (field == null || name == null){
             throw new NullPointerException();
@@ -403,7 +396,7 @@ public class TeamOwner implements Observer , NotificationsUser {
     //</editor-fold>
 
     //<editor-fold desc="setters and getters">
-    public void setTeam(Team team) {
+    public void addNewTeam(Team team) {
         this.teams.add(team);
     }
     public void removeTeam(Team team){
@@ -466,7 +459,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param amount
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
         if(team==null || typeOfIncome==null){
             throw  new NullPointerException();
@@ -481,7 +474,7 @@ public class TeamOwner implements Observer , NotificationsUser {
      * @param amount
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
     public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
         if(team==null || typeOfExpense==null){
             throw  new NullPointerException();

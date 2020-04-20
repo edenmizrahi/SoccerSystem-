@@ -130,12 +130,20 @@ public class RfaTest {
     @Test
     public void answerRequest() throws ParseException {
         TeamStub team = new TeamStub("name");
+        TeamRole owner= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
+        owner.becomeTeamOwner();
+        try {
+            team.addTeamOwner(owner.getTeamOwner());
+        } catch (Exception e) {
+            fail();
+        }
         Rfa rfa= new Rfa(ms,"nadav","052","nadav@gmail.com","nadavS", "nadav123", MainSystem.birthDateFormat.parse("01-02-1990"));
         rfa.getTeamRequests().add(team);
 
         try {
             rfa.answerRequest(team,true);
         } catch (Exception e) {
+            e.printStackTrace();
             fail();
         }
         Assert.assertTrue(rfa.getTeamRequests().size()==0);

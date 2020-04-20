@@ -1,8 +1,10 @@
 package Service;
 import Domain.*;
+import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Team;
 import Domain.Users.*;
 
+import java.security.acl.Permission;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -59,7 +61,7 @@ public class TeamManagementController {
      * @return
      * @throws Exception
      */
-    public TeamRole subscribeTeamManager(TeamOwner user, Fan fanToSubscribe, Team team, HashSet<Permission> per) throws Exception {
+    public TeamRole subscribeTeamManager(TeamOwner user, Fan fanToSubscribe, Team team, HashSet<TeamManagerPermissions> per) throws Exception {
         return user.subscribeTeamManager(fanToSubscribe, team, per);
     }
 

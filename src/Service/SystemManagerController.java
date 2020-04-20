@@ -1,8 +1,11 @@
 package Service;
 
-import Domain.*;
+import Domain.LeagueManagment.Team;
+import Domain.Notifications.Notification;
+import Domain.Users.SystemManager;
+import Domain.Users.TeamOwner;
+import Domain.Users.User;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.HashSet;
@@ -49,7 +52,7 @@ public class SystemManagerController {
     }
 
     /**
-     * Domain.User name is an unique field so this function return one user if there is user with
+     * Domain.Users.User name is an unique field so this function return one user if there is user with
      *
      * @param userName
      * @param user

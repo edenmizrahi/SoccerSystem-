@@ -1,5 +1,8 @@
 package Domain;
 
+import Domain.LeagueManagment.Team;
+import Domain.Users.TeamRole;
+
 public class TeamSubscription {
 
     public Object role;

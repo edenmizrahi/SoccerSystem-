@@ -80,11 +80,11 @@ public class TeamOwner implements Observer , NotificationsUser {
      */
     //TODO test-V
     public void deleteTeam(Team team) throws Exception {
-        if(team==null){
+        if(team == null){
             throw new NullPointerException();
         }
         if(team.getLeaguePerSeason().containsKey(teamRole.system.getCurrSeason())){
-            throw new Exception("team is play in the current season ,you cannot delete the team untill the end of the season");
+            throw new Exception("team is play in the current season ,you cannot delete the team until the end of the season");
         }
         Date currDate= new Date(System.currentTimeMillis());
         for (Match m:team.getHome()) {
@@ -97,10 +97,7 @@ public class TeamOwner implements Observer , NotificationsUser {
                 throw  new Exception("cannot delete team with future matches");
             }
         }
-
         team.deleteTeamByTeamOwner();
-
-
     }
 
     /**OR
@@ -120,13 +117,9 @@ public class TeamOwner implements Observer , NotificationsUser {
         if(!deletedTeams.contains(team)){
             throw new Exception("the team was not deleted");
         }
-
-
         team.reopenTeam(players,coach,field,this);
         deletedTeams.remove(team);
         teams.add(team);
-
-
     }
 
 

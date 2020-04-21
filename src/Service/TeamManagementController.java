@@ -13,6 +13,53 @@ public class TeamManagementController {
     /**
      * adi
      * @param user
+     * @param name
+     * @throws Exception
+     */
+    public void requestNewTeam(TeamOwner user, String name) throws Exception {
+        user.requestNewTeam(name);
+    }
+
+    /**
+     * adi
+     * @param user
+     * @param team
+     * @param players
+     * @param coach
+     * @param nameOfNewField
+     * @throws Exception
+     */
+    public void makeTeamActive(TeamOwner user, Team team, HashSet<Player> players , Coach coach, String nameOfNewField) throws Exception{
+        Field field = new Field(nameOfNewField);
+        user.makeTeamActive(team, players, coach, field);
+    }
+
+    /**
+     * adi
+     * @param user
+     * @param team
+     * @throws Exception
+     */
+    public void deleteTeam(TeamOwner user, Team team) throws Exception {
+        user.deleteTeam(team);
+    }
+
+    /**
+     * adi
+     * @param user
+     * @param team
+     * @param players
+     * @param coach
+     * @param nameOfNewField
+     * @throws Exception
+     */
+    public void reopenTeam(TeamOwner user, Team team, HashSet<Player> players, Coach coach, String nameOfNewField) throws Exception {
+        Field field = new Field(nameOfNewField);
+        user.reopenTeam(team, players, coach, field);
+    }
+    /**
+     * adi
+     * @param user
      * @param fanToSubscribe
      * @param team
      * @return
@@ -100,7 +147,7 @@ public class TeamManagementController {
     }
 
     /**
-     *
+     * adi
      * @param user
      * @param coach
      * @param role
@@ -187,12 +234,13 @@ public class TeamManagementController {
     /**
      * adi
      * @param user
-     * @param fieldtoRemove
-     * @param fieldToAdd
+     * @param nameOfNewField
      * @param team
      * @throws Exception
      */
-    public void removeAndReplaceField (TeamRole user, Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
+    public void removeAndReplaceField (TeamRole user, String nameOfNewField, Team team) throws Exception {
+        Field fieldtoRemove = team.getField();
+        Field fieldToAdd = new Field(nameOfNewField);
         if (user.isTeamOwner()){
             user.getTeamOwner().removeAndReplaceField(fieldtoRemove, fieldToAdd, team);
         }
@@ -298,7 +346,7 @@ public class TeamManagementController {
         return ans;
     }
     /**
-     *
+     * adi
      * @param user
      * @return
      */
@@ -313,7 +361,7 @@ public class TeamManagementController {
         return ans;
     }
     /**
-     *
+     * adi
      * @param team
      * @return
      */
@@ -321,7 +369,7 @@ public class TeamManagementController {
         return team.getPlayers();
     }
     /**
-     *
+     * adi
      * @param team
      * @return
      */

@@ -3,6 +3,7 @@ import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Team;
+import Domain.Notifications.Notification;
 import Domain.Users.*;
 import java.security.acl.Permission;
 import java.util.HashSet;
@@ -256,8 +257,10 @@ public class TeamManagementController {
 
     /**
      * adi
+     * @param user
      * @param field
      * @param name
+     * @throws Exception
      */
     public void editFieldName(TeamRole user, Field field, String name) throws Exception{
         if (user.isTeamOwner()){
@@ -273,6 +276,75 @@ public class TeamManagementController {
         }
     }
 
+    /**
+     * adi
+     * @param user
+     * @param team
+     * @param typeOfIncome
+     * @param amount
+     * @throws Exception
+     */
+    public void addIncomeToTeam(TeamRole user, Team team, String typeOfIncome, long amount) throws Exception {
+        if (user.isTeamOwner()){
+            user.getTeamOwner().addIncomeToTeam(team, typeOfIncome, amount);
+        }
+        // the function in team manager checks if has permission
+        else if (user.isTeamManager()){
+            user.getTeamManager().addIncomeToTeam(team, typeOfIncome, amount);
+        }
+        // user isn't teamOwner or teamManager
+        else{
+            throw new Exception("user doesn't have the permission to do this action");
+        }
+    }
+
+    /**
+     * adi
+     * @param user
+     * @param team
+     * @param typeOfExpense
+     * @param amount
+     * @throws Exception
+     */
+    public void addExpenseToTeam(TeamRole user, Team team ,String typeOfExpense, long amount) throws Exception {
+        if (user.isTeamOwner()){
+            user.getTeamOwner().addExpenseToTeam(team, typeOfExpense, amount);
+        }
+        // the function in team manager checks if has permission
+        else if (user.isTeamManager()){
+            user.getTeamManager().addExpenseToTeam(team, typeOfExpense, amount);
+        }
+        // user isn't teamOwner or teamManager
+        else{
+            throw new Exception("user doesn't have the permission to do this action");
+        }
+    }
+
+    /**
+     * mark list of notifications as read.
+     * @param user
+     * @param read
+     */
+    public void markAsReadNotification (TeamRole user ,HashSet<Notification> read) throws Exception{
+        if (user.isTeamOwner()){
+            for(Notification n: read){
+                if(user.getTeamOwner().getNotificationsList().contains(n)) {
+                    user.getTeamOwner().MarkAsReadNotification(n);
+                }
+            }        }
+        else if (user.isTeamManager()){
+            for(Notification n: read){
+                if(user.getTeamManager().getNotificationsList().contains(n)) {
+                    user.getTeamManager().MarkAsReadNotification(n);
+                }
+            }
+        }
+        // user isn't teamOwner or teamManager
+        else{
+            throw new Exception("user doesn't have the permission to do this action");
+        }
+
+    }
         //<editor-fold desc="getters">
     /**
      * adi

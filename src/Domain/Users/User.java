@@ -20,6 +20,7 @@ public class User {
         system = ms;
         permissions = new HashSet<>();
         system.addUser(this);
+
     }
 
     public void addPermission(TeamManagerPermissions per){

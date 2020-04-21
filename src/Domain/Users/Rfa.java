@@ -131,7 +131,9 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**
-     * This function gets all the parameters in order to create new referee and add him to the list of all the users
+     * This function gets all the parameters
+     * in order to create new referee
+     * and add him to the list of all the users
      * @param name
      * @param phoneNumber
      * @param email
@@ -233,5 +235,7 @@ public class Rfa extends Fan implements Observer{
         }
         team.sendDecision(desicion);
         teamRequests.remove(team);
+
+
     }
 }

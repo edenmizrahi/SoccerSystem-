@@ -32,12 +32,17 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         notifications=new HashSet<>();
         /**remove fan from system*/
         ms.removeUser(fan);
+        LOG.info(String.format("%s - %s", this.getUserName(), "Added to system"));
+
+
     }
 
     public SystemManager (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
 //        this.complaints = new HashSet<>();
         notifications=new HashSet<>();
+        LOG.info(String.format("%s - %s", this.getUserName(), "Added to system"));
+
 
     }
 
@@ -67,6 +72,8 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         for(Complaint c:this.getComplaints()){
             c.addObserver(newSystemManager);
         }
+        LOG.info(String.format("%s - %s", this.getUserName(), "add new System Manager , user name: "+newSystemManager.getUserName()));
+
         return  newSystemManager;
 
     }
@@ -112,6 +119,10 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         if(toAdd==null||toDelete==null){
             throw  new Exception("null input");
         }
+        /**toAdd is already team owner of team**/
+        if(team.getTeamOwners().contains(toAdd)){
+            throw  new Exception("fail!The team owner you want to add already exist");
+        }
         if(team.getFounder()==toDelete){
             team.setFounder(toAdd);
             team.getTeamOwners().add(toAdd);
@@ -120,6 +131,9 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         else{
             throw new Exception("wrong team owner and team");
         }
+
+        LOG.info(String.format("%s - %s", this.getUserName(), "Replace %s founder from:%s to:%s",team.getName(),toDelete.getTeamRole().getUserName(),toAdd.getTeamRole().getUserName()));
+
     }
 
 
@@ -132,7 +146,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @codeBy Eden
      */
     //TODO test
-    public List<Object> removeUser(User userToDelete) throws Exception {
+    public List<Object> removeUser(Fan userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
         boolean isFan=true;
 
@@ -172,6 +186,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         if(userToDelete instanceof Fan&& isFan){
             objectsDeleted=fanRemove(((Fan)userToDelete));
         }
+        LOG.info(String.format("%s - %s", this.getUserName(), "remove %s from system",userToDelete.getUserName()));
 
         return objectsDeleted;
     }
@@ -428,43 +443,55 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
         checkValidTeam(teamToRemove);
-        /**delete team from owner*/
-        HashSet<TeamOwner> teamOwners= teamToRemove.getTeamOwners();
-        for(TeamOwner curTO:teamOwners){
-            teamToRemove.addObserver(curTO);
-            curTO.getTeams().remove(teamToRemove);
-            /** delete the team's subscriptions from team owner subscriptions list**/
-            HashSet<TeamSubscription> toRemove=new HashSet<>();
-            for(TeamSubscription ts: curTO.getMySubscriptions()){
-                if(ts.team==teamToRemove){
-                    toRemove.add(ts);
+        if(teamToRemove.isActive()) {
+            /**delete team from owner*/
+            HashSet<TeamOwner> teamOwners = teamToRemove.getTeamOwners();
+            for (TeamOwner curTO : teamOwners) {
+                teamToRemove.addObserver(curTO);
+                curTO.getTeams().remove(teamToRemove);
+                /** delete the team's subscriptions from team owner subscriptions list**/
+                HashSet<TeamSubscription> toRemove = new HashSet<>();
+                for (TeamSubscription ts : curTO.getMySubscriptions()) {
+                    if (ts.team == teamToRemove) {
+                        toRemove.add(ts);
+                    }
                 }
+                curTO.getMySubscriptions().removeAll(toRemove);
             }
-            curTO.getMySubscriptions().removeAll(toRemove);
+
+            /**remove team manager from team*/
+            TeamManager teamManager = teamToRemove.getTeamManager();
+            if (teamManager != null) {
+                teamToRemove.addObserver(teamManager);
+                teamManager.setTeam(null);
+                teamManager.getTeamRole().deleteTeamManager();
+            }
+
+            /**remove coach*/
+            teamToRemove.getCoach().setCoachTeam(null);
+            /**remove players*/
+            HashSet<Player> players = teamToRemove.getPlayers();
+            for (Player p : players) {
+                p.setPlayerTeam(null);
+            }
+
+            /***remove team name from system*/
+            system.getTeamNames().remove(teamToRemove.getName());
+
+            /**remove from system*/
+            system.getActiveTeams().remove(teamToRemove);
+            teamToRemove.sendNotiAbouteClose();
         }
-
-        /**remove team manager from team*/
-        TeamManager teamManager= teamToRemove.getTeamManager();
-        if(teamManager!=null) {
-            teamToRemove.addObserver(teamManager);
-            teamManager.setTeam(null);
-            teamManager.getTeamRole().deleteTeamManager();
+        /**if not active team**/
+        else{
+            /**remove all team owners- from deleted list****/
+            for(TeamOwner cur: teamToRemove.getTeamOwners()){
+                cur.getDeletedTeams().remove(teamToRemove);
+            }
+            teamToRemove.sendNotiAbouteClose();
         }
+        LOG.info(String.format("%s - %s", this.getUserName(), "remove team :%s from system",teamToRemove.getName()));
 
-        /**remove coach*/
-        teamToRemove.getCoach().setCoachTeam(null);
-        /**remove players*/
-        HashSet<Player> players = teamToRemove.getPlayers();
-        for(Player p : players){
-            p.setPlayerTeam(null);
-        }
-
-        /***remove team name from system*/
-        system.getTeamNames().remove(teamToRemove.getName());
-
-        /**remove from system*/
-        system.getActiveTeams().remove(teamToRemove);
-        //teamToRemove.sendNotiAbouteClose();
 
     }
 

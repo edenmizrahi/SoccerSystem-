@@ -3,6 +3,7 @@ package Service;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
 import Domain.Users.Fan;
+import Domain.Users.SystemManager;
 import Domain.Users.User;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ public class FanController {
      * @return
      *  @codeBy Eden
      */
-    public HashSet<Notification> showNotification(Fan user){
+    public HashSet<Notification> showNotifications(Fan user){
         return user.genUnReadNotifications();
     }
 
@@ -65,6 +66,19 @@ public class FanController {
          return  changed;
 
      }
+
+    /***
+     * mark list of notifications as read.
+     * @param f
+     * @param read
+     */
+    public void markAsReadNotification (Fan f, HashSet<Notification> read){
+        for(Notification n: read){
+            if(f.getNotificationsList().contains(n)) {
+                f.MarkAsReadNotification(n);
+            }
+        }
+    }
 
 
 }

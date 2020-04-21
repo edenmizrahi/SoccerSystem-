@@ -7,8 +7,11 @@ import Domain.LeagueManagment.Scheduling.SchedualeOption2;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
+import Domain.Notifications.Notification;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
+import Domain.Users.SystemManager;
+
 import java.util.*;
 
 public class RfaController {
@@ -19,7 +22,7 @@ public class RfaController {
      * @throws Exception
      * @codeBy Eden
      */
-    public void createLeage(String leagueName , Rfa user) throws Exception {
+    public void createLeague(String leagueName , Rfa user) throws Exception {
         user.createNewLeague(leagueName,user.getSystem());
     }
 
@@ -89,14 +92,31 @@ public class RfaController {
      }
 
      public void startSchedulingPolicy(Rfa user, Season season, HashSet<Referee> refs, Referee mainReferee) throws Exception {
-         for(Map.Entry<League,HashSet<Team>> entry: season.getTeamsInCurrentSeasonLeagues().entrySet()){
-             if(entry.getValue().size()<0){
-                 throw new Exception("league "+entry.getKey().getName()+" without teams, add teams first");
-             }
+         if(refs==null||mainReferee==null){
+             throw new Exception("please choose referees");
          }
-         user.startSchedulingPolicy(season,refs,mainReferee);
+         if(season!=null) {
+             for (Map.Entry<League, HashSet<Team>> entry : season.getTeamsInCurrentSeasonLeagues().entrySet()) {
+                 if (entry.getValue().size() < 0) {
+                     throw new Exception("league " + entry.getKey().getName() + " without teams, add teams first");
+                 }
+             }
+             user.startSchedulingPolicy(season, refs, mainReferee);
+         }
+         else{
+             throw new Exception("first define the season");
+         }
      }
 
+
+    public void startCalculationPolicy(Rfa user, Season season) throws Exception {
+        if(season!=null) {
+            user.startCalculationPolicy(season);
+        }
+        else{
+            throw new Exception("first define the season");
+        }
+    }
      /***Handling with team request:**/
     /**
      * show team request
@@ -147,5 +167,17 @@ public class RfaController {
         return list;
     }
 
+    /***
+     * mark list of notifications as read.
+     * @param rfa
+     * @param read
+     */
+    public void markAsReadNotification (Rfa rfa, HashSet<Notification> read){
+        for(Notification n: read){
+            if(rfa.getNotificationsList().contains(n)) {
+                rfa.MarkAsReadNotification(n);
+            }
+        }
+    }
 
 }

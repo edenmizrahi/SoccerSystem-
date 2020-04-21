@@ -338,7 +338,6 @@ public class MainSystem {
             extSystem.connectToSystem(this);
             LOG.info(String.format("%s - %s", this.getClass(), "system was started"));
         }
-
     }
 
     /**

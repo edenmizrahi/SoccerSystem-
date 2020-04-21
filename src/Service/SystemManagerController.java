@@ -1,11 +1,9 @@
 package Service;
 
 import Domain.LeagueManagment.Team;
+import Domain.MainSystem;
 import Domain.Notifications.Notification;
-import Domain.Users.Fan;
-import Domain.Users.SystemManager;
-import Domain.Users.TeamOwner;
-import Domain.Users.User;
+import Domain.Users.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,6 +25,7 @@ public class SystemManagerController {
     }
 
     /**
+     * for input to delete user function
      * get user by name is not an unique field so return a list of
      * matches users.
      *
@@ -44,7 +43,8 @@ public class SystemManagerController {
     }
 
     /**
-     * Domain.Users.User name is an unique field so this function return one user if there is user with
+     * for input to delete user function
+     *User name is an unique field so this function return one user if there is user with
      *
      * @param userName
      * @param user
@@ -84,6 +84,53 @@ public class SystemManagerController {
         user.replaceTeamOwnerFounder(toAdd,toRemove,fromTeam);
     }
 
+
+    /**
+     * get coaches without team in order to replace the coach of team
+     * @return
+     */
+    public LinkedList<Coach> getCoachesWithoutTeam( ){
+        LinkedList<Coach> allCoaches = MainSystem.getInstance().getAllCoach();
+        LinkedList<Coach> coachesWithoutTeam = new LinkedList<>();
+        for(Coach coach : allCoaches){
+            if(coach.getCoachTeam() == null){
+                coachesWithoutTeam.add(coach);
+            }
+        }
+        return coachesWithoutTeam;
+    }
+    public void replaceCoachAtTeam(Coach coachToReplace, Team t, SystemManager sm) throws Exception {
+
+        if(!sm.replaceCoachAtTeam(coachToReplace,t)){
+            throw new Exception("cannot replace coach "+t.getCoach().getTeamRole().getUserName()+"with "+coachToReplace.getTeamRole().getUserName()+"at team"+t.getName());
+        }
+    }
+    /**
+     * get players without team in order to add the player to team
+     * @return
+     */
+    public LinkedList<Player> getPlayersWithoutTeam( ){
+        LinkedList<Player> allPlayers = MainSystem.getInstance().getAllPlayer();
+        LinkedList<Player> playersToReturn = new LinkedList<>();
+        for(Player p : allPlayers){
+            if(p.getTeam() == null){
+                playersToReturn.add(p);
+            }
+        }
+        return playersToReturn;
+    }
+
+    /**
+     * add player to team in order to delete one of them
+     * @param p
+     * @param t
+     * @param user
+     */
+    public void addPlayerToTeam(Player p,Team t, SystemManager user) throws Exception {
+        if(user.addPlayerToTeam(p,t)){
+            throw new Exception("cannot add "+p.getTeamRole().getUserName()+" to Team:"+t.getName());
+        }
+    }
     /**
      * @return FileReader pointer to Log file
      */

@@ -592,6 +592,31 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
         }
     }
+
+    /**
+     * replace Coach At Team in order to delete coach user(cannot delete coach with team)
+     * @param coachToReplace
+     * @param t
+     * @return
+     */
+    public boolean replaceCoachAtTeam(Coach coachToReplace, Team t) {
+       if(coachToReplace!=null&&t!=null&&t.getCoach()!=null&&coachToReplace.getCoachTeam()==null){
+           t.getCoach().setCoachTeam(null);
+           t.setCoach(coachToReplace);
+           coachToReplace.setCoachTeam(t);
+           return true;
+       }
+       return false;
+    }
+
+    public boolean addPlayerToTeam(Player p, Team t) throws Exception {
+        if(p.getTeam()==null&&p!=null&&t!=null){
+            t.addPlayer(p);
+            p.setPlayerTeam(t);
+            return true;
+        }
+        return false;
+    }
     //</editor-fold>
 }
 

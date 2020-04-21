@@ -39,24 +39,23 @@ public class RfaTest {
 
     /**Yarden**/
     @Test
-    public void addRefereeTest() {
+    public void addRefereeTest() throws ParseException {
         try {
-            nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe1234","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
-//            assertEquals(2,ms.getUsers().size());
-            assertTrue(ms.getUserNames().contains("moshe1234"));
+            nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
         }
-        catch (Exception e){
-            Assert.fail();
-        }
-
+        assertEquals(2,ms.getUsers().size());
         //invalid details
+
         try {
             nadav.addReferee("moshe", "0546", "moshe@gmail.com", "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
             fail();
         }
         catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Invalid details - You can not add this referee",e.getMessage());
+            assertEquals("user name not valid",e.getMessage());
         }
         try {
             nadav.addReferee("moshe", null, null, "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
@@ -70,9 +69,7 @@ public class RfaTest {
 
     /**Yarden**/
     @Test
-    public void deleteRefereeTest() {
-        Team t1 = new Team();
-        Team t2 = new Team();
+    public void deleteReferee() throws Exception {
 
         /**referee is null**/
         try {

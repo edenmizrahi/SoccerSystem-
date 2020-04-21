@@ -322,7 +322,7 @@ public class MainSystem {
         SystemManager defultSM= new SystemManager(this,"Defult system Manager","0541234567","defult@google.com","systemManager","systemManager101",MainSystem.birthDateFormat.parse("01-01-2000"));
         //link external systems....
         extSystem.connectToSystem(this);
-        LOG.info(String.format("%s - %s", this.getClass(), "system was started for the first time"));
+        LOG.info(String.format("%s - %s", "", "system was started for the first time"));
     }
 
     /**OR**/
@@ -334,9 +334,8 @@ public class MainSystem {
         }else{
             //link external systems....
             extSystem.connectToSystem(this);
-            LOG.info(String.format("%s - %s", this.getClass(), "system was started"));
+            LOG.info(String.format("%s - %s", "", "system was started"));
         }
-
     }
 
     /**

@@ -31,10 +31,6 @@ public class PrivatePage {
         return records;
     }
 
-    public void setRecords(List<String> records) {
-        this.records = records;
-    }
-
     public PageOwner getPageOwner() {
         return pageOwner;
     }
@@ -47,12 +43,9 @@ public class PrivatePage {
         return fans;
     }
 
-    public void setFans(HashSet<Fan> fans) {
-        this.fans = fans;
-    }
 
     /**Or**/
-    //TODO test
+    //TODO test-V
     public String getRecordsAsString(){
         String ans="";
         for (String s:records) {
@@ -62,20 +55,17 @@ public class PrivatePage {
     }
 
     /**Or**/
-    //TODO test
+    //TODO test-V
     public void addRecords(String record) throws Exception {
-        if(record==null){
-            throw new Exception("record is null");
-        }
-        if(record.length()==0){
-            throw new Exception("record empty");
+        if(record==null || record.length()==0){
+            throw new Exception("record not valid");
         }
         records.add(record);
-        LOG.info(String.format("%s - %s", pageOwner, "added record to page"));
+        LOG.info(String.format("%s - %s", pageOwner.getOwnerName(), "added record to page"));
     }
 
     /**Or**/
-    //TODO test
+    //TODO test-V
     public void removeRecord(String record) throws Exception {
         if(record==null){
             throw new Exception("record in null");
@@ -83,23 +73,26 @@ public class PrivatePage {
         if(record.length()==0){
             throw new Exception("record empty");
         }
+        if(!records.contains(record)){
+            throw new Exception("thid page doesn't contain this record");
+        }
         records.remove(record);
-        LOG.info(String.format("%s - %s", pageOwner, "added record to page"));
+        LOG.info(String.format("%s - %s", pageOwner.getOwnerName(), "added record to page"));
     }
 
     /**Or**/
-    //TODO test
+    //TODO test-V
     public void addFan(Fan fan) throws Exception {
         if(fan==null){
             throw new Exception("fan null");
         }
+        if(fans.contains(fan)){
+            throw new Exception("this fan is already in fan list");
+        }
         fans.add(fan);
-        LOG.info(String.format("%s - %s", pageOwner, "add fan to page, fane username: "+fan.getUserName()));
+        LOG.info(String.format("%s - %s", pageOwner.getOwnerName(), "add fan to page, fane username: "+fan.getUserName()));
     }
 
-    /**Or**/
-    public void deletePage(){
 
-    }
 
 }

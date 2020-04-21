@@ -1,9 +1,13 @@
 import Domain.MainSystem;
 import Domain.Users.User;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 public class UserTest {
     MainSystem ms = MainSystem.getInstance();
@@ -19,7 +23,40 @@ public class UserTest {
         }
     }
 
-//    Domain.Users.Player player1=new Domain.Users.Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);
+    @Test
+    public void checkValidDetails() {
+        try {
+            user.checkValidDetails("name",null,"user101","0542150192","email@gmail.com");
+            Assert.fail();
+        } catch (Exception e) {
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("user name not valid",e.getMessage());
+        }
+        try {
+            user.checkValidDetails("name","user2","user1","0542150192","email@gmail.com");
+            Assert.fail();
+        } catch (Exception e) {
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("password not valid",e.getMessage());
+        }
+        try {
+            user.checkValidDetails("name","user2","user101","0542192","email@gmail.com");
+            Assert.fail();
+        } catch (Exception e) {
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("phone number not valid",e.getMessage());
+        }
+        try {
+            user.checkValidDetails("name","user2","user101","0542150912","email@gmail");
+            Assert.fail();
+        } catch (Exception e) {
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("email not valid",e.getMessage());
+        }
+    }
+
+
+    //    Domain.Users.Player player1=new Domain.Users.Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);
 //    Domain.Users.Player player2=new Domain.Users.Player(ms, "Or Hamalcha", "0542150912","oralf@gmail.com", "OrHamalcha", "Or1234",date);
 //    Domain.PrivatePage pp1=new Domain.PrivatePage();
 //    Domain.PrivatePage pp2= new Domain.PrivatePage();

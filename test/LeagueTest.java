@@ -1,50 +1,89 @@
+import Domain.LeagueManagment.*;
+import Domain.LeagueManagment.Calculation.CalculateOption1;
+import Domain.LeagueManagment.Calculation.CalculationPolicy;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
+import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.MainSystem;
+import Stubs.TeamStub;
+import org.junit.Assert;
 import org.junit.Test;
+import Domain.Users.*;
+
+import java.util.Date;
+import java.util.HashSet;
 
 public class LeagueTest {
 
+    MainSystem sys = MainSystem.getInstance();
+    TeamStub t1 = new TeamStub("team1");
+    TeamStub t2 = new TeamStub("team2");
+    TeamStub t3 = new TeamStub("team3");
+    TeamStub t4 = new TeamStub("team4");
+
+    /**eden+yarden**/
     @Test
     public void addSeasonWithTeams() throws Exception {
-        MainSystem sys = MainSystem.getInstance();
-        //Domain.LeagueManagment.League l = new Domain.LeagueManagment.League("hahal", sys, null, null);
-        //Domain.LeagueManagment.Season s = new Domain.LeagueManagment.Season(sys, null, 1884);
 
-//        HashSet<Domain.LeagueManagment.Team> teams1=new HashSet<Domain.LeagueManagment.Team>();
-//        HashSet<Domain.Users.Player> players=new HashSet<>();
-//        Subscription sub=new Subscription(sys,"ttt","tt","tt","tt","ttt");
+        SchedulingPolicy schedulingPolicy = new SchedualeOption1();
+        CalculationPolicy calculationPolicy = new CalculateOption1();
+
+        League l = new League("A",sys);
+        Season s = new Season(sys, schedulingPolicy, calculationPolicy,2020);
+
+        HashSet<Team> teams1=new HashSet<Team>();
+        HashSet<Team> teams2 = new HashSet<Team>();
+
+//        HashSet<Player> players=new HashSet<>();
+
+//        TeamRole player= new TeamRole(sys,"michael","0522150912","teamO@gmail.com","player4432","player4432",MainSystem.birthDateFormat.parse("09-12-1995"));
+//        player.becomePlayer();
 //        for(int i=0;i<13 ;i++){
-//            Date d= new Date();
-//            players.add(new Domain.Users.Player(sub,sys,d));
+//            players.add(new Player(player,t1,"defense"));
 //            /*****/
 //            /*****/
 //            System.out.println("fjj");
 //            System.out.println("fjj");
 //        }
-//        Subscription yossi = new Subscription(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
+//        TeamRole teamOwner = new TeamRole(sys,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
 //        //or added because the change in Domain.LeagueManagment.Team constructor
-//        Domain.Users.TeamOwner teamOwner = new Domain.Users.TeamOwner(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
-//        Domain.LeagueManagment.Field field = new Domain.LeagueManagment.Field("Beer Sheva Domain.LeagueManagment.Field");
-//
-//        teams1.add(new Domain.LeagueManagment.Team("hahalufa",players,null,field,teamOwner));
-//        teams1.add(new Domain.LeagueManagment.Team("hapuel",players,null,field, teamOwner));
-//        teams1.add(new Domain.LeagueManagment.Team("macabi",players,null,field,teamOwner));
-//        Domain.LeagueManagment.Team teamFor2Tests =new Domain.LeagueManagment.Team("hapuel-Rishon",players,null,field,teamOwner);
-//        teams1.add(teamFor2Tests);
-//        l.addSeasonWithTeams(s,teams1);
-//        /**check if both are equals**/
-//        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
-//        HashSet<Domain.LeagueManagment.Team> teams2=new HashSet<Domain.LeagueManagment.Team>();
-//        teams2.add(new Domain.LeagueManagment.Team("beitar",players,null,field,teamOwner));
-//        teams2.add(new Domain.LeagueManagment.Team("beitar2",players,null,field,teamOwner));
-//        teams2.add(teamFor2Tests);
-//        l.addSeasonWithTeams(s,teams2);
-//        /**add more teams and check if both are equals**/
-//        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
-//
-//        /**double add again- both with no changes and equals*/
-//        l.addSeasonWithTeams(s,teams2);
-//        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
-//        Assert.assertTrue(l.getTeamsInSeason().get(s).size()==6);
+//        TeamRole teamOwner1 = new TeamRole(sys,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+//        Field field = new Field("Beer Sheva");
 
+        teams1.add(t1);
+        teams1.add(t2);
+        teams1.add(t3);
+
+        /**nul check**/
+        try {
+            l.addSeasonWithTeams(null, teams1);
+            Assert.fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(NullPointerException.class, e.getClass());
+        }
+
+        try {
+            l.addSeasonWithTeams(s,null);
+            Assert.fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(NullPointerException.class, e.getClass());
+        }
+
+        l.addSeasonWithTeams(s,teams1);
+        /**check if both are equals**/
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
+
+        teams2.add(t1);
+        teams2.add(t4);
+
+        l.addSeasonWithTeams(s,teams2);
+        /**add more teams and check if both are equals**/
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
+
+        /**double add again- both with no changes and equals*/
+        l.addSeasonWithTeams(s,teams2);
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
+        Assert.assertTrue(l.getTeamsInSeason().get(s).size()==4);
     }
 }

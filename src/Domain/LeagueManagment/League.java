@@ -67,20 +67,22 @@ public class League {
     //</editor-fold>
 
     /**
-     * Add teams by Domain.LeagueManagment.Season to this league.
+     * Add teams by Season to this league.
      * also add to input season the input league with the input teams.
      * @param season
      * @param teams teams to add to the current league with the league
      * @codeBy Eden
      */
-
-    //TODO test
+    //TODO test - V
     public void addSeasonWithTeams(Season season, HashSet<Team> teams) {
+
+        if(season==null || teams==null){
+            throw new NullPointerException();
+        }
         /**check if season already exist**/
         if(!teamsInSeason.containsKey(season)) {
             teamsInSeason.put(season, teams);
             season.addLeagueWithTeams(this,teams);
-
         }
         else{
             /**if season already exist- check is it already hold the input teams*/
@@ -88,11 +90,10 @@ public class League {
                 teams.addAll(teamsInSeason.get(season));
                 teamsInSeason.put(season, teams);
                 season.addLeagueWithTeams(this,teams);
-
             }
         }
-
     }
+
     public HashMap<Season, HashSet<Team>> getTeamsInSeason() {
         return teamsInSeason;
     }
@@ -104,7 +105,7 @@ public class League {
             return false;
         }
         League newLeague = (League)o;
-        if(this.getName().equals(((League) o).getName())){
+        if(this.getName().equals(newLeague.getName())){
             return true;
         }
         else{

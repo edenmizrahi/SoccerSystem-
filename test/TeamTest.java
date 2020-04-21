@@ -104,7 +104,7 @@ public class TeamTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Domain.TeamOwner is null",e.getMessage());
+            assertEquals("TeamOwner is null",e.getMessage());
         }
 
     }
@@ -205,7 +205,7 @@ public class TeamTest {
         /**ok**/
         try {
             t.removeCoach(coach.getCoach());
-            Assert.assertFalse(t.getCoach().equals(coach.getCoach()));
+            Assert.assertNull(t.getCoach());
         }
         catch (Exception e) {
             Assert.fail();

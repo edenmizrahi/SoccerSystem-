@@ -66,9 +66,9 @@ public class SystemManagerController {
      * @param systemManager
      * @throws Exception if delete is not valid.
      */
-    public void deleteUserForever(User u, SystemManager systemManager) throws Exception {
-        systemManager.removeUser(u);
-    }
+//    public void deleteUserForever(User u, SystemManager systemManager) throws Exception {
+//        systemManager.removeUser(u);
+//    }
 
 
     /**

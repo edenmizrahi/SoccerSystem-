@@ -149,7 +149,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         // check if already team owner of this team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner() && team.getTeamOwners().contains(((TeamRole) fan).getTeamOwner())){
-            throw new Exception("Already Domain.LeagueManagment.Team Owner of this team");
+            throw new Exception("Already team Owner of this team");
         }
         TeamRole teamRole;
         // check if already team owner of different team
@@ -242,7 +242,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         // check if already team manager of this team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamManager() && team.getTeamManager().equals(((TeamRole) fan).getTeamManager())){
-            throw new Exception("Already Domain.LeagueManagment.Team Manager of this team");
+            throw new Exception("Already Team Manager of this team");
         }
         TeamRole teamRole;
         // check if already teamRole
@@ -316,7 +316,7 @@ public class TeamOwner implements Observer , NotificationsUser {
             coachToAdd.getCoach().setRoleAtTeam(newCoachRoleAtTeam);
         }
         else {
-            throw new Exception("This Domain.Users.Coach doesn't exist in this team");
+            throw new Exception("This Coach doesn't exist in this team");
         }
     }
 
@@ -350,7 +350,7 @@ public class TeamOwner implements Observer , NotificationsUser {
             player.becomePlayer();
         }
 
-        if(player.getPlayer().getTeam()!=null) {
+        if(player.getPlayer().getTeam()==null) {
             team.addPlayer(player.getPlayer());
             player.getPlayer().setPlayerTeam(team);
             player.getPlayer().setRoleAtField(role);
@@ -528,7 +528,7 @@ public class TeamOwner implements Observer , NotificationsUser {
             if(arg instanceof Boolean && arg.equals(true)){// the team can be open
                requestedTeams.remove(o);
                approvedTeams.add((Team)o);
-               notifications.add(new Notification(o,"Domain.LeagueManagment.Team "+((Team)o).getName()+" can be open",false));
+               notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));
             }
             else if(arg.equals(false)){// the team cant be open
                 ((Team)o).deleteObservers();

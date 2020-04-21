@@ -464,29 +464,25 @@ public class User {
     //<editor-fold desc="Sign in Functions">
 
     /**OR**/
-    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
+    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(userName,password,phoneNumber,email);
             TeamRole newPlayer= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newPlayer.becomePlayer();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Player"));
             return newPlayer;
-        }
-        return null;
     }
 
     /**OR**/
-    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth){
+    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(userName,password,phoneNumber,email);
             TeamRole newCoach= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newCoach.becomeCoach();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Coach"));
             return newCoach;
-        }
-        return null;
     }
 
     /**OR**/
@@ -503,15 +499,13 @@ public class User {
     }
 */
     /**OR**/
-    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth){
+    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(userName,password,phoneNumber,email);
             Fan newFan= new Fan(system,name,phoneNumber,email,userName,password, dateOfBirth);
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
             return newFan;
-        }
-        return null;
     }
 
     /**OR**/
@@ -529,52 +523,47 @@ public class User {
     */
 
     /**OR**/
-    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth){
+    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
-            Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password,dateOfBirth);
-            system.removeUser(this);
-            LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
-            return newRFA;
-        }
-        return null;
+        checkValidDetails(userName,password,phoneNumber,email);
+        Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password,dateOfBirth);
+        system.removeUser(this);
+        LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
+        return newRFA;
     }
 
     /**OR**/
-    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
+    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(userName,password,phoneNumber,email);
             TeamRole teamOwner= new TeamRole(system,name,phoneNumber,email,userName,password, dateOfBirth);
             teamOwner.becomeTeamOwner();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
             return teamOwner;
-        }
-        return null;
     }
 
 
-    public boolean checkValidDetails(String userName, String password, String phoneNumber, String email){
+    public void checkValidDetails(String userName, String password, String phoneNumber, String email) throws Exception {
         //check that username in unique
         if(system.getUserNames().contains(userName)){
-            return false;
+            throw new Exception("user name not valid");
         }
         //password length is 6 or more
         if(password.length()<6){
-            return false;
+            throw new Exception("password length too short");
         }
         // phone number is 10 digits
         if( !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
-            return false;
+            throw new Exception("phone number not valid");
         }
         //email contains @
         if(! email.contains("@")){
-            return false;
+            throw new Exception("email not valid");
         }
         if( ! (email.contains(".com") || email.contains(".co.il"))){
-            return false;
+            throw new Exception("email not valid");
         }
-        return true;
     }
     //</editor-fold>
 

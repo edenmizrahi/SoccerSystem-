@@ -146,13 +146,12 @@ public class Rfa extends Fan implements Observer{
      */
     //TODO test - V
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
-        if (checkValidDetails(userName, password, phoneNumber,email) && name!=null && qualification!=null) {
-            Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
-            LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Domain.Users.Rfa"));
+        if(name==null || qualification == null){
+            throw new NullPointerException();
         }
-        else {
-            throw new Exception("Invalid details - You can not add this referee");
-        }
+        checkValidDetails(userName, password, phoneNumber,email);
+        Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
+        LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Domain.Users.Rfa"));
     }
 
     /**

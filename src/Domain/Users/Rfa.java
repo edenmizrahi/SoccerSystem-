@@ -9,6 +9,8 @@ import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
+import Domain.Notifications.Notification;
+import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,21 +18,24 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 
-public class Rfa extends Fan implements Observer{
+public class Rfa extends Fan implements Observer , NotificationsUser {
 
     private BudgetControl budgetControl;//TODO: delete?!?!?!
     private static final Logger LOG = LogManager.getLogger();
     public static LinkedList<Team> teamRequests;
+    public static HashSet<Notification> notifications;
 
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new LinkedList<>();
+        this.notifications=new HashSet<>();
         //TODO add permissions
     }
 
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
         this.teamRequests= new LinkedList<>();
+        notifications=new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -222,6 +227,7 @@ public class Rfa extends Fan implements Observer{
         if(o instanceof Team){
             if(arg.equals("request to open new team")){//open new team
                 this.teamRequests.add((Team)o);
+                this.notifications.add(new Notification(o,arg,false));
             }
         }
     }
@@ -233,8 +239,49 @@ public class Rfa extends Fan implements Observer{
             throw new Exception("team not in request list");
         }
         team.sendDecision(desicion);
+        Notification cur=null;
+        /**get the current notification**/
+        for(Notification n: notifications){
+            if(n.getSender()==team){
+                cur=n;
+                break;
+            }
+        }
+        cur.setRead(true);
         teamRequests.remove(team);
 
+    }
 
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    public void MarkAsReadNotification(Notification not){
+        not.setRead(true);
+    }
+
+    /**
+     * get all notifications read and unread
+     * @return
+     */
+    public HashSet<Notification> getNotificationsList() {
+        return notifications;
+    }
+
+    /***
+     * @return only the unread notifications . if not have return null - notify when user connect
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notifications){
+            if(n.isRead()==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
     }
 }

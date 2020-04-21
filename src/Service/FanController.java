@@ -3,6 +3,7 @@ package Service;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
 import Domain.Users.Fan;
+import Domain.Users.SystemManager;
 import Domain.Users.User;
 
 import java.util.Date;
@@ -17,13 +18,15 @@ public class FanController {
      * @return
      *  @codeBy Eden
      */
-    public HashSet<Notification> showNotification(Fan user){
+    public HashSet<Notification> showNotifications(Fan user){
         return user.genUnReadNotifications();
     }
+
 
     /**
      * logOutFromSystem
      * @param curUser
+     * @codeBy Eden
      */
     public void logOut(Fan curUser){
         curUser.logOut();
@@ -38,6 +41,7 @@ public class FanController {
      * @param email
      * @param date
      * @return list of fields that changed.
+     * @codeBy Eden
      */
      public List<String> changePrivateDetails(Fan user, String password , String phoneNumber, String email, Date date){
          List <String> changed=new LinkedList<>();
@@ -65,6 +69,20 @@ public class FanController {
          return  changed;
 
      }
+
+    /***
+     * mark list of notifications as read.
+     * @param f
+     * @param read
+     * @codeBy Eden
+     */
+    public void markAsReadNotification (Fan f, HashSet<Notification> read){
+        for(Notification n: read){
+            if(f.getNotificationsList().contains(n)) {
+                f.MarkAsReadNotification(n);
+            }
+        }
+    }
 
 
 }

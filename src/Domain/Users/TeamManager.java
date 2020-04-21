@@ -259,15 +259,30 @@ public class TeamManager extends ManagmentActions implements Observer, Notificat
 
     //<editor-fold desc="Notifications Handler">
     /**
-     * get notifications about close Domain.LeagueManagment.Team
+     * get notifications about:
+     *      1.close team forever.
+     *      2. remove team by team owner.
+     *      3.reopen team by team owner.
      * @param o
      * @param arg
      * @codeBy Eden
      */
     @Override
     public void update(Observable o, Object arg) {
-        if(o instanceof Team && arg instanceof  String && ((String)arg).contains("removed")){
-            notificationsList.add(new Notification(o,arg,false));
+        /**notification about close team forever*/
+        if (o instanceof Team && arg instanceof String && ((String) arg).contains("removed")) {
+            notificationsList.add(new Notification(o, arg, false));
+        }
+        /***team deleted by team owner*/
+        if (o instanceof Team) {
+            if (arg.equals("team deleted by team owner")) {// the team was deleted by system manager and not active any more
+                notificationsList.add(new Notification(o, arg, false));
+            }
+            /**team reOpen by team owner**/
+            else if (arg.equals("team reopened by team owner")) {
+                notificationsList.add(new Notification(o, arg, false));
+
+            }
         }
     }
 

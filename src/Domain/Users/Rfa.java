@@ -112,7 +112,8 @@ public class Rfa extends Fan implements Observer{
 
 
     /**
-     * This function create new league
+     * This function gets name of league and create new league, if there isn't already
+     * league with the same name in the system
      * @param nameOfLeague
      * @param ms
      * @throws Exception
@@ -123,8 +124,8 @@ public class Rfa extends Fan implements Observer{
             League newLeague = new League(nameOfLeague, ms);
             LOG.info(String.format("%s - %s", this.getUserName(), "Create new league"));
         }
-            else{
-            throw new Exception("Please insert valid details in order to create the new Domain.LeagueManagment.League properly");
+        else{
+            throw new Exception("Invalid parameters");
         }
 
     }
@@ -153,7 +154,7 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**
-     * This function gets Domain.Users.Referee and remove him from the list of all the users
+     * This function gets Referee and remove him from the list of all the users
      * cannot remove if he has a match in the future
      * @param ref
      * @throws Exception
@@ -177,7 +178,7 @@ public class Rfa extends Fan implements Observer{
     }
 
     /**
-     * Initializing Domain.LeagueManagment.Season To Domain.LeagueManagment.League
+     * Initializing Season To League by giving the policies, year and teams that will be in the league in this season
      * @param schedule
      * @param calculate
      * @param year
@@ -185,7 +186,7 @@ public class Rfa extends Fan implements Observer{
      * @param teams
      * @CodeBy Yarden
      */
-    //TODO test
+    //TODO test - V
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams){
         Season newSeason = new Season(this.system,schedule,calculate,year);
         this.system.setCurrSeason(newSeason);

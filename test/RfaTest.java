@@ -55,7 +55,7 @@ public class RfaTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Domain.Users.Referee is null",e.getMessage());
+            assertEquals("Referee is null",e.getMessage());
         }
 
         /**everything is ok**/
@@ -114,6 +114,33 @@ public class RfaTest {
     /**Yarden**/
     @Test
     public void createNewLeague(){
+
+        /**null check**/
+        try{
+            nadav.createNewLeague(null,ms);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Invalid parameters",e.getMessage());
+        }
+
+        try{
+            nadav.createNewLeague("A",ms);
+            Assert.assertTrue(ms.getLeagues().size()==1);
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
+
+        try{
+            nadav.createNewLeague("A",ms);
+            Assert.fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("There is already league with the same name",e.getMessage());
+        }
 
 
     }

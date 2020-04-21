@@ -171,6 +171,7 @@ public class RfaController {
      * mark list of notifications as read.
      * @param rfa
      * @param read
+     * @codeBy Eden
      */
     public void markAsReadNotification (Rfa rfa, HashSet<Notification> read){
         for(Notification n: read){

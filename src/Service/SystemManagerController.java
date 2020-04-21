@@ -19,6 +19,7 @@ public class SystemManagerController {
      * @param teamToRemove
      * @param user
      * @throws Exception
+     * @codeBy Eden
      */
     public void closeTeamForever(Team teamToRemove, SystemManager user) throws Exception {
         user.removeTeamFromSystem(teamToRemove);
@@ -31,6 +32,7 @@ public class SystemManagerController {
      *
      * @param name
      * @return list of match users.
+     * @codeBy Eden
      */
     public LinkedList<User> getUserByName(String name, SystemManager user) {
         List<User> users = user.getSystem().getUsers();
@@ -49,6 +51,7 @@ public class SystemManagerController {
      * @param userName
      * @param user
      * @return
+     * @codeBy Eden
      */
     public User getUserByUserName(String userName, SystemManager user) {
         List<User> users = user.getSystem().getUsers();
@@ -66,6 +69,7 @@ public class SystemManagerController {
      * @param u user to delete
      * @param systemManager
      * @throws Exception if delete is not valid.
+     * @codeBy Eden
      */
     public void deleteUserForever(Fan u, SystemManager systemManager) throws Exception {
         systemManager.removeUser(u);
@@ -79,6 +83,7 @@ public class SystemManagerController {
      * @param toRemove
      * @param fromTeam
      * @throws Exception if team is not in the team owner's teams list.
+     *@codeBy Eden
      */
     public void replaceTeamFounder(SystemManager user, TeamOwner toAdd, TeamOwner toRemove , Team fromTeam) throws Exception {
         user.replaceTeamOwnerFounder(toAdd,toRemove,fromTeam);
@@ -88,6 +93,7 @@ public class SystemManagerController {
     /**
      * get coaches without team in order to replace the coach of team
      * @return
+     * @codeBy Eden
      */
     public LinkedList<Coach> getCoachesWithoutTeam( ){
         LinkedList<Coach> allCoaches = MainSystem.getInstance().getAllCoach();
@@ -108,6 +114,7 @@ public class SystemManagerController {
     /**
      * get players without team in order to add the player to team
      * @return
+     * @codeBy Eden
      */
     public LinkedList<Player> getPlayersWithoutTeam( ){
         LinkedList<Player> allPlayers = MainSystem.getInstance().getAllPlayer();
@@ -125,6 +132,7 @@ public class SystemManagerController {
      * @param p
      * @param t
      * @param user
+     * @codeBy Eden
      */
     public void addPlayerToTeam(Player p,Team t, SystemManager user) throws Exception {
         if(user.addPlayerToTeam(p,t)){
@@ -133,6 +141,7 @@ public class SystemManagerController {
     }
     /**
      * @return FileReader pointer to Log file
+     * @codeBy Eden
      */
     public FileReader showSystemDetails (SystemManager user) throws FileNotFoundException {
         return user.showSystemInfo();
@@ -142,6 +151,7 @@ public class SystemManagerController {
      * mark list of notifications as read.
      * @param sM
      * @param read
+     * @codeBy Eden
      */
     public void markAsReadNotification (SystemManager sM,HashSet<Notification> read){
         for(Notification n: read){

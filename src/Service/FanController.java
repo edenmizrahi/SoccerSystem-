@@ -22,9 +22,11 @@ public class FanController {
         return user.genUnReadNotifications();
     }
 
+
     /**
      * logOutFromSystem
      * @param curUser
+     * @codeBy Eden
      */
     public void logOut(Fan curUser){
         curUser.logOut();
@@ -39,6 +41,7 @@ public class FanController {
      * @param email
      * @param date
      * @return list of fields that changed.
+     * @codeBy Eden
      */
      public List<String> changePrivateDetails(Fan user, String password , String phoneNumber, String email, Date date){
          List <String> changed=new LinkedList<>();
@@ -71,6 +74,7 @@ public class FanController {
      * mark list of notifications as read.
      * @param f
      * @param read
+     * @codeBy Eden
      */
     public void markAsReadNotification (Fan f, HashSet<Notification> read){
         for(Notification n: read){

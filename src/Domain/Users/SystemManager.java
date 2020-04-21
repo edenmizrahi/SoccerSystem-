@@ -484,10 +484,12 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         }
         /**if not active team**/
         else{
-            /**remove all team owners- from deleted list****/
+            /**remove team from - team owners deleted list****/
             for(TeamOwner cur: teamToRemove.getTeamOwners()){
                 cur.getDeletedTeams().remove(teamToRemove);
+                teamToRemove.addObserver(cur);
             }
+            teamToRemove.addObserver(teamToRemove.getTeamManager());
             teamToRemove.sendNotiAbouteClose();
         }
         LOG.info(String.format("%s - %s", this.getUserName(), "remove team :%s from system",teamToRemove.getName()));
@@ -554,15 +556,17 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
 
     /**
      * Get notifications about:
-     *  1.Open Domain.LeagueManagment.Team request.
-     *  2.Get new complaint.
+     *  1.Get new complaint.
+     *  2.remove team by team owner
+     *  3.reopen team by team owner
+     *
      * @param o
      * @param arg
      * @codeBy Or and Eden
      */
     @Override
     public void update(Observable o, Object arg) {
-        /**Eden**/
+        /**get new complaint*/
         if(o instanceof  Complaint){
             if(o instanceof Complaint){
                 /**if it's not an answer notify*/
@@ -581,14 +585,15 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
         }
 
-        /***Or*/
-        if(o instanceof Team){
-            if( arg.equals("team deleted by team owner")){// the team was deleted by system manager and not active any more
-                notifications.add(new Notification(o,arg,false));
-            }
-            else if(arg.equals("team reopened by team owner")){
-                notifications.add(new Notification(o,arg,false));
+        /**team reOpen by team owner**/
+        else if (arg.equals("team reopened by team owner")) {
+            notifications.add(new Notification(o, arg, false));
 
+        }
+        /***team deleted by team owner*/
+        if (o instanceof Team) {
+            if (arg.equals("team deleted by team owner")) {// the team was deleted by system manager and not active any more
+                notifications.add(new Notification(o, arg, false));
             }
         }
     }

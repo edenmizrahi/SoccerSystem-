@@ -56,7 +56,7 @@ public class Team extends Observable implements PageOwner {
         }
         setChanged();
         notifyObservers("request to open new team");
-
+        addObserver(teamOwner);
         //add team name to hash set
         mainSystem.addTeamName(name);
 
@@ -447,6 +447,7 @@ public class Team extends Observable implements PageOwner {
         if(teamManager != null){
             teamManager.setTeam(null);
             teamManager.getTeamRole().deleteTeamManager();
+            addObserver(teamManager);
         }
 
         isActive=false;
@@ -555,9 +556,12 @@ public class Team extends Observable implements PageOwner {
         for(TeamOwner t: getTeamOwners()){
             addObserver(t);
         }
+        addObserver(teamManager);
         setChanged();
         notifyObservers("team reopened by team owner");
-
+        /**remove all observer except founder teamOwner***/
+        deleteObservers();
+        addObserver(founder);
         LOG.info(String.format("%s - %s", name, "team was re-opened"));
     }
 

@@ -224,6 +224,8 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
         }
         tM.setTeam(null);
         tM.getTeamRole().deleteTeamManager();
+        team.deleteObserver(tM);
+
     }
 
     /**
@@ -325,9 +327,12 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
     }
 
 
-    public void removeTeam(Team team){
+    public void removeTeam(Team team) throws Exception {
         if (teams.contains(team)){
             teams.remove(team);
+        }
+        else{
+            throw new Exception("team not belong to ths owner");
         }
     }
 
@@ -418,7 +423,7 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
 
         if(o instanceof Team){
             /**team request answer***/
-            if(arg instanceof Boolean && arg.equals(true)){// the team can be open
+            if(arg.equals(true)){// the team can be open
                requestedTeams.remove(o);
                approvedTeams.add((Team)o);
                notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));

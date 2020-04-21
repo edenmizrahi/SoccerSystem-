@@ -322,10 +322,18 @@ public class Team extends Observable implements PageOwner {
         return privatePage;
     }
 
+    @Override
+    public String getOwnerName() {
+        return name;
+    }
+
     /**Or**/
     //TODO test - V
     @Override
     public void addRecordToPage(String record) throws Exception {
+        if(record==null || record.length()==0){
+            throw new Exception("record not valid");
+        }
         if(this.privatePage!=null) {
             this.privatePage.addRecords(record);
         }
@@ -338,6 +346,9 @@ public class Team extends Observable implements PageOwner {
     //TODO test - V
     @Override
     public void removeRecordFromPage(String record) throws Exception {
+        if(record==null || record.length()==0){
+            throw new Exception("record not valid");
+        }
         if(this.privatePage!=null) {
             this.privatePage.removeRecord(record);
         }
@@ -357,6 +368,18 @@ public class Team extends Observable implements PageOwner {
             return true;
         }
         return false;
+    }
+
+    /**Or**/
+    //TODO test - V
+    @Override
+    public boolean deletePrivatePage() {
+        if(privatePage == null){
+            return false;
+        }
+        this.privatePage.setPageOwner(null);
+        this.privatePage=null;
+        return true;
     }
 
     //</editor-fold>

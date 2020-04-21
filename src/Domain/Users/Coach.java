@@ -89,10 +89,25 @@ public class Coach implements PageOwner {
         return false;
     }
 
+    @Override
+    public boolean deletePrivatePage() {
+        if(privatePage == null){
+            return false;
+        }
+        this.privatePage.setPageOwner(null);
+        this.privatePage=null;
+        return true;
+    }
+
     /**Or**/
     @Override
     public PrivatePage getPage() {
         return privatePage;
+    }
+
+    @Override
+    public String getOwnerName() {
+        return teamRole.getUserName();
     }
 
     //</editor-fold>

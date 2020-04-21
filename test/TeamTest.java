@@ -648,5 +648,47 @@ public class TeamTest {
         Assert.assertTrue(t.getTeamOwners().size()==0);
     }
 
+    @Test
+    public void createPrivatePage() {
+        Assert.assertTrue(t.getPrivatePage()==null);
+        Assert.assertTrue(t.createPrivatePage());
+        assertTrue(t.getPrivatePage()!=null);
+        Assert.assertFalse(t.createPrivatePage());
+    }
 
+    @Test
+    public void deletePrivatePage() {
+        Assert.assertTrue(t.createPrivatePage());
+        assertTrue(t.getPrivatePage()!=null);
+        Assert.assertTrue(t.deletePrivatePage());
+        Assert.assertTrue(t.getPrivatePage()==null);
+        Assert.assertFalse(t.deletePrivatePage());
+    }
+
+    @Test
+    public void addRemoveRecordToPage() {
+        t.createPrivatePage();
+        try {
+            t.addRecordToPage("newRecord");
+            Assert.assertTrue(t.getPrivatePage().getRecords().contains("newRecord"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+        try {
+            t.addRecordToPage("");
+        } catch (Exception e) {
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("record not valid",e.getMessage());
+        }
+
+        try {
+            t.removeRecordFromPage("newRecord");
+            Assert.assertFalse(t.getPrivatePage().getRecords().contains("newRecord"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+    }
 }

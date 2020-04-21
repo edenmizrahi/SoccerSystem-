@@ -15,3 +15,16 @@
 2020.04.16 18:55:10.751 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
 2020.04.16 18:56:37.018 INFO  Domain.MainSystem - class Domain.MainSystem - system was started for the first time
 2020.04.16 18:56:37.022 INFO  Domain.MainSystem - class Domain.MainSystem - system was started
+2020.04.21 12:49:44.675 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.21 12:51:10.862 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.21 12:52:03.718 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.21 12:52:39.283 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.21 16:26:26.286 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
+2020.04.21 16:27:42.099 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
+2020.04.21 16:27:42.102 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: money amount: -50
+2020.04.21 16:29:05.740 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
+2020.04.21 16:29:05.745 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
+2020.04.21 16:29:05.746 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: money amount: -50
+2020.04.21 16:29:42.034 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
+2020.04.21 16:29:42.039 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
+2020.04.21 16:29:42.040 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: money amount: -50

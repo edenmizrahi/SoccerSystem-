@@ -29,70 +29,7 @@ public class TeamOwnerTest {
     }
 
 
-    /**adi+or**/
-    @Test
-    public void subscribeTeamOwnerTest() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-        try {
-            tOYossi.getTeamOwner().subscribeTeamOwner(null,null);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-        try {
-            tOYossi.getTeamOwner().subscribeTeamOwner(tOYossi,teamForTest);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("Already team Owner of this team", e.getMessage());
-        }
 
-        TeamRole tOMoshe = null;
-        try {
-            tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, teamForTest);
-            Assert.assertEquals(2, teamForTest.getTeamOwners().size());
-            Assert.assertTrue(tOMoshe.getTeamOwner().getTeams().contains(teamForTest));
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail();
-        }
-
-
-    }
-
-    /**adi+or**/
-    @Test
-    public void removeTeamOwnerTest() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-
-        try {
-            tOYossi.getTeamOwner().removeTeamOwner(null,null);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-        TeamRole tOMoshe = null;
-        try {
-            tOMoshe = tOYossi.getTeamOwner().subscribeTeamOwner(moshe, teamForTest);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail();
-        }
-        Assert.assertEquals(2, teamForTest.getTeamOwners().size());
-        try {
-            tOYossi.getTeamOwner().removeTeamOwner(tOMoshe.getTeamOwner(), teamForTest);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail();
-        }
-        Assert.assertEquals(2, teamForTest.getTeamOwners().size());
-    }
     /**adi+or**/
     @Test
     public void subscribeTeamManagerTest() throws Exception {
@@ -158,134 +95,6 @@ public class TeamOwnerTest {
         Assert.assertNull(tOMoshe.getTeamManager());
     }
 
-    /**adi+or**/
-    @Test
-    public void removeAndReplaceCoach() throws Exception {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-
-        try {
-            tOYossi.getTeamOwner().removeAndReplaceCoach(null,null,null,null);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-
-        TeamRole coachNow = new TeamRole(moshe);
-        coachNow.becomeCoach();
-        teamForTest.addCoach(coachNow.getCoach());
-        coachNow.getCoach().setCoachTeam(teamForTest);
-
-        TeamRole coachNew = new TeamRole(david);
-        coachNew.becomeCoach();
-
-
-        try {
-            tOYossi.getTeamOwner().removeAndReplaceCoach(coachNow.getCoach(), coachNew, "main", teamForTest);
-            Assert.assertEquals(null, coachNow.getCoach().getCoachTeam());
-            Assert.assertEquals(teamForTest, coachNew.getCoach().getCoachTeam());
-        } catch (Exception e) {
-            Assert.fail();
-        }
-
-    }
-
-    /**adi+or**/
-    @Test
-    public void editCoachRole() throws Exception {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-        TeamRole coachNow = new TeamRole(moshe);
-        coachNow.becomeCoach();
-        teamForTest.addCoach(coachNow.getCoach());
-        coachNow.getCoach().setCoachTeam(teamForTest);
-
-        tOYossi.getTeamOwner().editCoachRole(coachNow.getCoach(),"newString");
-        Assert.assertEquals("newString",coachNow.getCoach().getRoleAtTeam());
-    }
-
-    /**adi+or**/
-    @Test
-    public void addPlayer() {
-        tOYossi.becomeTeamOwner();
-        tOsimchon.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        TeamStubOr teamForTest1= new TeamStubOr("hapoel beer-sheva",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        tOsimchon.getTeamOwner().addNewTeam(teamForTest1);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-       teamForTest1.getTeamOwners().add(tOsimchon.getTeamOwner());
-
-        TeamRole teamRoleDavid = new TeamRole(david);
-        teamRoleDavid.becomePlayer();
-        try {
-            tOYossi.getTeamOwner().addPlayer(teamRoleDavid, "defense", teamForTest);
-            Assert.assertEquals(teamForTest, teamRoleDavid.getPlayer().getTeam());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail();
-        }
-
-        try {
-            tOsimchon.getTeamOwner().addPlayer(teamRoleDavid, "defense", teamForTest);
-            fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("This player is already in another team",e.getMessage());
-        }
-
-        try {
-            tOYossi.getTeamOwner().addPlayer(null,null,null);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-
-
-    }
-
-    /**adi+or**/
-    @Test
-    public void removePlayer() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-
-        try {
-            tOYossi.getTeamOwner().removePlayer(null,null);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-
-    }
-
-    /**adi+or**/
-    @Test
-    public void editPlayerRole() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-        TeamRole player = new TeamRole(moshe);
-        player.becomePlayer();
-        try {
-            teamForTest.addPlayer(player.getPlayer());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail();
-        }
-        player.getPlayer().setPlayerTeam(teamForTest);
-
-        tOYossi.getTeamOwner().editPlayerRole(player.getPlayer(),"newString");
-        Assert.assertEquals("newString",player.getPlayer().getRoleAtField());
-    }
-
 
     /**adi+or**/
     @Test
@@ -312,17 +121,7 @@ public class TeamOwnerTest {
     /**adi+or**/
     @Test
     public void editFieldName() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-
-        try {
-            tOYossi.getTeamOwner().editFieldName(null, null);
-            Assert.fail();
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
+ //TODO
     }
 
     /**or**/
@@ -461,44 +260,5 @@ public class TeamOwnerTest {
             Assert.fail();
         }
     }
-    /**or**/
-    @Test
-    public void addIncome() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
 
-        try {
-            tOYossi.getTeamOwner().addIncomeToTeam(teamForTest,"something",230);
-        } catch (Exception e) {
-            Assert.fail();
-        }
-
-        try {
-            tOYossi.getTeamOwner().addIncomeToTeam(null,"comething",230);
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-    }
-    /**or**/
-    @Test
-    public void addExpense() {
-        tOYossi.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
-        tOYossi.getTeamOwner().addNewTeam(teamForTest);
-        teamForTest.getTeamOwners().add(tOYossi.getTeamOwner());
-
-        try {
-            tOYossi.getTeamOwner().addExpenseToTeam(teamForTest,"something",230);
-        } catch (Exception e) {
-            Assert.fail();
-        }
-
-        try {
-            tOYossi.getTeamOwner().addExpenseToTeam(null,"comething",230);
-        } catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
-        }
-    }
 }

@@ -3,6 +3,7 @@ package Domain.LeagueManagment;
 import Domain.MainSystem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sun.font.GlyphLayout;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -38,7 +39,7 @@ public class League {
             }
         }
         else{
-            throw new Exception("Please insert valid details in order to create the new Domain.LeagueManagment.League properly");
+            throw new Exception("Invalid parameters");
         }
     }
 
@@ -96,5 +97,19 @@ public class League {
         return teamsInSeason;
     }
 
+    @Override
+    public boolean equals(Object o){
+
+        if (!(o instanceof League)) {
+            return false;
+        }
+        League newLeague = (League)o;
+        if(this.getName().equals(((League) o).getName())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }

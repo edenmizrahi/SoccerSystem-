@@ -204,7 +204,7 @@ public class TeamManager implements Observer, NotificationsUser {
             if (!player.isPlayer()) {
                 player.becomePlayer();
             }
-            if(player.getPlayer().getTeam()!=null) {
+            if(player.getPlayer().getTeam()==null) {
                 team.addPlayer(player.getPlayer());
                 player.getPlayer().setPlayerTeam(team);
                 player.getPlayer().setRoleAtField(role);

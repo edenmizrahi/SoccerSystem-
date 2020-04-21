@@ -26,9 +26,14 @@ public class RfaTest {
 
     /**Yarden**/
     @Test
-    public void addReferee() throws Exception {
+    public void addReferee() throws ParseException {
 
-        nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        try {
+            nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
         assertEquals(2,ms.getUsers().size());
         //invalid details
 
@@ -38,7 +43,7 @@ public class RfaTest {
         }
         catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Invalid details - You can not add this referee",e.getMessage());
+            assertEquals("user name not valid",e.getMessage());
         }
         assertEquals(2, ms.getUsers().size());
 
@@ -55,7 +60,7 @@ public class RfaTest {
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Domain.Users.Referee is null",e.getMessage());
+            assertEquals("Referee is null",e.getMessage());
         }
 
         /**everything is ok**/
@@ -114,6 +119,33 @@ public class RfaTest {
     /**Yarden**/
     @Test
     public void createNewLeague(){
+
+        /**null check**/
+        try{
+            nadav.createNewLeague(null,ms);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Invalid parameters",e.getMessage());
+        }
+
+        try{
+            nadav.createNewLeague("A",ms);
+            Assert.assertTrue(ms.getLeagues().size()==1);
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
+
+        try{
+            nadav.createNewLeague("A",ms);
+            Assert.fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("There is already league with the same name",e.getMessage());
+        }
 
 
     }

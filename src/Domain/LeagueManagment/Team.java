@@ -323,7 +323,7 @@ public class Team extends Observable implements PageOwner {
     }
 
     /**Or**/
-    //TODO test
+    //TODO test - V
     @Override
     public void addRecordToPage(String record) throws Exception {
         if(this.privatePage!=null) {
@@ -335,7 +335,7 @@ public class Team extends Observable implements PageOwner {
     }
 
     /**Or**/
-    //TODO test
+    //TODO test - V
     @Override
     public void removeRecordFromPage(String record) throws Exception {
         if(this.privatePage!=null) {
@@ -347,7 +347,7 @@ public class Team extends Observable implements PageOwner {
     }
 
     /**Or**/
-    //TODO test
+    //TODO test - V
     @Override
     public boolean createPrivatePage() {
         PrivatePage p = new PrivatePage();
@@ -370,7 +370,12 @@ public class Team extends Observable implements PageOwner {
      */
     //TODO test
     public void addLeagueAndSeason(Season s, League l){
-        leaguePerSeason.put(s,l);
+        if(s!=null && l!=null) {
+            leaguePerSeason.put(s, l);
+        }
+        else{
+            throw new NullPointerException();
+        }
     }
 
     /**OR
@@ -393,9 +398,14 @@ public class Team extends Observable implements PageOwner {
      * @param amount
      * @throws Exception
      */
-    //TODO test
+    //TODO test - V
     public void addIncome(String typeOfIncome, long amount) throws Exception {
-        this.budgetControl.addIncome(typeOfIncome,amount);
+        if(typeOfIncome!=null) {
+            this.budgetControl.addIncome(typeOfIncome, amount);
+        }
+        else{
+            throw new Exception("type of income not valid");
+        }
     }
 
     /**Or
@@ -404,9 +414,14 @@ public class Team extends Observable implements PageOwner {
      * @param amount
      * @throws Exception
      */
-    //TODO test
+    //TODO test - V
     public void addExpense(String typeOfExpense, long amount) throws Exception {
-        this.budgetControl.addExpense(typeOfExpense,amount);
+        if(typeOfExpense!=null) {
+            this.budgetControl.addExpense(typeOfExpense, amount);
+        }
+        else{
+            throw new Exception("type of expanse not valid");
+        }
     }
 
     /**Or**/
@@ -474,35 +489,38 @@ public class Team extends Observable implements PageOwner {
      * @param field
      * @throws Exception
      */
-    //TODO test
+    //TODO test - V
     public void becomeActive(HashSet<Player> players, Coach coach, Field field) throws Exception {
-        if(players.size() < 11){
-            throw new Exception("The number of players are less than 11");
-        }
-        this.players= players;
-        for (Player player:players) {
-            if(player.getTeam() == null){
-                player.setPlayerTeam(this);
+        if(players!=null && coach!=null && field!=null) {
+            if (players.size() < 11) {
+                throw new Exception("The number of players are less than 11");
             }
-            else{
-                throw new Exception("one of the players team is not null");
+            this.players = players;
+            for (Player player : players) {
+                if (player.getTeam() == null) {
+                    player.setPlayerTeam(this);
+                } else {
+                    throw new Exception("one of the players team is not null");
+                }
             }
+            this.coach = coach;
+            this.coach.setCoachTeam(this);
+            this.field = field;
+            this.field.addTeam(this);
+
+            //add team to active list in system
+            this.isActive = true;
+            this.mainSystem.addActiveTeam(this);
+
+            LOG.info(String.format("%s - %s", name, "team was activated"));
         }
-        this.coach = coach;
-        this.coach.setCoachTeam(this);
-        this.field = field;
-        this.field.addTeam(this);
-
-        //add team to active list in system
-        this.isActive=true;
-        this.mainSystem.addActiveTeam(this);
-
-        LOG.info(String.format("%s - %s", name, "team was activated"));
-
+        else{
+            throw new Exception("Invalid parameters");
+        }
     }
 
     /**OR
-     * the team owner calls this function whem he want to reOpen the team
+     * the team owner calls this function when he want to reOpen the team
      * he is the only team owner now
      * @param players- at least 11
      * @param coach
@@ -510,8 +528,11 @@ public class Team extends Observable implements PageOwner {
      * @param newFounder- send himself
      * @throws Exception
      */
-    //TODO test
+    //TODO test - V
     public void reopenTeam(HashSet<Player> players, Coach coach, Field field, TeamOwner newFounder) throws Exception {
+        if(newFounder ==null || players==null|| coach==null || field==null){
+            throw new NullPointerException();
+        }
         this.founder=newFounder;
         becomeActive(players,coach,field);
 
@@ -543,14 +564,24 @@ public class Team extends Observable implements PageOwner {
 
     /**Yarden**/
     //TODO test
-    public void addMatchToHomeMatches(Match match){
-        this.getHome().add(match);
+    public void addMatchToHomeMatches(Match match) throws Exception {
+        if(match!=null) {
+            this.getHome().add(match);
+        }
+        else{
+            throw new Exception("Match is null");
+        }
     }
 
     /**Yarden**/
     //TODO test
-    public void addMatchToAwayMatches(Match match){
-        this.getAway().add(match);
+    public void addMatchToAwayMatches(Match match) throws Exception {
+        if(match!=null) {
+            this.getAway().add(match);
+        }
+        else{
+            throw new Exception("Match is null");
+        }
     }
 
     public void sendDecision(boolean decision){

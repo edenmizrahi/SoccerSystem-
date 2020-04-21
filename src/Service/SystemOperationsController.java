@@ -4,6 +4,7 @@ import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
+import Domain.Users.Player;
 import Domain.Users.Referee;
 import Domain.Users.TeamOwner;
 
@@ -65,5 +66,10 @@ public class SystemOperationsController {
         return MainSystem.getInstance().getCurrSeason();
 
     }
+
+     public  List<Player> getAllPlayers(){
+        return MainSystem.getInstance().getAllPlayer();
+     }
+
 
 }

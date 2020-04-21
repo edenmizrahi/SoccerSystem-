@@ -2,6 +2,7 @@ package Service;
 
 import Domain.LeagueManagment.Team;
 import Domain.Notifications.Notification;
+import Domain.Users.Fan;
 import Domain.Users.SystemManager;
 import Domain.Users.TeamOwner;
 import Domain.Users.User;
@@ -66,8 +67,8 @@ public class SystemManagerController {
      * @param systemManager
      * @throws Exception if delete is not valid.
      */
-    public void deleteUserForever(User u, SystemManager systemManager) throws Exception {
-        //systemManager.removeUser(u);
+    public void deleteUserForever(Fan u, SystemManager systemManager) throws Exception {
+        systemManager.removeUser(u);
     }
 
 
@@ -90,17 +91,17 @@ public class SystemManagerController {
         return user.showSystemInfo();
     }
 
-    /**
-     * show unread notification -> run while user connect .
-     * @param user
-     * @return
+    /***
+     * mark list of notifications as read.
+     * @param sM
+     * @param read
      */
-    public HashSet<Notification> showUnreadNotification(SystemManager user){
-        return user.genUnReadNotifications();
-    }
-
-    public void markAsReadNotification (HashSet<Notification> read){
-
+    public void markAsReadNotification (SystemManager sM,HashSet<Notification> read){
+        for(Notification n: read){
+            if(sM.getNotificationsList().contains(n)) {
+                sM.MarkAsReadNotification(n);
+            }
+        }
     }
 
 

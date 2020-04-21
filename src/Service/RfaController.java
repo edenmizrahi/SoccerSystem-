@@ -1,5 +1,4 @@
 package Service;
-
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -10,7 +9,6 @@ import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
-
 import java.util.*;
 
 public class RfaController {

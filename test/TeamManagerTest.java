@@ -2,10 +2,7 @@ import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Team;
-import Domain.Users.Coach;
-import Domain.Users.Fan;
-import Domain.Users.TeamOwner;
-import Domain.Users.TeamRole;
+import Domain.Users.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,75 +22,254 @@ public class TeamManagerTest {
     public TeamManagerTest() throws ParseException {
     }
 
-    //adi
+    /**or**/
     @Test
-    public void subscribeTeamOwnerTest() throws Exception {
+    public void subscribeTeamOwnerTest(){
         per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
-        TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
-        Assert.assertEquals(3, ms.getUsers().size());
-        Assert.assertEquals(1, team.getTeamOwners().size());
+
+        try {
+            TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditTeamOwner);
+        try {
+            TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+
+
     }
-    //adi
+
+    /**or**/
     @Test
     public void removeTeamOwnerTest() throws Exception {
         per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
         tMYossi.becomeTeamManager(team, per);
-        TeamRole tOMoshe = tMYossi.getTeamManager().subscribeTeamOwner(moshe, team);
-        //TeamOwner tODavid = tOMoshe.subscribeTeamOwner(david, ms, team);
-        Assert.assertEquals(3, ms.getUsers().size());
-        Assert.assertEquals(2, team.getTeamOwners().size());
+        TeamRole owner= tMYossi.getTeamManager().subscribeTeamOwner(moshe,team);
+        try {
+            tMYossi.getTeamManager().removeTeamOwner(owner.getTeamOwner(), team);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
 
-        tMYossi.getTeamManager().removeTeamOwner(tOMoshe.getTeamOwner(), team);
-        Assert.assertEquals(3, ms.getUsers().size());
-        Assert.assertEquals(0, team.getTeamOwners().size());
+
     }
-    //adi
+    /**or**/
     @Test
-    public void addRemoveEditCoachTest() throws Exception {
+    public void addRemoveCoachTest()  {
         per.add(TeamManagerPermissions.addRemoveEditCoach);
         tMYossi.becomeTeamManager(team, per);
         TeamRole teamRoleMoshe = new TeamRole(moshe);
         TeamRole teamRoleDavid = new TeamRole(david);
-        Assert.assertEquals(3, ms.getUsers().size());
         Coach cDavid = new Coach(team, "mainCoach", teamRoleMoshe);
-        team.addCoach(cDavid);
-        tMYossi.getTeamManager().removeAndReplaceCoach(cDavid, teamRoleDavid, "main", team);
-        Assert.assertEquals(teamRoleDavid, team.getCoach().getTeamRole());
-        Assert.assertEquals(team, teamRoleDavid.getCoach().getCoachTeam());
-        tMYossi.getTeamManager().editCoachRole(teamRoleDavid.getCoach(), "trainer");
-        Assert.assertEquals("trainer", teamRoleDavid.getCoach().getRoleAtTeam());
+        try {
+            team.addCoach(cDavid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+        try {
+            tMYossi.getTeamManager().removeAndReplaceCoach(cDavid, teamRoleDavid, "main", team);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
     }
-    //adi
-    @Test(expected = Exception.class)
-    public void addRemoveEditPlayerTest() throws Exception {
+    /**or**/
+    @Test
+    public void editCoachRole() {
+        per.add(TeamManagerPermissions.addRemoveEditCoach);
+        tMYossi.becomeTeamManager(team, per);
+        TeamRole teamRoleMoshe = new TeamRole(moshe);
+        TeamRole teamRoleDavid = new TeamRole(david);
+        Coach cDavid = new Coach(team, "mainCoach", teamRoleMoshe);
+
+        try {
+            tMYossi.getTeamManager().editCoachRole(cDavid,"newRole");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditCoach);
+        try {
+            tMYossi.getTeamManager().editCoachRole(cDavid,"newRole2");
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+
+    }
+
+    /**or**/
+    @Test
+    public void addPlayerTest() {
         per.add(TeamManagerPermissions.addRemoveEditPlayer);
         tMYossi.becomeTeamManager(team, per);
         Date d = new Date();
         TeamRole teamRoleDavid = new TeamRole(david);
         teamRoleDavid.becomePlayer();
-        tMYossi.getTeamManager().addPlayer(teamRoleDavid, "defense", team);
-        Assert.assertTrue(team.getPlayers().contains(teamRoleDavid.getPlayer()));
-        Assert.assertEquals(team, teamRoleDavid.getPlayer().getTeam());
-        tMYossi.getTeamManager().editPlayerRole(teamRoleDavid.getPlayer(), "defense");
-        Assert.assertEquals("defense", teamRoleDavid.getPlayer().getRoleAtField());
-        //doesnt remove player because less than 11, returns exception
-        tMYossi.getTeamManager().removePlayer(teamRoleDavid.getPlayer(), team);
+        TeamRole mosheR= new TeamRole(moshe);
+        mosheR.becomePlayer();
+        try {
+            tMYossi.getTeamManager().addPlayer(teamRoleDavid, "defense", team);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditPlayer);
+        try {
+            tMYossi.getTeamManager().addPlayer(mosheR,"offside",team);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+
+
+
     }
-    //adi
+    /**or**/
     @Test
-    public void addRemoveEditFieldTest() throws Exception {
+    public void removePlayer() {
+        tMYossi.becomeTeamManager(team, per);
+        TeamRole mosheR= new TeamRole(moshe);
+        mosheR.becomePlayer();
+        try {
+            tMYossi.getTeamManager().removePlayer(mosheR.getPlayer(), team);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+
+    }
+    /**or**/
+    @Test
+    public void editPlayerRole() {
+        per.add(TeamManagerPermissions.addRemoveEditPlayer);
+        tMYossi.becomeTeamManager(team, per);
+        TeamRole teamRoleMoshe = new TeamRole(moshe);
+        TeamRole teamRoleDavid = new TeamRole(david);
+        teamRoleMoshe.becomePlayer();
+
+
+        try {
+            tMYossi.getTeamManager().editPlayerRole(teamRoleMoshe.getPlayer(),"newRole");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditPlayer);
+        try {
+            tMYossi.getTeamManager().editPlayerRole(teamRoleMoshe.getPlayer(),"newRole2");
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+    }
+
+    /**or**/
+    @Test
+    public void addRemoveFieldTest() {
         per.add(TeamManagerPermissions.addRemoveEditField);
         tMYossi.becomeTeamManager(team, per);
         Field field = new Field("Beer Sheva Domain.LeagueManagment.Field");
         team.setField(field);
         Field field2 = new Field("Beer Sheeeeeeeva Domain.LeagueManagment.Field");
-        tMYossi.getTeamManager().removeAndReplaceField(field, field2, team);
-        Assert.assertTrue(field2.getTeams().contains(team));
-        Assert.assertEquals(field2, team.getField());
-        Assert.assertEquals("Beer Sheeeeeeeva Domain.LeagueManagment.Field", field2.getNameOfField());
-        tMYossi.getTeamManager().editFieldName(field, "Bash Domain.LeagueManagment.Field");
-        Assert.assertEquals("Bash Domain.LeagueManagment.Field", field.getNameOfField());
+        try {
+            tMYossi.getTeamManager().removeAndReplaceField(field, field2, team);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditField);
+        try {
+            tMYossi.getTeamManager().removeAndReplaceField(field2,field,team);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+
     }
 
+    @Test
+    public void editFieldName() {
+        per.add(TeamManagerPermissions.addRemoveEditField);
+        tMYossi.becomeTeamManager(team, per);
+        Field field = new Field("Beer Sheva Domain.LeagueManagment.Field");
+        team.setField(field);
+        Field field2 = new Field("Beer Sheeeeeeeva Domain.LeagueManagment.Field");
+        try {
+            tMYossi.getTeamManager().editFieldName(field, "name");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+    }
+
+    @Test
+    public void addIncomeToTeam() {
+        per.add(TeamManagerPermissions.addToBudgetControl);
+        tMYossi.becomeTeamManager(team, per);
+
+        try {
+            tMYossi.getTeamManager().addIncomeToTeam(team,"money",200);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditPlayer.addToBudgetControl);
+        try {
+            tMYossi.getTeamManager().addIncomeToTeam(team,"money",200);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+    }
+
+    @Test
+    public void addExpense() {
+        per.add(TeamManagerPermissions.addToBudgetControl);
+        tMYossi.becomeTeamManager(team, per);
+        try {
+            tMYossi.getTeamManager().addIncomeToTeam(team,"money",200);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+        try {
+            tMYossi.getTeamManager().addExpenseToTeam(team,"money",50);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+
+        tMYossi.getTeamManager().getTeamManagerPermissions().remove(TeamManagerPermissions.addRemoveEditPlayer.addToBudgetControl);
+        try {
+            tMYossi.getTeamManager().addExpenseToTeam(team,"money",100);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("This user doesn't have the permission to do this action", e.getMessage());
+        }
+    }
 }

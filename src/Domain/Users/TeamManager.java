@@ -11,10 +11,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class TeamManager implements Observer, NotificationsUser {
+public class TeamManager extends ManagmentActions implements Observer, NotificationsUser {
     private TeamRole teamRole;
     private Team team;
-    private HashSet<TeamSubscription> mySubscriptions;
+    //private HashSet<TeamSubscription> mySubscriptions;
     private static final Logger LOG = LogManager.getLogger();
     private HashSet<TeamManagerPermissions> teamManagerPermissions;
     private HashSet<Notification> notificationsList;
@@ -51,6 +51,15 @@ public class TeamManager implements Observer, NotificationsUser {
     public void setTeamRole(TeamRole teamRole) {
         this.teamRole = teamRole;
     }
+
+    public HashSet<TeamManagerPermissions> getTeamManagerPermissions() {
+        return teamManagerPermissions;
+    }
+
+    public void setTeamManagerPermissions(HashSet<TeamManagerPermissions> teamManagerPermissions) {
+        this.teamManagerPermissions = teamManagerPermissions;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc="add remove and edit">
@@ -62,40 +71,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @return the new team owner
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public TeamRole subscribeTeamOwner(Fan fan, Team team) throws Exception{
-        if (fan == null || team == null){
-            throw new NullPointerException();
-        }
-        if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditTeamOwner)) {
-            // check if already team owner of this team
-            if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner() && team.getTeamOwners().contains(((TeamRole) fan).getTeamOwner())){
-                throw new Exception("Already Domain.LeagueManagment.Team Owner of this team");
-            }
-            TeamRole teamRole;
-            // check if already team owner of different team
-            if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner()){
-                ((TeamRole) fan).getTeamOwner().addNewTeam(team);
-                team.addTeamOwner(((TeamRole) fan).getTeamOwner());
-                teamRole = ((TeamRole) fan);
-            }
-            // check if already teamRole
-            else if (fan instanceof TeamRole){
-                ((TeamRole) fan).becomeTeamOwner();
-                ((TeamRole) fan).getTeamOwner().addNewTeam(team);
-                team.addTeamOwner(((TeamRole) fan).getTeamOwner());
-                teamRole = ((TeamRole) fan);
-            }
-            // else just a fan
-            else{
-                teamRole = new TeamRole(fan);
-                teamRole.becomeTeamOwner();
-                teamRole.getTeamOwner().addNewTeam(team);
-                team.addTeamOwner(teamRole.getTeamOwner());
-            }
-            TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
-            mySubscriptions.add(sub);
-            return teamRole;
+        if(this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditTeamOwner)){
+            return super.subscribeTeamOwner(fan,team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -108,30 +88,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param team - the team that the team owner will be removed from
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public void removeTeamOwner (TeamOwner tO, Team team)throws Exception{
-        if (tO == null || team == null){
-            throw new NullPointerException();
-        }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditTeamOwner)) {
-            team.removeTeamOwner(tO);
-            for(TeamSubscription sub : mySubscriptions){
-                if (sub.user.equals(tO.getTeamRole()) && sub.role.equals(tO)){
-                    mySubscriptions.remove(sub);
-                }
-                break;
-            }
-            for (TeamSubscription sub : tO.getMySubscriptions()) {
-                if (sub.team.equals(team)) {
-                    if (sub.role instanceof TeamOwner){
-                        tO.removeTeamOwner((TeamOwner) sub.role, sub.team);
-                    }
-                    else{
-                        tO.removeTeamManager((TeamManager) sub.role, sub.team);
-                    }
-                }
-            }
-            tO.removeTeam(team);
+            super.removeTeamOwner(tO,team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -146,24 +107,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param team - the team that will have the changes
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
-        if (coachToRemove == null || coachToAdd == null || team == null){
-            throw new NullPointerException();
-        }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditCoach)) {
-            if (team.getCoach().equals(coachToRemove)) {
-                team.removeCoach(coachToRemove);
-                coachToRemove.setCoachTeam(null);
-                if (!coachToAdd.isCoach()) {
-                    coachToAdd.becomeCoach();
-                }
-                team.addCoach(coachToAdd.getCoach());
-                coachToAdd.getCoach().setCoachTeam(team);
-                coachToAdd.getCoach().setRoleAtTeam(newCoachRoleAtTeam);
-            } else {
-                throw new Exception("This Domain.Users.Coach doesn't exist in this team");
-            }
+            super.removeAndReplaceCoach(coachToRemove, coachToAdd, newCoachRoleAtTeam, team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -176,13 +124,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param coach - the coach to edit
      * @param role - the new role
      */
-    //TODO test
-    public void editCoachRole(Coach coach, String role)throws Exception {
-        if (coach == null || role == null){
-            throw new NullPointerException();
-        }
+    //TODO test-V
+    @Override
+    public void editCoachRole(Coach coach, String role) throws Exception {
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditCoach)) {
-            coach.setRoleAtTeam(role);
+            super.editCoachRole(coach,role);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -196,22 +142,10 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param team - the team to add the player
      */
     //TODO test
+    @Override
     public void addPlayer(TeamRole player, String role, Team team) throws Exception{
-        if (player == null || role == null || team == null){
-            throw new NullPointerException();
-        }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditPlayer)) {
-            if (!player.isPlayer()) {
-                player.becomePlayer();
-            }
-            if(player.getPlayer().getTeam()==null) {
-                team.addPlayer(player.getPlayer());
-                player.getPlayer().setPlayerTeam(team);
-                player.getPlayer().setRoleAtField(role);
-            }
-            else{
-                throw new Exception("This player is already in another team");
-            }
+            super.addPlayer(player,role,team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -225,14 +159,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param team - the team to remove the player
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public void removePlayer (Player player, Team team) throws Exception {
-        if (player == null || team == null){
-            throw new NullPointerException();
-        }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditPlayer)) {
-            team.removePlayer(player);
-            player.setPlayerTeam(null);
+            super.removePlayer(player,team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -245,13 +176,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param player - the player to edit
      * @param role - the new role
      */
-    //TODO test
-    public void editPlayerRole(Player player, String role)throws Exception {
-        if (player == null || role == null){
-            throw new NullPointerException();
-        }
+    //TODO test-V
+    @Override
+    public void editPlayerRole(Player player, String role) throws Exception {
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditPlayer)) {
-            player.setRoleAtField(role);
+            super.editPlayerRole(player,role);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -266,16 +195,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param team - the team to change its field
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
-        if (fieldtoRemove == null || fieldToAdd == null || team == null){
-            throw new NullPointerException();
-        }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditField)) {
-            team.removeField(fieldtoRemove);
-            fieldtoRemove.removeTeam(team);
-            team.setField(fieldToAdd);
-            fieldToAdd.addTeam(team);
+            super.removeAndReplaceField(fieldtoRemove,fieldToAdd,team);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -288,25 +212,26 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param field - the field to edit
      * @param name - the new name
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public void editFieldName(Field field, String name) throws Exception {
-        if (field == null || name == null){
-            throw new NullPointerException();
-        }
         if (this.teamManagerPermissions.contains(TeamManagerPermissions.addRemoveEditField)) {
-            field.setNameOfField(name);
+            super.editFieldName(field,name);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
+
+
     //</editor-fold>
 
     /**or**/
-    //TODO test
+    //TODO test-V
+    @Override
     public void addIncomeToTeam(Team team,String typeOfIncome, long amount) throws Exception {
         if(this.teamManagerPermissions.contains(TeamManagerPermissions.addToBudgetControl)){
-            team.addIncome(typeOfIncome,amount);
+            super.addIncomeToTeam(team,typeOfIncome,amount);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -321,10 +246,11 @@ public class TeamManager implements Observer, NotificationsUser {
      * @param amount- positive!!! in budget conrtol in becomes negative
      * @throws Exception
      */
-    //TODO test
+    //TODO test-V
+    @Override
     public void addExpenseToTeam(Team team,String typeOfExpense, long amount) throws Exception {
         if(this.teamManagerPermissions.contains(TeamManagerPermissions.addToBudgetControl)){
-            team.addExpense(typeOfExpense,amount);
+            super.addExpenseToTeam(team,typeOfExpense,amount);
         }
         else{
             throw new Exception("This user doesn't have the permission to do this action");
@@ -374,4 +300,5 @@ public class TeamManager implements Observer, NotificationsUser {
         return unRead;
     }
     //</editor-fold>
+
 }

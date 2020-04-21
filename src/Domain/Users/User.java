@@ -20,6 +20,7 @@ public class User {
         system = ms;
         permissions = new HashSet<>();
         system.addUser(this);
+
     }
 
     public void addPermission(TeamManagerPermissions per){
@@ -463,29 +464,25 @@ public class User {
     //<editor-fold desc="Sign in Functions">
 
     /**OR**/
-    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
+    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(name,userName,password,phoneNumber,email);
             TeamRole newPlayer= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newPlayer.becomePlayer();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Player"));
             return newPlayer;
-        }
-        return null;
     }
 
     /**OR**/
-    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth){
+    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(name,userName,password,phoneNumber,email);
             TeamRole newCoach= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newCoach.becomeCoach();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Coach"));
             return newCoach;
-        }
-        return null;
     }
 
     /**OR**/
@@ -502,15 +499,13 @@ public class User {
     }
 */
     /**OR**/
-    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth){
+    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(name,userName,password,phoneNumber,email);
             Fan newFan= new Fan(system,name,phoneNumber,email,userName,password, dateOfBirth);
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
             return newFan;
-        }
-        return null;
     }
 
     /**OR**/
@@ -528,52 +523,60 @@ public class User {
     */
 
     /**OR**/
-    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth){
+    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
-            Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password,dateOfBirth);
-            system.removeUser(this);
-            LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
-            return newRFA;
-        }
-        return null;
+        checkValidDetails(name,userName,password,phoneNumber,email);
+        Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password,dateOfBirth);
+        system.removeUser(this);
+        LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
+        return newRFA;
     }
 
     /**OR**/
-    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth){
+    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber,email)){
+        checkValidDetails(name,userName,password,phoneNumber,email);
             TeamRole teamOwner= new TeamRole(system,name,phoneNumber,email,userName,password, dateOfBirth);
             teamOwner.becomeTeamOwner();
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
             return teamOwner;
-        }
-        return null;
     }
 
-
-    public boolean checkValidDetails(String userName, String password, String phoneNumber, String email){
+    /**or
+     * this function check if the details are valid
+     * @param name- name not null
+     * @param userName - unique and not null
+     * @param password - more than 6 characters , not null
+     * @param phoneNumber- 10 digits, not null
+     * @param email- contains @, .com or .co.il
+     * @throws Exception
+     */
+    //TODO test-V
+    public void checkValidDetails(String name, String userName, String password, String phoneNumber, String email) throws Exception {
+        //check name not null
+        if(name==null){
+            throw new Exception("name not valid");
+        }
         //check that username in unique
-        if(system.getUserNames().contains(userName)){
-            return false;
+        if(userName==null || system.getUserNames().contains(userName)){
+            throw new Exception("user name not valid");
         }
         //password length is 6 or more
-        if(password.length()<6){
-            return false;
+        if(password==null ||password.length()<6){
+            throw new Exception("password not valid");
         }
         // phone number is 10 digits
-        if( !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
-            return false;
+        if(phoneNumber==null || !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
+            throw new Exception("phone number not valid");
         }
         //email contains @
-        if(! email.contains("@")){
-            return false;
+        if(email==null ||! email.contains("@")){
+            throw new Exception("email not valid");
         }
         if( ! (email.contains(".com") || email.contains(".co.il"))){
-            return false;
+            throw new Exception("email not valid");
         }
-        return true;
     }
     //</editor-fold>
 

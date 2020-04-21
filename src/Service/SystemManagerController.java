@@ -14,15 +14,6 @@ import java.util.List;
 
 public class SystemManagerController {
 
-    /***
-     * return all teams at system
-     * @param user
-     * @return
-     */
-    public HashSet<Team> getAllTeams(SystemManager user) {
-        return user.getSystem().getActiveTeams();
-    }
-
     /**
      * close team  forever
      *
@@ -76,17 +67,9 @@ public class SystemManagerController {
      * @throws Exception if delete is not valid.
      */
     public void deleteUserForever(User u, SystemManager systemManager) throws Exception {
-        systemManager.removeUser(u);
+        //systemManager.removeUser(u);
     }
 
-    /**
-     * show all TeamOwnerUsers in order to replace one of them.
-     * @param user
-     * @return all TeamOwners
-     */
-    public List<TeamOwner> showAllTeamOwner(SystemManager user) {
-        return user.getSystem().getAllTeamOwners();
-    }
 
     /**
      * replace team's founder .

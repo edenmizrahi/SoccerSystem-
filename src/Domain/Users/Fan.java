@@ -41,6 +41,7 @@ public class Fan extends User implements Observer, NotificationsUser {
 
         //add userName to the hashset
         ms.addUserName(userName);
+
     }
 
     //<editor-fold desc="getters and setters">

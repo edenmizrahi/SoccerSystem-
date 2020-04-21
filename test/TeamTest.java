@@ -1,9 +1,14 @@
 import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.Users.Player;
+import Domain.Users.Referee;
 import Domain.Users.TeamRole;
+import Stubs.TeamStub;
+import Stubs.TeamStubOr;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,6 +24,7 @@ public class TeamTest {
     TeamRole teamOwner1 = new TeamRole(ms,"r","0522150912","owner1O@gmail.com","r1234","r1234",MainSystem.birthDateFormat.parse("09-12-1995"));
     Team t= new Team();
     Team t1= new Team();
+    Team t2 = new TeamStub("Team");
     HashSet<Player> players= new HashSet<>();
     Field f= new Field("field");
     Field f1= new Field("field1");
@@ -38,6 +44,7 @@ public class TeamTest {
     TeamRole teamRole8 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden012", "yarden012", MainSystem.birthDateFormat.parse("15-09-1995"));
     TeamRole teamRole9 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden112", "yarden112", MainSystem.birthDateFormat.parse("15-09-1995"));
     TeamRole teamRole10 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden612", "yarden612", MainSystem.birthDateFormat.parse("15-09-1995"));
+    Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
 
 
     public TeamTest() throws ParseException {
@@ -405,7 +412,6 @@ public class TeamTest {
             Assert.fail();
         }
 
-
         try {
             t.removeRecordFromPage(record);
             Assert.assertTrue(t.getPrivatePage().getRecords().size()==1);
@@ -415,39 +421,165 @@ public class TeamTest {
         }
     }
 
+    /**yarden**/
     @Test
     public void createPrivatePageTest() {
-
+        /**There isn't private page for the team**/
+        Assert.assertTrue(t2.createPrivatePage());
+        /**There is already private page for the team**/
+        Assert.assertFalse(t2.createPrivatePage());
     }
 
+    /**yarden-?????**/
     @Test
     public void addLeagueAndSeasonTest(){
 
     }
 
+    /**yarden**/
     @Test
     public void addIncomeTest(){
+        /**null typeOfIncome**/
+        try {
+            t.addIncome(null,10000);
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("type of income not valid",e.getMessage());
+        }
 
+        /**ok**/
+        String income = "fun";
+        try {
+            t.addIncome(income,10000);
+            Assert.assertTrue(t.getBudgetControl().getIncomeAndExpenses().size()==1);
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
     }
 
+    /**yarden**/
     @Test
     public void addExpenseTest(){
+        /**null typeOfIncome**/
+        try {
+            t.addExpense(null,10000);
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("type of expanse not valid",e.getMessage());
+        }
 
+        /**ok**/
+        String expanse = "fun";
+        try {
+            t.addExpense(expanse,10);
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Budget cannot be less than 0",e.getMessage());
+        }
+
+        /**ok**/
+        try {
+            t.getBudgetControl().setBalance(100);
+            t.addExpense(expanse,10);
+            Assert.assertTrue(t.getBudgetControl().getIncomeAndExpenses().size()==1);
+        }
+        catch (Exception e){
+           Assert.fail();
+        }
     }
 
+    /**Yarden**/
     @Test
-    public void reopenTeamTest(){
+    public void reopenTeamTest() throws ParseException {
+        teamOwner.becomeTeamOwner();
+        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
 
+        /**null check**/
+        try {
+            t.reopenTeam(null,null,null,null);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(NullPointerException.class, e.getClass());
+        }
+
+        HashSet<Player> players= new HashSet<>();
+        TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
+        int counter=0;
+        while(counter<11){
+            TeamRole player= new TeamRole(ms,"player", "1234567890","email@gmail.com","player"+counter,"player"+counter,MainSystem.birthDateFormat.parse("09-12-1995"));
+            player.becomePlayer();
+            players.add(player.getPlayer());
+            counter++;
+        }
+        coach.becomeCoach();
+        Field field= new Field("fieldName");
+
+        try {
+            t.reopenTeam(players,coach.getCoach(),field,teamOwner.getTeamOwner());
+            Assert.assertTrue(t.isActive());
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
     }
 
+    /**Yarden**/
     @Test
     public void addMatchToHomeMatchesTest(){
 
+        /**null check**/
+        try {
+            t.addMatchToHomeMatches(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Match is null",e.getMessage());
+        }
+
+        try {
+            Match m1 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                    , moshe,"17-04-2020 20:00:00");
+
+            t2.addMatchToHomeMatches(m1);
+            Assert.assertTrue(t2.getHome().size()==1);
+            Assert.assertTrue(m1.getHomeTeam().equals(t2));
+            Assert.assertFalse(m1.getHomeTeam().equals(t1));
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
     }
 
+    /**Yarden**/
     @Test
     public void addMatchToAwayMatchesTest(){
+        /**null check**/
+        try {
+            t.addMatchToAwayMatches(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Match is null",e.getMessage());
+        }
 
+        try {
+            Match m1 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                    , moshe,"17-04-2020 20:00:00");
+
+            t1.addMatchToAwayMatches(m1);
+            Assert.assertTrue(t1.getAway().size()==1);
+            Assert.assertTrue(m1.getAwayTeam().equals(t1));
+
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
     }
 
 
@@ -464,8 +596,25 @@ public class TeamTest {
         }
         coach.becomeCoach();
 
-
         Assert.assertFalse(t.isActive());
+
+        /**Invalid - null**/
+        try {
+            t.becomeActive(null,null,null);
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Invalid parameters",e.getMessage());
+        }
+
+        try {
+            t.becomeActive(players,null,null);
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Invalid parameters",e.getMessage());
+        }
+
         try {
             t.becomeActive(players,coach.getCoach(),f);
         } catch (Exception e) {
@@ -496,6 +645,7 @@ public class TeamTest {
         t.deleteTeamByTeamOwner();
         Assert.assertFalse(t.isActive());
         Assert.assertTrue(t.getCoach().getCoachTeam()==null);
+        Assert.assertTrue(t.getTeamOwners().size()==0);
     }
 
 

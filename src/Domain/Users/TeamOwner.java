@@ -140,7 +140,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         // check if already team owner of this team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner() && team.getTeamOwners().contains(((TeamRole) fan).getTeamOwner())){
-            throw new Exception("Already Domain.LeagueManagment.Team Owner of this team");
+            throw new Exception("Already team Owner of this team");
         }
         TeamRole teamRole;
         // check if already team owner of different team
@@ -199,6 +199,22 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         tO.removeTeam(team);
 
+        /**Notifications - Eden***/
+        team.deleteObserver(tO);
+        tO.deleteTeamNotification(team,this);
+        /*************************/
+
+
+    }
+
+    /**
+     * add notification about delete you from team owner
+     * @param removedTeam
+     * @param theOneRemoveYou
+     * @codeBy
+     */
+    private void deleteTeamNotification(Team removedTeam, TeamOwner theOneRemoveYou) {
+        notifications.add(new Notification(removedTeam, "you removed from team owner by -"+theOneRemoveYou.getTeamRole().getUserName(),false));
     }
 
     /**
@@ -217,7 +233,7 @@ public class TeamOwner implements Observer , NotificationsUser {
         }
         // check if already team manager of this team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamManager() && team.getTeamManager().equals(((TeamRole) fan).getTeamManager())){
-            throw new Exception("Already Domain.LeagueManagment.Team Manager of this team");
+            throw new Exception("Already Team Manager of this team");
         }
         TeamRole teamRole;
         // check if already teamRole
@@ -291,7 +307,7 @@ public class TeamOwner implements Observer , NotificationsUser {
             coachToAdd.getCoach().setRoleAtTeam(newCoachRoleAtTeam);
         }
         else {
-            throw new Exception("This Domain.Users.Coach doesn't exist in this team");
+            throw new Exception("This Coach doesn't exist in this team");
         }
     }
 
@@ -325,7 +341,7 @@ public class TeamOwner implements Observer , NotificationsUser {
             player.becomePlayer();
         }
 
-        if(player.getPlayer().getTeam()!=null) {
+        if(player.getPlayer().getTeam()==null) {
             team.addPlayer(player.getPlayer());
             player.getPlayer().setPlayerTeam(team);
             player.getPlayer().setRoleAtField(role);
@@ -490,16 +506,20 @@ public class TeamOwner implements Observer , NotificationsUser {
     /**
      * Notifications about:
      *      1. team can be open\not
-     *      2.team removed
+     *      2.team removed forever
+     *      3.team removed by team owner
+     *      4.team reOpen
      *@codeBy OR and Eden
      * **/
     @Override
     public void update(Observable o, Object arg) {
+
         if(o instanceof Team){
-            if(arg.equals(true)){// the team can be open
+            /**team request answer***/
+            if(arg instanceof Boolean && arg.equals(true)){// the team can be open
                requestedTeams.remove(o);
                approvedTeams.add((Team)o);
-               notifications.add(new Notification(o,"Domain.LeagueManagment.Team "+((Team)o).getName()+" can be open",false));
+               notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));
             }
             else if(arg.equals(false)){// the team cant be open
                 ((Team)o).deleteObservers();
@@ -512,6 +532,17 @@ public class TeamOwner implements Observer , NotificationsUser {
         /**notification about close team forever*/
         if(o instanceof Team && arg instanceof  String && ((String)arg).contains("removed")){
             notifications.add(new Notification(o,arg,false));
+        }
+        /**team removed by team owner**/
+        if(o instanceof Team){
+            if( arg.equals("team deleted by team owner")){// the team was deleted by system manager and not active any more
+                notifications.add(new Notification(o,arg,false));
+            }
+            /**team reOpen by team owner**/
+            else if(arg.equals("team reopened by team owner")){
+                notifications.add(new Notification(o,arg,false));
+
+            }
         }
     }
 

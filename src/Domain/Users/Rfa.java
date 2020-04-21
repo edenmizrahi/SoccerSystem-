@@ -112,7 +112,8 @@ public class Rfa extends Fan implements Observer{
 
 
     /**
-     * This function create new league
+     * This function gets name of league and create new league, if there isn't already
+     * league with the same name in the system
      * @param nameOfLeague
      * @param ms
      * @throws Exception
@@ -123,14 +124,16 @@ public class Rfa extends Fan implements Observer{
             League newLeague = new League(nameOfLeague, ms);
             LOG.info(String.format("%s - %s", this.getUserName(), "Create new league"));
         }
-            else{
-            throw new Exception("Please insert valid details in order to create the new Domain.LeagueManagment.League properly");
+        else{
+            throw new Exception("Invalid parameters");
         }
 
     }
 
     /**
-     * This function gets all the parameters in order to create new referee and add him to the list of all the users
+     * This function gets all the parameters
+     * in order to create new referee
+     * and add him to the list of all the users
      * @param name
      * @param phoneNumber
      * @param email
@@ -143,17 +146,16 @@ public class Rfa extends Fan implements Observer{
      */
     //TODO test - V
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
-        if (checkValidDetails(userName, password, phoneNumber,email) && name!=null && qualification!=null) {
-            Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
-            LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Domain.Users.Rfa"));
+        if( qualification == null){
+            throw new NullPointerException();
         }
-        else {
-            throw new Exception("Invalid details - You can not add this referee");
-        }
+        checkValidDetails(name, userName, password, phoneNumber,email);
+        Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
+        LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Domain.Users.Rfa"));
     }
 
     /**
-     * This function gets Domain.Users.Referee and remove him from the list of all the users
+     * This function gets Referee and remove him from the list of all the users
      * cannot remove if he has a match in the future
      * @param ref
      * @throws Exception
@@ -170,14 +172,14 @@ public class Rfa extends Fan implements Observer{
                 }
             }
             system.removeUser(ref);
-            LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Domain.Users.Rfa"));
+            LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Rfa"));
         }else{
             throw new Exception("Domain.Users.Referee is null");
         }
     }
 
     /**
-     * Initializing Domain.LeagueManagment.Season To Domain.LeagueManagment.League
+     * Initializing Season To League by giving the policies, year and teams that will be in the league in this season
      * @param schedule
      * @param calculate
      * @param year
@@ -185,12 +187,12 @@ public class Rfa extends Fan implements Observer{
      * @param teams
      * @CodeBy Yarden
      */
-    //TODO test
+    //TODO test - V
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams){
         Season newSeason = new Season(this.system,schedule,calculate,year);
         this.system.setCurrSeason(newSeason);
         newSeason.addLeagueWithTeams(l,teams);
-        LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Domain.Users.Rfa"));
+        LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Rfa"));
     }
 
     /**Yarden**/
@@ -232,5 +234,7 @@ public class Rfa extends Fan implements Observer{
         }
         team.sendDecision(desicion);
         teamRequests.remove(team);
+
+
     }
 }

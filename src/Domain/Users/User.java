@@ -466,7 +466,7 @@ public class User {
     /**OR**/
     public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
-        checkValidDetails(userName,password,phoneNumber,email);
+        checkValidDetails(name,userName,password,phoneNumber,email);
             TeamRole newPlayer= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newPlayer.becomePlayer();
             system.removeUser(this);
@@ -477,7 +477,7 @@ public class User {
     /**OR**/
     public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
         // first check valid details
-        checkValidDetails(userName,password,phoneNumber,email);
+        checkValidDetails(name,userName,password,phoneNumber,email);
             TeamRole newCoach= new TeamRole(system,name,phoneNumber,email,userName,password,dateOfBirth);
             newCoach.becomeCoach();
             system.removeUser(this);
@@ -501,7 +501,7 @@ public class User {
     /**OR**/
     public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
-        checkValidDetails(userName,password,phoneNumber,email);
+        checkValidDetails(name,userName,password,phoneNumber,email);
             Fan newFan= new Fan(system,name,phoneNumber,email,userName,password, dateOfBirth);
             system.removeUser(this);
             LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
@@ -525,7 +525,7 @@ public class User {
     /**OR**/
     public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
-        checkValidDetails(userName,password,phoneNumber,email);
+        checkValidDetails(name,userName,password,phoneNumber,email);
         Rfa newRFA= new Rfa(system,name,phoneNumber,email,userName,password,dateOfBirth);
         system.removeUser(this);
         LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
@@ -535,7 +535,7 @@ public class User {
     /**OR**/
     public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
-        checkValidDetails(userName,password,phoneNumber,email);
+        checkValidDetails(name,userName,password,phoneNumber,email);
             TeamRole teamOwner= new TeamRole(system,name,phoneNumber,email,userName,password, dateOfBirth);
             teamOwner.becomeTeamOwner();
             system.removeUser(this);
@@ -543,22 +543,35 @@ public class User {
             return teamOwner;
     }
 
-
-    public void checkValidDetails(String userName, String password, String phoneNumber, String email) throws Exception {
+    /**or
+     * this function check if the details are valid
+     * @param name- name not null
+     * @param userName - unique and not null
+     * @param password - more than 6 characters , not null
+     * @param phoneNumber- 10 digits, not null
+     * @param email- contains @, .com or .co.il
+     * @throws Exception
+     */
+    //TODO test-V
+    public void checkValidDetails(String name, String userName, String password, String phoneNumber, String email) throws Exception {
+        //check name not null
+        if(name==null){
+            throw new Exception("name not valid");
+        }
         //check that username in unique
-        if(system.getUserNames().contains(userName)){
+        if(userName==null || system.getUserNames().contains(userName)){
             throw new Exception("user name not valid");
         }
         //password length is 6 or more
-        if(password.length()<6){
-            throw new Exception("password length too short");
+        if(password==null ||password.length()<6){
+            throw new Exception("password not valid");
         }
         // phone number is 10 digits
-        if( !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
+        if(phoneNumber==null || !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
             throw new Exception("phone number not valid");
         }
         //email contains @
-        if(! email.contains("@")){
+        if(email==null ||! email.contains("@")){
             throw new Exception("email not valid");
         }
         if( ! (email.contains(".com") || email.contains(".co.il"))){

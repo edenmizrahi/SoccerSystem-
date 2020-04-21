@@ -146,10 +146,10 @@ public class Rfa extends Fan implements Observer{
      */
     //TODO test - V
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
-        if(name==null || qualification == null){
+        if( qualification == null){
             throw new NullPointerException();
         }
-        checkValidDetails(userName, password, phoneNumber,email);
+        checkValidDetails(name, userName, password, phoneNumber,email);
         Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
         LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Domain.Users.Rfa"));
     }
@@ -172,7 +172,7 @@ public class Rfa extends Fan implements Observer{
                 }
             }
             system.removeUser(ref);
-            LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Domain.Users.Rfa"));
+            LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Rfa"));
         }else{
             throw new Exception("Domain.Users.Referee is null");
         }
@@ -192,7 +192,7 @@ public class Rfa extends Fan implements Observer{
         Season newSeason = new Season(this.system,schedule,calculate,year);
         this.system.setCurrSeason(newSeason);
         newSeason.addLeagueWithTeams(l,teams);
-        LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Domain.Users.Rfa"));
+        LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Rfa"));
     }
 
     /**Yarden**/

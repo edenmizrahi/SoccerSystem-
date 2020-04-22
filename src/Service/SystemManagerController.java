@@ -66,13 +66,13 @@ public class SystemManagerController {
 
     /**
      * Delete user from System
-     * @param u user to delete
-     * @param systemManager
+     * @param userToDelete user to delete
+     * @param user
      * @throws Exception if delete is not valid.
      * @codeBy Eden
      */
-    public void deleteUserForever(Fan u, SystemManager systemManager) throws Exception {
-        systemManager.removeUser(u);
+    public void deleteUserForever(Fan userToDelete, SystemManager user) throws Exception {
+        user.removeUser(userToDelete);
     }
 
 

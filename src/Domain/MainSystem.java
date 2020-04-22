@@ -377,4 +377,8 @@ public class MainSystem {
         return ans;
     }
 
+    public void addTeamForSysterm_TestsOnly(Team t){
+        activeTeams.add(t);
+    }
+
 }

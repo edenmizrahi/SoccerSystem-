@@ -8,6 +8,7 @@ import Domain.Users.Fan;
 import Domain.Users.Referee;
 import Domain.Users.TeamOwner;
 import Domain.Users.TeamRole;
+import Service.SystemOperationsController;
 import Stubs.TeamStubOr;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
@@ -105,6 +106,7 @@ public class Main {
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
+        SystemOperationsController.initSystemObjects();
 
     }
 }

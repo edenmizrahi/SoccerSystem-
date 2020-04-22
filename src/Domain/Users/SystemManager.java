@@ -17,7 +17,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
 
     public static  HashSet<Complaint> complaints=new HashSet<>();//*
     private static final Logger LOG = LogManager.getLogger();
-    HashSet<Notification> notifications;
+    private HashSet<Notification> notifications;
 
     /***
      * create system manager from fan:
@@ -114,7 +114,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
-
+//TODO test - V avital
     public void replaceTeamOwnerFounder(TeamOwner toAdd, TeamOwner toDelete, Team team) throws Exception {
         if(toAdd==null||toDelete==null){
             throw  new Exception("null input");
@@ -145,7 +145,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception if the remove isnt valid
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test - aviral V - prob with fanRemove!
     public List<Object> removeUser(Fan userToDelete) throws Exception {
         List<Object> objectsDeleted=new LinkedList<>();
         boolean isFan=true;
@@ -165,7 +165,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
             /***must have at least one system Manager at system**/
             if(system.getSystemManagers().size()==1){
-                throw new Exception("There is only one System Manager left, you cannot delete it ");
+                throw new Exception("There is only one System Manager left, you cannot delete it ");// not throw
             }
             objectsDeleted=deleteSystemManager(((SystemManager)userToDelete));
             isFan=false;
@@ -183,8 +183,8 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
 
         }
 
-        if(userToDelete instanceof Fan&& isFan){
-            objectsDeleted=fanRemove(((Fan)userToDelete));
+        if(userToDelete instanceof Fan&& isFan){ // only fun
+            objectsDeleted=fanRemove(((Fan)userToDelete));// prob with dell fan
         }
         LOG.info(String.format("%s - %s", this.getUserName(), "remove %s from system",userToDelete.getUserName()));
 
@@ -198,7 +198,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @return
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test - avital - need to check- prob with complain and dell fan
     private List<Object> fanRemove(Fan userToDelete) {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -209,16 +209,19 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         }
         /***remove user name from system*/
         system.getUserNames().remove(userToDelete.getUserName());
+        /**remove user from system**/
+        system.removeUser(userToDelete);
         return res;
     }
+
+
 
     /**
      * delete Domain.LeagueManagment.Team Manager and delete all his subscribe .
      * @param userToDelete
      * @codeBy Eden
      */
-    //TODO test
-
+    //TODO test- avital V
     private List<Object> deleteTeamManager(TeamManager userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -249,7 +252,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @exception if the Deletion isn't valid
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test -avital V
     private List<Object> teamRoleRemove(TeamRole userToRemove) throws Exception {
         isValidRemove(userToRemove);
         /*******if not valid - exception thrown*******/
@@ -286,7 +289,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param userToRemove
      * @throws Exception
      */
-    //TODO test
+    //TODO test - avital V
     private void isValidRemove(TeamRole userToRemove) throws Exception{
         /**if is coach-> check if coach is not connected to any team ->
          if connect throws Exception("you have to replace team coach")*/
@@ -325,7 +328,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception if team owner is founder of any team.
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test - avital V
     private List<Object> deleteTeamOwner(TeamOwner userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -336,10 +339,10 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             t.getTeamOwners().remove(userToDelete);
         }
         /***remove all the subscription**/
-        HashSet<TeamSubscription> subscriptions= userToDelete.getMySubscriptions();
+        HashSet<TeamSubscription> subscriptions= userToDelete.getMySubscriptions();//check if not empty?
         for(TeamSubscription sub: subscriptions){
             if(sub.role instanceof TeamOwner){
-                    userToDelete.removeTeamOwner(((TeamOwner) sub.role), sub.team);
+                userToDelete.removeTeamOwner(((TeamOwner) sub.role), sub.team);
             }
 
             if(sub.role instanceof TeamManager){
@@ -360,7 +363,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test -avital V
     private List<Object> deletePlayer(Player userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -372,7 +375,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test-avital V
     private List<Object> deleteCoach(Coach userToDelete) {
         List<Object> re=new LinkedList<>();
         re.add(userToDelete);
@@ -386,7 +389,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception if referee has future matches.
      * @codeBy Eden
      */
-//TODO test
+//TODO test-avital V
     private List<Object> deleteReferee(Referee userToDelete) throws Exception {
         //check the all matches that the referee is refereeing
         for (Match m : userToDelete.getMatches()) {
@@ -405,7 +408,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test -avital V
     private List<Object> deleteSystemManager(SystemManager userToDelete) {
         system.removeUser(userToDelete);
         List<Object> res=new LinkedList<>();
@@ -417,7 +420,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param userToDelete
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test-avital V
     private List<Object> deleteRfa(Rfa userToDelete){
         //userToDelete.getBudgetControl().removeRfa(userToDelete);
         system.removeUser(userToDelete);
@@ -439,10 +442,10 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param teamToRemove
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test -avital
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
-        checkValidTeam(teamToRemove);
+        checkValidTeam(teamToRemove);//!!
         if(teamToRemove.isActive()) {
             /**delete team from owner*/
             HashSet<TeamOwner> teamOwners = teamToRemove.getTeamOwners();
@@ -450,7 +453,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
                 teamToRemove.addObserver(curTO);
                 curTO.getTeams().remove(teamToRemove);
                 /** delete the team's subscriptions from team owner subscriptions list**/
-                HashSet<TeamSubscription> toRemove = new HashSet<>();
+                HashSet<TeamSubscription> toRemove = new HashSet<>();//!!
                 for (TeamSubscription ts : curTO.getMySubscriptions()) {
                     if (ts.team == teamToRemove) {
                         toRemove.add(ts);
@@ -503,7 +506,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test - avital V
     private void checkValidTeam(Team teamToRemove) throws Exception {
         if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
             throw new Exception("cannot delete team in current season");
@@ -597,7 +600,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
         }
     }
-
+// added!!!!!!!1
     /**
      * replace Coach At Team in order to delete coach user(cannot delete coach with team)
      * @param coachToReplace
@@ -613,7 +616,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
        }
        return false;
     }
-
+    // added!!!!!!!1
     public boolean addPlayerToTeam(Player p, Team t) throws Exception {
         if(p.getTeam()==null&&p!=null&&t!=null){
             t.addPlayer(p);

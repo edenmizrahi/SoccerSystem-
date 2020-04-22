@@ -322,6 +322,8 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
     //</editor-fold>
 
     //<editor-fold desc="setters and getters">
+
+
     public void addNewTeam(Team team) {
         this.teams.add(team);
     }

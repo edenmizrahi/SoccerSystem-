@@ -7,6 +7,7 @@ import Domain.LeagueManagment.Scheduling.SchedualeOption2;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
+import Domain.MainSystem;
 import Domain.Notifications.Notification;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
@@ -148,10 +149,10 @@ public class RfaController {
      */
     public void addBudgetRole (Rfa user ,String budgetRole){
         if(budgetRole.equals("income for each month bigger than 100")){
-            //user.firstRoleForBudget();
+            user.firstRoleForBudget(MainSystem.getInstance().getCurrSeason().getYear());
         }
         if(budgetRole.equals("income for each quarterly bigger than 1000")){
-            //user.secondRoleForBudget();
+            user.secondRoleForBudget(MainSystem.getInstance().getCurrSeason().getYear());
         }
     }
 

@@ -175,7 +175,7 @@ public class RfaTest {
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
 
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,true);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,false);
             Assert.fail();
 
         }

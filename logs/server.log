@@ -42,11 +42,11 @@
 2020.04.21 22:13:04.523 INFO  Domain.PrivatePage - null - added record to page
 2020.04.21 22:14:57.436 INFO  Domain.PrivatePage - null - added record to page
 2020.04.21 22:14:57.440 INFO  Domain.PrivatePage - null - added record to page
-2020.04.22 15:05:37.309 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.22 15:05:37.314 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.22 15:05:37.457 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.22 15:05:37.470 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.22 15:30:01.611 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.22 15:30:01.615 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.22 15:30:01.745 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.22 15:30:01.757 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.22 14:59:42.754 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 14:59:42.765 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 14:59:42.909 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.22 15:01:14.847 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:01:14.871 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:01:15.026 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.22 15:05:14.804 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:05:14.822 INFO  Domain.Users.SystemManager - avi123 - Added to system

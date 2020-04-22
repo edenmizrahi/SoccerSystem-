@@ -106,7 +106,7 @@ public class SystemOperationsController {
             system.addTeamName("macabi");
 
             Team t2=new Team();
-            t1.setName("hapoel");
+            t2.setName("hapoel");
             system.addTeamName("hapoel");
 
 
@@ -145,8 +145,8 @@ public class SystemOperationsController {
             /*********************/
 
             /**add 22 players to t2*/
-            add11PlayersToTeam(t2,ilanTeamOwner.getTeamOwner(),"d");
-            add11PlayersToTeam(t2,ilanTeamOwner.getTeamOwner(),"a");
+            add11PlayersToTeam(t2,aviTeamOwner.getTeamOwner(),"d");
+            add11PlayersToTeam(t2,aviTeamOwner.getTeamOwner(),"a");
             /**********************/
 
             /**Tami to be player without team**/
@@ -194,5 +194,51 @@ public class SystemOperationsController {
 
 
         }
+
+
+
+    /**
+     * for input to delete user function
+     * get user by name is not an unique field so return a list of
+     * matches users.
+     *
+     * @param name
+     * @return list of match users.
+     * @codeBy Eden
+     */
+    public LinkedList<User> getUserByName(String name, SystemManager user) {
+        List<User> users = user.getSystem().getUsers();
+        LinkedList<User> matches = new LinkedList<User>();
+        for (User cur : users) {
+            if (user.getName().equals(name)) ;
+            matches.add(cur);
+        }
+        return matches;
+    }
+
+    /**
+     * for input to delete user function
+     *User name is an unique field so this function return one user if there is user with
+     *
+     * @param userName
+     * @param user
+     * @return
+     * @codeBy Eden
+     */
+    public User getUserByUserName(String userName, SystemManager user) {
+        List<User> users = user.getSystem().getUsers();
+        LinkedList<User> matches = new LinkedList<User>();
+        for (User cur : users) {
+            if (user.getUserName().equals(userName)) {
+                return cur;
+            }
+        }
+        return null;
+    }
+
+    public List<SystemManager> showAllSystemManagers(){
+        return MainSystem.getInstance().getSystemManagers();
+
+    }
 
 }

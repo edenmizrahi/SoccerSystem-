@@ -453,7 +453,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
                 teamToRemove.addObserver(curTO);
                 curTO.getTeams().remove(teamToRemove);
                 /** delete the team's subscriptions from team owner subscriptions list**/
-                HashSet<TeamSubscription> toRemove = new HashSet<>();//!!
+                HashSet<TeamSubscription> toRemove = new HashSet<>();
                 for (TeamSubscription ts : curTO.getMySubscriptions()) {
                     if (ts.team == teamToRemove) {
                         toRemove.add(ts);
@@ -479,7 +479,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
 
             /***remove team name from system*/
-            system.getTeamNames().remove(teamToRemove.getName());
+            system.getTeamNames().remove(teamToRemove.getName());//!!
 
             /**remove from system*/
             system.getActiveTeams().remove(teamToRemove);

@@ -390,37 +390,57 @@ public class SystemManagerTest {
         /**test-Remove Active team**/
         //##
         Team activeTeam=new Team();
+        activeTeam.setActive(true);
         Fan f31=new Fan(sysetm,"f31","ee","e","f31","E",
                 MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole teamOwnerActiveTeam=new TeamRole(f31);
         teamOwnerActiveTeam.becomeTeamOwner();
         teamOwnerActiveTeam.getTeamOwner().addNewTeam(t1);
+        Fan f32=null;
+        Fan f33=null;
+        TeamRole subTeamManager=null;
+        TeamRole subCoach=null;
+        TeamRole p1=null;
         try {
             activeTeam.setFounder(teamOwnerActiveTeam.getTeamOwner());
             activeTeam.addTeamOwner(teamOwnerActiveTeam.getTeamOwner());
 
-        Fan f32=new Fan(sysetm,"f32","ee","e","f32","E",MainSystem.birthDateFormat.parse("02-11-1996"));
-        TeamRole subTeamOwner=null;
-        HashSet<TeamManagerPermissions> permissions=new HashSet<>();
-        permissions.add(TeamManagerPermissions.addRemoveEditPlayer);
-        teamOwnerActiveTeam.getTeamOwner().subscribeTeamManager(f32,activeTeam,permissions);
-        //subTeamOwner=teamOwnerActiveTeam.getTeamOwner().subscribeTeamOwner(f8,fullTeam);
+            f32=new Fan(sysetm,"f32","ee","e","f32","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+            HashSet<TeamManagerPermissions> permissions=new HashSet<>();
+            permissions.add(TeamManagerPermissions.addRemoveEditPlayer);
+            subTeamManager= teamOwnerActiveTeam.getTeamOwner().subscribeTeamManager(f32,activeTeam,permissions);
+            f33=new Fan(sysetm,"f33","ee","e","f33","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+            subCoach= new TeamRole(sysetm,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
+            subCoach.becomeCoach();
+            subCoach.getCoach().setCoachTeam(activeTeam);
+            activeTeam.setCoach(subCoach.getCoach());
+
+            p1= new TeamRole(sysetm,"mimi","0522150912","teamO@gmail.com","p1","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
+            p1.becomePlayer();
+            p1.getPlayer().setPlayerTeam(activeTeam);
+            //subTeamOwner=teamOwnerActiveTeam.getTeamOwner().subscribeTeamOwner(f8,fullTeam);
 
         //teamOwnerActiveTeam.subscribeTeamOwner()
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
 //check:
         try{
             sm.removeTeamFromSystem(activeTeam);
             /**delete team from owner*/
             Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getTeams().contains(activeTeam));
             /** delete the team's subscriptions from team owner subscriptions list**/
-            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getMySubscriptions().contains(activeTeam));//?
+            HashSet<TeamSubscription> sub= teamOwnerActiveTeam.getTeamOwner().getMySubscriptions();
+            //TeamSubscription sub= subs
+            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getMySubscriptions().contains(sub));//?
+            /**remove team manager from team*/
+            Assert.assertNull(subTeamManager.getTeamManager().getTeam());
+            Assert.assertNull(subTeamManager.getTeamManager());//assert els for null
+            /**remove coach*/
+            Assert.assertNull(subCoach.getCoach().getCoachTeam());
+            /**remove players*/
+            Assert.assertNull(p1.getPlayer().getTeam());
 
 
         } catch (Exception e) {
@@ -512,7 +532,7 @@ public class SystemManagerTest {
         Team t = new Team();
         t.setFounder(tr.getTeamOwner());
         t.getTeamOwners().add(tr.getTeamOwner());
-        tr.getTeamOwner().addNewTeam(t); // //!!!!!!!!!!!!!!!!!!!!!!!! set becauese of bad pull - not me
+        tr.getTeamOwner().addNewTeam(t);
 
         /**get a user witch is not a Domain.Users.TeamOwner**/
         try{

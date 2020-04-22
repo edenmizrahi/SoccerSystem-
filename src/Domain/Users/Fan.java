@@ -40,7 +40,7 @@ public class Fan extends User implements Observer, NotificationsUser {
         this.searchHisroty= new LinkedList<>();
 
         //add userName to the hashset
-
+        ms.addUserName(userName);
 
     }
 

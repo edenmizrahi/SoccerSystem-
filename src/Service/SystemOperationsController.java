@@ -102,7 +102,10 @@ public class SystemOperationsController {
             system.startSystem();
             SystemManager marioSystemManager=system.getSystemManagers().get(0);//there is only one system manager now (the default)
             Team t1=new Team();
-            Team t2=new Team();
+            t1.setName("macabi");
+            system.addTeamName("macabi");
+
+
 
             /**add Ilan as Team Owner (founder) of t1 ***/
             Fan f1=new Fan(system, "Ilan", "0549716910","yossi@gmail.com", "YossiHamelech5", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

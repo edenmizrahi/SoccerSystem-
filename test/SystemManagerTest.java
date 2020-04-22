@@ -1,5 +1,9 @@
 
 import Domain.Enums.*;
+import Domain.LeagueManagment.Calculation.CalculateOption1;
+import Domain.LeagueManagment.Calculation.CalculationPolicy;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
+import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import jdk.internal.org.objectweb.asm.commons.RemappingFieldAdapter;
 import Domain.*;
 import Stubs.*;
@@ -302,8 +306,117 @@ public class SystemManagerTest {
         //system.removeUser(userToDelete); - check if remove from system
     }
 
+    /**avutal**/
     @Test
     public void removeTeamFromSystem()throws ParseException {
+        //MainSystem sysetm !!
+        TeamStub t1 = new TeamStub("team1");
+        TeamStub t2 = new TeamStub("team2");
+        TeamStub t3 = new TeamStub("team3");
+        TeamStub t4 = new TeamStub("team4");
+        TeamStub t5 = new TeamStub("team5");
+        SchedulingPolicy schedulingPolicy = new SchedualeOption1();
+        CalculationPolicy calculationPolicy = new CalculateOption1();
+        League l =null;
+        try {
+            l = new League("A",sysetm);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Season s = new Season(sysetm, schedulingPolicy, calculationPolicy,2020);
+
+        HashSet<Team> teamsInLeag=new HashSet<Team>();
+        HashSet<Team> teams2 = new HashSet<Team>();
+        teamsInLeag.add(t1);
+        teamsInLeag.add(t2);
+        teamsInLeag.add(t3);
+        Fan fRFA=new Fan(sysetm,"fRFA","ee","e","fRFA","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+        Rfa rfa1=new Rfa(fRFA,sysetm);
+        try {
+            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /** check checkValidTeam private func**/
+
+        /**cant dell-  team belong to current season**/
+        try{
+            sm.removeTeamFromSystem(t1);
+            Assert.fail("expected exception was not occurred");
+        }
+        catch (Exception ex){
+            Assert.assertEquals(Exception.class,ex.getClass());
+            Assert.assertEquals("cannot delete team in current season",ex.getMessage());
+        }
+        /**cant dell-  team with future matches**/
+        //Match m1=new Match(0,0,t1,t2,new Field("fild1"),null,null,null,)
+        Fan f30=new Fan(sysetm,"f30","ee","e","f30","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+        Referee moshe=new Referee(f30,sysetm);
+        HashSet<Match> homeMaches=null;
+        try {
+            Match mNotPass = new Match(6,4,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                    , moshe,"17-05-2020 20:00:00");
+            Match mPass = new Match(4,2,t2,t3, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                    , moshe,"14-04-2020 20:00:00");
+
+            homeMaches=new HashSet<>();
+            homeMaches.add(mNotPass);
+            homeMaches.add(mPass);
+            t4.setHome(homeMaches);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /**test-throw exp - home Game**/
+        try{
+            sm.removeTeamFromSystem(t4);
+            Assert.fail("expected exception was not occurred");
+        }
+        catch (Exception ex){
+            Assert.assertEquals(Exception.class,ex.getClass());
+            Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
+        }
+        /**test-throw exp - away Game**/
+            t5.setAway(homeMaches);
+        try{
+            sm.removeTeamFromSystem(t5);
+            Assert.fail("expected exception was not occurred");
+        }
+        catch (Exception ex){
+            Assert.assertEquals(Exception.class,ex.getClass());
+            Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
+        }
+        /**test-Remove Active team**/
+        //##
+        Team activeTeam=new Team();
+        Fan f31=new Fan(sysetm,"f31","ee","e","f31","E",
+                MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole teamOwnerActiveTeam=new TeamRole(f31);
+        teamOwnerActiveTeam.becomeTeamOwner();
+        Fan f32=new Fan(sysetm,"f32","ee","e","f32","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole subTeamOwner=null;
+        //subTeamOwner=teamOwnerActiveTeam.getTeamOwner().subscribeTeamOwner(f8,fullTeam);
+
+        //teamOwnerActiveTeam.subscribeTeamOwner()
+
+
+
+
+//check:
+        try{
+            sm.removeTeamFromSystem(activeTeam);
+            /**delete team from owner*/
+            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getTeams().contains(t));
+            /** delete the team's subscriptions from team owner subscriptions list**/
+
+
+
+        } catch (Exception e) {
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+
 
 
     }

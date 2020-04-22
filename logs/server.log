@@ -28,3 +28,12 @@
 2020.04.21 16:29:42.034 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
 2020.04.21 16:29:42.039 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
 2020.04.21 16:29:42.040 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: money amount: -50
+2020.04.22 12:18:29.660 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 12:18:29.668 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 12:18:29.802 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.22 12:40:09.590 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 12:40:09.596 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 12:40:09.717 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.22 12:45:49.968 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 12:45:49.974 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 12:45:50.104 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa

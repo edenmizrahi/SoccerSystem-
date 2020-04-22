@@ -17,7 +17,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
 
     public static  HashSet<Complaint> complaints=new HashSet<>();//*
     private static final Logger LOG = LogManager.getLogger();
-    HashSet<Notification> notifications;
+    private HashSet<Notification> notifications;
 
     /***
      * create system manager from fan:

@@ -329,7 +329,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
                 break;
             }
         }
-        cur.setRead(true);
+        if(cur!=null) {
+            cur.setRead(true);
+        }
         teamRequests.remove(team);
 
     }

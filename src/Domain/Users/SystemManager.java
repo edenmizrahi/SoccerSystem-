@@ -444,7 +444,6 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      */
     //TODO test -avital
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
-
         checkValidTeam(teamToRemove);//!!
         if(teamToRemove.isActive()) {
             /**delete team from owner*/
@@ -496,8 +495,6 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             teamToRemove.sendNotiAbouteClose();
         }
         LOG.info(String.format("%s - %s", this.getUserName(), "remove team :%s from system",teamToRemove.getName()));
-
-
     }
 
     /***

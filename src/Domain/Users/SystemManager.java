@@ -444,6 +444,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      */
     //TODO test -avital
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
+
         checkValidTeam(teamToRemove);//!!
         if(teamToRemove.isActive()) {
             /**delete team from owner*/
@@ -452,7 +453,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
                 teamToRemove.addObserver(curTO);
                 curTO.getTeams().remove(teamToRemove);
                 /** delete the team's subscriptions from team owner subscriptions list**/
-                HashSet<TeamSubscription> toRemove = new HashSet<>();
+                HashSet<TeamSubscription> toRemove = new HashSet<>();//!!
                 for (TeamSubscription ts : curTO.getMySubscriptions()) {
                     if (ts.team == teamToRemove) {
                         toRemove.add(ts);
@@ -495,6 +496,8 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             teamToRemove.sendNotiAbouteClose();
         }
         LOG.info(String.format("%s - %s", this.getUserName(), "remove team :%s from system",teamToRemove.getName()));
+
+
     }
 
     /***
@@ -503,7 +506,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @throws Exception
      * @codeBy Eden
      */
-    //TODO test
+    //TODO test - avital V
     private void checkValidTeam(Team teamToRemove) throws Exception {
         if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
             throw new Exception("cannot delete team in current season");
@@ -597,7 +600,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
         }
     }
-
+// added!!!!!!!1
     /**
      * replace Coach At Team in order to delete coach user(cannot delete coach with team)
      * @param coachToReplace
@@ -613,7 +616,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
        }
        return false;
     }
-
+    // added!!!!!!!1
     public boolean addPlayerToTeam(Player p, Team t) throws Exception {
         if(p.getTeam()==null&&p!=null&&t!=null){
             t.addPlayer(p);

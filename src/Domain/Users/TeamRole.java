@@ -35,7 +35,7 @@ public class TeamRole extends Fan {
 
     //<editor-fold desc="become functions">
     /**OR**/
-    //TODO test
+    //TODO test - avital V
     public boolean becomePlayer(){
         if(this.player == null){
             player= new Player(this);
@@ -44,7 +44,7 @@ public class TeamRole extends Fan {
         return false;
     }
     /**OR**/
-    //TODO test
+    //TODO test - avital V
     public boolean becomeCoach(){
         if (this.coach==null){
             coach= new Coach(this);
@@ -54,7 +54,7 @@ public class TeamRole extends Fan {
     }
 
     /**OR**/
-    //TODO test
+    //TODO test - avital V
     public boolean becomeTeamManager(Team team, HashSet<TeamManagerPermissions> pers){
         if(this.teamManager==null){
             teamManager= new TeamManager(this,team,pers);
@@ -63,7 +63,7 @@ public class TeamRole extends Fan {
         return false;
     }
     /**OR**/
-    //TODO test
+    //TODO test - avital V
     public boolean becomeTeamOwner(){
         if(this.teamOwner == null){
             teamOwner= new TeamOwner(this);
@@ -73,7 +73,7 @@ public class TeamRole extends Fan {
     }
 
     // adi
-    //TODO test
+    //TODO test - avital V
     public boolean deletePlayer(){
         if (player != null){
             player = null;

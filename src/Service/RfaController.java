@@ -148,10 +148,10 @@ public class RfaController {
      */
     public void addBudgetRole (Rfa user ,String budgetRole){
         if(budgetRole.equals("income for each month bigger than 100")){
-            user.firstRoleForBudget();
+           // user.firstRoleForBudget();
         }
         if(budgetRole.equals("income for each quarterly bigger than 1000")){
-            user.secondRoleForBudget();
+            //user.secondRoleForBudget();
         }
     }
 

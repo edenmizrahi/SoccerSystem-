@@ -346,14 +346,34 @@ public class TeamManagementController {
 
     }
         //<editor-fold desc="getters">
+
     /**
      * adi
-     * get all the possible users i can subscribe to become team owner or manager
-     * @param user
-     * @return
+     * get all the possible users i can subscribe to become team owner
+     * @return list of possible users
      */
-    public LinkedList<Fan> getAllPossibleSubscribeTeamOwnerOrManager(TeamRole user){
-        LinkedList<Fan> allFans = user.getSystem().getAllFans();
+    public LinkedList<Fan> getAllPossibleSubscribeTeamOwner(){
+        LinkedList<Fan> allFans = MainSystem.getInstance().getAllFans();
+        LinkedList<Fan> ans = new LinkedList<>();
+        for(Fan fan : allFans){
+            if (!(fan instanceof SystemManager) && !(fan instanceof Rfa) && !(fan instanceof Referee)){
+                if (!(fan instanceof TeamRole)){
+                    ans.add(fan);
+                }
+                else if(fan instanceof TeamRole) {
+                    ans.add(fan);
+                }
+            }
+        }
+        return ans;
+    }
+    /**
+     * adi
+     * get all the possible users i can subscribe to become team manager
+     * @return list of possible users
+     */
+    public LinkedList<Fan> getAllPossibleSubscribeTeamManager(){
+        LinkedList<Fan> allFans = MainSystem.getInstance().getAllFans();
         LinkedList<Fan> ans = new LinkedList<>();
         for(Fan fan : allFans){
             if (!(fan instanceof SystemManager) && !(fan instanceof Rfa) && !(fan instanceof Referee)){

@@ -26,45 +26,6 @@ public class SystemManagerController {
     }
 
     /**
-     * for input to delete user function
-     * get user by name is not an unique field so return a list of
-     * matches users.
-     *
-     * @param name
-     * @return list of match users.
-     * @codeBy Eden
-     */
-    public LinkedList<User> getUserByName(String name, SystemManager user) {
-        List<User> users = user.getSystem().getUsers();
-        LinkedList<User> matches = new LinkedList<User>();
-        for (User cur : users) {
-            if (user.getName().equals(name)) ;
-            matches.add(cur);
-        }
-        return matches;
-    }
-
-    /**
-     * for input to delete user function
-     *User name is an unique field so this function return one user if there is user with
-     *
-     * @param userName
-     * @param user
-     * @return
-     * @codeBy Eden
-     */
-    public User getUserByUserName(String userName, SystemManager user) {
-        List<User> users = user.getSystem().getUsers();
-        LinkedList<User> matches = new LinkedList<User>();
-        for (User cur : users) {
-            if (user.getUserName().equals(userName)) {
-                return cur;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Delete user from System
      * @param userToDelete user to delete
      * @param user

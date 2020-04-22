@@ -37,7 +37,9 @@ public class CloseTeamForeverTest {
         for (TeamOwner tO:teamOwners){
             assertTrue(tO.getTeams().contains(t1));
         }
-//        Coach coach=t1.getCoach()
+        Coach coach=t1.getCoach();
+        HashSet<Player> players=t1.getPlayers();
+
         try {
             sm.removeTeamFromSystem(t1);
         }
@@ -59,7 +61,13 @@ public class CloseTeamForeverTest {
         }
         /**delete from teamManager*/
         assertTrue(!teamManager.isTeamManager());
-        /****/
+        /**check for players*/
+        for(Player p: players){
+            assertTrue(p.getTeam()==null);
+        }
+        /**check for coach*/
+        assertTrue(coach.getCoachTeam()==null);
+
 
 
 

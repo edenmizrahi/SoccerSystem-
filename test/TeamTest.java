@@ -727,6 +727,19 @@ public class TeamTest {
             assertEquals("record not valid",e.getMessage());
         }
 
+
+
+    }
+
+    @Test
+    public void removeRecord() {
+        t.createPrivatePage();
+        try {
+            t.getPrivatePage().addRecords("newRecord");
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
         try {
             t.removeRecordFromPage("newRecord");
             Assert.assertFalse(t.getPrivatePage().getRecords().contains("newRecord"));
@@ -734,6 +747,5 @@ public class TeamTest {
             e.printStackTrace();
             Assert.fail();
         }
-
     }
 }

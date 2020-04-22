@@ -74,7 +74,7 @@ public class PrivatePage {
             throw new Exception("record empty");
         }
         if(!records.contains(record)){
-            throw new Exception("thid page doesn't contain this record");
+            throw new Exception("this page doesn't contain this record");
         }
         records.remove(record);
         LOG.info(String.format("%s - %s", pageOwner.getOwnerName(), "added record to page"));

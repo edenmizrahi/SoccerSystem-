@@ -2,7 +2,7 @@ package Domain.Users;
 
 import Domain.*;
 import Domain.BudgetControl.BudgetControl;
-import Domain.BudgetControl.Report;
+import Domain.BudgetControl.BudgetReport;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Match;
@@ -77,9 +77,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
                 MonthAndAmountPerIncome.put(i,0);
             }
 
-            LinkedList<Report> incomeAndExpansePerTeam = t.getBudgetControl().getIncomeAndExpenses();
+            LinkedList<BudgetReport> incomeAndExpansePerTeam = t.getBudgetControl().getIncomeAndExpenses();
             //for each report - if it's income - add it to the relevant month
-            for (Report r: incomeAndExpansePerTeam) {
+            for (BudgetReport r: incomeAndExpansePerTeam) {
 
                 if (r.getAmount() > 0) {
                     LocalDate date = r.getNow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -151,9 +151,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
                 quarterAndAmountPerIncome.put(i,0);
             }
 
-            LinkedList<Report> incomeAndExpansePerTeam = t.getBudgetControl().getIncomeAndExpenses();
+            LinkedList<BudgetReport> incomeAndExpansePerTeam = t.getBudgetControl().getIncomeAndExpenses();
             //for each report - if it's income - add it to the relevant quarter
-            for (Report r: incomeAndExpansePerTeam) {
+            for (BudgetReport r: incomeAndExpansePerTeam) {
 
                 if (r.getAmount() > 0) {
                     LocalDate date = r.getNow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();

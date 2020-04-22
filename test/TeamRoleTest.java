@@ -15,9 +15,11 @@ public class TeamRoleTest {
     Fan f1=new Fan(system,"f1","ee","e","f1","E",MainSystem.birthDateFormat.parse("02-11-1996"));
     TeamRole teamRole=new TeamRole(f1);
     TeamStub t1 = new TeamStub("team1");
-    Fan f2=new Fan(system,"f2","ee","e","f1","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+    Fan f2=new Fan(system,"f2","ee","e","f2","E",MainSystem.birthDateFormat.parse("02-11-1996"));
     TeamRole fullTR=new TeamRole(f2);
     Boolean ansReturnFromFunc=null;
+    Fan f3=new Fan(system,"f3","ee","e","f3","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+    TeamRole testTeamRole=new TeamRole(f3);
 
     public TeamRoleTest() throws ParseException {
     }
@@ -137,7 +139,163 @@ public class TeamRoleTest {
             Assert.fail("test fail");
             e.printStackTrace();
         }
+    }
 
+    @Test
+    public void deleteCoach() {
+        /**Coach is not null **/
+        try{
+            fullTR.becomeCoach();
+            ansReturnFromFunc= fullTR.deleteCoach();
+            Assert.assertEquals(ansReturnFromFunc,true);
+            Assert.assertFalse(fullTR.isCoach());
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**Coach already null **/
+        try{
+            ansReturnFromFunc= fullTR.deleteCoach();
+            Assert.assertEquals(ansReturnFromFunc,false);
+            Assert.assertFalse(fullTR.isCoach());
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void deleteTeamManager() {
+        /**TeamManager is not null **/
+        try{
+            HashSet<TeamManagerPermissions> per=new HashSet<>();
+            per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
+            fullTR.becomeTeamManager(t1,per);
+            ansReturnFromFunc= fullTR.deleteTeamManager();
+            Assert.assertEquals(ansReturnFromFunc,true);
+            Assert.assertFalse(fullTR.isTeamManager());
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**TeamManager  already null **/
+        try{
+            ansReturnFromFunc= fullTR.deleteTeamManager();
+            Assert.assertEquals(ansReturnFromFunc,false);
+            Assert.assertFalse(fullTR.isTeamManager());
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void deleteTeamOwner() {
+        /**TeamOwner is not null **/
+        try{
+            fullTR.becomeTeamOwner();
+            ansReturnFromFunc= fullTR.deleteTeamOwner();
+            Assert.assertEquals(ansReturnFromFunc,true);
+            Assert.assertFalse(fullTR.isTeamOwner());
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**TeamOwner already null **/
+        try{
+            ansReturnFromFunc= fullTR.deleteTeamOwner();
+            Assert.assertEquals(ansReturnFromFunc,false);
+            Assert.assertFalse(fullTR.isTeamOwner());
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void isPlayer() {
+        /**player is null **/
+        try{
+            ansReturnFromFunc= testTeamRole.isPlayer();
+            Assert.assertEquals(ansReturnFromFunc,false);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**player is not null  **/
+        try{
+            testTeamRole.becomePlayer();
+            ansReturnFromFunc= testTeamRole.isPlayer();
+            Assert.assertEquals(ansReturnFromFunc,true);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void isCoach() {
+        /**Coach is null **/
+        try{
+            ansReturnFromFunc= testTeamRole.isCoach();
+            Assert.assertEquals(ansReturnFromFunc,false);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**Coach is not null  **/
+        try{
+            testTeamRole.becomeCoach();
+            ansReturnFromFunc= testTeamRole.isCoach();
+            Assert.assertEquals(ansReturnFromFunc,true);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void isTeamManager() {
+        /**TeamManager is null **/
+        try{
+            ansReturnFromFunc= testTeamRole.isTeamManager();
+            Assert.assertEquals(ansReturnFromFunc,false);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**TeamManager is not null  **/
+        try{
+            HashSet<TeamManagerPermissions> per=new HashSet<>();
+            per.add(TeamManagerPermissions.addRemoveEditTeamOwner);
+            testTeamRole.becomeTeamManager(t1,per);
+            ansReturnFromFunc= testTeamRole.isTeamManager();
+            Assert.assertEquals(ansReturnFromFunc,true);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void isTeamOwner() {
+        /**TeamOwner is null **/
+        try{
+            ansReturnFromFunc= testTeamRole.isTeamOwner();
+            Assert.assertEquals(ansReturnFromFunc,false);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+        /**TeamOwner is not null  **/
+        try{
+            testTeamRole.becomeTeamOwner();
+            ansReturnFromFunc= testTeamRole.isTeamOwner();
+            Assert.assertEquals(ansReturnFromFunc,true);
+        }catch (Exception e){
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
     }
 }
 /*

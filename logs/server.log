@@ -28,3 +28,17 @@
 2020.04.21 16:29:42.034 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
 2020.04.21 16:29:42.039 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
 2020.04.21 16:29:42.040 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: money amount: -50
+2020.04.21 20:29:34.192 INFO  Domain.PrivatePage - Domain.LeagueManagment.Team@1372ed45 - added record to page
+2020.04.21 21:56:44.408 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 21:56:44.411 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:05:41.750 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:05:41.754 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:12:27.347 INFO  Domain.PrivatePage - null - add fan to page, fane username: fan101
+2020.04.21 22:12:34.808 INFO  Domain.PrivatePage - null - add fan to page, fane username: fan101
+2020.04.21 22:12:34.812 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:12:34.813 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:13:04.516 INFO  Domain.PrivatePage - null - add fan to page, fane username: fan101
+2020.04.21 22:13:04.522 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:13:04.523 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:14:57.436 INFO  Domain.PrivatePage - null - added record to page
+2020.04.21 22:14:57.440 INFO  Domain.PrivatePage - null - added record to page

@@ -16,6 +16,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import static org.junit.Assert.*;
 
@@ -388,14 +389,16 @@ public class SystemManagerTest {
             Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
         }
         /**test-Remove Active team**/
-        //##
         Team activeTeam=new Team();
         activeTeam.setActive(true);
+        sysetm.addActiveTeam(t1);//??
+        activeTeam.setName("macabi");
+        sysetm.addTeamName("macabi");
         Fan f31=new Fan(sysetm,"f31","ee","e","f31","E",
                 MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole teamOwnerActiveTeam=new TeamRole(f31);
         teamOwnerActiveTeam.becomeTeamOwner();
-        teamOwnerActiveTeam.getTeamOwner().addNewTeam(t1);
+        teamOwnerActiveTeam.getTeamOwner().addNewTeam(activeTeam);
         Fan f32=null;
         Fan f33=null;
         TeamRole subTeamManager=null;
@@ -417,7 +420,8 @@ public class SystemManagerTest {
 
             p1= new TeamRole(sysetm,"mimi","0522150912","teamO@gmail.com","p1","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
             p1.becomePlayer();
-            p1.getPlayer().setPlayerTeam(activeTeam);
+            //p1.getPlayer().setPlayerTeam(activeTeam);
+            teamOwnerActiveTeam.getTeamOwner().addPlayer(p1,"ll",activeTeam);
             //subTeamOwner=teamOwnerActiveTeam.getTeamOwner().subscribeTeamOwner(f8,fullTeam);
 
         //teamOwnerActiveTeam.subscribeTeamOwner()
@@ -432,24 +436,60 @@ public class SystemManagerTest {
             Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getTeams().contains(activeTeam));
             /** delete the team's subscriptions from team owner subscriptions list**/
             HashSet<TeamSubscription> sub= teamOwnerActiveTeam.getTeamOwner().getMySubscriptions();
-            //TeamSubscription sub= subs
-            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getMySubscriptions().contains(sub));//?
+            for(TeamSubscription ts: sub){
+                assertTrue(ts.team.getName()!=t1.getName());
+            }
+            //Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getMySubscriptions().contains(sub));//?
             /**remove team manager from team*/
-            Assert.assertNull(subTeamManager.getTeamManager().getTeam());
-            Assert.assertNull(subTeamManager.getTeamManager());//assert els for null
+            Assert.assertTrue(subTeamManager.getTeamManager()==null);
             /**remove coach*/
-            Assert.assertNull(subCoach.getCoach().getCoachTeam());
+            Assert.assertTrue(subCoach.getCoach().getCoachTeam()==null);
             /**remove players*/
-            Assert.assertNull(p1.getPlayer().getTeam());
+            Assert.assertTrue(p1.getPlayer().getTeam()==null);
+            /***remove team name from system*/
+            Assert.assertFalse(sysetm.getTeamNames().contains("macabi"));
+            /**remove from system*/
+            Assert.assertFalse(sysetm.getTeamNames().contains(activeTeam));
+        } catch (Exception e) {
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
+
+        /**if not active team**/
+        Team notActiveTean=new Team();
+        Fan f34=new Fan(sysetm,"f34","ee","e","f34","E",
+                MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole teamOwnerNotAT=new TeamRole(f34);
+        teamOwnerNotAT.becomeTeamOwner();
+        teamOwnerNotAT.getTeamOwner().addNewTeam(notActiveTean);
+        Fan f44=null;
+        TeamRole subTeamManagerNAteam=null;
+        try {
+            notActiveTean.addTeamOwner(teamOwnerNotAT.getTeamOwner());
+            LinkedList<Team> deletedTeams=new LinkedList<>();
+            deletedTeams.add(notActiveTean);
+            teamOwnerNotAT.getTeamOwner().setDeletedTeams(deletedTeams);
+
+            f44=new Fan(sysetm,"f44","ee","e","f44","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+            HashSet<TeamManagerPermissions> permissions=new HashSet<>();
+            permissions.add(TeamManagerPermissions.addRemoveEditPlayer);
+            subTeamManagerNAteam= teamOwnerNotAT.getTeamOwner().subscribeTeamManager(f44,notActiveTean,permissions);
+
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+        try{
+            //problem with addObserver in test
+            sm.removeTeamFromSystem(notActiveTean);
+            /**remove team from - team owners deleted list****/
+            Assert.assertFalse(teamOwnerNotAT.getTeamOwner().getDeletedTeams().contains(notActiveTean));
 
 
         } catch (Exception e) {
             Assert.fail("test fail");
             e.printStackTrace();
         }
-
-
-
     }
 
 

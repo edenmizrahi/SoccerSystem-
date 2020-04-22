@@ -479,7 +479,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             }
 
             /***remove team name from system*/
-            system.getTeamNames().remove(teamToRemove.getName());//!!
+            system.getTeamNames().remove(teamToRemove.getName());
 
             /**remove from system*/
             system.getActiveTeams().remove(teamToRemove);
@@ -488,7 +488,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         /**if not active team**/
         else{
             /**remove team from - team owners deleted list****/
-            for(TeamOwner cur: teamToRemove.getTeamOwners()){
+            for(TeamOwner cur: teamToRemove.getTeamOwners()){//!!
                 cur.getDeletedTeams().remove(teamToRemove);
                 teamToRemove.addObserver(cur);
             }

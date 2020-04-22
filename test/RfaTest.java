@@ -175,7 +175,7 @@ public class RfaTest {
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
 
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,false);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,true);
             Assert.fail();
 
         }
@@ -205,6 +205,28 @@ public class RfaTest {
             Assert.fail();
         }
 
+    }
+
+    /**Yarden**/
+    @Test
+    public void updateCurrSeasonTest(){
+        Season s18 = new Season(ms,schedualeOption1,calculationPolicy1,2014);
+        try {
+            nadav.updateCurrSeason(1800);
+            Assert.fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("The season doesn't exist in the system",e.getMessage());
+        }
+
+        try{
+            nadav.updateCurrSeason(2014);
+            Assert.assertTrue(ms.getCurrSeason().equals(s18));
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
     }
 
     /**Yarden**/

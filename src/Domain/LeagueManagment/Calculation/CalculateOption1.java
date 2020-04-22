@@ -5,6 +5,7 @@ import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -31,28 +32,30 @@ public class CalculateOption1 implements CalculationPolicy {
                 /**check each home match the team won and add +2 to her score if tiko, add +1**/
                 HashSet<Match> homeMatchesPerTeam = team.getHome();
                 for (Match m: homeMatchesPerTeam) {
-                    if(m.getHomeScore() > m.getGuestScore()){//team is won
-                        team.setScore(team.getScore()+2);
-                    }
-                    else{
-                        if(m.getHomeScore() == m.getGuestScore()){//there is tiko
-                            team.setScore(team.getScore()+1);
+                    if(m.getStartDate().before(new Date())) {
+                        if (m.getHomeScore() > m.getGuestScore()) {//team is won
+                            team.setScore(team.getScore() + 2);
+                        } else {
+                            if (m.getHomeScore() == m.getGuestScore()) {//there is tiko
+                                team.setScore(team.getScore() + 1);
+                            }
                         }
+                        //about lose do not add nothing
                     }
-                    //about lose do not add nothing
                 }
 
                 HashSet<Match> awayMatchesPerTeam = team.getAway();
                 for (Match m: awayMatchesPerTeam) {
-                    if(m.getHomeScore() < m.getGuestScore()){//team is won
-                        team.setScore(team.getScore()+2);
-                    }
-                    else{
-                        if(m.getHomeScore() == m.getGuestScore()){//there is tiko
-                            team.setScore(team.getScore()+1);
+                    if(m.getStartDate().before(new Date())) {
+                        if (m.getHomeScore() < m.getGuestScore()) {//team is won
+                            team.setScore(team.getScore() + 2);
+                        } else {
+                            if (m.getHomeScore() == m.getGuestScore()) {//there is tiko
+                                team.setScore(team.getScore() + 1);
+                            }
                         }
+                        //about lose do not add nothing
                     }
-                    //about lose do not add nothing
                 }
 
             }// team

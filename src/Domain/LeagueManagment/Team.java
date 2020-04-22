@@ -59,7 +59,6 @@ public class Team extends Observable implements PageOwner {
         addObserver(teamOwner);
         //add team name to hash set
         mainSystem.addTeamName(name);
-
     }
 
     //just for tests!!!!!1
@@ -359,7 +358,7 @@ public class Team extends Observable implements PageOwner {
      * @param s- season
      * @param l- league
      */
-    //TODO test
+    //TODO test - V
     public void addLeagueAndSeason(Season s, League l){
         if(s!=null && l!=null) {
             leaguePerSeason.put(s, l);

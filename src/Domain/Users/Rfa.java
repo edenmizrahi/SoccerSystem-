@@ -26,7 +26,6 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
-        this.system.removeUser(fan);
         this.teamRequests= new LinkedList<>();
         this.notifications=new HashSet<>();
         //TODO add permissions
@@ -287,7 +286,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      */
     //TODO test - V
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, boolean defineCurrSeason) throws Exception {
-        if(schedule==null || calculate==null || year < Year.now().getValue()){
+
+        //if(schedule==null || calculate==null || ( defineCurrSeason && year < Year.now().getValue() )){
+        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() )){
             throw new Exception("Invalid details");
         }
 
@@ -336,7 +337,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
             throw new NullPointerException();
         }
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
-        LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa "));
+        LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa"));
     }
 
     //TODO test - V
@@ -366,7 +367,6 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
         else{
             throw new Exception("This season doesn't exist in the system");
         }
-
     }
 
 
@@ -384,11 +384,11 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     /**Or**/
     //TODO test- V
-    public void answerRequest(Team team, boolean desicion) throws Exception {
+    public void answerRequest(Team team, boolean decision) throws Exception {
         if( !teamRequests.contains(team)){
             throw new Exception("team not in request list");
         }
-        team.sendDecision(desicion);
+        team.sendDecision(decision);
         Notification cur=null;
         /**get the current notification**/
         for(Notification n: notifications){
@@ -397,9 +397,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
                 break;
             }
         }
-        if(cur!=null) {
-            cur.setRead(true);
-        }
+        cur.setRead(true);
         teamRequests.remove(team);
 
     }

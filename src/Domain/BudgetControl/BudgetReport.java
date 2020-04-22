@@ -4,13 +4,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Report {
+public class BudgetReport {
     private String reason;
     private long amount;
     private Date now;
     private DateFormat dateFormat= new SimpleDateFormat("dd/mm/yyyy");
 
-    public Report(String reason, long amount) {
+    public BudgetReport(String reason, long amount) {
         this.reason = reason;
         this.amount = amount;
         this.now = new Date();

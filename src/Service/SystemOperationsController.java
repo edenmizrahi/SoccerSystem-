@@ -104,10 +104,14 @@ public class SystemOperationsController {
             Team t1=new Team();
             t1.setName("macabi");
             system.addTeamName("macabi");
+            t1.setActive(true);
+            system.addActiveTeam(t1);
 
             Team t2=new Team();
             t2.setName("hapoel");
             system.addTeamName("hapoel");
+            t2.setActive(true);
+            system.addActiveTeam(t2);
 
 
             /**add Ilan as Team Owner (founder) of t1 ***/

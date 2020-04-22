@@ -1,5 +1,5 @@
 import Domain.*;
-import Domain.BudgetControl.Report;
+import Domain.BudgetControl.BudgetReport;
 import Domain.Events.Event;
 import Domain.LeagueManagment.*;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
@@ -242,17 +242,17 @@ public class RfaTest {
             Date d4 = sdf.parse("05-04-2020");
             Date d5 = sdf.parse("05-05-2020");
 
-            LinkedList<Report> reports= new LinkedList<>();
+            LinkedList<BudgetReport> reports= new LinkedList<>();
 
-            Report r1 = new Report("a", 500);
+            BudgetReport r1 = new BudgetReport("a", 500);
             r1.setNow(d1);
-            Report r2 = new Report("a",166);
+            BudgetReport r2 = new BudgetReport("a",166);
             r2.setNow(d2);
-            Report r3 = new Report("a",-160);
+            BudgetReport r3 = new BudgetReport("a",-160);
             r3.setNow(d3);
-            Report r4 = new Report("a",800);
+            BudgetReport r4 = new BudgetReport("a",800);
             r4.setNow(d4);
-            Report r5 = new Report("a",80);
+            BudgetReport r5 = new BudgetReport("a",80);
             r5.setNow(d5);
 
             reports.add(r1);
@@ -270,7 +270,7 @@ public class RfaTest {
 
             /**Jan to March in 2020**/
             Assert.assertEquals(teamsExceptions1,toCheck1);
-            Report r6 = new Report("a",160);
+            BudgetReport r6 = new BudgetReport("a",160);
             r6.setNow(d3);
             reports.add(r6);
             t3.getBudgetControl().setIncomeAndExpenses(reports);
@@ -297,35 +297,35 @@ public class RfaTest {
             Date d11 = sdf.parse("05-11-2019");
             Date d12 = sdf.parse("05-12-2019");
 
-            LinkedList<Report> reports= new LinkedList<>();
+            LinkedList<BudgetReport> reports= new LinkedList<>();
 
-            Report r1 = new Report("a", 500);
+            BudgetReport r1 = new BudgetReport("a", 500);
             r1.setNow(d1);
-            Report r2 = new Report("a",166);
+            BudgetReport r2 = new BudgetReport("a",166);
             r2.setNow(d2);
-            Report r2_1 = new Report("a",-166);
+            BudgetReport r2_1 = new BudgetReport("a",-166);
             r2_1.setNow(d2);
-            Report r3 = new Report("a",160);
+            BudgetReport r3 = new BudgetReport("a",160);
             r3.setNow(d3);
-            Report r4 = new Report("a",800);
+            BudgetReport r4 = new BudgetReport("a",800);
             r4.setNow(d4);
-            Report r5 = new Report("a",180);
+            BudgetReport r5 = new BudgetReport("a",180);
             r5.setNow(d5);
-            Report r6 = new Report("a",622);
+            BudgetReport r6 = new BudgetReport("a",622);
             r6.setNow(d6);
-            Report r7 = new Report("a",622);
+            BudgetReport r7 = new BudgetReport("a",622);
             r7.setNow(d7);
-            Report r8 = new Report("a",622);
+            BudgetReport r8 = new BudgetReport("a",622);
             r8.setNow(d8);
-            Report r9 = new Report("a",622);
+            BudgetReport r9 = new BudgetReport("a",622);
             r9.setNow(d9);
-            Report r9_1 = new Report("a",-622);
+            BudgetReport r9_1 = new BudgetReport("a",-622);
             r9_1.setNow(d9);
-            Report r10 = new Report("a",622);
+            BudgetReport r10 = new BudgetReport("a",622);
             r10.setNow(d10);
-            Report r11 = new Report("a",622);
+            BudgetReport r11 = new BudgetReport("a",622);
             r11.setNow(d11);
-            Report r12 = new Report("a",622);
+            BudgetReport r12 = new BudgetReport("a",622);
             r12.setNow(d12);
 
             reports.add(r1);
@@ -374,19 +374,19 @@ public class RfaTest {
             Date d5 = sdf.parse("05-05-2020");
             Date d6 = sdf.parse("05-06-2020");
 
-            LinkedList<Report> reports= new LinkedList<>();
+            LinkedList<BudgetReport> reports= new LinkedList<>();
 
-            Report r1 = new Report("a", 1500);
+            BudgetReport r1 = new BudgetReport("a", 1500);
             r1.setNow(d1);
-            Report r2 = new Report("a",1666);
+            BudgetReport r2 = new BudgetReport("a",1666);
             r2.setNow(d2);
-            Report r3 = new Report("a",-600);
+            BudgetReport r3 = new BudgetReport("a",-600);
             r3.setNow(d3);
-            Report r4 = new Report("a",800);
+            BudgetReport r4 = new BudgetReport("a",800);
             r4.setNow(d4);
-            Report r5 = new Report("a",2580);
+            BudgetReport r5 = new BudgetReport("a",2580);
             r5.setNow(d5);
-            Report r6 = new Report("a",1622);
+            BudgetReport r6 = new BudgetReport("a",1622);
             r6.setNow(d6);
 
             reports.add(r1);
@@ -422,35 +422,35 @@ public class RfaTest {
             Date d11 = sdf.parse("05-11-2019");
             Date d12 = sdf.parse("05-12-2019");
 
-            LinkedList<Report> reports= new LinkedList<>();
+            LinkedList<BudgetReport> reports= new LinkedList<>();
 
-            Report r1 = new Report("a", 500);
+            BudgetReport r1 = new BudgetReport("a", 500);
             r1.setNow(d1);
-            Report r2 = new Report("a",166);
+            BudgetReport r2 = new BudgetReport("a",166);
             r2.setNow(d2);
-            Report r2_1 = new Report("a",-166);
+            BudgetReport r2_1 = new BudgetReport("a",-166);
             r2_1.setNow(d2);
-            Report r3 = new Report("a",660);
+            BudgetReport r3 = new BudgetReport("a",660);
             r3.setNow(d3);
-            Report r4 = new Report("a",1800);
+            BudgetReport r4 = new BudgetReport("a",1800);
             r4.setNow(d4);
-            Report r5 = new Report("a",180);
+            BudgetReport r5 = new BudgetReport("a",180);
             r5.setNow(d5);
-            Report r6 = new Report("a",622);
+            BudgetReport r6 = new BudgetReport("a",622);
             r6.setNow(d6);
-            Report r7 = new Report("a",622);
+            BudgetReport r7 = new BudgetReport("a",622);
             r7.setNow(d7);
-            Report r8 = new Report("a",622);
+            BudgetReport r8 = new BudgetReport("a",622);
             r8.setNow(d8);
-            Report r9 = new Report("a",622);
+            BudgetReport r9 = new BudgetReport("a",622);
             r9.setNow(d9);
-            Report r9_1 = new Report("a",-622);
+            BudgetReport r9_1 = new BudgetReport("a",-622);
             r9_1.setNow(d9);
-            Report r10 = new Report("a",622);
+            BudgetReport r10 = new BudgetReport("a",622);
             r10.setNow(d10);
-            Report r11 = new Report("a",622);
+            BudgetReport r11 = new BudgetReport("a",622);
             r11.setNow(d11);
-            Report r12 = new Report("a",622);
+            BudgetReport r12 = new BudgetReport("a",622);
             r12.setNow(d12);
 
             reports.add(r1);

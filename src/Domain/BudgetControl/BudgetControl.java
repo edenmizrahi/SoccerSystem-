@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class BudgetControl {
     private static final Logger LOG = LogManager.getLogger();
     private long balance;
-    private LinkedList<Report> incomeAndExpenses;
+    private LinkedList<BudgetReport> incomeAndExpenses;
     private Team team;
 
     public BudgetControl(Team team){
@@ -27,7 +27,7 @@ public class BudgetControl {
         if(amount<=0){
             throw new Exception("amount of income is negative");
         }
-        incomeAndExpenses.add(new Report(typeOfIncome,amount));
+        incomeAndExpenses.add(new BudgetReport(typeOfIncome,amount));
         balance += amount;
         LOG.info(String.format("%s - %s", this.team.getName(), "add income to team budget, type: "+typeOfIncome+" amount: "+amount));
     }
@@ -43,7 +43,7 @@ public class BudgetControl {
         }
         if (balance - amount >= 0) {
             amount = amount - amount * 2;// make the amount negative
-            incomeAndExpenses.add(new Report(typeOfExpense, amount));
+            incomeAndExpenses.add(new BudgetReport(typeOfExpense, amount));
             balance = balance - amount;
         }
         else{
@@ -60,11 +60,11 @@ public class BudgetControl {
         this.balance = balance;
     }
 
-    public LinkedList<Report> getIncomeAndExpenses() {
+    public LinkedList<BudgetReport> getIncomeAndExpenses() {
         return incomeAndExpenses;
     }
 
-    public void setIncomeAndExpenses(LinkedList<Report> incomeAndExpenses) {
+    public void setIncomeAndExpenses(LinkedList<BudgetReport> incomeAndExpenses) {
         this.incomeAndExpenses = incomeAndExpenses;
     }
 

@@ -98,6 +98,21 @@ public class Season {
     public CalculationPolicy getCalculationPolicy() { return calculationPolicy; }
 
     public void setCalculationPolicy(CalculationPolicy calculationPolicy) { this.calculationPolicy = calculationPolicy; }
+
+    @Override
+    public boolean equals(Object o){
+
+        if (!(o instanceof Season)) {
+            return false;
+        }
+        Season newSeason = (Season)o;
+        if(this.getYear() == newSeason.getYear()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 
 

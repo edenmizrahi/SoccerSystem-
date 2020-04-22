@@ -58,9 +58,9 @@ public class RfaController {
      * @param teams
      *  @codeBy Eden
      */
-     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams) throws Exception {
+     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams, boolean define) throws Exception {
         for( League l:leaguesToDefine){
-            user.defineSeasonToLeague(sp,cp,season,l,teams);
+            user.defineSeasonToLeague(sp,cp,season,l,teams, define);
         }
      }
 

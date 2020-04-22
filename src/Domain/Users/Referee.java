@@ -43,6 +43,8 @@ public class Referee extends Fan {
     }
 
 
+    //<editor-fold desc="getters and setters">
+
     public LinkedList<Match> getMatches() {
         return matches;
     }
@@ -53,11 +55,15 @@ public class Referee extends Fan {
 
     public String getQualification() { return qualification; }
 
-    /**Ysrden**/
+    /**Yarden**/
     public void setQualification(String qualification) {
         this.qualification = qualification;
         LOG.info(String.format("%s - %s", this.getUserName(), "set qualification to referee"));
     }
+    //</editor-fold>
+
+
+
 
 
     /**Yarden**/
@@ -97,13 +103,12 @@ public class Referee extends Fan {
 
     }
 
-    /**Yarden**/
     /**
      *
      * @param match
      * @return
      * @throws Exception
-     * @CodeBy Yarden
+     * @CodeBy yarden
      */
     public HashSet<Event> createReport(Match match) throws Exception {
         //just if you are a main referee

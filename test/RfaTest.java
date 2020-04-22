@@ -6,18 +6,14 @@ import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Scheduling.SchedualeOption1;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
-import Domain.Users.Player;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.TeamRole;
 import Stubs.TeamStub;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -29,10 +25,14 @@ public class RfaTest {
 
     MainSystem ms = MainSystem.getInstance();
     Rfa nadav = new Rfa(ms,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
+    Rfa rfa = new Rfa(ms,"rfa","052","rfa@","rfa123", "rfa123",MainSystem.birthDateFormat.parse("06-07-1992"));
     HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues = new HashMap<>();
     HashSet<Referee> referees = new HashSet<>();
     TeamStub t1 = new TeamStub("team1");
     TeamStub t2 = new TeamStub("team2");
+
+    CalculationPolicy calculationPolicy1 = new CalculateOption1();
+    SchedulingPolicy schedualeOption1 = new SchedualeOption1();
 
     public RfaTest() throws ParseException {
     }
@@ -41,28 +41,21 @@ public class RfaTest {
     @Test
     public void addRefereeTest() throws ParseException {
         try {
-            nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+            nadav.addReferee("moshe","0546145795","moshe@gmail.com","moshe235","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
         } catch (Exception e) {
             e.printStackTrace();
             fail();
         }
-        assertEquals(2,ms.getUsers().size());
+        Assert.assertTrue(ms.containsReferee("moshe235"));
         //invalid details
 
         try {
-            nadav.addReferee("moshe", "0546", "moshe@gmail.com", "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
+            nadav.addReferee("moshe", "0546", "moshe@gmail.com", "moshe458", "moshe458", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
             fail();
         }
         catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
-            assertEquals("user name not valid",e.getMessage());
-        }
-        try {
-            nadav.addReferee("moshe", null, null, "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
-            Assert.fail();
-        }
-        catch (Exception e) {
-            Assert.assertEquals(NullPointerException.class, e.getClass());
+            assertEquals("phone number not valid",e.getMessage());
         }
 
     }
@@ -71,7 +64,7 @@ public class RfaTest {
     @Test
     public void deleteReferee() throws Exception {
 
-        /**referee is null**/
+        /*referee is null*/
         try {
             nadav.deleteReferee(null);
             fail();
@@ -81,53 +74,50 @@ public class RfaTest {
             assertEquals("Referee is null",e.getMessage());
         }
 
-        /**everything is ok**/
-        try {
-            Referee moshe = new Referee(ms, "moshe", "0546145795", "moseh@gmail.com", "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
-            TeamRole teamRole1 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden123", "yarden123", MainSystem.birthDateFormat.parse("08-09-1995"));
-            TeamRole teamRole2 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden234", "yarden234", MainSystem.birthDateFormat.parse("09-09-1995"));
-            TeamRole teamRole3 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden345", "yarden345", MainSystem.birthDateFormat.parse("10-09-1995"));
-            TeamRole teamRole4 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden456", "yarden456", MainSystem.birthDateFormat.parse("11-09-1995"));
-            TeamRole teamRole5 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden567", "yarden567", MainSystem.birthDateFormat.parse("12-09-1995"));
-            TeamRole teamRole6 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden678", "yarden678", MainSystem.birthDateFormat.parse("13-09-1995"));
-            TeamRole teamRole7 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden789", "yarden789", MainSystem.birthDateFormat.parse("14-09-1995"));
-            TeamRole teamRole8 = new TeamRole(ms, "yarden", "0546260171", "yarden@gmail.com", "yarden012", "yarden012", MainSystem.birthDateFormat.parse("15-09-1995"));
+        /*everything is ok*/
+        Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        TeamRole teamRole1 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden123", "yarden123", MainSystem.birthDateFormat.parse("08-09-1995"));
+        TeamRole teamRole2 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden234", "yarden234", MainSystem.birthDateFormat.parse("09-09-1995"));
+        TeamRole teamRole3 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden345", "yarden345", MainSystem.birthDateFormat.parse("10-09-1995"));
+        TeamRole teamRole4 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden456", "yarden456", MainSystem.birthDateFormat.parse("11-09-1995"));
+        TeamRole teamRole5 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden567", "yarden567", MainSystem.birthDateFormat.parse("12-09-1995"));
+        TeamRole teamRole6 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden678", "yarden678", MainSystem.birthDateFormat.parse("13-09-1995"));
+        TeamRole teamRole7 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden789", "yarden789", MainSystem.birthDateFormat.parse("14-09-1995"));
+        TeamRole teamRole8 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden012", "yarden012", MainSystem.birthDateFormat.parse("15-09-1995"));
 
-            teamRole1.becomePlayer();
-            teamRole2.becomePlayer();
-            teamRole3.becomePlayer();
-            teamRole4.becomePlayer();
-            teamRole5.becomePlayer();
-            teamRole6.becomePlayer();
-            teamRole7.becomePlayer();
-            teamRole8.becomePlayer();
+        Team t1 = new Team();
+        Team t2 = new Team();
 
-            t1.addPlayer(teamRole1.getPlayer());
-            t1.addPlayer(teamRole2.getPlayer());
-            t1.addPlayer(teamRole3.getPlayer());
-            t1.addPlayer(teamRole4.getPlayer());
+        teamRole1.becomePlayer();
+        teamRole2.becomePlayer();
+        teamRole3.becomePlayer();
+        teamRole4.becomePlayer();
+        teamRole5.becomePlayer();
+        teamRole6.becomePlayer();
+        teamRole7.becomePlayer();
+        teamRole8.becomePlayer();
 
-            t2.addPlayer(teamRole5.getPlayer());
-            t2.addPlayer(teamRole6.getPlayer());
-            t2.addPlayer(teamRole7.getPlayer());
-            t2.addPlayer(teamRole8.getPlayer());
+        t1.addPlayer(teamRole1.getPlayer());
+        t1.addPlayer(teamRole2.getPlayer());
+        t1.addPlayer(teamRole3.getPlayer());
+        t1.addPlayer(teamRole4.getPlayer());
 
-            t1.setName("Hapoel");
-            Match m1 = new Match(0, 0, t1, t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
-                    , moshe, "17-04-2020 20:00:00");
+        t2.addPlayer(teamRole5.getPlayer());
+        t2.addPlayer(teamRole6.getPlayer());
+        t2.addPlayer(teamRole7.getPlayer());
+        t2.addPlayer(teamRole8.getPlayer());
 
-            nadav.deleteReferee(moshe);
-        }
-        catch (Exception e){
-            Assert.fail();
-        }
-        /**there is a future match in his list**/
+        t1.setName("Hapoel");
+        Match m1 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , moshe,"17-04-2020 20:00:00");
 
-        try {
+        nadav.deleteReferee(moshe);
+
+        /*there is a future match in his list*/
         Referee ref = new Referee(ms,"ref","0546145795","moseh@gmail.com","ref123","ref123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
         Match m2 = new Match(0,0,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
-                , ref,"21-04-2020 20:00:00");
-
+                , ref,"21-04-2022 20:00:00");
+        try {
             nadav.deleteReferee(ref);
             fail();
         }
@@ -185,7 +175,7 @@ public class RfaTest {
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
 
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,false);
             Assert.fail();
 
         }
@@ -208,7 +198,7 @@ public class RfaTest {
             teamsInCurrentSeasonLeagues.put(C,teams1);
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2021,C,teams1);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2021,C,teams1,true);
             Assert.assertTrue(ms.getCurrSeason().getYear()==2021);
         }
         catch (Exception e){
@@ -219,13 +209,121 @@ public class RfaTest {
 
     /**Yarden**/
     @Test
-    public void startSchedulingPolicyTest(){
+    public void startSchedulingPolicyTest() throws Exception {
+
+        HashMap<League, HashSet<Team>> teamPerLeague1 = new HashMap<League, HashSet<Team>>();
+        League C = new League("C1", ms);
+        League D = new League("D1", ms);
+
+        TeamStub team11 = new TeamStub("team1");
+        TeamStub team22 = new TeamStub("team2");
+        TeamStub team33 = new TeamStub("team3");
+        TeamStub team44 = new TeamStub("team4");
+        TeamStub team55 = new TeamStub("team5");
+
+        team11.setField(new Field("homeField1"));
+        team22.setField(new Field("homeField2"));
+        team33.setField(new Field("homeField3"));
+        team44.setField(new Field("homeField4"));
+        team55.setField(new Field("homeField5"));
+
+        Referee moshe = new Referee(ms, "moshe", "0546145795", "moseh@gmail.com", "moshe123", "moshe123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
+        Referee ref1 = new Referee(ms, "ref1", "0546145795", "ref1@gmail.com", "ref1123", "ref1123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
+        Referee ref2 = new Referee(ms, "ref2", "0546145795", "ref2@gmail.com", "ref2123", "ref2123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
+
+        HashSet<Referee> referees = new HashSet<>();
+        referees.add(ref1);
+        referees.add(ref2);
+
+        HashSet<Team> group1 = new HashSet<>();
+        HashSet<Team> group2 = new HashSet<>();
+        //teams in league A
+        group1.add(team11);
+        group1.add(team22);
+        group1.add(team33);
+        //teams in league B
+        group2.add(team44);
+        group2.add(team55);
+
+        Season s = new Season(ms,schedualeOption1, calculationPolicy1,2020);
+        s.addLeagueWithTeams(C,group1);
+        s.addLeagueWithTeams(D,group2);
+
+        rfa.startSchedulingPolicy(s,referees,moshe);
+
+        Assert.assertTrue(team11.getAway().size()+team11.getHome().size()==2);
+        Assert.assertTrue(team44.getAway().size()+team44.getHome().size()==1);
 
     }
 
     /**Yarden**/
     @Test
-    public void startCalculationPolicyTest(){
+    public void startCalculationPolicyTest() throws Exception {
+
+        HashMap<League, HashSet<Team>> teamPerLeague = new HashMap<League, HashSet<Team>>();
+        League A = new League("A2",ms);
+        League B = new League("B2",ms);
+
+        TeamStub team1 = new TeamStub("team1");
+        TeamStub team2 = new TeamStub("team2");
+        TeamStub team3 = new TeamStub("team3");
+        TeamStub team4 = new TeamStub("team4");
+        TeamStub team5 = new TeamStub("team5");
+        TeamStub team6 = new TeamStub("team6");
+
+        Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+
+        Match m1 = new Match(6,4,team1,team2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , moshe,"17-04-2020 20:00:00");
+
+        Match m2 = new Match(4,2,team3,team1, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , moshe,"14-04-2020 20:00:00");
+
+        Match m3 = new Match(3,3,team5,team4, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , moshe,"14-03-2020 20:00:00");
+
+        team1.addMatchToAwayMatches(m1);
+        team1.addMatchToHomeMatches(m2);
+
+        team2.addMatchToHomeMatches(m1);
+        team3.addMatchToAwayMatches(m2);
+
+        team5.addMatchToAwayMatches(m3);
+        team4.addMatchToHomeMatches(m3);
+
+        HashSet<Team> group1 = new HashSet<>();
+        HashSet<Team> group2 = new HashSet<>();
+        group1.add(team1);
+        group1.add(team2);
+        group1.add(team3);
+        group2.add(team4);
+        group2.add(team5);
+
+        Match m4 = new Match(3,3,team5,team6, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , moshe,"14-03-2020 20:00:00");
+
+        group2.add(team6);
+        team5.addMatchToAwayMatches(m4);
+        team6.addMatchToHomeMatches(m4);
+
+//        teamPerLeague.put(A,group1);
+//        teamPerLeague.put(B,group2);
+
+        Season s1 = new Season(ms,schedualeOption1, calculationPolicy1,2019);
+        s1.addLeagueWithTeams(A,group1);
+        s1.addLeagueWithTeams(B,group2);
+
+        try {
+            nadav.startCalculationPolicy(null);
+            fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("Season is null",e.getMessage());
+        }
+
+        nadav.startCalculationPolicy(s1);
+        Assert.assertTrue(team1.getScore()==2 && team4.getScore()==1 && team5.getScore()==2 && team6.getScore()==1);
 
     }
 
@@ -234,7 +332,7 @@ public class RfaTest {
     public void firstRoleForBudgetTest(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-        TeamStub t3 = new TeamStub("team3");
+        TeamStub t3 = new TeamStub("team13");
         try {
             Date d1 = sdf.parse("05-01-2020");
             Date d2 = sdf.parse("15-02-2020");
@@ -354,6 +452,8 @@ public class RfaTest {
             t4.getBudgetControl().setIncomeAndExpenses(reports);
             teamsExceptions2 = nadav.firstRoleForBudget(2019);
             Assert.assertTrue(teamsExceptions2.size()==1);
+            ms.removeActiveTeam(t4);
+            ms.removeActiveTeam(t3);
         }
         catch (Exception e){
             Assert.fail();
@@ -474,6 +574,9 @@ public class RfaTest {
             HashSet<Team> teamsExceptions2 = nadav.secondRoleForBudget(2019);
             /**There isn't exception teams**/
             Assert.assertTrue(teamsExceptions2.size()==1);
+            ms.removeActiveTeam(t3);
+            ms.removeActiveTeam(t4);
+
         }
         catch (Exception e){
             Assert.fail();

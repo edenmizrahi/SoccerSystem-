@@ -65,46 +65,18 @@ public class Coach implements PageOwner {
 
 
     //<editor-fold desc="Page Owner Functions">
-    /**Or**/
-    @Override
-    public void addRecordToPage(String record) throws Exception {
-        this.privatePage.addRecords(record);
-    }
-
-    /**Or**/
-    @Override
-    public void removeRecordFromPage(String record) throws Exception {
-        this.privatePage.removeRecord(record);
-    }
-
-    /**Or**/
-    @Override
-    public boolean createPrivatePage() {
-        PrivatePage p = new PrivatePage();
-        if(this.privatePage==null){// you can have only one page
-            this.privatePage=p;
-            p.setPageOwner(this);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean deletePrivatePage() {
-        if(privatePage == null){
-            return false;
-        }
-        this.privatePage.setPageOwner(null);
-        this.privatePage=null;
-        return true;
-    }
 
     /**Or**/
     @Override
     public PrivatePage getPage() {
         return privatePage;
     }
-
+    /**Or**/
+    @Override
+    public void setPage(PrivatePage p) {
+        this.privatePage=p;
+    }
+    /**Or**/
     @Override
     public String getOwnerName() {
         return teamRole.getUserName();

@@ -1,6 +1,7 @@
 package Domain.LeagueManagment.Scheduling;
 
 import Domain.Events.Event;
+import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
@@ -9,6 +10,8 @@ import Domain.MainSystem;
 import Domain.Users.Referee;
 import org.apache.commons.lang3.time.DateUtils;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,17 +19,26 @@ import java.util.HashSet;
 
 public class SchedualeOption1 implements SchedulingPolicy {
 
-    /**Each pair of teams will play against each other only once in a season**/
-    // one match in a day, start at20:00
 
     //TODO test
+    /**
+     * This function gets hash of each league and all the teams inside her, hash of referees and main referee
+     * and create matches for teams according to this policy -
+     * Each pair of teams will play against each other only once in a season.
+     * start date of match - a week from today at 8PM and all the other matches after the first create
+     * will be two-day differentials.
+     * the referees refereeing at all the matches in the season
+     * @param teamsInSeason
+     * @param referees
+     * @param mainRef
+     * @throws Exception
+     */
     @Override
     public void assign(HashMap<League, HashSet<Team>> teamsInSeason, HashSet<Referee> referees, Referee mainRef) throws Exception {
 
         Date date = new Date(System.currentTimeMillis());
-        Date dateWithFormat = MainSystem.simpleDateFormat.parse(date.toString());
-        String dateString = dateWithFormat.toString();
-        dateWithFormat = DateUtils.addDays(dateWithFormat,7);
+        Date afterAweek = DateUtils.addDays(date,7);
+        String dateString = MainSystem.simpleDateFormat.format(afterAweek);
 
         /**For each League**/
         for (League l : teamsInSeason.keySet()) {
@@ -41,6 +53,7 @@ public class SchedualeOption1 implements SchedulingPolicy {
             for(int i=0;i<arrayList.size();i++){
 
                 Team currentHomeTeam = arrayList.get(i);
+
                 for(int j=i+1;j<arrayList.size();j++){
                     Team currentAwayTeam = arrayList.get(j);
                     //create new match
@@ -51,7 +64,7 @@ public class SchedualeOption1 implements SchedulingPolicy {
                     currentAwayTeam.addMatchToAwayMatches(match);
 
                     //update the date 2 days after, at the same hour
-                    dateWithFormat = DateUtils.addDays(dateWithFormat,2);
+                    afterAweek = DateUtils.addDays(afterAweek,2);
 
                 }
             }

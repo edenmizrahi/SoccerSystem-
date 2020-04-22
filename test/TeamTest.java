@@ -1,9 +1,9 @@
 import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.Events.Event;
-import Domain.LeagueManagment.Field;
-import Domain.LeagueManagment.Match;
-import Domain.LeagueManagment.Team;
+import Domain.LeagueManagment.*;
+import Domain.LeagueManagment.Calculation.CalculateOption1;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
 import Domain.Users.Player;
 import Domain.Users.Referee;
 import Domain.Users.TeamRole;
@@ -18,7 +18,7 @@ import java.util.HashSet;
 import static org.junit.Assert.*;
 
 public class TeamTest {
-    /**or**/
+    /**or+yarden**/
     MainSystem ms= MainSystem.getInstance();
     TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
     TeamRole teamOwner1 = new TeamRole(ms,"r","0522150912","owner1O@gmail.com","r1234","r1234",MainSystem.birthDateFormat.parse("09-12-1995"));
@@ -44,18 +44,17 @@ public class TeamTest {
     TeamRole teamRole8 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden012", "yarden012", MainSystem.birthDateFormat.parse("15-09-1995"));
     TeamRole teamRole9 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden112", "yarden112", MainSystem.birthDateFormat.parse("15-09-1995"));
     TeamRole teamRole10 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden612", "yarden612", MainSystem.birthDateFormat.parse("15-09-1995"));
+    TeamRole teamRole11 = new TeamRole(ms,"yarden","0546260171","yarden@gmail.com","yarden612", "yarden612", MainSystem.birthDateFormat.parse("15-09-1995"));
     Referee moshe = new Referee(ms,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
 
 
     public TeamTest() throws ParseException {
     }
 
-
-    /**adi+yarden**/
+    /**yarden**/
     @Test
-    public void addAndRemoveTeamOwnerTest(){
+    public void addTeamOwnerTest(){
 
-        /****Add TeamOwner****/
         /**null check**/
         try {
             t.addTeamOwner(null);
@@ -75,12 +74,21 @@ public class TeamTest {
         catch (Exception e){
             Assert.fail();
         }
+    }
 
-        /****Remove TeamOwner****/
-        /**TeamOwner doesnt exist in the team**/
-        teamOwner1.becomeTeamOwner();
+    /**adi+yarden**/
+    @Test
+    public void RemoveTeamOwnerTest(){
+
+       TeamStub team10 = new TeamStub("team10");
         try {
-            t.removeTeamOwner(teamOwner1.getTeamOwner());
+            TeamRole teamOwner10 = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner100","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+            teamOwner10.becomeTeamOwner();
+            teamOwner1.becomeTeamOwner();
+            team10.addTeamOwner(teamOwner10.getTeamOwner());
+            /**TeamOwner doesnt exist in the team**/
+            teamOwner10.becomeTeamOwner();
+            team10.removeTeamOwner(teamOwner1.getTeamOwner());
             fail();
         }
         catch (Exception e){
@@ -90,8 +98,13 @@ public class TeamTest {
 
         /**ok**/
         try{
-            t.removeTeamOwner(teamOwner.getTeamOwner());
-            Assert.assertFalse(t.getTeamOwners().contains(teamOwner.getTeamOwner()));
+            TeamRole teamOwner10 = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner100","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+            teamOwner10.becomeTeamOwner();
+            teamOwner1.becomeTeamOwner();
+            team10.addTeamOwner(teamOwner10.getTeamOwner());
+            /**TeamOwner doesnt exist in the team**/
+            team10.removeTeamOwner(teamOwner10.getTeamOwner());
+            Assert.assertFalse(team10.getTeamOwners().contains(teamOwner10.getTeamOwner()));
         }
         catch (Exception e){
             Assert.fail();
@@ -99,7 +112,7 @@ public class TeamTest {
 
         /**null check**/
         try {
-            t.removeTeamOwner(null);
+            team10.removeTeamOwner(null);
             fail();
         }
         catch (Exception e){
@@ -145,11 +158,65 @@ public class TeamTest {
         }
     }
 
+    /**yarden**/
+    @Test
+    public void RemoveCoachTest(){
+        TeamStub team10 = new TeamStub("team10");
+        /**null check**/
+        try {
+            team10.removeCoach(null);
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("Coach is null",e.getMessage());
+        }
+
+        /**This coach isn't in the team**/
+        try {
+            TeamRole coach10 = new TeamRole(ms,"coach1","0522150912","teamO@gmail.com","coach100","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+            coach10.becomeCoach();
+            team10.addCoach(coach10.getCoach());
+            TeamRole coach11 = new TeamRole(ms,"coach11","0522150912","teamO@gmail.com","coach110","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+            coach11.becomeCoach();
+            team10.removeCoach(coach11.getCoach());
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("This Coach doesn't exist in this team",e.getMessage());
+        }
+
+        TeamStub team14 = new TeamStub("team14");
+        /**ok**/
+        try {
+            TeamRole coach12 = new TeamRole(ms,"coach12","0522150912","teamO@gmail.com","coach120","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+            coach12.becomeCoach();
+            team14.addCoach(coach12.getCoach());
+            team14.removeCoach(coach12.getCoach());
+            Assert.assertNull(team14.getCoach());
+        }
+        catch (Exception e) {
+            Assert.fail();
+        }
+
+        /**There isn't coach to remove in this team**/
+        try {
+            TeamRole coach10 = new TeamRole(ms,"coach1","0522150912","teamO@gmail.com","coach100","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
+            coach10.becomeCoach();
+            team14.removeCoach(coach10.getCoach());
+            fail();
+        }
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("There isn't coach to remove in this team",e.getMessage());
+        }
+    }
+
     /**adi+yarden**/
     @Test
-    public void addAndRemoveCoachTest(){
+    public void addCoachTest(){
 
-        /****Add Coach****/
         /**null check**/
         try {
             t.addCoach(null);
@@ -180,52 +247,87 @@ public class TeamTest {
             assertEquals(Exception.class, e.getClass());
             assertEquals("There is coach to this team",e.getMessage());
         }
+    }
 
-        /****Remove Coach****/
+    /**yarden**/
+    @Test
+    public void RemovePlayerTest(){
+
+        TeamStub team20 = new TeamStub("team20");
+
         /**null check**/
         try {
-            t.removeCoach(null);
+            team20.removePlayer(null);
             fail();
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("Coach is null",e.getMessage());
+            assertEquals("Player is null",e.getMessage());
         }
 
-        /**This coach isn't in the team**/
+        /**player doesnt exist in team**/
         try {
-            t.removeCoach(coach1.getCoach());
-            fail();
+            player.becomePlayer();
+            player1.becomePlayer();
+            team20.addPlayer(player1.getPlayer());
+            team20.removePlayer(player.getPlayer());
+            Assert.fail();
         }
         catch (Exception e){
             assertEquals(Exception.class, e.getClass());
-            assertEquals("This Coach doesn't exist in this team",e.getMessage());
+            assertEquals("This Player doesn't exist in this team",e.getMessage());
         }
 
-        /**ok**/
         try {
-            t.removeCoach(coach.getCoach());
-            Assert.assertNull(t.getCoach());
+            team20.removePlayer(player1.getPlayer());
+            Assert.fail();
         }
-        catch (Exception e) {
+        catch (Exception e){
+            assertEquals(Exception.class, e.getClass());
+            assertEquals("The team has only 11 or less players",e.getMessage());
+        }
+
+        Assert.assertTrue(team20.getPlayers().contains(player1.getPlayer()));
+
+        /**Ok**/
+        teamRole1.becomePlayer();
+        teamRole2.becomePlayer();
+        teamRole3.becomePlayer();
+        teamRole4.becomePlayer();
+        teamRole5.becomePlayer();
+        teamRole6.becomePlayer();
+        teamRole7.becomePlayer();
+        teamRole8.becomePlayer();
+        teamRole9.becomePlayer();
+        teamRole10.becomePlayer();
+        teamRole11.becomePlayer();
+
+        try {
+            team20.addPlayer(teamRole1.getPlayer());
+            team20.addPlayer(teamRole2.getPlayer());
+            team20.addPlayer(teamRole3.getPlayer());
+
+            team20.addPlayer(teamRole4.getPlayer());
+            team20.addPlayer(teamRole5.getPlayer());
+            team20.addPlayer(teamRole6.getPlayer());
+            team20.addPlayer(teamRole7.getPlayer());
+            team20.addPlayer(teamRole8.getPlayer());
+            team20.addPlayer(teamRole9.getPlayer());
+            team20.addPlayer(teamRole10.getPlayer());
+            team20.addPlayer(teamRole11.getPlayer());
+
+            team20.removePlayer(teamRole8.getPlayer());
+        }
+        catch (Exception e){
             Assert.fail();
         }
 
-        /**There isn't coach to remove in this team**/
-        try {
-            t.removeCoach(coach1.getCoach());
-            fail();
-        }
-        catch (Exception e){
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("There isn't coach to remove in this team",e.getMessage());
-        }
     }
 
     /**adi+yarden**/
     @Test
-    public void addAndRemovePlayerTest(){
-        /****Add player****/
+    public void addPlayerTest(){
+
         /**null check**/
         try {
             t.addPlayer(null);
@@ -248,86 +350,6 @@ public class TeamTest {
 
         /**player is already in another team**/
         player1.becomePlayer();
-//        try {
-//            t1.addPlayer(player1.getPlayer());
-//            Assert.assertTrue(t1.getPlayers().contains(player1.getPlayer()));
-//        }
-//       catch (Exception e) {
-//            Assert.fail();
-//        }
-//
-//        try {
-//            t.addPlayer(player1.getPlayer());
-//            fail();
-//        }
-//        catch (Exception e){
-//            assertEquals(Exception.class, e.getClass());
-//            assertEquals(" This player is already in another team",e.getMessage());
-//        }
-
-        /****Remove player****/
-        /**null check**/
-        try {
-            t.removePlayer(null);
-            fail();
-        }
-        catch (Exception e){
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("Player is null",e.getMessage());
-        }
-
-        /**player doesnt exist in team**/
-        try {
-            t.addPlayer(player1.getPlayer());
-            t1.removePlayer(player.getPlayer());
-            Assert.fail();
-        }
-        catch (Exception e){
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("This Player doesn't exist in this team",e.getMessage());
-        }
-
-        try {
-            t.removePlayer(player.getPlayer());
-            Assert.fail();
-        }
-        catch (Exception e){
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("The team has only 11 or less players",e.getMessage());
-        }
-
-        Assert.assertTrue(t.getPlayers().contains(player.getPlayer()));
-
-        /**Ok**/
-        teamRole1.becomePlayer();
-        teamRole2.becomePlayer();
-        teamRole3.becomePlayer();
-        teamRole4.becomePlayer();
-        teamRole5.becomePlayer();
-        teamRole6.becomePlayer();
-        teamRole7.becomePlayer();
-        teamRole8.becomePlayer();
-        teamRole9.becomePlayer();
-        teamRole10.becomePlayer();
-
-        try {
-            t.addPlayer(teamRole1.getPlayer());
-            t.addPlayer(teamRole2.getPlayer());
-            t.addPlayer(teamRole3.getPlayer());
-            t.addPlayer(teamRole4.getPlayer());
-            t.addPlayer(teamRole5.getPlayer());
-            t.addPlayer(teamRole6.getPlayer());
-            t.addPlayer(teamRole7.getPlayer());
-            t.addPlayer(teamRole8.getPlayer());
-            t.addPlayer(teamRole9.getPlayer());
-            t.addPlayer(teamRole10.getPlayer());
-
-            t.removePlayer(teamRole8.getPlayer());
-        }
-        catch (Exception e){
-            Assert.fail();
-        }
-
     }
 
     /**adi+yarden**/
@@ -375,7 +397,7 @@ public class TeamTest {
         }
     }
 
-    /**yarden**/
+    /**yarden - supposed to replace with or tests**/
     @Test
     public void addAndRemoveRecordToOrFromPageTest() {
 
@@ -400,25 +422,29 @@ public class TeamTest {
             assertEquals("The team hasn't private page",e.getMessage());
         }
 
-        /**ok**/
-        t.setPrivatePage(new PrivatePage());
-        try {
-            t.addRecordToPage(record);
-            Assert.assertTrue(t.getPrivatePage().getRecords().contains(record));
-            t.addRecordToPage(record);
-            Assert.assertTrue(t.getPrivatePage().getRecords().size()==2);
-        }
-        catch (Exception e){
-            Assert.fail();
-        }
+//        /**ok**/
+//        Team t14 = new Team("t14");
+//        PrivatePage p = new PrivatePage();
+//        coach2.becomeCoach();
+//        p.setPageOwner(coach2);
+//        t14.setPrivatePage(p);
+//        try {
+//            t14.addRecordToPage(record);
+//            Assert.assertTrue(t14.getPrivatePage().getRecords().contains(record));
+//            t14.addRecordToPage(record);
+//            Assert.assertTrue(t14.getPrivatePage().getRecords().size()==2);
+//        }
+//        catch (Exception e){
+//            Assert.fail();
+//        }
 
-        try {
-            t.removeRecordFromPage(record);
-            Assert.assertTrue(t.getPrivatePage().getRecords().size()==1);
-        }
-        catch (Exception e){
-            Assert.fail();
-        }
+//        try {
+//            t.removeRecordFromPage(record);
+//            Assert.assertTrue(t.getPrivatePage().getRecords().size()==1);
+//        }
+//        catch (Exception e){
+//            Assert.fail();
+//        }
     }
 
     /**yarden**/
@@ -430,10 +456,27 @@ public class TeamTest {
         Assert.assertFalse(t2.createPrivatePage());
     }
 
-    /**yarden-?????**/
+    /**yarden**/
     @Test
     public void addLeagueAndSeasonTest(){
+        /**null check**/
+        try {
+            League P = new League("P12", ms);
+            t.addLeagueAndSeason(null,P);
+            Assert.fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(NullPointerException.class, e.getClass());
+        }
 
+        try {
+            League F = new League("F12", ms);
+            Season R = new Season(ms,new SchedualeOption1(), new CalculateOption1(), 2015);
+            t.addLeagueAndSeason(R,F);
+        }
+        catch (Exception e){
+            Assert.fail();
+        }
     }
 
     /**yarden**/
@@ -496,7 +539,7 @@ public class TeamTest {
     @Test
     public void reopenTeamTest() throws ParseException {
         teamOwner.becomeTeamOwner();
-        TeamStubOr teamForTest= new TeamStubOr("hapoel raanana",false);
+        Team teamForTest= new Team();
 
         /**null check**/
         try {
@@ -519,8 +562,10 @@ public class TeamTest {
         Field field= new Field("fieldName");
 
         try {
-            t.reopenTeam(players,coach.getCoach(),field,teamOwner.getTeamOwner());
-            Assert.assertTrue(t.isActive());
+            TeamRole manager= new TeamRole(ms,"manager","0522150912","teamO@gmail.com","manager2232","manager2232",MainSystem.birthDateFormat.parse("09-12-1995"));
+            manager.becomeTeamManager(teamForTest, new HashSet<>());
+            teamForTest.reopenTeam(players,coach.getCoach(),field,teamOwner.getTeamOwner());
+            Assert.assertTrue(teamForTest.isActive());
         }
         catch (Exception e){
             Assert.fail();
@@ -682,6 +727,19 @@ public class TeamTest {
             assertEquals("record not valid",e.getMessage());
         }
 
+
+
+    }
+
+    @Test
+    public void removeRecord() {
+        t.createPrivatePage();
+        try {
+            t.getPrivatePage().addRecords("newRecord");
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
         try {
             t.removeRecordFromPage("newRecord");
             Assert.assertFalse(t.getPrivatePage().getRecords().contains("newRecord"));
@@ -689,6 +747,5 @@ public class TeamTest {
             e.printStackTrace();
             Assert.fail();
         }
-
     }
 }

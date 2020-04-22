@@ -39,14 +39,25 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
         //TODO add permissions
         //this.permissions.add();
     }
+    //<editor-fold desc="getters and setters">
+    public BudgetControl getBudgetControl() { return budgetControl; }
+
+    public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
+
+    public static LinkedList<Team> getTeamRequests() { return teamRequests; }
+
+    public static void setTeamRequests(LinkedList<Team> teamRequests) { Rfa.teamRequests = teamRequests; }
+    //</editor-fold>
 
     //<editor-fold desc="rolls to budget control on teams">
 
     // TODO: 21/04/2020 TEST - V
     /**
      * This role - search by year and check if income for each month of the year bigger than 100
-     * gets year to search on, It this year is the current year, look up to the current month excluding
+     * gets year to search on, If this year is the current year, look up to the current month excluding
+     * @param year
      * @return HashSet<Team> of teams that do not fulfill the Rfa's role
+     * @CodeBy yarden
      */
     public HashSet<Team> firstRoleForBudget(int year){
 
@@ -120,7 +131,10 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
     // TODO: 21/04/2020 TEST - V
     /**
      * This role - search by year and check if income for each quarterly bigger than 1000
+     * gets year to search on, If this year is the current year, look up to the current quarter including
+     * @param year
      * @return HashSet<Team> of teams that do not fulfill the Rfa's role
+     * @CodeBy yarden
      */
     public HashSet<Team> secondRoleForBudget(int year){
 
@@ -200,6 +214,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      * @param nameOfLeague
      * @param ms
      * @throws Exception
+     * @CodeBy yarden
      */
     //TODO test
     public void createNewLeague(String nameOfLeague, MainSystem ms) throws Exception {
@@ -268,39 +283,92 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      * @param year
      * @param l
      * @param teams
-     * @CodeBy Yarden
+     * @CodeBy yarden
      */
     //TODO test - V
-    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams) throws Exception {
+    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, boolean defineCurrSeason) throws Exception {
         if(schedule==null || calculate==null || year < Year.now().getValue()){
             throw new Exception("Invalid details");
         }
 
         Season newSeason = new Season(this.system,schedule,calculate,year);
-        this.system.setCurrSeason(newSeason);
+        if(defineCurrSeason) {
+            this.getSystem().setCurrSeason(newSeason);
+        }
         newSeason.addLeagueWithTeams(l,teams);
         LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Rfa"));
     }
 
-    /**Yarden**/
-    //TODO test
+    /**
+     * This function gets a year, check if there us season with this year and update
+     * the attribute 'currSeason' in the system
+     * @param year
+     * @CodeBy yarden
+     */
+    public void updateCurrSeason(int year) throws Exception {
+        boolean isSeasonExist=false;
+
+        for (Season s: this.getSystem().getSeasons()) {
+            if(s.getYear() == year){
+                isSeasonExist=true;
+                this.getSystem().setCurrSeason(s);
+                LOG.info(String.format("%s - %s", this.getUserName(), "define curr season"));
+                break;
+            }
+        }
+
+        if(!isSeasonExist){
+            throw new Exception("The season doesn't exist in the system");
+        }
+    }
+
+    //TODO test - V
+    /**
+     * This function created in order to start the scheduling policy
+     * @param season scheduling all the matches that will appear in this season
+     * @param referees to scheduling at matches
+     * @param mainRef to scheduling at matches
+     * @throws Exception
+     * @CodeBy yarden
+     */
     public void startSchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
+        if(season==null || referees==null || mainRef==null){
+            throw new NullPointerException();
+        }
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
+        LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa "));
     }
 
-    /**Yarden**/
-    //TODO test
-    public void startCalculationPolicy(Season season){
-        season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
+    //TODO test - V
+    /**
+     * This function created in order to start the calculating policy
+     * @param season - calculate all the leagues in this season
+     * @throws Exception
+     * @CodeBy yarden
+     */
+    public void startCalculationPolicy(Season season) throws Exception {
+        boolean seasonExist =false;
+        if(season==null){
+            throw new Exception("Season is null");
+        }
+
+        for (Season s:this.getSystem().getSeasons()) {
+            if(s.equals(season)){
+                seasonExist=true;
+                break;
+            }
+        }
+
+        if(seasonExist){
+            season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
+            LOG.info(String.format("%s - %s", this.getUserName(), "start calculating policy by the rfa "));
+        }
+        else{
+            throw new Exception("This season doesn't exist in the system");
+        }
+
     }
 
-    public BudgetControl getBudgetControl() { return budgetControl; }
-
-    public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
-
-    public static LinkedList<Team> getTeamRequests() { return teamRequests; }
-
-    public static void setTeamRequests(LinkedList<Team> teamRequests) { Rfa.teamRequests = teamRequests; }
 
     /**Or**/
     @Override

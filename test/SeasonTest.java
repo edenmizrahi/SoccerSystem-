@@ -1,50 +1,75 @@
+import Domain.LeagueManagment.Calculation.CalculateOption1;
+import Domain.LeagueManagment.Calculation.CalculationPolicy;
+import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
+import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
+import Domain.LeagueManagment.Season;
+import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
+import Stubs.*;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashSet;
 
 class SeasonTest {
 
-    /**Eden*/
+    MainSystem sys = MainSystem.getInstance();
+    TeamStub t1 = new TeamStub("team1");
+    TeamStub t2 = new TeamStub("team2");
+    TeamStub t3 = new TeamStub("team3");
+    TeamStub t4 = new TeamStub("team4");
+
+    /**Eden+yarden*/
     @Test
     void addLeagueWithTeams() throws Exception {
-        MainSystem sys= MainSystem.getInstance();
-//        Domain.LeagueManagment.League l=new Domain.LeagueManagment.League("hahal",sys,null, null);
-//        Domain.LeagueManagment.Season s=new Domain.LeagueManagment.Season(sys,null,1884);
-//
-//        HashSet<Domain.LeagueManagment.Team> teams1=new HashSet<Domain.LeagueManagment.Team>();
-//        HashSet<Domain.Users.Player> players=new HashSet<>();
-//        Subscription sub=new Subscription(sys,"ttt","tt","tt","tt","ttt");
-//        for(int i=0;i<13 ;i++){
-//            Date d= new Date();
-//            players.add(new Domain.Users.Player(sub,sys,d));
-//            /*****/
-//            /*****/
-//            System.out.println("fjj");
-//            System.out.println("fjj");
-//        }
-//        Subscription yossi = new Subscription(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
-//        //or added because the change in Domain.LeagueManagment.Team constructor
-//        Domain.Users.TeamOwner teamOwner = new Domain.Users.TeamOwner(sys, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" );
-//        //
-//        teams1.add(new Domain.LeagueManagment.Team("hahalufa",12,players,null,null,teamOwner));
-//        teams1.add(new Domain.LeagueManagment.Team("hapuel",12,players,null,null,teamOwner));
-//        teams1.add(new Domain.LeagueManagment.Team("macabi",12,players,null,null,teamOwner));
-//        Domain.LeagueManagment.Team teamFor2Tests =new Domain.LeagueManagment.Team("hapuel-Rishon",12,players,null,null,teamOwner);
-//        teams1.add(teamFor2Tests);
-//        s.addLeagueWithTeams(l,teams1);
-//        /**check if both are equals**/
-//        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
-//        HashSet<Domain.LeagueManagment.Team> teams2=new HashSet<Domain.LeagueManagment.Team>();
-//        teams2.add(new Domain.LeagueManagment.Team("beitar",12,players,null,null,teamOwner));
-//        teams2.add(new Domain.LeagueManagment.Team("beitar2",12,players,null,null,teamOwner));
-//        teams2.add(teamFor2Tests);
-//        s.addLeagueWithTeams(l,teams1);
-//        /**add more teams and check if both are equals**/
-//        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
-//
-//        /**double add again- both with no changes and equals*/
-//        s.addLeagueWithTeams(l,teams1);
-//        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
-//        Assert.assertTrue(l.getTeamsInSeason().get(s).size()==6);
+
+        SchedulingPolicy schedulingPolicy = new SchedualeOption1();
+        CalculationPolicy calculationPolicy = new CalculateOption1();
+
+        League l = new League("A",sys);
+        Season s = new Season(sys, schedulingPolicy, calculationPolicy,2020);
+
+        HashSet<Team> teams1=new HashSet<Team>();
+        HashSet<Team> teams2 = new HashSet<Team>();
+
+        teams1.add(t1);
+        teams1.add(t2);
+        teams1.add(t3);
+
+        /**nul check**/
+        try {
+            s.addLeagueWithTeams(null, teams1);
+            Assert.fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(NullPointerException.class, e.getClass());
+        }
+
+        try {
+            s.addLeagueWithTeams(l,null);
+            Assert.fail();
+        }
+        catch (Exception e){
+            Assert.assertEquals(NullPointerException.class, e.getClass());
+        }
+
+
+        s.addLeagueWithTeams(l,teams1);
+        /**check if both are equals**/
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
+
+        teams2.add(t1);
+        teams2.add(t4);
+
+        s.addLeagueWithTeams(l,teams2);
+        /**add more teams and check if both are equals**/
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
+
+        /**double add again- both with no changes and equals*/
+        s.addLeagueWithTeams(l,teams1);
+        Assert.assertEquals(l.getTeamsInSeason().get(s),s.getTeamsInCurrentSeasonLeagues().get(l));
+        Assert.assertTrue(l.getTeamsInSeason().get(s).size()==4);
 
     }
 

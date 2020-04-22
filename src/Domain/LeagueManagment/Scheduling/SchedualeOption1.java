@@ -28,7 +28,7 @@ public class SchedualeOption1 implements SchedulingPolicy {
         String dateString = dateWithFormat.toString();
         dateWithFormat = DateUtils.addDays(dateWithFormat,7);
 
-        /**For each Domain.LeagueManagment.League**/
+        /**For each League**/
         for (League l : teamsInSeason.keySet()) {
 
             HashSet<Team> teamsPerLeague = teamsInSeason.get(l);

@@ -280,8 +280,6 @@ public class MainSystem {
         this.seasons = seasons;
     }
 
-
-
     public Season getCurrSeason() {
         return currSeason;
     }
@@ -364,6 +362,19 @@ public class MainSystem {
             }
         }
         return referees;
+    }
+
+    public boolean containsLeague(String name){
+        boolean ans = false;
+
+        for (League l: leagues ) {
+            if(l.getName().equals(name)) {
+                ans = true;
+                break;
+            }
+        }
+
+        return ans;
     }
 
 }

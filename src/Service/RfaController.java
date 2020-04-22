@@ -57,7 +57,7 @@ public class RfaController {
      * @param teams
      *  @codeBy Eden
      */
-     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams){
+     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams) throws Exception {
         for( League l:leaguesToDefine){
             user.defineSeasonToLeague(sp,cp,season,l,teams);
         }
@@ -140,18 +140,18 @@ public class RfaController {
 
     /***
      * every role represent by unique string:
-     *      1. income for each month bigger than 100 for role1
-     *      2. income for each quarterly bigger than 1000 -> for role2
+     *      1. income for each month bigger than 100 for firstRoleForBudget
+     *      2. income for each quarterly bigger than 1000 -> for secondRoleForBudget
      * @param user
      * @param budgetRole
      *  @codeBy Eden
      */
     public void addBudgetRole (Rfa user ,String budgetRole){
         if(budgetRole.equals("income for each month bigger than 100")){
-            user.role1();
+           // user.firstRoleForBudget();
         }
         if(budgetRole.equals("income for each quarterly bigger than 1000")){
-            user.role2();
+            //user.secondRoleForBudget();
         }
     }
 

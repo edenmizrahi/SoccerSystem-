@@ -333,7 +333,7 @@ public class SystemManagerTest {
         Fan fRFA=new Fan(sysetm,"fRFA","ee","e","fRFA","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(fRFA,sysetm);
         try {
-            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag);
+            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -394,12 +394,23 @@ public class SystemManagerTest {
                 MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole teamOwnerActiveTeam=new TeamRole(f31);
         teamOwnerActiveTeam.becomeTeamOwner();
+        teamOwnerActiveTeam.getTeamOwner().addNewTeam(t1);
+        try {
+            activeTeam.setFounder(teamOwnerActiveTeam.getTeamOwner());
+            activeTeam.addTeamOwner(teamOwnerActiveTeam.getTeamOwner());
+
         Fan f32=new Fan(sysetm,"f32","ee","e","f32","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole subTeamOwner=null;
+        HashSet<TeamManagerPermissions> permissions=new HashSet<>();
+        permissions.add(TeamManagerPermissions.addRemoveEditPlayer);
+        teamOwnerActiveTeam.getTeamOwner().subscribeTeamManager(f32,activeTeam,permissions);
         //subTeamOwner=teamOwnerActiveTeam.getTeamOwner().subscribeTeamOwner(f8,fullTeam);
 
         //teamOwnerActiveTeam.subscribeTeamOwner()
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
@@ -407,9 +418,9 @@ public class SystemManagerTest {
         try{
             sm.removeTeamFromSystem(activeTeam);
             /**delete team from owner*/
-            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getTeams().contains(t));
+            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getTeams().contains(activeTeam));
             /** delete the team's subscriptions from team owner subscriptions list**/
-
+            Assert.assertFalse(teamOwnerActiveTeam.getTeamOwner().getMySubscriptions().contains(activeTeam));//?
 
 
         } catch (Exception e) {

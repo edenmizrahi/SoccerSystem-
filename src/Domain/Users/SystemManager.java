@@ -445,7 +445,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
     //TODO test -avital
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
-        checkValidTeam(teamToRemove);//!!
+        checkValidTeam(teamToRemove);
         if(teamToRemove.isActive()) {
             /**delete team from owner*/
             HashSet<TeamOwner> teamOwners = teamToRemove.getTeamOwners();

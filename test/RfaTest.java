@@ -175,7 +175,7 @@ public class RfaTest {
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
 
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,true);
             Assert.fail();
 
         }
@@ -198,7 +198,7 @@ public class RfaTest {
             teamsInCurrentSeasonLeagues.put(C,teams1);
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2021,C,teams1);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2021,C,teams1,true);
             Assert.assertTrue(ms.getCurrSeason().getYear()==2021);
         }
         catch (Exception e){

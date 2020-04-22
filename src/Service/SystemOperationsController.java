@@ -105,6 +105,9 @@ public class SystemOperationsController {
             t1.setName("macabi");
             system.addTeamName("macabi");
 
+            Team t2=new Team();
+            t1.setName("hapoel");
+            system.addTeamName("hapoel");
 
 
             /**add Ilan as Team Owner (founder) of t1 ***/
@@ -116,6 +119,17 @@ public class SystemOperationsController {
             t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
             /*********************************************/
 
+
+            /**add Avi as Team Owner (founder) of t2 ***/
+            Fan f7=new Fan(system, "Avi", "0549716910","yossi@gmail.com", "frkjamelech5", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+            TeamRole aviTeamOwner=new TeamRole(f7);
+            aviTeamOwner.becomeTeamOwner();
+            aviTeamOwner.getTeamOwner().addNewTeam(t2);
+            t2.addTeamOwner(aviTeamOwner.getTeamOwner());
+            t2.setFounder(aviTeamOwner.getTeamOwner());
+            /*********************************************/
+
+
             /**Ilan subscribe moshe to be team Manager with the all permissions**/
             Fan f2=new Fan(system, "Moshe", "0549716910","yossi@gmail.com", "YossiHamelech4", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
             HashSet<TeamManagerPermissions> permissions=new HashSet<>();
@@ -125,14 +139,15 @@ public class SystemOperationsController {
             permissions.add(TeamManagerPermissions.addRemoveEditField);
             permissions.add(TeamManagerPermissions.addToBudgetControl);
             ilanTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,permissions);
-            /******************************************************************/
 
-            /**Gabi to be a player at t1 */
-            Fan f3= new Fan(system, "Gabi", "0549716910","yossi@gmail.com", "YossiHamelech3", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
-            TeamRole gabiPlayer=new TeamRole(f3);
-            gabiPlayer.becomePlayer();
-            ilanTeamOwner.getTeamOwner().addPlayer(gabiPlayer,"FFF",t1);
-            /****************************/
+            /**add 11 players to t1*/
+            add11PlayersToTeam(t1,ilanTeamOwner.getTeamOwner(),"d");
+            /*********************/
+
+            /**add 22 players to t2*/
+            add11PlayersToTeam(t2,ilanTeamOwner.getTeamOwner(),"d");
+            add11PlayersToTeam(t2,ilanTeamOwner.getTeamOwner(),"a");
+            /**********************/
 
             /**Tami to be player without team**/
             Fan f4= new Fan(system, "Tami", "0549716910","yossi@gmail.com", "YossiHamelech2", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
@@ -143,8 +158,17 @@ public class SystemOperationsController {
             /**Haim to be a coach at t1 */
             Fan f5= new Fan(system, "Haim", "0549716910","yossi@gmail.com", "YossiHamelech1", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
             TeamRole haimCoach=new TeamRole(f5);
-            gabiPlayer.becomeCoach();
+            haimCoach.becomeCoach();
+            haimCoach.getCoach().setCoachTeam(t1);
             t1.setCoach(haimCoach.getCoach());
+            /****************************/
+
+            /**ben to be a coach at t2 */
+            Fan f8= new Fan(system, "ben", "0549716910","yossi@gmail.com", "ben", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+            TeamRole benCoach=new TeamRole(f8);
+            benCoach.becomeCoach();
+            benCoach.getCoach().setCoachTeam(t2);
+            t2.setCoach(benCoach.getCoach());
             /****************************/
 
             /**Dana to be RFA*/
@@ -153,6 +177,21 @@ public class SystemOperationsController {
             /*****************/
 
             System.out.println("lalala");
+
+        }
+
+        public static void add11PlayersToTeam( Team t1, TeamOwner tO,String uniqueStringForUserName) throws Exception {
+            Fan f;
+            TeamRole player;
+
+            for(int i=0; i<11; i++){
+                f= new Fan(MainSystem.getInstance(), "player:"+t1.getName()+i+uniqueStringForUserName, "0549716910","yossi@gmail.com", "player:"+t1.getName()+i+uniqueStringForUserName, "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+                player=new TeamRole(f);
+                player.becomePlayer();
+                tO.addPlayer(player,"FFF",t1);
+
+            }
+
 
         }
 

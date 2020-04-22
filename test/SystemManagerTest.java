@@ -333,7 +333,7 @@ public class SystemManagerTest {
         Fan fRFA=new Fan(sysetm,"fRFA","ee","e","fRFA","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(fRFA,sysetm);
         try {
-            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag);
+            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,true);
         } catch (Exception e) {
             e.printStackTrace();
         }

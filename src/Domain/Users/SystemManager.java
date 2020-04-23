@@ -297,15 +297,15 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
          if connect throws Exception("you have to replace team coach")*/
         if(userToRemove.getCoach()!=null) {
             if(userToRemove.getCoach().getCoachTeam()!=null){
-                throw new Exception("you have to subscribe another coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" Domain.LeagueManagment.Team first");
+                throw new Exception("you have to subscribe another coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" team first");
             }
         }
-        /**if is player-> check if the player belong to any Domain.LeagueManagment.Team , if so , check if team has more than 11 player ->
+        /**if is player-> check if the player belong to any Team , if so , check if team has more than 11 player ->
          if not throws Exception ("you have to add more players to team before delete ")*/
         if(userToRemove.getPlayer()!=null) {
             if (userToRemove.getPlayer().getTeam() != null) {
                 if (userToRemove.getPlayer().getTeam().getPlayers().size() <= 11) {
-                    throw new Exception("You Cannot Delete player From " + userToRemove.getPlayer().getTeam().getName() + " Domain.LeagueManagment.Team ,any team have to be at least 11 Players!");
+                    throw new Exception("You Cannot Delete player From " + userToRemove.getPlayer().getTeam().getName() + " team ,any team have to be at least 11 Players!");
                 }
             }
         }

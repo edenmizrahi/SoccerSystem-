@@ -118,3 +118,91 @@
 2020.04.23 17:49:53.159 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
 2020.04.23 17:49:53.160 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
 2020.04.23 17:49:53.169 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 21:41:02.456 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:41:02.486 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:41:02.488 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:41:02.490 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:41:02.490 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:41:02.496 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:41:02.507 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:41:02.508 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:41:02.511 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:41:02.514 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:41:02.514 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:41:02.515 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:41:02.522 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:42:43.003 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:42:43.135 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:42:43.138 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:42:43.140 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:42:43.141 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:42:43.142 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:42:43.146 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:42:43.147 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:42:43.148 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:42:43.149 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:42:43.150 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:42:43.150 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:42:43.155 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:08.499 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:08.637 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:08.639 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:46:08.641 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:46:08.641 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:46:08.643 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:08.648 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:46:08.649 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:46:08.652 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:08.655 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:08.656 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:46:08.657 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:08.662 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:58.674 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:58.831 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:58.832 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:46:58.835 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:46:58.836 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:46:58.839 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:58.844 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:46:58.845 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:46:58.847 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:46:58.849 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:58.850 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:46:58.851 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:58.856 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:46:58.858 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:48:13.154 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:48:13.275 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:48:13.279 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:48:13.281 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:48:13.282 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:48:13.284 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:48:13.290 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:48:13.290 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:48:13.292 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:48:13.295 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:48:13.295 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:48:13.296 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:48:13.298 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:48:13.300 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:51.894 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:49:52.057 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:49:52.058 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:49:52.062 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:49:52.064 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:49:52.066 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:49:52.067 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:49:52.069 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:49:52.071 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:49:52.072 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:49:52.073 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:49:52.075 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.077 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:49:52.077 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.086 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.087 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.091 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.103 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.107 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 21:49:52.112 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:49:52.116 INFO  Domain.Users.SystemManager - avi123 - remove %s from system

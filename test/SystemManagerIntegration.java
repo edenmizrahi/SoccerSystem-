@@ -18,6 +18,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 import static org.junit.Assert.assertTrue;
@@ -45,7 +46,7 @@ public class SystemManagerIntegration {
         Fan f2=new Fan(sysetm,"avital","ee","e","a","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(f1,system);
 
-        
+
         /** dell RFA**/
         try {
             sm.removeUser(rfa1);
@@ -57,15 +58,6 @@ public class SystemManagerIntegration {
 
         /**userToDelete instanceof SystemManager**/
 
-        /**want to dell itself **/
-        try{
-            sm.removeUser(sm);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("You Cannot Delete Yourself!!!",ex.getMessage());
-        }
 
 
         Fan f3=new Fan(sysetm,"or","ee","e","o","E",MainSystem.birthDateFormat.parse("02-11-1996"));
@@ -118,7 +110,7 @@ public class SystemManagerIntegration {
         }
         catch (Exception ex){
             Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("you have to subscribe another Domain.Users.Coach to "+(coachConnect.getCoach()).getCoachTeam().getName() +" Domain.LeagueManagment.Team first",ex.getMessage());
+            Assert.assertEquals("you have to subscribe another coach to "+(coachConnect.getCoach()).getCoachTeam().getName() +" team first",ex.getMessage());
         }
         /**dell coach not connect to team **/
         try {
@@ -139,7 +131,7 @@ public class SystemManagerIntegration {
         }
         catch (Exception ex){
             Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("You Cannot Delete Domain.Users.Player From " + p1.getPlayer().getTeam().getName() + " Domain.LeagueManagment.Team ,any team have to be at least 11 Players!",ex.getMessage());
+            Assert.assertEquals("You Cannot Delete player From " + p1.getPlayer().getTeam().getName() + " team ,any team have to be at least 11 Players!",ex.getMessage());
         }
         /**dell player belong to any Team which has more than 11 player s*/
         //team with 11 players
@@ -318,61 +310,20 @@ public class SystemManagerIntegration {
         teamsInLeag.add(t3);
         Fan fRFA=new Fan(sysetm,"fRFA","ee","e","fRFA","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(fRFA,sysetm);
+        LinkedHashSet<Referee> referees = new LinkedHashSet<>();
+        Referee ref1 = new Referee(sysetm,"ref1","0546145795","moseh@gmail.com","ref123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        Referee ref2 = new Referee(sysetm,"ref2","0546145795","moseh@gmail.com","ref2123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        Referee ref3 = new Referee(sysetm,"ref3","0546145795","moseh@gmail.com","ref3123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        referees.add(ref1);
+        referees.add(ref2);
         try {
-            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,true);
+            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,referees,true);
         } catch (Exception e) {
             e.printStackTrace();
         }
         /** check checkValidTeam private func**/
 
-        /**cant dell-  team belong to current season**/
-        try{
-            sm.removeTeamFromSystem(t1);
-            Assert.fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("cannot delete team in current season",ex.getMessage());
-        }
-        /**cant dell-  team with future matches**/
-        //Match m1=new Match(0,0,t1,t2,new Field("fild1"),null,null,null,)
-        Fan f30=new Fan(sysetm,"f30","ee","e","f30","E",MainSystem.birthDateFormat.parse("02-11-1996"));
-        Referee moshe=new Referee(f30,sysetm);
-        HashSet<Match> homeMaches=null;
-        try {
-            Match mNotPass = new Match(6,4,t1,t2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
-                    , moshe,"17-05-2020 20:00:00");
-            Match mPass = new Match(4,2,t2,t3, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
-                    , moshe,"14-04-2020 20:00:00");
 
-            homeMaches=new HashSet<>();
-            homeMaches.add(mNotPass);
-            homeMaches.add(mPass);
-            t4.setHome(homeMaches);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        /**test-throw exp - home Game**/
-        try{
-            sm.removeTeamFromSystem(t4);
-            Assert.fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
-        }
-        /**test-throw exp - away Game**/
-        t5.setAway(homeMaches);
-        try{
-            sm.removeTeamFromSystem(t5);
-            Assert.fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
-        }
         /**test-Remove Active team**/
         Team activeTeam=new Team();
         activeTeam.setActive(true);

@@ -1,16 +1,18 @@
-
-import Domain.Enums.*;
+import Domain.Complaint;
+import Domain.Enums.TeamManagerPermissions;
+import Domain.Events.Event;
+import Domain.LeagueManagment.*;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Scheduling.SchedualeOption1;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
-import jdk.internal.org.objectweb.asm.commons.RemappingFieldAdapter;
-import Domain.*;
-import Stubs.*;
+import Domain.MainSystem;
+import Domain.TeamSubscription;
 import Domain.Users.*;
-import Domain.LeagueManagment.*;
-import Domain.Notifications.*;
-import Domain.Events.*;
+import Stubs.SystemManagerStub_A;
+import Stubs.TeamOwnerStub_A;
+import Stubs.TeamRoleStub_A;
+import Stubs.TeamStub;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,42 +20,32 @@ import java.text.ParseException;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-public class SystemManagerTest {
+public class SystemManagerIntegration {
 
     MainSystem sysetm = MainSystem.getInstance();
     SystemManager sm=new SystemManager(sysetm,"avi","0545233681","a@gmail.com","avi123","1234567",MainSystem.birthDateFormat.parse("01-02-1990"));
-    TeamRoleStub_A teamRoleStub=new TeamRoleStub_A(sysetm,"stabi","0523893418","atab@gmaol.com","stab","1234556",MainSystem.birthDateFormat.parse("01-02-1990"));
-    SystemManagerStub_A smStub=new SystemManagerStub_A(sysetm,"shalom","0545233682","a@gmail.com","avi123","1234567",MainSystem.birthDateFormat.parse("02-02-1990"));
-    TeamOwnerStub_A teamOwnerStub = new TeamOwnerStub_A(teamRoleStub);
+   TeamRole teamRole =new TeamRole(sysetm,"stabi","0523893418","atab@gmaol.com","stab","1234556",MainSystem.birthDateFormat.parse("01-02-1990"));
     Team t = new Team();
 
-    public SystemManagerTest() throws ParseException { }
+    public SystemManagerIntegration() throws ParseException { }
 
 
+    /**or
+     * Intergation : SystemManager-MainSystem-Users
+     * @throws ParseException
+     */
     @Test
-    /**avital**/
     public void removeUser() throws ParseException{
-        /**want to dell use that is RFA**/
-
-        /**have 1 rfa in the system-cant delete user**/
         MainSystem system =MainSystem.getInstance();
 
         Fan f1=new Fan(sysetm,"eden","ee","e","e","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Fan f2=new Fan(sysetm,"avital","ee","e","a","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(f1,system);
 
-        try{
-            sm.removeUser(rfa1);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("There is only one RFA left, you cannot delete it ",ex.getMessage());
-        }
-
-        Rfa rfa2=new Rfa(f2,system);
+        
         /** dell RFA**/
         try {
             sm.removeUser(rfa1);
@@ -75,16 +67,7 @@ public class SystemManagerTest {
             Assert.assertEquals("You Cannot Delete Yourself!!!",ex.getMessage());
         }
 
-        /**must have at least one system Manager at system**/
-        /*try{
-            sm.removeUser(sm);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("You Cannot Delete Yourself!!!",ex.getMessage());
-        }
-        */
+
         Fan f3=new Fan(sysetm,"or","ee","e","o","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         SystemManager systemManager1=new SystemManager(f3,system);
         /** dell systemManger**/
@@ -307,10 +290,12 @@ public class SystemManagerTest {
         //system.removeUser(userToDelete); - check if remove from system
     }
 
-    /**avutal**/
+    /**avutal
+     * Integration : SystemManager-Team-Match-League
+     * @throws ParseException
+     */
     @Test
     public void removeTeamFromSystem()throws ParseException {
-        //MainSystem sysetm !!
         TeamStub t1 = new TeamStub("team1");
         TeamStub t2 = new TeamStub("team2");
         TeamStub t3 = new TeamStub("team3");
@@ -379,7 +364,7 @@ public class SystemManagerTest {
             Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
         }
         /**test-throw exp - away Game**/
-            t5.setAway(homeMaches);
+        t5.setAway(homeMaches);
         try{
             sm.removeTeamFromSystem(t5);
             Assert.fail("expected exception was not occurred");
@@ -424,7 +409,7 @@ public class SystemManagerTest {
             teamOwnerActiveTeam.getTeamOwner().addPlayer(p1,"ll",activeTeam);
             //subTeamOwner=teamOwnerActiveTeam.getTeamOwner().subscribeTeamOwner(f8,fullTeam);
 
-        //teamOwnerActiveTeam.subscribeTeamOwner()
+            //teamOwnerActiveTeam.subscribeTeamOwner()
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -476,9 +461,9 @@ public class SystemManagerTest {
             subTeamManagerNAteam= teamOwnerNotAT.getTeamOwner().subscribeTeamManager(f44,notActiveTean,permissions);
 
 
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try{
             //problem with addObserver in test
             sm.removeTeamFromSystem(notActiveTean);
@@ -492,7 +477,10 @@ public class SystemManagerTest {
         }
     }
 
-
+    /**or
+     * Integration : SystemManager-System
+     * @throws Exception
+     */
     @Test
     public  void addNewSystemManager() throws Exception {
         MainSystem system=MainSystem.getInstance();
@@ -511,91 +499,32 @@ public class SystemManagerTest {
         /**check if f1 and f2 removed from system*/
         Assert.assertTrue(!system.getUsers().contains(f1));
         Assert.assertTrue(!system.getUsers().contains(f2));
-        /**complaint pass*/
-        HashSet<Complaint> complaints=sy.getComplaints();
-        Assert.assertTrue(newSystemManager.getComplaints().contains(c));
-        Assert.assertTrue(sy.getComplaints().contains(c));
 
-        /**null check*/
-        try{
-            sy.addNewSystemManager(null);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("user is null",ex.getMessage());
-        }
 
     }
-    /**eden+avital**/
+
+    /**or
+     * Integration : SystemManager-System-TeamRole-TeamOwner
+     * @throws Exception
+     */
     @Test
     public void replaceTeamOwnerFounder() throws Exception {
-//TeamOwner toAdd, TeamOwner toDelete, Team team
         /** check if teamOwner toAdd null**/
-        try {
-            sm.replaceTeamOwnerFounder(null, teamOwnerStub,t);
-            fail();
-        } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("null input",e.getMessage());
-        }
+        teamRole.becomeTeamOwner();
+        t.addTeamOwner(teamRole.getTeamOwner());
+        t.setFounder(teamRole.getTeamOwner());
+        teamRole.getTeamOwner().getTeams().add(t);
 
-        /** check if teamOwner toDelete is null**/
-        try {
-            sm.replaceTeamOwnerFounder(teamOwnerStub,null,t);
-            fail();
-        } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("null input",e.getMessage());
-        }
-        //MainSystem system=MainSystem.getInstance();
 
         Fan f2=new Fan(sysetm,"eden","ee","e","es","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Fan f3=new Fan(sysetm,"eden","ee","e","es","E",MainSystem.birthDateFormat.parse("02-11-1996"));
-        Fan f4=new Fan(sysetm,"lili","ee","e","lili","E",MainSystem.birthDateFormat.parse("02-11-1996"));
+        //Fan f4=new Fan(sysetm,"lili","ee","e","lili","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         SystemManager sm=new SystemManager(f3,sysetm);
 
-        TeamRole oldFounder=new TeamRole(f2);
         TeamRole newFounder=new TeamRole(f3);
-        TeamRole teamOwner=new TeamRole(f4);
-        teamOwner.becomeTeamOwner();
-        oldFounder.becomeTeamOwner();
-        //Team t = new Team();
-        t.setFounder(oldFounder.getTeamOwner());
-        t.getTeamOwners().add(oldFounder.getTeamOwner());
-        oldFounder.getTeamOwner().addNewTeam(t);// //!!!!!!!!!!!!!!!!!!!!!!!! set becauese of bad pull - not me
-
-        Fan f5=new Fan(sysetm,"f5","ee","e","f5","E",MainSystem.birthDateFormat.parse("02-11-1996"));
-        TeamRole tr=new TeamRole(f5); // ? ?? ? ?
-        /**get a user(old teamOwner) witch is not a TeamOwner**/
-        tr.becomeTeamOwner();
-        Team t = new Team();
-        t.setFounder(tr.getTeamOwner());
-        t.getTeamOwners().add(tr.getTeamOwner());
-        tr.getTeamOwner().addNewTeam(t);
-
-        /**get a user witch is not a Domain.Users.TeamOwner**/
-        try{
-            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),teamOwner.getTeamOwner(),t);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("null input",ex.getMessage());
-        }
-
-        /**toAdd is already team owner of team**/
-        try{
-            sm.replaceTeamOwnerFounder(oldFounder.getTeamOwner(),oldFounder.getTeamOwner(),t);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("fail!The team owner you want to add already exist",ex.getMessage());
-        }
 
         newFounder.becomeTeamOwner();
-        sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),oldFounder.getTeamOwner(),t);
+        sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),teamRole.getTeamOwner(),t);
 
         /**check if founder changes **/
         Assert.assertTrue(t.getFounder()==newFounder.getTeamOwner());
@@ -605,26 +534,12 @@ public class SystemManagerTest {
         /**check if the new founder hold the team*/
         Assert.assertTrue(newFounder.getTeamOwner().getTeams().contains(t));
         /**check if previous founder hold team***/
-        Assert.assertTrue(oldFounder.getTeamOwner().getTeams().contains(t));
+        Assert.assertTrue(teamRole.getTeamOwner().getTeams().contains(t));
         /**check if prec owner exist in team owners **/
-        Assert.assertTrue(t.getTeamOwners().contains(oldFounder.getTeamOwner()));
+        Assert.assertTrue(t.getTeamOwners().contains(teamRole.getTeamOwner()));
 
 
     }
-
-    @Test
-    public void switchTeamOwnerFounder() throws ParseException {
-
-        try {// teamOwner we ant to dell is null
-            //sm.switchTeamOwnerFounder(teamRole, );
-            fail();
-        } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("team role is not a team owner",e.getMessage());
-        }
-    }
-
 
 
 }
-

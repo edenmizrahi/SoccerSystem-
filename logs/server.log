@@ -211,3 +211,165 @@
 2020.04.22 20:40:08.457 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
 2020.04.22 20:40:08.458 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
 2020.04.22 20:40:08.461 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 09:54:52.817 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:10:17.690 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:10:17.698 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:10:47.939 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:10:47.946 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:12:04.064 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:12:16.849 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:15:20.270 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:15:20.275 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:15:20.292 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:15:58.579 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:16:47.912 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:23:36.247 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:23:36.252 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:24:19.734 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:26:05.222 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:26:48.733 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:26:48.742 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:28:48.197 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:29:18.171 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:31:17.592 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:31:41.017 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:33:09.394 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:34:08.721 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:34:45.763 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:34:45.771 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 10:38:50.988 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:39:12.797 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:39:50.335 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:39:50.342 INFO  Domain.LeagueManagment.Team - null - team was re-opened
+2020.04.23 10:44:41.168 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:44:41.174 INFO  Domain.LeagueManagment.Team - null - team was re-opened
+2020.04.23 10:47:17.889 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:48:29.537 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:48:29.543 INFO  Domain.LeagueManagment.Team - null - team was re-opened
+2020.04.23 10:48:36.938 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:48:36.944 INFO  Domain.LeagueManagment.Team - null - team was re-opened
+2020.04.23 10:48:47.000 INFO  Domain.LeagueManagment.Team - null - team was activated
+2020.04.23 10:48:47.006 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 14:22:24.840 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
+2020.04.23 14:24:30.523 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
+2020.04.23 14:24:30.530 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
+2020.04.23 14:25:31.551 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
+2020.04.23 14:25:31.558 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
+2020.04.23 14:25:42.451 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
+2020.04.23 21:07:35.589 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:07:35.593 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:07:35.609 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:09:07.788 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:09:07.792 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:09:07.808 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:11:05.610 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:11:05.615 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:11:05.615 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:11:05.650 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:12:08.495 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:12:08.498 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:12:15.661 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:12:15.666 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:12:15.691 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:14:11.417 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:14:11.421 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:14:11.424 INFO  Domain.MainSystem -  - system was started
+2020.04.23 21:19:23.934 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:19:24.064 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.23 21:19:24.077 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:19:24.078 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:19:24.080 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:19:24.083 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:19:24.086 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:19:24.087 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:19:24.088 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:19:24.089 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:19:24.110 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:19:24.111 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:19:24.114 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:22:07.985 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
+2020.04.23 21:22:07.995 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
+2020.04.23 21:22:07.996 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
+2020.04.23 21:22:58.274 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:22:58.294 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:25:24.439 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:25:24.451 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:27:45.184 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:27:45.198 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:27:45.198 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:29:27.589 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:29:27.603 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:29:27.606 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:29:27.606 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:36:32.753 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:36:32.765 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.766 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:36:32.766 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.769 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.771 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.776 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.784 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.792 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 21:36:32.794 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:32.795 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:36:42.454 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:36:42.578 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.23 21:36:42.592 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:36:42.593 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:36:42.598 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:36:42.605 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:36:42.609 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:36:42.610 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:36:42.616 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:36:42.624 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:36:42.624 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:36:42.625 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:36:42.628 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:37:16.410 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:16.559 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.23 21:37:16.578 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:37:16.581 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:37:16.584 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:16.587 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:37:16.593 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:37:16.593 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:37:16.595 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:16.598 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:37:16.599 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:37:16.602 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:16.607 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:37:45.390 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:45.600 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.23 21:37:45.635 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:37:45.636 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:37:45.648 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:45.652 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:37:45.655 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:37:45.656 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:37:45.657 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:37:45.659 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:37:45.666 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:37:45.667 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:38:29.447 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:50.832 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:38:50.989 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.23 21:38:51.005 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:38:51.006 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 21:38:51.008 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:38:51.011 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 21:38:51.014 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:38:51.016 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 21:38:51.019 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:38:51.021 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 21:38:51.023 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 21:38:51.026 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 21:38:51.029 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.030 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 21:38:51.030 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.031 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.041 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.046 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.048 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.049 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 21:38:51.052 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 21:38:51.054 INFO  Domain.Users.SystemManager - avi123 - remove %s from system

@@ -442,7 +442,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param teamToRemove
      * @codeBy Eden
      */
-    //TODO test -avital
+    //TODO test -V
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
         checkValidTeam(teamToRemove);

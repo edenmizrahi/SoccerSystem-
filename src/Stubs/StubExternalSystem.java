@@ -19,4 +19,7 @@ public class StubExternalSystem {
         return false;
     }
 
+    public MainSystem getMs() {
+        return ms;
+    }
 }

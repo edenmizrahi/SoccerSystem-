@@ -24,14 +24,14 @@ public class MainSystemTest {
         User user= new User(ms);
 
         Assert.assertTrue(ms.removeUser(user));
-        Assert.assertTrue(ms.getUsers().size()==0);
+        Assert.assertFalse(ms.getUsers().contains(user));
     }
 
     /**or**/
     @Test
     public void addUser() {
         User user= new User(ms);
-        Assert.assertTrue(ms.getUsers().size()==1);
+        Assert.assertTrue(ms.getUsers().contains(user));
         Assert.assertFalse(ms.addUser(user));
     }
 
@@ -130,10 +130,32 @@ public class MainSystemTest {
     }
 
     @Test
+    public void addTeamName() {
+
+       Assert.assertTrue(ms.addTeamName("teamName"));
+        Assert.assertFalse(ms.addTeamName("teamName"));
+    }
+
+    @Test
+    public void removeUserName() {
+        Assert.assertFalse(ms.removeUserName("userName"));
+        ms.addUserName("userName");
+        Assert.assertTrue(ms.removeUserName("userName"));
+    }
+
+    @Test
+    public void removeTeamName() {
+
+        Assert.assertFalse(ms.removeTeamName("teamName"));
+        ms.addTeamName("teamName");
+        Assert.assertTrue(ms.removeTeamName("teamName"));
+    }
+
+    @Test
     /**or**/
     public void firstStartSystem() throws ParseException {
         ms.startSystem();
-        Assert.assertTrue(ms.getUsers().size()==1);
+        Assert.assertTrue(ms.getSystemManagers().size()==1);
         Assert.assertTrue(ms.getExtSystem()!=null);
 
     }
@@ -142,9 +164,8 @@ public class MainSystemTest {
     /**or**/
     public void startSystem() throws ParseException {
         ms.startSystem();
-        ms.startSystem();
-        Assert.assertTrue(ms.getUsers().size() == 1);
-        Assert.assertTrue(ms.getExtSystem() != null);
+        Assert.assertTrue(ms.getExtSystem()!=null);
+        Assert.assertTrue(ms.getSystemManagers().size()==1);
     }
 
     @Test

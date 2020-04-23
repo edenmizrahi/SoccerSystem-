@@ -42,7 +42,172 @@
 2020.04.21 22:13:04.523 INFO  Domain.PrivatePage - null - added record to page
 2020.04.21 22:14:57.436 INFO  Domain.PrivatePage - null - added record to page
 2020.04.21 22:14:57.440 INFO  Domain.PrivatePage - null - added record to page
-2020.04.22 12:49:04.400 INFO  Domain.PrivatePage - null - added record to page
-2020.04.22 12:49:38.860 INFO  Domain.PrivatePage - null - added record to page
-2020.04.22 12:49:38.866 INFO  Domain.PrivatePage - null - added record to page
-2020.04.22 13:02:44.224 INFO  Domain.PrivatePage - null - added record to page
+2020.04.22 14:59:42.754 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 14:59:42.765 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 14:59:42.909 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.22 15:01:14.847 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:01:14.871 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:01:15.026 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.22 15:05:14.804 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:05:14.822 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.22 15:32:54.906 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
+2020.04.22 15:32:54.912 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 15:32:54.938 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
+2020.04.22 15:32:54.951 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 15:32:54.974 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
+2020.04.22 15:32:54.978 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa
+2020.04.22 15:56:40.904 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 15:56:40.908 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 15:56:54.764 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 15:56:54.769 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:01:22.167 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
+2020.04.22 16:01:40.134 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
+2020.04.22 16:05:44.839 INFO  Domain.Users.Rfa - nadavS - define curr season
+2020.04.22 19:11:58.973 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:11:58.976 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:11:58.977 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:11:58.977 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:13:45.432 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 19:13:45.432 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 19:14:00.008 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:00.018 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:00.018 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:00.018 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:19.316 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:19.319 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:19.320 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:14:19.320 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:19:37.184 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:19:37.188 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:19:37.188 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:19:37.189 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:37:30.170 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 19:37:30.170 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 19:37:40.735 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:37:40.739 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:37:40.739 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:37:40.740 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:38:09.522 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:38:10.044 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:38:10.326 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:38:11.001 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:40:10.715 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:40:10.719 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:40:10.719 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:40:10.724 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:46:58.987 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:46:59.010 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:46:59.032 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:46:59.034 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:47:01.686 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 19:49:00.149 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:49:00.153 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:49:00.159 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:49:00.162 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 19:49:00.179 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:21:19.122 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:19.127 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:19.127 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:19.128 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:19.148 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:21:19.150 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:21:19.151 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:21:23.136 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:23.140 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:23.141 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:23.142 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:23.236 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:21:23.245 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:21:23.246 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:21:56.679 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:56.684 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:56.686 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:56.686 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:21:56.714 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:21:56.718 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:21:56.719 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:22:20.899 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:20.906 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:20.907 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:20.907 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:20.939 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:22:20.942 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:22:20.942 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:22:44.996 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:45.001 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:45.004 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:45.005 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:22:45.031 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:22:45.033 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:22:45.034 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:24:36.854 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:36.859 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:36.859 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:36.860 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:36.885 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:24:36.891 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:24:36.892 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:24:39.482 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:39.485 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:39.486 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:39.487 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:39.504 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:24:39.507 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:24:39.507 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:24:52.716 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:52.720 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:52.721 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:52.721 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:24:52.737 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:24:52.739 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:24:52.740 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:27:36.453 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:36.456 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:36.457 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:36.457 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:36.479 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:27:36.481 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:27:36.482 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:27:38.893 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:38.897 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:38.897 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:38.897 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:27:38.913 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:27:38.914 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:27:38.915 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:27:38.918 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.22 20:27:38.919 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.22 20:27:38.924 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.22 20:27:40.913 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.22 20:27:41.901 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.22 20:27:43.756 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.22 20:28:57.329 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:28:57.334 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:28:57.334 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:28:57.335 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:28:57.356 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:28:57.358 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:28:57.359 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:28:57.470 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.22 20:28:57.471 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.22 20:28:57.477 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.22 20:29:02.164 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:29:02.172 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:29:02.173 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:29:02.174 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:29:02.228 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:29:02.232 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:29:02.232 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:29:02.400 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.22 20:29:02.401 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.22 20:29:02.408 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.22 20:40:08.347 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:40:08.350 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:40:08.350 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:40:08.350 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.22 20:40:08.365 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.22 20:40:08.367 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:40:08.369 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.22 20:40:08.457 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.22 20:40:08.458 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.22 20:40:08.461 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa

@@ -364,6 +364,19 @@ public class MainSystem {
         return referees;
     }
 
+    public boolean containsReferee(String name){
+        boolean ans = false;
+
+        for (Referee referee: this.getAllReferees() ) {
+            if(referee.getUserName().equals(name)) {
+                ans = true;
+                break;
+            }
+        }
+
+        return ans;
+    }
+
     public boolean containsLeague(String name){
         boolean ans = false;
 

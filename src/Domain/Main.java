@@ -49,13 +49,13 @@ public class Main {
 //        else{
 //            System.out.println("false");
 //        }
-//        Date d1 = new Date();
+        Date d1 = new Date();
 //        /**Add minutes to specific date**/
-//        d1 = DateUtils.addMinutes(d,90);
+        d1 = DateUtils.addMinutes(d1,90);
 //        d1 = DateUtils.addDays(d,1);
 //        int x;
 //
-///**CREATE DATE BY FORMAT**/
+//        /**CREATE DATE BY FORMAT**/
 //        String pattern = "dd-M-yyyy hh:mm:ss";
 //        SimpleDateFormat simpleDateFormat =new SimpleDateFormat(pattern);
 //        String date = simpleDateFormat.format(new Date());

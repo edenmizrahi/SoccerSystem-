@@ -381,7 +381,7 @@ public class Team extends Observable implements PageOwner {
         }
         return false;
     }
-
+    
     /**OR
      * add income to budget control
      * @param typeOfIncome
@@ -587,4 +587,6 @@ public class Team extends Observable implements PageOwner {
         setChanged();
         notifyObservers(name+" removed from system by system manager");
     }
+
+
 }

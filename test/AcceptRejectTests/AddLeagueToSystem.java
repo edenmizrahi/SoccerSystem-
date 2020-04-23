@@ -25,15 +25,16 @@ public class AddLeagueToSystem {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjects();// main system become
+        SystemOperationsController.initSystemObjectsAvital();// main system become
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/
-        Rfa rfa=operationsController.showAllRfas().get(0);
+        Rfa rfa=operationsController.getAllRFA().get(0);
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
         String teamName="macabi Modiin";
         /*****RFA added league *****/
         try {
+            //managerController. rfa controller - hoe to get it
             rfa.createNewLeague(teamName,ma);
         }
         catch (Exception e){
@@ -68,11 +69,11 @@ public class AddLeagueToSystem {
     public void reject() throws Exception {
         /**added league with name that already exist in system **/
         /*****system init*****/
-        SystemOperationsController.initSystemObjects();// main system become
+        SystemOperationsController.initSystemObjectsAvital();// main system become
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/
-        Rfa rfa=operationsController.showAllRfas().get(0);
+        Rfa rfa=operationsController.getAllRFA().get(0);
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
         String teamName="macabi Modiin";
         /*****RFA added league *****/
@@ -96,5 +97,6 @@ public class AddLeagueToSystem {
             Assert.fail("test fail");
             e.printStackTrace();
         }
+
     }
 }

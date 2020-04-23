@@ -1,5 +1,7 @@
 package AcceptRejectTests;
 import Domain.BudgetControl.BudgetControl;
+import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.Main;
 import Domain.MainSystem;
@@ -12,7 +14,9 @@ import org.junit.Assert;
 import org.junit.Assert.*;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -24,13 +28,16 @@ public class CloseTeamForeverTest {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsEden();
         MainSystem ma= MainSystem.getInstance();
         HashSet<Team> teams=operationsController.showAllTeams();
-        assertTrue(teams.size()==2);
         int size=teams.size();
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
-        Team t1=teams.iterator().next();
+
+        Iterator<Team > iter =teams.iterator();
+        Team first=iter.next();
+        Team second=iter.next();
+        Team t1=first.getName().equals("macabi")?first:second;
         HashSet<TeamOwner> teamOwners=t1.getTeamOwners();
         TeamRole teamManager=t1.getTeamManager().getTeamRole();
 
@@ -48,6 +55,7 @@ public class CloseTeamForeverTest {
         }
         /***delete from system**/
         assertTrue(operationsController.showAllTeams().size()==size-1);
+        assertTrue(!ma.getTeamNames().contains(t1.getName()));
         /***delete from all owners**/
         for (TeamOwner tO:teamOwners){
             assertTrue(!tO.getTeams().contains(t1));
@@ -69,12 +77,31 @@ public class CloseTeamForeverTest {
         assertTrue(coach.getCoachTeam()==null);
 
 
-
-
-
     }
 
-    public  void reject(){
+    @Test
+    public  void reject() throws Exception {
+        SystemOperationsController.initSystemObjectsEden();
+        MainSystem ma= MainSystem.getInstance();
+        Season season=new Season(ma,null,null,2019);
+        ma.setCurrSeason(season);
+        HashSet<Team> teams=operationsController.showAllTeams();
+        Team t1=teams.iterator().next();
+        League league=new League("ligi",ma,season);
+        HashMap<Season,League> seasonLeagueHashMap=new HashMap<>();
+        seasonLeagueHashMap.put(season,league);
+        t1.setLeaguePerSeason(seasonLeagueHashMap);
+        SystemManager sm=operationsController.showAllSystemManagers().get(0);
+
+        try {
+            sm.removeTeamFromSystem(t1);
+            fail();
+        }
+        catch (Exception e){//
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("cannot delete team in current season",e.getMessage());
+        }
+
 
     }
 }

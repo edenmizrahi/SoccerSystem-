@@ -14,10 +14,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -27,7 +24,7 @@ public class RfaTest {
     Rfa nadav = new Rfa(ms,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
     Rfa rfa = new Rfa(ms,"rfa","052","rfa@","rfa123", "rfa123",MainSystem.birthDateFormat.parse("06-07-1992"));
     HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues = new HashMap<>();
-    HashSet<Referee> referees = new HashSet<>();
+    LinkedHashSet<Referee> referees = new LinkedHashSet<>();
     TeamStub t1 = new TeamStub("team1");
     TeamStub t2 = new TeamStub("team2");
 
@@ -175,7 +172,7 @@ public class RfaTest {
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
 
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,true);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2011,A,teams2,new LinkedHashSet<>(),true);
             Assert.fail();
 
         }
@@ -198,7 +195,7 @@ public class RfaTest {
             teamsInCurrentSeasonLeagues.put(C,teams1);
             SchedulingPolicy schedulingPolicy = new SchedualeOption1();
             CalculationPolicy calculationPolicy = new CalculateOption1();
-            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2021,C,teams1,true);
+            nadav.defineSeasonToLeague(schedulingPolicy, calculationPolicy,2021,C,teams1,referees,true);
             Assert.assertTrue(ms.getCurrSeason().getYear()==2021);
         }
         catch (Exception e){
@@ -253,12 +250,12 @@ public class RfaTest {
         Referee ref1 = new Referee(ms, "ref1", "0546145795", "ref1@gmail.com", "ref1123", "ref1123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
         Referee ref2 = new Referee(ms, "ref2", "0546145795", "ref2@gmail.com", "ref2123", "ref2123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
 
-        HashSet<Referee> referees = new HashSet<>();
+        LinkedHashSet<Referee> referees = new LinkedHashSet<>();
         referees.add(ref1);
         referees.add(ref2);
 
-        HashSet<Team> group1 = new HashSet<>();
-        HashSet<Team> group2 = new HashSet<>();
+        LinkedHashSet<Team> group1 = new LinkedHashSet<>();
+        LinkedHashSet<Team> group2 = new LinkedHashSet<>();
         //teams in league A
         group1.add(team11);
         group1.add(team22);
@@ -268,10 +265,16 @@ public class RfaTest {
         group2.add(team55);
 
         Season s = new Season(ms,schedualeOption1, calculationPolicy1,2020);
+
+        HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
+        refereesInLeague.put(s,referees);
+        D.setRefereesInLeague(refereesInLeague);
+        C.setRefereesInLeague(refereesInLeague);
+
         s.addLeagueWithTeams(C,group1);
         s.addLeagueWithTeams(D,group2);
 
-        rfa.startSchedulingPolicy(s,referees,moshe);
+        rfa.startSchedulingPolicy(s);
 
         Assert.assertTrue(team11.getAway().size()+team11.getHome().size()==2);
         Assert.assertTrue(team44.getAway().size()+team44.getHome().size()==1);
@@ -327,9 +330,6 @@ public class RfaTest {
         group2.add(team6);
         team5.addMatchToAwayMatches(m4);
         team6.addMatchToHomeMatches(m4);
-
-//        teamPerLeague.put(A,group1);
-//        teamPerLeague.put(B,group2);
 
         Season s1 = new Season(ms,schedualeOption1, calculationPolicy1,2019);
         s1.addLeagueWithTeams(A,group1);

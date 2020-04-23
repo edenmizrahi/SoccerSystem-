@@ -169,7 +169,7 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
      * @throws Exception
      */
     //TODO test-V
-    // only team owner!!!!!!!!!
+    // only team owner
     public TeamRole subscribeTeamManager(Fan fan, Team team, HashSet<TeamManagerPermissions> per) throws Exception{
         if (fan == null  || team == null || per == null){
             throw new NullPointerException();
@@ -486,5 +486,28 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
     }
     //</editor-fold>
 
+    /**or**/
+    public void removeMySubscription(TeamSubscription sub){
+        this.mySubscriptions.remove(sub);
+    }
 
+    /**or**/
+    public void removeActiveTeamFromList(Team t){
+        this.teams.remove(t);
+    }
+
+    /**or**/
+    public void addActiveTeam(Team t){
+        this.teams.add(t);
+    }
+
+    /**or**/
+    public void addDeletedTeam(Team t){
+        this.deletedTeams.add(t);
+    }
+
+    /**or**/
+    public void removeDeletedTeam(Team t){
+        this.deletedTeams.remove(t);
+    }
 }

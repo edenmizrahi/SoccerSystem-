@@ -61,7 +61,7 @@ public class MainSystem {
         }
         return ans;
     }
-
+    /**OR**/
     public List<SystemManager> getSystemManagers() {
         List<SystemManager> res=new LinkedList<>();
         for(User u: users){
@@ -71,7 +71,7 @@ public class MainSystem {
         }
         return res;
     }
-
+    /**OR**/
     public LinkedList<Rfa> getRfas() {
         LinkedList<Rfa> res=new LinkedList<>();
         for(User u: users){
@@ -212,6 +212,8 @@ public class MainSystem {
         return true;
     }
 
+    /**OR**/
+    //TODO test-
     public boolean addUserName(String name){
         if(userNames.contains(name)){
             return false;
@@ -219,7 +221,8 @@ public class MainSystem {
         userNames.add(name);
         return true;
     }
-
+    /**OR**/
+    //TODO test-V
     public boolean addTeamName(String name){
         if(teamNames.contains(name)){
             return false;
@@ -227,7 +230,8 @@ public class MainSystem {
         teamNames.add(name);
         return true;
     }
-
+    /**OR**/
+    //TODO test-v
     public boolean removeUserName(String name){
         if(! userNames.contains(name)){
             return false;
@@ -235,7 +239,8 @@ public class MainSystem {
         userNames.remove(name);
         return true;
     }
-
+    /**OR**/
+    //TODO test-V
     public boolean removeTeamName(String name){
         if( !teamNames.contains(name)){
             return false;
@@ -315,7 +320,7 @@ public class MainSystem {
 //</editor-fold>
 
     /**OR**/
-    //TODO test
+    //TODO test-V
     public void firstStartSystem() throws ParseException {
 
         //create user for system manager
@@ -326,10 +331,10 @@ public class MainSystem {
     }
 
     /**OR**/
-    //TODO test
+    //TODO test-V
     public void startSystem() throws ParseException {
         //read things from DB.....
-        if(users.size()==0){
+        if(getSystemManagers().size()==0){
             firstStartSystem();
         }else{
             //link external systems....

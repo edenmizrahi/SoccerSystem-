@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * Integration between - Rfa, Referee, League, Team, Season, SchedulingPolicy
- * 
+ *
  * Rfa create leagues, add referees, add teams to leagues and start scheduling police
  */
 public class RfaRefLeagueSeasonTeamScheduling {

@@ -277,6 +277,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     /**
      * Initializing Season To League by giving the policies, year and teams that will be in the league in this season
+     * define just one league to season, if want more that one league - call again
      * @param schedule
      * @param calculate
      * @param year
@@ -292,12 +293,29 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
             throw new Exception("Invalid details");
         }
 
-        Season newSeason = new Season(this.system,schedule,calculate,year);
-        if(defineCurrSeason) {
-            this.getSystem().setCurrSeason(newSeason);
+        boolean seasonExist=false;
+        //if season already exist
+        for (Season s: this.getSystem().getSeasons()) {
+            if(s.getYear() == year){
+                seasonExist=true;
+                if (defineCurrSeason) {
+                    this.getSystem().setCurrSeason(s);
+                }
+                s.addLeagueWithTeams(l,teams);
+                break;
+            }
         }
-        newSeason.addLeagueWithTeams(l,teams);
-        LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Rfa"));
+
+        if(!seasonExist) {
+            //season not exist in the system
+            Season newSeason = new Season(this.system, schedule, calculate, year);
+            if (defineCurrSeason) {
+                this.getSystem().setCurrSeason(newSeason);
+            }
+            newSeason.addLeagueWithTeams(l, teams);
+        }
+
+        LOG.info(String.format("%s - %s", this.getUserName(), "define season to " + l.getName() + "by Rfa"));
     }
 
     /**

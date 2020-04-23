@@ -3,6 +3,8 @@ package Domain.Users;
 import Domain.MainSystem;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Team;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -13,6 +15,7 @@ public class TeamRole extends Fan {
     private Coach coach;
     private TeamOwner teamOwner;
     private TeamManager teamManager;
+    private static final Logger LOG = LogManager.getLogger();
 
     /**OR**/
     public TeamRole(Fan fan) {
@@ -39,6 +42,7 @@ public class TeamRole extends Fan {
     public boolean becomePlayer(){
         if(this.player == null){
             player= new Player(this);
+            LOG.info(String.format("%s - %s", getName(), "become player"));
             return true;
         }
         return false;
@@ -48,6 +52,7 @@ public class TeamRole extends Fan {
     public boolean becomeCoach(){
         if (this.coach==null){
             coach= new Coach(this);
+            LOG.info(String.format("%s - %s", getName(), "become coach"));
             return true;
         }
         return false;
@@ -58,6 +63,7 @@ public class TeamRole extends Fan {
     public boolean becomeTeamManager(Team team, HashSet<TeamManagerPermissions> pers){
         if(this.teamManager==null){
             teamManager= new TeamManager(this,team,pers);
+            LOG.info(String.format("%s - %s", getName(), "become team manager for team: "+team.getName()));
             return true;
         }
         return false;
@@ -67,6 +73,7 @@ public class TeamRole extends Fan {
     public boolean becomeTeamOwner(){
         if(this.teamOwner == null){
             teamOwner= new TeamOwner(this);
+            LOG.info(String.format("%s - %s", getName(), "become team owner"));
             return true;
         }
         return false;
@@ -77,6 +84,7 @@ public class TeamRole extends Fan {
     public boolean deletePlayer(){
         if (player != null){
             player = null;
+            LOG.info(String.format("%s - %s", getName(), "delete player"));
             return true;
         }
         return false;
@@ -86,6 +94,7 @@ public class TeamRole extends Fan {
     public boolean deleteCoach(){
         if (coach != null){
             coach = null;
+            LOG.info(String.format("%s - %s", getName(), "delete coach"));
             return true;
         }
         return false;
@@ -95,6 +104,7 @@ public class TeamRole extends Fan {
     public boolean deleteTeamManager(){
         if (teamManager != null){
             teamManager = null;
+            LOG.info(String.format("%s - %s", getName(), "delete team manager"));
             return true;
         }
         return false;
@@ -104,6 +114,7 @@ public class TeamRole extends Fan {
     public boolean deleteTeamOwner(){
         if (teamOwner != null){
             teamOwner = null;
+            LOG.info(String.format("%s - %s", getName(), "delete team owner"));
             return true;
         }
         return false;

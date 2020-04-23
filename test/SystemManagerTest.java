@@ -548,7 +548,6 @@ public class SystemManagerTest {
             Assert.assertEquals(Exception.class, e.getClass());
             Assert.assertEquals("null input",e.getMessage());
         }
-        //MainSystem system=MainSystem.getInstance();
 
         Fan f2=new Fan(sysetm,"eden","ee","e","es","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Fan f3=new Fan(sysetm,"eden","ee","e","es","E",MainSystem.birthDateFormat.parse("02-11-1996"));
@@ -560,23 +559,23 @@ public class SystemManagerTest {
         TeamRole teamOwner=new TeamRole(f4);
         teamOwner.becomeTeamOwner();
         oldFounder.becomeTeamOwner();
-        //Team t = new Team();
-        t.setFounder(oldFounder.getTeamOwner());
-        t.getTeamOwners().add(oldFounder.getTeamOwner());
-        oldFounder.getTeamOwner().addNewTeam(t);// //!!!!!!!!!!!!!!!!!!!!!!!! set becauese of bad pull - not me
+        Team team = new Team();
+        team.setFounder(oldFounder.getTeamOwner());
+        team.getTeamOwners().add(oldFounder.getTeamOwner());
+        oldFounder.getTeamOwner().addNewTeam(team);// //!!!!!!!!!!!!!!!!!!!!!!!! set becauese of bad pull - not me
 
         Fan f5=new Fan(sysetm,"f5","ee","e","f5","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole tr=new TeamRole(f5); // ? ?? ? ?
         /**get a user(old teamOwner) witch is not a TeamOwner**/
-        tr.becomeTeamOwner();
-        Team t = new Team();
-        t.setFounder(tr.getTeamOwner());
-        t.getTeamOwners().add(tr.getTeamOwner());
-        tr.getTeamOwner().addNewTeam(t);
+//        tr.becomeTeamOwner();
+//        //Team t = new Team();
+//        team.setFounder(tr.getTeamOwner());
+//        team.getTeamOwners().add(tr.getTeamOwner());
+//        tr.getTeamOwner().addNewTeam(team);
 
         /**get a user witch is not a Domain.Users.TeamOwner**/
         try{
-            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),teamOwner.getTeamOwner(),t);
+            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),teamOwner.getTeamOwner(),team);
             fail("expected exception was not occurred");
         }
         catch (Exception ex){
@@ -586,7 +585,7 @@ public class SystemManagerTest {
 
         /**toAdd is already team owner of team**/
         try{
-            sm.replaceTeamOwnerFounder(oldFounder.getTeamOwner(),oldFounder.getTeamOwner(),t);
+            sm.replaceTeamOwnerFounder(oldFounder.getTeamOwner(),oldFounder.getTeamOwner(),team);
             fail("expected exception was not occurred");
         }
         catch (Exception ex){
@@ -594,34 +593,30 @@ public class SystemManagerTest {
             Assert.assertEquals("fail!The team owner you want to add already exist",ex.getMessage());
         }
 
-        newFounder.becomeTeamOwner();
-        sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),oldFounder.getTeamOwner(),t);
+        //
+        try{
+            newFounder.becomeTeamOwner();
+            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),oldFounder.getTeamOwner(),team);
 
-        /**check if founder changes **/
-        Assert.assertTrue(t.getFounder()==newFounder.getTeamOwner());
-        /**check if new founder exist in team owners **/
-        Assert.assertTrue(t.getTeamOwners().contains(newFounder.getTeamOwner()));
+            /**check if founder changes **/
+            Assert.assertTrue(team.getFounder()==newFounder.getTeamOwner());
+            /**check if new founder exist in team owners **/
+            Assert.assertTrue(team.getTeamOwners().contains(newFounder.getTeamOwner()));
 
-        /**check if the new founder hold the team*/
-        Assert.assertTrue(newFounder.getTeamOwner().getTeams().contains(t));
-        /**check if previous founder hold team***/
-        Assert.assertTrue(oldFounder.getTeamOwner().getTeams().contains(t));
-        /**check if prec owner exist in team owners **/
-        Assert.assertTrue(t.getTeamOwners().contains(oldFounder.getTeamOwner()));
+            /**check if the new founder hold the team*/
+            Assert.assertTrue(newFounder.getTeamOwner().getTeams().contains(team));
+            /**check if previous founder hold team***/
+            Assert.assertTrue(oldFounder.getTeamOwner().getTeams().contains(team));
+            /**check if prec owner exist in team owners **/
+            Assert.assertTrue(team.getTeamOwners().contains(oldFounder.getTeamOwner()));
 
 
-    }
 
-    @Test
-    public void switchTeamOwnerFounder() throws ParseException {
-
-        try {// teamOwner we ant to dell is null
-            //sm.switchTeamOwnerFounder(teamRoleStub, );
-            fail();
         } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertEquals("team role is not a team owner",e.getMessage());
+            Assert.fail("test fail");
+            e.printStackTrace();
         }
+
     }
 
 

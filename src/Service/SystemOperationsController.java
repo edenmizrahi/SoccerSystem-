@@ -252,7 +252,13 @@ public class SystemOperationsController {
 
     public List<SystemManager> showAllSystemManagers(){
         return MainSystem.getInstance().getSystemManagers();
-
     }
 
+    /**
+     * return all RFAs in the system
+     * @return all RFAs in the system
+     */
+    public List<Rfa> showAllRfas(){
+        return MainSystem.getInstance().getRfas();
+    }
 }

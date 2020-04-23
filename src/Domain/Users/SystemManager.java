@@ -129,7 +129,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             toAdd.addNewTeam(team);
         }
         else{
-            throw new Exception("wrong team owner and team");
+            throw new Exception("wrong team owner and team"); //actual
         }
 
         LOG.info(String.format("%s - %s", this.getUserName(), "Replace %s founder from:%s to:%s",team.getName(),toDelete.getTeamRole().getUserName(),toAdd.getTeamRole().getUserName()));
@@ -198,7 +198,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @return
      * @codeBy Eden
      */
-    //TODO test - avital - need to check- prob with complain and dell fan
+    //TODO test - avital - need to check- prob with complain
     private List<Object> fanRemove(Fan userToDelete) {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);

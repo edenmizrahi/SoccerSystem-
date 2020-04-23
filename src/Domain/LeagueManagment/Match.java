@@ -50,6 +50,14 @@ public class Match extends Observable{
         }
     }
 
+
+    public Match(Date date) throws Exception {
+            this.startDate = date;
+            this.numOfMinutes = 90;
+            //update the referees about the matches
+        System.out.println("THIS MATCH CONSTRUCTOR IS JUST FOR TESTS");
+    }
+
     public int getNumOfMinutes() { return numOfMinutes; }
 
     public Referee getMainReferee() { return mainReferee; }

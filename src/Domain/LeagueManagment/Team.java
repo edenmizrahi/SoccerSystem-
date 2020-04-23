@@ -381,19 +381,7 @@ public class Team extends Observable implements PageOwner {
         }
         return false;
     }
-
-    /**check if team is already play in this season**/
-    public boolean inSeasonAndLeague(Season s){
-        boolean ans=false;
-
-        /**if there is season like s**/
-        if(this.getLeaguePerSeason().containsKey(s)){
-           ans = true;
-        }
-
-        return ans;
-    }
-
+    
     /**OR
      * add income to budget control
      * @param typeOfIncome

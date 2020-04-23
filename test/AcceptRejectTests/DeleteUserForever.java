@@ -87,7 +87,7 @@ public class DeleteUserForever {
     @Test
     public void reject() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsEden();
         MainSystem system= MainSystem.getInstance();
         List<Rfa> rfas=operationsController.getAllRFA();
         SystemManager sm=operationsController.showAllSystemManagers().get(0);

@@ -18,7 +18,7 @@ public class SubscribeTeamManagerTest {
     // subscribe a fan to team manager
     @Test
     public void accept1() throws Exception {
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsAdi();
         // just a fan
         Fan tamar = (Fan)systemOperationsController.getUserByUserName("Tamar");
         HashSet<TeamManagerPermissions> per = new HashSet<>();
@@ -33,8 +33,7 @@ public class SubscribeTeamManagerTest {
     // same except someone who is already TeamRole
     @Test
     public void alternative1() throws Exception {
-        SystemOperationsController.initSystemObjects();
-        LinkedList<Fan> possibleSubTeamOwners = teamManagementController.getAllPossibleSubscribeTeamOwner();
+        SystemOperationsController.initSystemObjectsAdi();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
         HashSet<TeamManagerPermissions> per = new HashSet<>();
 

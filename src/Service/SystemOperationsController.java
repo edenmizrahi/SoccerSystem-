@@ -97,7 +97,7 @@ public class SystemOperationsController {
 
 
 
-        public static void initSystemObjects() throws Exception {
+        public static void initSystemObjectsAdi() throws Exception {
             MainSystem system=MainSystem.getInstance();
             system.startSystem();
             SystemManager marioSystemManager=system.getSystemManagers().get(0);//there is only one system manager now (the default)
@@ -139,10 +139,6 @@ public class SystemOperationsController {
             t2.addTeamOwner(aviTeamOwner.getTeamOwner());
             t2.setFounder(aviTeamOwner.getTeamOwner());
             /*********************************************/
-
-            /**Ilan subscribe Avi to be t1 team owner*/
-            ilanTeamOwner.getTeamOwner().subscribeTeamOwner(aviTeamOwner,t1);
-            /*****************************************/
 
             /**Arnold subscribe moshe to be team Manager with the all permissions**/
             Fan f2=new Fan(system, "Moshe", "0549716910","yossi@gmail.com", "Moshe", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

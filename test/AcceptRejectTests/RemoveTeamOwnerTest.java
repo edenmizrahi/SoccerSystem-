@@ -12,13 +12,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class removeTeamOwnerTest {
+public class RemoveTeamOwnerTest {
     SystemOperationsController systemOperationsController = new SystemOperationsController();
     TeamManagementController teamManagementController = new TeamManagementController();
 
     @Test
     public void accept1() throws Exception {
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsAdi();
        // team owner to remove
         TeamRole arnoldTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Arnold");
         TeamRole ilan = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
@@ -35,7 +35,7 @@ public class removeTeamOwnerTest {
     /***************SAME TESTS EXCEPT THIS TIME WITH TEAM MANAGER****************/
     @Test
     public void accept2() throws Exception {
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsAdi();
         // team owner to remove
         TeamRole arminTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Armin");
         TeamRole moshe = (TeamRole)systemOperationsController.getUserByUserName("Moshe");
@@ -47,7 +47,7 @@ public class removeTeamOwnerTest {
     // team manager without permission
     @Test
     public void reject() throws Exception {
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsAdi();
         // team owner to remove
         TeamRole aviTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Avi");
         TeamRole david = (TeamRole)systemOperationsController.getUserByUserName("David");

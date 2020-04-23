@@ -78,3 +78,28 @@
 2020.04.22 16:59:37.167 INFO  Domain.MainSystem -  - system was started for the first time
 2020.04.22 17:00:43.306 INFO  Domain.Users.SystemManager - systemManager - Added to system
 2020.04.22 17:00:43.309 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 16:19:50.530 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 16:19:50.537 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 16:19:50.551 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 16:19:50.551 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 16:19:50.552 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:10.789 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 17:24:10.794 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:24:10.815 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 17:24:10.816 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 17:24:10.817 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:19.803 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 17:24:19.809 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:24:19.832 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 17:24:19.834 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 17:24:19.835 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:26.429 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 17:24:26.433 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:24:26.457 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 17:24:26.457 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 17:24:26.459 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 21:19:41.384 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:19:41.390 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:19:41.425 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 21:19:41.426 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 21:19:41.429 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa

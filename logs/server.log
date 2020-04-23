@@ -78,28 +78,43 @@
 2020.04.22 16:59:37.167 INFO  Domain.MainSystem -  - system was started for the first time
 2020.04.22 17:00:43.306 INFO  Domain.Users.SystemManager - systemManager - Added to system
 2020.04.22 17:00:43.309 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:19:50.530 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:19:50.537 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:19:50.551 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:19:50.551 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:19:50.552 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 17:24:10.789 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 17:24:10.794 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 17:24:10.815 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 17:24:10.816 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 17:24:10.817 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 17:24:19.803 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 17:24:19.809 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 17:24:19.832 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 17:24:19.834 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 17:24:19.835 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 17:24:26.429 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 17:24:26.433 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 17:24:26.457 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 17:24:26.457 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 17:24:26.459 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 21:19:41.384 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 21:19:41.390 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 21:19:41.425 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 21:19:41.426 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 21:19:41.429 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.352 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.357 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.358 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.359 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.868 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:24:21.873 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:24:21.874 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:24:22.235 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:24:22.236 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:24:22.249 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:47:01.126 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.131 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.132 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.132 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.577 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:47:01.579 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:47:01.580 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:47:01.833 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:47:01.834 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:47:01.845 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:49:46.723 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.727 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.728 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.729 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.803 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:49:46.812 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:46.812 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:46.930 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:49:46.931 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:49:46.936 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:49:52.417 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.427 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.433 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.439 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.896 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:49:52.899 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:52.899 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:53.159 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:49:53.160 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:49:53.169 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa

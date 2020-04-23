@@ -14,6 +14,7 @@ import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Ref;
 import java.time.*;
 import java.util.*;
 
@@ -286,9 +287,8 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      * @CodeBy yarden
      */
     //TODO test - V
-    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, boolean defineCurrSeason) throws Exception {
+    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
 
-        //if(schedule==null || calculate==null || ( defineCurrSeason && year < Year.now().getValue() )){
         if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() )){
             throw new Exception("Invalid details");
         }
@@ -301,6 +301,17 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
                 if (defineCurrSeason) {
                     this.getSystem().setCurrSeason(s);
                 }
+
+                /**check if teams are valid - if already play in this season**/
+                for (Team t: teams) {
+                   if(t.getLeaguePerSeason().containsKey(s)){
+                       throw new Exception("There is team that already play in this season, check the team's list again");
+                   }
+                }
+
+                HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
+                refereesInLeague.put(s,referees);
+                l.setRefereesInLeague(refereesInLeague);
                 s.addLeagueWithTeams(l,teams);
                 break;
             }
@@ -312,6 +323,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
             if (defineCurrSeason) {
                 this.getSystem().setCurrSeason(newSeason);
             }
+            HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
+            refereesInLeague.put(newSeason,referees);
+            l.setRefereesInLeague(refereesInLeague);
             newSeason.addLeagueWithTeams(l, teams);
         }
 
@@ -345,16 +359,16 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
     /**
      * This function created in order to start the scheduling policy
      * @param season scheduling all the matches that will appear in this season
-     * @param referees to scheduling at matches
-     * @param mainRef to scheduling at matches
+//     * @param referees to scheduling at matches
+//     * @param mainRef to scheduling at matches
      * @throws Exception
      * @CodeBy yarden
      */
-    public void startSchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
-        if(season==null || referees==null || mainRef==null){
+    public void startSchedulingPolicy(Season season) throws Exception {
+        if(season==null){
             throw new NullPointerException();
         }
-        season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
+        season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), season);
         LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa"));
     }
 

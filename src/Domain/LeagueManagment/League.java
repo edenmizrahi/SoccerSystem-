@@ -1,12 +1,14 @@
 package Domain.LeagueManagment;
 
 import Domain.MainSystem;
+import Domain.Users.Referee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sun.font.GlyphLayout;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class League {
 
@@ -18,6 +20,28 @@ public class League {
      * hold the teams in this league and in specific Seasons
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
+
+    /**yarden change**/
+    private HashMap<Season, LinkedHashSet<Referee>> refereesInLeague;
+
+//    private HashMap<Season, Referee> mainReferee;
+//
+//    public HashMap<Season, Referee> getMainReferee() {
+//        return mainReferee;
+//    }
+//
+//    public void setMainReferee(HashMap<Season, Referee> mainReferee) {
+//        this.mainReferee = mainReferee;
+//    }
+
+    public HashMap<Season, LinkedHashSet<Referee>> getRefereesInLeague() {
+        return refereesInLeague;
+    }
+
+    public void setRefereesInLeague(HashMap<Season,LinkedHashSet<Referee>> refereesInLeague) {
+        this.refereesInLeague = refereesInLeague;
+    }
+    /*************************************************************************************/
 
     public League(String name, MainSystem mainSystem, Season currSeason) throws Exception {
         this.name = name;

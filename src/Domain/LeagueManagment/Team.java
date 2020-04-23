@@ -59,7 +59,6 @@ public class Team extends Observable implements PageOwner {
         addObserver(teamOwner);
         //add team name to hash set
         mainSystem.addTeamName(name);
-
     }
 
     //just for tests!!!!!1
@@ -359,7 +358,7 @@ public class Team extends Observable implements PageOwner {
      * @param s- season
      * @param l- league
      */
-    //TODO test
+    //TODO test - V
     public void addLeagueAndSeason(Season s, League l){
         if(s!=null && l!=null) {
             leaguePerSeason.put(s, l);
@@ -381,6 +380,18 @@ public class Team extends Observable implements PageOwner {
             }
         }
         return false;
+    }
+
+    /**check if team is already play in this season**/
+    public boolean inSeasonAndLeague(Season s){
+        boolean ans=false;
+
+        /**if there is season like s**/
+        if(this.getLeaguePerSeason().containsKey(s)){
+           ans = true;
+        }
+
+        return ans;
     }
 
     /**OR

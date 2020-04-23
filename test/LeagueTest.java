@@ -33,22 +33,6 @@ public class LeagueTest {
         HashSet<Team> teams1=new HashSet<Team>();
         HashSet<Team> teams2 = new HashSet<Team>();
 
-//        HashSet<Player> players=new HashSet<>();
-
-//        TeamRole player= new TeamRole(sys,"michael","0522150912","teamO@gmail.com","player4432","player4432",MainSystem.birthDateFormat.parse("09-12-1995"));
-//        player.becomePlayer();
-//        for(int i=0;i<13 ;i++){
-//            players.add(new Player(player,t1,"defense"));
-//            /*****/
-//            /*****/
-//            System.out.println("fjj");
-//            System.out.println("fjj");
-//        }
-//        TeamRole teamOwner = new TeamRole(sys,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
-//        //or added because the change in Domain.LeagueManagment.Team constructor
-//        TeamRole teamOwner1 = new TeamRole(sys,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
-//        Field field = new Field("Beer Sheva");
-
         teams1.add(t1);
         teams1.add(t2);
         teams1.add(t3);

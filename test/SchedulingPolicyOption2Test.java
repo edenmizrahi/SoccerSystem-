@@ -1,8 +1,10 @@
+import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Scheduling.SchedualeOption1;
 import Domain.LeagueManagment.Scheduling.SchedualeOption2;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
+import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.Referee;
@@ -12,6 +14,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class SchedulingPolicyOption2Test {
 
@@ -40,9 +43,11 @@ public class SchedulingPolicyOption2Test {
         Referee ref1 = new Referee(ms, "ref1", "0546145795", "ref1@gmail.com", "ref1123", "ref1123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
         Referee ref2 = new Referee(ms, "ref2", "0546145795", "ref2@gmail.com", "ref2123", "ref2123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
 
-        HashSet<Referee> referees = new HashSet<>();
+        LinkedHashSet<Referee> referees = new LinkedHashSet<>();
         referees.add(ref1);
         referees.add(ref2);
+
+        Season season = new Season(ms, schedualeOption2, new CalculateOption1(),2018);
 
         HashSet<Team> group1 = new HashSet<>();
         HashSet<Team> group2 = new HashSet<>();
@@ -54,10 +59,16 @@ public class SchedulingPolicyOption2Test {
         group2.add(team4);
         group2.add(team5);
 
-        teamPerLeague.put(A, group1);
-        teamPerLeague.put(B, group2);
+        HashMap<Season, LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
+        refereesInLeague.put(season,referees);
+        A.setRefereesInLeague(refereesInLeague);
+        B.setRefereesInLeague(refereesInLeague);
 
-        schedualeOption2.assign(teamPerLeague,referees,moshe);
+        season.addLeagueWithTeams(A,group1);
+        season.addLeagueWithTeams(B,group2);
+
+        schedualeOption2.assign(season.getTeamsInCurrentSeasonLeagues(), season);
+
 
         Assert.assertTrue(team1.getAway().size()+team1.getHome().size()==4);
         Assert.assertTrue(team4.getAway().size()+team4.getHome().size()==2);

@@ -455,7 +455,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
     //TODO test -avital
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
-        checkValidTeam(teamToRemove);//!!
+        checkValidTeam(teamToRemove);
         if(teamToRemove.isActive()) {
             /**delete team from owner*/
             HashSet<TeamOwner> teamOwners = teamToRemove.getTeamOwners();
@@ -463,7 +463,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
                 teamToRemove.addObserver(curTO);
                 curTO.getTeams().remove(teamToRemove);
                 /** delete the team's subscriptions from team owner subscriptions list**/
-                HashSet<TeamSubscription> toRemove = new HashSet<>();//!!
+                HashSet<TeamSubscription> toRemove = new HashSet<>();
                 for (TeamSubscription ts : curTO.getMySubscriptions()) {
                     if (ts.team == teamToRemove) {
                         toRemove.add(ts);
@@ -498,7 +498,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         /**if not active team**/
         else{
             /**remove team from - team owners deleted list****/
-            for(TeamOwner cur: teamToRemove.getTeamOwners()){
+            for(TeamOwner cur: teamToRemove.getTeamOwners()){//!!
                 cur.getDeletedTeams().remove(teamToRemove);
                 teamToRemove.addObserver(cur);
             }

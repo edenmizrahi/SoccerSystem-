@@ -5,6 +5,7 @@ import Domain.MainSystem;
 import Domain.TeamSubscription;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
+import Service.RfaController;
 import Service.SystemManagerController;
 import Service.SystemOperationsController;
 import org.junit.Assert;
@@ -19,7 +20,7 @@ import static org.junit.Assert.fail;
 
 public class AddLeagueToSystem {
 
-    SystemManagerController managerController=new SystemManagerController();
+    RfaController rfaController=new RfaController();
     SystemOperationsController operationsController=new SystemOperationsController();
 
     @Test
@@ -34,8 +35,7 @@ public class AddLeagueToSystem {
         String teamName="macabi Modiin";
         /*****RFA added league *****/
         try {
-            //managerController. rfa controller - hoe to get it
-            rfa.createNewLeague(teamName,ma);
+            rfaController.createLeague(teamName,rfa);
         }
         catch (Exception e){
             fail();
@@ -78,7 +78,7 @@ public class AddLeagueToSystem {
         String teamName="macabi Modiin";
         /*****RFA added league *****/
         try {
-            rfa.createNewLeague(teamName,ma);
+            rfaController.createLeague(teamName,rfa);
         }
         catch (Exception e){
             fail();

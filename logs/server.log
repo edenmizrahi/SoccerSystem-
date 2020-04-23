@@ -78,138 +78,55 @@
 2020.04.22 16:59:37.167 INFO  Domain.MainSystem -  - system was started for the first time
 2020.04.22 17:00:43.306 INFO  Domain.Users.SystemManager - systemManager - Added to system
 2020.04.22 17:00:43.309 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 15:48:10.056 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:48:10.072 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:48:10.110 INFO  Domain.PrivatePage - null - add fan to page, fane username: fan101
-2020.04.23 15:48:10.120 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:48:10.120 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:25.718 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:25.756 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:25.780 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 15:49:25.782 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 15:49:25.919 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: fun amount: -10
-2020.04.23 15:49:25.923 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: fun amount: 10000
-2020.04.23 15:49:25.948 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:25.949 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:25.952 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 15:49:25.952 INFO  Domain.LeagueManagment.Team - null - team was re-opened
-2020.04.23 15:49:25.966 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 15:49:25.986 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:26.065 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.075 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.101 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.106 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.110 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.180 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
-2020.04.23 15:49:26.182 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: money amount: 200
-2020.04.23 15:49:26.183 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: money amount: -50
-2020.04.23 15:49:26.193 INFO  Domain.BudgetControl.BudgetControl - hapoel Ranana - add income to team budget, type: something amount: 200
-2020.04.23 15:49:26.196 INFO  Domain.BudgetControl.BudgetControl - hapoel Ranana - add income to team budget, type: something amount: 300
-2020.04.23 15:49:26.196 INFO  Domain.BudgetControl.BudgetControl - hapoel Ranana - add expense to team budget, type: something amount: -200
-2020.04.23 15:49:26.209 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.249 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.256 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.23 15:49:26.256 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.23 15:49:26.256 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.23 15:49:26.256 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.23 15:49:26.273 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.277 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.291 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.23 15:49:26.431 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
-2020.04.23 15:49:26.436 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.23 15:49:26.456 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
-2020.04.23 15:49:26.460 INFO  Domain.Users.Rfa - nadavS - define curr season
-2020.04.23 15:49:26.471 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa 
-2020.04.23 15:49:26.528 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.528 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.570 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:49:26.591 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.595 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.615 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.615 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.619 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 15:49:26.624 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 15:49:26.624 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 15:49:26.625 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.625 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.629 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 15:49:26.631 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
-2020.04.23 15:49:26.632 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.632 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 15:49:26.637 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 15:49:26.645 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:26.647 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:26.650 INFO  Domain.PrivatePage - null - add fan to page, fane username: fan101
-2020.04.23 15:49:26.651 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:49:26.651 INFO  Domain.PrivatePage - null - added record to page
-2020.04.23 15:50:20.034 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 15:50:20.039 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 15:50:20.061 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.061 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.062 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 15:50:20.062 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
-2020.04.23 15:50:20.073 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.078 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.079 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.099 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.104 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.105 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.110 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.118 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.118 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.125 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.126 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.126 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.135 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.138 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.139 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.141 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.144 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.145 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.145 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.155 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.155 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.157 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.166 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.166 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.169 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.171 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.173 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 15:50:20.175 INFO  Domain.MainSystem -  - system was started
-2020.04.23 15:50:20.177 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 15:50:20.178 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:12:02.211 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:12:02.216 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:12:02.239 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:12:02.240 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:12:02.241 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 16:12:02.242 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.23 16:12:02.246 INFO  Domain.MainSystem -  - system was started
-2020.04.23 16:12:02.253 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:12:02.253 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:13:43.717 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:13:43.722 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:13:43.743 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:13:43.743 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:13:43.745 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.23 16:13:55.605 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:13:55.609 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:13:55.630 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:13:55.631 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:13:55.633 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.23 16:24:39.786 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:24:39.793 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:24:39.811 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:24:39.814 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:24:39.815 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.23 16:24:39.815 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.23 16:25:08.011 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:25:08.020 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:25:08.047 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:25:08.048 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:25:08.049 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.23 16:26:14.676 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 16:26:14.681 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 16:26:14.706 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 16:26:14.706 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 16:26:14.706 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.23 17:24:21.352 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.357 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.358 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.359 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.868 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:24:21.873 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:24:21.874 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:24:22.235 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:24:22.236 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:24:22.249 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:47:01.126 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.131 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.132 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.132 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.577 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:47:01.579 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:47:01.580 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:47:01.833 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:47:01.834 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:47:01.845 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:49:46.723 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.727 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.728 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.729 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.803 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:49:46.812 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:46.812 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:46.930 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:49:46.931 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:49:46.936 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:49:52.417 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.427 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.433 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.439 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.896 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:49:52.899 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:52.899 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:53.159 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:49:53.160 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:49:53.169 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 21:56:12.476 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:56:12.480 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:56:12.497 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 21:56:12.501 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 21:56:12.503 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 21:56:12.504 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.23 21:56:24.993 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 21:56:24.999 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 21:56:25.021 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 21:56:25.021 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 21:56:25.022 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 21:56:25.026 INFO  Domain.Users.Rfa - DanaBandana - Create new league

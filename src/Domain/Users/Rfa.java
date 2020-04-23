@@ -289,7 +289,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
     //TODO test - V
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
 
-        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() )){
+        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() ) || referees.size()<3 ){
             throw new Exception("Invalid details");
         }
 

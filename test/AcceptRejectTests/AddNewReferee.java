@@ -4,6 +4,7 @@ package AcceptRejectTests;
 import Domain.MainSystem;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
+import Service.RfaController;
 import Service.SystemManagerController;
 import Service.SystemOperationsController;
 import org.junit.Test;
@@ -11,9 +12,9 @@ import org.junit.Test;
 /**Adding a new  referee to system . UC: 30. **/
 
 
-public class AppointNewReferee {
+public class AddNewReferee {
 
-    SystemManagerController managerController=new SystemManagerController();
+    RfaController rfaController=new RfaController();
     SystemOperationsController operationsController=new SystemOperationsController();
 
 
@@ -28,6 +29,8 @@ public class AppointNewReferee {
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
 
         /** referee added to system **/
+
+
 
 
 

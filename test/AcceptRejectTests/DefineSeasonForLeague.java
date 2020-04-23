@@ -3,6 +3,7 @@ package AcceptRejectTests;
 import Domain.MainSystem;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
+import Service.RfaController;
 import Service.SystemManagerController;
 import Service.SystemOperationsController;
 import org.junit.Test;
@@ -13,7 +14,7 @@ import org.junit.Test;
 public class DefineSeasonForLeague {
 
 
-    SystemManagerController managerController=new SystemManagerController();
+    RfaController rfaController=new RfaController();
     SystemOperationsController operationsController=new SystemOperationsController();
 
 

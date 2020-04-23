@@ -106,7 +106,7 @@ public class Main {
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
-        SystemOperationsController.initSystemObjects();
+        SystemOperationsController.initSystemObjectsAdi();
 
     }
 }

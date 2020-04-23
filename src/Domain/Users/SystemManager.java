@@ -187,7 +187,9 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             objectsDeleted=fanRemove(((Fan)userToDelete));// prob with dell fan
         }
         LOG.info(String.format("%s - %s", this.getUserName(), "remove %s from system",userToDelete.getUserName()));
-
+        if(userToDelete!=null){
+            system.getUserNames().remove(userToDelete.getUserName());
+        }
         return objectsDeleted;
     }
 
@@ -295,7 +297,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
          if connect throws Exception("you have to replace team coach")*/
         if(userToRemove.getCoach()!=null) {
             if(userToRemove.getCoach().getCoachTeam()!=null){
-                throw new Exception("you have to subscribe another Domain.Users.Coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" Domain.LeagueManagment.Team first");
+                throw new Exception("you have to subscribe another coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" Domain.LeagueManagment.Team first");
             }
         }
         /**if is player-> check if the player belong to any Domain.LeagueManagment.Team , if so , check if team has more than 11 player ->
@@ -303,12 +305,12 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         if(userToRemove.getPlayer()!=null) {
             if (userToRemove.getPlayer().getTeam() != null) {
                 if (userToRemove.getPlayer().getTeam().getPlayers().size() <= 11) {
-                    throw new Exception("You Cannot Delete Domain.Users.Player From " + userToRemove.getPlayer().getTeam().getName() + " Domain.LeagueManagment.Team ,any team have to be at least 11 Players!");
+                    throw new Exception("You Cannot Delete player From " + userToRemove.getPlayer().getTeam().getName() + " Domain.LeagueManagment.Team ,any team have to be at least 11 Players!");
                 }
             }
         }
 
-        /**if is Domain.Users.TeamOwner-> if he is a founder of any Domain.LeagueManagment.Team from Domain.LeagueManagment.Team list which he hold->
+        /**if is teamOwner-> if he is a founder of any team from  team list which he hold->
          *throws Exception("you have to replace team founder")*/
         if(userToRemove.getTeamOwner()!=null){
             LinkedList<Team> OwnerTeams =userToRemove.getTeamOwner().getTeams();
@@ -340,7 +342,12 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         }
         /***remove all the subscription**/
         HashSet<TeamSubscription> subscriptions= userToDelete.getMySubscriptions();//check if not empty?
+        LinkedList<TeamSubscription> subscriptionsList=new LinkedList<>();
         for(TeamSubscription sub: subscriptions){
+            subscriptionsList.add(sub);
+        }
+        for(int i=0; i< subscriptionsList.size();i++){
+            TeamSubscription sub=subscriptionsList.get(i);
             if(sub.role instanceof TeamOwner){
                 userToDelete.removeTeamOwner(((TeamOwner) sub.role), sub.team);
             }
@@ -349,6 +356,9 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
                 userToDelete.removeTeamManager(((TeamManager)sub.role),sub.team);
             }
         }
+//        for(TeamSubscription sub: subscriptions){
+//
+//        }
 
         /**remove team request from RFA because the requests are not relevant**/
         for(Team t:userToDelete.getRequestedTeams()){
@@ -517,11 +527,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
                 throw  new Exception("cannot delete team with future matches");
             }
         }
-        for( Match m:teamToRemove.getAway()){
-            if(m.getStartDate().after(currDate)){
-                throw  new Exception("cannot delete team with future matches");
-            }
-        }
+
     }
 
 

@@ -255,4 +255,12 @@ public abstract class ManagmentActions {
         }
         team.addExpense(typeOfExpense,amount);
     }
+
+    public HashSet<TeamSubscription> getMySubscriptions() {
+        return mySubscriptions;
+    }
+
+    public void setMySubscriptions(HashSet<TeamSubscription> mySubscriptions) {
+        this.mySubscriptions = mySubscriptions;
+    }
 }

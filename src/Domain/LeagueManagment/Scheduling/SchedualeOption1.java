@@ -1,21 +1,17 @@
 package Domain.LeagueManagment.Scheduling;
 
 import Domain.Events.Event;
-import Domain.LeagueManagment.Field;
-import Domain.LeagueManagment.League;
-import Domain.LeagueManagment.Match;
+import Domain.LeagueManagment.*;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
-import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.Referee;
 import org.apache.commons.lang3.time.DateUtils;
 
+import java.sql.Ref;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class SchedualeOption1 implements SchedulingPolicy {
 
@@ -29,19 +25,39 @@ public class SchedualeOption1 implements SchedulingPolicy {
      * will be two-day differentials.
      * the referees refereeing at all the matches in the season
      * @param teamsInSeason
-     * @param referees
-     * @param mainRef
+//     * @param referees
+//     * @param mainRef
      * @throws Exception
      */
     @Override
-    public void assign(HashMap<League, HashSet<Team>> teamsInSeason, HashSet<Referee> referees, Referee mainRef) throws Exception {
+    public void assign(HashMap<League, HashSet<Team>> teamsInSeason, Season season) throws Exception {
 
         Date date = new Date(System.currentTimeMillis());
         Date afterAweek = DateUtils.addDays(date,7);
-        String dateString = MainSystem.simpleDateFormat.format(afterAweek);
+        SimpleDateFormat dt = new SimpleDateFormat("dd-MM-yyyy 20:00:00");
+        String dateString;
 
         /**For each League**/
         for (League l : teamsInSeason.keySet()) {
+
+            /**devide the referees to mainRef and other**/
+            LinkedHashSet<Referee> refereeLinkedHashSet = l.getRefereesInLeague().get(season);
+
+            ArrayList <Referee> mainRefArray = new ArrayList();//hold one main ref
+            HashSet<Referee> allReffToPutInMatch = new HashSet<>();//hold 2 referees to put in match
+            Iterator<Referee> refItr = refereeLinkedHashSet.iterator();
+            int index=0;
+            while(refItr.hasNext()){
+                if(index==0){
+                    Referee mainRef = (Referee) refItr.next();
+                    mainRefArray.add(0,mainRef);
+                }
+                else{
+                    allReffToPutInMatch.add(refItr.next());
+                }
+                index++;
+            }
+            /*********************************************/
 
             HashSet<Team> teamsPerLeague = teamsInSeason.get(l);
             /**For each team in league**/
@@ -57,8 +73,9 @@ public class SchedualeOption1 implements SchedulingPolicy {
                 for(int j=i+1;j<arrayList.size();j++){
                     Team currentAwayTeam = arrayList.get(j);
                     //create new match
+                    dateString = dt.format(afterAweek);
                     Match match = new Match(0,0,currentAwayTeam, currentHomeTeam, currentHomeTeam.getField()
-                            ,new HashSet<Event>(),referees,mainRef,dateString);
+                            ,new HashSet<Event>(),allReffToPutInMatch,mainRefArray.get(0),dateString);
                     //insert the match to teams list
                     currentHomeTeam.addMatchToHomeMatches(match);
                     currentAwayTeam.addMatchToAwayMatches(match);
@@ -68,8 +85,6 @@ public class SchedualeOption1 implements SchedulingPolicy {
 
                 }
             }
-
-
         }
     }
 }

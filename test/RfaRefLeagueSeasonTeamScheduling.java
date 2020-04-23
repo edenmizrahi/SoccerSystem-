@@ -1,8 +1,11 @@
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
 import Domain.LeagueManagment.Scheduling.SchedualeOption2;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
+import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
@@ -14,13 +17,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /**
  * Integration between - Rfa, Referee, League, Team, Season, SchedulingPolicy
- * 
- * Rfa create leagues, add referees, add teams to leagues and start scheduling police
+ *
+ * Rfa create leagues, add referees, add teams to leagues, add leagues to season,
+ * add referees to league in season and start scheduling police
  */
 public class RfaRefLeagueSeasonTeamScheduling {
 
@@ -33,24 +39,22 @@ public class RfaRefLeagueSeasonTeamScheduling {
     }
 
     @Test
-    //add referees to the system
     public void test1(){
 
         try {
+            //add referees to the system
             nadav.addReferee("ref1", "0546145795", "ref1@gmail.com", "ref111", "ref111", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
             nadav.addReferee("ref2", "0546145795", "ref2@gmail.com", "ref222", "ref222", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
             nadav.addReferee("ref3", "0546145795", "ref3@gmail.com", "ref333", "ref333", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
             nadav.addReferee("ref4", "0546145795", "ref4@gmail.com", "ref444", "ref444", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
 
             Assert.assertTrue(ms.getAllReferees().size()==4);
-
             List<Referee> referees = ms.getAllReferees();
-            HashSet<Referee> hashReferees = new HashSet<>();
-            Referee mainRef = referees.remove(0);
-
+            LinkedHashSet<Referee> hashReferees = new LinkedHashSet<>();
             for (Referee ref: referees) {
                 hashReferees.add(ref);
             }
+
             TeamRole coach= new TeamRole(ms,"coachM","0522150912","coachM@gmail.com","coachM222","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
             coach.becomeCoach();
             TeamRole teamOwner = new TeamRole(ms,"michael","0522150912","teamO@gmail.com","owner123","owner123",MainSystem.birthDateFormat.parse("09-12-1995"));
@@ -144,11 +148,16 @@ public class RfaRefLeagueSeasonTeamScheduling {
             nadav.createNewLeague("A",ms);
             nadav.createNewLeague("B",ms);
 
-            nadav.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020, ms.getLeagues().get(0),group1,true);
-            nadav.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020, ms.getLeagues().get(1),group2,true);
-            nadav.startSchedulingPolicy(ms.getSeasons().get(0),hashReferees, mainRef);
+            nadav.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020, ms.getLeagues().get(0),group1,hashReferees,true);
+            nadav.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020, ms.getLeagues().get(1),group2,hashReferees, true);
+            nadav.startSchedulingPolicy(ms.getSeasons().get(0));
 
             Assert.assertTrue(team.getHome().size()==1 && team.getAway().size()==1);
+
+            HashMap<Season, League> test = team.getLeaguePerSeason();
+            for (Season s: test.keySet()) {
+                Assert.assertTrue(test.get(s).getName().equals("A"));
+            }
 
         }
         catch (Exception e){

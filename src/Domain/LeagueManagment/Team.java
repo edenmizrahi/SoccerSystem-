@@ -380,7 +380,7 @@ public class Team extends Observable implements PageOwner {
         }
         return false;
     }
-
+    
     /**OR
      * add income to budget control
      * @param typeOfIncome

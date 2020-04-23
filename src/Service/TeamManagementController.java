@@ -352,7 +352,7 @@ public class TeamManagementController {
      * get all the possible users i can subscribe to become team owner
      * @return list of possible users
      */
-    public LinkedList<Fan> getAllPossibleSubscribeTeamOwner(){
+    public LinkedList<Fan> getAllPossibleSubscribeTeamOwner(TeamRole user){
         LinkedList<Fan> allFans = MainSystem.getInstance().getAllFans();
         LinkedList<Fan> ans = new LinkedList<>();
         for(Fan fan : allFans){
@@ -365,6 +365,9 @@ public class TeamManagementController {
                 }
             }
         }
+        if (ans.contains(user)){
+            ans.remove(user);
+        }
         return ans;
     }
     /**
@@ -372,7 +375,7 @@ public class TeamManagementController {
      * get all the possible users i can subscribe to become team manager
      * @return list of possible users
      */
-    public LinkedList<Fan> getAllPossibleSubscribeTeamManager(){
+    public LinkedList<Fan> getAllPossibleSubscribeTeamManager(TeamRole user){
         LinkedList<Fan> allFans = MainSystem.getInstance().getAllFans();
         LinkedList<Fan> ans = new LinkedList<>();
         for(Fan fan : allFans){
@@ -384,6 +387,9 @@ public class TeamManagementController {
                     ans.add(fan);
                 }
             }
+        }
+        if (ans.contains(user)) {
+            ans.remove(user);
         }
         return ans;
     }
@@ -424,11 +430,10 @@ public class TeamManagementController {
     }
     /**
      * adi
-     * @param user
      * @return
      */
-    public LinkedList<Coach> getAllCoachWithoutTeam(TeamRole user){
-        LinkedList<Coach> allCoaches = user.getSystem().getAllCoach();
+    public LinkedList<Coach> getAllCoachWithoutTeam(){
+        LinkedList<Coach> allCoaches = MainSystem.getInstance().getAllCoach();
         LinkedList<Coach> ans = new LinkedList<>();
         for(Coach coach : allCoaches){
             if(coach.getCoachTeam() == null){
@@ -439,11 +444,10 @@ public class TeamManagementController {
     }
     /**
      * adi
-     * @param user
      * @return
      */
-    public LinkedList<Player> getAllPlayerWithoutTeam(TeamRole user){
-        LinkedList<Player> allPlayers = user.getSystem().getAllPlayer();
+    public LinkedList<Player> getAllPlayerWithoutTeam(){
+        LinkedList<Player> allPlayers = MainSystem.getInstance().getAllPlayer();
         LinkedList<Player> ans = new LinkedList<>();
         for(Player player : allPlayers){
             if(player.getTeam() == null){

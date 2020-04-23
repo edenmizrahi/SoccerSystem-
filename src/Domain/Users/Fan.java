@@ -266,4 +266,12 @@ public class Fan extends User implements Observer, NotificationsUser {
         return unRead;
     }
     //</editor-fold>
+
+
+    /***just for test**/
+    @Override
+    public String toString() {
+        return "{"+userName  +
+                '}';
+    }
 }

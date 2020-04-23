@@ -14,6 +14,7 @@ import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Ref;
 import java.time.*;
 import java.util.*;
 
@@ -260,9 +261,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      */
     //TODO test - V
     public void deleteReferee(Referee ref) throws Exception {
-        //check the all matches that the referee is refereeing
-        if(ref!=null) {
-            for (Match m : ref.getMatches()) {
+            //check the all matches that the referee is refereeing
+            if(ref!=null) {
+                    for (Match m : ref.getMatches()) {
                 //can't delete, match still didn't take place
                 if (m.getStartDate().after(new Date(System.currentTimeMillis()))) {
                     throw new Exception("You can not delete this referee");
@@ -277,6 +278,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     /**
      * Initializing Season To League by giving the policies, year and teams that will be in the league in this season
+     * define just one league to season, if want more that one league - call again
      * @param schedule
      * @param calculate
      * @param year
@@ -285,19 +287,49 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      * @CodeBy yarden
      */
     //TODO test - V
-    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, boolean defineCurrSeason) throws Exception {
+    public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
 
-        //if(schedule==null || calculate==null || ( defineCurrSeason && year < Year.now().getValue() )){
-        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() )){
+        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() ) || referees.size()<3 ){
             throw new Exception("Invalid details");
         }
 
-        Season newSeason = new Season(this.system,schedule,calculate,year);
-        if(defineCurrSeason) {
-            this.getSystem().setCurrSeason(newSeason);
+        boolean seasonExist=false;
+        //if season already exist
+        for (Season s: this.getSystem().getSeasons()) {
+            if(s.getYear() == year){
+                seasonExist=true;
+                if (defineCurrSeason) {
+                    this.getSystem().setCurrSeason(s);
+                }
+
+                /**check if teams are valid - if already play in this season**/
+                for (Team t: teams) {
+                   if(t.getLeaguePerSeason().containsKey(s)){
+                       throw new Exception("There is team that already play in this season, check the team's list again");
+                   }
+                }
+
+                HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
+                refereesInLeague.put(s,referees);
+                l.setRefereesInLeague(refereesInLeague);
+                s.addLeagueWithTeams(l,teams);
+                break;
+            }
         }
-        newSeason.addLeagueWithTeams(l,teams);
-        LOG.info(String.format("%s - %s", this.getUserName(), "define season to "+l.getName()+ "by Rfa"));
+
+        if(!seasonExist) {
+            //season not exist in the system
+            Season newSeason = new Season(this.system, schedule, calculate, year);
+            if (defineCurrSeason) {
+                this.getSystem().setCurrSeason(newSeason);
+            }
+            HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
+            refereesInLeague.put(newSeason,referees);
+            l.setRefereesInLeague(refereesInLeague);
+            newSeason.addLeagueWithTeams(l, teams);
+        }
+
+        LOG.info(String.format("%s - %s", this.getUserName(), "define season to " + l.getName() + "by Rfa"));
     }
 
     /**
@@ -327,16 +359,16 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
     /**
      * This function created in order to start the scheduling policy
      * @param season scheduling all the matches that will appear in this season
-     * @param referees to scheduling at matches
-     * @param mainRef to scheduling at matches
+//     * @param referees to scheduling at matches
+//     * @param mainRef to scheduling at matches
      * @throws Exception
      * @CodeBy yarden
      */
-    public void startSchedulingPolicy(Season season, HashSet<Referee> referees, Referee mainRef) throws Exception {
-        if(season==null || referees==null || mainRef==null){
+    public void startSchedulingPolicy(Season season) throws Exception {
+        if(season==null){
             throw new NullPointerException();
         }
-        season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), referees, mainRef);
+        season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), season);
         LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa"));
     }
 

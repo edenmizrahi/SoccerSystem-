@@ -50,326 +50,71 @@
 2020.04.22 15:01:15.026 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
 2020.04.22 15:05:14.804 INFO  Domain.Users.SystemManager - avi123 - Added to system
 2020.04.22 15:05:14.822 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.22 15:32:54.906 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
-2020.04.22 15:32:54.912 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 15:32:54.938 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
-2020.04.22 15:32:54.951 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 15:32:54.974 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
-2020.04.22 15:32:54.978 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa
-2020.04.22 15:56:40.904 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.22 15:56:40.908 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.22 15:56:54.764 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.22 15:56:54.769 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.22 16:01:22.167 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
-2020.04.22 16:01:40.134 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
-2020.04.22 16:05:44.839 INFO  Domain.Users.Rfa - nadavS - define curr season
-2020.04.22 19:11:58.973 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:11:58.976 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:11:58.977 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:11:58.977 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:13:45.432 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 19:13:45.432 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 19:14:00.008 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:00.018 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:00.018 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:00.018 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:19.316 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:19.319 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:19.320 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:14:19.320 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:19:37.184 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:19:37.188 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:19:37.188 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:19:37.189 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:37:30.170 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 19:37:30.170 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 19:37:40.735 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:37:40.739 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:37:40.739 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:37:40.740 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:38:09.522 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:38:10.044 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:38:10.326 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:38:11.001 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:40:10.715 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:40:10.719 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:40:10.719 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:40:10.724 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:46:58.987 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:46:59.010 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:46:59.032 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:46:59.034 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:47:01.686 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 19:49:00.149 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:49:00.153 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:49:00.159 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:49:00.162 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 19:49:00.179 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:21:19.122 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:19.127 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:19.127 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:19.128 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:19.148 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:21:19.150 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:21:19.151 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:21:23.136 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:23.140 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:23.141 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:23.142 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:23.236 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:21:23.245 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:21:23.246 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:21:56.679 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:56.684 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:56.686 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:56.686 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:21:56.714 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:21:56.718 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:21:56.719 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:22:20.899 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:20.906 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:20.907 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:20.907 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:20.939 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:22:20.942 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:22:20.942 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:22:44.996 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:45.001 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:45.004 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:45.005 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:22:45.031 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:22:45.033 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:22:45.034 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:24:36.854 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:36.859 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:36.859 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:36.860 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:36.885 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:24:36.891 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:24:36.892 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:24:39.482 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:39.485 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:39.486 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:39.487 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:39.504 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:24:39.507 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:24:39.507 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:24:52.716 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:52.720 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:52.721 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:52.721 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:24:52.737 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:24:52.739 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:24:52.740 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:27:36.453 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:36.456 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:36.457 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:36.457 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:36.479 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:27:36.481 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:27:36.482 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:27:38.893 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:38.897 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:38.897 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:38.897 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:27:38.913 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:27:38.914 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:27:38.915 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:27:38.918 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
-2020.04.22 20:27:38.919 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
-2020.04.22 20:27:38.924 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
-2020.04.22 20:27:40.913 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
-2020.04.22 20:27:41.901 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
-2020.04.22 20:27:43.756 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
-2020.04.22 20:28:57.329 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:28:57.334 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:28:57.334 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:28:57.335 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:28:57.356 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:28:57.358 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:28:57.359 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:28:57.470 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
-2020.04.22 20:28:57.471 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
-2020.04.22 20:28:57.477 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
-2020.04.22 20:29:02.164 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:29:02.172 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:29:02.173 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:29:02.174 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:29:02.228 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:29:02.232 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:29:02.232 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:29:02.400 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
-2020.04.22 20:29:02.401 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
-2020.04.22 20:29:02.408 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
-2020.04.22 20:40:08.347 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:40:08.350 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:40:08.350 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:40:08.350 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
-2020.04.22 20:40:08.365 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
-2020.04.22 20:40:08.367 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:40:08.369 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 20:40:08.457 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
-2020.04.22 20:40:08.458 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
-2020.04.22 20:40:08.461 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
-2020.04.23 09:54:52.817 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:10:17.690 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:10:17.698 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:10:47.939 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:10:47.946 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:12:04.064 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:12:16.849 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:15:20.270 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:15:20.275 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:15:20.292 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:15:58.579 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:16:47.912 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:23:36.247 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:23:36.252 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:24:19.734 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:26:05.222 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:26:48.733 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:26:48.742 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:28:48.197 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:29:18.171 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:31:17.592 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:31:41.017 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:33:09.394 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:34:08.721 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:34:45.763 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:34:45.771 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 10:38:50.988 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:39:12.797 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:39:50.335 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:39:50.342 INFO  Domain.LeagueManagment.Team - null - team was re-opened
-2020.04.23 10:44:41.168 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:44:41.174 INFO  Domain.LeagueManagment.Team - null - team was re-opened
-2020.04.23 10:47:17.889 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:48:29.537 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:48:29.543 INFO  Domain.LeagueManagment.Team - null - team was re-opened
-2020.04.23 10:48:36.938 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:48:36.944 INFO  Domain.LeagueManagment.Team - null - team was re-opened
-2020.04.23 10:48:47.000 INFO  Domain.LeagueManagment.Team - null - team was activated
-2020.04.23 10:48:47.006 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 14:22:24.840 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
-2020.04.23 14:24:30.523 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
-2020.04.23 14:24:30.530 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
-2020.04.23 14:25:31.551 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
-2020.04.23 14:25:31.558 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
-2020.04.23 14:25:42.451 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
-2020.04.23 21:07:35.589 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:07:35.593 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:07:35.609 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:09:07.788 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:09:07.792 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:09:07.808 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:11:05.610 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 21:11:05.615 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 21:11:05.615 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:11:05.650 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:12:08.495 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 21:12:08.498 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 21:12:15.661 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 21:12:15.666 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 21:12:15.691 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:14:11.417 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 21:14:11.421 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 21:14:11.424 INFO  Domain.MainSystem -  - system was started
-2020.04.23 21:19:23.934 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:19:24.064 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.23 21:19:24.077 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:19:24.078 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:19:24.080 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:19:24.083 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 21:19:24.086 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:19:24.087 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 21:19:24.088 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:19:24.089 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:19:24.110 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:19:24.111 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:19:24.114 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:22:07.985 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
-2020.04.23 21:22:07.995 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
-2020.04.23 21:22:07.996 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
-2020.04.23 21:22:58.274 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:22:58.294 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:25:24.439 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:25:24.451 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:27:45.184 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:27:45.198 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:27:45.198 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
-2020.04.23 21:29:27.589 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:29:27.603 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 21:29:27.606 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:29:27.606 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 21:36:32.753 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:36:32.765 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.766 INFO  Domain.Users.SystemManager - o - Added to system
-2020.04.23 21:36:32.766 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.769 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.771 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.776 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.784 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.792 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 21:36:32.794 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:32.795 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:36:42.454 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:36:42.578 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.23 21:36:42.592 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:36:42.593 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:36:42.598 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:36:42.605 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 21:36:42.609 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:36:42.610 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 21:36:42.616 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:36:42.624 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:36:42.624 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
-2020.04.23 21:36:42.625 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:36:42.628 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:37:16.410 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:16.559 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.23 21:37:16.578 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:37:16.581 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:37:16.584 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:16.587 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 21:37:16.593 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:37:16.593 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 21:37:16.595 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:16.598 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:37:16.599 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
-2020.04.23 21:37:16.602 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:16.607 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:37:45.390 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:45.600 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.23 21:37:45.635 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:37:45.636 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:37:45.648 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:45.652 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 21:37:45.655 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:37:45.656 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 21:37:45.657 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:37:45.659 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:37:45.666 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
-2020.04.23 21:37:45.667 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:38:29.447 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:50.832 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:38:50.989 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
-2020.04.23 21:38:51.005 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:38:51.006 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
-2020.04.23 21:38:51.008 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:38:51.011 INFO  Domain.Users.SystemManager - e - Added to system
-2020.04.23 21:38:51.014 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:38:51.016 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
-2020.04.23 21:38:51.019 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:38:51.021 INFO  Domain.Users.SystemManager - es - Added to system
-2020.04.23 21:38:51.023 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
-2020.04.23 21:38:51.026 INFO  Domain.Users.SystemManager - avi123 - Added to system
-2020.04.23 21:38:51.029 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.030 INFO  Domain.Users.SystemManager - o - Added to system
-2020.04.23 21:38:51.030 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.031 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.041 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.046 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.048 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.049 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
-2020.04.23 21:38:51.052 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 21:38:51.054 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.22 16:19:11.436 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:19:11.440 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:20:40.012 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:20:40.024 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:24:01.015 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:24:01.022 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:33:07.156 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:33:07.187 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:34:21.641 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:34:21.657 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:35:30.496 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:35:30.502 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:48:18.652 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:48:18.657 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:54:22.123 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:54:22.128 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:57:39.204 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:57:39.207 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:58:47.534 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:58:47.563 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:58:58.248 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:58:58.255 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:59:10.140 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:59:10.158 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 16:59:37.163 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 16:59:37.167 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.22 17:00:43.306 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.22 17:00:43.309 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:24:21.352 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.357 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.358 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.359 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:24:21.868 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:24:21.873 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:24:21.874 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:24:22.235 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:24:22.236 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:24:22.249 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:47:01.126 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.131 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.132 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.132 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:47:01.577 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:47:01.579 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:47:01.580 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:47:01.833 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:47:01.834 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:47:01.845 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:49:46.723 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.727 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.728 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.729 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:46.803 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:49:46.812 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:46.812 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:46.930 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:49:46.931 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:49:46.936 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 17:49:52.417 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.427 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.433 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.439 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 17:49:52.896 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 17:49:52.899 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:52.899 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 17:49:53.159 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 17:49:53.160 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 17:49:53.169 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa

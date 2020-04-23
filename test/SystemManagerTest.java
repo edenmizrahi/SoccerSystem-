@@ -16,6 +16,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 import static org.junit.Assert.*;
@@ -334,7 +335,7 @@ public class SystemManagerTest {
         Fan fRFA=new Fan(sysetm,"fRFA","ee","e","fRFA","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(fRFA,sysetm);
         try {
-            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,true);
+            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,new LinkedHashSet<>(),true);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -58,9 +58,9 @@ public class RfaController {
      * @param teams
      *  @codeBy Eden
      */
-     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams, boolean define) throws Exception {
+     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
         for( League l:leaguesToDefine){
-            user.defineSeasonToLeague(sp,cp,season,l,teams, define);
+            user.defineSeasonToLeague(sp,cp,season,l,teams,referees,defineCurrSeason);
         }
      }
 
@@ -102,7 +102,7 @@ public class RfaController {
                      throw new Exception("league " + entry.getKey().getName() + " without teams, add teams first");
                  }
              }
-             user.startSchedulingPolicy(season, refs, mainReferee);
+             user.startSchedulingPolicy(season);
          }
          else{
              throw new Exception("first define the season");

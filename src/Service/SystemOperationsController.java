@@ -136,13 +136,18 @@ public class SystemOperationsController {
 
             /**Ilan subscribe moshe to be team Manager with the all permissions**/
             Fan f2=new Fan(system, "Moshe", "0549716910","yossi@gmail.com", "Moshe", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
-            HashSet<TeamManagerPermissions> permissions=new HashSet<>();
-            permissions.add(TeamManagerPermissions.addRemoveEditPlayer);
-            permissions.add(TeamManagerPermissions.addRemoveEditTeamOwner);
-            permissions.add(TeamManagerPermissions.addRemoveEditCoach);
-            permissions.add(TeamManagerPermissions.addRemoveEditField);
-            permissions.add(TeamManagerPermissions.addToBudgetControl);
-            TeamRole mosheTeamManager = ilanTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,permissions);
+            HashSet<TeamManagerPermissions> perMoshe = new HashSet<>();
+            perMoshe.add(TeamManagerPermissions.addRemoveEditPlayer);
+            perMoshe.add(TeamManagerPermissions.addRemoveEditTeamOwner);
+            perMoshe.add(TeamManagerPermissions.addRemoveEditCoach);
+            perMoshe.add(TeamManagerPermissions.addRemoveEditField);
+            perMoshe.add(TeamManagerPermissions.addToBudgetControl);
+            TeamRole mosheTeamManager = ilanTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,perMoshe);
+
+            /**avi subscribe david to be team Manager without any permissions**/
+            Fan f10 = new Fan(system, "David", "0549716910","yossi@gmail.com", "David", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+            HashSet<TeamManagerPermissions> perDavid = new HashSet<>();
+            TeamRole davidTeamManager = aviTeamOwner.getTeamOwner().subscribeTeamManager(f10,t2,perDavid);
 
             /**add 11 players to t1*/
             add11PlayersToTeam(t1,ilanTeamOwner.getTeamOwner(),"d");

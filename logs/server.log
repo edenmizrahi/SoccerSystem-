@@ -52,10 +52,10 @@
 2020.04.22 15:05:14.822 INFO  Domain.Users.SystemManager - avi123 - Added to system
 2020.04.22 15:32:54.906 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
 2020.04.22 15:32:54.912 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.22 15:32:54.938 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa 
+2020.04.22 15:32:54.938 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
 2020.04.22 15:32:54.951 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
 2020.04.22 15:32:54.974 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
-2020.04.22 15:32:54.978 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa 
+2020.04.22 15:32:54.978 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa
 2020.04.22 15:56:40.904 INFO  Domain.Users.SystemManager - systemManager - Added to system
 2020.04.22 15:56:40.908 INFO  Domain.MainSystem -  - system was started for the first time
 2020.04.22 15:56:54.764 INFO  Domain.Users.SystemManager - systemManager - Added to system

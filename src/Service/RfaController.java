@@ -125,7 +125,7 @@ public class RfaController {
      * @return
      *  @codeBy Eden
      */
-     public LinkedList<Team> getTeamRequest(Rfa user){
+     public HashSet<Team> getTeamRequest(Rfa user){
          return user.getTeamRequests();
      }
 

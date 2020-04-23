@@ -588,4 +588,6 @@ public class Team extends Observable implements PageOwner {
         setChanged();
         notifyObservers(name+" removed from system by system manager");
     }
+
+
 }

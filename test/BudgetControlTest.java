@@ -16,6 +16,7 @@ public class BudgetControlTest {
         } catch (Exception e) {
             Assert.assertEquals(Exception.class, e.getClass());
             Assert.assertEquals("amount of income is negative",e.getMessage());
+
         }
         try {
             bc.addIncome(null,200);

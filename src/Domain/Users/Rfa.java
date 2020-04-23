@@ -261,9 +261,9 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
      */
     //TODO test - V
     public void deleteReferee(Referee ref) throws Exception {
-        //check the all matches that the referee is refereeing
-        if(ref!=null) {
-            for (Match m : ref.getMatches()) {
+            //check the all matches that the referee is refereeing
+            if(ref!=null) {
+                    for (Match m : ref.getMatches()) {
                 //can't delete, match still didn't take place
                 if (m.getStartDate().after(new Date(System.currentTimeMillis()))) {
                     throw new Exception("You can not delete this referee");

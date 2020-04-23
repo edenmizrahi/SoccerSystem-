@@ -123,6 +123,13 @@ public class SystemOperationsController {
             t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
             /*********************************************/
 
+            /**add Arnold as another Team Owner of t1 ***/
+            Fan arnold = new Fan(system, "Arnold", "0549716910","yossi@gmail.com", "Arnold", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+            TeamRole arnoldTeamOwner = new TeamRole(arnold);
+            arnoldTeamOwner.becomeTeamOwner();
+            arnoldTeamOwner.getTeamOwner().addNewTeam(t1);
+            t1.addTeamOwner(arnoldTeamOwner.getTeamOwner());
+            /*********************************************/
 
             /**add Avi as Team Owner (founder) of t2 ***/
             Fan f7=new Fan(system, "Avi", "0549716910","yossi@gmail.com", "Avi", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
@@ -134,7 +141,7 @@ public class SystemOperationsController {
             /*********************************************/
 
 
-            /**Ilan subscribe moshe to be team Manager with the all permissions**/
+            /**Arnold subscribe moshe to be team Manager with the all permissions**/
             Fan f2=new Fan(system, "Moshe", "0549716910","yossi@gmail.com", "Moshe", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
             HashSet<TeamManagerPermissions> perMoshe = new HashSet<>();
             perMoshe.add(TeamManagerPermissions.addRemoveEditPlayer);
@@ -142,7 +149,17 @@ public class SystemOperationsController {
             perMoshe.add(TeamManagerPermissions.addRemoveEditCoach);
             perMoshe.add(TeamManagerPermissions.addRemoveEditField);
             perMoshe.add(TeamManagerPermissions.addToBudgetControl);
-            TeamRole mosheTeamManager = ilanTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,perMoshe);
+            TeamRole mosheTeamManager = arnoldTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,perMoshe);
+            /***moshe become a player as well***/
+            mosheTeamManager.becomePlayer();
+
+            /**Moshe subscribe armin to be team Owner with the all permissions**/
+            Fan armin = new Fan(system, "Armin", "0549716910","yossi@gmail.com", "Armin", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+            TeamRole arminTeamOwner=new TeamRole(armin);
+            arminTeamOwner.becomeTeamOwner();
+            arminTeamOwner.getTeamOwner().addNewTeam(t1);
+            t1.addTeamOwner(arminTeamOwner.getTeamOwner());
+
 
             /**avi subscribe david to be team Manager without any permissions**/
             Fan f10 = new Fan(system, "David", "0549716910","yossi@gmail.com", "David", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

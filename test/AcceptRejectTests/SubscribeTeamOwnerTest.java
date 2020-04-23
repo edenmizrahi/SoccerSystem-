@@ -74,13 +74,14 @@ public class SubscribeTeamOwnerTest {
 
     //team manager without permission
     @Test
-    public void alternative3() throws Exception {
+    public void reject() throws Exception {
         SystemOperationsController.initSystemObjects();
         LinkedList<Fan> possibleSubTeamOwners = teamManagementController.getAllPossibleSubscribeTeamOwner();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
 
         TeamRole david = (TeamRole)systemOperationsController.getUserByUserName("David");
         Team t1Macabi = david.getTeamManager().getTeam();
+
         try {
             TeamRole newTeamManager = teamManagementController.subscribeTeamOwner(david, ben, t1Macabi);
             Assert.fail();

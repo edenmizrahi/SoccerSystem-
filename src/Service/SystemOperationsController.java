@@ -154,14 +154,6 @@ public class SystemOperationsController {
             aviTeamOwner.getTeamOwner().subscribeTeamOwner(mosheTeamManager,t1);
             /***************************************/
 
-            HashSet<TeamManagerPermissions> perMoshe = new HashSet<>();
-            perMoshe.add(TeamManagerPermissions.addRemoveEditPlayer);
-            perMoshe.add(TeamManagerPermissions.addRemoveEditTeamOwner);
-            perMoshe.add(TeamManagerPermissions.addRemoveEditCoach);
-            perMoshe.add(TeamManagerPermissions.addRemoveEditField);
-            perMoshe.add(TeamManagerPermissions.addToBudgetControl);
-            TeamRole mosheTeamManager = ilanTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,perMoshe);
-
             /**avi subscribe david to be team Manager without any permissions**/
             Fan f10 = new Fan(system, "David", "0549716910","yossi@gmail.com", "David", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
             HashSet<TeamManagerPermissions> perDavid = new HashSet<>();
@@ -204,8 +196,8 @@ public class SystemOperationsController {
             /*****************/
 
             /**addRFA*/
-            Fan f10= new Fan(system, "yarden", "0549716910","yossi@gmail.com", "yardi", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
-            Rfa yardenRfa=new Rfa(f10,system);
+            Fan f15= new Fan(system, "yarden", "0549716910","yossi@gmail.com", "yardi", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+            Rfa yardenRfa=new Rfa(f15,system);
             /********/
 
             /**addSystemManager*/

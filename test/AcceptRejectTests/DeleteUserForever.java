@@ -21,8 +21,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.TestCase.fail;
+
 
 public class DeleteUserForever {
     SystemManagerController managerController=new SystemManagerController();
@@ -72,8 +71,8 @@ public class DeleteUserForever {
         Team t2=first.getName().equals("macabi")?second:first;
 
         /***check if avi deleted from system**/
-        assertTrue(!system.getUsers().contains(teamOwnerToDelete.getTeamRole()));
-        assertTrue(!system.getUserNames().contains(teamOwnerToDelete.getTeamRole().getUserName()));
+        Assert.assertTrue(!system.getUsers().contains(teamOwnerToDelete.getTeamRole()));
+        Assert.assertTrue(!system.getUserNames().contains(teamOwnerToDelete.getTeamRole().getUserName()));
 
         /***check t1 subscriptions **/
         /**avi and moshe deleted from ownership*/
@@ -94,7 +93,7 @@ public class DeleteUserForever {
         managerController.deleteUserForever(rfas.get(0),sm);
         try {
             managerController.deleteUserForever(rfas.get(0), sm);
-            fail();
+            Assert.fail();
         }
         catch (Exception e){
             Assert.assertEquals(Exception.class, e.getClass());
@@ -106,7 +105,7 @@ public class DeleteUserForever {
         SystemManager currentSM=systemManagers.get(0)==sm?systemManagers.get(0):systemManagers.get(1);
         try {
             managerController.deleteUserForever(currentSM,sm);
-            fail();
+            Assert.fail();
         }
         catch (Exception e){
             Assert.assertEquals(Exception.class, e.getClass());
@@ -123,7 +122,7 @@ public class DeleteUserForever {
             managerController.deleteUserForever(currentSM,sm);
 
 
-            fail();
+            Assert.fail();
         }
         catch (Exception e){
             Assert.assertEquals(Exception.class, e.getClass());
@@ -137,7 +136,7 @@ public class DeleteUserForever {
         rf.getMatches().add(new Match(MainSystem.birthDateFormat.parse("02-11-2030")));
         try {
             managerController.deleteUserForever(referees.get(0),sm);
-            fail();
+            Assert.fail();
         }
         catch (Exception e){
             Assert.assertEquals(Exception.class, e.getClass());

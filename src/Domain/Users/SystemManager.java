@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
-public class SystemManager extends Fan implements Observer , NotificationsUser {
+public class SystemManager extends Fan implements NotificationsUser {
 
     public static  HashSet<Complaint> complaints=new HashSet<>();//*
     private static final Logger LOG = LogManager.getLogger();

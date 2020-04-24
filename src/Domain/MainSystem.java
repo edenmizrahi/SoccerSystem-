@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MainSystem {
-    private LinkedList<Complaint> complaints;// *
+    //private LinkedList<Complaint> complaints;// *??????
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
@@ -33,7 +33,6 @@ public class MainSystem {
 
 
     private MainSystem() {
-        this.complaints = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
@@ -252,13 +251,6 @@ public class MainSystem {
 
 
     //<editor-fold desc="getters and setters">
-    public List<Complaint> getComplaints() {
-        return complaints;
-    }
-
-    public void setComplaints(LinkedList<Complaint> complaints) {
-        this.complaints = complaints;
-    }
 
 
     public List<League> getLeagues() {

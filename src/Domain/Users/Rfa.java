@@ -29,6 +29,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new LinkedList<>();
         this.notifications=new HashSet<>();
+        system.removeUser(fan);
         //TODO add permissions
     }
 

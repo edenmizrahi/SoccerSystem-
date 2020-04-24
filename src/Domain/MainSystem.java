@@ -31,7 +31,6 @@ public class MainSystem {
     private static final Logger LOG = LogManager.getLogger();
     private static MainSystem mainSystem_instance= null;
 
-
     private MainSystem() {
         this.complaints = new LinkedList<>();
         this.leagues = new LinkedList<>();
@@ -394,4 +393,13 @@ public class MainSystem {
         activeTeams.add(t);
     }
 
+    public LinkedList<TeamManager> getAllTeamManagers() {
+        LinkedList<TeamManager> teamManagers= new LinkedList<>();
+        for(TeamRole teamRole: getTeamRoles()){
+            if(teamRole.isTeamManager()){
+                teamManagers.add(teamRole.getTeamManager());
+            }
+        }
+        return teamManagers;
+    }
 }

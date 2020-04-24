@@ -49,7 +49,10 @@ public class Fan extends User implements Observer, NotificationsUser {
     public List<PrivatePage> getMyPages() {
         return myPages;
     }
-
+    public void unfollow(PrivatePage p){
+        myPages.remove(p);
+        p.getFans().remove(this);
+    }
     public void setMyPages(List<PrivatePage> myPages) {
         this.myPages = myPages;
     }

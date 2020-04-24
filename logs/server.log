@@ -78,3 +78,875 @@
 2020.04.22 16:59:37.167 INFO  Domain.MainSystem -  - system was started for the first time
 2020.04.22 17:00:43.306 INFO  Domain.Users.SystemManager - systemManager - Added to system
 2020.04.22 17:00:43.309 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 15:26:36.335 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 15:26:36.340 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 15:26:36.362 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 15:26:36.363 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 15:26:36.364 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 15:26:36.365 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 15:26:36.376 INFO  Domain.MainSystem -  - system was started
+2020.04.23 15:26:36.382 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 15:26:36.383 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 15:33:54.156 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 15:33:54.167 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 15:33:54.199 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 15:33:54.203 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 15:33:54.205 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 15:33:54.207 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 15:33:54.223 INFO  Domain.MainSystem -  - system was started
+2020.04.23 15:33:54.237 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 15:33:54.238 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 15:34:12.239 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 15:34:12.248 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 15:34:12.301 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 15:34:12.304 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 15:34:12.307 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 15:34:12.311 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 15:35:15.288 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 15:35:15.299 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 15:35:15.339 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 15:35:15.339 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 15:35:15.341 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 15:35:15.342 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 16:30:34.100 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 16:30:34.107 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 16:30:34.158 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 16:30:34.159 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 16:30:34.161 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 16:30:34.163 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 16:30:50.194 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 16:30:50.203 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 16:30:50.315 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 16:30:50.316 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 16:30:50.318 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 16:30:50.320 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 16:31:54.545 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 16:31:54.555 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 16:31:54.648 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 16:31:54.648 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 16:31:54.653 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 16:31:54.657 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 16:32:13.863 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 16:32:13.870 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 16:32:13.904 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 16:32:13.905 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 16:32:13.908 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 16:33:14.915 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 17:01:36.674 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 17:01:36.682 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:01:36.747 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 17:01:36.749 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 17:01:36.750 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:01:39.943 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 17:02:37.810 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 17:02:37.815 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:02:37.844 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 17:02:37.845 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 17:02:37.847 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:02:39.929 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.23 17:04:02.485 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 17:04:02.496 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 17:04:02.540 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 17:04:02.541 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 17:04:02.542 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 17:07:29.316 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:25:52.583 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:25:52.589 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:25:52.623 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:25:52.624 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:25:52.632 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:25:58.906 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:26:09.444 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:26:22.511 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:26:32.506 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:27:18.878 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:27:18.883 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:27:18.914 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:27:18.915 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:27:18.916 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:27:23.044 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:27:23.045 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:27:23.046 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:27:23.050 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:29:43.954 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:29:43.960 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:29:43.998 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:29:43.999 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:29:44.002 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:29:44.003 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:29:44.006 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:29:44.006 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:32:16.843 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:33:48.705 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:33:48.709 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:33:48.729 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:33:48.730 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:33:48.731 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:34:46.010 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:34:50.854 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:34:51.412 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:36:04.680 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:09.517 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:40:09.521 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:40:09.543 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:40:09.544 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:40:09.545 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:40:09.546 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:09.547 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:09.549 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:09.552 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:21.518 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:40:21.530 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:40:21.566 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:40:21.566 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:40:21.567 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:40:21.568 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:21.569 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:21.570 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:40:21.571 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:44:46.594 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:44:46.600 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:44:46.633 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:44:46.634 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:44:46.635 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:44:46.638 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:44:46.641 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:44:46.642 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:44:46.645 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:47:40.471 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:47:40.477 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:47:40.496 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:47:40.496 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:47:40.498 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:47:40.499 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:47:40.500 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:47:40.500 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:47:40.503 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:48:43.811 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:48:43.816 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:48:43.834 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:48:43.835 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:48:43.836 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:48:43.838 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:48:43.838 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:48:43.839 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 10:48:43.842 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:03:30.398 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:03:30.401 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:03:30.421 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:03:30.422 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:03:30.423 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:03:30.424 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:03:30.425 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:03:30.426 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:03:30.428 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:16:04.304 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:16:04.308 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:16:04.328 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:16:04.328 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:16:04.329 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:16:04.330 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:16:04.331 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:16:04.331 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:25:02.176 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:25:02.182 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:25:02.214 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:25:02.214 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:25:02.216 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:25:02.217 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:25:02.217 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:25:02.218 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:30:52.969 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:31:02.179 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:31:02.184 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:31:02.203 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:31:02.204 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:31:02.205 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:31:02.206 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:31:02.207 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:31:02.207 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:32:51.913 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:32:51.917 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:32:51.934 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:32:51.935 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:32:51.936 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:32:51.937 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:32:51.938 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:32:51.939 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:32:51.941 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:38:14.671 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:38:14.675 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:38:14.691 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:38:14.691 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:38:14.693 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:38:14.694 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 11:38:14.695 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:03:13.402 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:03:13.406 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:03:13.423 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:03:13.424 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:03:13.425 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:13:09.975 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:13:09.980 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:13:10.005 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:13:10.006 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:13:10.008 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:32:55.244 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:32:55.248 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:32:55.262 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:32:55.263 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:32:55.264 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:33:24.709 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:33:24.717 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:33:24.736 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:33:24.737 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:33:24.739 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:38:28.522 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:38:28.524 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:38:28.525 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:38:28.527 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:38:28.528 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 12:38:28.529 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:38:38.104 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:38:38.110 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:38:38.144 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:38:38.144 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:38:38.146 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:39:56.888 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:39:56.893 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:39:56.923 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:39:56.924 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:39:56.926 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:49:38.256 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:19.043 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:19.047 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:19.048 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:19.049 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 12:50:19.051 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:26.404 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:50:26.408 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:50:26.425 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:50:26.425 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:50:26.426 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:50:26.429 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:26.430 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:26.431 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:26.432 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:50:26.432 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 12:50:26.433 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:51:04.218 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:51:04.222 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:51:04.243 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:51:04.243 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:51:04.245 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:51:23.587 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:51:23.591 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:51:23.609 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:51:23.610 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:51:23.611 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:51:29.530 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:51:29.535 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:51:29.558 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:51:29.559 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:51:29.561 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:51:29.564 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:51:29.565 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:51:29.566 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:51:29.567 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:51:29.567 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 12:51:29.568 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 12:52:45.373 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:52:45.376 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:52:45.396 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:52:45.396 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:52:45.398 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:20:18.555 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:20:18.559 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:20:18.579 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:20:18.580 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:20:18.581 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:20:18.584 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:18.585 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:18.586 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:18.586 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:18.587 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:20:18.588 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:35.272 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:20:35.276 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:20:35.293 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:20:35.293 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:20:35.294 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:20:35.297 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:35.298 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:35.298 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:35.299 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:35.300 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:20:35.300 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:40.401 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:20:40.404 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:20:40.422 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:20:40.422 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:20:40.424 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:20:40.427 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:40.428 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:40.429 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:40.430 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:40.430 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:20:40.431 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:52.359 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:20:52.364 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:20:52.392 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:20:52.393 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:20:52.395 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:20:52.398 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:52.400 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:52.401 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:52.401 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:20:52.403 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:20:52.403 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:24:17.496 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:24:17.502 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:24:17.526 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:24:17.527 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:24:17.528 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:24:17.532 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:24:17.533 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:24:17.534 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:24:17.535 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:24:17.535 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:24:17.536 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:26:41.543 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:26:41.548 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:26:41.568 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:26:41.568 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:26:41.570 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:26:41.572 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:26:41.573 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:26:41.573 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:26:41.574 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:26:41.574 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:26:41.575 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:38:41.765 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:38:41.769 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:38:41.786 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:38:41.786 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:38:41.787 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:38:41.788 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:38:41.788 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:38:47.545 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:38:47.549 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:38:47.567 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:38:47.568 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:38:47.569 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:38:47.570 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:38:47.571 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:02.946 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:52:02.952 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:52:02.974 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:52:02.975 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:52:02.976 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:52:02.979 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:02.981 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:02.982 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:02.982 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:02.983 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:52:02.984 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:02.985 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:52:55.094 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:52:55.099 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:52:55.122 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:52:55.123 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:52:55.124 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:53:04.949 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:04.951 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:04.951 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:04.952 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:04.952 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:53:05.447 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:05.861 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:13.402 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:53:13.407 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:53:13.430 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:53:13.430 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:53:13.432 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:53:13.436 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:13.438 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:13.438 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:13.439 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:53:13.440 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:53:13.441 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:13.916 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:20.961 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:54:20.965 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:54:20.982 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:54:20.982 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:54:20.983 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:54:20.985 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:20.987 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:20.987 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:20.988 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:20.989 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:54:20.990 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:20.990 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.130 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:54:51.134 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:54:51.148 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:54:51.149 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:54:51.150 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:54:51.153 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.154 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.154 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.155 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.155 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 13:54:51.156 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.156 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:54:51.156 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:59:57.058 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:59:57.061 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:59:57.076 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:59:57.076 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:59:57.077 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 13:59:57.078 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 13:59:57.079 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:00:15.436 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:00:15.448 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:00:15.481 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:00:15.481 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:00:15.483 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:00:15.484 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:00:15.485 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:01:36.026 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:01:36.031 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:01:36.054 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:01:36.055 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:01:36.056 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:01:36.057 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:01:36.058 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:14:57.194 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:14:57.198 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:14:57.217 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:14:57.218 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:14:57.219 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:14:57.222 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:14:57.224 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.532 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:15:03.537 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:15:03.553 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:15:03.554 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:15:03.555 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:15:03.558 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.559 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.560 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.560 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.561 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 14:15:03.562 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.562 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.563 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:15:03.563 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:17:34.200 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:17:34.204 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:17:34.220 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:17:34.220 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:17:34.222 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:17:34.223 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:17:34.224 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:18:06.284 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:18:06.288 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:18:06.311 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:18:06.311 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:18:06.313 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:18:06.314 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:18:06.315 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:18:28.789 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:18:28.794 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:18:28.816 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:18:28.817 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:18:28.819 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:18:28.820 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:18:28.821 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:20:28.118 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:20:28.124 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:20:28.164 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:20:28.164 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:20:28.168 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:20:28.170 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:20:28.172 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:21:52.437 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:21:52.441 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:21:52.457 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:21:52.458 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:21:52.459 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:21:52.461 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:21:52.462 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:33:19.197 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:33:19.201 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:33:19.222 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:33:19.223 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:33:19.224 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:33:19.226 INFO  Domain.Users.SystemManager - systemManager - remove team :%s from system
+2020.04.24 14:41:57.158 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:41:57.162 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:41:57.178 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:41:57.179 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:41:57.180 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:41:57.182 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 14:41:57.183 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 14:41:57.185 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.186 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.186 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.187 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.188 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 14:41:57.188 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.189 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.190 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.190 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:41:57.191 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:47:06.182 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:47:06.187 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:47:06.206 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:47:06.206 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:47:06.208 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:47:06.210 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 14:47:06.210 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 14:49:10.339 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:49:10.344 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:49:10.365 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:49:10.366 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:49:10.367 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:49:10.371 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 14:49:10.371 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 14:49:37.217 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:49:37.224 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:49:37.254 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:49:37.255 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:49:37.257 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:49:37.260 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 14:49:37.261 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 14:49:53.630 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:49:53.634 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:49:53.660 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:49:53.660 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:49:53.662 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:49:53.665 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 14:49:53.666 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 14:50:48.857 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:50:48.862 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:50:48.886 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:50:48.887 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:50:48.888 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:50:48.891 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 14:50:48.892 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 14:50:48.892 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 14:50:48.893 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:07:36.991 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:07:36.997 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:07:37.017 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:07:37.018 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:07:37.019 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:07:37.021 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:07:37.021 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:08:19.327 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:08:19.334 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:08:19.366 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:08:19.368 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:08:19.370 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:08:19.376 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:08:19.377 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:09:39.892 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:09:39.896 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:09:39.918 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:09:39.918 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:09:39.920 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:09:39.924 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:09:39.924 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:10:24.234 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:10:24.240 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:10:24.263 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:10:24.264 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:10:24.265 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:10:24.269 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:10:24.269 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:10:51.174 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:10:51.179 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:10:51.200 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:10:51.200 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:10:51.201 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:10:51.204 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:10:51.205 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:10:51.207 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.208 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.209 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.209 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.209 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 15:10:51.210 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.210 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.211 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.211 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.212 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.214 INFO  Domain.MainSystem -  - system was started
+2020.04.24 15:10:51.219 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:10:51.219 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:10:51.220 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:10:51.220 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:10:51.220 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:10:51.221 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:51.222 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.255 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:10:59.259 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:10:59.279 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:10:59.279 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:10:59.280 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:10:59.283 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:10:59.284 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:10:59.286 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.287 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.287 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.288 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.289 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 15:10:59.290 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.291 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.291 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.292 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:10:59.292 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:11:17.890 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:11:17.895 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:11:17.913 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:11:17.914 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:11:17.915 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:11:17.919 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:11:17.919 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:11:17.920 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:11:17.921 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:12:38.185 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:12:38.190 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:12:38.216 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:12:38.216 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:12:38.218 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:12:38.221 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:12:38.222 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:13:49.229 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:13:49.233 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:13:49.249 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:13:49.249 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:13:49.250 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:13:49.252 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:13:49.253 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:13:49.254 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.255 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.256 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.257 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.258 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 15:13:49.259 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.259 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.260 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.261 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.262 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.265 INFO  Domain.MainSystem -  - system was started
+2020.04.24 15:13:49.271 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:13:49.278 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:13:49.279 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:13:49.280 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:13:49.280 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:13:49.281 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:13:49.282 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:07.502 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:14:07.505 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:14:07.524 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:14:07.524 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:14:07.525 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:14:07.528 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:14:07.528 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:14:07.529 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:07.530 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:14.210 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:14:14.214 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:14:14.235 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:14:14.235 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:14:14.236 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:14:14.238 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:14:14.238 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:14:14.239 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:14.239 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:21.043 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:14:21.048 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:14:21.069 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:14:21.070 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:14:21.071 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:14:21.074 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:14:21.075 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:14:21.076 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:21.076 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:31.441 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:14:31.449 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:14:31.478 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:14:31.479 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:14:31.480 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:14:31.484 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:14:31.484 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:14:31.487 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:31.488 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:31.489 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:31.490 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:14:31.491 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 15:14:31.492 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:19:48.255 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:19:48.261 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:19:48.293 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:19:48.293 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:19:48.295 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:48.303 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:19:48.304 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:20:41.363 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:20:41.366 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:20:41.384 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:20:41.385 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:20:41.386 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:20:41.388 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:20:41.389 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:21:30.441 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:21:30.445 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:21:30.467 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:21:30.468 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:21:30.469 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:21:30.472 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:21:30.473 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:21:47.487 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:21:47.492 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:21:47.519 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:21:47.520 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:21:47.522 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:21:47.527 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:21:47.529 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:22:40.228 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:22:40.234 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:22:40.281 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:22:40.282 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:22:40.286 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:22:40.293 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:22:40.294 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:23:06.616 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:23:06.618 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:23:06.618 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:23:06.619 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:23:06.623 INFO  Domain.MainSystem -  - system was started
+2020.04.24 15:23:06.631 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:23:06.631 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:23:06.632 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:23:06.633 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:23:06.633 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:23:06.634 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:23:06.634 INFO  Domain.Users.SystemManager - systemManager - remove %s from system
+2020.04.24 15:23:13.375 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:23:13.380 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:23:13.406 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:23:13.407 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:23:13.409 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:23:13.412 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:23:13.412 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:23:28.065 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:23:28.071 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:23:28.096 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:23:28.098 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:23:28.100 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:23:28.104 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:23:28.105 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:24:59.435 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:24:59.440 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:24:59.464 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:24:59.465 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:24:59.466 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:24:59.469 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:24:59.470 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:28:33.503 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:28:33.507 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:28:33.527 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:28:33.528 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:28:33.530 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:28:33.532 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:28:33.533 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:28:33.534 INFO  Domain.Users.SystemManager - systemManager - Replace %s founder from:%s to:%s
+2020.04.24 15:33:41.108 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:33:41.116 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:33:41.139 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:33:41.140 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:33:41.141 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:33:41.144 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:33:41.145 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:34:00.383 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:34:00.398 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:34:00.478 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:34:00.479 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:34:00.483 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:34:00.487 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:34:00.488 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:35:51.191 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:35:51.195 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:35:51.213 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:35:51.214 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:35:51.215 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:35:51.218 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:35:51.219 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:56:36.406 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:56:36.410 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:56:36.428 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:56:36.428 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:56:36.430 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:56:36.433 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:56:36.433 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:58:09.488 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:58:09.494 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:58:09.516 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:58:09.517 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:58:09.518 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:58:09.522 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:58:09.523 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 15:58:41.244 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:58:41.251 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:58:41.299 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:58:41.300 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:58:41.308 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:58:41.313 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 15:58:41.314 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:01:39.299 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:01:39.303 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:01:39.322 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:01:39.323 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:01:39.324 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:01:39.326 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 16:01:39.326 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:01:39.327 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:01:39.327 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:01:39.327 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:01:39.328 INFO  Domain.PrivatePage - hapoel - add fan to page, fane username: alona
+2020.04.24 16:01:39.329 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:05:20.587 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:05:20.590 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:05:20.609 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:05:20.610 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:05:20.611 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:05:20.614 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 16:05:20.615 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:05:20.615 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:05:20.616 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:05:20.616 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:05:20.617 INFO  Domain.PrivatePage - hapoel - add fan to page, fane username: alona
+2020.04.24 16:05:20.617 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:05:47.756 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:05:47.761 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:05:47.787 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:05:47.788 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:05:47.789 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:05:47.794 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 16:05:47.795 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:05:47.796 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:05:47.796 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:05:47.797 INFO  Domain.PrivatePage - hapoel - added record to page
+2020.04.24 16:05:47.799 INFO  Domain.PrivatePage - hapoel - add fan to page, fane username: alona
+2020.04.24 16:05:47.800 INFO  Domain.Users.Fan - alona - subscriped to page
+2020.04.24 16:09:43.691 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:09:43.694 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:09:43.712 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:09:43.713 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:09:43.714 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:09:43.721 INFO  Domain.PrivatePage - macabi - add fan to page, fane username: alona
+2020.04.24 16:09:43.722 INFO  Domain.Users.Fan - alona - subscriped to page

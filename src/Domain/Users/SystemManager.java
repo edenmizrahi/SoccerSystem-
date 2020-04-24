@@ -209,6 +209,10 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             SystemManager.complaints.remove(c);
             res.add(complaints);
         }
+        /**remove fan from private page subscriptions**/
+        for(PrivatePage p: userToDelete.getMyPages()){
+            p.getFans().remove(userToDelete);
+        }
         /***remove user name from system*/
         system.getUserNames().remove(userToDelete.getUserName());
         /**remove user from system**/
@@ -231,14 +235,49 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             userToDelete.getTeam().setTeamManager(null);
         }
         HashSet<TeamSubscription> allSub= userToDelete.getMySubscriptions();
+
+        LinkedList<TeamSubscription> allSubsList=new LinkedList<>();
         for(TeamSubscription sub: allSub){
+            allSubsList.add(sub);
+        }
+        for(int i=0; i<allSubsList.size(); i++){
+            TeamSubscription sub=allSubsList.get(i);
             res.add(sub.role);
             if(sub.role instanceof TeamOwner){
                 userToDelete.removeTeamOwner(((TeamOwner)sub.role),sub.team);
             }
         }
+        userToDelete.setTeam(null);
+
+        /**delete all the subscriptions of userToDelete from other Owners and Managers*/
+        LinkedList<TeamOwner> teamOwners=system.getAllTeamOwners();
+        for(TeamOwner to:teamOwners){
+            LinkedList<TeamSubscription> subscriptionsList=new LinkedList<>();
+            for(TeamSubscription sub: to.getMySubscriptions()){
+                subscriptionsList.add(sub);
+            }
+            for(int i=0; i< subscriptionsList.size();i++) {
+                if(subscriptionsList.get(i).role==userToDelete){
+                    to.getMySubscriptions().remove(subscriptionsList.get(i));
+                }
+            }
+        }
+        LinkedList<TeamManager> teamMa=system.getAllTeamManagers();
+        for(TeamManager tm:teamMa){
+            LinkedList<TeamSubscription> subscriptionsList=new LinkedList<>();
+            for(TeamSubscription sub: tm.getMySubscriptions()){
+                subscriptionsList.add(sub);
+            }
+            for(int i=0; i< subscriptionsList.size();i++) {
+                if(subscriptionsList.get(i).role==userToDelete){
+                    tm.getMySubscriptions().remove(subscriptionsList.get(i));
+                }
+            }
+        }
         return res;
     }
+
+
 
 
     /****
@@ -305,7 +344,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
         if(userToRemove.getPlayer()!=null) {
             if (userToRemove.getPlayer().getTeam() != null) {
                 if (userToRemove.getPlayer().getTeam().getPlayers().size() <= 11) {
-                    throw new Exception("You Cannot Delete player From " + userToRemove.getPlayer().getTeam().getName() + " Domain.LeagueManagment.Team ,any team have to be at least 11 Players!");
+                    throw new Exception("You Cannot Delete player From " + userToRemove.getPlayer().getTeam().getName() + " team ,any team have to be at least 11 Players!");
                 }
             }
         }
@@ -365,8 +404,45 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             Rfa.teamRequests.remove(t);
             res.add(t);
         }
+
+        /**delete tewmOwner from teams **/
+        LinkedList<Team>teams2= userToDelete.getTeams();
+        for(Team t : teams2){
+            t.getTeamOwners().remove(userToDelete);
+        }
+        for(Team t : teams2){
+            userToDelete.getTeams().remove(t);
+        }
+
+        /**delete all the subscriptions of userToDelete from other Owners and Managers*/
+        LinkedList<TeamOwner> teamOwners=system.getAllTeamOwners();
+        for(TeamOwner to:teamOwners){
+            LinkedList<TeamSubscription> subscriptionsList2=new LinkedList<>();
+            for(TeamSubscription sub: to.getMySubscriptions()){
+                subscriptionsList2.add(sub);
+            }
+            for(int i=0; i< subscriptionsList2.size();i++) {
+                if(subscriptionsList2.get(i).role==userToDelete){
+                    to.getMySubscriptions().remove(subscriptionsList2.get(i));
+                }
+            }
+        }
+
+        LinkedList<TeamManager> teamMa=system.getAllTeamManagers();
+        for(TeamManager tm:teamMa){
+            subscriptionsList=new LinkedList<>();
+            for(TeamSubscription sub: tm.getMySubscriptions()){
+                subscriptionsList.add(sub);
+            }
+            for(int i=0; i< subscriptionsList.size();i++) {
+                if(subscriptionsList.get(i).role==userToDelete){
+                    tm.getMySubscriptions().remove(subscriptionsList.get(i));
+                }
+            }
+        }
         return res;
     }
+
     /**
      * delete Domain.Users.Player only if the team has at least 11 other players
      * @param userToDelete
@@ -376,6 +452,9 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
     //TODO test -avital V
     private List<Object> deletePlayer(Player userToDelete) throws Exception {
         List<Object> res=new LinkedList<>();
+        if(userToDelete.getTeam()!=null) {
+            userToDelete.getTeam().getPlayers().remove(userToDelete);
+        }
         res.add(userToDelete);
         return res;
     }

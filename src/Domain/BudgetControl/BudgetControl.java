@@ -44,7 +44,7 @@ public class BudgetControl {
         if (balance - amount >= 0) {
             amount = amount - amount * 2;// make the amount negative
             incomeAndExpenses.add(new BudgetReport(typeOfExpense, amount));
-            balance = balance - amount;
+            balance = balance + amount;// the amount in negative
         }
         else{
             throw new Exception("Budget cannot be less than 0");

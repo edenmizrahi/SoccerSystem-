@@ -446,10 +446,16 @@ public class SystemOperationsController {
         /******************************************/
 
         /**avi subscribe ilan to be team owner at t2*/
-        aviTeamOwner.getTeamOwner().subscribeTeamOwner(ilanTeamOwner,t2);
+        aviTeamOwner.getTeamManager().subscribeTeamOwner(ilanTeamOwner,t2);
         /**************************************/
 
-        /**avi subscribe moshe to be team Owner*/
+        /**ilan subscibe kobi team owner at t2*/
+        Fan f20=new Fan(system, "kobi", "0549716910","yossi@gmail.com", "kobi", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole kobiTeamOwner=new TeamRole(f20);
+        kobiTeamOwner.becomeTeamOwner();
+        ilanTeamOwner.getTeamOwner().subscribeTeamOwner(kobiTeamOwner,t2);
+        /************************************/
+        /**avi subscribe moshe to be team Owner at t1 */
         aviTeamOwner.getTeamOwner().subscribeTeamOwner(mosheTeamManager,t1);
         /***************************************/
 
@@ -506,7 +512,19 @@ public class SystemOperationsController {
         Fan f9= new Fan(system, "Tamar", "0549716910","yossi@gmail.com", "Tamar", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         /*********************/
 
+        Fan f111= new Fan(MainSystem.getInstance(), "alon", "0549716910","yossi@gmail.com", "alon", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole coach=new TeamRole(f111);
+        coach.becomeCoach();
+        t1.setCoach(coach.getCoach());
+        coach.getCoach().setCoachTeam(t1);
 
+        Fan f= new Fan(MainSystem.getInstance(), "ali", "0549716910","yossi@gmail.com", "ali", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole coach2=new TeamRole(f);
+        coach2.becomeCoach();
+
+        Fan ffff= new Fan(MainSystem.getInstance(), "alona", "0549716910","yossi@gmail.com", "alona", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        t1.createPrivatePage();
+        ffff.subToPage(t1.getPrivatePage());
 
         System.out.println("lalala");
     }

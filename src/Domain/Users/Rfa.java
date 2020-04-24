@@ -28,6 +28,7 @@ public class Rfa extends Fan implements NotificationsUser {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
+        system.removeUser(fan);
         //TODO add permissions
     }
 

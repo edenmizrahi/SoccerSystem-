@@ -69,7 +69,7 @@ public class SystemManagerController {
     public void replaceCoachAtTeam(Coach coachToReplace, Team t, SystemManager sm) throws Exception {
 
         if(!sm.replaceCoachAtTeam(coachToReplace,t)){
-            throw new Exception("cannot replace coach "+t.getCoach().getTeamRole().getUserName()+"with "+coachToReplace.getTeamRole().getUserName()+"at team"+t.getName());
+            throw new Exception("cannot replace those coaches");
         }
     }
     /**

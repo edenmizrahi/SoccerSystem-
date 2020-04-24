@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public abstract class ManagmentActions {
     protected HashSet<TeamSubscription> mySubscriptions;
@@ -76,13 +77,23 @@ public abstract class ManagmentActions {
             throw new NullPointerException();
         }
         team.removeTeamOwner(tO);
-        for(TeamSubscription sub : mySubscriptions){
+        LinkedList<TeamSubscription> subscriptionsList=new LinkedList<>();
+        for(TeamSubscription sub: mySubscriptions){
+            subscriptionsList.add(sub);
+        }
+        for(int i=0; i< subscriptionsList.size();i++){
+            TeamSubscription sub=subscriptionsList.get(i);
             if (sub.user.equals(tO.getTeamRole()) && sub.role.equals(tO)){
                 mySubscriptions.remove(sub);
             }
             break;
         }
-        for (TeamSubscription sub : tO.mySubscriptions) {
+       subscriptionsList=new LinkedList<>();
+        for(TeamSubscription sub: tO.mySubscriptions){
+            subscriptionsList.add(sub);
+        }
+        for(int i=0; i< subscriptionsList.size();i++){
+            TeamSubscription sub=subscriptionsList.get(i);
             if (sub.team.equals(team)) {
                 if (sub.role instanceof TeamOwner){
                     tO.removeTeamOwner((TeamOwner) sub.role, sub.team);

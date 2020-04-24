@@ -1,7 +1,7 @@
 package Domain.Users;
 
 import Domain.*;
-import Domain.BudgetControl.BudgetControl;
+
 import Domain.BudgetControl.BudgetReport;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -14,13 +14,12 @@ import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Ref;
+
 import java.time.*;
 import java.util.*;
 
-public class Rfa extends Fan implements Observer , NotificationsUser {
+public class Rfa extends Fan implements NotificationsUser {
 
-    private BudgetControl budgetControl;//TODO: delete?!?!?!
     private static final Logger LOG = LogManager.getLogger();
     public static HashSet<Team> teamRequests;
     public static HashSet<Notification> notifications;
@@ -29,6 +28,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
+        system.removeUser(fan);
         //TODO add permissions
     }
 
@@ -40,9 +40,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
         //this.permissions.add();
     }
     //<editor-fold desc="getters and setters">
-    public BudgetControl getBudgetControl() { return budgetControl; }
 
-    public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
 
     public static HashSet<Team> getTeamRequests() {
         return teamRequests;

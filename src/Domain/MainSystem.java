@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MainSystem {
-    private LinkedList<Complaint> complaints;// *
+    //private LinkedList<Complaint> complaints;// *??????
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
@@ -31,9 +31,7 @@ public class MainSystem {
     private static final Logger LOG = LogManager.getLogger();
     private static MainSystem mainSystem_instance= null;
 
-
     private MainSystem() {
-        this.complaints = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
         this.seasons= new LinkedList<>();
@@ -252,13 +250,6 @@ public class MainSystem {
 
 
     //<editor-fold desc="getters and setters">
-    public List<Complaint> getComplaints() {
-        return complaints;
-    }
-
-    public void setComplaints(LinkedList<Complaint> complaints) {
-        this.complaints = complaints;
-    }
 
 
     public List<League> getLeagues() {
@@ -399,4 +390,13 @@ public class MainSystem {
         activeTeams.add(t);
     }
 
+    public LinkedList<TeamManager> getAllTeamManagers() {
+        LinkedList<TeamManager> teamManagers= new LinkedList<>();
+        for(TeamRole teamRole: getTeamRoles()){
+            if(teamRole.isTeamManager()){
+                teamManagers.add(teamRole.getTeamManager());
+            }
+        }
+        return teamManagers;
+    }
 }

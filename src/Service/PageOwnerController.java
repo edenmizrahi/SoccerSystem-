@@ -43,7 +43,7 @@ public class PageOwnerController {
      * @codeBy Eden
      */
     public void createPrivatePage(PageOwner pO) throws Exception {
-        if(pO.createPrivatePage()){
+        if(!pO.createPrivatePage()){
             throw new Exception("you already have page");
         }
 

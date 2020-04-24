@@ -118,3 +118,8 @@
 2020.04.23 17:49:53.159 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
 2020.04.23 17:49:53.160 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
 2020.04.23 17:49:53.169 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.24 13:57:30.440 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 13:57:30.445 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 13:57:30.461 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 13:57:30.461 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 13:57:30.463 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa

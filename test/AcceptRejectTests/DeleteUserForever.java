@@ -271,6 +271,7 @@ public class DeleteUserForever {
     private void reject1()throws Exception{
         /**delete the last rfa*/
         List<Rfa> rfas=operationsController.getAllRFA();
+        SystemManager sm=operationsController.showAllSystemManagers().get(0);
         managerController.deleteUserForever(rfas.get(0),sm);
         try {
             managerController.deleteUserForever(rfas.get(0), sm);
@@ -358,15 +359,6 @@ public class DeleteUserForever {
             Assert.assertTrue(e.getMessage().contains(" is founder of:"));
         }
 
-        try {
-            managerController.deleteUserForever(moshe.getTeamRole(),sm);
-            fail();
-        }
-        catch (Exception e){
-            Assert.assertEquals(Exception.class, e.getClass());
-            Assert.assertTrue(e.getMessage().contains(" is founder of:"));
-        }
-        /******************************/
 
     }
     private void reject5()throws Exception{

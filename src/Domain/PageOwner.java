@@ -12,6 +12,7 @@ public interface PageOwner {
         else{
             throw new Exception("The team hasn't private page");
         }
+
     }
 
     default void removeRecordFromPage(String record) throws Exception{

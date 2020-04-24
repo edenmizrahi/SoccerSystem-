@@ -22,12 +22,12 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     private BudgetControl budgetControl;//TODO: delete?!?!?!
     private static final Logger LOG = LogManager.getLogger();
-    public static LinkedList<Team> teamRequests;
+    public static HashSet<Team> teamRequests;
     public static HashSet<Notification> notifications;
 
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
-        this.teamRequests= new LinkedList<>();
+        this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
         system.removeUser(fan);
         //TODO add permissions
@@ -35,7 +35,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
-        this.teamRequests= new LinkedList<>();
+        this.teamRequests= new HashSet<>();
         notifications=new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
@@ -45,9 +45,10 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
 
     public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
 
-    public static LinkedList<Team> getTeamRequests() { return teamRequests; }
+    public static HashSet<Team> getTeamRequests() {
+        return teamRequests;
+    }
 
-    public static void setTeamRequests(LinkedList<Team> teamRequests) { Rfa.teamRequests = teamRequests; }
     //</editor-fold>
 
     //<editor-fold desc="rolls to budget control on teams">
@@ -290,7 +291,7 @@ public class Rfa extends Fan implements Observer , NotificationsUser {
     //TODO test - V
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
 
-        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() )){
+        if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() ) || referees.size()<3 ){
             throw new Exception("Invalid details");
         }
 

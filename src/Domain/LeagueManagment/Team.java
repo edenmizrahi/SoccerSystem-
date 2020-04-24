@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.*;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Team extends Observable implements PageOwner {
@@ -362,6 +361,7 @@ public class Team extends Observable implements PageOwner {
     public void addLeagueAndSeason(Season s, League l){
         if(s!=null && l!=null) {
             leaguePerSeason.put(s, l);
+            LOG.info(String.format("%s - %s", getName(), "add team to league:"+l.getName()+" and season"+s.getYear()));
         }
         else{
             throw new NullPointerException();
@@ -424,7 +424,7 @@ public class Team extends Observable implements PageOwner {
      * delete the connections between player to team.
      */
     //TODO test
-    public void deleteTeamByTeamOwner() {
+    public void deleteTeamByTeamOwner() throws Exception {
         for (Player p:players) {
             p.setPlayerTeam(null);
         }
@@ -451,12 +451,12 @@ public class Team extends Observable implements PageOwner {
             while (iter.hasNext()){
                 sub=iter.next();
                 if(sub.team.equals(this)){
-                    teamOwner.getMySubscriptions().remove(sub);
+                    teamOwner.removeMySubscription(sub);
                 }
             }
             //remove the team from activeTeams and move to deletedTeams
-            teamOwner.getTeams().remove(this);
-            teamOwner.getDeletedTeams().add(this);
+            teamOwner.removeTeam(this);
+            teamOwner.addDeletedTeam(this);
         }
 
         //notify systemManagers
@@ -533,7 +533,7 @@ public class Team extends Observable implements PageOwner {
         while (iter.hasNext()){
             teamOwner= iter.next();
             if(! teamOwner.equals(newFounder)){
-                teamOwner.getDeletedTeams().remove(this);
+                teamOwner.removeDeletedTeam(this);
                 teamOwners.remove(teamOwner);
             }
         }
@@ -546,7 +546,9 @@ public class Team extends Observable implements PageOwner {
         for(TeamOwner t: getTeamOwners()){
             addObserver(t);
         }
-        addObserver(teamManager);
+        if(teamManager!=null) {
+            addObserver(teamManager);
+        }
         setChanged();
         notifyObservers("team reopened by team owner");
         /**remove all observer except founder teamOwner***/

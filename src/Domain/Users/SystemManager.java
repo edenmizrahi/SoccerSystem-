@@ -129,7 +129,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
             toAdd.addNewTeam(team);
         }
         else{
-            throw new Exception("wrong team owner and team");
+            throw new Exception("wrong team owner and team"); //actual
         }
 
         LOG.info(String.format("%s - %s", this.getUserName(), "Replace %s founder from:%s to:%s",team.getName(),toDelete.getTeamRole().getUserName(),toAdd.getTeamRole().getUserName()));
@@ -200,7 +200,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @return
      * @codeBy Eden
      */
-    //TODO test - avital - need to check- prob with complain and dell fan
+    //TODO test - avital - need to check- prob with complain
     private List<Object> fanRemove(Fan userToDelete) {
         List<Object> res=new LinkedList<>();
         res.add(userToDelete);
@@ -336,10 +336,10 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
          if connect throws Exception("you have to replace team coach")*/
         if(userToRemove.getCoach()!=null) {
             if(userToRemove.getCoach().getCoachTeam()!=null){
-                throw new Exception("you have to subscribe another coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" Domain.LeagueManagment.Team first");
+                throw new Exception("you have to subscribe another coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" team first");
             }
         }
-        /**if is player-> check if the player belong to any Domain.LeagueManagment.Team , if so , check if team has more than 11 player ->
+        /**if is player-> check if the player belong to any Team , if so , check if team has more than 11 player ->
          if not throws Exception ("you have to add more players to team before delete ")*/
         if(userToRemove.getPlayer()!=null) {
             if (userToRemove.getPlayer().getTeam() != null) {
@@ -531,7 +531,7 @@ public class SystemManager extends Fan implements Observer , NotificationsUser {
      * @param teamToRemove
      * @codeBy Eden
      */
-    //TODO test -avital
+    //TODO test -V
     public void removeTeamFromSystem(Team teamToRemove) throws Exception {
 
         checkValidTeam(teamToRemove);

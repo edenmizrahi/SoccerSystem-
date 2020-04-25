@@ -420,6 +420,15 @@ public class TeamManagementController {
     public HashSet<TeamOwner> getAllTeamOwners (Team team){
         return team.getTeamOwners();
     }
+
+    /**
+     * adi
+     * @return
+     */
+    public LinkedList<TeamRole> getAllTeamRoles (){
+        return MainSystem.getInstance().getTeamRoles();
+    }
+
     /**
      * adi
      * @param team
@@ -432,12 +441,15 @@ public class TeamManagementController {
      * adi
      * @return
      */
-    public LinkedList<Coach> getAllCoachWithoutTeam(){
-        LinkedList<Coach> allCoaches = MainSystem.getInstance().getAllCoach();
-        LinkedList<Coach> ans = new LinkedList<>();
-        for(Coach coach : allCoaches){
-            if(coach.getCoachTeam() == null){
-                ans.add(coach);
+    public LinkedList<TeamRole> getAllTeamRolesThatArentCoachWithTeam(){
+        LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
+        LinkedList<TeamRole> ans = new LinkedList<>();
+        for(TeamRole teamRole : allTeamRole){
+            if(teamRole.getCoach() == null){
+                ans.add(teamRole);
+            }
+            else if(teamRole.getCoach().getCoachTeam() == null){
+                ans.add(teamRole);
             }
         }
         return ans;
@@ -446,12 +458,15 @@ public class TeamManagementController {
      * adi
      * @return
      */
-    public LinkedList<Player> getAllPlayerWithoutTeam(){
-        LinkedList<Player> allPlayers = MainSystem.getInstance().getAllPlayer();
-        LinkedList<Player> ans = new LinkedList<>();
-        for(Player player : allPlayers){
-            if(player.getTeam() == null){
-                ans.add(player);
+    public LinkedList<TeamRole> getAllTeamRolesThatArentPlayerWithTeam(){
+        LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
+        LinkedList<TeamRole> ans = new LinkedList<>();
+        for(TeamRole teamRole : allTeamRole){
+            if(teamRole.getPlayer() == null){
+                ans.add(teamRole);
+            }
+            else if(teamRole.getPlayer().getTeam() == null){
+                ans.add(teamRole);
             }
         }
         return ans;

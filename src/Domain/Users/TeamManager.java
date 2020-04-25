@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class TeamManager extends ManagmentActions implements Observer, NotificationsUser {
+public class TeamManager extends ManagmentActions implements NotificationsUser {
     private TeamRole teamRole;
     private Team team;
     //private HashSet<TeamSubscription> mySubscriptions;

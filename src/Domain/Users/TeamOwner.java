@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class TeamOwner extends ManagmentActions implements Observer , NotificationsUser {
+public class TeamOwner extends ManagmentActions implements NotificationsUser {
     private TeamRole teamRole;
     private LinkedList<Team> teams;
     //private HashSet<TeamSubscription> mySubscriptions; //TODO moved to managment actions

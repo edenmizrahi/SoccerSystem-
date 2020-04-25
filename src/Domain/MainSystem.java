@@ -25,88 +25,103 @@ public class MainSystem {
     private HashSet<String> userNames;
     private HashSet<String> teamNames;
 
-//    public static final String pattern = "dd-M-yyyy hh:mm:ss";
+    //    public static final String pattern = "dd-M-yyyy hh:mm:ss";
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     public static final SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
     private static final Logger LOG = LogManager.getLogger();
-    private static MainSystem mainSystem_instance= null;
+    private static MainSystem mainSystem_instance = null;
 
     private MainSystem() {
         this.complaints = new LinkedList<>();
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
-        this.seasons= new LinkedList<>();
-        this.currSeason=null;
-        this.extSystem=new StubExternalSystem();
-        this.activeTeams=new HashSet<>();
-        this.userNames= new HashSet<>();
-        this.teamNames= new HashSet<>();
+        this.seasons = new LinkedList<>();
+        this.currSeason = null;
+        this.extSystem = new StubExternalSystem();
+        this.activeTeams = new HashSet<>();
+        this.userNames = new HashSet<>();
+        this.teamNames = new HashSet<>();
     }
 
-    public static MainSystem getInstance(){
-        if(mainSystem_instance==null){
-            mainSystem_instance= new MainSystem();
+    public static MainSystem getInstance() {
+        if (mainSystem_instance == null) {
+            mainSystem_instance = new MainSystem();
         }
         return mainSystem_instance;
     }
 
-    /**OR**/
-    public LinkedList<Fan> getAllFans(){
-        LinkedList<Fan> ans= new LinkedList<>();
-        for (User user:users) {
-            if(user instanceof Fan){
-                ans.add((Fan)user);
+    /**
+     * OR
+     **/
+    public LinkedList<Fan> getAllFans() {
+        LinkedList<Fan> ans = new LinkedList<>();
+        for (User user : users) {
+            if (user instanceof Fan) {
+                ans.add((Fan) user);
             }
         }
         return ans;
     }
-    /**OR**/
+
+    /**
+     * OR
+     **/
     public List<SystemManager> getSystemManagers() {
-        List<SystemManager> res=new LinkedList<>();
-        for(User u: users){
-            if(u instanceof SystemManager){
-                res.add(((SystemManager)u));
-            }
-        }
-        return res;
-    }
-    /**OR**/
-    public LinkedList<Rfa> getRfas() {
-        LinkedList<Rfa> res=new LinkedList<>();
-        for(User u: users){
-            if(u instanceof Rfa){
-                res.add(((Rfa)u));
+        List<SystemManager> res = new LinkedList<>();
+        for (User u : users) {
+            if (u instanceof SystemManager) {
+                res.add(((SystemManager) u));
             }
         }
         return res;
     }
 
-    /**OR**/
-    public LinkedList<TeamRole> getTeamRoles(){
-        LinkedList<TeamRole> teamroles= new LinkedList<>();
-        for (User user:users) {
-            if(user instanceof  TeamRole){
-                teamroles.add((TeamRole)user);
+    /**
+     * OR
+     **/
+    public LinkedList<Rfa> getRfas() {
+        LinkedList<Rfa> res = new LinkedList<>();
+        for (User u : users) {
+            if (u instanceof Rfa) {
+                res.add(((Rfa) u));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * OR
+     **/
+    public LinkedList<TeamRole> getTeamRoles() {
+        LinkedList<TeamRole> teamroles = new LinkedList<>();
+        for (User user : users) {
+            if (user instanceof TeamRole) {
+                teamroles.add((TeamRole) user);
             }
         }
         return teamroles;
     }
 
-    /**OR**/
-    public LinkedList<Player> getAllPlayer(){
-        LinkedList<Player> players= new LinkedList<>();
-        for(TeamRole teamRole: getTeamRoles()){
-            if(teamRole.isPlayer()){
+    /**
+     * OR
+     **/
+    public LinkedList<Player> getAllPlayer() {
+        LinkedList<Player> players = new LinkedList<>();
+        for (TeamRole teamRole : getTeamRoles()) {
+            if (teamRole.isPlayer()) {
                 players.add(teamRole.getPlayer());
             }
         }
         return players;
     }
-    /**Eden**/
-    public LinkedList<TeamOwner> getAllTeamOwners(){
-        LinkedList<TeamOwner> teamOwners= new LinkedList<>();
-        for(TeamRole teamRole: getTeamRoles()){
-            if(teamRole.isTeamOwner()){
+
+    /**
+     * Eden
+     **/
+    public LinkedList<TeamOwner> getAllTeamOwners() {
+        LinkedList<TeamOwner> teamOwners = new LinkedList<>();
+        for (TeamRole teamRole : getTeamRoles()) {
+            if (teamRole.isTeamOwner()) {
                 teamOwners.add(teamRole.getTeamOwner());
             }
         }
@@ -114,11 +129,13 @@ public class MainSystem {
     }
 
 
-    /**OR**/
-    public LinkedList<Coach> getAllCoach(){
-        LinkedList<Coach> coaches= new LinkedList<>();
-        for(TeamRole teamRole: getTeamRoles()){
-            if(teamRole.isCoach()){
+    /**
+     * OR
+     **/
+    public LinkedList<Coach> getAllCoach() {
+        LinkedList<Coach> coaches = new LinkedList<>();
+        for (TeamRole teamRole : getTeamRoles()) {
+            if (teamRole.isCoach()) {
                 coaches.add(teamRole.getCoach());
             }
         }
@@ -126,24 +143,22 @@ public class MainSystem {
     }
 
 
-
-
-
     //<editor-fold desc="add and remove from lists">
 
     // adi
     //TODO test-V
-    public boolean removeUser(User user){
-        if (users.contains(user)){
+    public boolean removeUser(User user) {
+        if (users.contains(user)) {
             users.remove(user);
             return true;
         }
         return false;
     }
+
     // adi
     //TODO test-V
-    public boolean addUser(User user){
-        if (users.contains(user)){
+    public boolean addUser(User user) {
+        if (users.contains(user)) {
             return false;
         }
         users.add(user);
@@ -151,20 +166,20 @@ public class MainSystem {
     }
 
 
-
     // or
     //TODO test-V
-    public boolean removeLeague(League l){
-        if (leagues.contains(l)){
+    public boolean removeLeague(League l) {
+        if (leagues.contains(l)) {
             leagues.remove(l);
             return true;
         }
         return false;
     }
+
     // or
     //TODO test -V
-    public boolean addLeague(League l){
-        if (leagues.contains(l)){
+    public boolean addLeague(League l) {
+        if (leagues.contains(l)) {
             return false;
         }
         leagues.add(l);
@@ -173,17 +188,18 @@ public class MainSystem {
 
     // adi
     //TODO test-V
-    public boolean removeSeason(Season s){
-        if (seasons.contains(s)){
+    public boolean removeSeason(Season s) {
+        if (seasons.contains(s)) {
             seasons.remove(s);
             return true;
         }
         return false;
     }
+
     // adi
     //TODO test-V
-    public boolean addSeason(Season s){
-        if (seasons.contains(s)){
+    public boolean addSeason(Season s) {
+        if (seasons.contains(s)) {
             return false;
         }
         seasons.add(s);
@@ -192,8 +208,8 @@ public class MainSystem {
 
     //or
     //TODO test-V
-    public boolean addActiveTeam(Team team){
-        if(! team.isActive() || activeTeams.contains(team)){
+    public boolean addActiveTeam(Team team) {
+        if (!team.isActive() || activeTeams.contains(team)) {
             return false;
         }
         activeTeams.add(team);
@@ -203,45 +219,56 @@ public class MainSystem {
 
     //or
     //TODO test-V
-    public boolean removeActiveTeam(Team team){
-        if(! activeTeams.contains(team)){
+    public boolean removeActiveTeam(Team team) {
+        if (!activeTeams.contains(team)) {
             return false;
         }
         activeTeams.remove(team);
         return true;
     }
 
-    /**OR**/
+    /**
+     * OR
+     **/
     //TODO test-
-    public boolean addUserName(String name){
-        if(userNames.contains(name)){
+    public boolean addUserName(String name) {
+        if (userNames.contains(name)) {
             return false;
         }
         userNames.add(name);
         return true;
     }
-    /**OR**/
+
+    /**
+     * OR
+     **/
     //TODO test-V
-    public boolean addTeamName(String name){
-        if(teamNames.contains(name)){
+    public boolean addTeamName(String name) {
+        if (teamNames.contains(name)) {
             return false;
         }
         teamNames.add(name);
         return true;
     }
-    /**OR**/
+
+    /**
+     * OR
+     **/
     //TODO test-v
-    public boolean removeUserName(String name){
-        if(! userNames.contains(name)){
+    public boolean removeUserName(String name) {
+        if (!userNames.contains(name)) {
             return false;
         }
         userNames.remove(name);
         return true;
     }
-    /**OR**/
+
+    /**
+     * OR
+     **/
     //TODO test-V
-    public boolean removeTeamName(String name){
-        if( !teamNames.contains(name)){
+    public boolean removeTeamName(String name) {
+        if (!teamNames.contains(name)) {
             return false;
         }
         teamNames.remove(name);
@@ -318,24 +345,28 @@ public class MainSystem {
 
 //</editor-fold>
 
-    /**OR**/
+    /**
+     * OR
+     **/
     //TODO test-V
     public void firstStartSystem() throws ParseException {
 
         //create user for system manager
-        SystemManager defultSM= new SystemManager(this,"Defult system Manager","0541234567","defult@google.com","systemManager","systemManager101",MainSystem.birthDateFormat.parse("01-01-2000"));
+        SystemManager defultSM = new SystemManager(this, "Defult system Manager", "0541234567", "defult@google.com", "systemManager", "systemManager101", MainSystem.birthDateFormat.parse("01-01-2000"));
         //link external systems....
         extSystem.connectToSystem(this);
         LOG.info(String.format("%s - %s", "", "system was started for the first time"));
     }
 
-    /**OR**/
+    /**
+     * OR
+     **/
     //TODO test-V
     public void startSystem() throws ParseException {
         //read things from DB.....
-        if(getSystemManagers().size()==0){
+        if (getSystemManagers().size() == 0) {
             firstStartSystem();
-        }else{
+        } else {
             //link external systems....
             extSystem.connectToSystem(this);
             LOG.info(String.format("%s - %s", "", "system was started"));
@@ -344,35 +375,36 @@ public class MainSystem {
 
     /**
      * check how many RFA users at system
+     *
      * @return number of RFA
      * @codeBy Eden
      */
     //TODO test-V
-    public int numOfRfa(){
-        int sum=0;
-        for(User u :users){
-            if(u instanceof Rfa){
-               sum++;
+    public int numOfRfa() {
+        int sum = 0;
+        for (User u : users) {
+            if (u instanceof Rfa) {
+                sum++;
             }
         }
         return sum;
     }
 
-    public List<Referee> getAllReferees(){
-        List<Referee> referees= new LinkedList<>();
-        for(User r:users){
-            if(r instanceof Referee){
-                referees.add(((Referee)r));
+    public List<Referee> getAllReferees() {
+        List<Referee> referees = new LinkedList<>();
+        for (User r : users) {
+            if (r instanceof Referee) {
+                referees.add(((Referee) r));
             }
         }
         return referees;
     }
 
-    public boolean containsReferee(String name){
+    public boolean containsReferee(String name) {
         boolean ans = false;
 
-        for (Referee referee: this.getAllReferees() ) {
-            if(referee.getUserName().equals(name)) {
+        for (Referee referee : this.getAllReferees()) {
+            if (referee.getUserName().equals(name)) {
                 ans = true;
                 break;
             }
@@ -381,11 +413,11 @@ public class MainSystem {
         return ans;
     }
 
-    public boolean containsLeague(String name){
+    public boolean containsLeague(String name) {
         boolean ans = false;
 
-        for (League l: leagues ) {
-            if(l.getName().equals(name)) {
+        for (League l : leagues) {
+            if (l.getName().equals(name)) {
                 ans = true;
                 break;
             }
@@ -394,17 +426,25 @@ public class MainSystem {
         return ans;
     }
 
-    public void addTeamForSysterm_TestsOnly(Team t){
+    public void addTeamForSysterm_TestsOnly(Team t) {
         activeTeams.add(t);
     }
 
     public LinkedList<TeamManager> getAllTeamManagers() {
-        LinkedList<TeamManager> teamManagers= new LinkedList<>();
-        for(TeamRole teamRole: getTeamRoles()){
-            if(teamRole.isTeamManager()){
+        LinkedList<TeamManager> teamManagers = new LinkedList<>();
+        for (TeamRole teamRole : getTeamRoles()) {
+            if (teamRole.isTeamManager()) {
                 teamManagers.add(teamRole.getTeamManager());
             }
         }
         return teamManagers;
+    }
+
+    public void setUserNames(HashSet<String> userNames) {
+        this.userNames = userNames;
+    }
+
+    public void setTeamNames(HashSet<String> teamNames) {
+        this.teamNames = teamNames;
     }
 }

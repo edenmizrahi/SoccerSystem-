@@ -40,26 +40,9 @@ public class TeamTeamOwnerRfa {
 
             }
             catch (Exception e){
-
+                Assert.fail();
             }
-//            nadav.answerRequest(team,true);
-//
-//            Assert.assertTrue(teamOwner3.getTeamOwner().getApprovedTeams().contains(team));
-//            Assert.assertTrue(!nadav.getTeamRequests().contains(team));
-//
-//            Team tApproved = teamOwner3.getTeamOwner().getApprovedTeams().get(0);
-//            if(tApproved.equals(team)) {
-//                HashSet<Notification> notifications = teamOwner3.getTeamOwner().getNotificationsList();
-//                for (Notification n : notifications) {
-//                    if (n.getSender() instanceof Team) {
-//                        if (((Team) n.getSender()).getName().equals(tApproved.getName())) {
-//                            teamOwner3.getTeamOwner().MarkAsReadNotification(n);
-//                            teamOwner3.getTeamOwner().getNotificationsList().remove(n);
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
+
 
     }
 }

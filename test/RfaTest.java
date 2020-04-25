@@ -187,7 +187,7 @@ public class RfaTest {
             Referee ref3 = new Referee(ms,"ref3","0546145795","moseh@gmail.com","ref3123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
             referees.add(ref1);
             referees.add(ref2);
-
+            referees.add(ref3);
             HashSet<Team> teams1 = new HashSet<>();
 
             teams1.add(t1);
@@ -608,7 +608,7 @@ public class RfaTest {
     /**or**/
     @Test
     public void answerRequestTest() throws ParseException {
-        TeamStub team = new TeamStub("name");
+        Team team = new Team("name");
         TeamRole owner= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
         owner.becomeTeamOwner();
         try {

@@ -253,10 +253,12 @@ public class DeleteUserForever {
     @Test
     public void reject() throws Exception {
         /*****system init*****/
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         sm=operationsController.showAllSystemManagers().get(0);
         /******************************/
+
         reject1();
         reject2();
         reject3();

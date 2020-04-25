@@ -65,7 +65,15 @@ public class PageManagement {
         /**unfollow page */
         alona.unfollow(t2.getPrivatePage());
         Assert.assertTrue(!((Fan) alona).getMyPages().contains(t2.getPrivatePage()));
-        Assert.assertTrue(((Fan) alona).getMyPages().contains(t1.getPrivatePage()));Assert.assertTrue(!t2.getPrivatePage().getFans().contains(alona));
+        Assert.assertTrue(((Fan) alona).getMyPages().contains(t1.getPrivatePage()));
+        Assert.assertTrue(!t2.getPrivatePage().getFans().contains(alona));
+
+        /*****delete page***/
+        Assert.assertTrue(((Fan) alona).getMyPages().contains(t1.getPrivatePage()));
+        Assert.assertTrue(t1.getPrivatePage().getFans().contains(alona));
+        
+
+
     }
 
     /**
@@ -75,6 +83,8 @@ public class PageManagement {
      */
     @Test
     public void reject() throws Exception{
+        SystemOperationsController.deleteSystem();
+        SystemOperationsController.initSystemObjectsEden();
         SystemOperationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         /***add team private page**/

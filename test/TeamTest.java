@@ -671,7 +671,7 @@ public class TeamTest {
 
     /**or+yarden**/
     @Test
-    public void deleteTeamByTeamOwner() throws ParseException {
+    public void deleteTeamByTeamOwner() throws Exception {
         //init
         int counter=0;
         while(counter<11){

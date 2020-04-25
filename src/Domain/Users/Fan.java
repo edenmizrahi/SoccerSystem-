@@ -9,10 +9,11 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class Fan extends User implements Observer, NotificationsUser {
+public class Fan extends User implements NotificationsUser {
 
     private List<PrivatePage> myPages;
     private List<Complaint> myComplaints;
+    /**Do we need this? if a fan wants to follow a game it is added to his observable list **/
     private LinkedList <Match> matchesFollow;
     private LinkedList<String> searchHisroty;
     private static final Logger LOG = LogManager.getLogger();
@@ -49,7 +50,10 @@ public class Fan extends User implements Observer, NotificationsUser {
     public List<PrivatePage> getMyPages() {
         return myPages;
     }
-
+    public void unfollow(PrivatePage p){
+        myPages.remove(p);
+        p.getFans().remove(this);
+    }
     public void setMyPages(List<PrivatePage> myPages) {
         this.myPages = myPages;
     }

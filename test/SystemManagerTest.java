@@ -45,14 +45,6 @@ public class SystemManagerTest {
         Fan f2=new Fan(sysetm,"avital","ee","e","a","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(f1,system);
 
-        try{
-            sm.removeUser(rfa1);
-            fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("There is only one RFA left, you cannot delete it ",ex.getMessage());
-        }
 
         Rfa rfa2=new Rfa(f2,system);
         /** dell RFA**/
@@ -136,7 +128,7 @@ public class SystemManagerTest {
         }
         catch (Exception ex){
             Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("you have to subscribe another Domain.Users.Coach to "+(coachConnect.getCoach()).getCoachTeam().getName() +" Domain.LeagueManagment.Team first",ex.getMessage());
+            Assert.assertEquals("you have to subscribe another coach to "+(coachConnect.getCoach()).getCoachTeam().getName() +" team first",ex.getMessage());
         }
         /**dell coach not connect to team **/
         try {
@@ -157,7 +149,7 @@ public class SystemManagerTest {
         }
         catch (Exception ex){
             Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("You Cannot Delete Domain.Users.Player From " + p1.getPlayer().getTeam().getName() + " Domain.LeagueManagment.Team ,any team have to be at least 11 Players!",ex.getMessage());
+            Assert.assertEquals("You Cannot Delete player From " + p1.getPlayer().getTeam().getName() + " team ,any team have to be at least 11 Players!",ex.getMessage());
         }
         /**dell player belong to any Team which has more than 11 player s*/
         //team with 11 players
@@ -334,8 +326,15 @@ public class SystemManagerTest {
         teamsInLeag.add(t3);
         Fan fRFA=new Fan(sysetm,"fRFA","ee","e","fRFA","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         Rfa rfa1=new Rfa(fRFA,sysetm);
+        LinkedHashSet<Referee> referees = new LinkedHashSet<>();
+        Referee ref1 = new Referee(sysetm,"ref1","0546145795","moseh@gmail.com","ref123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        Referee ref2 = new Referee(sysetm,"ref2","0546145795","moseh@gmail.com","ref2123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        Referee ref3 = new Referee(sysetm,"ref3","0546145795","moseh@gmail.com","ref3123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+        referees.add(ref1);
+        referees.add(ref2);
+        referees.add(ref3);
         try {
-            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,new LinkedHashSet<>(),true);
+            rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2021,l,teamsInLeag, referees,true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -379,16 +378,7 @@ public class SystemManagerTest {
             Assert.assertEquals(Exception.class,ex.getClass());
             Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
         }
-        /**test-throw exp - away Game**/
-            t5.setAway(homeMaches);
-        try{
-            sm.removeTeamFromSystem(t5);
-            Assert.fail("expected exception was not occurred");
-        }
-        catch (Exception ex){
-            Assert.assertEquals(Exception.class,ex.getClass());
-            Assert.assertEquals("cannot delete team with future matches",ex.getMessage());
-        }
+
         /**test-Remove Active team**/
         Team activeTeam=new Team();
         activeTeam.setActive(true);
@@ -561,23 +551,20 @@ public class SystemManagerTest {
         TeamRole teamOwner=new TeamRole(f4);
         teamOwner.becomeTeamOwner();
         oldFounder.becomeTeamOwner();
-        Team team = new Team();
-        team.setFounder(oldFounder.getTeamOwner());
-        team.getTeamOwners().add(oldFounder.getTeamOwner());
-        oldFounder.getTeamOwner().addNewTeam(team);// //!!!!!!!!!!!!!!!!!!!!!!!! set becauese of bad pull - not me
+        //Team t = new Team();
+        t.setFounder(oldFounder.getTeamOwner());
+        t.addTeamOwner(oldFounder.getTeamOwner());
+        oldFounder.getTeamOwner().addNewTeam(t);// //!!!!!!!!!!!!!!!!!!!!!!!! set becauese of bad pull - not me
 
         Fan f5=new Fan(sysetm,"f5","ee","e","f5","E",MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole tr=new TeamRole(f5); // ? ?? ? ?
         /**get a user(old teamOwner) witch is not a TeamOwner**/
-//        tr.becomeTeamOwner();
-//        //Team t = new Team();
-//        team.setFounder(tr.getTeamOwner());
-//        team.getTeamOwners().add(tr.getTeamOwner());
-//        tr.getTeamOwner().addNewTeam(team);
+        tr.becomeTeamOwner();
+
 
         /**get a user witch is not a Domain.Users.TeamOwner**/
         try{
-            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),teamOwner.getTeamOwner(),team);
+            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),teamOwner.getTeamOwner(),t);
             fail("expected exception was not occurred");
         }
         catch (Exception ex){
@@ -587,7 +574,7 @@ public class SystemManagerTest {
 
         /**toAdd is already team owner of team**/
         try{
-            sm.replaceTeamOwnerFounder(oldFounder.getTeamOwner(),oldFounder.getTeamOwner(),team);
+            sm.replaceTeamOwnerFounder(oldFounder.getTeamOwner(),oldFounder.getTeamOwner(),t);
             fail("expected exception was not occurred");
         }
         catch (Exception ex){
@@ -595,31 +582,24 @@ public class SystemManagerTest {
             Assert.assertEquals("fail!The team owner you want to add already exist",ex.getMessage());
         }
 
-        //
-        try{
-            newFounder.becomeTeamOwner();
-            sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),oldFounder.getTeamOwner(),team);
+        newFounder.becomeTeamOwner();
+        sm.replaceTeamOwnerFounder(newFounder.getTeamOwner(),oldFounder.getTeamOwner(),t);
 
-            /**check if founder changes **/
-            Assert.assertTrue(team.getFounder()==newFounder.getTeamOwner());
-            /**check if new founder exist in team owners **/
-            Assert.assertTrue(team.getTeamOwners().contains(newFounder.getTeamOwner()));
+        /**check if founder changes **/
+        Assert.assertTrue(t.getFounder()==newFounder.getTeamOwner());
+        /**check if new founder exist in team owners **/
+        Assert.assertTrue(t.getTeamOwners().contains(newFounder.getTeamOwner()));
 
-            /**check if the new founder hold the team*/
-            Assert.assertTrue(newFounder.getTeamOwner().getTeams().contains(team));
-            /**check if previous founder hold team***/
-            Assert.assertTrue(oldFounder.getTeamOwner().getTeams().contains(team));
-            /**check if prec owner exist in team owners **/
-            Assert.assertTrue(team.getTeamOwners().contains(oldFounder.getTeamOwner()));
+        /**check if the new founder hold the team*/
+        Assert.assertTrue(newFounder.getTeamOwner().getTeams().contains(t));
+        /**check if previous founder hold team***/
+        Assert.assertTrue(oldFounder.getTeamOwner().getTeams().contains(t));
+        /**check if prec owner exist in team owners **/
+        Assert.assertTrue(t.getTeamOwners().contains(oldFounder.getTeamOwner()));
 
-
-
-        } catch (Exception e) {
-            Assert.fail("test fail");
-            e.printStackTrace();
-        }
 
     }
+
 
 
 

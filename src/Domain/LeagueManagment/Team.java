@@ -361,6 +361,7 @@ public class Team extends Observable implements PageOwner {
     public void addLeagueAndSeason(Season s, League l){
         if(s!=null && l!=null) {
             leaguePerSeason.put(s, l);
+            LOG.info(String.format("%s - %s", getName(), "add team to league:"+l.getName()+" and season"+s.getYear()));
         }
         else{
             throw new NullPointerException();
@@ -423,7 +424,7 @@ public class Team extends Observable implements PageOwner {
      * delete the connections between player to team.
      */
     //TODO test
-    public void deleteTeamByTeamOwner() {
+    public void deleteTeamByTeamOwner() throws Exception {
         for (Player p:players) {
             p.setPlayerTeam(null);
         }
@@ -454,7 +455,7 @@ public class Team extends Observable implements PageOwner {
                 }
             }
             //remove the team from activeTeams and move to deletedTeams
-            teamOwner.removeActiveTeamFromList(this);
+            teamOwner.removeTeam(this);
             teamOwner.addDeletedTeam(this);
         }
 

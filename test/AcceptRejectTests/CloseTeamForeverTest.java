@@ -81,6 +81,7 @@ public class CloseTeamForeverTest {
 
     @Test
     public  void reject() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsEden();
         MainSystem ma= MainSystem.getInstance();
         Season season=new Season(ma,null,null,2019);

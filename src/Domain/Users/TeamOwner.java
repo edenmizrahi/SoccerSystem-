@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class TeamOwner extends ManagmentActions implements Observer , NotificationsUser {
+public class TeamOwner extends ManagmentActions implements NotificationsUser {
     private TeamRole teamRole;
     private LinkedList<Team> teams;
     //private HashSet<TeamSubscription> mySubscriptions; //TODO moved to managment actions
@@ -193,6 +193,7 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
         mySubscriptions.add(sub);
+        LOG.info(String.format("%s - %s", teamRole.getName(), " add as team manager: "+fan.getName()+", to team: "+team.getName()));
         return teamRole;
 
     }
@@ -225,6 +226,8 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
         tM.setTeam(null);
         tM.getTeamRole().deleteTeamManager();
         team.deleteObserver(tM);
+
+        LOG.info(String.format("%s - %s", teamRole.getName(), " remove team manager"+tM.getTeamRole().getName()+", from team: "+team.getName()));
 
     }
 
@@ -326,6 +329,7 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
 
     public void addNewTeam(Team team) {
         this.teams.add(team);
+        LOG.info(String.format("%s - %s", teamRole.getName(), " new team was added: "+team.getName()));
     }
 
 
@@ -336,6 +340,7 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
         else{
             throw new Exception("team not belong to ths owner");
         }
+        LOG.info(String.format("%s - %s", teamRole.getName(), "remove team from active teams: "+team.getName()));
     }
 
     public LinkedList<Team> getTeams() {
@@ -486,15 +491,23 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
     }
     //</editor-fold>
 
+    /**yarden**/
+    public boolean checkIfTeamInRequestTeam(String teamName){
+        boolean ans=false;
+        for (Team t: this.getRequestedTeams()) {
+            if(t.getName().equals(teamName)){
+                ans=true;
+                break;
+            }
+        }
+        return ans;
+    }
+
     /**or**/
     public void removeMySubscription(TeamSubscription sub){
         this.mySubscriptions.remove(sub);
     }
 
-    /**or**/
-    public void removeActiveTeamFromList(Team t){
-        this.teams.remove(t);
-    }
 
     /**or**/
     public void addActiveTeam(Team t){
@@ -504,10 +517,31 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
     /**or**/
     public void addDeletedTeam(Team t){
         this.deletedTeams.add(t);
+        LOG.info(String.format("%s - %s", teamRole.getName(), "add deleted team to list : "+t.getName()));
     }
 
     /**or**/
     public void removeDeletedTeam(Team t){
         this.deletedTeams.remove(t);
+        LOG.info(String.format("%s - %s", teamRole.getName(), "remove deleted team from list : "+t.getName()));
+    }
+
+    public void addRecordToTeamPage(Team t,String record) throws Exception {
+        t.addRecordToPage(record);
+    }
+
+    /**or**/
+    public void removeRecordFromPage(Team t,String record) throws Exception {
+        t.removeRecordFromPage(record);
+    }
+
+    /**or**/
+    public boolean createPrivatePage(Team t){
+        return t.createPrivatePage();
+    }
+
+    /**or**/
+    public boolean deletePrivatePage(Team t){
+        return t.deletePrivatePage();
     }
 }

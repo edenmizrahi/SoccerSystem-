@@ -1,3 +1,5 @@
+package IntegrationTests;
+
 import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.Events.Event;
@@ -316,6 +318,7 @@ public class SystemManagerIntegration {
         Referee ref3 = new Referee(sysetm,"ref3","0546145795","moseh@gmail.com","ref3123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
         referees.add(ref1);
         referees.add(ref2);
+        referees.add(ref3);
         try {
             rfa1.defineSeasonToLeague(schedulingPolicy,calculationPolicy,2020,l,teamsInLeag,referees,true);
         } catch (Exception e) {

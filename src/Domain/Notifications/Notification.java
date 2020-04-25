@@ -1,21 +1,23 @@
 package Domain.Notifications;
 
+import java.util.Observable;
+
 public class Notification {
-    private Object sender;
+    private Observable sender;
     private Object content;
     private boolean isRead;
 
-     public Notification(Object sender, Object content, boolean isRead) {
+     public Notification(Observable sender, Object content, boolean isRead) {
         this.sender = sender;
         this.content = content;
         this.isRead = isRead;
     }
 
-    public Object getSender() {
+    public Observable getSender() {
         return sender;
     }
 
-    public void setSender(Object sender) {
+    public void setSender(Observable sender) {
         this.sender = sender;
     }
 

@@ -43,10 +43,22 @@ public class PageOwnerController {
      * @codeBy Eden
      */
     public void createPrivatePage(PageOwner pO) throws Exception {
-        if(pO.createPrivatePage()){
+        if(!pO.createPrivatePage()){
             throw new Exception("you already have page");
         }
 
+    }
+
+    /**
+     * delete private page (can be only 1)
+     * @param pO
+     * @throws Exception if page already exist
+     * @codeBy Eden
+     */
+    public void deletePrivatePage(PageOwner pO) throws Exception {
+        if(!pO.deletePrivatePage()){
+            throw new Exception("you don't have page to delete");
+        }
     }
 
     public PrivatePage getPage(PageOwner pO){

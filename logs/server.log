@@ -206,597 +206,615 @@
 2020.04.23 21:49:52.107 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
 2020.04.23 21:49:52.112 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
 2020.04.23 21:49:52.116 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
-2020.04.23 22:25:33.063 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 22:25:33.068 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 22:25:33.087 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 22:25:33.087 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 22:25:33.091 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 22:25:33.093 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 22:35:23.850 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 22:35:23.854 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 22:35:23.879 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 22:35:23.880 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 22:35:23.882 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 22:35:53.651 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 22:35:53.657 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 22:35:53.688 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 22:35:53.688 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 22:35:53.688 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 22:38:05.364 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 22:38:05.369 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 22:38:05.389 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 22:38:05.389 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 22:38:05.390 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 22:38:18.787 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.23 22:38:18.795 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.23 22:38:18.817 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.23 22:38:18.817 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.23 22:38:18.820 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.23 22:38:18.824 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:44:14.642 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 08:44:14.646 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 08:44:14.672 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:44:14.672 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:44:14.673 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 08:44:14.673 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 08:44:14.674 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:44:39.687 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 08:44:39.693 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 08:44:39.723 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:44:39.723 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:44:39.724 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 08:44:39.725 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 08:46:17.067 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 08:46:17.071 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 08:46:17.148 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:46:17.148 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 08:46:17.148 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 08:46:17.148 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 09:49:40.317 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 09:49:40.323 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 09:49:40.347 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 09:49:40.348 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 09:49:40.349 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 09:49:40.349 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 09:49:40.350 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 09:49:40.352 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 09:49:40.534 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:35:55.089 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:35:55.093 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:35:55.113 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:35:55.115 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:35:55.116 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:35:55.116 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:35:55.116 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:35:55.119 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:35:55.241 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:36:12.039 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:36:12.046 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:36:12.076 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:36:12.077 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:36:12.078 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:36:12.079 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:36:12.079 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:36:12.083 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:36:17.642 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:36:40.666 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:36:40.671 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:36:40.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:36:40.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:36:40.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:36:40.725 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:36:40.729 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:36:40.734 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:36:43.437 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:38:42.559 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:38:42.565 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:38:42.606 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:38:42.607 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:38:42.607 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:38:42.607 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:38:42.607 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:38:42.611 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:38:42.800 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:38:58.521 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:38:58.529 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:38:58.560 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:38:58.562 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:38:58.562 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:38:58.566 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:38:58.566 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:38:58.566 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:38:58.759 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:40:37.124 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:40:37.129 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:40:37.153 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:40:37.153 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:40:37.153 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:40:37.153 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:40:37.153 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:40:37.159 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:40:37.269 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:47:58.612 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:47:58.615 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:47:58.636 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:47:58.637 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:47:58.638 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:47:58.638 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:47:58.639 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:47:58.640 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:47:58.751 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 10:54:05.122 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 10:54:05.125 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 10:54:05.146 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:54:05.146 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:54:05.147 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 10:54:05.148 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 10:54:05.150 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 10:54:05.156 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 10:54:05.291 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:00:13.255 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:00:13.261 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:00:13.291 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:00:13.292 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:00:13.293 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:00:13.294 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:00:13.294 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:00:13.296 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:00:13.543 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:00:39.612 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:00:39.628 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:00:39.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:00:39.727 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:00:39.729 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:00:39.730 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:00:39.731 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:00:39.737 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:00:40.040 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:03:06.631 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:03:06.637 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:03:06.659 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:03:06.660 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:03:06.660 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:03:06.661 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:03:06.661 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:03:06.663 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:03:06.793 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:21:08.568 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:21:08.574 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:21:08.596 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:21:08.596 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:21:08.596 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:21:08.600 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:21:08.600 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:21:08.604 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:21:08.699 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:55:35.321 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:55:35.325 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:55:35.344 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:55:35.344 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:55:35.345 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:55:35.345 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:55:35.346 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:55:35.348 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:57:09.624 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:57:09.629 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:57:09.687 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:57:09.688 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:57:09.689 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:57:09.689 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:57:09.690 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:57:09.692 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:57:09.904 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:57:13.362 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:57:13.366 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:57:13.386 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:57:13.387 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:57:13.388 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:57:13.388 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:57:13.389 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:57:13.391 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:57:13.511 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:58:20.134 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:58:20.160 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:58:20.218 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:58:20.219 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:58:20.221 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:58:20.221 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:58:20.222 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:58:20.226 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:58:20.445 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 11:59:02.498 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 11:59:02.503 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 11:59:02.528 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:59:02.529 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:59:02.530 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 11:59:02.530 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 11:59:02.531 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 11:59:02.533 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 11:59:02.646 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 12:16:25.202 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 12:16:25.207 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 12:16:25.233 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:16:25.234 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:16:25.235 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:16:25.235 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 12:16:25.236 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 12:16:25.238 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 12:16:25.348 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 12:16:25.349 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 12:17:06.533 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 12:17:06.545 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 12:17:06.657 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:17:06.658 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:17:06.659 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:17:06.660 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 12:17:06.661 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 12:17:06.687 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 12:17:07.013 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 12:17:07.014 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 12:25:00.985 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 12:25:00.989 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 12:25:01.012 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:25:01.013 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:25:01.014 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:25:01.014 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 12:25:01.015 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 12:25:01.017 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 12:25:01.133 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 12:25:01.133 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.24 12:26:48.590 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 12:26:48.595 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 12:26:48.625 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:26:48.626 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:26:48.626 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 12:26:48.627 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 12:26:48.628 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 12:26:48.632 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 12:26:48.781 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 12:26:48.782 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.24 14:57:26.269 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 14:57:26.277 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 14:57:26.312 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:26.312 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:26.313 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:26.314 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 14:57:26.314 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 14:57:26.317 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 14:57:26.503 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 14:57:26.505 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.24 14:57:40.734 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 14:57:40.740 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 14:57:40.769 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:40.769 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:40.770 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:40.770 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 14:57:40.770 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 14:57:40.774 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 14:57:40.916 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 14:57:40.917 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.24 14:57:55.763 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 14:57:55.770 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 14:57:55.817 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:55.817 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:55.821 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:57:55.821 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 14:57:55.821 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 14:57:55.829 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 14:57:56.022 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 14:57:56.023 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.24 14:58:19.853 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 14:58:19.862 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 14:58:19.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:58:19.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:58:19.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 14:58:19.892 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 14:58:19.892 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 14:58:19.900 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 14:58:20.110 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 14:58:20.110 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.24 15:00:04.953 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 15:00:04.956 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 15:00:04.975 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:00:04.975 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:00:04.976 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:00:04.976 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 15:00:04.976 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 15:00:04.978 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 15:00:05.088 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 15:00:46.320 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 15:00:46.330 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 15:00:46.380 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:00:46.380 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:00:46.384 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:00:46.384 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 15:00:46.388 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 15:00:46.391 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 15:00:46.723 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 15:03:54.349 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 15:03:54.357 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 15:03:54.412 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:03:54.413 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:03:54.415 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:03:54.415 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 15:03:54.415 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 15:03:54.427 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 15:03:54.647 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 15:19:33.171 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 15:19:33.175 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 15:19:33.242 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:19:33.242 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:19:33.246 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:19:33.246 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 15:19:33.250 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 15:19:33.250 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 15:19:33.444 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 15:19:50.892 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 15:19:50.900 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 15:19:50.931 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:19:50.935 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:19:50.935 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:19:50.935 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 15:19:50.935 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 15:19:50.940 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 15:19:51.112 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 15:30:43.623 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 15:30:43.628 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 15:30:43.658 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:30:43.659 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:30:43.660 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 15:30:43.660 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 15:30:43.660 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 15:30:43.664 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 15:30:43.789 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 15:30:43.796 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.24 16:48:20.917 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 16:48:20.921 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 16:48:20.946 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:48:20.947 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:48:20.948 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:48:20.949 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 16:48:20.949 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 16:48:20.952 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 16:48:21.072 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 16:48:21.078 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.24 16:48:46.851 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 16:48:46.859 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 16:48:46.925 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:48:46.925 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:48:46.926 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:48:46.927 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 16:48:46.928 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 16:48:46.931 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 16:48:47.185 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 16:49:50.696 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.24 16:50:47.842 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 16:50:47.850 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 16:50:47.891 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:50:47.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:50:47.893 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 16:50:47.894 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 16:50:47.894 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 16:50:47.898 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 16:50:48.079 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 17:04:51.693 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.24 17:06:02.861 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 17:06:02.866 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 17:06:02.885 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 17:06:02.886 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 17:06:02.887 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 17:06:02.887 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 17:06:02.887 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 17:06:02.890 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 17:06:02.997 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 17:06:03.002 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.24 22:54:20.344 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 22:54:20.350 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 22:54:20.382 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 22:54:20.382 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 22:54:20.383 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 22:54:20.383 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 22:54:20.384 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 22:54:20.387 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 22:54:20.522 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 22:54:20.528 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.24 23:10:19.457 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 23:10:19.462 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 23:10:19.486 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:10:19.487 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:10:19.487 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:10:19.488 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 23:10:19.488 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 23:10:19.490 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 23:10:19.607 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 23:10:19.608 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
-2020.04.24 23:25:49.378 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 23:25:49.385 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 23:25:49.417 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:25:49.419 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:25:49.420 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:25:49.420 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 23:25:49.421 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 23:25:49.425 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 23:25:49.603 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 23:25:49.605 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
-2020.04.24 23:26:09.127 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 23:26:09.132 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 23:26:09.163 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:26:09.164 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:26:09.165 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:26:09.166 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 23:26:09.166 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 23:26:09.170 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 23:26:09.372 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 23:26:09.375 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
-2020.04.24 23:44:40.675 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 23:44:40.679 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 23:44:40.703 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:44:40.703 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:44:40.703 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:44:40.703 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 23:44:40.703 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 23:44:40.710 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 23:44:40.854 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 23:44:40.860 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
-2020.04.24 23:45:58.080 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 23:45:58.088 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 23:45:58.108 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:45:58.109 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:45:58.109 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:45:58.110 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 23:45:58.110 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 23:45:58.113 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 23:45:58.233 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 23:45:58.237 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
-2020.04.24 23:50:53.810 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.24 23:50:53.815 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.24 23:50:53.840 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:50:53.841 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:50:53.843 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.24 23:50:53.843 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.24 23:50:53.844 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.24 23:50:53.846 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.24 23:50:53.980 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.24 23:50:53.983 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
-2020.04.25 12:20:22.811 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 12:20:22.815 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 12:20:22.837 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:20:22.838 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:20:22.839 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:20:22.840 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 12:20:22.840 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 12:20:22.843 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 12:20:22.986 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 12:37:03.463 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 12:37:03.467 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 12:37:03.490 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:37:03.491 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:37:03.491 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:37:03.492 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 12:37:03.492 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 12:37:03.506 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 12:37:03.621 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 12:39:11.509 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 12:39:11.513 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 12:39:11.539 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:39:11.540 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:39:11.540 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:39:11.541 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 12:39:11.542 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 12:39:11.545 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 12:39:11.669 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 12:39:25.974 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 12:39:25.979 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 12:39:26.007 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:39:26.008 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:39:26.009 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 12:39:26.009 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 12:39:26.010 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 12:39:26.013 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 12:39:26.176 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 13:05:41.436 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 13:05:41.441 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 13:05:41.465 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:05:41.466 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:05:41.467 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:05:41.467 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 13:05:41.468 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 13:05:41.470 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 13:05:41.608 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 13:05:41.613 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.25 13:15:13.715 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 13:15:13.719 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 13:15:13.740 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:15:13.741 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:15:13.741 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:15:13.742 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 13:15:13.742 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 13:15:13.745 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 13:15:13.873 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 13:15:13.881 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.25 13:25:44.282 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 13:25:44.286 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 13:25:44.325 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:25:44.326 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:25:44.327 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 13:25:44.328 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 13:25:44.329 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 13:25:44.331 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 13:25:44.479 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 13:25:44.480 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.25 14:50:00.527 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 14:50:00.532 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 14:50:00.570 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 14:50:00.572 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 14:50:00.574 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 14:50:00.575 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 14:50:00.575 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 14:50:00.579 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 14:50:00.880 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 14:50:00.881 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 14:51:01.203 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
-2020.04.25 14:51:31.282 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.25 15:02:49.356 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 15:02:49.361 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 15:02:49.384 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:02:49.385 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:02:49.386 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:02:49.386 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 15:02:49.387 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 15:02:49.390 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 15:02:49.495 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:02:49.496 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:17:31.185 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 15:17:31.191 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 15:17:31.223 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:17:31.224 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:17:31.226 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:17:31.227 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 15:17:31.228 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 15:17:31.230 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 15:17:31.361 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:17:31.361 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.25 15:17:31.367 INFO  Domain.MainSystem -  - system was started
-2020.04.25 15:23:26.491 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 15:23:26.495 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 15:23:26.518 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:23:26.519 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:23:26.519 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:23:26.520 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 15:23:26.521 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 15:23:26.524 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 15:23:26.643 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:23:26.644 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.25 15:23:26.647 INFO  Domain.MainSystem -  - system was started
-2020.04.25 15:26:21.602 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 15:26:21.607 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 15:26:21.628 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:26:21.629 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:26:21.630 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:26:21.632 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 15:26:21.632 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 15:26:21.636 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 15:26:21.743 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:26:21.744 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:27:59.808 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 15:27:59.812 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 15:27:59.838 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:27:59.839 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:27:59.840 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:27:59.841 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 15:27:59.842 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 15:27:59.844 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 15:28:00.006 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:28:00.007 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
-2020.04.25 15:28:00.009 INFO  Domain.MainSystem -  - system was started
-2020.04.25 15:35:11.543 INFO  Domain.Users.SystemManager - systemManager - Added to system
-2020.04.25 15:35:11.547 INFO  Domain.MainSystem -  - system was started for the first time
-2020.04.25 15:35:11.570 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:35:11.571 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:35:11.571 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
-2020.04.25 15:35:11.572 INFO  Domain.Users.SystemManager - ofer - Added to system
-2020.04.25 15:35:11.573 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
-2020.04.25 15:35:11.575 INFO  Domain.Users.Rfa - DanaBandana - Create new league
-2020.04.25 15:35:11.707 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:35:11.709 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
-2020.04.25 15:35:11.711 INFO  Domain.MainSystem -  - system was started
+2020.04.23 22:26:28.912 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 22:26:28.915 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 22:26:28.943 INFO  Domain.MainSystem -  - system was started
+2020.04.23 22:26:32.637 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:26:32.641 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:26:32.643 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:26:32.644 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:26:32.993 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:26:32.996 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:26:32.996 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:26:33.207 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:26:33.208 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:26:33.213 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:27:04.131 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: something amount: 230
+2020.04.23 22:27:04.138 INFO  Domain.BudgetControl.BudgetControl - null - add income to team budget, type: income amount: 500
+2020.04.23 22:27:04.138 INFO  Domain.BudgetControl.BudgetControl - null - add expense to team budget, type: something amount: -230
+2020.04.23 22:27:21.521 INFO  Domain.PrivatePage - null - added record to page
+2020.04.23 22:27:21.525 INFO  Domain.PrivatePage - null - added record to page
+2020.04.23 22:27:21.531 INFO  Domain.PrivatePage - null - add fan to page, fane username: fan101
+2020.04.23 22:27:21.532 INFO  Domain.PrivatePage - null - added record to page
+2020.04.23 22:27:21.532 INFO  Domain.PrivatePage - null - added record to page
+2020.04.23 22:27:46.515 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:27:46.629 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:27:46.630 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:27:46.631 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:27:46.632 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 22:27:46.634 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:27:46.634 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 22:27:46.635 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:27:46.636 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:27:46.637 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 22:27:46.637 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:27:46.638 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.639 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 22:27:46.639 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.643 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.645 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.647 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.652 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.653 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 22:27:46.654 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:27:46.656 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.264 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.267 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.433 INFO  Domain.Users.Rfa - fRFA - define season to Aby Rfa
+2020.04.23 22:30:04.449 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:30:04.451 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:30:04.453 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.455 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.456 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 22:30:04.459 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:30:04.459 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 22:30:04.460 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.461 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.462 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:30:04.462 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 22:30:04.463 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.464 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:30:04.465 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.470 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 22:30:04.470 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.471 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.473 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.476 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.477 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.478 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 22:30:04.479 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:30:04.481 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.433 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:31:55.572 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:31:55.573 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:31:55.574 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:31:55.576 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 22:31:55.581 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:31:55.582 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 22:31:55.582 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:31:55.585 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:31:55.585 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 22:31:55.586 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:31:55.587 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.588 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 22:31:55.588 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.592 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.593 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.596 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.605 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.606 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 22:31:55.607 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:31:55.607 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.680 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:32:11.810 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:32:11.811 INFO  Domain.Users.SystemManager - avi123 - remove team :%s from system
+2020.04.23 22:32:11.813 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:32:11.814 INFO  Domain.Users.SystemManager - e - Added to system
+2020.04.23 22:32:11.816 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:32:11.817 INFO  Domain.Users.SystemManager - e - add new System Manager , user name: es
+2020.04.23 22:32:11.817 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:32:11.820 INFO  Domain.Users.SystemManager - es - Added to system
+2020.04.23 22:32:11.820 INFO  Domain.Users.SystemManager - es - Replace %s founder from:%s to:%s
+2020.04.23 22:32:11.822 INFO  Domain.Users.SystemManager - avi123 - Added to system
+2020.04.23 22:32:11.824 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.824 INFO  Domain.Users.SystemManager - o - Added to system
+2020.04.23 22:32:11.825 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.830 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.830 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.832 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.833 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.834 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
+2020.04.23 22:32:11.835 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:32:11.836 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:54:36.632 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:36.640 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:36.641 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:36.642 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:37.081 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:54:37.085 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:54:37.086 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:54:37.359 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:54:37.359 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:54:37.368 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:54:51.954 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:51.967 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:51.967 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:51.967 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:52.019 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:54:52.021 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:54:52.021 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:54:52.136 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:54:52.136 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:54:52.143 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:54:56.549 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:56.553 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:56.554 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:56.554 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:54:57.027 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:54:57.030 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:54:57.031 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:54:57.237 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:54:57.238 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:54:57.246 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:55:30.525 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:30.530 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:30.531 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:30.532 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:30.557 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:55:30.561 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:55:30.562 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:55:30.704 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:55:30.705 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:55:30.712 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:55:34.808 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:34.830 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:34.831 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:34.832 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:55:35.143 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:55:35.146 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:55:35.146 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:55:35.322 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:55:35.322 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:55:35.329 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:56:03.259 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:56:03.264 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:56:03.264 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:56:03.265 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:56:03.600 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:56:03.602 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:56:03.602 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:56:03.760 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:56:03.761 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:56:03.766 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 22:57:24.800 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:57:24.804 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:57:24.804 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:57:24.805 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 22:57:25.270 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 22:57:25.273 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:57:25.273 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 22:57:25.479 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 22:57:25.480 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 22:57:25.489 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 23:04:10.210 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:04:10.226 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:04:10.227 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:04:10.228 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:04:10.730 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 23:04:10.733 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:04:10.734 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:04:10.957 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 23:04:10.958 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 23:04:10.966 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 23:05:44.175 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:05:44.181 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:05:44.182 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:05:44.182 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:05:44.511 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 23:05:44.514 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:05:44.514 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:05:44.740 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 23:05:44.740 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 23:05:44.748 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 23:08:02.436 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:08:02.443 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:08:02.444 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:08:02.444 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:08:02.824 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 23:08:02.827 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:08:02.827 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:08:03.055 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 23:08:03.055 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 23:08:03.063 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 23:10:00.739 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:00.742 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:00.743 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:00.743 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:00.758 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 23:10:00.760 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:10:00.761 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:10:00.880 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 23:10:00.881 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 23:10:00.885 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 23:10:09.539 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:09.544 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:09.545 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:10:09.545 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:11:10.208 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 23:11:10.211 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:11:10.211 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:11:10.417 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 23:11:10.418 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 23:11:10.426 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.23 23:13:30.583 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:13:30.590 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:13:30.591 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:13:30.591 INFO  Domain.Users.Rfa - nadavS - Add referee by Domain.Users.Rfa
+2020.04.23 23:13:30.608 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.23 23:13:30.610 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:13:30.610 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.23 23:13:30.742 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.23 23:13:30.743 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.23 23:13:30.747 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.25 11:32:35.815 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:35:40.969 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:38:21.698 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:41:05.881 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 16:09:08.078 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 16:09:08.082 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 16:09:08.094 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.25 16:09:08.094 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.25 16:09:08.095 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.25 16:09:08.097 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.25 16:09:08.097 INFO  Domain.Users.TeamOwner - Avi -  new team was added: macabi
+2020.04.25 16:09:08.100 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Avito team: macabi
+2020.04.25 16:09:08.104 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.25 16:09:08.104 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.25 16:09:08.104 INFO  Domain.Users.TeamRole - Moshe - become team owner
+2020.04.25 16:09:08.105 INFO  Domain.Users.TeamOwner - Moshe -  new team was added: macabi
+2020.04.25 16:09:08.106 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Mosheto team: macabi
+2020.04.25 16:09:08.107 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.25 16:09:08.107 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.25 16:09:08.109 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.25 16:09:08.110 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.25 16:09:08.110 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.25 16:09:08.111 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.25 16:09:08.111 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.25 16:09:08.117 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.25 16:09:08.118 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.25 16:09:08.118 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.25 16:09:08.119 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.25 16:09:08.119 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.25 16:09:08.120 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.25 16:09:08.120 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.25 16:09:08.121 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.25 16:09:08.121 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.25 16:09:08.122 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.25 16:09:08.122 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.25 16:09:08.122 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.25 16:09:08.123 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.25 16:09:08.123 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.25 16:09:08.123 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.25 16:09:08.124 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.25 16:09:08.124 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.25 16:09:08.124 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.25 16:09:08.125 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.25 16:09:08.125 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.25 16:09:08.126 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.25 16:09:08.127 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.25 16:09:08.127 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.25 16:09:08.127 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.25 16:09:08.127 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.25 16:09:08.128 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.25 16:09:08.129 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.25 16:09:08.129 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.25 16:09:08.129 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.25 16:09:08.130 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.25 16:09:08.130 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.25 16:09:08.131 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.25 16:09:08.131 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.25 16:09:08.132 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.25 16:09:08.132 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.25 16:09:08.132 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.25 16:09:08.133 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.25 16:09:08.133 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.25 16:09:08.134 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.25 16:09:08.134 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.25 16:09:08.135 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.25 16:09:08.135 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.25 16:09:08.136 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.25 16:09:08.136 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.25 16:09:08.137 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.25 16:09:08.138 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.25 16:09:08.139 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.25 16:09:08.140 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.25 16:09:08.140 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.25 16:09:08.141 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.25 16:09:08.141 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.25 16:09:08.142 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.25 16:09:08.142 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.25 16:09:08.143 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.25 16:09:08.144 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.25 16:09:08.145 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.25 16:09:08.145 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.25 16:09:08.146 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.25 16:09:08.146 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.25 16:09:08.147 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.25 16:09:08.147 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.25 16:09:08.150 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:09:08.150 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:09:08.151 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:09:08.151 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 16:09:08.152 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 16:09:08.154 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 16:09:08.308 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:09:08.308 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:09:08.310 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:09:08.312 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:09:08.313 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 16:11:53.428 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 16:11:53.431 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 16:11:53.444 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.25 16:11:53.446 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.25 16:11:53.446 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.25 16:11:53.449 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.25 16:11:53.451 INFO  Domain.Users.TeamOwner - Avi -  new team was added: macabi
+2020.04.25 16:11:53.453 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Avito team: macabi
+2020.04.25 16:11:53.457 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.25 16:11:53.458 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.25 16:11:53.458 INFO  Domain.Users.TeamRole - Moshe - become team owner
+2020.04.25 16:11:53.460 INFO  Domain.Users.TeamOwner - Moshe -  new team was added: macabi
+2020.04.25 16:11:53.460 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Mosheto team: macabi
+2020.04.25 16:11:53.460 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.25 16:11:53.461 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.25 16:11:53.466 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.25 16:11:53.466 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.25 16:11:53.468 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.25 16:11:53.468 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.25 16:11:53.469 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.25 16:11:53.475 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.25 16:11:53.476 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.25 16:11:53.477 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.25 16:11:53.478 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.25 16:11:53.479 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.25 16:11:53.479 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.25 16:11:53.480 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.25 16:11:53.481 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.25 16:11:53.485 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.25 16:11:53.486 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.25 16:11:53.488 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.25 16:11:53.491 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.25 16:11:53.492 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.25 16:11:53.493 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.25 16:11:53.494 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.25 16:11:53.494 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.25 16:11:53.494 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.25 16:11:53.495 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.25 16:11:53.499 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.25 16:11:53.501 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.25 16:11:53.501 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.25 16:11:53.503 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.25 16:11:53.504 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.25 16:11:53.505 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.25 16:11:53.506 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.25 16:11:53.507 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.25 16:11:53.508 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.25 16:11:53.508 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.25 16:11:53.509 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.25 16:11:53.510 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.25 16:11:53.512 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.25 16:11:53.513 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.25 16:11:53.513 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.25 16:11:53.514 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.25 16:11:53.514 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.25 16:11:53.516 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.25 16:11:53.517 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.25 16:11:53.518 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.25 16:11:53.523 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.25 16:11:53.526 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.25 16:11:53.526 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.25 16:11:53.528 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.25 16:11:53.529 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.25 16:11:53.533 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.25 16:11:53.538 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.25 16:11:53.539 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.25 16:11:53.540 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.25 16:11:53.540 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.25 16:11:53.541 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.25 16:11:53.542 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.25 16:11:53.544 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.25 16:11:53.545 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.25 16:11:53.546 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.25 16:11:53.546 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.25 16:11:53.547 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.25 16:11:53.548 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.25 16:11:53.548 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.25 16:11:53.549 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.25 16:11:53.551 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.25 16:11:53.552 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.25 16:11:53.552 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.25 16:11:53.556 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:11:53.557 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:11:53.558 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:11:53.558 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 16:11:53.559 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 16:11:53.561 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 16:11:53.680 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:11:53.680 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:11:53.680 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:11:53.681 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:11:53.681 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 16:12:16.352 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 16:12:16.357 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 16:12:16.375 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.25 16:12:16.376 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.25 16:12:16.377 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.25 16:12:16.377 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.25 16:12:16.378 INFO  Domain.Users.TeamOwner - Avi -  new team was added: macabi
+2020.04.25 16:12:16.381 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Avito team: macabi
+2020.04.25 16:12:16.387 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.25 16:12:16.387 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.25 16:12:16.388 INFO  Domain.Users.TeamRole - Moshe - become team owner
+2020.04.25 16:12:16.390 INFO  Domain.Users.TeamOwner - Moshe -  new team was added: macabi
+2020.04.25 16:12:16.394 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Mosheto team: macabi
+2020.04.25 16:12:16.395 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.25 16:12:16.396 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.25 16:12:16.399 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.25 16:12:16.400 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.25 16:12:16.402 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.25 16:12:16.402 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.25 16:12:16.404 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.25 16:12:16.413 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.25 16:12:16.421 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.25 16:12:16.422 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.25 16:12:16.422 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.25 16:12:16.426 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.25 16:12:16.428 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.25 16:12:16.428 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.25 16:12:16.430 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.25 16:12:16.432 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.25 16:12:16.433 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.25 16:12:16.434 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.25 16:12:16.436 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.25 16:12:16.436 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.25 16:12:16.438 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.25 16:12:16.438 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.25 16:12:16.439 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.25 16:12:16.439 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.25 16:12:16.440 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.25 16:12:16.440 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.25 16:12:16.441 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.25 16:12:16.441 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.25 16:12:16.442 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.25 16:12:16.442 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.25 16:12:16.443 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.25 16:12:16.443 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.25 16:12:16.444 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.25 16:12:16.445 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.25 16:12:16.445 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.25 16:12:16.446 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.25 16:12:16.447 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.25 16:12:16.447 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.25 16:12:16.448 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.25 16:12:16.449 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.25 16:12:16.450 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.25 16:12:16.451 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.25 16:12:16.452 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.25 16:12:16.452 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.25 16:12:16.454 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.25 16:12:16.455 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.25 16:12:16.455 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.25 16:12:16.456 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.25 16:12:16.456 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.25 16:12:16.457 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.25 16:12:16.457 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.25 16:12:16.458 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.25 16:12:16.459 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.25 16:12:16.459 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.25 16:12:16.459 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.25 16:12:16.460 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.25 16:12:16.465 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.25 16:12:16.471 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.25 16:12:16.472 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.25 16:12:16.473 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.25 16:12:16.473 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.25 16:12:16.473 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.25 16:12:16.474 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.25 16:12:16.475 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.25 16:12:16.475 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.25 16:12:16.476 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.25 16:12:16.479 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.25 16:12:16.482 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.25 16:12:16.487 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:12:16.487 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:12:16.488 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:12:16.490 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 16:12:16.490 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 16:12:16.505 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 16:12:16.791 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:12:16.792 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:12:16.792 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:12:16.792 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:12:16.793 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 16:16:37.808 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 16:16:37.813 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 16:16:37.829 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.25 16:16:37.829 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.25 16:16:37.830 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.25 16:16:37.830 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.25 16:16:37.831 INFO  Domain.Users.TeamOwner - Avi -  new team was added: macabi
+2020.04.25 16:16:37.833 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Avito team: macabi
+2020.04.25 16:16:37.837 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.25 16:16:37.837 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.25 16:16:37.838 INFO  Domain.Users.TeamRole - Moshe - become team owner
+2020.04.25 16:16:37.839 INFO  Domain.Users.TeamOwner - Moshe -  new team was added: macabi
+2020.04.25 16:16:37.839 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - subscribe team Owner :Mosheto team: macabi
+2020.04.25 16:16:37.839 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.25 16:16:37.840 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.25 16:16:37.841 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.25 16:16:37.843 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.25 16:16:37.843 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.25 16:16:37.844 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.25 16:16:37.844 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.25 16:16:37.851 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.25 16:16:37.851 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.25 16:16:37.852 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.25 16:16:37.852 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.25 16:16:37.854 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.25 16:16:37.854 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.25 16:16:37.855 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.25 16:16:37.855 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.25 16:16:37.856 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.25 16:16:37.857 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.25 16:16:37.857 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.25 16:16:37.858 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.25 16:16:37.858 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.25 16:16:37.860 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.25 16:16:37.861 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.25 16:16:37.862 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.25 16:16:37.863 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.25 16:16:37.863 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.25 16:16:37.866 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.25 16:16:37.867 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.25 16:16:37.868 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.25 16:16:37.870 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.25 16:16:37.870 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.25 16:16:37.872 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.25 16:16:37.872 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.25 16:16:37.873 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.25 16:16:37.873 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.25 16:16:37.874 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.25 16:16:37.874 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.25 16:16:37.875 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.25 16:16:37.875 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.25 16:16:37.876 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.25 16:16:37.876 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.25 16:16:37.877 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.25 16:16:37.878 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.25 16:16:37.878 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.25 16:16:37.879 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.25 16:16:37.879 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.25 16:16:37.880 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.25 16:16:37.881 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.25 16:16:37.882 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.25 16:16:37.882 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.25 16:16:37.884 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.25 16:16:37.884 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.25 16:16:37.884 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.25 16:16:37.885 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.25 16:16:37.886 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.25 16:16:37.886 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.25 16:16:37.887 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.25 16:16:37.888 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.25 16:16:37.888 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.25 16:16:37.890 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.25 16:16:37.890 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.25 16:16:37.890 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.25 16:16:37.891 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.25 16:16:37.892 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.25 16:16:37.892 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.25 16:16:37.893 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.25 16:16:37.893 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.25 16:16:37.894 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.25 16:16:37.895 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.25 16:16:37.898 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:16:37.898 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:16:37.899 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.25 16:16:37.899 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 16:16:37.900 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 16:16:37.904 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 16:16:38.062 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:16:38.062 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:16:38.063 INFO  Domain.LeagueManagment.Team - macabi - add team to league:ligaA and season2020
+2020.04.25 16:16:38.063 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
+2020.04.25 16:16:38.064 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa

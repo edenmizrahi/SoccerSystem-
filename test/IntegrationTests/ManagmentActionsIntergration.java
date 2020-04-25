@@ -1,3 +1,5 @@
+package IntegrationTests;
+
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;

@@ -1,3 +1,5 @@
+package IntegrationTests;
+
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;

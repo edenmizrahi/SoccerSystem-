@@ -5,6 +5,7 @@ import Domain.Users.Fan;
 import Domain.Users.TeamRole;
 import Service.SystemOperationsController;
 import Service.TeamManagementController;
+import org.junit.Assert;
 import org.junit.Test;
 import java.security.acl.Permission;
 import java.util.HashSet;
@@ -42,5 +43,22 @@ public class SubscribeTeamManagerTest {
         TeamRole newTeamManager = teamManagementController.subscribeTeamManager(ilan.getTeamOwner(), ben, t1Macabi, per);
         assertEquals(t1Macabi.getTeamManager(), newTeamManager.getTeamManager());
         assertEquals(newTeamManager.getTeamManager().getTeam(), t1Macabi);
+    }
+
+    @Test
+    public void reject1() throws Exception {
+        SystemOperationsController.initSystemObjectsAdi();
+        TeamRole moshe = (TeamRole)systemOperationsController.getUserByUserName("Moshe");
+        HashSet<TeamManagerPermissions> per = new HashSet<>();
+
+        TeamRole ilan = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
+        Team t1Macabi = teamManagementController.getAllMyTeams(ilan.getTeamOwner()).get(0);
+        try {
+            //already team manager
+            TeamRole newTeamManager = teamManagementController.subscribeTeamManager(ilan.getTeamOwner(), moshe, t1Macabi, per);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+        }
     }
 }

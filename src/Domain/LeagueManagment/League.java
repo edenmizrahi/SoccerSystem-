@@ -21,27 +21,10 @@ public class League {
      */
     private HashMap<Season, HashSet<Team>> teamsInSeason;
 
-    /**yarden change**/
     private HashMap<Season, LinkedHashSet<Referee>> refereesInLeague;
 
-//    private HashMap<Season, Referee> mainReferee;
-//
-//    public HashMap<Season, Referee> getMainReferee() {
-//        return mainReferee;
-//    }
-//
-//    public void setMainReferee(HashMap<Season, Referee> mainReferee) {
-//        this.mainReferee = mainReferee;
-//    }
 
-    public HashMap<Season, LinkedHashSet<Referee>> getRefereesInLeague() {
-        return refereesInLeague;
-    }
 
-    public void setRefereesInLeague(HashMap<Season,LinkedHashSet<Referee>> refereesInLeague) {
-        this.refereesInLeague = refereesInLeague;
-    }
-    /*************************************************************************************/
 
     public League(String name, MainSystem mainSystem, Season currSeason) throws Exception {
         this.name = name;
@@ -86,6 +69,14 @@ public class League {
 
     public void setTeamsInSeason(HashMap<Season, HashSet<Team>> teamsInSeason) {
         this.teamsInSeason = teamsInSeason;
+    }
+
+    public HashMap<Season, LinkedHashSet<Referee>> getRefereesInLeague() {
+        return refereesInLeague;
+    }
+
+    public void setRefereesInLeague(HashMap<Season,LinkedHashSet<Referee>> refereesInLeague) {
+        this.refereesInLeague = refereesInLeague;
     }
 
     //</editor-fold>

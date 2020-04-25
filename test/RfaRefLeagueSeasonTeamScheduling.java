@@ -2,7 +2,6 @@ import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.League;
-import Domain.LeagueManagment.Scheduling.SchedualeOption1;
 import Domain.LeagueManagment.Scheduling.SchedualeOption2;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.LeagueManagment.Season;
@@ -27,6 +26,7 @@ import java.util.List;
  *
  * Rfa create leagues, add referees, add teams to leagues, add leagues to season,
  * add referees to league in season and start scheduling police
+ * @CodeBy yarden
  */
 public class RfaRefLeagueSeasonTeamScheduling {
 
@@ -164,9 +164,5 @@ public class RfaRefLeagueSeasonTeamScheduling {
             Assert.fail();
         }
     }
-
-
-
-
 
 }

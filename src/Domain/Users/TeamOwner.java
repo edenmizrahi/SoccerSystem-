@@ -486,6 +486,18 @@ public class TeamOwner extends ManagmentActions implements Observer , Notificati
     }
     //</editor-fold>
 
+    /**yarden**/
+    public boolean checkIfTeamInRequestTeam(String teamName){
+        boolean ans=false;
+        for (Team t: this.getRequestedTeams()) {
+            if(t.getName().equals(teamName)){
+                ans=true;
+                break;
+            }
+        }
+        return ans;
+    }
+
     /**or**/
     public void removeMySubscription(TeamSubscription sub){
         this.mySubscriptions.remove(sub);

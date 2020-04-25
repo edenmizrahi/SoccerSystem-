@@ -14,6 +14,7 @@ public class RemoveTeamManagerTest {
 
     @Test
     public void accept1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // team manager to remove
         TeamRole davidTeamManager = (TeamRole) systemOperationsController.getUserByUserName("David");
@@ -26,6 +27,7 @@ public class RemoveTeamManagerTest {
 
     @Test
     public void reject1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // team manager to remove
         TeamRole mosheTeamManager = (TeamRole) systemOperationsController.getUserByUserName("Moshe");

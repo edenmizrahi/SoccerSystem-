@@ -528,13 +528,24 @@ public class Team extends Observable implements PageOwner {
         becomeActive(players,coach,field);
 
         //remove all the other team owners
-        Iterator<TeamOwner> iter= teamOwners.iterator();
-        TeamOwner teamOwner;
-        while (iter.hasNext()){
-            teamOwner= iter.next();
-            if(! teamOwner.equals(newFounder)){
-                teamOwner.removeDeletedTeam(this);
-                teamOwners.remove(teamOwner);
+//        Iterator<TeamOwner> iter= teamOwners.iterator();
+//        TeamOwner teamOwner;
+//        while (iter.hasNext()){
+//            teamOwner= iter.next();
+//            if(!teamOwner.equals(newFounder)){
+//                teamOwner.removeDeletedTeam(this);
+//                teamOwners.remove(teamOwner);
+//            }
+//        }
+        LinkedList<TeamOwner> teamOwnersList = new LinkedList<>();
+        for(TeamOwner tO: teamOwners){
+            teamOwnersList.add(tO);
+        }
+        for(int i=0; i< teamOwnersList.size();i++){
+            TeamOwner tO = teamOwnersList.get(i);
+            if(!tO.equals(newFounder)){
+                tO.removeDeletedTeam(this);
+                teamOwners.remove(tO);
             }
         }
 

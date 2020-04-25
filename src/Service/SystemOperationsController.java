@@ -220,7 +220,7 @@ public class SystemOperationsController {
         /*******************/
 
         /**add Referee*/
-        danaRFA.addReferee("s","0526621646","yossi@gmail.com","dana","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
+        danaRFA.addReferee("s","0526621646","yossi@gmail.com","danaa","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
         /**Tamar to be just a Fan*/
         Fan f9= new Fan(system, "Tamar", "0549716910","yossi@gmail.com", "Tamar", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         /*********************/

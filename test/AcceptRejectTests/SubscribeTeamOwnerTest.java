@@ -18,6 +18,7 @@ public class SubscribeTeamOwnerTest {
     // subscribe a fan to team owner
     @Test
     public void accept1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // just a fan
         Fan tamar = (Fan)systemOperationsController.getUserByUserName("Tamar");
@@ -32,6 +33,7 @@ public class SubscribeTeamOwnerTest {
     // same except someone who is already TeamRole
     @Test
     public void alternative1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
 
@@ -46,6 +48,7 @@ public class SubscribeTeamOwnerTest {
     // subscribe a fan to team owner
     @Test
     public void accept2() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // just a fan
         Fan tamar = (Fan)systemOperationsController.getUserByUserName("Tamar");
@@ -60,6 +63,7 @@ public class SubscribeTeamOwnerTest {
     // same except someone who is already TeamRole
     @Test
     public void alternative2() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
 
@@ -73,6 +77,7 @@ public class SubscribeTeamOwnerTest {
     //team manager without permission
     @Test
     public void reject() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
 

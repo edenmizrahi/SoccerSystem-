@@ -19,6 +19,7 @@ public class SubscribeTeamManagerTest {
     // subscribe a fan to team manager
     @Test
     public void accept1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // just a fan
         Fan tamar = (Fan)systemOperationsController.getUserByUserName("Tamar");
@@ -34,6 +35,7 @@ public class SubscribeTeamManagerTest {
     // same except someone who is already TeamRole
     @Test
     public void alternative1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
         HashSet<TeamManagerPermissions> per = new HashSet<>();
@@ -47,6 +49,7 @@ public class SubscribeTeamManagerTest {
 
     @Test
     public void reject1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         TeamRole moshe = (TeamRole)systemOperationsController.getUserByUserName("Moshe");
         HashSet<TeamManagerPermissions> per = new HashSet<>();

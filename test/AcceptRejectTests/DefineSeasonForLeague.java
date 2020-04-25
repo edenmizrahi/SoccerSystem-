@@ -106,6 +106,7 @@ public class DefineSeasonForLeague {
     @Test
     public void reject() throws Exception{
         /*****system init*****/
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAvital();
         MainSystem ma= MainSystem.getInstance();
 

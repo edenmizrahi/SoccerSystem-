@@ -66,6 +66,7 @@ public class AddNewReferee {
     @Test
     public void reject() throws Exception{
         /*****system init*****/
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAvital();
         MainSystem ma= MainSystem.getInstance();
 
@@ -75,7 +76,8 @@ public class AddNewReferee {
 
         /** try add referee that his UserName  already exists in the system - not success **/
         try {
-            rfaController.addReferee(rfa,"rafi","0542344654","a@gmail.com","rafi",
+            List <Referee> allRefs= operationsController.showAllReferee();
+            rfaController.addReferee(rfa,"rafi","0542344654","a@gmail.com","reffRafi",
                     "123456","bla",MainSystem.birthDateFormat.parse("02-11-1996"));
             fail("test fail");
         }

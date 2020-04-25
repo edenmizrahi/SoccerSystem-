@@ -61,6 +61,7 @@ public class RfaConfirmOpenTeam {
     @Test
     public void reject() throws Exception {
         /*****system init*****/
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAvital();
         MainSystem ma = MainSystem.getInstance();
 

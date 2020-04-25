@@ -258,17 +258,16 @@ public class TeamManagementController {
     /**
      * adi
      * @param user
-     * @param field
      * @param name
      * @throws Exception
      */
-    public void editFieldName(TeamRole user, Field field, String name) throws Exception{
+    public void editFieldName(TeamRole user, Team team, String name) throws Exception{
         if (user.isTeamOwner()){
-            user.getTeamOwner().editFieldName(field, name);
+            user.getTeamOwner().editFieldName(team.getField(), name);
         }
         // the function in team manager checks if has permission
         else if (user.isTeamManager()){
-            user.getTeamManager().editFieldName(field, name);
+            user.getTeamManager().editFieldName(team.getField(), name);
         }
         // user isn't teamOwner or teamManager
         else{

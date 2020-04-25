@@ -533,7 +533,6 @@ public class SystemOperationsController {
 
     public static void deleteSystem(){
         MainSystem system=MainSystem.getInstance();
-        system.setComplaints(new LinkedList<>());
         system.setLeagues(new LinkedList<>());
         system.setUsers(new LinkedList<>());
         system.setSeasons(new  LinkedList<>());

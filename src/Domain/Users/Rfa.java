@@ -1,7 +1,7 @@
 package Domain.Users;
 
 import Domain.*;
-import Domain.BudgetControl.BudgetControl;
+
 import Domain.BudgetControl.BudgetReport;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -14,39 +14,38 @@ import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Ref;
+
 import java.time.*;
 import java.util.*;
 
-public class Rfa extends Fan implements Observer , NotificationsUser {
+public class Rfa extends Fan implements NotificationsUser {
 
-    private BudgetControl budgetControl;//TODO: delete?!?!?!
     private static final Logger LOG = LogManager.getLogger();
-    public static LinkedList<Team> teamRequests;
+    public static HashSet<Team> teamRequests;
     public static HashSet<Notification> notifications;
 
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
-        this.teamRequests= new LinkedList<>();
+        this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
+        system.removeUser(fan);
         //TODO add permissions
     }
 
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
-        this.teamRequests= new LinkedList<>();
+        this.teamRequests= new HashSet<>();
         notifications=new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
     //<editor-fold desc="getters and setters">
-    public BudgetControl getBudgetControl() { return budgetControl; }
 
-    public void setBudgetControl(BudgetControl budgetControl) { this.budgetControl = budgetControl; }
 
-    public static LinkedList<Team> getTeamRequests() { return teamRequests; }
+    public static HashSet<Team> getTeamRequests() {
+        return teamRequests;
+    }
 
-    public static void setTeamRequests(LinkedList<Team> teamRequests) { Rfa.teamRequests = teamRequests; }
     //</editor-fold>
 
     //<editor-fold desc="rolls to budget control on teams">

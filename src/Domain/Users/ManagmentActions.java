@@ -5,12 +5,15 @@ import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.LeagueManagment.Team;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public abstract class ManagmentActions {
     protected HashSet<TeamSubscription> mySubscriptions;
-
+    private static final Logger LOG = LogManager.getLogger();
     public ManagmentActions() {
         mySubscriptions= new HashSet<>();
     }
@@ -56,7 +59,7 @@ public abstract class ManagmentActions {
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
         mySubscriptions.add(sub);
-
+        LOG.info(String.format("%s - %s", getClass(), "subscribe team Owner :"+fan.getName()+"to team: "+team.getName()));
         return teamRole;
     }
 
@@ -74,13 +77,23 @@ public abstract class ManagmentActions {
             throw new NullPointerException();
         }
         team.removeTeamOwner(tO);
-        for(TeamSubscription sub : mySubscriptions){
+        LinkedList<TeamSubscription> subscriptionsList=new LinkedList<>();
+        for(TeamSubscription sub: mySubscriptions){
+            subscriptionsList.add(sub);
+        }
+        for(int i=0; i< subscriptionsList.size();i++){
+            TeamSubscription sub=subscriptionsList.get(i);
             if (sub.user.equals(tO.getTeamRole()) && sub.role.equals(tO)){
                 mySubscriptions.remove(sub);
             }
             break;
         }
-        for (TeamSubscription sub : tO.mySubscriptions) {
+       subscriptionsList=new LinkedList<>();
+        for(TeamSubscription sub: tO.mySubscriptions){
+            subscriptionsList.add(sub);
+        }
+        for(int i=0; i< subscriptionsList.size();i++){
+            TeamSubscription sub=subscriptionsList.get(i);
             if (sub.team.equals(team)) {
                 if (sub.role instanceof TeamOwner){
                     tO.removeTeamOwner((TeamOwner) sub.role, sub.team);
@@ -91,7 +104,7 @@ public abstract class ManagmentActions {
             }
         }
         tO.removeTeam(team);
-
+        LOG.info(String.format("%s - %s", getClass(), "remove team Owner :"+tO.getTeamRole().getName()+"to team: "+team.getName()));
     }
 
     /**
@@ -121,6 +134,7 @@ public abstract class ManagmentActions {
         else {
             throw new Exception("This Coach doesn't exist in this team");
         }
+        LOG.info(String.format("%s - %s", getClass(), "remove coach :"+coachToRemove.getTeamRole().getName()+"and replave with coach:+"+coachToAdd.getName()+"to team: "+team.getName()));
     }
 
     /**
@@ -135,6 +149,7 @@ public abstract class ManagmentActions {
             throw new NullPointerException();
         }
         coach.setRoleAtTeam(role);
+        LOG.info(String.format("%s - %s", getClass(), "edit coach "+coach.getTeamRole().getName()+" role to be :"+role));
     }
 
     /**
@@ -161,6 +176,7 @@ public abstract class ManagmentActions {
         else{
             throw new Exception("This player is already in another team");
         }
+        LOG.info(String.format("%s - %s", getClass(), "add player :"+player.getName()+"to team: "+team.getName()));
     }
 
     /**
@@ -177,6 +193,8 @@ public abstract class ManagmentActions {
         }
         team.removePlayer(player);
         player.setPlayerTeam(null);
+
+        LOG.info(String.format("%s - %s", getClass(), "remove player : "+player.getTeamRole().getName()+"from team: "+team.getName()));
     }
 
     /**
@@ -191,6 +209,7 @@ public abstract class ManagmentActions {
             throw new NullPointerException();
         }
         player.setRoleAtField(role);
+        LOG.info(String.format("%s - %s", getClass(), "edit player "+player.getTeamRole().getName()+" role to be :"+role));
     }
 
     /**
@@ -210,6 +229,7 @@ public abstract class ManagmentActions {
         fieldtoRemove.removeTeam(team);
         team.setField(fieldToAdd);
         fieldToAdd.addTeam(team);
+        LOG.info(String.format("%s - %s", getClass(), "remove field "+fieldtoRemove.getNameOfField()+" add fiels: "+fieldToAdd.getNameOfField()+" to team: "+team.getName()));
     }
 
     /**
@@ -224,6 +244,7 @@ public abstract class ManagmentActions {
             throw new NullPointerException();
         }
         field.setNameOfField(name);
+        LOG.info(String.format("%s - %s", getClass(), "edit field name to be: "+field.getNameOfField()));
     }
 
     /**OR
@@ -239,6 +260,8 @@ public abstract class ManagmentActions {
             throw  new NullPointerException();
         }
         team.addIncome(typeOfIncome,amount);
+
+        LOG.info(String.format("%s - %s", getClass(), "add income, type: "+typeOfIncome+", amount: "+amount+" to team: "+team.getName()));
     }
 
     /**or
@@ -254,13 +277,11 @@ public abstract class ManagmentActions {
             throw  new NullPointerException();
         }
         team.addExpense(typeOfExpense,amount);
+        LOG.info(String.format("%s - %s", getClass(), "add expense, type: "+typeOfExpense+", amount: "+amount+" to team: "+team.getName()));
     }
 
     public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
     }
 
-    public void setMySubscriptions(HashSet<TeamSubscription> mySubscriptions) {
-        this.mySubscriptions = mySubscriptions;
-    }
 }

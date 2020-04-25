@@ -12,24 +12,16 @@ import org.apache.logging.log4j.Logger;
 
 public class User {
     protected MainSystem system;
-    protected HashSet<TeamManagerPermissions> permissions;
+    //protected HashSet<TeamManagerPermissions> permissions;
     private static final Logger LOG = LogManager.getLogger();
 
 
     public User(MainSystem ms){
         system = ms;
-        permissions = new HashSet<>();
         system.addUser(this);
 
     }
 
-    public void addPermission(TeamManagerPermissions per){
-        permissions.add(per);
-    }
-
-    public void addPermissions(HashSet<TeamManagerPermissions> pers){
-        permissions.addAll(pers);
-    }
 
     //<editor-fold desc="getters and setters">
     public MainSystem getSystem() {
@@ -40,13 +32,6 @@ public class User {
         this.system = system;
     }
 
-    public HashSet<TeamManagerPermissions> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(HashSet<TeamManagerPermissions> permissions) {
-        this.permissions = permissions;
-    }
     //</editor-fold>
 
     //<editor-fold desc="Search Functions">

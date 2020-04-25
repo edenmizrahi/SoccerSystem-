@@ -309,7 +309,7 @@ public class Rfa extends Fan implements NotificationsUser {
                 }
 
                 HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
-                refereesInLeague.put(s,referees);
+                refereesInLeague.put(s,referees);//#
                 l.setRefereesInLeague(refereesInLeague);
                 s.addLeagueWithTeams(l,teams);
                 break;

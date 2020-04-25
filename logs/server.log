@@ -446,50 +446,96 @@
 2020.04.23 23:13:30.742 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
 2020.04.23 23:13:30.743 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
 2020.04.23 23:13:30.747 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
-2020.04.25 11:32:35.815 INFO  Domain.Users.TeamRole - michael - become team owner
-2020.04.25 11:35:40.969 INFO  Domain.Users.TeamRole - michael - become team owner
-2020.04.25 11:38:21.698 INFO  Domain.Users.TeamRole - michael - become team owner
-2020.04.25 11:41:05.881 INFO  Domain.Users.TeamRole - michael - become team owner
-2020.04.25 20:24:16.825 INFO  Domain.Users.Rfa - nadavS - Create new league
-2020.04.25 20:24:16.838 INFO  Domain.Users.Rfa - nadavS - start second budget control role on teams
-2020.04.25 20:24:16.850 INFO  Domain.Users.Rfa - nadavS - start second budget control role on teams
-2020.04.25 20:24:16.855 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C1 and season2020
-2020.04.25 20:24:16.857 INFO  Domain.LeagueManagment.Team - team2 - add team to league:C1 and season2020
-2020.04.25 20:24:16.857 INFO  Domain.LeagueManagment.Team - team3 - add team to league:C1 and season2020
-2020.04.25 20:24:16.858 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C1 and season2020
-2020.04.25 20:24:16.862 INFO  Domain.LeagueManagment.Team - team2 - add team to league:C1 and season2020
-2020.04.25 20:24:16.862 INFO  Domain.LeagueManagment.Team - team3 - add team to league:C1 and season2020
-2020.04.25 20:24:16.863 INFO  Domain.LeagueManagment.Team - team4 - add team to league:D1 and season2020
-2020.04.25 20:24:16.863 INFO  Domain.LeagueManagment.Team - team5 - add team to league:D1 and season2020
-2020.04.25 20:24:16.863 INFO  Domain.LeagueManagment.Team - team4 - add team to league:D1 and season2020
-2020.04.25 20:24:16.864 INFO  Domain.LeagueManagment.Team - team5 - add team to league:D1 and season2020
-2020.04.25 20:24:16.876 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
-2020.04.25 20:24:16.892 INFO  Domain.Users.TeamRole - coach - become team owner
-2020.04.25 20:24:16.911 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
-2020.04.25 20:24:16.918 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
-2020.04.25 20:24:16.918 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
-2020.04.25 20:24:16.925 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
-2020.04.25 20:24:16.926 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
-2020.04.25 20:24:16.936 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.941 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.941 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.942 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.942 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.942 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.943 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.943 INFO  Domain.Users.TeamRole - yarden - become player
-2020.04.25 20:24:16.943 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
-2020.04.25 20:24:16.944 INFO  Domain.Users.Rfa - nadavS - define curr season
-2020.04.25 20:24:16.949 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A2 and season2019
-2020.04.25 20:24:16.950 INFO  Domain.LeagueManagment.Team - team1 - add team to league:A2 and season2019
-2020.04.25 20:24:16.950 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A2 and season2019
-2020.04.25 20:24:16.950 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A2 and season2019
-2020.04.25 20:24:16.951 INFO  Domain.LeagueManagment.Team - team1 - add team to league:A2 and season2019
-2020.04.25 20:24:16.951 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A2 and season2019
-2020.04.25 20:24:16.951 INFO  Domain.LeagueManagment.Team - team6 - add team to league:B2 and season2019
-2020.04.25 20:24:16.951 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B2 and season2019
-2020.04.25 20:24:16.952 INFO  Domain.LeagueManagment.Team - team5 - add team to league:B2 and season2019
-2020.04.25 20:24:16.952 INFO  Domain.LeagueManagment.Team - team6 - add team to league:B2 and season2019
-2020.04.25 20:24:16.953 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B2 and season2019
-2020.04.25 20:24:16.954 INFO  Domain.LeagueManagment.Team - team5 - add team to league:B2 and season2019
-2020.04.25 20:24:16.954 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa 
+2020.04.25 11:24:00.134 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:29:24.617 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:31:47.583 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:35:43.095 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:41:30.360 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:41:42.254 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:41:58.540 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 12:01:47.335 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 20:15:28.958 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 20:15:42.115 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
+2020.04.25 20:15:42.117 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
+2020.04.25 20:15:42.118 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
+2020.04.25 20:15:42.118 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
+2020.04.25 20:15:42.123 INFO  Domain.Users.TeamRole - coachM - become coach
+2020.04.25 20:15:42.129 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 20:15:42.130 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 20:15:42.130 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 20:15:42.131 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 20:15:42.136 INFO  Domain.Users.TeamRole - player1 - become player
+2020.04.25 20:15:42.137 INFO  Domain.Users.TeamRole - player2 - become player
+2020.04.25 20:15:42.137 INFO  Domain.Users.TeamRole - player3 - become player
+2020.04.25 20:15:42.137 INFO  Domain.Users.TeamRole - player4 - become player
+2020.04.25 20:15:42.138 INFO  Domain.Users.TeamRole - player5 - become player
+2020.04.25 20:15:42.138 INFO  Domain.Users.TeamRole - player6 - become player
+2020.04.25 20:15:42.139 INFO  Domain.Users.TeamRole - player7 - become player
+2020.04.25 20:15:42.139 INFO  Domain.Users.TeamRole - player8 - become player
+2020.04.25 20:15:42.140 INFO  Domain.Users.TeamRole - player9 - become player
+2020.04.25 20:15:42.140 INFO  Domain.Users.TeamRole - player10 - become player
+2020.04.25 20:15:42.141 INFO  Domain.Users.TeamRole - player11 - become player
+2020.04.25 20:15:42.149 INFO  Domain.LeagueManagment.Team - beer sheva - team was activated
+2020.04.25 20:15:42.151 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.25 20:15:42.152 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.25 20:15:42.319 INFO  Domain.LeagueManagment.Team - beer sheva - add team to league:A and season2020
+2020.04.25 20:15:42.319 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A and season2020
+2020.04.25 20:15:42.320 INFO  Domain.LeagueManagment.Team - beer sheva - add team to league:A and season2020
+2020.04.25 20:15:42.320 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A and season2020
+2020.04.25 20:15:42.320 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
+2020.04.25 20:15:42.320 INFO  Domain.LeagueManagment.Team - team3 - add team to league:B and season2020
+2020.04.25 20:15:42.321 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B and season2020
+2020.04.25 20:15:42.321 INFO  Domain.LeagueManagment.Team - team3 - add team to league:B and season2020
+2020.04.25 20:15:42.321 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B and season2020
+2020.04.25 20:15:42.321 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
+2020.04.25 20:15:42.326 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.25 20:16:12.643 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.25 20:16:12.652 INFO  Domain.Users.Rfa - nadavS - start second budget control role on teams
+2020.04.25 20:16:12.660 INFO  Domain.Users.Rfa - nadavS - start second budget control role on teams
+2020.04.25 20:16:12.664 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C1 and season2020
+2020.04.25 20:16:12.665 INFO  Domain.LeagueManagment.Team - team2 - add team to league:C1 and season2020
+2020.04.25 20:16:12.665 INFO  Domain.LeagueManagment.Team - team3 - add team to league:C1 and season2020
+2020.04.25 20:16:12.665 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C1 and season2020
+2020.04.25 20:16:12.666 INFO  Domain.LeagueManagment.Team - team2 - add team to league:C1 and season2020
+2020.04.25 20:16:12.666 INFO  Domain.LeagueManagment.Team - team3 - add team to league:C1 and season2020
+2020.04.25 20:16:12.666 INFO  Domain.LeagueManagment.Team - team4 - add team to league:D1 and season2020
+2020.04.25 20:16:12.666 INFO  Domain.LeagueManagment.Team - team5 - add team to league:D1 and season2020
+2020.04.25 20:16:12.667 INFO  Domain.LeagueManagment.Team - team4 - add team to league:D1 and season2020
+2020.04.25 20:16:12.667 INFO  Domain.LeagueManagment.Team - team5 - add team to league:D1 and season2020
+2020.04.25 20:16:12.672 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
+2020.04.25 20:16:12.679 INFO  Domain.Users.TeamRole - coach - become team owner
+2020.04.25 20:16:12.683 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
+2020.04.25 20:16:12.686 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:16:12.686 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:16:12.689 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:16:12.690 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:16:12.695 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.695 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.695 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.696 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.696 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.696 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.696 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.697 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:16:12.697 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
+2020.04.25 20:16:12.700 INFO  Domain.Users.Rfa - nadavS - define curr season
+2020.04.25 20:16:12.703 INFO  Domain.LeagueManagment.Team - team1 - add team to league:A2 and season2019
+2020.04.25 20:16:12.703 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A2 and season2019
+2020.04.25 20:16:12.704 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A2 and season2019
+2020.04.25 20:16:12.704 INFO  Domain.LeagueManagment.Team - team1 - add team to league:A2 and season2019
+2020.04.25 20:16:12.705 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A2 and season2019
+2020.04.25 20:16:12.705 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A2 and season2019
+2020.04.25 20:16:12.706 INFO  Domain.LeagueManagment.Team - team6 - add team to league:B2 and season2019
+2020.04.25 20:16:12.706 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B2 and season2019
+2020.04.25 20:16:12.706 INFO  Domain.LeagueManagment.Team - team5 - add team to league:B2 and season2019
+2020.04.25 20:16:12.707 INFO  Domain.LeagueManagment.Team - team6 - add team to league:B2 and season2019
+2020.04.25 20:16:12.707 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B2 and season2019
+2020.04.25 20:16:12.707 INFO  Domain.LeagueManagment.Team - team5 - add team to league:B2 and season2019
+2020.04.25 20:16:12.708 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa 
+2020.04.25 20:17:51.725 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C and season2021
+2020.04.25 20:17:51.730 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C and season2021
+2020.04.25 20:17:51.732 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
+2020.04.25 20:18:04.121 INFO  Domain.Users.TeamRole - coach - become team owner
+2020.04.25 20:18:52.247 INFO  Domain.Users.TeamRole - coach - become team owner
+2020.04.25 20:19:22.815 INFO  Domain.Users.TeamRole - coach - become team owner
+2020.04.25 20:23:20.940 INFO  Domain.Users.TeamRole - coach - become team owner

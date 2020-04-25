@@ -24,4 +24,20 @@ public class RemoveTeamManagerTest {
         Assert.assertNull(davidTeamManager.getTeamManager());
     }
 
+    @Test
+    public void reject1() throws Exception {
+        SystemOperationsController.initSystemObjectsAdi();
+        // team manager to remove
+        TeamRole mosheTeamManager = (TeamRole) systemOperationsController.getUserByUserName("Moshe");
+        TeamRole avi = (TeamRole)systemOperationsController.getUserByUserName("Avi");
+        Team t2 = teamManagementController.getAllMyTeams(avi.getTeamOwner()).get(0);
+        try {
+            //moshe not team manager of this team
+            teamManagementController.removeTeamManager(avi.getTeamOwner(), mosheTeamManager.getTeamManager(), t2);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals(Exception.class, e.getClass());
+        }
+    }
+
 }

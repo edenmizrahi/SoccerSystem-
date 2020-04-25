@@ -182,4 +182,22 @@ public class RfaController {
         }
     }
 
+    /**
+     * get all the teams in the leagues in the season it got
+     * @param season
+     * @return
+     */
+    public List<Team> getAllTeamsInSeason(Season season){
+        List<Team> AllTeamsInSeason=new ArrayList<>();
+        HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues=season.getTeamsInCurrentSeasonLeagues();
+        for (Map.Entry<League, HashSet<Team>> entry : teamsInCurrentSeasonLeagues.entrySet()) {
+            League currLeague= entry.getKey();
+            HashSet<Team> teamsInLegue =entry.getValue();
+            for (Team t:teamsInLegue) {
+                AllTeamsInSeason.add(t);
+            }
+        }
+        return AllTeamsInSeason;
+    }
+
 }

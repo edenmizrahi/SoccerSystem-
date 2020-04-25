@@ -428,7 +428,9 @@ public class Rfa extends Fan implements NotificationsUser {
                 break;
             }
         }
-        cur.setRead(true);
+        if(cur!=null){
+            cur.setRead(true);
+        }
         teamRequests.remove(team);
 
     }

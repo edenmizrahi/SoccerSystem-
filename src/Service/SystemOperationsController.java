@@ -1,5 +1,6 @@
 package Service;
 
+import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.League;
@@ -7,6 +8,7 @@ import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.*;
+import Stubs.StubExternalSystem;
 
 import java.text.ParseException;
 import java.util.HashSet;
@@ -526,5 +528,18 @@ public class SystemOperationsController {
         ffff.subToPage(t1.getPrivatePage());
 
         System.out.println("lalala");
+    }
+
+
+    public static void deleteSystem(){
+        MainSystem system=MainSystem.getInstance();
+        system.setLeagues(new LinkedList<>());
+        system.setUsers(new LinkedList<>());
+        system.setSeasons(new  LinkedList<>());
+        system.setCurrSeason(null);
+        system.setActiveTeams(new HashSet<>());
+        system.setUserNames(new HashSet<>());
+        system.setTeamNames(new HashSet<>());
+
     }
 }

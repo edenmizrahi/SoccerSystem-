@@ -123,7 +123,7 @@ public class Rfa extends Fan implements NotificationsUser {
             }
 
         }
-
+        LOG.info(String.format("%s - %s", this.getUserName(), "start first budget control role on teams"));
         return budgetExceptionTeams;
     }
 
@@ -199,7 +199,7 @@ public class Rfa extends Fan implements NotificationsUser {
                 }
             }
         }
-
+        LOG.info(String.format("%s - %s", this.getUserName(), "start second budget control role on teams"));
         return budgetExceptionTeams;
     }
 
@@ -248,7 +248,7 @@ public class Rfa extends Fan implements NotificationsUser {
         }
         checkValidDetails(name, userName, password, phoneNumber,email);
         Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
-        LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Domain.Users.Rfa"));
+        LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Rfa"));
     }
 
     /**

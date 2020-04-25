@@ -62,12 +62,20 @@ public class SwitchingRoleBySystemManager {
         Assert.assertTrue(t2.getFounder()==orenTeamOwner.getTeamOwner());
         Assert.assertTrue(t2.getTeamOwners().contains(orenTeamOwner.getTeamOwner()));
         Assert.assertTrue(t2.getTeamOwners().contains(moshe));
+        /***add player to team */
+        Fan f2=new Fan(system, "Ori", "0549716910","yossi@gmail.com", "Ori", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole player =new TeamRole(f2);
+        player.becomePlayer();
 
+        managerController.addPlayerToTeam(player.getPlayer(),t2,sm);
+        Assert.assertTrue(t2.getPlayers().contains(player.getPlayer()));
+        Assert.assertTrue(player.getPlayer().getTeam()==t2);
     }
 
     @Test
     public void reject() throws Exception{
         /*****system init*****/
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         sm=operationsController.showAllSystemManagers().get(0);

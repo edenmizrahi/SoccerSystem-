@@ -71,7 +71,12 @@ public class PageManagement {
         /*****delete page***/
         Assert.assertTrue(((Fan) alona).getMyPages().contains(t1.getPrivatePage()));
         Assert.assertTrue(t1.getPrivatePage().getFans().contains(alona));
-        
+        pageManagementController.deletePrivatePage(t1);
+        Assert.assertTrue(t1.getPrivatePage()==null);
+        Assert.assertTrue(!((Fan) alona).getMyPages().contains(t1.getPrivatePage()));
+
+
+
 
 
     }
@@ -84,7 +89,6 @@ public class PageManagement {
     @Test
     public void reject() throws Exception{
         SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsEden();
         SystemOperationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         /***add team private page**/

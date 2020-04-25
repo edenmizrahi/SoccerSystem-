@@ -309,7 +309,7 @@ public class Rfa extends Fan implements NotificationsUser {
                 }
 
                 HashMap<Season,LinkedHashSet<Referee>> refereesInLeague = new HashMap<>();
-                refereesInLeague.put(s,referees);
+                refereesInLeague.put(s,referees);//#
                 l.setRefereesInLeague(refereesInLeague);
                 s.addLeagueWithTeams(l,teams);
                 break;
@@ -428,7 +428,9 @@ public class Rfa extends Fan implements NotificationsUser {
                 break;
             }
         }
-        cur.setRead(true);
+        if(cur!=null){
+            cur.setRead(true);
+        }
         teamRequests.remove(team);
 
     }

@@ -206,3 +206,597 @@
 2020.04.23 21:49:52.107 INFO  Domain.LeagueManagment.Team - null - team was deleted by team owner
 2020.04.23 21:49:52.112 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
 2020.04.23 21:49:52.116 INFO  Domain.Users.SystemManager - avi123 - remove %s from system
+2020.04.23 22:25:33.063 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 22:25:33.068 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 22:25:33.087 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 22:25:33.087 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 22:25:33.091 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 22:25:33.093 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 22:35:23.850 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 22:35:23.854 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 22:35:23.879 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 22:35:23.880 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 22:35:23.882 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 22:35:53.651 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 22:35:53.657 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 22:35:53.688 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 22:35:53.688 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 22:35:53.688 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 22:38:05.364 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 22:38:05.369 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 22:38:05.389 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 22:38:05.389 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 22:38:05.390 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 22:38:18.787 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.23 22:38:18.795 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.23 22:38:18.817 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.23 22:38:18.817 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.23 22:38:18.820 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.23 22:38:18.824 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:44:14.642 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 08:44:14.646 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 08:44:14.672 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:44:14.672 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:44:14.673 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 08:44:14.673 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 08:44:14.674 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:44:39.687 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 08:44:39.693 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 08:44:39.723 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:44:39.723 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:44:39.724 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 08:44:39.725 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 08:46:17.067 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 08:46:17.071 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 08:46:17.148 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:46:17.148 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 08:46:17.148 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 08:46:17.148 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 09:49:40.317 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 09:49:40.323 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 09:49:40.347 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 09:49:40.348 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 09:49:40.349 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 09:49:40.349 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 09:49:40.350 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 09:49:40.352 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 09:49:40.534 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:35:55.089 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:35:55.093 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:35:55.113 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:35:55.115 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:35:55.116 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:35:55.116 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:35:55.116 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:35:55.119 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:35:55.241 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:36:12.039 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:36:12.046 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:36:12.076 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:36:12.077 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:36:12.078 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:36:12.079 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:36:12.079 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:36:12.083 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:36:17.642 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:36:40.666 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:36:40.671 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:36:40.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:36:40.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:36:40.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:36:40.725 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:36:40.729 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:36:40.734 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:36:43.437 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:38:42.559 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:38:42.565 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:38:42.606 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:38:42.607 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:38:42.607 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:38:42.607 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:38:42.607 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:38:42.611 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:38:42.800 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:38:58.521 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:38:58.529 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:38:58.560 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:38:58.562 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:38:58.562 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:38:58.566 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:38:58.566 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:38:58.566 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:38:58.759 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:40:37.124 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:40:37.129 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:40:37.153 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:40:37.153 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:40:37.153 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:40:37.153 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:40:37.153 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:40:37.159 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:40:37.269 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:47:58.612 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:47:58.615 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:47:58.636 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:47:58.637 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:47:58.638 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:47:58.638 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:47:58.639 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:47:58.640 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:47:58.751 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 10:54:05.122 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 10:54:05.125 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 10:54:05.146 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:54:05.146 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:54:05.147 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 10:54:05.148 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 10:54:05.150 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 10:54:05.156 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 10:54:05.291 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:00:13.255 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:00:13.261 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:00:13.291 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:00:13.292 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:00:13.293 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:00:13.294 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:00:13.294 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:00:13.296 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:00:13.543 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:00:39.612 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:00:39.628 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:00:39.725 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:00:39.727 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:00:39.729 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:00:39.730 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:00:39.731 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:00:39.737 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:00:40.040 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:03:06.631 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:03:06.637 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:03:06.659 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:03:06.660 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:03:06.660 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:03:06.661 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:03:06.661 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:03:06.663 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:03:06.793 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:21:08.568 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:21:08.574 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:21:08.596 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:21:08.596 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:21:08.596 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:21:08.600 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:21:08.600 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:21:08.604 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:21:08.699 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:55:35.321 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:55:35.325 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:55:35.344 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:55:35.344 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:55:35.345 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:55:35.345 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:55:35.346 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:55:35.348 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:57:09.624 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:57:09.629 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:57:09.687 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:57:09.688 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:57:09.689 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:57:09.689 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:57:09.690 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:57:09.692 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:57:09.904 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:57:13.362 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:57:13.366 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:57:13.386 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:57:13.387 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:57:13.388 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:57:13.388 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:57:13.389 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:57:13.391 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:57:13.511 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:58:20.134 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:58:20.160 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:58:20.218 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:58:20.219 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:58:20.221 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:58:20.221 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:58:20.222 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:58:20.226 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:58:20.445 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 11:59:02.498 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 11:59:02.503 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 11:59:02.528 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:59:02.529 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:59:02.530 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 11:59:02.530 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 11:59:02.531 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 11:59:02.533 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 11:59:02.646 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 12:16:25.202 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:16:25.207 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:16:25.233 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:16:25.234 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:16:25.235 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:16:25.235 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:16:25.236 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:16:25.238 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 12:16:25.348 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 12:16:25.349 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 12:17:06.533 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:17:06.545 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:17:06.657 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:17:06.658 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:17:06.659 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:17:06.660 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:17:06.661 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:17:06.687 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 12:17:07.013 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 12:17:07.014 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 12:25:00.985 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:25:00.989 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:25:01.012 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:25:01.013 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:25:01.014 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:25:01.014 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:25:01.015 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:25:01.017 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 12:25:01.133 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 12:25:01.133 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.24 12:26:48.590 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 12:26:48.595 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 12:26:48.625 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:26:48.626 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:26:48.626 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 12:26:48.627 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 12:26:48.628 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 12:26:48.632 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 12:26:48.781 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 12:26:48.782 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.24 14:57:26.269 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:57:26.277 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:57:26.312 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:26.312 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:26.313 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:26.314 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:57:26.314 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:57:26.317 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 14:57:26.503 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 14:57:26.505 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.24 14:57:40.734 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:57:40.740 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:57:40.769 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:40.769 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:40.770 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:40.770 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:57:40.770 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:57:40.774 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 14:57:40.916 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 14:57:40.917 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.24 14:57:55.763 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:57:55.770 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:57:55.817 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:55.817 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:55.821 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:57:55.821 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:57:55.821 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:57:55.829 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 14:57:56.022 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 14:57:56.023 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.24 14:58:19.853 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 14:58:19.862 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 14:58:19.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:58:19.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:58:19.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 14:58:19.892 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 14:58:19.892 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 14:58:19.900 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 14:58:20.110 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 14:58:20.110 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.24 15:00:04.953 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:00:04.956 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:00:04.975 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:00:04.975 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:00:04.976 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:00:04.976 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:00:04.976 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:00:04.978 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 15:00:05.088 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 15:00:46.320 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:00:46.330 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:00:46.380 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:00:46.380 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:00:46.384 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:00:46.384 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:00:46.388 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:00:46.391 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 15:00:46.723 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 15:03:54.349 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:03:54.357 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:03:54.412 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:03:54.413 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:03:54.415 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:03:54.415 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:03:54.415 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:03:54.427 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 15:03:54.647 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 15:19:33.171 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:19:33.175 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:19:33.242 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:33.242 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:33.246 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:33.246 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:19:33.250 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:19:33.250 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 15:19:33.444 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 15:19:50.892 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:19:50.900 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:19:50.931 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:50.935 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:50.935 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:19:50.935 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:19:50.935 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:19:50.940 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 15:19:51.112 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 15:30:43.623 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 15:30:43.628 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 15:30:43.658 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:30:43.659 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:30:43.660 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 15:30:43.660 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 15:30:43.660 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 15:30:43.664 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 15:30:43.789 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 15:30:43.796 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.24 16:48:20.917 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:48:20.921 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:48:20.946 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:48:20.947 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:48:20.948 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:48:20.949 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:48:20.949 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:48:20.952 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 16:48:21.072 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 16:48:21.078 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.24 16:48:46.851 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:48:46.859 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:48:46.925 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:48:46.925 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:48:46.926 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:48:46.927 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:48:46.928 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:48:46.931 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 16:48:47.185 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 16:49:50.696 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.24 16:50:47.842 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 16:50:47.850 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 16:50:47.891 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:50:47.892 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:50:47.893 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 16:50:47.894 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 16:50:47.894 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 16:50:47.898 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 16:50:48.079 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 17:04:51.693 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.24 17:06:02.861 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 17:06:02.866 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 17:06:02.885 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 17:06:02.886 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 17:06:02.887 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 17:06:02.887 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 17:06:02.887 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 17:06:02.890 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 17:06:02.997 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 17:06:03.002 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.24 22:54:20.344 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 22:54:20.350 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 22:54:20.382 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 22:54:20.382 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 22:54:20.383 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 22:54:20.383 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 22:54:20.384 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 22:54:20.387 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 22:54:20.522 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 22:54:20.528 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.24 23:10:19.457 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 23:10:19.462 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 23:10:19.486 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:10:19.487 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:10:19.487 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:10:19.488 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 23:10:19.488 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 23:10:19.490 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 23:10:19.607 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 23:10:19.608 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
+2020.04.24 23:25:49.378 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 23:25:49.385 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 23:25:49.417 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:25:49.419 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:25:49.420 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:25:49.420 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 23:25:49.421 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 23:25:49.425 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 23:25:49.603 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 23:25:49.605 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
+2020.04.24 23:26:09.127 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 23:26:09.132 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 23:26:09.163 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:26:09.164 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:26:09.165 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:26:09.166 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 23:26:09.166 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 23:26:09.170 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 23:26:09.372 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 23:26:09.375 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
+2020.04.24 23:44:40.675 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 23:44:40.679 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 23:44:40.703 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:44:40.703 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:44:40.703 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:44:40.703 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 23:44:40.703 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 23:44:40.710 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 23:44:40.854 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 23:44:40.860 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
+2020.04.24 23:45:58.080 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 23:45:58.088 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 23:45:58.108 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:45:58.109 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:45:58.109 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:45:58.110 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 23:45:58.110 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 23:45:58.113 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 23:45:58.233 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 23:45:58.237 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
+2020.04.24 23:50:53.810 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.24 23:50:53.815 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.24 23:50:53.840 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:50:53.841 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:50:53.843 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.24 23:50:53.843 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.24 23:50:53.844 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.24 23:50:53.846 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.24 23:50:53.980 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.24 23:50:53.983 INFO  Domain.Users.Rfa - DanaBandana - start calculating policy by the rfa 
+2020.04.25 12:20:22.811 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 12:20:22.815 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 12:20:22.837 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:20:22.838 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:20:22.839 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:20:22.840 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 12:20:22.840 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 12:20:22.843 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 12:20:22.986 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 12:37:03.463 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 12:37:03.467 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 12:37:03.490 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:37:03.491 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:37:03.491 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:37:03.492 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 12:37:03.492 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 12:37:03.506 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 12:37:03.621 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 12:39:11.509 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 12:39:11.513 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 12:39:11.539 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:39:11.540 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:39:11.540 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:39:11.541 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 12:39:11.542 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 12:39:11.545 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 12:39:11.669 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 12:39:25.974 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 12:39:25.979 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 12:39:26.007 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:39:26.008 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:39:26.009 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 12:39:26.009 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 12:39:26.010 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 12:39:26.013 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 12:39:26.176 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 13:05:41.436 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 13:05:41.441 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 13:05:41.465 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:05:41.466 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:05:41.467 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:05:41.467 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 13:05:41.468 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 13:05:41.470 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 13:05:41.608 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 13:05:41.613 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.25 13:15:13.715 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 13:15:13.719 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 13:15:13.740 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:15:13.741 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:15:13.741 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:15:13.742 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 13:15:13.742 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 13:15:13.745 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 13:15:13.873 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 13:15:13.881 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.25 13:25:44.282 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 13:25:44.286 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 13:25:44.325 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:25:44.326 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:25:44.327 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 13:25:44.328 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 13:25:44.329 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 13:25:44.331 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 13:25:44.479 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 13:25:44.480 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.25 14:50:00.527 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 14:50:00.532 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 14:50:00.570 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 14:50:00.572 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 14:50:00.574 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 14:50:00.575 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 14:50:00.575 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 14:50:00.579 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 14:50:00.880 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 14:50:00.881 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 14:51:01.203 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.04.25 14:51:31.282 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.25 15:02:49.356 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 15:02:49.361 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 15:02:49.384 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:02:49.385 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:02:49.386 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:02:49.386 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 15:02:49.387 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 15:02:49.390 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 15:02:49.495 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:02:49.496 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:17:31.185 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 15:17:31.191 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 15:17:31.223 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:17:31.224 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:17:31.226 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:17:31.227 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 15:17:31.228 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 15:17:31.230 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 15:17:31.361 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:17:31.361 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.25 15:17:31.367 INFO  Domain.MainSystem -  - system was started
+2020.04.25 15:23:26.491 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 15:23:26.495 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 15:23:26.518 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:23:26.519 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:23:26.519 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:23:26.520 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 15:23:26.521 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 15:23:26.524 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 15:23:26.643 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:23:26.644 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.25 15:23:26.647 INFO  Domain.MainSystem -  - system was started
+2020.04.25 15:26:21.602 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 15:26:21.607 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 15:26:21.628 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:26:21.629 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:26:21.630 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:26:21.632 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 15:26:21.632 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 15:26:21.636 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 15:26:21.743 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:26:21.744 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:27:59.808 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 15:27:59.812 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 15:27:59.838 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:27:59.839 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:27:59.840 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:27:59.841 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 15:27:59.842 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 15:27:59.844 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 15:28:00.006 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:28:00.007 INFO  Domain.Users.Rfa - DanaBandana - Remove referee by Rfa
+2020.04.25 15:28:00.009 INFO  Domain.MainSystem -  - system was started
+2020.04.25 15:35:11.543 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.25 15:35:11.547 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.25 15:35:11.570 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:35:11.571 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:35:11.571 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Domain.Users.Rfa
+2020.04.25 15:35:11.572 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.25 15:35:11.573 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.25 15:35:11.575 INFO  Domain.Users.Rfa - DanaBandana - Create new league
+2020.04.25 15:35:11.707 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:35:11.709 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
+2020.04.25 15:35:11.711 INFO  Domain.MainSystem -  - system was started

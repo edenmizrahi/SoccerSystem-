@@ -1,15 +1,22 @@
 package AcceptRejectTests;
 
 
+import Domain.LeagueManagment.League;
 import Domain.MainSystem;
+import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
 import Service.RfaController;
 import Service.SystemManagerController;
 import Service.SystemOperationsController;
+import org.junit.Assert;
 import org.junit.Test;
 
-/**Adding a new  referee to system . UC: 30. **/
+import java.util.List;
+
+import static org.junit.Assert.fail;
+
+/** rfa Adding a new  referee to system . UC: 30. **/
 
 
 public class AddNewReferee {
@@ -29,10 +36,30 @@ public class AddNewReferee {
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
 
         /** referee added to system **/
+        String refUserName="refRoni";
+        try {
+            rfaController.addReferee(rfa,"roni","0542344654","a@gmail.com",refUserName,
+                    "123456","bla",MainSystem.birthDateFormat.parse("02-11-1996"));
+        }
+        catch (Exception e){
+            fail();
+        }
 
-
-
-
+        /** referee added to system  referees list **/
+        try{
+            Referee myReferi=null;
+            List<Referee> allReferee=operationsController.showAllReferee();
+            for(Referee ref: allReferee){
+                if(ref.getUserName().equals(refUserName)){
+                    myReferi=ref;
+                    break;
+                }
+            }
+            Assert.assertTrue(myReferi != null);
+        } catch (Exception e) {
+            Assert.fail("test fail");
+            e.printStackTrace();
+        }
 
     }
 
@@ -45,6 +72,20 @@ public class AddNewReferee {
         /*****get RFA *****/
         Rfa rfa=operationsController.getAllRFA().get(0);
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
+
+        /** try add referee that his UserName  already exists in the system - not success **/
+        try {
+            rfaController.addReferee(rfa,"rafi","0542344654","a@gmail.com","rafi",
+                    "123456","bla",MainSystem.birthDateFormat.parse("02-11-1996"));
+            fail("test fail");
+        }
+        catch (Exception e){//
+            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals("user name not valid",e.getMessage());
+        }
+
+
+
 
     }
 

@@ -386,7 +386,7 @@ public class RfaTest {
             t3.getBudgetControl().setIncomeAndExpenses(reports);
             HashSet<Team> teamsExceptions1 = nadav.firstRoleForBudget(2020);
             HashSet<Team>toCheck1 = new HashSet<>();
-            toCheck1.add(t3);
+            toCheck1.add(t3); //#
 
             /**Jan to March in 2020**/
             Assert.assertEquals(teamsExceptions1,toCheck1);

@@ -1,7 +1,12 @@
 package Service;
 
 import Domain.Enums.TeamManagerPermissions;
+import Domain.LeagueManagment.Calculation.CalculateOption1;
+import Domain.LeagueManagment.Calculation.CalculationPolicy;
+import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Scheduling.SchedualeOption1;
+import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
@@ -9,6 +14,7 @@ import Domain.Users.*;
 
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -48,6 +54,16 @@ public class SystemOperationsController {
     }
 
     /**
+     *   return all referee at system in LinkedHashSet for create season
+     * @return
+     */
+    public LinkedHashSet<Referee> getAllREfereeInHasSet() {
+        List<Referee> allRefs = showAllReferee();
+        LinkedHashSet<Referee> allRefHashSet = new LinkedHashSet<Referee>(allRefs);
+        return allRefHashSet;
+    }
+
+    /**
      * return all seasons
      * @return
      *  @codeBy Eden
@@ -62,9 +78,8 @@ public class SystemOperationsController {
      * @return
      *  @codeBy Eden
      */
-    public Season getSeason(){
+    public Season getCurrSeason(){
         return MainSystem.getInstance().getCurrSeason();
-
     }
 
      public  List<Player> getAllPlayers(){
@@ -94,7 +109,7 @@ public class SystemOperationsController {
 
      }
 
-
+     //public List<SchedualeOption1> getAllSchedulingPolicy() throws ParseException { }
 
 
         public static void initSystemObjectsAdi() throws Exception {
@@ -304,12 +319,18 @@ public class SystemOperationsController {
         system.addTeamName("macabi");
         t1.setActive(true);
         system.addActiveTeam(t1);
+        /**add field **/
+        Field field1=new Field("field1");
+        t1.setField(field1);
 
         Team t2 = new Team();
         t2.setName("hapoel");
         system.addTeamName("hapoel");
         t2.setActive(true);
         system.addActiveTeam(t2);
+        /**add field **/
+        Field field2=new Field("field2");
+        t2.setField(field2);
 
         /**add Ilan as Team Owner (founder) of t1 ***/
         Fan f1=new Fan(system, "Ilan", "0549716910","yossi@gmail.com", "Ilan", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
@@ -371,12 +392,31 @@ public class SystemOperationsController {
         Rfa yardenRfa=new Rfa(f15,system);
         /********/
 
+        /**add Referee*/
+        danaRFA.addReferee("rafi","0526621646","yossi@gmail.com","reffRafi","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
+        /**add Referee*/
+        danaRFA.addReferee("chen","0526621646","yossi@gmail.com","chen","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
+        /**add Referee*/
+        danaRFA.addReferee("ben","0526621646","yossi@gmail.com","ben","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
+
         /**addSystemManager*/
         Fan f11= new Fan(system, "ofer", "0549716910","yossi@gmail.com", "ofer", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         marioSystemManager.addNewSystemManager(f11);
+        /**add league*/
+        danaRFA.createNewLeague("ligaA",system);
 
-        /**add Referee*/
-        danaRFA.addReferee("fafi","0526621646","yossi@gmail.com","dana","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
+        /**add league*/
+        int currSeasonYear=2020;
+        RfaController rfaController=new RfaController();
+        List<League> allLeagus=MainSystem.getInstance().getLeagues();
+        List<SchedulingPolicy>SchedulingPolicies=rfaController.watchSchedulingPolicies();
+        List<CalculationPolicy> CalculationPolicies=rfaController.watchCalculationPolicies();
+        HashSet<Team> allTeams=MainSystem.getInstance().getActiveTeams();
+        List<Referee> allRefsList = MainSystem.getInstance().getAllReferees();
+        LinkedHashSet<Referee> allRefs = new LinkedHashSet<Referee>(allRefsList);
+
+        danaRFA.defineSeasonToLeague(SchedulingPolicies.get(0),CalculationPolicies.get(0),currSeasonYear,
+                allLeagus.get(0),allTeams,allRefs,true);
 
         //##
 

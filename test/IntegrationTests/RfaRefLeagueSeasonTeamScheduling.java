@@ -1,3 +1,5 @@
+package IntegrationTests;
+
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Field;

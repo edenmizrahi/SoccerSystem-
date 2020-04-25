@@ -446,3 +446,7 @@
 2020.04.23 23:13:30.742 INFO  Domain.Users.Rfa - nadavS - define season to Aby Rfa
 2020.04.23 23:13:30.743 INFO  Domain.Users.Rfa - nadavS - define season to Bby Rfa
 2020.04.23 23:13:30.747 INFO  Domain.Users.Rfa - nadavS - start scheduling policy by the rfa
+2020.04.25 11:32:35.815 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:35:40.969 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:38:21.698 INFO  Domain.Users.TeamRole - michael - become team owner
+2020.04.25 11:41:05.881 INFO  Domain.Users.TeamRole - michael - become team owner

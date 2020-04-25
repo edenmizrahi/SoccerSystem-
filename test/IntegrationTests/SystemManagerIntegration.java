@@ -1,3 +1,5 @@
+package IntegrationTests;
+
 import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.Events.Event;

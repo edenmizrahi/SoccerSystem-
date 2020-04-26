@@ -539,3 +539,405 @@
 2020.04.25 20:18:52.247 INFO  Domain.Users.TeamRole - coach - become team owner
 2020.04.25 20:19:22.815 INFO  Domain.Users.TeamRole - coach - become team owner
 2020.04.25 20:23:20.940 INFO  Domain.Users.TeamRole - coach - become team owner
+2020.04.25 20:25:56.742 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C and season2021
+2020.04.25 20:25:56.746 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C and season2021
+2020.04.25 20:25:56.746 INFO  Domain.Users.Rfa - nadavS - define season to Cby Rfa
+2020.04.25 20:25:56.753 INFO  Domain.Users.Rfa - nadavS - Create new league
+2020.04.25 20:25:56.761 INFO  Domain.Users.Rfa - nadavS - start second budget control role on teams
+2020.04.25 20:25:56.766 INFO  Domain.Users.Rfa - nadavS - start second budget control role on teams
+2020.04.25 20:25:56.771 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C1 and season2020
+2020.04.25 20:25:56.771 INFO  Domain.LeagueManagment.Team - team2 - add team to league:C1 and season2020
+2020.04.25 20:25:56.772 INFO  Domain.LeagueManagment.Team - team3 - add team to league:C1 and season2020
+2020.04.25 20:25:56.772 INFO  Domain.LeagueManagment.Team - team1 - add team to league:C1 and season2020
+2020.04.25 20:25:56.772 INFO  Domain.LeagueManagment.Team - team2 - add team to league:C1 and season2020
+2020.04.25 20:25:56.773 INFO  Domain.LeagueManagment.Team - team3 - add team to league:C1 and season2020
+2020.04.25 20:25:56.773 INFO  Domain.LeagueManagment.Team - team4 - add team to league:D1 and season2020
+2020.04.25 20:25:56.774 INFO  Domain.LeagueManagment.Team - team5 - add team to league:D1 and season2020
+2020.04.25 20:25:56.774 INFO  Domain.LeagueManagment.Team - team4 - add team to league:D1 and season2020
+2020.04.25 20:25:56.775 INFO  Domain.LeagueManagment.Team - team5 - add team to league:D1 and season2020
+2020.04.25 20:25:56.780 INFO  Domain.Users.Rfa - rfa123 - start scheduling policy by the rfa
+2020.04.25 20:25:56.789 INFO  Domain.Users.TeamRole - coach - become team owner
+2020.04.25 20:25:56.792 INFO  Domain.Users.Rfa - nadavS - Add referee by Rfa
+2020.04.25 20:25:56.797 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:25:56.798 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:25:56.823 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:25:56.824 INFO  Domain.Users.Rfa - nadavS - start first budget control role on teams
+2020.04.25 20:25:56.839 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.840 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.840 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.841 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.841 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.842 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.842 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.842 INFO  Domain.Users.TeamRole - yarden - become player
+2020.04.25 20:25:56.843 INFO  Domain.Users.Rfa - nadavS - Remove referee by Rfa
+2020.04.25 20:25:56.846 INFO  Domain.Users.Rfa - nadavS - define curr season
+2020.04.25 20:25:56.853 INFO  Domain.LeagueManagment.Team - team1 - add team to league:A2 and season2019
+2020.04.25 20:25:56.853 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A2 and season2019
+2020.04.25 20:25:56.854 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A2 and season2019
+2020.04.25 20:25:56.854 INFO  Domain.LeagueManagment.Team - team1 - add team to league:A2 and season2019
+2020.04.25 20:25:56.856 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A2 and season2019
+2020.04.25 20:25:56.856 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A2 and season2019
+2020.04.25 20:25:56.857 INFO  Domain.LeagueManagment.Team - team5 - add team to league:B2 and season2019
+2020.04.25 20:25:56.857 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B2 and season2019
+2020.04.25 20:25:56.857 INFO  Domain.LeagueManagment.Team - team6 - add team to league:B2 and season2019
+2020.04.25 20:25:56.858 INFO  Domain.LeagueManagment.Team - team5 - add team to league:B2 and season2019
+2020.04.25 20:25:56.859 INFO  Domain.LeagueManagment.Team - team4 - add team to league:B2 and season2019
+2020.04.25 20:25:56.862 INFO  Domain.LeagueManagment.Team - team6 - add team to league:B2 and season2019
+2020.04.25 20:25:56.863 INFO  Domain.Users.Rfa - nadavS - start calculating policy by the rfa 
+2020.04.26 09:11:13.020 INFO  Domain.Main - try - action?
+2020.04.26 09:11:13.071 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.26 09:11:13.071 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.26 09:11:13.086 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.26 09:11:13.087 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.26 09:11:13.087 INFO  Domain.Users.TeamRole - Arnold - become team owner
+2020.04.26 09:11:13.088 INFO  Domain.Users.TeamOwner - Arnold -  new team was added: macabi
+2020.04.26 09:11:13.089 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.26 09:11:13.089 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.26 09:11:13.094 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.26 09:11:13.097 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.26 09:11:13.103 INFO  Domain.Users.TeamRole - Moshe - become player
+2020.04.26 09:11:13.104 INFO  Domain.Users.TeamRole - Armin - become team owner
+2020.04.26 09:11:13.104 INFO  Domain.Users.TeamOwner - Armin -  new team was added: macabi
+2020.04.26 09:11:13.105 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.26 09:11:13.105 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.26 09:11:13.106 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.26 09:11:13.106 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.26 09:11:13.108 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.26 09:11:13.108 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.26 09:11:13.109 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.26 09:11:13.109 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.26 09:11:13.110 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.26 09:11:13.110 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.26 09:11:13.122 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.26 09:11:13.123 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.26 09:11:13.123 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.26 09:11:13.124 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.26 09:11:13.124 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.26 09:11:13.125 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.26 09:11:13.127 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.26 09:11:13.127 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.26 09:11:13.128 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.26 09:11:13.128 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.26 09:11:13.129 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.26 09:11:13.130 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.26 09:11:13.133 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.26 09:11:13.133 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.26 09:11:13.135 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.26 09:11:13.135 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.26 09:11:13.136 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.26 09:11:13.136 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.26 09:11:13.137 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.26 09:11:13.137 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.26 09:11:13.138 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.26 09:11:13.143 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.26 09:11:13.144 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.26 09:11:13.144 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.26 09:11:13.145 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.26 09:11:13.146 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.26 09:11:13.146 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.26 09:11:13.152 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.26 09:11:13.153 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.26 09:11:13.153 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.26 09:11:13.154 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.26 09:11:13.154 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.26 09:11:13.155 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.26 09:11:13.155 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.26 09:11:13.156 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.26 09:11:13.156 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.26 09:11:13.157 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.26 09:11:13.157 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.26 09:11:13.163 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.26 09:11:13.166 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.26 09:11:13.167 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.26 09:11:13.167 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.26 09:11:13.168 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.26 09:11:13.168 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.26 09:11:13.168 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.26 09:11:13.169 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.26 09:11:13.170 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.26 09:11:13.172 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.26 09:11:13.173 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.26 09:11:13.173 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.26 09:11:13.173 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.26 09:11:13.173 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.26 09:11:13.174 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.26 09:11:13.174 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.26 09:11:13.174 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.26 09:11:13.175 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.26 09:11:13.175 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.26 09:11:13.175 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.26 09:11:13.176 INFO  Domain.Users.TeamRole - Tami - become player
+2020.04.26 09:11:13.182 INFO  Domain.Users.TeamRole - Haim - become coach
+2020.04.26 09:11:13.183 INFO  Domain.Users.TeamRole - ben - become coach
+2020.04.26 09:11:13.183 INFO  Domain.Users.TeamRole - Mark - become coach
+2020.04.26 09:11:13.185 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.26 09:11:13.185 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.26 09:11:13.187 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.26 09:13:24.656 INFO  Main - try - action?
+2020.04.26 09:13:24.682 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.26 09:13:24.682 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.26 09:13:24.696 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.26 09:13:24.696 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.26 09:13:24.697 INFO  Domain.Users.TeamRole - Arnold - become team owner
+2020.04.26 09:13:24.698 INFO  Domain.Users.TeamOwner - Arnold -  new team was added: macabi
+2020.04.26 09:13:24.698 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.26 09:13:24.699 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.26 09:13:24.703 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.26 09:13:24.705 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.26 09:13:24.707 INFO  Domain.Users.TeamRole - Moshe - become player
+2020.04.26 09:13:24.707 INFO  Domain.Users.TeamRole - Armin - become team owner
+2020.04.26 09:13:24.708 INFO  Domain.Users.TeamOwner - Armin -  new team was added: macabi
+2020.04.26 09:13:24.710 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.26 09:13:24.711 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.26 09:13:24.712 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.26 09:13:24.713 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.26 09:13:24.713 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.26 09:13:24.713 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.26 09:13:24.714 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.26 09:13:24.715 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.26 09:13:24.715 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.26 09:13:24.716 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.26 09:13:24.725 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.26 09:13:24.726 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.26 09:13:24.727 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.26 09:13:24.727 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.26 09:13:24.728 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.26 09:13:24.728 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.26 09:13:24.731 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.26 09:13:24.732 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.26 09:13:24.733 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.26 09:13:24.736 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.26 09:13:24.737 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.26 09:13:24.737 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.26 09:13:24.739 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.26 09:13:24.739 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.26 09:13:24.739 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.26 09:13:24.739 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.26 09:13:24.740 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.26 09:13:24.741 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.26 09:13:24.743 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.26 09:13:24.743 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.26 09:13:24.745 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.26 09:13:24.745 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.26 09:13:24.745 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.26 09:13:24.745 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.26 09:13:24.747 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.26 09:13:24.747 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.26 09:13:24.747 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.26 09:13:24.748 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.26 09:13:24.752 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.26 09:13:24.753 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.26 09:13:24.753 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.26 09:13:24.753 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.26 09:13:24.754 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.26 09:13:24.754 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.26 09:13:24.755 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.26 09:13:24.755 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.26 09:13:24.756 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.26 09:13:24.756 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.26 09:13:24.757 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.26 09:13:24.757 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.26 09:13:24.758 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.26 09:13:24.758 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.26 09:13:24.758 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.26 09:13:24.759 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.26 09:13:24.759 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.26 09:13:24.760 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.26 09:13:24.760 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.26 09:13:24.760 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.26 09:13:24.762 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.26 09:13:24.762 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.26 09:13:24.763 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.26 09:13:24.763 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.26 09:13:24.764 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.26 09:13:24.764 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.26 09:13:24.764 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.26 09:13:24.764 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.26 09:13:24.764 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.26 09:13:24.764 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.26 09:13:24.767 INFO  Domain.Users.TeamRole - Tami - become player
+2020.04.26 09:13:24.770 INFO  Domain.Users.TeamRole - Haim - become coach
+2020.04.26 09:13:24.771 INFO  Domain.Users.TeamRole - ben - become coach
+2020.04.26 09:13:24.772 INFO  Domain.Users.TeamRole - Mark - become coach
+2020.04.26 09:13:24.773 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.26 09:13:24.774 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.26 09:13:24.775 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.26 09:15:11.580 INFO  Main - try - action?
+2020.04.26 09:15:11.605 INFO  Domain.Users.SystemManager - systemManager - Added to system
+2020.04.26 09:15:11.606 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.26 09:15:11.645 INFO  Domain.Users.TeamRole - Ilan - become team owner
+2020.04.26 09:15:11.646 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.26 09:15:11.647 INFO  Domain.Users.TeamRole - Arnold - become team owner
+2020.04.26 09:15:11.647 INFO  Domain.Users.TeamOwner - Arnold -  new team was added: macabi
+2020.04.26 09:15:11.648 INFO  Domain.Users.TeamRole - Avi - become team owner
+2020.04.26 09:15:11.648 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.26 09:15:11.652 INFO  Domain.Users.TeamRole - Moshe - become team manager for team: macabi
+2020.04.26 09:15:11.655 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.26 09:15:11.657 INFO  Domain.Users.TeamRole - Moshe - become player
+2020.04.26 09:15:11.658 INFO  Domain.Users.TeamRole - Armin - become team owner
+2020.04.26 09:15:11.658 INFO  Domain.Users.TeamOwner - Armin -  new team was added: macabi
+2020.04.26 09:15:11.659 INFO  Domain.Users.TeamRole - David - become team manager for team: hapoel
+2020.04.26 09:15:11.660 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.26 09:15:11.660 INFO  Domain.Users.TeamRole - player:macabi0d - become player
+2020.04.26 09:15:11.662 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.26 09:15:11.663 INFO  Domain.Users.TeamRole - player:macabi1d - become player
+2020.04.26 09:15:11.664 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.26 09:15:11.664 INFO  Domain.Users.TeamRole - player:macabi2d - become player
+2020.04.26 09:15:11.665 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.26 09:15:11.666 INFO  Domain.Users.TeamRole - player:macabi3d - become player
+2020.04.26 09:15:11.667 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.26 09:15:11.677 INFO  Domain.Users.TeamRole - player:macabi4d - become player
+2020.04.26 09:15:11.678 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.26 09:15:11.678 INFO  Domain.Users.TeamRole - player:macabi5d - become player
+2020.04.26 09:15:11.679 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.26 09:15:11.679 INFO  Domain.Users.TeamRole - player:macabi6d - become player
+2020.04.26 09:15:11.680 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.26 09:15:11.680 INFO  Domain.Users.TeamRole - player:macabi7d - become player
+2020.04.26 09:15:11.681 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.26 09:15:11.682 INFO  Domain.Users.TeamRole - player:macabi8d - become player
+2020.04.26 09:15:11.683 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.26 09:15:11.683 INFO  Domain.Users.TeamRole - player:macabi9d - become player
+2020.04.26 09:15:11.684 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.26 09:15:11.684 INFO  Domain.Users.TeamRole - player:macabi10d - become player
+2020.04.26 09:15:11.685 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.26 09:15:11.685 INFO  Domain.Users.TeamRole - player:hapoel0d - become player
+2020.04.26 09:15:11.686 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.26 09:15:11.686 INFO  Domain.Users.TeamRole - player:hapoel1d - become player
+2020.04.26 09:15:11.687 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.26 09:15:11.687 INFO  Domain.Users.TeamRole - player:hapoel2d - become player
+2020.04.26 09:15:11.688 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.26 09:15:11.688 INFO  Domain.Users.TeamRole - player:hapoel3d - become player
+2020.04.26 09:15:11.688 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.26 09:15:11.689 INFO  Domain.Users.TeamRole - player:hapoel4d - become player
+2020.04.26 09:15:11.692 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.26 09:15:11.693 INFO  Domain.Users.TeamRole - player:hapoel5d - become player
+2020.04.26 09:15:11.693 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.26 09:15:11.694 INFO  Domain.Users.TeamRole - player:hapoel6d - become player
+2020.04.26 09:15:11.694 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.26 09:15:11.695 INFO  Domain.Users.TeamRole - player:hapoel7d - become player
+2020.04.26 09:15:11.695 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.26 09:15:11.696 INFO  Domain.Users.TeamRole - player:hapoel8d - become player
+2020.04.26 09:15:11.696 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.26 09:15:11.697 INFO  Domain.Users.TeamRole - player:hapoel9d - become player
+2020.04.26 09:15:11.697 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.26 09:15:11.697 INFO  Domain.Users.TeamRole - player:hapoel10d - become player
+2020.04.26 09:15:11.698 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.26 09:15:11.698 INFO  Domain.Users.TeamRole - player:hapoel0a - become player
+2020.04.26 09:15:11.699 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.26 09:15:11.700 INFO  Domain.Users.TeamRole - player:hapoel1a - become player
+2020.04.26 09:15:11.700 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.26 09:15:11.701 INFO  Domain.Users.TeamRole - player:hapoel2a - become player
+2020.04.26 09:15:11.702 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.26 09:15:11.702 INFO  Domain.Users.TeamRole - player:hapoel3a - become player
+2020.04.26 09:15:11.702 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.26 09:15:11.703 INFO  Domain.Users.TeamRole - player:hapoel4a - become player
+2020.04.26 09:15:11.703 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.26 09:15:11.704 INFO  Domain.Users.TeamRole - player:hapoel5a - become player
+2020.04.26 09:15:11.704 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.26 09:15:11.705 INFO  Domain.Users.TeamRole - player:hapoel6a - become player
+2020.04.26 09:15:11.705 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.26 09:15:11.706 INFO  Domain.Users.TeamRole - player:hapoel7a - become player
+2020.04.26 09:15:11.707 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.26 09:15:11.707 INFO  Domain.Users.TeamRole - player:hapoel8a - become player
+2020.04.26 09:15:11.707 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.26 09:15:11.708 INFO  Domain.Users.TeamRole - player:hapoel9a - become player
+2020.04.26 09:15:11.708 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.26 09:15:11.708 INFO  Domain.Users.TeamRole - player:hapoel10a - become player
+2020.04.26 09:15:11.710 INFO  Domain.Users.ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.26 09:15:11.710 INFO  Domain.Users.TeamRole - Tami - become player
+2020.04.26 09:15:11.712 INFO  Domain.Users.TeamRole - Haim - become coach
+2020.04.26 09:15:11.713 INFO  Domain.Users.TeamRole - ben - become coach
+2020.04.26 09:15:11.714 INFO  Domain.Users.TeamRole - Mark - become coach
+2020.04.26 09:15:11.716 INFO  Domain.Users.SystemManager - ofer - Added to system
+2020.04.26 09:15:11.716 INFO  Domain.Users.SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.26 09:15:11.718 INFO  Domain.Users.Rfa - DanaBandana - Add referee by Rfa
+2020.04.26 09:17:38.302 INFO  Main - try - action?
+2020.04.26 09:17:38.359 INFO  SystemManager - systemManager - Added to system
+2020.04.26 09:17:38.360 INFO  Domain.MainSystem -  - system was started for the first time
+2020.04.26 09:17:38.377 INFO  TeamRole - Ilan - become team owner
+2020.04.26 09:17:38.378 INFO  Domain.Users.TeamOwner - Ilan -  new team was added: macabi
+2020.04.26 09:17:38.379 INFO  TeamRole - Arnold - become team owner
+2020.04.26 09:17:38.379 INFO  Domain.Users.TeamOwner - Arnold -  new team was added: macabi
+2020.04.26 09:17:38.380 INFO  TeamRole - Avi - become team owner
+2020.04.26 09:17:38.381 INFO  Domain.Users.TeamOwner - Avi -  new team was added: hapoel
+2020.04.26 09:17:38.386 INFO  TeamRole - Moshe - become team manager for team: macabi
+2020.04.26 09:17:38.388 INFO  Domain.Users.TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+2020.04.26 09:17:38.389 INFO  TeamRole - Moshe - become player
+2020.04.26 09:17:38.391 INFO  TeamRole - Armin - become team owner
+2020.04.26 09:17:38.393 INFO  Domain.Users.TeamOwner - Armin -  new team was added: macabi
+2020.04.26 09:17:38.393 INFO  TeamRole - David - become team manager for team: hapoel
+2020.04.26 09:17:38.394 INFO  Domain.Users.TeamOwner - David -  add as team manager: David, to team: hapoel
+2020.04.26 09:17:38.394 INFO  TeamRole - player:macabi0d - become player
+2020.04.26 09:17:38.395 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi0dto team: macabi
+2020.04.26 09:17:38.396 INFO  TeamRole - player:macabi1d - become player
+2020.04.26 09:17:38.396 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi1dto team: macabi
+2020.04.26 09:17:38.397 INFO  TeamRole - player:macabi2d - become player
+2020.04.26 09:17:38.398 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi2dto team: macabi
+2020.04.26 09:17:38.398 INFO  TeamRole - player:macabi3d - become player
+2020.04.26 09:17:38.399 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi3dto team: macabi
+2020.04.26 09:17:38.408 INFO  TeamRole - player:macabi4d - become player
+2020.04.26 09:17:38.408 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi4dto team: macabi
+2020.04.26 09:17:38.409 INFO  TeamRole - player:macabi5d - become player
+2020.04.26 09:17:38.409 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi5dto team: macabi
+2020.04.26 09:17:38.410 INFO  TeamRole - player:macabi6d - become player
+2020.04.26 09:17:38.410 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi6dto team: macabi
+2020.04.26 09:17:38.411 INFO  TeamRole - player:macabi7d - become player
+2020.04.26 09:17:38.412 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi7dto team: macabi
+2020.04.26 09:17:38.413 INFO  TeamRole - player:macabi8d - become player
+2020.04.26 09:17:38.413 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi8dto team: macabi
+2020.04.26 09:17:38.414 INFO  TeamRole - player:macabi9d - become player
+2020.04.26 09:17:38.414 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi9dto team: macabi
+2020.04.26 09:17:38.415 INFO  TeamRole - player:macabi10d - become player
+2020.04.26 09:17:38.415 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:macabi10dto team: macabi
+2020.04.26 09:17:38.415 INFO  TeamRole - player:hapoel0d - become player
+2020.04.26 09:17:38.415 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0dto team: hapoel
+2020.04.26 09:17:38.417 INFO  TeamRole - player:hapoel1d - become player
+2020.04.26 09:17:38.417 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1dto team: hapoel
+2020.04.26 09:17:38.418 INFO  TeamRole - player:hapoel2d - become player
+2020.04.26 09:17:38.419 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2dto team: hapoel
+2020.04.26 09:17:38.419 INFO  TeamRole - player:hapoel3d - become player
+2020.04.26 09:17:38.419 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3dto team: hapoel
+2020.04.26 09:17:38.421 INFO  TeamRole - player:hapoel4d - become player
+2020.04.26 09:17:38.421 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4dto team: hapoel
+2020.04.26 09:17:38.422 INFO  TeamRole - player:hapoel5d - become player
+2020.04.26 09:17:38.422 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5dto team: hapoel
+2020.04.26 09:17:38.423 INFO  TeamRole - player:hapoel6d - become player
+2020.04.26 09:17:38.423 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6dto team: hapoel
+2020.04.26 09:17:38.424 INFO  TeamRole - player:hapoel7d - become player
+2020.04.26 09:17:38.424 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7dto team: hapoel
+2020.04.26 09:17:38.425 INFO  TeamRole - player:hapoel8d - become player
+2020.04.26 09:17:38.426 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8dto team: hapoel
+2020.04.26 09:17:38.426 INFO  TeamRole - player:hapoel9d - become player
+2020.04.26 09:17:38.427 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9dto team: hapoel
+2020.04.26 09:17:38.427 INFO  TeamRole - player:hapoel10d - become player
+2020.04.26 09:17:38.427 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10dto team: hapoel
+2020.04.26 09:17:38.429 INFO  TeamRole - player:hapoel0a - become player
+2020.04.26 09:17:38.431 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel0ato team: hapoel
+2020.04.26 09:17:38.431 INFO  TeamRole - player:hapoel1a - become player
+2020.04.26 09:17:38.431 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel1ato team: hapoel
+2020.04.26 09:17:38.432 INFO  TeamRole - player:hapoel2a - become player
+2020.04.26 09:17:38.432 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel2ato team: hapoel
+2020.04.26 09:17:38.433 INFO  TeamRole - player:hapoel3a - become player
+2020.04.26 09:17:38.433 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel3ato team: hapoel
+2020.04.26 09:17:38.434 INFO  TeamRole - player:hapoel4a - become player
+2020.04.26 09:17:38.434 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel4ato team: hapoel
+2020.04.26 09:17:38.434 INFO  TeamRole - player:hapoel5a - become player
+2020.04.26 09:17:38.435 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel5ato team: hapoel
+2020.04.26 09:17:38.435 INFO  TeamRole - player:hapoel6a - become player
+2020.04.26 09:17:38.435 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel6ato team: hapoel
+2020.04.26 09:17:38.439 INFO  TeamRole - player:hapoel7a - become player
+2020.04.26 09:17:38.439 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel7ato team: hapoel
+2020.04.26 09:17:38.441 INFO  TeamRole - player:hapoel8a - become player
+2020.04.26 09:17:38.442 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel8ato team: hapoel
+2020.04.26 09:17:38.442 INFO  TeamRole - player:hapoel9a - become player
+2020.04.26 09:17:38.442 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel9ato team: hapoel
+2020.04.26 09:17:38.443 INFO  TeamRole - player:hapoel10a - become player
+2020.04.26 09:17:38.443 INFO  ManagmentActions - class Domain.Users.TeamOwner - add player :player:hapoel10ato team: hapoel
+2020.04.26 09:17:38.444 INFO  TeamRole - Tami - become player
+2020.04.26 09:17:38.447 INFO  TeamRole - Haim - become coach
+2020.04.26 09:17:38.447 INFO  TeamRole - ben - become coach
+2020.04.26 09:17:38.448 INFO  TeamRole - Mark - become coach
+2020.04.26 09:17:38.449 INFO  SystemManager - ofer - Added to system
+2020.04.26 09:17:38.450 INFO  SystemManager - systemManager - add new System Manager , user name: ofer
+2020.04.26 09:17:38.452 INFO  Rfa - DanaBandana - Add referee by Rfa

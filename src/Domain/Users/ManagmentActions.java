@@ -13,7 +13,7 @@ import java.util.LinkedList;
 
 public abstract class ManagmentActions {
     protected HashSet<TeamSubscription> mySubscriptions;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("ManagmentActions");
     public ManagmentActions() {
         mySubscriptions= new HashSet<>();
     }

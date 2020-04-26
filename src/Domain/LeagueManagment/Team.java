@@ -10,7 +10,7 @@ import java.util.*;
 import org.apache.logging.log4j.Logger;
 
 public class Team extends Observable implements PageOwner {
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Team");
     private String name;
     private HashSet<Match> home;
     private HashSet<Match> away;

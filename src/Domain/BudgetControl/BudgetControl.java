@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.LinkedList;
 
 public class BudgetControl {
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("BudgetControl");
     private long balance;
     private LinkedList<BudgetReport> incomeAndExpenses;
     private Team team;

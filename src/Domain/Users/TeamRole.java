@@ -15,7 +15,7 @@ public class TeamRole extends Fan {
     private Coach coach;
     private TeamOwner teamOwner;
     private TeamManager teamManager;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("TeamRole");
 
     /**OR**/
     public TeamRole(Fan fan) {

@@ -16,7 +16,7 @@ public class Referee extends Fan {
     private LinkedList<Match> matches;
     private LinkedList<Event> events;
     private String qualification;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Referee");
 
     public Referee(Fan fan, MainSystem ms){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());

@@ -10,7 +10,7 @@ public class Field {
     private String nameOfField;
     private HashSet<Match> matches;
     private HashSet<Team> teams;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Field");
     /******possible attribute*********/
     //private boolean isFree;
 

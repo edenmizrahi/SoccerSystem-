@@ -16,7 +16,7 @@ public class Fan extends User implements NotificationsUser {
     /**Do we need this? if a fan wants to follow a game it is added to his observable list **/
     private LinkedList <Match> matchesFollow;
     private LinkedList<String> searchHisroty;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Fan");
     HashSet<Notification> notificationHashSet;
 
     //from subscription:

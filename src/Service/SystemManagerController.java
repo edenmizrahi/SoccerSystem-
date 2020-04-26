@@ -96,7 +96,7 @@ public class SystemManagerController {
      * @codeBy Eden
      */
     public void addPlayerToTeam(Player p,Team t, SystemManager user) throws Exception {
-        if(user.addPlayerToTeam(p,t)){
+        if(!user.addPlayerToTeam(p,t)){
             throw new Exception("cannot add "+p.getTeamRole().getUserName()+" to Team:"+t.getName());
         }
     }

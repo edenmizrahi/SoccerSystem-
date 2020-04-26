@@ -25,6 +25,12 @@ import static org.junit.Assert.*;
 public class CloseTeamForeverTest {
     SystemManagerController managerController=new SystemManagerController();
     SystemOperationsController operationsController=new SystemOperationsController();
+
+    /**
+     * accept test for - close team forever by system manager .
+     * @throws Exception
+     * @codeBy Eden
+     */
     @Test
     public void accept() throws Exception {
         /*****system init*****/
@@ -79,6 +85,11 @@ public class CloseTeamForeverTest {
 
     }
 
+    /**
+     * reject test for - close team forever by system manager .
+     * @throws Exception
+     * @codeBy Eden
+     */
     @Test
     public  void reject() throws Exception {
         SystemOperationsController.deleteSystem();

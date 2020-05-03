@@ -12,7 +12,7 @@ public class MainSystemIntegration {
 
     @Test
     /**or*
-     * Integration : Main System- External System
+     * Integration : LoginMain System- External System
      */
     public void firstStartSystem() throws ParseException {
         ms.startSystem();
@@ -24,7 +24,7 @@ public class MainSystemIntegration {
 
     @Test
     /**or*
-     * Integration : Main System- External System
+     * Integration : LoginMain System- External System
      */
     public void startSystem() throws ParseException {
         ms.startSystem();

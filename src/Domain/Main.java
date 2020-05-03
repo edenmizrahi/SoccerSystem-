@@ -20,7 +20,7 @@ import java.util.HashSet;
 
 public class Main {
 
-    private static final Logger LOG = LogManager.getLogger("Main");
+    private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
 

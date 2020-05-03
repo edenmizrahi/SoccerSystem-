@@ -16,7 +16,7 @@ import java.util.*;
 public class SystemManager extends Fan implements NotificationsUser {
 
     public static  HashSet<Complaint> complaints=new HashSet<>();//*
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("SystemManager");
     private HashSet<Notification> notifications;
 
     /***

@@ -23,7 +23,7 @@ public class Match extends Observable{
     private HashSet<Referee> referees;
     private Date startDate;
     private int numOfMinutes;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Match");
 
 
     public Match(int homeScore, int guestScore, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees

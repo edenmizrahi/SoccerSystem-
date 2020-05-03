@@ -15,7 +15,7 @@ public class League {
     private String name;
     private MainSystem mainSystem; //1
 
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("League");
     /**
      * hold the teams in this league and in specific Seasons
      */

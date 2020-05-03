@@ -14,7 +14,7 @@ public abstract class Event  {
     private Referee referee;
     private Match match;
     private Date dateTime;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Event");
     private int minuteOfMatch;
 
     public Event(Referee referee, Match match) throws ParseException {

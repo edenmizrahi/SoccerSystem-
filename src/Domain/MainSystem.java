@@ -28,7 +28,7 @@ public class MainSystem {
     //    public static final String pattern = "dd-M-yyyy hh:mm:ss";
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     public static final SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("MainSystem");
     private static MainSystem mainSystem_instance = null;
 
     private MainSystem() {

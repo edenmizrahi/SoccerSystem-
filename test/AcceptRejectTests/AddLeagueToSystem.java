@@ -67,8 +67,10 @@ public class AddLeagueToSystem {
 
     @Test
     public void reject() throws Exception {
+
         /**added league with name that already exist in system **/
         /*****system init*****/
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAvital();// main system become
         MainSystem ma= MainSystem.getInstance();
 

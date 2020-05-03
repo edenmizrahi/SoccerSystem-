@@ -12,7 +12,7 @@ public class PrivatePage {
     private List<String> records;
     private PageOwner pageOwner;
     private HashSet <Fan> fans;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("PrivatePage");
 
     public PrivatePage( PageOwner pageOwner) {
         this.pageOwner = pageOwner;

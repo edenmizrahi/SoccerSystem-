@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 public class User {
     protected MainSystem system;
     //protected HashSet<TeamManagerPermissions> permissions;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("User");
 
 
     public User(MainSystem ms){

@@ -6,11 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class homePageMain extends Application {
+public class HomePageMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         primaryStage.setTitle("home page");
         primaryStage.setScene(new Scene(root, 1200, 600));
         primaryStage.show();

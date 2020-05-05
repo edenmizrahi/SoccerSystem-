@@ -1,29 +1,34 @@
 package Domain.Users;
 
 import Domain.Events.*;
-import Domain.Main;
 import Domain.MainSystem;
 import Domain.LeagueManagment.Match;
+import Domain.Notifications.Notification;
+import Domain.Notifications.NotificationsUser;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Observable;
 
-public class Referee extends Fan {
+public class Referee extends Fan implements NotificationsUser {
 
     private LinkedList<Match> matches;
     private LinkedList<Event> events;
+    private HashSet<Notification> refNotifications;
+
     private String qualification;
     private static final Logger LOG = LogManager.getLogger("Referee");
+
 
     public Referee(Fan fan, MainSystem ms){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         matches = new LinkedList<>();
         events = new LinkedList<>();
+        refNotifications =new HashSet<>();
     }
 
     public Referee(Fan fan, MainSystem ms, String qualification){
@@ -31,6 +36,7 @@ public class Referee extends Fan {
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification = qualification;
+        refNotifications =new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -40,6 +46,7 @@ public class Referee extends Fan {
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification=qualification;
+        refNotifications =new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -262,5 +269,45 @@ public class Referee extends Fan {
 
     //</editor-fold>
 
+    /**Referee Notifications**/
+    /**Yarden**/
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof Match){
+                this.refNotifications.add(new Notification(o,arg,false));
+        }
+    }
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    public void MarkAsReadNotification(Notification not){
+        not.setRead(true);
+    }
+
+    /**
+     * get all refNotifications read and unread
+     * @return
+     */
+    public HashSet<Notification> getNotificationsList() {
+        return refNotifications;
+    }
+
+    /***
+     * @return only the unread refNotifications . if not have return null - notify when user connect
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: refNotifications){
+            if(n.isRead()==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
 
 }

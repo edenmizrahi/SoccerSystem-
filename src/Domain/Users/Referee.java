@@ -188,6 +188,7 @@ public class Referee extends Fan implements NotificationsUser {
     /**Yarden**/
     public void addMatchToList(Match match){
         this.getMatches().add(match);
+        match.addObserver(this);
     }
 
     /**Yarden**/

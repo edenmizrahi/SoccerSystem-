@@ -17,11 +17,13 @@ public abstract class Event  {
     private Date dateTime;
     private static final Logger LOG = LogManager.getLogger("Event");
     private int minuteOfMatch;
+    private String name;
 
     public Event(Referee referee, Match match) throws Exception {
         if(referee != null && match != null) {
             this.referee = referee;
             this.match = match;
+//            this.name="";
             Date currentDate = new Date(System.currentTimeMillis());
             this.dateTime = MainSystem.simpleDateFormat.parse(currentDate.toString());
             long diff = currentDate.getTime() - match.getStartDate().getTime();
@@ -43,4 +45,12 @@ public abstract class Event  {
     public Date getDateTime() { return dateTime; }
 
     public int getMinuteOfMatch() { return minuteOfMatch; }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
 }

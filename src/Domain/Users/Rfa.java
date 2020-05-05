@@ -433,7 +433,6 @@ public class Rfa extends Fan implements NotificationsUser {
             cur.setRead(true);
         }
         teamRequests.remove(team);
-
     }
 
 

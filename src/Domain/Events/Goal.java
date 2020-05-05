@@ -13,6 +13,7 @@ public class Goal extends Event {
     public Goal(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
         if( p != null) {
+            super.setName("Goal");
             this.player = p;
             /**add score to the relevant team**/
             //player at home team

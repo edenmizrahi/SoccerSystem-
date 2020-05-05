@@ -76,8 +76,6 @@ public class Match extends Observable{
 
     public Field getField() { return field; }
 
-
-
     public HashSet<Event> getEvents() { return events; }
 
     public HashSet<Referee> getReferees() { return referees; }
@@ -116,6 +114,8 @@ public class Match extends Observable{
             if(e instanceof Goal || e instanceof ExtraTime || e instanceof Injury || e instanceof Offense ||
             e instanceof RedCard || e instanceof Replacement || e instanceof YellowCard) {
                 this.getEvents().add(e);
+                LOG.info(String.format("%s - %s", e.getName(), "add event to match between "+getHomeTeam().getName()+" to ")
+                +getAwayTeam().getName());
             }
         }
     }

@@ -13,6 +13,7 @@ public class Offense extends Event {
     public Offense(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
         if(p != null){
+            super.setName("Offense");
             this.player = p;
         }
         else{

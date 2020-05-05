@@ -42,8 +42,6 @@ public class SystemManager extends Fan implements NotificationsUser {
 //        this.complaints = new HashSet<>();
         notifications=new HashSet<>();
         LOG.info(String.format("%s - %s", this.getUserName(), "Added to system"));
-
-
     }
 
 

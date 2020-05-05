@@ -1,6 +1,6 @@
 package Domain.LeagueManagment;
 
-import Domain.Events.Event;
+import Domain.Events.*;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
@@ -80,28 +80,54 @@ public class Match extends Observable{
 
     public HashSet<Referee> getReferees() { return referees; }
 
+    public void setNumOfMinutes(int numOfMinutes) { this.numOfMinutes = numOfMinutes; }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+        setChanged();
+        notifyObservers("The match time between team-" +homeTeam.getName() + "to team-" + awayTeam.getName() +
+                " changed to "+this.startDate);
+    }
+
+    public void setField(Field field) {
+        this.field = field;
+        setChanged();
+        notifyObservers("The matching field between team-" +homeTeam.getName() + "to team-" + awayTeam.getName() +
+                " changed to "+this.field);
+    }
+
+    public void setHomeScore(int homeScore) {
+        this.homeScore = homeScore;
+//        setChanged();
+//        notifyObservers(homeTeam.getName()+" make GOAL, Team's score is: "+homeScore);
+    }
+
+    public void setGuestScore(int guestScore) {
+        this.guestScore = guestScore;
+//        setChanged();
+//        notifyObservers(awayTeam.getName()+" make GOAL, Team's score is: "+guestScore);
+    }
+
+    // TODO: 03/05/2020 todo TEST
+    public void addEventToList(Event e){
+        if(e!=null) {
+            if(e instanceof Goal || e instanceof ExtraTime || e instanceof Injury || e instanceof Offense ||
+            e instanceof RedCard || e instanceof Replacement || e instanceof YellowCard) {
+                this.getEvents().add(e);
+                LOG.info(String.format("%s - %s", e.getName(), "add event to match between "+getHomeTeam().getName()+" to ")
+                +getAwayTeam().getName());
+            }
+        }
+    }
+
     /**** not supposed to be at referee ? just him legal to add event to his match ****/
     /**** hat about the player that did the event ? ****/
     /**** minute of game ****/
     /**** startDate - timeStamp in event ? ****/
+    // TODO: 03/05/2020 todo TEST
     public void addEvent(Event e){
         setChanged();
         notifyObservers(e);
     }
 
-    public void setNumOfMinutes(int numOfMinutes) { this.numOfMinutes = numOfMinutes; }
-
-    public void setStartDate(Date startDate) { this.startDate = startDate; }
-
-    public void setHomeScore(int homeScore) {
-        this.homeScore = homeScore;
-        setChanged();
-        notifyObservers(homeTeam.getName()+" make GOAL, Team's score is: "+homeScore);
-    }
-
-    public void setGuestScore(int guestScore) {
-        this.guestScore = guestScore;
-        setChanged();
-        notifyObservers(awayTeam.getName()+" make GOAL, Team's score is: "+guestScore);
-    }
 }

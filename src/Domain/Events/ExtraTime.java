@@ -9,11 +9,17 @@ public class ExtraTime extends Event {
 
     private int extraMinute;
 
-    public ExtraTime(Referee referee, Match match, int minutesToAdd) throws ParseException {
-
+    public ExtraTime(Referee referee, Match match, int minutesToAdd) throws Exception {
         super(referee, match);
-        this.extraMinute = minutesToAdd;
-        match.setNumOfMinutes(match.getNumOfMinutes()+minutesToAdd);
+        if (minutesToAdd > 0) {
+            super.setName("Extra time");
+            this.extraMinute = minutesToAdd;
+            match.setNumOfMinutes(match.getNumOfMinutes()+minutesToAdd);
+        }
+        else{
+            throw new Exception("You can not give a negative extra time");
+        }
+
     }
 
     @Override

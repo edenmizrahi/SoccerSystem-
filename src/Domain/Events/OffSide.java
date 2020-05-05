@@ -10,9 +10,15 @@ public class OffSide extends Event {
 
     private Player player;
 
-    public OffSide(Referee referee, Match match, Player p) throws ParseException {
+    public OffSide(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
-        this.player = p;
+        if(p != null){
+            super.setName("OffSide");
+            this.player = p;
+        }
+        else{
+            throw new Exception("Please insert valid player");
+        }
     }
 
     @Override

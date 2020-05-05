@@ -10,9 +10,15 @@ public class Offense extends Event {
 
     Player player;
 
-    public Offense(Referee referee, Match match, Player p) throws ParseException {
+    public Offense(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
-        this.player = p;
+        if(p != null){
+            super.setName("Offense");
+            this.player = p;
+        }
+        else{
+            throw new Exception("Please insert valid player");
+        }
     }
 
     @Override

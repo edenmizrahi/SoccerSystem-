@@ -86,22 +86,6 @@ public class FanController {
         }
     }
 
-    /**
-     * return list with all private details of the fan
-     *
-     * @param user
-     * @return list of details of fan
-     */
-    public List<String> getPrivateDetails(Fan user) {
-        List<String> details = new LinkedList<>();
-        details.add(user.getUserName());
-        details.add(user.getName());
-        details.add(user.getPassword());
-        details.add(user.getPhoneNumber());
-        details.add(user.getEmail());
-        details.add(String.valueOf(user.getDateOfBirth()));
 
-        return details;
-    }
 
 }

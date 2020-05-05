@@ -276,6 +276,8 @@ public class SystemOperationsController {
         return matches;
     }
 
+
+
     /**
      * for input to delete user function
      *User name is an unique field so this function return one user if there is user with
@@ -295,6 +297,26 @@ public class SystemOperationsController {
         }
         return null;
     }
+
+
+    /**
+     * return list with all private details of the fan
+     * list : name, Password, PhoneNumber, Email, DateOfBirth
+     * @param userName
+     * @return list of details of fan
+     */
+    public List<String> getPrivateDetails(String userName) { //##
+        Fan fan= (Fan)getUserByUserName(userName);
+        List<String> details = new LinkedList<>();
+        details.add(fan.getName());
+        details.add(fan.getPassword());
+        details.add(fan.getPhoneNumber());
+        details.add(fan.getEmail());
+        details.add(String.valueOf(fan.getDateOfBirth()));
+
+        return details;
+    }
+
 
     public List<SystemManager> showAllSystemManagers(){
         return MainSystem.getInstance().getSystemManagers();

@@ -216,7 +216,7 @@ public class Rfa extends Fan implements NotificationsUser {
      * @throws Exception
      * @CodeBy yarden
      */
-    //TODO test
+    //TODO test - V
     public void createNewLeague(String nameOfLeague, MainSystem ms) throws Exception {
         if (nameOfLeague != null && ms != null) {
             League newLeague = new League(nameOfLeague, ms);
@@ -247,7 +247,7 @@ public class Rfa extends Fan implements NotificationsUser {
         if( qualification == null){
             throw new NullPointerException();
         }
-        checkValidDetails(name, userName, password, phoneNumber,email);
+        system.checkValidDetails(name, userName, password, phoneNumber,email);
         Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
         LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Rfa"));
     }
@@ -433,7 +433,6 @@ public class Rfa extends Fan implements NotificationsUser {
             cur.setRead(true);
         }
         teamRequests.remove(team);
-
     }
 
 

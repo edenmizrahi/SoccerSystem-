@@ -9,9 +9,15 @@ import java.text.ParseException;
 public class YellowCard extends Event {
 
     private Player player;
-    public YellowCard(Referee referee, Match match, Player p) throws ParseException {
+    public YellowCard(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
-        this.player = p;
+        if(p != null){
+            this.player = p;
+            super.setName("Yellow Card");
+        }
+        else{
+            throw new Exception("Please insert valid player");
+        }
     }
 
     @Override

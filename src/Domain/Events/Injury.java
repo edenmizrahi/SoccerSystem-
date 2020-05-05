@@ -10,9 +10,14 @@ public class Injury extends Event {
 
     Player player;
 
-    public Injury(Referee referee, Match match, Player p) throws ParseException {
+    public Injury(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
-        this.player = p;
+        if(p != null){
+            this.player = p;
+        }
+        else{
+            throw new Exception("Please insert valid player");
+        }
     }
 
     @Override

@@ -447,34 +447,6 @@ public class User {
     //</editor-fold>
 
 
-    /**OR*
-     * this function return the user that the userName and password are correct
-     * null if there is no user that fits
-     * @param userName
-     * @param password
-     * @return
-     */
-    public Fan logIn(String userName, String password) throws Exception {
-        if(userName==null){
-            throw new Exception("userName null");
-        }
-        if(userName.length()==0){
-            throw new Exception("userName empty");
-        }
-        if(password==null){
-            throw new Exception("password null");
-        }
-        if(password.length()<6){
-            throw new Exception("password not valid");
-        }
-        for (Fan fan:system.getAllFans()) {
-                if(fan.getUserName().equals(userName) && fan.getPassword().equals(password)){
-                    LOG.info(String.format("%s - %s", userName, "loged in to system"));
-                    return fan;
-                }
-        }
-        return null;
-    }
 
     private void writeToLOG(String message){
         if(this instanceof Fan){

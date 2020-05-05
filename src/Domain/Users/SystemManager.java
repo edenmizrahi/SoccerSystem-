@@ -57,17 +57,17 @@ public class SystemManager extends Fan implements NotificationsUser {
 
     /**
      * create new Domain.Users.SystemManager , connect to him all the complaints
-     * @param user
+     * @param fan
      * @codeBy Eden
      */
-    public SystemManager addNewSystemManager(Fan user) throws Exception {
-        if(user==null){
+    public SystemManager addNewSystemManager(Fan fan) throws Exception {
+        if(fan==null){
             throw new Exception("user is null");
         }
         /**constructor make connection to system**/
-        SystemManager newSystemManager=new SystemManager(user,system);
-        /**delete Domain.Users.Fan from system*/
-        system.removeUser(user);
+        SystemManager newSystemManager=new SystemManager(fan,system);
+        /**delete Fan from system*/
+        system.removeUser(fan);
         /**add the new system Manager to be observer of all complaints **/
         for(Complaint c:this.getComplaints()){
             c.addObserver(newSystemManager);
@@ -77,6 +77,21 @@ public class SystemManager extends Fan implements NotificationsUser {
         return  newSystemManager;
 
     }
+
+
+    /**OR**/
+    /*
+    public boolean signInAsSystemManager(String name, String phoneNumber, String email, String userName, String password){
+        // first check valid details
+        if(checkValidDetails(userName,password,phoneNumber)){
+            Domain.Users.SystemManager newSM= new Domain.Users.SystemManager(system,name,phoneNumber,email,userName,password);
+            system.removeUser(this);
+            system.addUser(newSM);
+            return true;
+        }
+        return false;
+    }
+    */
     /**Eden*/
     public static void answerToComplaint (Complaint com, String ans){
         if(SystemManager.complaints.contains(com)){

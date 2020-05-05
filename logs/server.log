@@ -2275,3 +2275,72 @@
 2020.04.25 23:17:25.002 INFO  Domain.LeagueManagment.Team - hapoel - add team to league:ligaA and season2020
 2020.04.25 23:17:25.002 INFO  Domain.Users.Rfa - DanaBandana - define season to ligaAby Rfa
 2020.04.25 23:17:25.012 INFO  Domain.Users.Rfa - DanaBandana - start scheduling policy by the rfa
+2020.05.05 12:06:40.139 INFO  SystemManager - systemManager - Added to system
+2020.05.05 12:06:40.144 INFO  MainSystem -  - system was started for the first time
+2020.05.05 12:06:40.179 INFO  MainSystem -  - system was started
+2020.05.05 12:14:02.030 INFO  SystemManager - system101 - Added to system
+2020.05.05 12:14:02.033 INFO  MainSystem - system101 - loged in to system
+2020.05.05 12:15:24.311 INFO  SystemManager - system101 - Added to system
+2020.05.05 12:15:24.315 INFO  MainSystem - system101 - loged in to system
+2020.05.05 12:15:44.888 INFO  SystemManager - systemManager - Added to system
+2020.05.05 12:15:44.893 INFO  MainSystem -  - system was started for the first time
+2020.05.05 12:15:44.911 INFO  MainSystem -  - system was started
+2020.05.05 12:15:44.919 INFO  SystemManager - system101 - Added to system
+2020.05.05 12:15:44.919 INFO  MainSystem - system101 - loged in to system
+2020.05.05 17:07:46.668 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:07:46.672 INFO  MainSystem - username - sign in as team owner
+2020.05.05 17:08:02.551 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:08:02.556 INFO  MainSystem - username - sign in as team owner
+2020.05.05 17:15:18.581 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:15:18.584 INFO  MainSystem - username - sign in as team owner
+2020.05.05 17:15:54.142 INFO  TeamRole - name1 - become coach
+2020.05.05 17:15:54.145 INFO  MainSystem - username - sign in as Coach
+2020.05.05 17:16:34.679 INFO  TeamRole - name1 - become player
+2020.05.05 17:16:34.684 INFO  MainSystem - username - sign in as Player
+2020.05.05 17:16:40.117 INFO  SystemManager - systemManager - Added to system
+2020.05.05 17:16:40.122 INFO  MainSystem -  - system was started for the first time
+2020.05.05 17:16:40.140 INFO  MainSystem -  - system was started
+2020.05.05 17:16:40.143 INFO  SystemManager - system101 - Added to system
+2020.05.05 17:16:40.143 INFO  MainSystem - system101 - loged in to system
+2020.05.05 17:16:40.154 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:16:40.156 INFO  MainSystem - username - sign in as team owner
+2020.05.05 17:17:30.726 INFO  SystemManager - systemManager - Added to system
+2020.05.05 17:17:30.730 INFO  MainSystem -  - system was started for the first time
+2020.05.05 17:17:30.743 INFO  MainSystem -  - system was started
+2020.05.05 17:17:30.745 INFO  SystemManager - system101 - Added to system
+2020.05.05 17:17:30.746 INFO  MainSystem - system101 - loged in to system
+2020.05.05 17:17:30.752 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:17:30.753 INFO  MainSystem - towner - sign in as team owner
+2020.05.05 17:17:30.773 INFO  TeamRole - name1 - become coach
+2020.05.05 17:17:30.774 INFO  MainSystem - coach - sign in as Coach
+2020.05.05 17:17:30.792 INFO  TeamRole - name1 - become player
+2020.05.05 17:17:30.793 INFO  MainSystem - player - sign in as Player
+2020.05.05 17:17:57.242 INFO  SystemManager - systemManager - Added to system
+2020.05.05 17:17:57.245 INFO  MainSystem -  - system was started for the first time
+2020.05.05 17:17:57.259 INFO  MainSystem -  - system was started
+2020.05.05 17:17:57.261 INFO  SystemManager - system101 - Added to system
+2020.05.05 17:17:57.261 INFO  MainSystem - system101 - loged in to system
+2020.05.05 17:17:57.268 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:17:57.270 INFO  MainSystem - towner - sign in as team owner
+2020.05.05 17:17:57.278 INFO  TeamRole - name1 - become coach
+2020.05.05 17:17:57.279 INFO  MainSystem - coach - sign in as Coach
+2020.05.05 17:17:57.297 INFO  TeamRole - name1 - become player
+2020.05.05 17:17:57.298 INFO  MainSystem - player - sign in as Player
+2020.05.05 17:19:25.256 INFO  MainSystem - fan - sign in as Domain.Users.Fan
+2020.05.05 17:19:25.264 INFO  TeamRole - name1 - become player
+2020.05.05 17:19:25.264 INFO  MainSystem - fans - sign in as Player
+2020.05.05 17:19:56.247 INFO  MainSystem - fan - sign in as Domain.Users.Fan
+2020.05.05 17:20:36.939 INFO  MainSystem - rfa - sign in as RFA
+2020.05.05 17:20:43.367 INFO  SystemManager - systemManager - Added to system
+2020.05.05 17:20:43.375 INFO  MainSystem -  - system was started for the first time
+2020.05.05 17:20:43.384 INFO  MainSystem -  - system was started
+2020.05.05 17:20:43.387 INFO  SystemManager - system101 - Added to system
+2020.05.05 17:20:43.388 INFO  MainSystem - system101 - loged in to system
+2020.05.05 17:20:43.391 INFO  MainSystem - fan - sign in as Domain.Users.Fan
+2020.05.05 17:20:43.393 INFO  MainSystem - rfa - sign in as RFA
+2020.05.05 17:20:43.402 INFO  TeamRole - name1 - become team owner
+2020.05.05 17:20:43.403 INFO  MainSystem - towner - sign in as team owner
+2020.05.05 17:20:43.415 INFO  TeamRole - name1 - become coach
+2020.05.05 17:20:43.416 INFO  MainSystem - coach - sign in as Coach
+2020.05.05 17:20:43.420 INFO  TeamRole - name1 - become player
+2020.05.05 17:20:43.421 INFO  MainSystem - player - sign in as Player

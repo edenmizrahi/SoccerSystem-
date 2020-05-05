@@ -444,78 +444,55 @@ public class MainSystem {
     //<editor-fold desc="Sign in Functions">
 
     /**OR**/
-    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+    //TODO test- V
+    public void signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole newPlayer= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
         newPlayer.becomePlayer();
-        LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Player"));
-        return newPlayer;
+        LOG.info(String.format("%s - %s", userName, "sign in as Player"));
+
     }
 
     /**OR**/
-    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
+    //TODO test- V
+    public void signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole newCoach= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
         newCoach.becomeCoach();
-        LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Coach"));
-        return newCoach;
+        LOG.info(String.format("%s - %s", userName, "sign in as Coach"));
     }
 
+
     /**OR**/
-    /*
-    public boolean signInAsReferee(String name, String phoneNumber, String email, String userName, String password, String qualification){
-        // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber)){
-            Domain.Users.Referee newRef= new Domain.Users.Referee(system,name,phoneNumber,email,userName,password,qualification);
-            system.removeUser(this);
-            system.addUser(newRef);
-            return true;
-        }
-        return false;
-    }
-*/
-    /**OR**/
-    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
+    //TODO test- V
+    public void signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         Fan newFan= new Fan(this,name,phoneNumber,email,userName,password, dateOfBirth);
         LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
-        return newFan;
     }
 
-    /**OR**/
-    /*
-    public boolean signInAsSystemManager(String name, String phoneNumber, String email, String userName, String password){
-        // first check valid details
-        if(checkValidDetails(userName,password,phoneNumber)){
-            Domain.Users.SystemManager newSM= new Domain.Users.SystemManager(system,name,phoneNumber,email,userName,password);
-            system.removeUser(this);
-            system.addUser(newSM);
-            return true;
-        }
-        return false;
-    }
-    */
+
 
     /**OR**/
-    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
+    //TODO test- V
+    public void signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         Rfa newRFA= new Rfa(this,name,phoneNumber,email,userName,password,dateOfBirth);
         LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
-        return newRFA;
     }
 
     /**OR**/
-    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+    //TODO test- V
+    public void signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole teamOwner= new TeamRole(this,name,phoneNumber,email,userName,password, dateOfBirth);
         teamOwner.becomeTeamOwner();
         LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
-        return teamOwner;
     }
 
     /**or
@@ -582,6 +559,6 @@ public class MainSystem {
                 return fan;
             }
         }
-        return null;
+        throw new Exception("details not correct, no fan in system");
     }
 }

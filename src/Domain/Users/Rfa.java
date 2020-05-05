@@ -13,6 +13,7 @@ import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sun.rmi.runtime.Log;
 
 
 import java.time.*;
@@ -20,7 +21,7 @@ import java.util.*;
 
 public class Rfa extends Fan implements NotificationsUser {
 
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Rfa");
     public static HashSet<Team> teamRequests;
     public static HashSet<Notification> notifications;
 

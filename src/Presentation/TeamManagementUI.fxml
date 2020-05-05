@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.TeamManagementUIController">
+    <children>
+        <MenuBar layoutX="1.0" prefHeight="0.0" prefWidth="1366.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <BorderPane layoutX="2.0" layoutY="26.0" prefHeight="374.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="26.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <top>
+                <GridPane alignment="CENTER_LEFT" prefHeight="416.0" prefWidth="1361.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="88.66665903727213" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="147.66668701171875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="152.33331298828125" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.33331298828125" minWidth="10.0" prefWidth="134.33333333333337" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.99999999999994" minWidth="10.0" prefWidth="76.33334350585938" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="64.66665649414062" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <BorderPane.margin>
+                        <Insets left="5.0" top="10.0" />
+                    </BorderPane.margin>
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="225.0" text="Add/Remove/Edit Team Properties" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="240.0" text="Report Income/Expense" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="216.0" text="Create New Team" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="58.0" text="home" />
+                  <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="202.0" text="Subscribe/Remove Team Owner" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="208.0" text="Subsribe/Remove Team Manager" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="232.0" text="Close Team" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="215.0" text="Reopen Team" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets left="5.0" />
+                    </opaqueInsets>
+                </GridPane>
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>

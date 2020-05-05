@@ -18,7 +18,7 @@ public class Season {
     private CalculationPolicy calculationPolicy;
     private MainSystem mainSystem;
     private int year;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("Season");
 
     public Season( MainSystem ms, SchedulingPolicy schedule, CalculationPolicy calculate, int year) {
         this.schedulingPolicy = schedule;

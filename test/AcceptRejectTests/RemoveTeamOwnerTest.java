@@ -18,6 +18,7 @@ public class RemoveTeamOwnerTest {
 
     @Test
     public void accept1() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
        // team owner to remove
         TeamRole arnoldTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Arnold");
@@ -35,6 +36,7 @@ public class RemoveTeamOwnerTest {
     /***************SAME TESTS EXCEPT THIS TIME WITH TEAM MANAGER****************/
     @Test
     public void accept2() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // team owner to remove
         TeamRole arminTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Armin");
@@ -47,6 +49,7 @@ public class RemoveTeamOwnerTest {
     // team manager without permission
     @Test
     public void reject() throws Exception {
+        SystemOperationsController.deleteSystem();
         SystemOperationsController.initSystemObjectsAdi();
         // team owner to remove
         TeamRole aviTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Avi");

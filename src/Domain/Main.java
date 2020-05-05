@@ -20,12 +20,12 @@ import java.util.HashSet;
 
 public class Main {
 
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
 
         /**LOGGER FORAMT**/
-//        LOG.info(String.format("%s - %s", "try", "action?"));
+        LOG.info(String.format("%s - %s", "try", "action?"));
 
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

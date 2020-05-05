@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -440,5 +441,147 @@ public class MainSystem {
         this.teamNames = teamNames;
     }
 
+    //<editor-fold desc="Sign in Functions">
 
+    /**OR**/
+    public TeamRole signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+        // first check valid details
+        checkValidDetails(name,userName,password,phoneNumber,email);
+        TeamRole newPlayer= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
+        newPlayer.becomePlayer();
+        LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Player"));
+        return newPlayer;
+    }
+
+    /**OR**/
+    public TeamRole signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
+        // first check valid details
+        checkValidDetails(name,userName,password,phoneNumber,email);
+        TeamRole newCoach= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
+        newCoach.becomeCoach();
+        LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Coach"));
+        return newCoach;
+    }
+
+    /**OR**/
+    /*
+    public boolean signInAsReferee(String name, String phoneNumber, String email, String userName, String password, String qualification){
+        // first check valid details
+        if(checkValidDetails(userName,password,phoneNumber)){
+            Domain.Users.Referee newRef= new Domain.Users.Referee(system,name,phoneNumber,email,userName,password,qualification);
+            system.removeUser(this);
+            system.addUser(newRef);
+            return true;
+        }
+        return false;
+    }
+*/
+    /**OR**/
+    public Fan signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
+        // first check valid details
+        checkValidDetails(name,userName,password,phoneNumber,email);
+        Fan newFan= new Fan(this,name,phoneNumber,email,userName,password, dateOfBirth);
+        LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
+        return newFan;
+    }
+
+    /**OR**/
+    /*
+    public boolean signInAsSystemManager(String name, String phoneNumber, String email, String userName, String password){
+        // first check valid details
+        if(checkValidDetails(userName,password,phoneNumber)){
+            Domain.Users.SystemManager newSM= new Domain.Users.SystemManager(system,name,phoneNumber,email,userName,password);
+            system.removeUser(this);
+            system.addUser(newSM);
+            return true;
+        }
+        return false;
+    }
+    */
+
+    /**OR**/
+    public Rfa signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
+        // first check valid details
+        checkValidDetails(name,userName,password,phoneNumber,email);
+        Rfa newRFA= new Rfa(this,name,phoneNumber,email,userName,password,dateOfBirth);
+        LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
+        return newRFA;
+    }
+
+    /**OR**/
+    public TeamRole signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+        // first check valid details
+        checkValidDetails(name,userName,password,phoneNumber,email);
+        TeamRole teamOwner= new TeamRole(this,name,phoneNumber,email,userName,password, dateOfBirth);
+        teamOwner.becomeTeamOwner();
+        LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
+        return teamOwner;
+    }
+
+    /**or
+     * this function check if the details are valid
+     * @param name- name not null
+     * @param userName - unique and not null
+     * @param password - more than 6 characters , not null
+     * @param phoneNumber- 10 digits, not null
+     * @param email- contains @, .com or .co.il
+     * @throws Exception
+     */
+    //TODO test-V
+    public void checkValidDetails(String name, String userName, String password, String phoneNumber, String email) throws Exception {
+        //check name not null
+        if(name==null){
+            throw new Exception("name not valid");
+        }
+        //check that username in unique
+        if(userName==null || this.getUserNames().contains(userName)){
+            throw new Exception("user name not valid");
+        }
+        //password length is 6 or more
+        if(password==null ||password.length()<6){
+            throw new Exception("password not valid");
+        }
+        // phone number is 10 digits
+        if(phoneNumber==null || !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
+            throw new Exception("phone number not valid");
+        }
+        //email contains @
+        if(email==null ||! email.contains("@")){
+            throw new Exception("email not valid");
+        }
+        if( ! (email.contains(".com") || email.contains(".co.il"))){
+            throw new Exception("email not valid");
+        }
+    }
+    //</editor-fold>
+
+
+    /**OR*
+     * this function return the user that the userName and password are correct
+     * null if there is no user that fits
+     * @param userName
+     * @param password
+     * @return
+     */
+    public Fan logIn(String userName, String password) throws Exception {
+        if(userName==null){
+            throw new Exception("userName null");
+        }
+        if(userName.length()==0){
+            throw new Exception("userName empty");
+        }
+        if(password==null){
+            throw new Exception("password null");
+        }
+        if(password.length()<6){
+            throw new Exception("password not valid");
+        }
+        for (Fan fan:getAllFans() ) {
+            if(fan.getUserName().equals(userName) && fan.getPassword().equals(password)){
+                LOG.info(String.format("%s - %s", userName, "loged in to system"));
+                return fan;
+            }
+        }
+        return null;
+    }
 }

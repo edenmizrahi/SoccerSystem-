@@ -123,7 +123,7 @@ public class Fan extends User implements NotificationsUser {
 
 
     /**Eden*/
-    public void  addMatchFollow(Match m){
+    public void addMatchFollow(Match m){
         matchesFollow.add(m);
         m.addObserver(this);
     }
@@ -138,7 +138,6 @@ public class Fan extends User implements NotificationsUser {
         complaint.send("new Domain.Complaint from: "+userName);
 
         complaint.addObserver(this);
-
     }
 
     /**Eden*/

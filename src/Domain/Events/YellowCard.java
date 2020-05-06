@@ -13,6 +13,7 @@ public class YellowCard extends Event {
         super(referee, match);
         if(p != null){
             this.player = p;
+            super.setName("Yellow Card");
         }
         else{
             throw new Exception("Please insert valid player");

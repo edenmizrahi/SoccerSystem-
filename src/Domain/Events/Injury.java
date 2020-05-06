@@ -13,6 +13,7 @@ public class Injury extends Event {
     public Injury(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
         if(p != null){
+            super.setName("Injury");
             this.player = p;
         }
         else{

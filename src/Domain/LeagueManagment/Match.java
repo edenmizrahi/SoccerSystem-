@@ -82,18 +82,30 @@ public class Match extends Observable{
 
     public void setNumOfMinutes(int numOfMinutes) { this.numOfMinutes = numOfMinutes; }
 
-    public void setStartDate(Date startDate) { this.startDate = startDate; }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+        setChanged();
+        notifyObservers("The match time between team-" +homeTeam.getName() + "to team-" + awayTeam.getName() +
+                " changed to "+this.startDate);
+    }
+
+    public void setField(Field field) {
+        this.field = field;
+        setChanged();
+        notifyObservers("The matching field between team-" +homeTeam.getName() + "to team-" + awayTeam.getName() +
+                " changed to "+this.field);
+    }
 
     public void setHomeScore(int homeScore) {
         this.homeScore = homeScore;
-        setChanged();
-        notifyObservers(homeTeam.getName()+" make GOAL, Team's score is: "+homeScore);
+//        setChanged();
+//        notifyObservers(homeTeam.getName()+" make GOAL, Team's score is: "+homeScore);
     }
 
     public void setGuestScore(int guestScore) {
         this.guestScore = guestScore;
-        setChanged();
-        notifyObservers(awayTeam.getName()+" make GOAL, Team's score is: "+guestScore);
+//        setChanged();
+//        notifyObservers(awayTeam.getName()+" make GOAL, Team's score is: "+guestScore);
     }
 
     // TODO: 03/05/2020 todo TEST
@@ -102,6 +114,8 @@ public class Match extends Observable{
             if(e instanceof Goal || e instanceof ExtraTime || e instanceof Injury || e instanceof Offense ||
             e instanceof RedCard || e instanceof Replacement || e instanceof YellowCard) {
                 this.getEvents().add(e);
+                LOG.info(String.format("%s - %s", e.getName(), "add event to match between "+getHomeTeam().getName()+" to ")
+                +getAwayTeam().getName());
             }
         }
     }

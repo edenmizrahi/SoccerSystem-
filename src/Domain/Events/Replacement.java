@@ -20,6 +20,7 @@ public class Replacement extends Event {
                 if(match.getAwayTeam().getPlayers().contains(p2)) {
                     match.getAwayTeam().removePlayer(p1);
                     match.getAwayTeam().addPlayer(p2);
+                    super.setName("Replacement");
                 }
                 else{
                     throw new Exception("Both players must to be from the same team");
@@ -29,6 +30,7 @@ public class Replacement extends Event {
                     if(match.getHomeTeam().getPlayers().contains(p2)) {
                         match.getHomeTeam().removePlayer(p1);
                         match.getHomeTeam().addPlayer(p2);
+                        super.setName("Replacement");
                     }
                     else{
                         throw new Exception("Both players must to be from the same team");

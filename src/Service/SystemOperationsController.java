@@ -296,6 +296,15 @@ public class SystemOperationsController {
         return null;
     }
 
+    public Team getTeambyTeamName(String teamName){
+        HashSet<Team> teams = MainSystem.getInstance().getActiveTeams();
+        for (Team t : teams) {
+            if (t.getName().equals(teamName)) {
+                return t;
+            }
+        }
+        return null;
+    }
     public List<SystemManager> showAllSystemManagers(){
         return MainSystem.getInstance().getSystemManagers();
     }

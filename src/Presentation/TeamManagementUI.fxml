@@ -56,14 +56,9 @@
                         <Insets left="5.0" top="10.0" />
                     </BorderPane.margin>
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="225.0" text="Add/Remove/Edit Team Properties" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="240.0" text="Report Income/Expense" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="216.0" text="Create New Team" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="225.0" text="Activate Team" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="216.0" text="Request New Team" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="58.0" text="home" />
-                  <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="202.0" text="Subscribe/Remove Team Owner" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="208.0" text="Subsribe/Remove Team Manager" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="232.0" text="Close Team" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="215.0" text="Reopen Team" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                     </children>
                     <opaqueInsets>
                         <Insets left="5.0" />

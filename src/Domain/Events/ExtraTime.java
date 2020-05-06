@@ -17,6 +17,7 @@ public class ExtraTime extends Event {
             match.setNumOfMinutes(match.getNumOfMinutes()+minutesToAdd);
         }
         else{
+            LOG.error("You can not give a negative extra time");
             throw new Exception("You can not give a negative extra time");
         }
 

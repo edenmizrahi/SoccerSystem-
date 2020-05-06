@@ -25,11 +25,13 @@ public class Goal extends Event {
                     match.setGuestScore(match.getGuestScore() + 2);
                 }
                 else{
+                    LOG.error("This player isn't in one of the participating teams");
                     throw new Exception("This player isn't in one of the participating teams");
                 }
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Please insert valid player");
         }
     }

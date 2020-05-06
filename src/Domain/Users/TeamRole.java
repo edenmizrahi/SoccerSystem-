@@ -45,6 +45,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "become player"));
             return true;
         }
+        LOG.error("already player- can not become player");
         return false;
     }
     /**OR**/
@@ -55,6 +56,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "become coach"));
             return true;
         }
+        LOG.error("already coach- can not become coach");
         return false;
     }
 
@@ -66,6 +68,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "become team manager for team: "+team.getName()));
             return true;
         }
+        LOG.error("already team manager- can not become team manager");
         return false;
     }
     /**OR**/
@@ -76,6 +79,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "become team owner"));
             return true;
         }
+        LOG.error("already team owner- can not become team owner");
         return false;
     }
 
@@ -87,6 +91,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "delete player"));
             return true;
         }
+        LOG.error("not player- can not delete player");
         return false;
     }
     // adi
@@ -97,6 +102,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "delete coach"));
             return true;
         }
+        LOG.error("not coach- can not delete coach");
         return false;
     }
     // adi
@@ -107,6 +113,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "delete team manager"));
             return true;
         }
+        LOG.error("not team manager- can not delete team manager");
         return false;
     }
     // adi
@@ -117,6 +124,7 @@ public class TeamRole extends Fan {
             LOG.info(String.format("%s - %s", getUserName(), "delete team owner"));
             return true;
         }
+        LOG.error("not team owner- can not team owner");
         return false;
     }
     //</editor-fold>

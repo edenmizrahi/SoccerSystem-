@@ -108,3 +108,222 @@
 06.05.2020 16:41:32 INFO  TeamRole - DavidHamelech - become player
 06.05.2020 16:41:32 INFO  TeamRole - MosheHamelech - become player
 06.05.2020 16:41:32 INFO  ManagmentActions - YossiHamelech - add player :David Hamelechto team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - edit field name to be: name
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - remove field Beer Sheva Domain.LeagueManagment.Field add fiels: Beer Sheeeeeeeva Domain.LeagueManagment.Field to team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  TeamRole - MosheHamelech - become player
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  TeamRole - MosheHamelech - become player
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - edit player Moshe Hamelech role to be :newRole
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  TeamRole - MosheHamelech - become team owner
+06.05.2020 17:12:51 INFO  TeamOwner - MosheHamelech -  new team was added: null
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - subscribe team Owner :Moshe Hamelechto team: null
+06.05.2020 17:12:51 INFO  TeamOwner - MosheHamelech - remove team from active teams: null
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - remove team Owner :Moshe Hamelechto team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  BudgetControl - null - add income to team budget, type: money amount: 200
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - add income, type: money, amount: 200 to team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  BudgetControl - null - add income to team budget, type: money amount: 200
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - add income, type: money, amount: 200 to team: null
+06.05.2020 17:12:51 INFO  BudgetControl - null - add expense to team budget, type: money amount: -50
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - add expense, type: money, amount: 50 to team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  TeamRole - MosheHamelech - become team owner
+06.05.2020 17:12:51 INFO  TeamOwner - MosheHamelech -  new team was added: null
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - subscribe team Owner :Moshe Hamelechto team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - edit coach Moshe Hamelech role to be :newRole
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  TeamRole - DavidHamelech - become coach
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - remove coach :Moshe Hamelechand replave with coach:+David Hamelechto team: null
+06.05.2020 17:12:51 INFO  TeamRole - YossiHamelech - become team manager for team: null
+06.05.2020 17:12:51 INFO  TeamRole - DavidHamelech - become player
+06.05.2020 17:12:51 INFO  TeamRole - MosheHamelech - become player
+06.05.2020 17:12:51 INFO  ManagmentActions - YossiHamelech - add player :David Hamelechto team: null
+06.05.2020 17:13:10 INFO  LoginMain - try - action?
+06.05.2020 17:13:10 ERROR LoginMain - something
+06.05.2020 17:13:10 INFO  SystemManager - systemManager - Added to system
+06.05.2020 17:13:10 INFO  MainSystem -  - system was started for the first time
+06.05.2020 17:13:10 INFO  TeamRole - Ilan - become team owner
+06.05.2020 17:13:10 INFO  TeamOwner - Ilan -  new team was added: macabi
+06.05.2020 17:13:10 INFO  TeamRole - Arnold - become team owner
+06.05.2020 17:13:10 INFO  TeamOwner - Arnold -  new team was added: macabi
+06.05.2020 17:13:10 INFO  TeamRole - Avi - become team owner
+06.05.2020 17:13:10 INFO  TeamOwner - Avi -  new team was added: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - Moshe - become team manager for team: macabi
+06.05.2020 17:13:10 INFO  TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - Moshe - become player
+06.05.2020 17:13:10 INFO  TeamRole - Armin - become team owner
+06.05.2020 17:13:10 INFO  TeamOwner - Armin -  new team was added: macabi
+06.05.2020 17:13:10 INFO  TeamRole - David - become team manager for team: hapoel
+06.05.2020 17:13:10 INFO  TeamOwner - David -  add as team manager: David, to team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi0d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi1d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi2d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi3d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi4d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi5d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi6d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi7d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi8d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi9d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:macabi10d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel0d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel1d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel2d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel3d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel4d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel5d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel6d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel7d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel8d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel9d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel10d - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel0a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel1a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel2a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel3a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel4a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel5a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel6a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel7a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel8a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel9a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - player:hapoel10a - become player
+06.05.2020 17:13:10 INFO  ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+06.05.2020 17:13:10 INFO  TeamRole - Tami - become player
+06.05.2020 17:13:10 INFO  TeamRole - Haim - become coach
+06.05.2020 17:13:10 INFO  TeamRole - Ben - become coach
+06.05.2020 17:13:10 INFO  TeamRole - Mark - become coach
+06.05.2020 17:13:10 INFO  SystemManager - ofer - Added to system
+06.05.2020 17:13:10 INFO  SystemManager - systemManager - add new System Manager , user name: ofer
+06.05.2020 17:13:10 INFO  Rfa - DanaBandana - Add referee by Rfa
+06.05.2020 17:14:42 INFO  LoginMain - try - action?
+06.05.2020 17:14:42 ERROR LoginMain - something
+06.05.2020 17:14:42 ERROR MainSystem - name not valid
+06.05.2020 17:39:01 INFO  LoginMain - try - action?
+06.05.2020 17:39:01 ERROR LoginMain - something
+06.05.2020 17:39:01 INFO  SystemManager - systemManager - Added to system
+06.05.2020 17:39:01 INFO  MainSystem -  - system was started for the first time
+06.05.2020 17:39:01 INFO  TeamRole - Ilan - become team owner
+06.05.2020 17:39:01 INFO  TeamOwner - Ilan -  new team was added: macabi
+06.05.2020 17:39:01 INFO  TeamRole - Arnold - become team owner
+06.05.2020 17:39:01 INFO  TeamOwner - Arnold -  new team was added: macabi
+06.05.2020 17:39:01 INFO  TeamRole - Avi - become team owner
+06.05.2020 17:39:01 INFO  TeamOwner - Avi -  new team was added: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - Moshe - become team manager for team: macabi
+06.05.2020 17:39:01 INFO  TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - Moshe - become player
+06.05.2020 17:39:01 INFO  TeamRole - Armin - become team owner
+06.05.2020 17:39:01 INFO  TeamOwner - Armin -  new team was added: macabi
+06.05.2020 17:39:01 INFO  TeamRole - David - become team manager for team: hapoel
+06.05.2020 17:39:01 INFO  TeamOwner - David -  add as team manager: David, to team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi0d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi1d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi2d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi3d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi4d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi5d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi6d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi7d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi8d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi9d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:macabi10d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel0d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel1d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel2d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel3d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel4d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel5d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel6d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel7d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel8d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel9d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel10d - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel0a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel1a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel2a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel3a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel4a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel5a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel6a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel7a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel8a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel9a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - player:hapoel10a - become player
+06.05.2020 17:39:01 INFO  ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+06.05.2020 17:39:01 INFO  TeamRole - Tami - become player
+06.05.2020 17:39:01 INFO  TeamRole - Haim - become coach
+06.05.2020 17:39:01 INFO  TeamRole - Ben - become coach
+06.05.2020 17:39:01 INFO  TeamRole - Mark - become coach
+06.05.2020 17:39:01 INFO  SystemManager - ofer - Added to system
+06.05.2020 17:39:01 INFO  SystemManager - systemManager - add new System Manager , user name: ofer
+06.05.2020 17:39:01 INFO  Rfa - DanaBandana - Add referee by Rfa

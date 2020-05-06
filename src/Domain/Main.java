@@ -27,6 +27,7 @@ public class Main {
         /**LOGGER FORAMT**/
         LOG.info(String.format("%s - %s", "try", "action?"));
         LOG.error("something");
+       // MainSystem.getInstance().checkValidDetails(null,null,"","","");
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
 //        Team team1 = new Team();
@@ -106,7 +107,7 @@ public class Main {
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
-       // SystemOperationsController.initSystemObjectsAdi();
+        SystemOperationsController.initSystemObjectsAdi();
 
     }
 }

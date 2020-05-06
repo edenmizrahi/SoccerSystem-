@@ -31,6 +31,7 @@ public class League {
         teamsInSeason=new HashMap<>();
         this.mainSystem = mainSystem;
         if(! mainSystem.addLeague(this)){
+            LOG.error("There is already league with the same name");
             throw new Exception("There is already league with the same name");
         }
     }
@@ -42,10 +43,12 @@ public class League {
             teamsInSeason = new HashMap<>();
             //if cannot ad the league, there is league with the same name
             if(! mainSystem.addLeague(this)){
+                LOG.error("There is already league with the same name");
                 throw new Exception("There is already league with the same name");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Invalid parameters");
         }
     }
@@ -92,6 +95,7 @@ public class League {
     public void addSeasonWithTeams(Season season, HashSet<Team> teams) {
 
         if(season==null || teams==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         /**check if season already exist**/

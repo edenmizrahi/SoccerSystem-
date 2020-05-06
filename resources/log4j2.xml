@@ -16,7 +16,7 @@
             <ThresholdFilter level="INFO"/>
         </RollingFile>
         <RollingFile name="eFile" fileName="${errorfilename}" filePattern="${errorfilename}-%d{yyyy.MM.dd_HH.mm.ss}-%i.log" >
-            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %msg%n"/>
+            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %M - %msg%n"/>
             <SizeBasedTriggeringPolicy size="1 MB"/>
             <ThresholdFilter level="ERROR"/>
         </RollingFile>

@@ -6,4 +6,9 @@ public class ManagmentActionsStubOr extends ManagmentActions {
 
     public ManagmentActionsStubOr() {
     }
+
+    @Override
+    public String getUserNameOfAction() {
+        return "username";
+    }
 }

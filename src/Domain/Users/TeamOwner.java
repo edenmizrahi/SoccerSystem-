@@ -19,7 +19,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     private LinkedList<Team> requestedTeams;
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("TeamOwner");
     private HashSet<Notification> notifications;
 
 
@@ -193,7 +193,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
         mySubscriptions.add(sub);
-        LOG.info(String.format("%s - %s", teamRole.getName(), " add as team manager: "+fan.getName()+", to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), " add as team manager: "+fan.getUserName()+", to team: "+team.getName()));
         return teamRole;
 
     }
@@ -227,7 +227,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
         tM.getTeamRole().deleteTeamManager();
         team.deleteObserver(tM);
 
-        LOG.info(String.format("%s - %s", teamRole.getName(), " remove team manager"+tM.getTeamRole().getName()+", from team: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), " remove team manager"+tM.getTeamRole().getUserName()+", from team: "+team.getName()));
 
     }
 
@@ -329,7 +329,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
 
     public void addNewTeam(Team team) {
         this.teams.add(team);
-        LOG.info(String.format("%s - %s", teamRole.getName(), " new team was added: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), " new team was added: "+team.getName()));
     }
 
 
@@ -340,7 +340,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
         else{
             throw new Exception("team not belong to ths owner");
         }
-        LOG.info(String.format("%s - %s", teamRole.getName(), "remove team from active teams: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), "remove team from active teams: "+team.getName()));
     }
 
     public LinkedList<Team> getTeams() {
@@ -349,6 +349,11 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
 
     public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
+    }
+
+    @Override
+    public String getUserNameOfAction() {
+        return teamRole.getUserName();
     }
 
 
@@ -517,13 +522,13 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     /**or**/
     public void addDeletedTeam(Team t){
         this.deletedTeams.add(t);
-        LOG.info(String.format("%s - %s", teamRole.getName(), "add deleted team to list : "+t.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), "add deleted team to list : "+t.getName()));
     }
 
     /**or**/
     public void removeDeletedTeam(Team t){
         this.deletedTeams.remove(t);
-        LOG.info(String.format("%s - %s", teamRole.getName(), "remove deleted team from list : "+t.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), "remove deleted team from list : "+t.getName()));
     }
 
     public void addRecordToTeamPage(Team t,String record) throws Exception {

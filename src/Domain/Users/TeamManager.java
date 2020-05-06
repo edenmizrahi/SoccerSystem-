@@ -36,6 +36,11 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
         return mySubscriptions;
     }
 
+    @Override
+    public String getUserNameOfAction() {
+        return teamRole.getUserName();
+    }
+
     public void setMySubscriptions(HashSet<TeamSubscription> mySubscriptions) {
         this.mySubscriptions = mySubscriptions;
     }

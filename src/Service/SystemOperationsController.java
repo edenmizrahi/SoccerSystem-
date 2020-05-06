@@ -578,7 +578,8 @@ public class SystemOperationsController {
         system.setUserNames(new HashSet<>());
         system.setTeamNames(new HashSet<>());
     }
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
         MainSystem ms=MainSystem.getInstance();
        try {
            if (role.equals("Player")) {

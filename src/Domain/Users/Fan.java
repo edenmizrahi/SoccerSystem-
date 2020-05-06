@@ -6,7 +6,6 @@ import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.*;
 
 public class Fan extends User implements NotificationsUser {
@@ -42,11 +41,9 @@ public class Fan extends User implements NotificationsUser {
 
         //add userName to the hashset
         ms.addUserName(userName);
-
     }
 
     //<editor-fold desc="getters and setters">
-
     public List<PrivatePage> getMyPages() {
         return myPages;
     }
@@ -126,7 +123,7 @@ public class Fan extends User implements NotificationsUser {
 
 
     /**Eden*/
-    public void  addMatchFollow(Match m){
+    public void addMatchFollow(Match m){
         matchesFollow.add(m);
         m.addObserver(this);
     }
@@ -141,7 +138,6 @@ public class Fan extends User implements NotificationsUser {
         complaint.send("new Domain.Complaint from: "+userName);
 
         complaint.addObserver(this);
-
     }
 
     /**Eden*/
@@ -158,6 +154,7 @@ public class Fan extends User implements NotificationsUser {
     /**Or**/
     public void subToPage(PrivatePage privatePage) throws Exception {
         if(privatePage== null){
+            LOG.error("private page null");
             throw new Exception("private page null");
         }
         myPages.add(privatePage);

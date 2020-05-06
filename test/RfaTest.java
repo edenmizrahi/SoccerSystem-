@@ -608,7 +608,7 @@ public class RfaTest {
     /**or**/
     @Test
     public void answerRequestTest() throws ParseException {
-        Team team = new Team("name");
+        TeamStub team = new TeamStub("name");
         TeamRole owner= new TeamRole(ms,"coach","1234567890","coach@gmail.com","coach101","coach101",MainSystem.birthDateFormat.parse("01-11-2000"));
         owner.becomeTeamOwner();
         try {

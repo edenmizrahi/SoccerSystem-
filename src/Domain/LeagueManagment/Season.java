@@ -41,6 +41,7 @@ public class Season {
     public void addLeagueWithTeams(League l, HashSet <Team> teams){
 
         if(l==null || teams==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
 

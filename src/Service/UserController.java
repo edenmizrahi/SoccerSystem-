@@ -1,7 +1,10 @@
 package Service;
 
+import Domain.MainSystem;
 import Domain.Users.Fan;
 import Domain.Users.User;
+
+import javax.activation.MailcapCommandMap;
 
 public class UserController {
 
@@ -15,7 +18,7 @@ public class UserController {
      *  @codeBy Eden
      */
     public Fan login(User u, String userName , String password ) throws Exception {
-        Fan f=u.logIn(userName,password);
+        Fan f= MainSystem.getInstance().logIn(userName,password);
         if(f==null){
             throw new Exception("Incorrect user name or password");
         }

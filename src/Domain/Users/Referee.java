@@ -1,8 +1,10 @@
 package Domain.Users;
 
-import Domain.Events.Event;
+import Domain.Events.*;
 import Domain.MainSystem;
 import Domain.LeagueManagment.Match;
+import Domain.Notifications.Notification;
+import Domain.Notifications.NotificationsUser;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,18 +12,23 @@ import org.apache.logging.log4j.Logger;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Observable;
 
-public class Referee extends Fan {
+public class Referee extends Fan implements NotificationsUser {
 
     private LinkedList<Match> matches;
     private LinkedList<Event> events;
+    private HashSet<Notification> refNotifications;
+
     private String qualification;
     private static final Logger LOG = LogManager.getLogger("Referee");
+
 
     public Referee(Fan fan, MainSystem ms){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         matches = new LinkedList<>();
         events = new LinkedList<>();
+        refNotifications =new HashSet<>();
     }
 
     public Referee(Fan fan, MainSystem ms, String qualification){
@@ -29,6 +36,7 @@ public class Referee extends Fan {
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification = qualification;
+        refNotifications =new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -38,6 +46,7 @@ public class Referee extends Fan {
         matches = new LinkedList<>();
         events = new LinkedList<>();
         this.qualification=qualification;
+        refNotifications =new HashSet<>();
         //TODO add permissions
         //this.permissions.add();
     }
@@ -64,11 +73,15 @@ public class Referee extends Fan {
 
 
 
-
-
-    /**Yarden**/
-    // TODO: 16/04/2020 finish implement
-    public void addEventsDuringMatch(Match match, Player player, Event event) throws Exception {
+    /**
+     * Call after create specific event
+     * this function add event to match list
+     * @param match
+     * @param event
+     * @throws Exception
+     * @CodeBy Yarden
+     */
+    public void addEventsDuringMatch(Match match, Event event) throws Exception {
 
        //checking whether this is a game the referee is judging
         if(this.getMatches().contains(match)){
@@ -76,35 +89,57 @@ public class Referee extends Fan {
         Date currentDate = new Date(System.currentTimeMillis());
         //check if the game is takes place right now
         if(currentDate.after(match.getStartDate()) && currentDate.before(DateUtils.addMinutes(match.getStartDate(),match.getNumOfMinutes()))) {
-
+            match.addEventToList(event);
         }//referee's match
             else{
+            LOG.error("ref try to add event to match not judging");
                  throw new Exception("You do not have a permission to add events to match you do not judging");
             }
         }//take place right now
         else{
+            LOG.error("ref try to add event to match before/after match");
             throw new Exception("You do not have a permission to add events after / before the match");
         }
     }
 
     /**Yarden**/
+    /**
+     * !! NOT FOR 3+4 ITERATION !!
+     * This function can call just by the main Referee
+     * he can edit events just after the match is over
+     * each type of event must be replace by the same type (old goal event by new goal event)
+     * @param match
+     * @param event
+     * @param eventToReplace
+     * @throws Exception
+     */
     // TODO: 18/04/2020 finisih implement
-    public void editEventsSchedule(Match match) throws Exception {
+    public void editEventsSchedule(Match match, Event event, Event eventToReplace) throws Exception {
         //just if you are a main referee
         if(match.getMainReferee().equals(this)) {
-            HashSet<Event> events = match.getEvents();
-
+            //if the game is over
+            Date currentDate = new Date(System.currentTimeMillis());
+            if(currentDate.after(DateUtils.addMinutes(match.getStartDate(),match.getNumOfMinutes()))) {
+                HashSet<Event> events = match.getEvents();
+                // function to compare both events
+            }
+            else{
+                LOG.error("You can not edit events until the match is over");
+                throw new Exception("You can not edit events until the match is over");
+            }
 
             LOG.info(String.format("%s - %s", this.getUserName(), "edit events schedule by main referee"));
         }
         else{
-            throw new Exception("You do not have a permission to edit events right now");
+            LOG.error("You do not have a permission to edit events");
+            throw new Exception("You do not have a permission to edit events");
         }
 
     }
 
     /**
-     *
+     * This function create  reports of all the events in the game
+     * Just the main Referee can call this function, and just after the match is over
      * @param match
      * @return
      * @throws Exception
@@ -114,14 +149,24 @@ public class Referee extends Fan {
         //just if you are a main referee
         if(match.getMainReferee().equals(this)){
             if(this.getMatches().contains(match)){
-                LOG.info(String.format("%s - %s", this.getUserName(), "create report by main referee"));
-                return match.getEvents();
+                //if the game is over
+                Date currentDate = new Date(System.currentTimeMillis());
+                if(currentDate.after(DateUtils.addMinutes(match.getStartDate(),match.getNumOfMinutes()))) {
+                    LOG.info(String.format("%s - %s", this.getUserName(), "create report by main referee"));
+                    return match.getEvents();
+                }
+                else{
+                    LOG.error("You can not create report until the match is over");
+                    throw new Exception("You can not create report until the match is over");
+                }
             }
             else{
+                LOG.error("You do not have a permission to create report to match you do not judging");
                 throw new Exception("You do not have a permission to create report to match you do not judging");
             }
         }
         else{
+            LOG.error("You do not have a permission to edit events right now");
             throw new Exception("You do not have a permission to edit events right now");
         }
     }
@@ -150,39 +195,135 @@ public class Referee extends Fan {
     /**Yarden**/
     public void addMatchToList(Match match){
         this.getMatches().add(match);
+        match.addObserver(this);
     }
 
     /**Yarden**/
+    // all validation checking is in each constructor
     //<editor-fold desc="events creation">
-    public void createGoalEvent(Player p){
-
+    public Event createGoalEvent(Player p, Match match) throws Exception {
+        if(p!=null && match!=null) {
+            return (new Goal(this, match, p));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
-    public void createYellowCardEvent(){
-
+    public Event createYellowCardEvent(Player p, Match match) throws Exception {
+        if(p!=null && match!=null) {
+            return (new YellowCard(this, match, p));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
-    public void createRedCardEvent(){
-
+    public Event createRedCardEvent(Player p, Match match) throws Exception {
+        if(p!=null && match!=null) {
+            return (new RedCard(this, match, p));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
-    public void createOffSideCardEvent(){
-
+    public Event createOffSideCardEvent(Player p, Match match) throws Exception {
+        if (p != null && match != null) {
+            return (new OffSide(this, match, p));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
-    public void createOffenseEvent(){
-
+    public Event createOffenseEvent(Player p, Match match) throws Exception {
+        if(p!=null && match!=null) {
+            return (new Offense(this, match, p));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
-    public void createInjuryEvent(){
-
+    public Event createInjuryEvent(Player p, Match match) throws Exception {
+        if(p!=null && match!=null) {
+            return (new Injury(this, match, p));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
-    public void createExtraTimeEvent(){
 
+    public Event createReplacementEvent(Player p1,Player p2, Match match) throws Exception {
+            if(p1!=null && p2!=null && match!=null) {
+                return (new Replacement(this, match, p1, p2));
+            }
+            else{
+                LOG.error("one of parameters null");
+                throw new NullPointerException();
+            }
+    }
+
+
+    public Event createExtraTimeEvent(Match match, int time) throws Exception {
+        if(match!= null && time > 0) {
+            return (new ExtraTime(this, match, time));
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
     }
 
     //</editor-fold>
 
+    /**Referee Notifications**/
+    /**Yarden**/
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof Match){
+                this.refNotifications.add(new Notification(o,arg,false));
+        }
+    }
+
+    /**
+     * mark notification as readen
+     * @param not-unread notification to mark as read
+     * @codeBy Eden
+     */
+    public void MarkAsReadNotification(Notification not){
+        not.setRead(true);
+    }
+
+    /**
+     * get all refNotifications read and unread
+     * @return
+     */
+    public HashSet<Notification> getNotificationsList() {
+        return refNotifications;
+    }
+
+    /***
+     * @return only the unread refNotifications . if not have return null - notify when user connect
+     * @codeBy Eden
+     */
+    @Override
+    public HashSet<Notification> genUnReadNotifications(){
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: refNotifications){
+            if(n.isRead()==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
 
 }

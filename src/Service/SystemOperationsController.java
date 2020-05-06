@@ -15,10 +15,7 @@ import Domain.Users.*;
 import Stubs.StubExternalSystem;
 
 import java.text.ParseException;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class SystemOperationsController {
 
@@ -602,6 +599,35 @@ public class SystemOperationsController {
         system.setActiveTeams(new HashSet<>());
         system.setUserNames(new HashSet<>());
         system.setTeamNames(new HashSet<>());
+    }
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+        MainSystem ms=MainSystem.getInstance();
+       try {
+           if (role.equals("Player")) {
+               ms.signInAsPlayer(name, phoneNumber, email, userName, password, dateOfBirth);
 
+           }
+           if (role.equals("Coach")) {
+               ms.signInAsCoach(name, phoneNumber, email, userName, password, dateOfBirth);
+
+           }
+           if (role.equals("Fan")) {
+               ms.signInAsFan(name, phoneNumber, email, userName, password, dateOfBirth);
+
+           }
+           if (role.equals("RFA")) {
+               ms.signInAsRFA(name, phoneNumber, email, userName, password, dateOfBirth);
+
+           }
+           if (role.equals("TeamOwner")) {
+               ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, dateOfBirth);
+
+           }
+       }
+       catch (Exception e){
+           return "user name is not valid.";
+       }
+
+        return "ok";
     }
 }

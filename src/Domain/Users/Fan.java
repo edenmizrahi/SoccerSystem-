@@ -6,7 +6,6 @@ import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.*;
 
 public class Fan extends User implements NotificationsUser {
@@ -42,11 +41,9 @@ public class Fan extends User implements NotificationsUser {
 
         //add userName to the hashset
         ms.addUserName(userName);
-
     }
 
     //<editor-fold desc="getters and setters">
-
     public List<PrivatePage> getMyPages() {
         return myPages;
     }

@@ -30,13 +30,13 @@ import javafx.stage.Stage;
 public class MainFirstWindow extends Application {
 
 
-    static String first;
+    static Stage primary_Stage;
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-//        primaryStage.setTitle("Football System");
-//        primaryStage.setScene(new Scene(root, 300, 275));
-//        primaryStage.show();
+////        primaryStage.setTitle("Football System");
+////        primaryStage.setScene(new Scene(root, 300, 275));
+////        primaryStage.show();
 
         Scene scene;
     //--------------

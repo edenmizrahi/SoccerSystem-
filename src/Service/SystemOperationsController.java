@@ -603,7 +603,7 @@ public class SystemOperationsController {
            }
        }
        catch (Exception e){
-           return "user name is not valid.";
+           return "error - user name is not valid.";
        }
 
         return "ok";

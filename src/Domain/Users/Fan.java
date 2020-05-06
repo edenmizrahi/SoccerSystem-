@@ -154,6 +154,7 @@ public class Fan extends User implements NotificationsUser {
     /**Or**/
     public void subToPage(PrivatePage privatePage) throws Exception {
         if(privatePage== null){
+            LOG.error("private page null");
             throw new Exception("private page null");
         }
         myPages.add(privatePage);

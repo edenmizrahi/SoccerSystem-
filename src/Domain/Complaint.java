@@ -21,6 +21,7 @@ public class Complaint extends Observable {
 /**Eden*/
     public Complaint(Fan fan, MainSystem system) throws Exception {
         if(!system.getUsers().contains(fan)){
+            LOG.error("fan not exist at system");
             throw new Exception("fan not exist at system");
         }
         this.fan = fan;

@@ -223,6 +223,7 @@ public class Rfa extends Fan implements NotificationsUser {
             LOG.info(String.format("%s - %s", this.getUserName(), "Create new league"));
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Invalid parameters");
         }
 
@@ -245,9 +246,10 @@ public class Rfa extends Fan implements NotificationsUser {
     //TODO test - V
     public void addReferee(String name, String phoneNumber, String email, String userName, String password, String qualification,Date birthDate) throws Exception {
         if( qualification == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
-        checkValidDetails(name, userName, password, phoneNumber,email);
+        system.checkValidDetails(name, userName, password, phoneNumber,email);
         Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
         LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Rfa"));
     }
@@ -266,12 +268,14 @@ public class Rfa extends Fan implements NotificationsUser {
                     for (Match m : ref.getMatches()) {
                 //can't delete, match still didn't take place
                 if (m.getStartDate().after(new Date(System.currentTimeMillis()))) {
+                    LOG.error("can not delete this referee");
                     throw new Exception("You can not delete this referee");
                 }
             }
             system.removeUser(ref);
             LOG.info(String.format("%s - %s", this.getUserName(), "Remove referee by Rfa"));
         }else{
+                LOG.error("Referee is null");
             throw new Exception("Referee is null");
         }
     }
@@ -290,6 +294,7 @@ public class Rfa extends Fan implements NotificationsUser {
     public void defineSeasonToLeague(SchedulingPolicy schedule, CalculationPolicy calculate, int year, League l, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
 
         if(schedule==null || calculate==null || l==null || ( defineCurrSeason && year < Year.now().getValue() ) || referees.size()<3 ){
+            LOG.error("one of parameters null");
             throw new Exception("Invalid details");
         }
 
@@ -305,6 +310,7 @@ public class Rfa extends Fan implements NotificationsUser {
                 /**check if teams are valid - if already play in this season**/
                 for (Team t: teams) {
                    if(t.getLeaguePerSeason().containsKey(s)){
+                       LOG.error("There is team that already play in this season");
                        throw new Exception("There is team that already play in this season, check the team's list again");
                    }
                 }
@@ -351,6 +357,7 @@ public class Rfa extends Fan implements NotificationsUser {
         }
 
         if(!isSeasonExist){
+            LOG.error("The season doesn't exist in the system");
             throw new Exception("The season doesn't exist in the system");
         }
     }
@@ -366,6 +373,7 @@ public class Rfa extends Fan implements NotificationsUser {
      */
     public void startSchedulingPolicy(Season season) throws Exception {
         if(season==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), season);
@@ -382,6 +390,7 @@ public class Rfa extends Fan implements NotificationsUser {
     public void startCalculationPolicy(Season season) throws Exception {
         boolean seasonExist =false;
         if(season==null){
+            LOG.error("Season is null");
             throw new Exception("Season is null");
         }
 
@@ -397,6 +406,7 @@ public class Rfa extends Fan implements NotificationsUser {
             LOG.info(String.format("%s - %s", this.getUserName(), "start calculating policy by the rfa "));
         }
         else{
+            LOG.error("This season doesn't exist in the system");
             throw new Exception("This season doesn't exist in the system");
         }
     }
@@ -418,6 +428,7 @@ public class Rfa extends Fan implements NotificationsUser {
     //TODO test- V
     public void answerRequest(Team team, boolean decision) throws Exception {
         if( !teamRequests.contains(team)){
+            LOG.error("team not in request list");
             throw new Exception("team not in request list");
         }
         team.sendDecision(decision);

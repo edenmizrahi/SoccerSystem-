@@ -22,9 +22,11 @@ public class BudgetControl {
     //TODO test - V
     public void addIncome(String typeOfIncome, long amount) throws Exception {
         if(typeOfIncome ==null || typeOfIncome.length()==0){
+            LOG.error("one of parameters null");
             throw new Exception("type of income not valid");
         }
         if(amount<=0){
+            LOG.error("amount of income is negative");
             throw new Exception("amount of income is negative");
         }
         incomeAndExpenses.add(new BudgetReport(typeOfIncome,amount));
@@ -36,9 +38,11 @@ public class BudgetControl {
     //TODO test - V
     public void addExpense(String typeOfExpense, long amount) throws Exception{
         if(typeOfExpense ==null || typeOfExpense.length()==0){
+            LOG.error("one of parameters null");
             throw new Exception("type of expense not valid");
         }
         if(amount<=0){
+            LOG.error("amount of expense is negative");
             throw new Exception("amount of expense is negative");
         }
         if (balance - amount >= 0) {
@@ -47,6 +51,7 @@ public class BudgetControl {
             balance = balance + amount;// the amount in negative
         }
         else{
+            LOG.error("Budget cannot be less than 0");
             throw new Exception("Budget cannot be less than 0");
         }
         LOG.info(String.format("%s - %s", this.team.getName(), "add expense to team budget, type: "+typeOfExpense+" amount: "+amount));

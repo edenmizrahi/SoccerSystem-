@@ -36,6 +36,11 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
         return mySubscriptions;
     }
 
+    @Override
+    public String getUserNameOfAction() {
+        return teamRole.getUserName();
+    }
+
     public void setMySubscriptions(HashSet<TeamSubscription> mySubscriptions) {
         this.mySubscriptions = mySubscriptions;
     }
@@ -78,6 +83,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             return super.subscribeTeamOwner(fan,team);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -95,6 +101,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.removeTeamOwner(tO,team);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -114,6 +121,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.removeAndReplaceCoach(coachToRemove, coachToAdd, newCoachRoleAtTeam, team);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -131,6 +139,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.editCoachRole(coach,role);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -148,6 +157,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.addPlayer(player,role,team);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -166,6 +176,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.removePlayer(player,team);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -183,6 +194,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.editPlayerRole(player,role);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -202,6 +214,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.removeAndReplaceField(fieldtoRemove,fieldToAdd,team);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -219,6 +232,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.editFieldName(field,name);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }
@@ -234,6 +248,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.addIncomeToTeam(team,typeOfIncome,amount);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
 
@@ -253,6 +268,7 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
             super.addExpenseToTeam(team,typeOfExpense,amount);
         }
         else{
+            LOG.error("This user doesn't have the permission to do this action");
             throw new Exception("This user doesn't have the permission to do this action");
         }
     }

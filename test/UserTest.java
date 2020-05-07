@@ -23,37 +23,7 @@ public class UserTest {
         }
     }
 
-    @Test
-    public void checkValidDetails() {
-        try {
-            user.checkValidDetails("name",null,"user101","0542150192","email@gmail.com");
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("user name not valid",e.getMessage());
-        }
-        try {
-            user.checkValidDetails("name","user2","user1","0542150192","email@gmail.com");
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("password not valid",e.getMessage());
-        }
-        try {
-            user.checkValidDetails("name","user2","user101","0542192","email@gmail.com");
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("phone number not valid",e.getMessage());
-        }
-        try {
-            user.checkValidDetails("name","user2","user101","0542150912","email@gmail");
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("email not valid",e.getMessage());
-        }
-    }
+
 
 
     //    Domain.Users.Player player1=new Domain.Users.Player(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123",date);

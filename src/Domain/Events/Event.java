@@ -16,7 +16,7 @@ public abstract class Event  {
     private Referee referee;
     private Match match;
     private Date dateTime;
-    private static final Logger LOG = LogManager.getLogger("Event");
+    protected static final Logger LOG = LogManager.getLogger("Event");
     private int minuteOfMatch;
     private String name;
     public SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
@@ -31,11 +31,13 @@ public abstract class Event  {
             long diff = currentDate.getTime() - match.getStartDate().getTime();
             this.minuteOfMatch = (int) TimeUnit.MINUTES.convert(diff,TimeUnit.MILLISECONDS);
 
-            if(minuteOfMatch >= match.getNumOfMinutes() || minuteOfMatch < 0){
+            if(minuteOfMatch > match.getNumOfMinutes() || minuteOfMatch < 0){
+                LOG.error("invalid event creation");
                 throw new Exception("invalid event creation");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }

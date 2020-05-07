@@ -26,7 +26,8 @@ public class Main {
 
         /**LOGGER FORAMT**/
         LOG.info(String.format("%s - %s", "try", "action?"));
-
+        LOG.error("something");
+       // MainSystem.getInstance().checkValidDetails(null,null,"","","");
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
 //        Team team1 = new Team();
@@ -49,9 +50,9 @@ public class Main {
 //        else{
 //            System.out.println("false");
 //        }
-        Date d1 = new Date();
+       // Date d1 = new Date();
 //        /**Add minutes to specific date**/
-        d1 = DateUtils.addMinutes(d1,90);
+        //d1 = DateUtils.addMinutes(d1,90);
 //        d1 = DateUtils.addDays(d,1);
 //        int x;
 //

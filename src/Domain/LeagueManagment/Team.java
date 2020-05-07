@@ -210,6 +210,7 @@ public class Team extends Observable implements PageOwner {
             addObserver(tO);
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("TeamOwner is null");
         }
     }
@@ -220,10 +221,12 @@ public class Team extends Observable implements PageOwner {
             if (teamOwners.contains(tO)) {
                 teamOwners.remove(tO);
             } else {
+                LOG.error("TeamOwner doesn't exist in this team");
                 throw new Exception("TeamOwner doesn't exist in this team");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("TeamOwner is null");
         }
     }
@@ -234,10 +237,12 @@ public class Team extends Observable implements PageOwner {
             if (tM.equals(teamManager)) {
                 teamManager = null;
             } else {
+                LOG.error("this TeamManager doesn't exist in this team");
                 throw new Exception("This TeamManager doesn't exist in this team");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("TeamManager is null");
         }
     }
@@ -249,10 +254,12 @@ public class Team extends Observable implements PageOwner {
                 coach = c;
             }
             else{
+                LOG.error("There is coach to this team");
                 throw new Exception("There is coach to this team");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Coach is null");
         }
     }
@@ -264,14 +271,17 @@ public class Team extends Observable implements PageOwner {
                 if (this.coach.equals(coachToRemove)) {
                     coach = null;
                 } else {
+                    LOG.error("This Coach doesn't exist in this team");
                     throw new Exception("This Coach doesn't exist in this team");
                 }
             }
             else{
+                LOG.error("There isn't coach to remove in this team");
                 throw new Exception("There isn't coach to remove in this team");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Coach is null");
         }
     }
@@ -281,11 +291,11 @@ public class Team extends Observable implements PageOwner {
 
         if(p!=null) {
                 players.add(p);
-                p.setActiveOnTeam(true);
-        }
-        else
+//                p.setActiveOnTeam(true);
+        } else {
+            LOG.error("one of parameters null");
             throw new Exception("Player is null");
-
+        }
     }
     //adi
     //TODO test - V
@@ -295,13 +305,16 @@ public class Team extends Observable implements PageOwner {
                if (players.size() > 11) {
                    players.remove(p);
                } else {
+                   LOG.error("The team has only 11 or less players");
                    throw new Exception("The team has only 11 or less players");
                }
            } else {
+               LOG.error("This Player doesn't exist in this team");
                throw new Exception("This Player doesn't exist in this team");
            }
        }
        else {
+           LOG.error("one of parameters null");
            throw new Exception("Player is null");
        }
     }
@@ -314,14 +327,17 @@ public class Team extends Observable implements PageOwner {
                 if (this.field.equals(f)) {
                     field = null;
                 } else {
+                    LOG.error("This field doesn't exist in this team");
                     throw new Exception("This field doesn't exist in this team");
                 }
             }
             else{
+                LOG.error("There isn't field to remove");
                 throw new Exception("There isn't field to remove");
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Field is null");
         }
     }
@@ -365,6 +381,7 @@ public class Team extends Observable implements PageOwner {
             LOG.info(String.format("%s - %s", getName(), "add team to league:"+l.getName()+" and season"+s.getYear()));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -395,6 +412,7 @@ public class Team extends Observable implements PageOwner {
             this.budgetControl.addIncome(typeOfIncome, amount);
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("type of income not valid");
         }
     }
@@ -411,6 +429,7 @@ public class Team extends Observable implements PageOwner {
             this.budgetControl.addExpense(typeOfExpense, amount);
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("type of expanse not valid");
         }
     }
@@ -485,6 +504,7 @@ public class Team extends Observable implements PageOwner {
     public void becomeActive(HashSet<Player> players, Coach coach, Field field) throws Exception {
         if(players!=null && coach!=null && field!=null) {
             if (players.size() < 11) {
+                LOG.error(" number of players are less than 11");
                 throw new Exception("The number of players are less than 11");
             }
             this.players = players;
@@ -492,6 +512,7 @@ public class Team extends Observable implements PageOwner {
                 if (player.getTeam() == null) {
                     player.setPlayerTeam(this);
                 } else {
+                    LOG.error("one of the players team is not null");
                     throw new Exception("one of the players team is not null");
                 }
             }
@@ -507,6 +528,7 @@ public class Team extends Observable implements PageOwner {
             LOG.info(String.format("%s - %s", name, "team was activated"));
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Invalid parameters");
         }
     }
@@ -523,6 +545,7 @@ public class Team extends Observable implements PageOwner {
     //TODO test - V
     public void reopenTeam(HashSet<Player> players, Coach coach, Field field, TeamOwner newFounder) throws Exception {
         if(newFounder ==null || players==null|| coach==null || field==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         this.founder=newFounder;
@@ -577,6 +600,7 @@ public class Team extends Observable implements PageOwner {
             this.getHome().add(match);
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Match is null");
         }
     }
@@ -588,6 +612,7 @@ public class Team extends Observable implements PageOwner {
             this.getAway().add(match);
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Match is null");
         }
     }

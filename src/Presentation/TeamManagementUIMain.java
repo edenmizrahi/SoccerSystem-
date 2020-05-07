@@ -10,7 +10,7 @@ public class TeamManagementUIMain extends Application{
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("TeamManagementUI.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1200, 600));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 

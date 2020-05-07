@@ -9,7 +9,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,12 +32,32 @@ public class TeamManagementUIController{
     private TextField fieldName;
     @FXML
     private TextField newTeamName;
-
     String userName;
-
     private TeamManagementController tMController = new TeamManagementController();
 
 
+    @FXML
+    public void changeToRequestScene(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Parent root = (Parent) loader.load(getClass().getResource("RequestNewTeam.fxml").openStream());
+        //SecondController secondController = loader.getController();
+        //secondController.setStage(mStage);
+        //stage.setTitle("second scene");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    public void changeToActivateScene(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Parent root = (Parent) loader.load(getClass().getResource("ActivateTeam.fxml").openStream());
+        //SecondController secondController = loader.getController();
+        //secondController.setStage(mStage);
+        //stage.setTitle("second scene");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     @FXML
     public void requestNewTeam(ActionEvent event) throws Exception{
         String teamName = newTeamName.getText();

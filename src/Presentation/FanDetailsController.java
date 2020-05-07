@@ -7,9 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -18,46 +20,92 @@ public class FanDetailsController {
 
 
     @FXML
-    private TextField fanUserName;
+    private TextField fanUserName; //V
     @FXML
-    private TextField fanName;
+    private TextField currNameField; //V
     @FXML
-    private TextField fanPassward;
+    private TextField currPasswardField; //V
     @FXML
-    private TextField fanPhoneNumber;
+    private TextField currPhonNumberField; // V
     @FXML
-    private TextField fanEmail;
+    private TextField currEmailField; //V
     @FXML
-    private TextField fanDateOfBirth;
+    private TextField currDateOfBirthField; //V
+    @FXML
+    private Button updateMyDetailsButton; //V
+    @FXML
+    private TextField updateNameFeild; // V
+    @FXML
+    private Button fanNameUpdateButton; //V
+    @FXML
+    private Button fanPasswardUpdateButton; //V
+    @FXML
+    private Button FanPhonNumberUpdateButton; //V
+    @FXML
+    private Button fanEmailUpdateButton; //V
+    @FXML
+    private TextField updatePasswardField; //V
+    @FXML
+    private TextField updatePhonNumField; //V
+    @FXML
+    private TextField updateEmailField; //V
+    @FXML
+    private TextField welcomeUserNameField; //V
+    @FXML
+    private Button fanDateUpdateButton;
+    @FXML
+    private TextField updateDateField;
+
 
 
 
     private FanController fanController = new FanController();
     private SystemOperationsController syOpController =new SystemOperationsController();
-    private String fan;//!!!!!!
+    private String userName;//!!!!!!
 
     @FXML
     private void showDetails() {
-        List<String> fanDetails= syOpController.getPrivateDetails(fan);
+        List<String> fanDetails= syOpController.getPrivateDetails(userName);
         //list : name, Password, PhoneNumber, Email, DateOfBirth
-        fanName.setText(fanDetails.get(0));
-        fanPassward.setText(fanDetails.get(1));
-        fanPhoneNumber.setText(fanDetails.get(2));
-        fanEmail.setText(fanDetails.get(3));
-        fanDateOfBirth.setText(fanDetails.get(4));
-
+        currNameField.setText(fanDetails.get(0));
+        currPasswardField.setText(fanDetails.get(1));
+        currPhonNumberField.setText(fanDetails.get(2));
+        currEmailField.setText(fanDetails.get(3));
+        currDateOfBirthField.setText(fanDetails.get(4));
+        fanUserName.setText(userName);
+        welcomeUserNameField.setText(userName);
 
         //String desc = fanName.getText();
     }
 
     @FXML
-    public void signInMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+    public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-        Scene scene = new Scene(root, 700, 400);
-        scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
+
+    }
+
+    @FXML
+    public void showAllhideFiels(MouseEvent mouseEvent) throws IOException {
+
+        updateNameFeild.setVisible(true);
+        fanNameUpdateButton.setVisible(true);
+        fanPasswardUpdateButton.setVisible(true);
+        FanPhonNumberUpdateButton.setVisible(true);
+        fanEmailUpdateButton.setVisible(true);
+        updatePasswardField.setVisible(true);
+        updatePhonNumField.setVisible(true);
+        updateEmailField.setVisible(true);
+        fanDateUpdateButton.setVisible(true);
+        updateDateField.setVisible(true);
+        //updatetemp.setVisible(true);
+
+
+
 
     }
 

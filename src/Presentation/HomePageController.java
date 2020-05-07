@@ -22,18 +22,39 @@ public class HomePageController {
     Button myAlerts;
 
     @FXML
-    public void signInMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+    public void fanDetailsMouseClickHandling(MouseEvent mouseEvent) throws IOException {
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-        Scene scene = new Scene(root, 700, 400);
+        Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
 
     }
 
 
+    @FXML
+    public void registrationForGamesAlertsMouseClickHandling(MouseEvent mouseEvent) throws IOException {
 
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RegistrationGamesAlerts.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        stageTheEventSourceNodeBelongs.setScene(scene);
+
+    }
+
+
+    @FXML
+    public void MyAlertsMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MyAlerts.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        stageTheEventSourceNodeBelongs.setScene(scene);
+
+    }
 
 
 }

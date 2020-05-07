@@ -7,7 +7,7 @@ import java.util.Observer;
 
 public interface NotificationsUser extends Observer{
 
-    HashSet<Notification> genUnReadNotifications();
+    HashSet<Notification> getUnReadNotifications();
     HashSet<Notification> getNotificationsList();
     void MarkAsReadNotification(Notification not);
 }

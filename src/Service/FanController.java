@@ -1,10 +1,7 @@
 package Service;
 
-import Domain.MainSystem;
 import Domain.Notifications.Notification;
 import Domain.Users.Fan;
-import Domain.Users.SystemManager;
-import Domain.Users.User;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -19,7 +16,7 @@ public class FanController {
      *  @codeBy Eden
      */
     public HashSet<Notification> showNotifications(Fan user){
-        return user.genUnReadNotifications();
+        return user.getUnReadNotifications();
     }
 
 

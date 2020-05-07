@@ -705,3 +705,272 @@
 2020.04.25 20:29:21.347 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A and season2020
 2020.04.25 20:29:21.347 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A and season2020
 2020.04.25 20:29:21.347 INFO  Domain.LeagueManagment.Team - team4 - add team to league:A and season2020
+2020.05.06 11:40:21.156 INFO  Team - team1 - add team to league:C and season2021
+2020.05.06 11:40:21.162 INFO  Team - team1 - add team to league:C and season2021
+2020.05.06 11:40:21.163 INFO  Rfa - nadavS - define season to Cby Rfa
+2020.05.06 11:40:21.168 INFO  Rfa - nadavS - Create new league
+2020.05.06 11:40:21.185 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:40:21.206 INFO  Team - team1 - add team to league:C1 and season2020
+2020.05.06 11:40:21.207 INFO  Team - team2 - add team to league:C1 and season2020
+2020.05.06 11:40:21.207 INFO  Team - team3 - add team to league:C1 and season2020
+2020.05.06 11:40:21.212 INFO  Team - team1 - add team to league:C1 and season2020
+2020.05.06 11:40:21.214 INFO  Team - team2 - add team to league:C1 and season2020
+2020.05.06 11:40:21.214 INFO  Team - team3 - add team to league:C1 and season2020
+2020.05.06 11:40:21.215 INFO  Team - team4 - add team to league:D1 and season2020
+2020.05.06 11:40:21.216 INFO  Team - team5 - add team to league:D1 and season2020
+2020.05.06 11:40:21.217 INFO  Team - team4 - add team to league:D1 and season2020
+2020.05.06 11:40:21.218 INFO  Team - team5 - add team to league:D1 and season2020
+2020.05.06 11:40:21.240 INFO  Rfa - rfa123 - start scheduling policy by the rfa
+2020.05.06 11:40:21.260 INFO  TeamRole - coach - become team owner
+2020.05.06 11:40:21.269 INFO  Rfa - nadavS - Add referee by Rfa
+2020.05.06 11:40:21.279 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:40:21.290 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.291 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.296 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.300 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.304 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.304 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.305 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.305 INFO  TeamRole - yarden - become player
+2020.05.06 11:40:21.306 INFO  Rfa - nadavS - Remove referee by Rfa
+2020.05.06 11:40:21.308 INFO  Rfa - nadavS - define curr season
+2020.05.06 11:40:21.313 INFO  Team - team2 - add team to league:A2 and season2019
+2020.05.06 11:40:21.314 INFO  Team - team3 - add team to league:A2 and season2019
+2020.05.06 11:40:21.315 INFO  Team - team1 - add team to league:A2 and season2019
+2020.05.06 11:40:21.315 INFO  Team - team2 - add team to league:A2 and season2019
+2020.05.06 11:40:21.316 INFO  Team - team3 - add team to league:A2 and season2019
+2020.05.06 11:40:21.316 INFO  Team - team1 - add team to league:A2 and season2019
+2020.05.06 11:40:21.316 INFO  Team - team5 - add team to league:B2 and season2019
+2020.05.06 11:40:21.316 INFO  Team - team6 - add team to league:B2 and season2019
+2020.05.06 11:40:21.317 INFO  Team - team4 - add team to league:B2 and season2019
+2020.05.06 11:40:21.318 INFO  Team - team5 - add team to league:B2 and season2019
+2020.05.06 11:40:21.319 INFO  Team - team6 - add team to league:B2 and season2019
+2020.05.06 11:40:21.319 INFO  Team - team4 - add team to league:B2 and season2019
+2020.05.06 11:40:21.319 INFO  Rfa - nadavS - start calculating policy by the rfa 
+2020.05.06 11:41:13.018 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:41:13.022 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:41:13.030 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:41:13.031 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:41:28.031 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:05.982 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:06.002 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:17.768 INFO  Team - team1 - add team to league:C and season2021
+2020.05.06 11:42:17.771 INFO  Team - team1 - add team to league:C and season2021
+2020.05.06 11:42:17.771 INFO  Rfa - nadavS - define season to Cby Rfa
+2020.05.06 11:42:17.773 INFO  Rfa - nadavS - Create new league
+2020.05.06 11:42:17.779 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:17.786 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:17.791 INFO  Team - team1 - add team to league:C1 and season2020
+2020.05.06 11:42:17.792 INFO  Team - team2 - add team to league:C1 and season2020
+2020.05.06 11:42:17.792 INFO  Team - team3 - add team to league:C1 and season2020
+2020.05.06 11:42:17.793 INFO  Team - team1 - add team to league:C1 and season2020
+2020.05.06 11:42:17.793 INFO  Team - team2 - add team to league:C1 and season2020
+2020.05.06 11:42:17.793 INFO  Team - team3 - add team to league:C1 and season2020
+2020.05.06 11:42:17.795 INFO  Team - team4 - add team to league:D1 and season2020
+2020.05.06 11:42:17.795 INFO  Team - team5 - add team to league:D1 and season2020
+2020.05.06 11:42:17.796 INFO  Team - team4 - add team to league:D1 and season2020
+2020.05.06 11:42:17.796 INFO  Team - team5 - add team to league:D1 and season2020
+2020.05.06 11:42:17.803 INFO  Rfa - rfa123 - start scheduling policy by the rfa
+2020.05.06 11:42:17.815 INFO  TeamRole - coach - become team owner
+2020.05.06 11:42:17.820 INFO  Rfa - nadavS - Add referee by Rfa
+2020.05.06 11:42:17.822 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:17.823 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:17.826 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:17.828 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:17.834 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.834 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.834 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.835 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.835 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.835 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.835 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.836 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:17.836 INFO  Rfa - nadavS - Remove referee by Rfa
+2020.05.06 11:42:17.837 INFO  Rfa - nadavS - define curr season
+2020.05.06 11:42:17.838 INFO  Team - team2 - add team to league:A2 and season2019
+2020.05.06 11:42:17.839 INFO  Team - team1 - add team to league:A2 and season2019
+2020.05.06 11:42:17.839 INFO  Team - team3 - add team to league:A2 and season2019
+2020.05.06 11:42:17.839 INFO  Team - team2 - add team to league:A2 and season2019
+2020.05.06 11:42:17.839 INFO  Team - team1 - add team to league:A2 and season2019
+2020.05.06 11:42:17.840 INFO  Team - team3 - add team to league:A2 and season2019
+2020.05.06 11:42:17.840 INFO  Team - team6 - add team to league:B2 and season2019
+2020.05.06 11:42:17.840 INFO  Team - team4 - add team to league:B2 and season2019
+2020.05.06 11:42:17.840 INFO  Team - team5 - add team to league:B2 and season2019
+2020.05.06 11:42:17.840 INFO  Team - team6 - add team to league:B2 and season2019
+2020.05.06 11:42:17.841 INFO  Team - team4 - add team to league:B2 and season2019
+2020.05.06 11:42:17.841 INFO  Team - team5 - add team to league:B2 and season2019
+2020.05.06 11:42:17.841 INFO  Rfa - nadavS - start calculating policy by the rfa 
+2020.05.06 11:42:24.687 INFO  Team - team1 - add team to league:C and season2021
+2020.05.06 11:42:24.689 INFO  Team - team1 - add team to league:C and season2021
+2020.05.06 11:42:24.690 INFO  Rfa - nadavS - define season to Cby Rfa
+2020.05.06 11:42:24.691 INFO  Rfa - nadavS - Create new league
+2020.05.06 11:42:24.696 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:24.699 INFO  Rfa - nadavS - start second budget control role on teams
+2020.05.06 11:42:24.702 INFO  Team - team1 - add team to league:C1 and season2020
+2020.05.06 11:42:24.702 INFO  Team - team2 - add team to league:C1 and season2020
+2020.05.06 11:42:24.702 INFO  Team - team3 - add team to league:C1 and season2020
+2020.05.06 11:42:24.703 INFO  Team - team1 - add team to league:C1 and season2020
+2020.05.06 11:42:24.703 INFO  Team - team2 - add team to league:C1 and season2020
+2020.05.06 11:42:24.703 INFO  Team - team3 - add team to league:C1 and season2020
+2020.05.06 11:42:24.704 INFO  Team - team4 - add team to league:D1 and season2020
+2020.05.06 11:42:24.704 INFO  Team - team5 - add team to league:D1 and season2020
+2020.05.06 11:42:24.704 INFO  Team - team4 - add team to league:D1 and season2020
+2020.05.06 11:42:24.705 INFO  Team - team5 - add team to league:D1 and season2020
+2020.05.06 11:42:24.710 INFO  Rfa - rfa123 - start scheduling policy by the rfa
+2020.05.06 11:42:24.718 INFO  TeamRole - coach - become team owner
+2020.05.06 11:42:24.725 INFO  Rfa - nadavS - Add referee by Rfa
+2020.05.06 11:42:24.729 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:24.730 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:24.736 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:24.737 INFO  Rfa - nadavS - start first budget control role on teams
+2020.05.06 11:42:24.741 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.742 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.743 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.744 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.744 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.745 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.745 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.745 INFO  TeamRole - yarden - become player
+2020.05.06 11:42:24.747 INFO  Rfa - nadavS - Remove referee by Rfa
+2020.05.06 11:42:24.750 INFO  Rfa - nadavS - define curr season
+2020.05.06 11:42:24.752 INFO  Team - team2 - add team to league:A2 and season2019
+2020.05.06 11:42:24.753 INFO  Team - team1 - add team to league:A2 and season2019
+2020.05.06 11:42:24.753 INFO  Team - team3 - add team to league:A2 and season2019
+2020.05.06 11:42:24.753 INFO  Team - team2 - add team to league:A2 and season2019
+2020.05.06 11:42:24.753 INFO  Team - team1 - add team to league:A2 and season2019
+2020.05.06 11:42:24.754 INFO  Team - team3 - add team to league:A2 and season2019
+2020.05.06 11:42:24.754 INFO  Team - team5 - add team to league:B2 and season2019
+2020.05.06 11:42:24.755 INFO  Team - team4 - add team to league:B2 and season2019
+2020.05.06 11:42:24.756 INFO  Team - team6 - add team to league:B2 and season2019
+2020.05.06 11:42:24.757 INFO  Team - team5 - add team to league:B2 and season2019
+2020.05.06 11:42:24.757 INFO  Team - team4 - add team to league:B2 and season2019
+2020.05.06 11:42:24.758 INFO  Team - team6 - add team to league:B2 and season2019
+2020.05.06 11:42:24.759 INFO  Rfa - nadavS - start calculating policy by the rfa 
+2020.05.06 20:19:32.488 INFO  TeamRole - yarden - become player
+2020.05.06 20:20:03.553 INFO  TeamRole - yarden - become player
+2020.05.06 20:20:37.610 INFO  TeamRole - yarden - become player
+2020.05.06 20:21:02.055 INFO  TeamRole - yarden - become player
+2020.05.06 20:35:01.591 INFO  TeamRole - yarden - become player
+2020.05.06 20:39:51.483 INFO  TeamRole - yarden - become player
+2020.05.06 20:51:45.313 INFO  TeamRole - yarden - become player
+2020.05.06 20:51:45.318 INFO  TeamRole - yarden - become player
+2020.05.06 20:51:54.167 INFO  TeamRole - yarden - become player
+2020.05.06 20:51:54.170 INFO  TeamRole - yarden - become player
+2020.05.06 21:19:09.524 INFO  TeamRole - yarden - become player
+2020.05.06 21:28:34.757 INFO  TeamRole - yarden - become player
+2020.05.06 21:28:56.842 INFO  TeamRole - yarden - become player
+2020.05.06 21:28:56.847 INFO  TeamRole - yarden - become player
+2020.05.06 21:30:52.545 INFO  TeamRole - yarden - become player
+2020.05.06 21:30:52.551 INFO  TeamRole - yarden - become player
+2020.05.06 21:31:22.958 INFO  Match - Goal - add event to match between team4 to team3
+2020.05.06 21:34:58.074 INFO  TeamRole - yarden - become player
+2020.05.06 21:35:01.449 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:35:56.611 INFO  TeamRole - yarden - become player
+2020.05.06 21:36:01.354 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:36:19.233 INFO  TeamRole - yarden - become player
+2020.05.06 21:36:19.238 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:40:37.078 INFO  TeamRole - yarden - become player
+2020.05.06 21:40:37.086 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:40:37.087 INFO  TeamRole - yarden - become player
+2020.05.06 21:40:37.087 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:41:05.237 INFO  TeamRole - yarden - become player
+2020.05.06 21:41:05.249 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:41:05.250 INFO  TeamRole - yarden - become player
+2020.05.06 21:41:05.251 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:41:18.881 INFO  TeamRole - yarden - become player
+2020.05.06 21:41:18.888 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:41:18.890 INFO  TeamRole - yarden - become player
+2020.05.06 21:41:18.890 INFO  Match - Goal - add event to match between team6 to team5
+2020.05.06 21:47:45.929 INFO  TeamRole - yarden - become player
+2020.05.06 21:48:52.577 INFO  TeamRole - yarden - become player
+2020.05.06 21:49:49.855 INFO  TeamRole - yarden - become player
+2020.05.06 21:50:17.350 INFO  TeamRole - yarden - become player
+2020.05.06 21:50:35.233 INFO  TeamRole - yarden - become player
+2020.05.06 21:51:47.611 INFO  TeamRole - yarden - become player
+2020.05.06 21:51:57.686 INFO  TeamRole - yarden - become player
+2020.05.06 21:54:30.348 INFO  TeamRole - yarden - become player
+2020.05.06 21:55:03.993 INFO  TeamRole - yarden - become player
+2020.05.06 21:55:26.769 INFO  TeamRole - yarden - become player
+2020.05.06 21:55:50.290 INFO  TeamRole - yarden - become player
+2020.05.06 21:56:58.657 INFO  TeamRole - yarden - become player
+2020.05.06 21:57:45.880 INFO  TeamRole - yarden - become player
+2020.05.06 21:58:35.169 INFO  TeamRole - yarden - become player
+2020.05.06 21:58:35.178 INFO  TeamRole - yarden - become player
+2020.05.06 21:58:35.180 INFO  Match - Goal - add event to match between team4 to team3
+2020.05.07 10:49:22.962 INFO  TeamRole - yarden - become player
+2020.05.07 10:49:36.398 INFO  TeamRole - yarden - become player
+2020.05.07 10:49:36.401 INFO  TeamRole - yarden - become player
+2020.05.07 10:49:36.404 INFO  Match - Goal - add event to match between team4 to team3
+2020.05.07 10:49:41.276 INFO  TeamRole - yarden - become player
+2020.05.07 10:49:41.281 INFO  TeamRole - yarden - become player
+2020.05.07 10:49:41.282 INFO  TeamRole - yarden - become player
+2020.05.07 10:49:41.285 INFO  Match - Goal - add event to match between team4 to team3
+2020.05.07 10:51:54.758 INFO  TeamRole - yarden - become player
+2020.05.07 10:51:54.769 INFO  TeamRole - yarden - become player
+2020.05.07 10:52:32.635 INFO  TeamRole - yarden - become player
+2020.05.07 10:52:42.925 INFO  TeamRole - yarden - become player
+2020.05.07 10:54:48.864 INFO  TeamRole - yarden - become player
+2020.05.07 10:54:48.874 INFO  TeamRole - yarden - become player
+2020.05.07 10:54:58.314 INFO  TeamRole - yarden - become player
+2020.05.07 10:54:58.317 INFO  TeamRole - yarden - become player
+2020.05.07 10:55:21.292 INFO  TeamRole - yarden - become player
+2020.05.07 10:55:21.298 INFO  TeamRole - yarden - become player
+2020.05.07 10:55:21.299 INFO  TeamRole - yarden - become player
+2020.05.07 10:55:21.303 INFO  Match - Goal - add event to match between team4 to team3
+2020.05.07 19:04:39.508 INFO  TeamRole - yarden - become player
+2020.05.07 19:04:57.398 INFO  TeamRole - yarden - become player
+2020.05.07 19:06:37.310 INFO  TeamRole - yarden - become player
+2020.05.07 19:07:19.609 INFO  TeamRole - yarden - become player
+2020.05.07 19:07:21.177 INFO  Match - Goal - add event to match between team2 to team1
+2020.05.07 19:08:25.615 INFO  TeamRole - yarden - become player
+2020.05.07 19:08:25.617 INFO  Match - Yellow Card - add event to match between team2 to team1
+2020.05.07 19:09:02.264 INFO  TeamRole - yarden - become player
+2020.05.07 19:09:02.273 INFO  Match - Red Card - add event to match between team2 to team1
+2020.05.07 19:11:53.128 INFO  TeamRole - yarden - become player
+2020.05.07 19:11:53.130 INFO  TeamRole - yarden2 - become player
+2020.05.07 19:12:11.835 INFO  TeamRole - yarden - become player
+2020.05.07 19:12:11.843 INFO  TeamRole - yarden2 - become player
+2020.05.07 19:19:04.559 INFO  TeamRole - yarden - become player
+2020.05.07 19:19:17.359 INFO  Match - Extra time - add event to match between team2 to team1
+2020.05.07 19:22:03.148 INFO  TeamRole - yarden - become player
+2020.05.07 19:22:03.151 INFO  Match - Injury - add event to match between team2 to team1
+2020.05.07 19:22:11.382 INFO  TeamRole - yarden - become player
+2020.05.07 19:22:11.387 INFO  Match - Offense - add event to match between team2 to team1
+2020.05.07 19:22:20.234 INFO  TeamRole - yarden - become player
+2020.05.07 19:22:45.686 INFO  TeamRole - yarden - become player
+2020.05.07 19:23:18.330 INFO  TeamRole - yarden - become player
+2020.05.07 19:23:47.829 INFO  TeamRole - yarden - become player
+2020.05.07 19:28:08.229 INFO  TeamRole - yarden - become player
+2020.05.07 19:28:08.231 INFO  Match - OffSide - add event to match between team2 to team1
+2020.05.07 19:29:07.827 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:07.833 INFO  Match - Red Card - add event to match between team2 to team1
+2020.05.07 19:29:30.106 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.111 INFO  Match - Goal - add event to match between team2 to team1
+2020.05.07 19:29:30.119 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.124 INFO  Match - Extra time - add event to match between team2 to team1
+2020.05.07 19:29:30.126 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.128 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.129 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.132 INFO  Match - Goal - add event to match between team4 to team3
+2020.05.07 19:29:30.138 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.138 INFO  Match - OffSide - add event to match between team2 to team1
+2020.05.07 19:29:30.140 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.147 INFO  Match - Red Card - add event to match between team2 to team1
+2020.05.07 19:29:30.154 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.157 INFO  Match - Injury - add event to match between team2 to team1
+2020.05.07 19:29:30.157 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.158 INFO  Match - Offense - add event to match between team2 to team1
+2020.05.07 19:29:30.165 INFO  TeamRole - yarden - become player
+2020.05.07 19:29:30.166 INFO  Match - Yellow Card - add event to match between team2 to team1
+2020.05.07 19:56:06.578 INFO  TeamRole - yarden - become player
+2020.05.07 19:56:06.581 INFO  TeamRole - yarden2 - become player
+2020.05.07 19:56:06.581 INFO  Match - Replacement - add event to match between team2 to team1
+2020.05.07 21:22:23.953 INFO  TeamRole - yarden - become player
+2020.05.07 21:22:23.958 INFO  Match - Goal - add event to match between team2 to team1
+2020.05.07 21:22:23.958 INFO  Match - Extra time - add event to match between team2 to team1
+2020.05.07 21:22:48.000 INFO  TeamRole - yarden - become player
+2020.05.07 21:22:48.012 INFO  Match - Goal - add event to match between team2 to team1
+2020.05.07 21:22:49.797 INFO  Match - Extra time - add event to match between team2 to team1
+2020.05.07 21:24:47.228 INFO  TeamRole - yarden - become player
+2020.05.07 21:24:47.232 INFO  Match - Goal - add event to match between team2 to team1
+2020.05.07 21:24:47.232 INFO  Match - Extra time - add event to match between team2 to team1

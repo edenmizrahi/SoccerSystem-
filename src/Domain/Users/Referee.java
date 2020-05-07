@@ -134,7 +134,7 @@ public class Referee extends Fan implements NotificationsUser {
     }
 
     /**
-     * This function create  reports of all the events in the game
+     * This function create reports of all the events in the game
      * Just the main Referee can call this function, and just after the match is over
      * @param match
      * @return
@@ -167,7 +167,7 @@ public class Referee extends Fan implements NotificationsUser {
     /**Yarden**/
     /**
      * This function show the matches that are still not take place
-     * @return LinkedLis</Domain.LeagueManagment.Match>
+     * @return LinkedList<Match>
      */
     public LinkedList<Match> showMatches(){
 
@@ -195,8 +195,12 @@ public class Referee extends Fan implements NotificationsUser {
     // all validation checking is in each constructor
     //<editor-fold desc="events creation">
     public Event createGoalEvent(Player p, Match match) throws Exception {
-        if(p!=null && match!=null) {
-            return (new Goal(this, match, p));
+        if (p != null && match != null) {
+            if (this.matches.contains(match)) {
+                return (new Goal(this, match, p));
+            } else {
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -205,7 +209,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createYellowCardEvent(Player p, Match match) throws Exception {
         if(p!=null && match!=null) {
-            return (new YellowCard(this, match, p));
+            if (this.matches.contains(match)) {
+                return (new YellowCard(this, match, p));
+            }
+            else{
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -214,7 +223,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createRedCardEvent(Player p, Match match) throws Exception {
         if(p!=null && match!=null) {
-            return (new RedCard(this, match, p));
+            if (this.matches.contains(match)) {
+                return (new RedCard(this, match, p));
+            }
+            else{
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -223,7 +237,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createOffSideCardEvent(Player p, Match match) throws Exception {
         if (p != null && match != null) {
-            return (new OffSide(this, match, p));
+            if (this.matches.contains(match)) {
+                return (new OffSide(this, match, p));
+            }
+            else{
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -232,7 +251,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createOffenseEvent(Player p, Match match) throws Exception {
         if(p!=null && match!=null) {
-            return (new Offense(this, match, p));
+            if (this.matches.contains(match)) {
+                return (new Offense(this, match, p));
+            }
+            else{
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -241,7 +265,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createInjuryEvent(Player p, Match match) throws Exception {
         if(p!=null && match!=null) {
-            return (new Injury(this, match, p));
+            if (this.matches.contains(match)) {
+                return (new Injury(this, match, p));
+            }
+            else{
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -251,7 +280,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createReplacementEvent(Player p1,Player p2, Match match) throws Exception {
             if(p1!=null && p2!=null && match!=null) {
-                return (new Replacement(this, match, p1, p2));
+                if (this.matches.contains(match)) {
+                    return (new Replacement(this, match, p1, p2));
+                }
+                else{
+                    throw new Exception("You do not judge this match");
+                }
             }
             else{
                 throw new NullPointerException();
@@ -261,7 +295,12 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createExtraTimeEvent(Match match, int time) throws Exception {
         if(match!= null && time > 0) {
-            return (new ExtraTime(this, match, time));
+            if (this.matches.contains(match)) {
+                return (new ExtraTime(this, match, time));
+            }
+            else{
+                throw new Exception("You do not judge this match");
+            }
         }
         else{
             throw new NullPointerException();
@@ -301,7 +340,7 @@ public class Referee extends Fan implements NotificationsUser {
      * @codeBy Eden
      */
     @Override
-    public HashSet<Notification> genUnReadNotifications(){
+    public HashSet<Notification> getUnReadNotifications(){
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: refNotifications){
             if(n.isRead()==false){

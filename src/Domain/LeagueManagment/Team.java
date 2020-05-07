@@ -281,6 +281,7 @@ public class Team extends Observable implements PageOwner {
 
         if(p!=null) {
                 players.add(p);
+                p.setActiveOnTeam(true);
         }
         else
             throw new Exception("Player is null");

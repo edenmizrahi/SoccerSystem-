@@ -259,7 +259,7 @@ public class Fan extends User implements NotificationsUser {
      * @codeBy Eden
      */
     @Override
-    public HashSet<Notification> genUnReadNotifications(){
+    public HashSet<Notification> getUnReadNotifications(){
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notificationHashSet){
             if(n.isRead()==false){

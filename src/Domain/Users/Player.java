@@ -11,6 +11,7 @@ public class Player implements PageOwner {
     private Team playerTeam;
     private String roleAtField;
     private TeamRole teamRole;
+//    private boolean isActiveOnTeam;
     private static final Logger LOG = LogManager.getLogger();
 
     public Player(TeamRole teamRole){
@@ -25,6 +26,7 @@ public class Player implements PageOwner {
         this.playerTeam = playerTeam;
         this.roleAtField = roleAtField;
         this.teamRole= teamRole;
+//        this.isActiveOnTeam = false;
     }
 
     //<editor-fold desc="Page Owner Functions">
@@ -83,7 +85,14 @@ public class Player implements PageOwner {
         this.teamRole = teamRole;
     }
 
-    //</editor-fold>
+//    public boolean isActiveOnTeam() {
+//        return isActiveOnTeam;
+//    }
+//
+//    public void setActiveOnTeam(boolean activeOnTeam) {
+//        isActiveOnTeam = activeOnTeam;
+//    }
+//</editor-fold>
 
 
 

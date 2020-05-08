@@ -8,12 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class HomePageMain extends Application {
+public class RfaPageMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        primaryStage.setTitle("home page");
+        Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
+        primaryStage.setTitle("Rfa home page");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
     }
@@ -27,4 +27,5 @@ public class HomePageMain extends Application {
 
         launch(args);
     }
+
 }

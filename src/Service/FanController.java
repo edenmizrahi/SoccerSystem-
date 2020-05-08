@@ -16,7 +16,7 @@ public class FanController {
      *  @codeBy Eden
      */
     public HashSet<Notification> showNotifications(Fan user){
-        return user.genUnReadNotifications();
+        return user.getUnReadNotifications();
     }
 
 

@@ -2,8 +2,12 @@
   <library name="log4j-api-2.12.1">
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/apache-log4j-2.12.1-bin/apache-log4j-2.12.1-bin/log4j-api-2.12.1.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+      <root url="file://$PROJECT_DIR$/test" />
+    </SOURCES>
   </library>
 </component>

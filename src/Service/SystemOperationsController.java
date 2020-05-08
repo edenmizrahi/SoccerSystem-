@@ -72,6 +72,18 @@ public class SystemOperationsController {
 
     }
 
+    public LinkedList<String> getAllStringSeasons(){
+        LinkedList<Season> listOfSeason =  MainSystem.getInstance().getSeasons();
+        LinkedList<String> listOfSeasonStrings = new LinkedList<>();
+
+        for (Season s : listOfSeason) {
+            listOfSeasonStrings.add(Integer.toString(s.getYear()));
+        }
+
+        return listOfSeasonStrings;
+    }
+
+
     /**
      * return current season
      * @return

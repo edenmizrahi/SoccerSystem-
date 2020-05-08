@@ -23,6 +23,7 @@ public class Replacement extends Event {
                     super.setName("Replacement");
                 }
                 else{
+                    LOG.error("Both players must to be from the same team");
                     throw new Exception("Both players must to be from the same team");
                 }
             } else {
@@ -33,15 +34,18 @@ public class Replacement extends Event {
                         super.setName("Replacement");
                     }
                     else{
+                        LOG.error("Both players must to be from the same team");
                         throw new Exception("Both players must to be from the same team");
                     }
                 }
                 else{
+                    LOG.error("The player to replace isn't in one of the participating teams");
                     throw new Exception("The player to replace isn't in one of the participating teams");
                 }
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Please insert valid players");
         }
 

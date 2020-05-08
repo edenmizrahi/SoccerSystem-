@@ -58,6 +58,7 @@ public class PrivatePage {
     //TODO test-V
     public void addRecords(String record) throws Exception {
         if(record==null || record.length()==0){
+            LOG.error("record not valid");
             throw new Exception("record not valid");
         }
         records.add(record);
@@ -68,12 +69,15 @@ public class PrivatePage {
     //TODO test-V
     public void removeRecord(String record) throws Exception {
         if(record==null){
+            LOG.error("record in null");
             throw new Exception("record in null");
         }
         if(record.length()==0){
+            LOG.error("record empty");
             throw new Exception("record empty");
         }
         if(!records.contains(record)){
+            LOG.error("this page doesn't contain this record");
             throw new Exception("this page doesn't contain this record");
         }
         records.remove(record);
@@ -84,9 +88,11 @@ public class PrivatePage {
     //TODO test-V
     public void addFan(Fan fan) throws Exception {
         if(fan==null){
+            LOG.error("fan null");
             throw new Exception("fan null");
         }
         if(fans.contains(fan)){
+            LOG.error("fan is already in fan list");
             throw new Exception("this fan is already in fan list");
         }
         fans.add(fan);

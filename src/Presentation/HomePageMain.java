@@ -1,5 +1,7 @@
 package Presentation;
 
+import Domain.MainSystem;
+import Service.SystemOperationsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +19,13 @@ public class HomePageMain extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+
+        SystemOperationsController systemOperationsController =new SystemOperationsController();
+        SystemOperationsController.initSystemObjectsAvitalForUI();
+        MainSystem ma= MainSystem.getInstance();
+
         launch(args);
     }
 }

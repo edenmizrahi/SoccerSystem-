@@ -4,6 +4,7 @@ import Service.FanController;
 import Service.SystemOperationsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +15,11 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class FanDetailsController {
+public class FanDetailsController { //implements Initializable
 
 
     @FXML
@@ -58,12 +61,48 @@ public class FanDetailsController {
 
 
 
-
     private FanController fanController = new FanController();
     private SystemOperationsController syOpController =new SystemOperationsController();
-    private String userName;//!!!!!!
+    private String userName; // userName; set!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+/*
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(userName!=null){
+            List<String> fanDetails= syOpController.getPrivateDetails(userName);
+            //list : name, Password, PhoneNumber, Email, DateOfBirth
+            currNameField.setText(fanDetails.get(0));
+            currPasswardField.setText(fanDetails.get(1));
+            currPhonNumberField.setText(fanDetails.get(2));
+            currEmailField.setText(fanDetails.get(3));
+            currDateOfBirthField.setText(fanDetails.get(4));
+            fanUserName.setText(userName);
+            welcomeUserNameField.setText(userName);
+
+        }
+
+        //String desc = fanName.getText();
+    }
+    */
 
     @FXML
+    public void initUser (String userName) throws IOException {
+        this.userName=userName;
+        List<String> fanDetails= syOpController.getPrivateDetails(userName);
+        //list : name, Password, PhoneNumber, Email, DateOfBirth
+        currNameField.setText(fanDetails.get(0));
+        currPasswardField.setText(fanDetails.get(1));
+        currPhonNumberField.setText(fanDetails.get(2));
+        currEmailField.setText(fanDetails.get(3));
+        currDateOfBirthField.setText(fanDetails.get(4));
+        fanUserName.setText(userName);
+        welcomeUserNameField.setText(userName);
+
+    }
+
+
+        @FXML
     private void showDetails() {
         List<String> fanDetails= syOpController.getPrivateDetails(userName);
         //list : name, Password, PhoneNumber, Email, DateOfBirth
@@ -104,9 +143,7 @@ public class FanDetailsController {
         updateDateField.setVisible(true);
         //updatetemp.setVisible(true);
 
-
-
-
     }
+
 
 }

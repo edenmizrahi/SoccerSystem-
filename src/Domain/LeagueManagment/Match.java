@@ -46,6 +46,7 @@ public class Match extends Observable{
             mainReferee.addMatchToList(this);
         }
           else{//also exception for wrong startDate format
+              LOG.error("one of details to create match in null");
             throw new Exception("Please valid details that requires to create a match");
         }
     }

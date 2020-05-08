@@ -453,7 +453,7 @@ public class User {
             LOG.info(String.format("%s - %s", ((Fan)this).getUserName(), message));
         }
         else{
-            LOG.info(String.format("%s - %s", "User", message));
+            LOG.info(String.format("%s - %s", "guest", message));
         }
     }
 }

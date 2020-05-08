@@ -315,6 +315,15 @@ public class SystemOperationsController {
     }
 
 
+    public Team getTeambyTeamName(String teamName){
+        HashSet<Team> teams = MainSystem.getInstance().getActiveTeams();
+        for (Team t : teams) {
+            if (t.getName().equals(teamName)) {
+                return t;
+            }
+        }
+        return null;
+    }
     public List<SystemManager> showAllSystemManagers(){
         return MainSystem.getInstance().getSystemManagers();
     }
@@ -327,6 +336,22 @@ public class SystemOperationsController {
 
     public List<SystemManager> getAllSystemManager() {
         return MainSystem.getInstance().getSystemManagers();
+
+    }
+
+    public static void initSystemObjectsAvitalForUI() throws Exception {
+        MainSystem system = MainSystem.getInstance();
+        system.startSystem();
+        SystemManager marioSystemManager = system.getSystemManagers().get(0);//there is only one system manager now (the default)
+        Team t1 = new Team();
+
+        /*********************************************/
+        Fan f1=new Fan(system, "Ilan", "0549716910","yossi@gmail.com", "Ilan12", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+//        TeamRole ilanTeamOwner=new TeamRole(f1);
+//        ilanTeamOwner.becomeTeamOwner();
+//        ilanTeamOwner.getTeamOwner().addNewTeam(t1);
+//        t1.setFounder(ilanTeamOwner.getTeamOwner());
+//        t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
 
     }
 
@@ -600,7 +625,8 @@ public class SystemOperationsController {
         system.setUserNames(new HashSet<>());
         system.setTeamNames(new HashSet<>());
     }
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
         MainSystem ms=MainSystem.getInstance();
        try {
            if (role.equals("Player")) {

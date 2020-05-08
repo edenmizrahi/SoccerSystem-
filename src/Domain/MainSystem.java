@@ -508,25 +508,31 @@ public class MainSystem {
     public void checkValidDetails(String name, String userName, String password, String phoneNumber, String email) throws Exception {
         //check name not null
         if(name==null){
+            LOG.error("name not valid");
             throw new Exception("name not valid");
         }
         //check that username in unique
         if(userName==null || this.getUserNames().contains(userName)){
+            LOG.error("user name not valid");
             throw new Exception("user name not valid");
         }
         //password length is 6 or more
         if(password==null ||password.length()<6){
+            LOG.error("password not valid");
             throw new Exception("password not valid");
         }
         // phone number is 10 digits
         if(phoneNumber==null || !( phoneNumber.matches("^[0-9]*$") && phoneNumber.length()==10) ){
+            LOG.error("phone number not valid");
             throw new Exception("phone number not valid");
         }
         //email contains @
         if(email==null ||! email.contains("@")){
+            LOG.error("email not valid");
             throw new Exception("email not valid");
         }
         if( ! (email.contains(".com") || email.contains(".co.il"))){
+            LOG.error("email not valid");
             throw new Exception("email not valid");
         }
     }
@@ -542,15 +548,19 @@ public class MainSystem {
      */
     public Fan logIn(String userName, String password) throws Exception {
         if(userName==null){
+            LOG.error("userName null");
             throw new Exception("userName null");
         }
         if(userName.length()==0){
+            LOG.error("userName empty");
             throw new Exception("userName empty");
         }
         if(password==null){
+            LOG.error("password null");
             throw new Exception("password null");
         }
         if(password.length()<6){
+            LOG.error("password not valid");
             throw new Exception("password not valid");
         }
         for (Fan fan:getAllFans() ) {
@@ -559,6 +569,9 @@ public class MainSystem {
                 return fan;
             }
         }
+        LOG.error("details not correct, no fan in system");
         throw new Exception("details not correct, no fan in system");
     }
+
+
 }

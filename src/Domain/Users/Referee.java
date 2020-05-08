@@ -92,10 +92,12 @@ public class Referee extends Fan implements NotificationsUser {
             match.addEventToList(event);
         }//referee's match
             else{
+            LOG.error("ref try to add event to match not judging");
                  throw new Exception("You do not have a permission to add events to match you do not judging");
             }
         }//take place right now
         else{
+            LOG.error("ref try to add event to match before/after match");
             throw new Exception("You do not have a permission to add events after / before the match");
         }
     }
@@ -122,12 +124,14 @@ public class Referee extends Fan implements NotificationsUser {
                 // function to compare both events
             }
             else{
+                LOG.error("You can not edit events until the match is over");
                 throw new Exception("You can not edit events until the match is over");
             }
 
             LOG.info(String.format("%s - %s", this.getUserName(), "edit events schedule by main referee"));
         }
         else{
+            LOG.error("You do not have a permission to edit events");
             throw new Exception("You do not have a permission to edit events");
         }
 
@@ -152,14 +156,17 @@ public class Referee extends Fan implements NotificationsUser {
                     return match.getEvents();
                 }
                 else{
+                    LOG.error("You can not create report until the match is over");
                     throw new Exception("You can not create report until the match is over");
                 }
             }
             else{
+                LOG.error("You do not have a permission to create report to match you do not judging");
                 throw new Exception("You do not have a permission to create report to match you do not judging");
             }
         }
         else{
+            LOG.error("You do not have a permission to edit events right now");
             throw new Exception("You do not have a permission to edit events right now");
         }
     }
@@ -199,6 +206,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new Goal(this, match, p));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -208,6 +216,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new YellowCard(this, match, p));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -217,6 +226,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new RedCard(this, match, p));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -226,6 +236,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new OffSide(this, match, p));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -235,6 +246,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new Offense(this, match, p));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -244,6 +256,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new Injury(this, match, p));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }
@@ -254,6 +267,7 @@ public class Referee extends Fan implements NotificationsUser {
                 return (new Replacement(this, match, p1, p2));
             }
             else{
+                LOG.error("one of parameters null");
                 throw new NullPointerException();
             }
     }
@@ -264,6 +278,7 @@ public class Referee extends Fan implements NotificationsUser {
             return (new ExtraTime(this, match, time));
         }
         else{
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
     }

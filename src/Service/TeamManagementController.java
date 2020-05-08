@@ -5,36 +5,60 @@ import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Team;
 import Domain.Notifications.Notification;
 import Domain.Users.*;
+import sun.awt.image.ImageWatched;
+
 import java.security.acl.Permission;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+
 public class TeamManagementController {
+    private SystemOperationsController sOController = new SystemOperationsController();
 
     /**
      * adi
-     * @param user
+     * @param userName
      * @param name
      * @throws Exception
      */
-    public void requestNewTeam(TeamOwner user, String name) throws Exception {
-        user.requestNewTeam(name);
+    public void requestNewTeam(String userName, String name) throws Exception {
+        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        user.getTeamOwner().requestNewTeam(name);
     }
 
     /**
      * adi
-     * @param user
-     * @param team
-     * @param players
-     * @param coach
+     * @param userName
+     * @param teamName
+     * @param playerNames
+     * @param coachUserName
      * @param nameOfNewField
      * @throws Exception
      */
-    public void makeTeamActive(TeamOwner user, Team team, HashSet<Player> players , Coach coach, String nameOfNewField) throws Exception{
+    public void makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField) throws Exception{
+        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        Team team = sOController.getTeambyTeamName(teamName);
+        HashSet<Player> players = new HashSet<>();
+        for (String pName : playerNames){
+            TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
+            players.add(p.getPlayer());
+        }
+        TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
+
         Field field = new Field(nameOfNewField);
-        user.makeTeamActive(team, players, coach, field);
+
+        user.getTeamOwner().makeTeamActive(team, players, coach.getCoach(), field);
     }
 
+    public LinkedList<String> getMyApprovedTeams(String userName){
+        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        LinkedList<Team> teams =  user.getTeamOwner().getApprovedTeams();
+        LinkedList<String> teamNames = new LinkedList<>();
+        for (Team t : teams){
+            teamNames.add(t.getName());
+        }
+        return teamNames;
+    }
     /**
      * adi
      * @param user
@@ -440,15 +464,15 @@ public class TeamManagementController {
      * adi
      * @return
      */
-    public LinkedList<TeamRole> getAllTeamRolesThatArentCoachWithTeam(){
+    public LinkedList<String> getAllTeamRolesThatArentCoachWithTeam(){
         LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
-        LinkedList<TeamRole> ans = new LinkedList<>();
+        LinkedList<String> ans = new LinkedList<>();
         for(TeamRole teamRole : allTeamRole){
             if(teamRole.getCoach() == null){
-                ans.add(teamRole);
+                ans.add(teamRole.getUserName());
             }
             else if(teamRole.getCoach().getCoachTeam() == null){
-                ans.add(teamRole);
+                ans.add(teamRole.getUserName());
             }
         }
         return ans;
@@ -457,15 +481,15 @@ public class TeamManagementController {
      * adi
      * @return
      */
-    public LinkedList<TeamRole> getAllTeamRolesThatArentPlayerWithTeam(){
+    public LinkedList<String> getAllTeamRolesThatArentPlayerWithTeam(){
         LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
-        LinkedList<TeamRole> ans = new LinkedList<>();
+        LinkedList<String> ans = new LinkedList<>();
         for(TeamRole teamRole : allTeamRole){
             if(teamRole.getPlayer() == null){
-                ans.add(teamRole);
+                ans.add(teamRole.getUserName());
             }
             else if(teamRole.getPlayer().getTeam() == null){
-                ans.add(teamRole);
+                ans.add(teamRole.getUserName());
             }
         }
         return ans;

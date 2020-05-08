@@ -289,8 +289,9 @@ public class Team extends Observable implements PageOwner {
     //TODO test - V
     public void addPlayer(Player p) throws Exception {
 
-        if (p != null) {
-            players.add(p);
+        if(p!=null) {
+                players.add(p);
+//                p.setActiveOnTeam(true);
         } else {
             LOG.error("one of parameters null");
             throw new Exception("Player is null");
@@ -626,5 +627,11 @@ public class Team extends Observable implements PageOwner {
         notifyObservers(name+" removed from system by system manager");
     }
 
+
+    public void setAllPlayersNotActive(){
+        for (Player p: this.getPlayers()) {
+            p.setActiveOnTeam(false);
+        }
+    }
 
 }

@@ -18,34 +18,30 @@ public class Replacement extends Event {
             //p1 is player in away team
             if (match.getAwayTeam().getPlayers().contains(p1)) {
                 if(match.getAwayTeam().getPlayers().contains(p2)) {
-                    match.getAwayTeam().removePlayer(p1);
-                    match.getAwayTeam().addPlayer(p2);
+//                    p1.setActiveOnTeam(false);
+//                    p2.setActiveOnTeam(true);
                     super.setName("Replacement");
                 }
                 else{
-                    LOG.error("Both players must to be from the same team");
                     throw new Exception("Both players must to be from the same team");
                 }
             } else {
                 if (match.getHomeTeam().getPlayers().contains(p1)) {
                     if(match.getHomeTeam().getPlayers().contains(p2)) {
-                        match.getHomeTeam().removePlayer(p1);
-                        match.getHomeTeam().addPlayer(p2);
+//                        p1.setActiveOnTeam(false);
+//                        p2.setActiveOnTeam(true);
                         super.setName("Replacement");
                     }
                     else{
-                        LOG.error("Both players must to be from the same team");
                         throw new Exception("Both players must to be from the same team");
                     }
                 }
                 else{
-                    LOG.error("The player to replace isn't in one of the participating teams");
                     throw new Exception("The player to replace isn't in one of the participating teams");
                 }
             }
         }
         else{
-            LOG.error("one of parameters null");
             throw new Exception("Please insert valid players");
         }
 

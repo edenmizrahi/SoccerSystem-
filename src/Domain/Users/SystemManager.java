@@ -654,7 +654,7 @@ public class SystemManager extends Fan implements NotificationsUser {
      * @codeBy Eden
      */
     @Override
-    public HashSet<Notification> genUnReadNotifications(){
+    public HashSet<Notification> getUnReadNotifications(){
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notifications){
             if(n.isRead()==false){

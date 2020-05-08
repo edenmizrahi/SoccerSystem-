@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +19,7 @@ public abstract class Event  {
     protected static final Logger LOG = LogManager.getLogger("Event");
     private int minuteOfMatch;
     private String name;
+    public SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     public Event(Referee referee, Match match) throws Exception {
         if(referee != null && match != null) {
@@ -25,10 +27,10 @@ public abstract class Event  {
             this.match = match;
 //            this.name="";
             Date currentDate = new Date(System.currentTimeMillis());
-            this.dateTime = MainSystem.simpleDateFormat.parse(currentDate.toString());
+            this.dateTime = currentDate;
             long diff = currentDate.getTime() - match.getStartDate().getTime();
             this.minuteOfMatch = (int) TimeUnit.MINUTES.convert(diff,TimeUnit.MILLISECONDS);
-//            this.minuteOfMatch = (int) (currentDate.getTime() - match.getStartDate().getTime());
+
             if(minuteOfMatch > match.getNumOfMinutes() || minuteOfMatch < 0){
                 LOG.error("invalid event creation");
                 throw new Exception("invalid event creation");

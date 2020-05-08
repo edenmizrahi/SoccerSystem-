@@ -38,6 +38,6 @@ public class Goal extends Event {
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Domain.Events.Goal by "+player.getTeamRole().getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Goal by "+player.getTeamRole().getName();
     }
 }

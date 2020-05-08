@@ -628,4 +628,10 @@ public class Team extends Observable implements PageOwner {
     }
 
 
+    public void setAllPlayersNotActive(){
+        for (Player p: this.getPlayers()) {
+            p.setActiveOnTeam(false);
+        }
+    }
+
 }

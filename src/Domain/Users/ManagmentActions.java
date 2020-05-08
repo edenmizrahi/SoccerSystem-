@@ -1,9 +1,6 @@
 package Domain.Users;
 import Domain.*;
-import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Field;
-import Domain.LeagueManagment.Match;
-import Domain.LeagueManagment.Team;
 import Domain.LeagueManagment.Team;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,16 +27,19 @@ public abstract class ManagmentActions {
     //TODO test-V
     public TeamRole subscribeTeamOwner(Fan fan, Team team) throws Exception{
         if (fan == null || team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         // check if already team owner of this team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner() && team.getTeamOwners().contains(((TeamRole) fan).getTeamOwner())){
+            LOG.error("Already team Owner of this team");
             throw new Exception("Already team Owner of this team");
         }
         TeamRole teamRole;
         // check if already team owner of different team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamOwner()){
             ((TeamRole) fan).getTeamOwner().addNewTeam(team);
+
             team.addTeamOwner(((TeamRole) fan).getTeamOwner());
             teamRole = ((TeamRole) fan);
         }
@@ -59,7 +59,7 @@ public abstract class ManagmentActions {
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamOwner(), team, teamRole);
         mySubscriptions.add(sub);
-        LOG.info(String.format("%s - %s", getClass(), "subscribe team Owner :"+fan.getName()+"to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "subscribe team Owner :"+fan.getName()+"to team: "+team.getName()));
         return teamRole;
     }
 
@@ -74,6 +74,7 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void removeTeamOwner (TeamOwner tO, Team team)throws Exception{
         if (tO == null || team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         team.removeTeamOwner(tO);
@@ -104,7 +105,7 @@ public abstract class ManagmentActions {
             }
         }
         tO.removeTeam(team);
-        LOG.info(String.format("%s - %s", getClass(), "remove team Owner :"+tO.getTeamRole().getName()+"to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "remove team Owner :"+tO.getTeamRole().getName()+"to team: "+team.getName()));
     }
 
     /**
@@ -119,6 +120,7 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void removeAndReplaceCoach(Coach coachToRemove, TeamRole coachToAdd, String newCoachRoleAtTeam, Team team) throws Exception {
         if (coachToRemove == null || coachToAdd == null || team == null || newCoachRoleAtTeam==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         if (team.getCoach().equals(coachToRemove)) {
@@ -132,9 +134,10 @@ public abstract class ManagmentActions {
             coachToAdd.getCoach().setRoleAtTeam(newCoachRoleAtTeam);
         }
         else {
+            LOG.error("This Coach doesn't exist in this team");
             throw new Exception("This Coach doesn't exist in this team");
         }
-        LOG.info(String.format("%s - %s", getClass(), "remove coach :"+coachToRemove.getTeamRole().getName()+"and replave with coach:+"+coachToAdd.getName()+"to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "remove coach :"+coachToRemove.getTeamRole().getName()+"and replave with coach:+"+coachToAdd.getName()+"to team: "+team.getName()));
     }
 
     /**
@@ -146,10 +149,11 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void editCoachRole(Coach coach, String role) throws Exception {
         if (coach == null || role == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         coach.setRoleAtTeam(role);
-        LOG.info(String.format("%s - %s", getClass(), "edit coach "+coach.getTeamRole().getName()+" role to be :"+role));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "edit coach "+coach.getTeamRole().getName()+" role to be :"+role));
     }
 
     /**
@@ -162,6 +166,7 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void addPlayer(TeamRole player, String role, Team team) throws Exception {
         if (player == null || role == null || team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         if (!player.isPlayer()){
@@ -174,9 +179,10 @@ public abstract class ManagmentActions {
             player.getPlayer().setRoleAtField(role);
         }
         else{
+            LOG.error("This player is already in another team");
             throw new Exception("This player is already in another team");
         }
-        LOG.info(String.format("%s - %s", getClass(), "add player :"+player.getName()+"to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "add player :"+player.getName()+"to team: "+team.getName()));
     }
 
     /**
@@ -189,12 +195,13 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void removePlayer (Player player, Team team) throws Exception {
         if (player == null || team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         team.removePlayer(player);
         player.setPlayerTeam(null);
 
-        LOG.info(String.format("%s - %s", getClass(), "remove player : "+player.getTeamRole().getName()+"from team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "remove player : "+player.getTeamRole().getName()+"from team: "+team.getName()));
     }
 
     /**
@@ -206,10 +213,11 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void editPlayerRole(Player player, String role) throws Exception {
         if (player == null || role == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         player.setRoleAtField(role);
-        LOG.info(String.format("%s - %s", getClass(), "edit player "+player.getTeamRole().getName()+" role to be :"+role));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "edit player "+player.getTeamRole().getName()+" role to be :"+role));
     }
 
     /**
@@ -223,13 +231,14 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void removeAndReplaceField (Field fieldtoRemove, Field fieldToAdd, Team team) throws Exception {
         if (fieldtoRemove == null || fieldToAdd == null || team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         team.removeField(fieldtoRemove);
         fieldtoRemove.removeTeam(team);
         team.setField(fieldToAdd);
         fieldToAdd.addTeam(team);
-        LOG.info(String.format("%s - %s", getClass(), "remove field "+fieldtoRemove.getNameOfField()+" add fiels: "+fieldToAdd.getNameOfField()+" to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "remove field "+fieldtoRemove.getNameOfField()+" add fiels: "+fieldToAdd.getNameOfField()+" to team: "+team.getName()));
     }
 
     /**
@@ -241,10 +250,11 @@ public abstract class ManagmentActions {
     //TODO test-V
     public void editFieldName(Field field, String name) throws Exception {
         if (field == null || name == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         field.setNameOfField(name);
-        LOG.info(String.format("%s - %s", getClass(), "edit field name to be: "+field.getNameOfField()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "edit field name to be: "+field.getNameOfField()));
     }
 
     /**OR
@@ -261,7 +271,7 @@ public abstract class ManagmentActions {
         }
         team.addIncome(typeOfIncome,amount);
 
-        LOG.info(String.format("%s - %s", getClass(), "add income, type: "+typeOfIncome+", amount: "+amount+" to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "add income, type: "+typeOfIncome+", amount: "+amount+" to team: "+team.getName()));
     }
 
     /**or
@@ -277,11 +287,12 @@ public abstract class ManagmentActions {
             throw  new NullPointerException();
         }
         team.addExpense(typeOfExpense,amount);
-        LOG.info(String.format("%s - %s", getClass(), "add expense, type: "+typeOfExpense+", amount: "+amount+" to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", getUserNameOfAction(), "add expense, type: "+typeOfExpense+", amount: "+amount+" to team: "+team.getName()));
     }
 
     public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
     }
 
+    public abstract String getUserNameOfAction();
 }

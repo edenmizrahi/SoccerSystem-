@@ -72,6 +72,18 @@ public class SystemOperationsController {
 
     }
 
+    public LinkedList<String> getAllStringSeasons(){
+        LinkedList<Season> listOfSeason =  MainSystem.getInstance().getSeasons();
+        LinkedList<String> listOfSeasonStrings = new LinkedList<>();
+
+        for (Season s : listOfSeason) {
+            listOfSeasonStrings.add(Integer.toString(s.getYear()));
+        }
+
+        return listOfSeasonStrings;
+    }
+
+
     /**
      * return current season
      * @return
@@ -273,6 +285,8 @@ public class SystemOperationsController {
         return matches;
     }
 
+
+
     /**
      * for input to delete user function
      *User name is an unique field so this function return one user if there is user with
@@ -293,6 +307,35 @@ public class SystemOperationsController {
         return null;
     }
 
+
+    /**
+     * return list with all private details of the fan
+     * list : name, Password, PhoneNumber, Email, DateOfBirth
+     * @param userName
+     * @return list of details of fan
+     */
+    public List<String> getPrivateDetails(String userName) { //##
+        Fan fan= (Fan)getUserByUserName(userName);
+        List<String> details = new LinkedList<>();
+        details.add(fan.getName());
+        details.add(fan.getPassword());
+        details.add(fan.getPhoneNumber());
+        details.add(fan.getEmail());
+        details.add(String.valueOf(fan.getDateOfBirth()));
+
+        return details;
+    }
+
+
+    public Team getTeambyTeamName(String teamName){
+        HashSet<Team> teams = MainSystem.getInstance().getActiveTeams();
+        for (Team t : teams) {
+            if (t.getName().equals(teamName)) {
+                return t;
+            }
+        }
+        return null;
+    }
     public List<SystemManager> showAllSystemManagers(){
         return MainSystem.getInstance().getSystemManagers();
     }
@@ -305,6 +348,22 @@ public class SystemOperationsController {
 
     public List<SystemManager> getAllSystemManager() {
         return MainSystem.getInstance().getSystemManagers();
+
+    }
+
+    public static void initSystemObjectsAvitalForUI() throws Exception {
+        MainSystem system = MainSystem.getInstance();
+        system.startSystem();
+        SystemManager marioSystemManager = system.getSystemManagers().get(0);//there is only one system manager now (the default)
+        Team t1 = new Team();
+
+        /*********************************************/
+        Fan f1=new Fan(system, "Ilan", "0549716910","yossi@gmail.com", "Ilan12", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+//        TeamRole ilanTeamOwner=new TeamRole(f1);
+//        ilanTeamOwner.becomeTeamOwner();
+//        ilanTeamOwner.getTeamOwner().addNewTeam(t1);
+//        t1.setFounder(ilanTeamOwner.getTeamOwner());
+//        t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
 
     }
 
@@ -578,7 +637,8 @@ public class SystemOperationsController {
         system.setUserNames(new HashSet<>());
         system.setTeamNames(new HashSet<>());
     }
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
         MainSystem ms=MainSystem.getInstance();
        try {
            if (role.equals("Player")) {

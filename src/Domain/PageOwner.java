@@ -46,6 +46,7 @@ public interface PageOwner {
         return true;
     }
 
+
     public PrivatePage getPage();
 
     public void setPage(PrivatePage p);

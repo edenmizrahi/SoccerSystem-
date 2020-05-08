@@ -705,19 +705,3 @@
 2020.04.25 20:29:21.347 INFO  Domain.LeagueManagment.Team - team3 - add team to league:A and season2020
 2020.04.25 20:29:21.347 INFO  Domain.LeagueManagment.Team - team2 - add team to league:A and season2020
 2020.04.25 20:29:21.347 INFO  Domain.LeagueManagment.Team - team4 - add team to league:A and season2020
-2020.05.06 12:20:38.325 INFO  MainSystem - eden - sign in as Domain.Users.Fan
-2020.05.06 13:10:53.575 INFO  MainSystem - systemManager - sign in as Domain.Users.Fan
-2020.05.06 13:16:54.069 INFO  TeamRole - ede - become coach
-2020.05.06 13:16:54.076 INFO  MainSystem - eden - sign in as Coach
-2020.05.06 13:54:06.366 INFO  MainSystem - eden - sign in as Domain.Users.Fan
-2020.05.06 13:56:28.226 INFO  MainSystem - eden - sign in as RFA
-2020.05.06 14:04:33.585 INFO  TeamRole - ed - become coach
-2020.05.06 14:04:33.588 INFO  MainSystem - eden - sign in as Coach
-2020.05.06 14:05:01.211 INFO  MainSystem - edena - sign in as Domain.Users.Fan
-2020.05.06 14:11:09.013 INFO  MainSystem - eden - sign in as RFA
-2020.05.06 14:11:16.128 INFO  MainSystem - eden - loged in to system
-2020.05.06 14:11:24.253 INFO  MainSystem - eden - loged in to system
-2020.05.06 14:11:24.974 INFO  MainSystem - eden - loged in to system
-2020.05.06 14:11:25.215 INFO  MainSystem - eden - loged in to system
-2020.05.06 14:11:25.449 INFO  MainSystem - eden - loged in to system
-2020.05.06 14:11:25.677 INFO  MainSystem - eden - loged in to system

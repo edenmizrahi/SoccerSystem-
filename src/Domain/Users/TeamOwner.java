@@ -19,7 +19,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     private LinkedList<Team> requestedTeams;
     private LinkedList<Team> deletedTeams;
     private LinkedList<Team> approvedTeams;
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LogManager.getLogger("TeamOwner");
     private HashSet<Notification> notifications;
 
 
@@ -43,6 +43,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     //TODO test-V
     public void requestNewTeam(String name) throws Exception {
         if(teamRole.system.getTeamNames().contains(name)){
+            LOG.error("team name not unique, already exist in system");
             throw new Exception("team name not unique, already exist in system");
         }
         Team t= new Team(name,this);
@@ -62,9 +63,11 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     //TODO test-V
     public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
         if(team == null || players == null || coach == null || field==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         if(! approvedTeams.contains(team)){
+            LOG.error("this team is not approved by RFA");
             throw  new Exception("this team is not approved by RFA");
         }
         team.becomeActive(players,coach,field);
@@ -80,19 +83,23 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     //TODO test-V
     public void deleteTeam(Team team) throws Exception {
         if(team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         if(team.getLeaguePerSeason().containsKey(teamRole.system.getCurrSeason())){
+            LOG.error("team is play in the current season ,cannot delete the team until the end of the season");
             throw new Exception("team is play in the current season ,you cannot delete the team until the end of the season");
         }
         Date currDate= new Date(System.currentTimeMillis());
         for (Match m:team.getHome()) {
             if(m.getStartDate().after(currDate)){
+                LOG.error("cannot delete team with future matches");
                 throw  new Exception("cannot delete team with future matches");
             }
         }
         for( Match m:team.getAway()){
             if(m.getStartDate().after(currDate)){
+                LOG.error("cannot delete team with future matches");
                 throw  new Exception("cannot delete team with future matches");
             }
         }
@@ -112,9 +119,11 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     public void reopenTeam(Team team, HashSet<Player> players, Coach coach, Field field) throws Exception
     {
         if(team ==null || players==null|| coach==null || field==null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         if(!deletedTeams.contains(team)){
+            LOG.error("the team was not deleted");
             throw new Exception("the team was not deleted");
         }
         team.reopenTeam(players,coach,field,this);
@@ -172,10 +181,12 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     // only team owner
     public TeamRole subscribeTeamManager(Fan fan, Team team, HashSet<TeamManagerPermissions> per) throws Exception{
         if (fan == null  || team == null || per == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         // check if already team manager of this team
         if (fan instanceof TeamRole && ((TeamRole) fan).isTeamManager() && team.getTeamManager().equals(((TeamRole) fan).getTeamManager())){
+            LOG.error("Already Team Manager of this team");
             throw new Exception("Already Team Manager of this team");
         }
         TeamRole teamRole;
@@ -193,7 +204,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
         }
         TeamSubscription sub = new TeamSubscription(teamRole.getTeamManager(), team, teamRole);
         mySubscriptions.add(sub);
-        LOG.info(String.format("%s - %s", teamRole.getName(), " add as team manager: "+fan.getName()+", to team: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), " add as team manager: "+fan.getUserName()+", to team: "+team.getName()));
         return teamRole;
 
     }
@@ -208,6 +219,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     // only team owner!!!!!!!!!
     public void removeTeamManager (TeamManager tM, Team team) throws Exception{
         if (tM == null || team == null || team == null){
+            LOG.error("one of parameters null");
             throw new NullPointerException();
         }
         team.removeTeamManager(tM);
@@ -227,7 +239,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
         tM.getTeamRole().deleteTeamManager();
         team.deleteObserver(tM);
 
-        LOG.info(String.format("%s - %s", teamRole.getName(), " remove team manager"+tM.getTeamRole().getName()+", from team: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), " remove team manager"+tM.getTeamRole().getUserName()+", from team: "+team.getName()));
 
     }
 
@@ -329,7 +341,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
 
     public void addNewTeam(Team team) {
         this.teams.add(team);
-        LOG.info(String.format("%s - %s", teamRole.getName(), " new team was added: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), " new team was added: "+team.getName()));
     }
 
 
@@ -338,9 +350,10 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
             teams.remove(team);
         }
         else{
-            throw new Exception("team not belong to ths owner");
+            LOG.error("team not belong to this owner");
+            throw new Exception("team not belong to this owner");
         }
-        LOG.info(String.format("%s - %s", teamRole.getName(), "remove team from active teams: "+team.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), "remove team from active teams: "+team.getName()));
     }
 
     public LinkedList<Team> getTeams() {
@@ -349,6 +362,11 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
 
     public HashSet<TeamSubscription> getMySubscriptions() {
         return mySubscriptions;
+    }
+
+    @Override
+    public String getUserNameOfAction() {
+        return teamRole.getUserName();
     }
 
 
@@ -480,7 +498,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
      * @codeBy Eden
      */
     @Override
-    public HashSet<Notification> genUnReadNotifications(){
+    public HashSet<Notification> getUnReadNotifications(){
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notifications){
             if(n.isRead()==false){
@@ -517,13 +535,13 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     /**or**/
     public void addDeletedTeam(Team t){
         this.deletedTeams.add(t);
-        LOG.info(String.format("%s - %s", teamRole.getName(), "add deleted team to list : "+t.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), "add deleted team to list : "+t.getName()));
     }
 
     /**or**/
     public void removeDeletedTeam(Team t){
         this.deletedTeams.remove(t);
-        LOG.info(String.format("%s - %s", teamRole.getName(), "remove deleted team from list : "+t.getName()));
+        LOG.info(String.format("%s - %s", teamRole.getUserName(), "remove deleted team from list : "+t.getName()));
     }
 
     public void addRecordToTeamPage(Team t,String record) throws Exception {

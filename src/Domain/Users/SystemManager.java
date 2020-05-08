@@ -60,6 +60,7 @@ public class SystemManager extends Fan implements NotificationsUser {
      */
     public SystemManager addNewSystemManager(Fan fan) throws Exception {
         if(fan==null){
+            LOG.error("user is null");
             throw new Exception("user is null");
         }
         /**constructor make connection to system**/
@@ -142,6 +143,7 @@ public class SystemManager extends Fan implements NotificationsUser {
             toAdd.addNewTeam(team);
         }
         else{
+            LOG.error("wrong team owner and team");
             throw new Exception("wrong team owner and team"); //actual
         }
 
@@ -167,6 +169,7 @@ public class SystemManager extends Fan implements NotificationsUser {
         if(userToDelete instanceof Rfa) {
             /***must have at least one RFA at system**/
             if(system.numOfRfa()==1){
+                LOG.error("There is only one RFA left, you cannot delete it");
                 throw new Exception("There is only one RFA left, you cannot delete it ");
             }
             objectsDeleted=deleteRfa(((Rfa)userToDelete));
@@ -178,6 +181,7 @@ public class SystemManager extends Fan implements NotificationsUser {
             }
             /***must have at least one system Manager at system**/
             if(system.getSystemManagers().size()==1){
+                LOG.error("There is only one System Manager left, you cannot delete it");
                 throw new Exception("There is only one System Manager left, you cannot delete it ");// not throw
             }
             objectsDeleted=deleteSystemManager(((SystemManager)userToDelete));
@@ -349,6 +353,7 @@ public class SystemManager extends Fan implements NotificationsUser {
          if connect throws Exception("you have to replace team coach")*/
         if(userToRemove.getCoach()!=null) {
             if(userToRemove.getCoach().getCoachTeam()!=null){
+                LOG.error("cannot have team with no coach");
                 throw new Exception("you have to subscribe another coach to "+(userToRemove.getCoach()).getCoachTeam().getName()+" team first");
             }
         }
@@ -357,6 +362,7 @@ public class SystemManager extends Fan implements NotificationsUser {
         if(userToRemove.getPlayer()!=null) {
             if (userToRemove.getPlayer().getTeam() != null) {
                 if (userToRemove.getPlayer().getTeam().getPlayers().size() <= 11) {
+                    LOG.error("cannot have team with less than 11 players");
                     throw new Exception("You Cannot Delete player From " + userToRemove.getPlayer().getTeam().getName() + " team ,any team have to be at least 11 Players!");
                 }
             }
@@ -368,6 +374,7 @@ public class SystemManager extends Fan implements NotificationsUser {
             LinkedList<Team> OwnerTeams =userToRemove.getTeamOwner().getTeams();
             for(Team t: OwnerTeams){
                 if(t.getFounder()==userToRemove.getTeamOwner()){
+                    LOG.error("cannot delete founder of team");
                     throw new Exception(userToRemove.getName()+" is founder of:"+ " "+t.getName() +"please replace the team's fonder");
                 }
             }
@@ -496,6 +503,7 @@ public class SystemManager extends Fan implements NotificationsUser {
         //check the all matches that the referee is refereeing
         for (Match m : userToDelete.getMatches()) {
             if (m.getStartDate().after(new Date(System.currentTimeMillis()))) {
+                LOG.error("You cannot remove referee , he has matches in this season");
                 throw new Exception("You cannot remove referee , he has matches in this season");
             }
         }
@@ -611,6 +619,7 @@ public class SystemManager extends Fan implements NotificationsUser {
     //TODO test - avital V
     private void checkValidTeam(Team teamToRemove) throws Exception {
         if(teamToRemove.getLeaguePerSeason().containsKey(system.getCurrSeason())){
+            LOG.error("cannot delete team in current season");
             throw new Exception("cannot delete team in current season");
         }
         Date currDate= new Date(System.currentTimeMillis());
@@ -645,7 +654,7 @@ public class SystemManager extends Fan implements NotificationsUser {
      * @codeBy Eden
      */
     @Override
-    public HashSet<Notification> genUnReadNotifications(){
+    public HashSet<Notification> getUnReadNotifications(){
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notifications){
             if(n.isRead()==false){

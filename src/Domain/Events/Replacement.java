@@ -18,8 +18,8 @@ public class Replacement extends Event {
             //p1 is player in away team
             if (match.getAwayTeam().getPlayers().contains(p1)) {
                 if(match.getAwayTeam().getPlayers().contains(p2)) {
-                    match.getAwayTeam().removePlayer(p1);
-                    match.getAwayTeam().addPlayer(p2);
+//                    p1.setActiveOnTeam(false);
+//                    p2.setActiveOnTeam(true);
                     super.setName("Replacement");
                 }
                 else{
@@ -28,8 +28,8 @@ public class Replacement extends Event {
             } else {
                 if (match.getHomeTeam().getPlayers().contains(p1)) {
                     if(match.getHomeTeam().getPlayers().contains(p2)) {
-                        match.getHomeTeam().removePlayer(p1);
-                        match.getHomeTeam().addPlayer(p2);
+//                        p1.setActiveOnTeam(false);
+//                        p2.setActiveOnTeam(true);
                         super.setName("Replacement");
                     }
                     else{

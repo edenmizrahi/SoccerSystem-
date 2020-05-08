@@ -17,6 +17,7 @@ public class Offense extends Event {
             this.player = p;
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Please insert valid player");
         }
     }

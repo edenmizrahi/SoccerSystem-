@@ -25,17 +25,19 @@ public class Goal extends Event {
                     match.setGuestScore(match.getGuestScore() + 2);
                 }
                 else{
+                    LOG.error("This player isn't in one of the participating teams");
                     throw new Exception("This player isn't in one of the participating teams");
                 }
             }
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Please insert valid player");
         }
     }
 
     @Override
     public String toString() {
-        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Domain.Events.Goal by "+player.getTeamRole().getName();
+        return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Goal by "+player.getTeamRole().getName();
     }
 }

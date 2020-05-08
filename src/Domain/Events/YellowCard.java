@@ -16,6 +16,7 @@ public class YellowCard extends Event {
             super.setName("Yellow Card");
         }
         else{
+            LOG.error("one of parameters null");
             throw new Exception("Please insert valid player");
         }
     }

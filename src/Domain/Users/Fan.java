@@ -154,6 +154,7 @@ public class Fan extends User implements NotificationsUser {
     /**Or**/
     public void subToPage(PrivatePage privatePage) throws Exception {
         if(privatePage== null){
+            LOG.error("private page null");
             throw new Exception("private page null");
         }
         myPages.add(privatePage);
@@ -256,7 +257,7 @@ public class Fan extends User implements NotificationsUser {
      * @codeBy Eden
      */
     @Override
-    public HashSet<Notification> genUnReadNotifications(){
+    public HashSet<Notification> getUnReadNotifications(){
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notificationHashSet){
             if(n.isRead()==false){

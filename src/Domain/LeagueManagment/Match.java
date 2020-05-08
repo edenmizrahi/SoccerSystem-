@@ -46,6 +46,7 @@ public class Match extends Observable{
             mainReferee.addMatchToList(this);
         }
           else{//also exception for wrong startDate format
+              LOG.error("one of details to create match in null");
             throw new Exception("Please valid details that requires to create a match");
         }
     }
@@ -92,7 +93,7 @@ public class Match extends Observable{
     public void setField(Field field) {
         this.field = field;
         setChanged();
-        notifyObservers("The matching field between team-" +homeTeam.getName() + "to team-" + awayTeam.getName() +
+        notifyObservers("The matching field between team-" +homeTeam.getName() + " to team-" + awayTeam.getName() +
                 " changed to "+this.field);
     }
 
@@ -112,7 +113,7 @@ public class Match extends Observable{
     public void addEventToList(Event e){
         if(e!=null) {
             if(e instanceof Goal || e instanceof ExtraTime || e instanceof Injury || e instanceof Offense ||
-            e instanceof RedCard || e instanceof Replacement || e instanceof YellowCard) {
+            e instanceof RedCard || e instanceof OffSide || e instanceof Replacement || e instanceof YellowCard) {
                 this.getEvents().add(e);
                 LOG.info(String.format("%s - %s", e.getName(), "add event to match between "+getHomeTeam().getName()+" to ")
                 +getAwayTeam().getName());
@@ -120,11 +121,11 @@ public class Match extends Observable{
         }
     }
 
+
     /**** not supposed to be at referee ? just him legal to add event to his match ****/
     /**** hat about the player that did the event ? ****/
     /**** minute of game ****/
     /**** startDate - timeStamp in event ? ****/
-    // TODO: 03/05/2020 todo TEST
     public void addEvent(Event e){
         setChanged();
         notifyObservers(e);

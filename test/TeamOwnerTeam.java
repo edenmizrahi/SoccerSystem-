@@ -107,19 +107,19 @@ public class TeamOwnerTeam {
             Assert.assertEquals(NullPointerException.class, e.getClass());
         }
 
-        HashSet<Player> players= new HashSet<>();
+        HashSet<TeamRole> players= new HashSet<>();
         TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
         int counter=0;
         while(counter<11){
             TeamRole player= new TeamRole(ms,"player", "1234567890","email@gmail.com","player"+counter,"player"+counter,MainSystem.birthDateFormat.parse("09-12-1995"));
             player.becomePlayer();
-            players.add(player.getPlayer());
+            players.add(player);
             counter++;
         }
         coach.becomeCoach();
         Field field= new Field("fielsName");
         try {
-            tOYossi.getTeamOwner().makeTeamActive(team,players,coach.getCoach(),field);
+            tOYossi.getTeamOwner().makeTeamActive(team,players,coach,field);
             Assert.fail();
         } catch (Exception e) {
             Assert.assertEquals(Exception.class, e.getClass());
@@ -128,7 +128,7 @@ public class TeamOwnerTeam {
 
         tOYossi.getTeamOwner().getApprovedTeams().add(team);
         try {
-            tOYossi.getTeamOwner().makeTeamActive(team,players,coach.getCoach(),field);
+            tOYossi.getTeamOwner().makeTeamActive(team,players,coach,field);
             Assert.assertTrue(tOYossi.getTeamOwner().getTeams().contains(team));
             Assert.assertFalse(tOYossi.getTeamOwner().getApprovedTeams().contains(team));
             Assert.assertTrue(team.isActive());
@@ -153,13 +153,13 @@ public class TeamOwnerTeam {
             Assert.assertEquals(NullPointerException.class, e.getClass());
         }
 
-        HashSet<Player> players= new HashSet<>();
+        HashSet<TeamRole> players= new HashSet<>();
         TeamRole coach= new TeamRole(ms,"michael","0522150912","teamO@gmail.com","coach2232","coach2232",MainSystem.birthDateFormat.parse("09-12-1995"));
         int counter=0;
         while(counter<11){
             TeamRole player= new TeamRole(ms,"player", "1234567890","email@gmail.com","player"+counter,"player"+counter,MainSystem.birthDateFormat.parse("09-12-1995"));
             player.becomePlayer();
-            players.add(player.getPlayer());
+            players.add(player);
             counter++;
         }
         coach.becomeCoach();
@@ -171,7 +171,7 @@ public class TeamOwnerTeam {
             e.printStackTrace();
         }
         try {
-            tOYossi.getTeamOwner().makeTeamActive(team,players,coach.getCoach(),field);
+            tOYossi.getTeamOwner().makeTeamActive(team,players,coach,field);
             TeamRole TOmoshe= tOYossi.getTeamOwner().subscribeTeamOwner(moshe,team);
             Assert.assertTrue(tOYossi.getTeamOwner().getMySubscriptions().size()==1);
             tOYossi.getTeamOwner().deleteTeam(team);

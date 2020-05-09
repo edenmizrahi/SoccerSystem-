@@ -1,4 +1,5 @@
 package Presentation;
+import Service.SystemOperationsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,10 +9,13 @@ import javafx.stage.Stage;
 public class TeamManagementUIMain extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{
+        SystemOperationsController systemOperationsController = new SystemOperationsController();
+        systemOperationsController.initSystemObjectsAdi();
         Parent root = FXMLLoader.load(getClass().getResource("TeamManagementUI.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
+
     }
 
 

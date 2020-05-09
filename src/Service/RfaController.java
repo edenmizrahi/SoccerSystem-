@@ -27,6 +27,52 @@ public class RfaController {
         user.createNewLeague(leagueName,user.getSystem());
     }
 
+//    /**
+//     * show user his scheduling policies options
+//     * @return  List of Scheduling Policies
+//     *  @codeBy Eden
+//     */
+//    public List<String> watchSchedulingPolicies(){
+//        List <String> list=new LinkedList<>();
+//        list.add("ScheduleOption1");
+//        list.add("ScheduleOption2");
+//        return list;
+//    }
+//    /**
+//     * show user his Calculation policies options
+//     * @return  List of Calculation Policies
+//     *  @codeBy Eden
+//     */
+//    public List<String> watchCalculationPolicies(){
+//        List <String> list=new LinkedList<>();
+//        list.add("CalculateOption1");
+//        return list;
+//    }
+
+
+    public CalculationPolicy calculationPolicyByString(String name){
+        CalculationPolicy c = null;
+        if(name.equals("CalculateOption1")){
+            c = new CalculateOption1();
+        }
+
+        return c;
+    }
+
+    public SchedulingPolicy schedulingPolicyByString(String name){
+        SchedulingPolicy s = null;
+        if(name.equals("SchedualeOption1")){
+            s = new SchedualeOption1();
+        }
+        else{
+            if(name.equals("SchedualeOption2")){
+                s = new SchedualeOption2();
+            }
+        }
+
+        return s;
+    }
+
     /**
      * show user his scheduling policies options
      * @return  List of Scheduling Policies
@@ -38,6 +84,7 @@ public class RfaController {
         list.add(new SchedualeOption2());
         return list;
      }
+
     /**
      * show user his Calculation policies options
      * @return  List of Calculation Policies

@@ -11,12 +11,16 @@ import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
 import Service.RfaController;
 import Service.SystemOperationsController;
+import javafx.scene.effect.Reflection;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
 
 import static org.junit.Assert.fail;
+import java.lang.reflect.Method;
+import java.lang.reflect.Field;
+import java.lang.reflect.Constructor;
 
 
 /**  define a season for league by year. UC: 29   **/
@@ -26,7 +30,6 @@ public class DefineSeasonForLeague {
 
     RfaController rfaController=new RfaController();
     SystemOperationsController operationsController=new SystemOperationsController();
-
 
     @Test
     public void accept() throws Exception{
@@ -38,9 +41,11 @@ public class DefineSeasonForLeague {
         Rfa rfa=operationsController.getAllRFA().get(0);
         SystemManager sm=operationsController.showAllSystemManagers().get(0);
 
+        
         List<League> allLeagus= operationsController.showLeagus();
         LinkedHashSet<Referee> allRefs = operationsController.getAllREfereeInHasSet();
         List<SchedulingPolicy>SchedulingPolicies=rfaController.watchSchedulingPolicies();
+
         List<CalculationPolicy> CalculationPolicies=rfaController.watchCalculationPolicies();
         HashSet<Team> allTeams=operationsController.showAllTeams();
 

@@ -154,6 +154,11 @@ public class SystemOperationsController {
         t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
         /*********************************************/
 
+
+        Team t3 = new Team("approvedTeam", ilanTeamOwner.getTeamOwner());
+        LinkedList<Team> approvedTeams = new LinkedList<>();
+        approvedTeams.add(t3);
+        ilanTeamOwner.getTeamOwner().setApprovedTeams(approvedTeams);
         /**add Arnold as another Team Owner of t1 ***/
         Fan arnold = new Fan(system, "Arnold", "0549716910","yossi@gmail.com", "Arnold", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         TeamRole arnoldTeamOwner = new TeamRole(arnold);
@@ -253,8 +258,13 @@ public class SystemOperationsController {
         Fan f9= new Fan(system, "Tamar", "0549716910","yossi@gmail.com", "Tamar", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
         /*********************/
 
-        System.out.println("lalala");
+        /**Mike and Anna just team role**/
+        Fan f12= new Fan(system, "Mike", "0549716910","yossi@gmail.com", "Mike", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole mike=new TeamRole(f12);
 
+        Fan f13 = new Fan(system, "Anna", "0549716910","yossi@gmail.com", "Anna", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole Anna =new TeamRole(f13);
+        /*************************************/
     }
 
     public static void add11PlayersToTeam( Team t1, TeamOwner tO,String uniqueStringForUserName) throws Exception {
@@ -676,7 +686,7 @@ public class SystemOperationsController {
            }
        }
        catch (Exception e){
-           return "user name is not valid.";
+           return "error - user name is not valid.";
        }
 
         return "ok";

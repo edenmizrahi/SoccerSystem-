@@ -38,6 +38,8 @@ public class LoginController{
         UserController uc=new UserController();
         try {
             Fan f= uc.login(user,txt_userName.getText(),txt_password.getText());
+            lbl_error.setText("");
+
             //call to home page
         }
         catch (Exception e){

@@ -55,22 +55,32 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
      *  check if the team can become active
      *  if can- send to become active function in team
      * @param team
-     * @param players
+     * @param tempPlayers
      * @param coach
      * @param field
      * @throws Exception - one of the parameters is null, team was not approved by RFA
      */
     //TODO test-V
-    public void makeTeamActive(Team team, HashSet<Player> players , Coach coach, Field field) throws Exception{
-        if(team == null || players == null || coach == null || field==null){
+    public void makeTeamActive(Team team, HashSet<TeamRole> tempPlayers , TeamRole coach, Field field) throws Exception{
+        if(team == null || tempPlayers == null || coach == null || field==null){
             LOG.error("one of parameters null");
             throw new NullPointerException();
         }
-        if(! approvedTeams.contains(team)){
+        if(!approvedTeams.contains(team)){
             LOG.error("this team is not approved by RFA");
             throw  new Exception("this team is not approved by RFA");
         }
-        team.becomeActive(players,coach,field);
+        HashSet<Player> players = new HashSet<>();
+        for (TeamRole p : tempPlayers){
+            if (!p.isPlayer()){
+                p.becomePlayer();
+            }
+            players.add(p.getPlayer());
+        }
+        if (!coach.isCoach()){
+            coach.becomeCoach();
+        }
+        team.becomeActive(players,coach.getCoach(),field);
         this.teams.add(team);
         this.approvedTeams.remove(team);
     }
@@ -477,8 +487,6 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
             }
         }
     }
-
-
 
     /**
      * mark notification as readen

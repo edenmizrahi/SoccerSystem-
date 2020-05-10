@@ -111,20 +111,20 @@ public class RfaRefLeagueSeasonTeamScheduling {
             player10.becomePlayer();
             player11.becomePlayer();
 
-            HashSet<Player> players=new HashSet<>();
-            players.add(player1.getPlayer());
-            players.add(player2.getPlayer());
-            players.add(player3.getPlayer());
-            players.add(player4.getPlayer());
-            players.add(player5.getPlayer());
-            players.add(player6.getPlayer());
-            players.add(player7.getPlayer());
-            players.add(player8.getPlayer());
-            players.add(player9.getPlayer());
-            players.add(player10.getPlayer());
-            players.add(player11.getPlayer());
+            HashSet<TeamRole> players=new HashSet<>();
+            players.add(player1);
+            players.add(player2);
+            players.add(player3);
+            players.add(player4);
+            players.add(player5);
+            players.add(player6);
+            players.add(player7);
+            players.add(player8);
+            players.add(player9);
+            players.add(player10);
+            players.add(player11);
 
-            teamOwner.getTeamOwner().makeTeamActive(team,players,coach.getCoach(),new Field("fieldA"));
+            teamOwner.getTeamOwner().makeTeamActive(team,players,coach,new Field("fieldA"));
             Assert.assertTrue(teamOwner.getTeamOwner().getNotificationsList().size()==0);
 
             Team team2 = new Team("team2", teamOwner.getTeamOwner());

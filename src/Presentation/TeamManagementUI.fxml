@@ -38,7 +38,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="532.0" layoutY="14.0" mnemonicParsing="false" text="home" />
+                  <Button layoutX="546.0" layoutY="5.0" mnemonicParsing="false" text="home" />
                   <Button layoutX="122.0" layoutY="163.0" mnemonicParsing="false" onAction="#changeToRequestScene" prefHeight="49.0" prefWidth="169.0" text="Create a new team" />
                   <Button layoutX="330.0" layoutY="163.0" mnemonicParsing="false" onAction="#changeToActivateScene" prefHeight="48.0" prefWidth="166.0" text="Activate team" />
                   <Label layoutX="2.0" layoutY="3.0" text="Team Management">

@@ -12,6 +12,8 @@ import Domain.Notifications.Notification;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
+import org.reflections.Reflections;
+import sun.awt.image.ImageWatched;
 
 import java.util.*;
 
@@ -74,6 +76,65 @@ public class RfaController {
     }
 
     /**
+     *
+     * @return linkedList of all subClasses that implement SchedulingPolicy interface
+     */
+    public LinkedList<String> getAllschedulingString() {
+        LinkedList<String> schedulingList = new LinkedList<>();
+        Reflections reflections = new Reflections("Domain");
+        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
+
+        for (Class class1 : classes) {
+           schedulingList.add(class1.getSimpleName());
+        }
+
+        return schedulingList;
+    }
+
+    /**
+     *
+     * @return linkedList of all subClasses that implement Calculation interface
+     */
+    public LinkedList<String> getAllCalculationPoliciesString() {
+        LinkedList<String> calculationList = new LinkedList<>();
+        Reflections reflections = new Reflections("Domain");
+        Set<Class<? extends CalculationPolicy>> classes = reflections.getSubTypesOf(CalculationPolicy.class);
+
+        for (Class class1 : classes) {
+            calculationList.add(class1.getSimpleName());
+        }
+
+        return calculationList;
+    }
+
+
+    /**
+     * Define calculate and schedule policies to specific season
+     * if season exist, just update the policies, else create new season with those policies
+     * @param year
+     * @param calc
+     * @param sched
+     */
+    public void DefinePoliciesToSeason(String year, String calc, String sched){
+        LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
+        int yearOfSeason = Integer.parseInt(year);
+        boolean seasonExist = false;
+        for (Season s: allSeasons) {
+            if(s.getYear()==yearOfSeason){
+                seasonExist = true;
+                s.setCalculationPolicy(this.calculationPolicyByString(calc));
+                s.setSchedulingPolicy(this.schedulingPolicyByString(sched));
+            }
+        }
+
+        if(!seasonExist){
+            Season newSeason = new Season(MainSystem.getInstance(),this.schedulingPolicyByString(sched),this.calculationPolicyByString(calc),yearOfSeason);
+        }
+
+    }
+
+
+    /**
      * show user his scheduling policies options
      * @return  List of Scheduling Policies
      *  @codeBy Eden
@@ -84,6 +145,24 @@ public class RfaController {
         list.add(new SchedualeOption2());
         return list;
      }
+
+    /**
+     * Define Calculating policy to specific season
+     * @param season
+     * @param CalcPolicy
+     */
+     public void DefineClaculatingPolicyToSeason(String season, String CalcPolicy){
+
+     }
+
+    /**
+     * Define Scheduling policy to specific season
+     * @param season
+     * @param SchedualePolicy
+     */
+    public void DefineSchedualingPolicyToSeason(String season, String SchedualePolicy){
+
+    }
 
     /**
      * show user his Calculation policies options

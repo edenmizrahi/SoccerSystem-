@@ -22,7 +22,7 @@ public class RfaPageMain extends Application {
     public static void main(String[] args) throws Exception {
 
         SystemOperationsController systemOperationsController =new SystemOperationsController();
-        SystemOperationsController.initSystemObjectsAvitalForUI();
+        SystemOperationsController.initSystemObjectsYardenForUI();
         MainSystem ma= MainSystem.getInstance();
 
         launch(args);

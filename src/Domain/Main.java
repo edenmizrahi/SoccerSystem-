@@ -31,13 +31,18 @@ public class Main {
         LOG.info(String.format("%s - %s", "try", "action?"));
         LOG.error("something");
 
+//
+//        Reflections reflections = new Reflections("Domain");
+//        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
+//
+//        String s = "Domain.Scheduling";
+//        for (Class class1:classes) {
+//            System.out.println(class1.getSimpleName());
+//        }
 
-        Reflections reflections = new Reflections("Domain");
-        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
 
-        for (Class class1:classes) {
-            System.out.println(class1.getSimpleName());
-        }
+
+
        // MainSystem.getInstance().checkValidDetails(null,null,"","","");
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

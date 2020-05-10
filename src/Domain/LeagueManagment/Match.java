@@ -131,4 +131,10 @@ public class Match extends Observable{
         notifyObservers(e);
     }
 
+
+    @Override
+    public String toString() {
+        return "Match between team - "+this.getHomeTeam().getName()+" to team - "+this.getAwayTeam().getName()+
+                " that start at "+startDate.toString();
+    }
 }

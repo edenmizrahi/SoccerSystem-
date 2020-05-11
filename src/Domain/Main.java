@@ -33,11 +33,11 @@ public class Main {
 
 
         Reflections reflections = new Reflections("Domain");
-        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
+//        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
 
-        for (Class class1:classes) {
-            System.out.println(class1.getSimpleName());
-        }
+//        for (Class class1:classes) {
+//            System.out.println(class1.getSimpleName());
+//        }
        // MainSystem.getInstance().checkValidDetails(null,null,"","","");
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

@@ -16,6 +16,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 
 import javax.lang.model.element.Element;
+import java.io.IOException;
 import java.lang.annotation.ElementType;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +36,9 @@ public class DefinePolicyController {
     private RfaController RfaController = new RfaController();
     @FXML
     private SystemOperationsController sysOpController = new SystemOperationsController();
+
+
+    private String userName;
 
     public void initialize() {
         //for comboBox of calculation policy
@@ -61,6 +65,11 @@ public class DefinePolicyController {
 
         chooseSchedPolicyBtn.setItems(elementsOfScheduling);
         chooseSchedPolicyBtn.getSelectionModel().selectFirst();
+    }
+
+    @FXML
+    public void initUser (String userName) throws IOException {
+        this.userName=userName;
     }
 
 

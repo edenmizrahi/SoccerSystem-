@@ -146,23 +146,23 @@ public class RfaController {
         return list;
      }
 
-    /**
-     * Define Calculating policy to specific season
-     * @param season
-     * @param CalcPolicy
-     */
-     public void DefineClaculatingPolicyToSeason(String season, String CalcPolicy){
-
-     }
-
-    /**
-     * Define Scheduling policy to specific season
-     * @param season
-     * @param SchedualePolicy
-     */
-    public void DefineSchedualingPolicyToSeason(String season, String SchedualePolicy){
-
-    }
+//    /**
+//     * Define Calculating policy to specific season
+//     * @param season
+//     * @param CalcPolicy
+//     */
+//     public void DefineClaculatingPolicyToSeason(String season, String CalcPolicy){
+//
+//     }
+//
+//    /**
+//     * Define Scheduling policy to specific season
+//     * @param season
+//     * @param SchedualePolicy
+//     */
+//    public void DefineSchedualingPolicyToSeason(String season, String SchedualePolicy){
+//
+//    }
 
     /**
      * show user his Calculation policies options

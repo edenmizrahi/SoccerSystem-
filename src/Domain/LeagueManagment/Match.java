@@ -134,6 +134,6 @@ public class Match extends Observable{
 
     @Override
     public String toString() {
-        return this.getHomeTeam().getName()+"-"+this.getAwayTeam().getName();
+        return this.getHomeTeam().getName()+"-"+this.getAwayTeam().getName()+","+this.getStartDate().toString();
     }
 }

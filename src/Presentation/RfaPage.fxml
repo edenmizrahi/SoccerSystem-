@@ -76,8 +76,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="defineCalcPolicyBtn" mnemonicParsing="false" onAction="#defineCalculationPolicy" prefHeight="45.0" prefWidth="230.0" text="Define Calculation policy" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button fx:id="defineSchedPolicyBtn" mnemonicParsing="false" onAction="#defineSchedulingPolicy" prefHeight="45.0" prefWidth="230.0" text="Define Scheduling policy" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button fx:id="definePolicyBtn" mnemonicParsing="false" onAction="#definePolicies" prefHeight="45.0" prefWidth="230.0" text="Define Policies to season" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <Button fx:id="viewOrChangeSettingsBtn" mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="230.0" text="View\change settings " GridPane.rowIndex="2" />
                   <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onMouseClicked="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.rowIndex="3" />
                   <Button fx:id="MyAlertsBtn" mnemonicParsing="false" onMouseClicked="#MyAlertsFunction" prefHeight="45.0" prefWidth="230.0" text="My alerts" GridPane.rowIndex="4" />

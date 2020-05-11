@@ -72,6 +72,10 @@ public class SystemOperationsController {
 
     }
 
+    /**
+     *
+     * @return LinkedList<String> off all the season in the system
+     */
     public LinkedList<String> getAllStringSeasons(){
         LinkedList<Season> listOfSeason =  MainSystem.getInstance().getSeasons();
         LinkedList<String> listOfSeasonStrings = new LinkedList<>();
@@ -360,6 +364,15 @@ public class SystemOperationsController {
         return MainSystem.getInstance().getSystemManagers();
 
     }
+
+    public static void initSystemObjectsYardenForUI() throws Exception {
+        MainSystem system = MainSystem.getInstance();
+        system.startSystem();
+        SystemManager sys = system.getSystemManagers().get(0);//there is only one system manager now (the default)
+        Rfa nadav = new Rfa(system,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
+
+    }
+
 
     public static void initSystemObjectsAvitalForUI() throws Exception {
         MainSystem system = MainSystem.getInstance();

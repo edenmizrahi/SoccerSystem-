@@ -29,6 +29,15 @@ public class Season {
         mainSystem.addSeason(this);
     }
 
+//    public Season(MainSystem ms, int year){
+//        this.schedulingPolicy = null;
+//        this.calculationPolicy = null;
+//        this.year = year;
+//        this.teamsInCurrentSeasonLeagues=new HashMap<>();
+//        this.mainSystem=ms;
+//        mainSystem.addSeason(this);
+//    }
+
     /**
      * Add teams by league to this season.
      * also add to the input league this season with the input teams.

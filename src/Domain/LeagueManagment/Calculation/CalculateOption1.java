@@ -13,6 +13,12 @@ public class CalculateOption1 implements CalculationPolicy {
 
 
     //TODO test - V
+    @Override
+    public String getNameOfCalculationPolicy(){
+        return "CalculateOption1";
+    }
+
+
     /**
      * This function gets hash of each league and all the teams inside her
      * and calculate the score of each team in the leagues table

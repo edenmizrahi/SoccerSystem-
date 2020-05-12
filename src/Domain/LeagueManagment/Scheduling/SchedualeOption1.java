@@ -17,6 +17,13 @@ public class SchedualeOption1 implements SchedulingPolicy {
 
 
     //TODO test
+
+    @Override
+    public String getNameOfSchedulingPolicy(){
+        return "SchedualeOption1";
+    }
+
+
     /**
      * This function gets hash of each league and all the teams inside her, hash of referees and main referee
      * and create matches for teams according to this policy -

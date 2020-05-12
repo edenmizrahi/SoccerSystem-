@@ -10,11 +10,12 @@ import Domain.Users.Referee;
 import Domain.Users.TeamOwner;
 import Domain.Users.TeamRole;
 import Service.SystemOperationsController;
+import Stubs.TeamStub;
 import Stubs.TeamStubOr;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-//import org.reflections.Reflections;
+import org.reflections.Reflections;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,18 +27,47 @@ public class Main {
     private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
+//        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
+//
+//       String s =  "04-06-2020 20:00:00";
+//       Date d = MainSystem.simpleDateFormat.parse(s);
+
+//       String matchDate = MainSystem.simpleDateFormat.format(d);
+
+//        MainSystem ms = MainSystem.getInstance();
+//        TeamStub t1 = new TeamStub("team1");
+//        TeamStub t2 = new TeamStub("team2");
+//
+//        Referee ref1 = new Referee(ms, "ref1", "0546145795", "ref2@gmail.com", "ref2123", "ref2123", "a", MainSystem.birthDateFormat.parse("08-09-1995"));
+//
+//        Match match = new Match(0,0,t1,t2,new Field("a"),new HashSet<>(),
+//                new HashSet<>(),ref1,"04-06-2020 20:00:00");
+//
+//        String s =  match.toString();
+//        String[] arrayOfTeamsAndDate =s.split(",");
+//        String d = arrayOfTeamsAndDate[1];
+//
+//        Date matchDate = MainSystem.simpleDateFormat.parse(d);
+//
+//        int x=0;
+
 
         /**LOGGER FORAMT**/
         LOG.info(String.format("%s - %s", "try", "action?"));
         LOG.error("something");
 
+//
+//        Reflections reflections = new Reflections("Domain");
+//        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
+//
+//        String s = "Domain.Scheduling";
+//        for (Class class1:classes) {
+//            System.out.println(class1.getSimpleName());
+//        }
 
-        /*Reflections reflections = new Reflections("Domain");
-        Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
 
-        for (Class class1:classes) {
-            System.out.println(class1.getSimpleName());
-        }*/
+
+
        // MainSystem.getInstance().checkValidDetails(null,null,"","","");
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

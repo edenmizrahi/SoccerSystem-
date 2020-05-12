@@ -29,6 +29,15 @@ public class Season {
         mainSystem.addSeason(this);
     }
 
+//    public Season(MainSystem ms, int year){
+//        this.schedulingPolicy = null;
+//        this.calculationPolicy = null;
+//        this.year = year;
+//        this.teamsInCurrentSeasonLeagues=new HashMap<>();
+//        this.mainSystem=ms;
+//        mainSystem.addSeason(this);
+//    }
+
     /**
      * Add teams by league to this season.
      * also add to the input league this season with the input teams.
@@ -94,11 +103,17 @@ public class Season {
 
     public SchedulingPolicy getSchedulingPolicy() { return schedulingPolicy; }
 
-    public void setSchedulingPolicy(SchedulingPolicy schedulingPolicy) { this.schedulingPolicy = schedulingPolicy; }
+    public void setSchedulingPolicy(SchedulingPolicy schedulingPolicy, String rfaUserName) {
+        this.schedulingPolicy = schedulingPolicy;
+        LOG.info(String.format("%s - %s", rfaUserName, "changed scheduling policy of season "+this.getYear() +" to: "+schedulingPolicy.getNameOfSchedulingPolicy()));
+    }
 
     public CalculationPolicy getCalculationPolicy() { return calculationPolicy; }
 
-    public void setCalculationPolicy(CalculationPolicy calculationPolicy) { this.calculationPolicy = calculationPolicy; }
+    public void setCalculationPolicy(CalculationPolicy calculationPolicy, String rfaUserName) {
+        this.calculationPolicy = calculationPolicy;
+        LOG.info(String.format("%s - %s", rfaUserName, "changed calculation policy of season "+this.getYear() +" to: "+calculationPolicy.getNameOfCalculationPolicy()));
+    }
 
     @Override
     public boolean equals(Object o){

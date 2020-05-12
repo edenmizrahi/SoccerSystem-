@@ -31,10 +31,10 @@ public abstract class Event  {
             long diff = currentDate.getTime() - match.getStartDate().getTime();
             this.minuteOfMatch = (int) TimeUnit.MINUTES.convert(diff,TimeUnit.MILLISECONDS);
 
-            if(minuteOfMatch > match.getNumOfMinutes() || minuteOfMatch < 0){
-                LOG.error("invalid event creation");
-                throw new Exception("invalid event creation");
-            }
+//            if(minuteOfMatch > match.getNumOfMinutes() || minuteOfMatch < 0){
+//                LOG.error("invalid event creation");
+//                throw new Exception("invalid event creation");
+//            }
         }
         else{
             LOG.error("one of parameters null");

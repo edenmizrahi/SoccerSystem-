@@ -8,12 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class RfaPageMain extends Application {
-
+public class RefereePageMain extends Application {
     @Override
+
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
-        primaryStage.setTitle("Rfa home page");
+
+        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        primaryStage.setTitle("Referee home page");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
     }
@@ -22,10 +23,9 @@ public class RfaPageMain extends Application {
     public static void main(String[] args) throws Exception {
 
         SystemOperationsController systemOperationsController =new SystemOperationsController();
-        SystemOperationsController.initSystemObjectsYardenForUI();
+        systemOperationsController.initSystemObjectsYardenRefereeForUI();
         MainSystem ma= MainSystem.getInstance();
 
         launch(args);
     }
-
 }

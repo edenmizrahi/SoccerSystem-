@@ -44,6 +44,7 @@ public class MatchTest {
             Match match = new Match(0,0,t1,t2,new Field("a"),new HashSet<>(),
                     new HashSet<>(),ref1,"04-06-2020 20:00:00");
 
+//            String s = match.toString();
             Date date = new Date();
             match.setStartDate(date);
         }

@@ -14,7 +14,7 @@ import Stubs.TeamStubOr;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.reflections.Reflections;
+//import org.reflections.Reflections;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,12 +32,12 @@ public class Main {
         LOG.error("something");
 
 
-        Reflections reflections = new Reflections("Domain");
+        /*Reflections reflections = new Reflections("Domain");
         Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
 
         for (Class class1:classes) {
             System.out.println(class1.getSimpleName());
-        }
+        }*/
        // MainSystem.getInstance().checkValidDetails(null,null,"","","");
 //        MainSystem ms = MainSystem.getInstance();
 //        Fan yossi = new Fan(ms, "Yossi Hamelech", "0549716910","yossi@gmail.com", "YossiHamelech", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));

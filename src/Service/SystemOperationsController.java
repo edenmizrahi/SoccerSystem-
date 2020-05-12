@@ -2,6 +2,8 @@ package Service;
 
 import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
+import Domain.Events.Event;
+import Domain.Events.RedCard;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Field;
@@ -458,14 +460,23 @@ public class SystemOperationsController {
         add11PlayersToTeam(t2,aviTeamOwner.getTeamOwner(),"d");
         add11PlayersToTeam(t2,aviTeamOwner.getTeamOwner(),"a");
         /**********************/
-
         Rfa nadav = new Rfa(system,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
         Referee ref1 = new Referee(system,"dana","0526621646","yossi@gmail.com","dana123","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
 
         Date date = new Date(System.currentTimeMillis());
         Match match = new Match(0,0,t1,t2,new Field("a"),new HashSet<>(),
-                new HashSet<>(),ref1,MainSystem.simpleDateFormat.format(date));
+                new HashSet<>(),ref1,"04-05-2020 20:00:00");
 
+        Fan f= new Fan(MainSystem.getInstance(), "player:yarden", "0549716910","yossi@gmail.com", "player:yarden123", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole player=new TeamRole(f);
+        player.becomePlayer();
+        ilanTeamOwner.getTeamOwner().addPlayer(player,"FFF",t1);
+
+
+        Event RedCard = new RedCard(ref1,match,player.getPlayer());
+        match.addEventToList(RedCard);
+        Event RedCard1 = new RedCard(ref1,match,player.getPlayer());
+        match.addEventToList(RedCard1);
     }
 
 

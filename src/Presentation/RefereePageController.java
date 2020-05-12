@@ -45,19 +45,29 @@ public class RefereePageController extends HomePageController {
 
     @FXML
     public void addEventToMatch(ActionEvent actionEvent) throws IOException {
-        //display matches that still not take place
-        FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("eventsPage.fxml"));
-        Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        String match = RefereeController.displayAllMatches(userName);
+        if(match!=null) {
+            //display matches that still not take place
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("eventsPage.fxml"));
+            Parent root = loader.load();
 
-        eventsPageController eventsPageController = loader.getController();
-        eventsPageController.initUser(userName);
+            Scene scene = new Scene(root, 900, 600);
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(scene);
-        stageTheEventSourceNodeBelongs.show();
+            eventsPageController eventsPageController = loader.getController();
+            eventsPageController.initUser(userName, match);
+
+            Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stageTheEventSourceNodeBelongs.setScene(scene);
+            stageTheEventSourceNodeBelongs.show();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("You do not have match that take place right now so you can not add" +
+                    " any events");
+            alert.show();
+        }
 
     }
 

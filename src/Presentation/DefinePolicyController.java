@@ -10,10 +10,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 import javax.lang.model.element.Element;
 import java.io.IOException;
@@ -85,7 +90,7 @@ public class DefinePolicyController {
 
             String calcPolicySelected = chooseCalcPolicyBtn.getSelectionModel().getSelectedItem().toString();
             String schedPolicySelected = chooseSchedPolicyBtn.getSelectionModel().getSelectedItem().toString();
-            this.RfaController.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected);
+            this.RfaController.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
         }
         else{
             //throw alert that the year of season incorrect syntax
@@ -98,4 +103,12 @@ public class DefinePolicyController {
         idOfSeason.setDisable(false);
     }
 
+
+    @FXML
+    public void BackToRfaPage(ActionEvent event) throws IOException {
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        stageTheEventSourceNodeBelongs.setScene(scene);
+    }
 }

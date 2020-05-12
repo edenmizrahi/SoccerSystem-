@@ -115,15 +115,16 @@ public class RfaController {
      * @param calc
      * @param sched
      */
-    public void DefinePoliciesToSeason(String year, String calc, String sched){
+    public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
         LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
         int yearOfSeason = Integer.parseInt(year);
         boolean seasonExist = false;
         for (Season s: allSeasons) {
             if(s.getYear()==yearOfSeason){
                 seasonExist = true;
-                s.setCalculationPolicy(this.calculationPolicyByString(calc));
-                s.setSchedulingPolicy(this.schedulingPolicyByString(sched));
+                s.setCalculationPolicy(this.calculationPolicyByString(calc) , rfaUserName);
+
+                s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
             }
         }
 

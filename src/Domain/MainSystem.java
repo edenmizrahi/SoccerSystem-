@@ -203,6 +203,7 @@ public class MainSystem {
             return false;
         }
         seasons.add(s);
+        LOG.info(String.format("%s - %s","MainSystem", "system was added new season:"+s.getYear()));
         return true;
     }
 

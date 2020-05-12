@@ -11,4 +11,5 @@ import java.util.HashSet;
 public interface SchedulingPolicy {
 
     void assign(HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues, Season season) throws Exception;
+    String getNameOfSchedulingPolicy();
 }

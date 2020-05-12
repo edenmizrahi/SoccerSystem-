@@ -26,10 +26,13 @@ public class RfaPageController extends HomePageController {
     public javafx.scene.control.Button definePolicyBtn;
 
 
+    private String userName = "nadav124";
 
-//    private String userName="Ilan12";
-    private String userName;
 
+    @FXML
+    public void initUser (String userName) throws IOException {
+        this.userName=userName;
+    }
 
     @FXML
     public void definePolicies(ActionEvent actionEvent) throws IOException {

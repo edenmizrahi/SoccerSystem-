@@ -6,10 +6,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,10 +51,11 @@ public class eventsPageController {
     private String match;
 
 
-    public void initUser(String userName) {
+    public void initUser(String userName, String match) {
         this.userName = userName;
 
-        String match = RefereeController.displayAllMatches(userName);
+       this.match = match;
+
         List<String> list = new LinkedList<>();
         list.add(match);
         ObservableList<String> elements = FXCollections.observableArrayList(list);
@@ -122,6 +129,14 @@ public class eventsPageController {
         }
     }
 
+
+    @FXML
+    public void BackToRefereePage(ActionEvent mouseEvent) throws IOException {
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        stageTheEventSourceNodeBelongs.setScene(scene);
+    }
 
     public void onClickGoalSubmit() throws Exception {
         String player = playerForGoal.getSelectionModel().getSelectedItem();

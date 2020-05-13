@@ -11,7 +11,7 @@ public class TeamManagementUIMain extends Application{
     public void start(Stage primaryStage) throws Exception{
         SystemOperationsController systemOperationsController = new SystemOperationsController();
         systemOperationsController.initSystemObjectsAdi();
-        Parent root = FXMLLoader.load(getClass().getResource("TeamManagementUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MyRoles.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

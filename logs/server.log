@@ -6515,3 +6515,7 @@
 12.05.2020 10:44:13 INFO  MainSystem - MainSystem - system was added new season:1234
 12.05.2020 10:44:18 INFO  Season - nadav124 - changed calculation policy of season 1234 to: CalculateOption1
 12.05.2020 10:44:18 INFO  Season - nadav124 - changed scheduling policy of season 1234 to: SchedualeOption2
+13.05.2020 09:33:38 INFO  TeamRole - yarden012 - become player
+13.05.2020 09:33:38 ERROR Event - This player isn't in one of the participating teams
+13.05.2020 09:33:38 INFO  TeamRole - yarden012 - become player
+13.05.2020 09:33:38 INFO  Match - Goal - add event to match between team4 to team3

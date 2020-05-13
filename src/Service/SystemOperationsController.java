@@ -473,10 +473,10 @@ public class SystemOperationsController {
         ilanTeamOwner.getTeamOwner().addPlayer(player,"FFF",t1);
 
 
-        Event RedCard = new RedCard(ref1,match,player.getPlayer());
-        match.addEventToList(RedCard);
-        Event RedCard1 = new RedCard(ref1,match,player.getPlayer());
-        match.addEventToList(RedCard1);
+//        Event RedCard = new RedCard(ref1,match,player.getPlayer());
+//        match.addEventToList(RedCard);
+//        Event RedCard1 = new RedCard(ref1,match,player.getPlayer());
+//        match.addEventToList(RedCard1);
     }
 
 

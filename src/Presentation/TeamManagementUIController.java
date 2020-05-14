@@ -49,6 +49,12 @@ public class TeamManagementUIController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         activateScene();
     }
+
+    @FXML
+    public void initUser(String userName){
+        this.userName = userName;
+    }
+
     @FXML
     public void changeToRequestScene(ActionEvent actionEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
@@ -60,6 +66,7 @@ public class TeamManagementUIController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
     @FXML
     public void changeToActivateScene(ActionEvent actionEvent) throws Exception{
         LinkedList<String> approvedTeams = tMController.getMyApprovedTeams(userName);
@@ -82,10 +89,11 @@ public class TeamManagementUIController implements Initializable {
             stage.show();
         }
     }
+
     @FXML
     public void changeToTeamManagementScene(ActionEvent actionEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("TeamManagementUI.fxml").openStream());
+        Parent root = loader.load(getClass().getResource("TeamOwner.fxml").openStream());
         //SecondController secondController = loader.getController();
         //secondController.setStage(mStage);
         //stage.setTitle("second scene");
@@ -93,7 +101,31 @@ public class TeamManagementUIController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+    @FXML
+    public void changeToHomePage(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("HomePage.fxml").openStream());
+        HomePageController homeCont = loader.getController();
+        //TODO add init user
+        //homeCont.initUser(userName);
+        //secondController.setStage(mStage);
+        //stage.setTitle("second scene");
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    public void changeToMyRolesScene(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("MyRoles.fxml").openStream());
+        MyRolesController myRolesCont = loader.getController();
+        //TODO add init user
+        //myRolesCont.initUser(userName);
+        // stage.setTitle("second scene");
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     @FXML
     public void requestNewTeam(ActionEvent event) throws Exception{
 
@@ -129,6 +161,7 @@ public class TeamManagementUIController implements Initializable {
             coachCB.getItems().add(coachUserName);
         }
     }
+
     @FXML
     public void activateButton(ActionEvent actionEvent) throws Exception {
         String teamName = (String) teamNameCB.getValue();
@@ -157,10 +190,7 @@ public class TeamManagementUIController implements Initializable {
             alertInformation("Congratulations! Your new team has been activated.");
         }
     }
-    @FXML
-    public void initUser(String userName){
-        this.userName = userName;
-    }
+
 
     private void alertError(String message){
         Alert chooseFile = new Alert(Alert.AlertType.ERROR);
@@ -168,6 +198,7 @@ public class TeamManagementUIController implements Initializable {
         chooseFile.setContentText(message);
         chooseFile.show();
     }
+
     private void alertInformation(String message){
         Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
         chooseFile.setContentText(message);

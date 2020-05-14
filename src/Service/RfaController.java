@@ -12,7 +12,7 @@ import Domain.Notifications.Notification;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-import org.reflections.Reflections;
+//import org.reflections.Reflections;
 import sun.awt.image.ImageWatched;
 
 import java.util.*;
@@ -97,12 +97,12 @@ public class RfaController {
      */
     public LinkedList<String> getAllCalculationPoliciesString() {
         LinkedList<String> calculationList = new LinkedList<>();
-        Reflections reflections = new Reflections("Domain");
+        /*Reflections reflections = new Reflections("Domain");
         Set<Class<? extends CalculationPolicy>> classes = reflections.getSubTypesOf(CalculationPolicy.class);
 
         for (Class class1 : classes) {
             calculationList.add(class1.getSimpleName());
-        }
+        }*/
 
         return calculationList;
     }
@@ -115,15 +115,16 @@ public class RfaController {
      * @param calc
      * @param sched
      */
-    public void DefinePoliciesToSeason(String year, String calc, String sched){
+    public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
         LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
         int yearOfSeason = Integer.parseInt(year);
         boolean seasonExist = false;
         for (Season s: allSeasons) {
             if(s.getYear()==yearOfSeason){
                 seasonExist = true;
-                s.setCalculationPolicy(this.calculationPolicyByString(calc));
-                s.setSchedulingPolicy(this.schedulingPolicyByString(sched));
+                s.setCalculationPolicy(this.calculationPolicyByString(calc) , rfaUserName);
+
+                s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
             }
         }
 
@@ -146,23 +147,23 @@ public class RfaController {
         return list;
      }
 
-    /**
-     * Define Calculating policy to specific season
-     * @param season
-     * @param CalcPolicy
-     */
-     public void DefineClaculatingPolicyToSeason(String season, String CalcPolicy){
-
-     }
-
-    /**
-     * Define Scheduling policy to specific season
-     * @param season
-     * @param SchedualePolicy
-     */
-    public void DefineSchedualingPolicyToSeason(String season, String SchedualePolicy){
-
-    }
+//    /**
+//     * Define Calculating policy to specific season
+//     * @param season
+//     * @param CalcPolicy
+//     */
+//     public void DefineClaculatingPolicyToSeason(String season, String CalcPolicy){
+//
+//     }
+//
+//    /**
+//     * Define Scheduling policy to specific season
+//     * @param season
+//     * @param SchedualePolicy
+//     */
+//    public void DefineSchedualingPolicyToSeason(String season, String SchedualePolicy){
+//
+//    }
 
     /**
      * show user his Calculation policies options

@@ -2,6 +2,8 @@ package Service;
 
 import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
+import Domain.Events.Event;
+import Domain.Events.RedCard;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.Field;
@@ -13,8 +15,10 @@ import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.*;
 import Stubs.StubExternalSystem;
+import sun.awt.image.ImageWatched;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class SystemOperationsController {
@@ -322,6 +326,12 @@ public class SystemOperationsController {
     }
 
 
+    public Player getPlayerByUserName(String userName){
+        return ((TeamRole)getUserByUserName(userName)).getPlayer();
+    }
+
+
+
     /**
      * return list with all private details of the fan
      * list : name, Password, PhoneNumber, Email, DateOfBirth
@@ -370,7 +380,103 @@ public class SystemOperationsController {
         system.startSystem();
         SystemManager sys = system.getSystemManagers().get(0);//there is only one system manager now (the default)
         Rfa nadav = new Rfa(system,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
+    }
 
+    public static void initSystemObjectsYardenRefereeForUI() throws Exception {
+
+        MainSystem system=MainSystem.getInstance();
+        system.startSystem();
+        SystemManager marioSystemManager=system.getSystemManagers().get(0);//there is only one system manager now (the default)
+        Team t1=new Team();
+        t1.setName("macabi");
+        system.addTeamName("macabi");
+        t1.setActive(true);
+        system.addActiveTeam(t1);
+        Field field = new Field("field");
+        t1.setField(field);
+
+        Team t2=new Team();
+        t2.setName("hapoel");
+        system.addTeamName("hapoel");
+        t2.setActive(true);
+        system.addActiveTeam(t2);
+
+
+        /**add Ilan as Team Owner (founder) of t1 ***/
+        Fan f1=new Fan(system, "Ilan", "0549716910","yossi@gmail.com", "Ilan", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole ilanTeamOwner=new TeamRole(f1);
+        ilanTeamOwner.becomeTeamOwner();
+        ilanTeamOwner.getTeamOwner().addNewTeam(t1);
+        t1.setFounder(ilanTeamOwner.getTeamOwner());
+        t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
+        /*********************************************/
+
+        /**add Arnold as another Team Owner of t1 ***/
+        Fan arnold = new Fan(system, "Arnold", "0549716910","yossi@gmail.com", "Arnold", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole arnoldTeamOwner = new TeamRole(arnold);
+        arnoldTeamOwner.becomeTeamOwner();
+        arnoldTeamOwner.getTeamOwner().addNewTeam(t1);
+        t1.addTeamOwner(arnoldTeamOwner.getTeamOwner());
+        /*********************************************/
+
+        /**add Avi as Team Owner (founder) of t2 ***/
+        Fan f7=new Fan(system, "Avi", "0549716910","yossi@gmail.com", "Avi", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole aviTeamOwner=new TeamRole(f7);
+        aviTeamOwner.becomeTeamOwner();
+        aviTeamOwner.getTeamOwner().addNewTeam(t2);
+        t2.addTeamOwner(aviTeamOwner.getTeamOwner());
+        t2.setFounder(aviTeamOwner.getTeamOwner());
+        /*********************************************/
+
+        /**Arnold subscribe moshe to be team Manager with the all permissions**/
+        Fan f2=new Fan(system, "Moshe", "0549716910","yossi@gmail.com", "Moshe", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        HashSet<TeamManagerPermissions> perMoshe = new HashSet<>();
+        perMoshe.add(TeamManagerPermissions.addRemoveEditPlayer);
+        perMoshe.add(TeamManagerPermissions.addRemoveEditTeamOwner);
+        perMoshe.add(TeamManagerPermissions.addRemoveEditCoach);
+        perMoshe.add(TeamManagerPermissions.addRemoveEditField);
+        perMoshe.add(TeamManagerPermissions.addToBudgetControl);
+        TeamRole mosheTeamManager = arnoldTeamOwner.getTeamOwner().subscribeTeamManager(f2,t1,perMoshe);
+        /***moshe become a player as well***/
+        mosheTeamManager.becomePlayer();
+
+        /**Moshe subscribe armin to be team Owner with the all permissions**/
+        Fan armin = new Fan(system, "Armin", "0549716910","yossi@gmail.com", "Armin", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole arminTeamOwner=new TeamRole(armin);
+        arminTeamOwner.becomeTeamOwner();
+        arminTeamOwner.getTeamOwner().addNewTeam(t1);
+        t1.addTeamOwner(arminTeamOwner.getTeamOwner());
+
+        /**avi subscribe david to be team Manager without any permissions**/
+        Fan f10 = new Fan(system, "David", "0549716910","yossi@gmail.com", "David", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        HashSet<TeamManagerPermissions> perDavid = new HashSet<>();
+        TeamRole davidTeamManager = aviTeamOwner.getTeamOwner().subscribeTeamManager(f10,t2,perDavid);
+
+        /**add 11 players to t1*/
+        add11PlayersToTeam(t1,ilanTeamOwner.getTeamOwner(),"d");
+        /*********************/
+
+        /**add 22 players to t2*/
+        add11PlayersToTeam(t2,aviTeamOwner.getTeamOwner(),"d");
+        add11PlayersToTeam(t2,aviTeamOwner.getTeamOwner(),"a");
+        /**********************/
+        Rfa nadav = new Rfa(system,"nadav","052","nadav@","nadavS", "nadav123",MainSystem.birthDateFormat.parse("06-07-1992"));
+        Referee ref1 = new Referee(system,"dana","0526621646","yossi@gmail.com","dana123","ds123456678","ds",MainSystem.birthDateFormat.parse("02-11-1996"));
+
+        Date date = new Date(System.currentTimeMillis());
+        Match match = new Match(0,0,t1,t2,new Field("a"),new HashSet<>(),
+                new HashSet<>(),ref1,"04-05-2020 20:00:00");
+
+        Fan f= new Fan(MainSystem.getInstance(), "player:yarden", "0549716910","yossi@gmail.com", "player:yarden123", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+        TeamRole player=new TeamRole(f);
+        player.becomePlayer();
+        ilanTeamOwner.getTeamOwner().addPlayer(player,"FFF",t1);
+
+
+//        Event RedCard = new RedCard(ref1,match,player.getPlayer());
+//        match.addEventToList(RedCard);
+//        Event RedCard1 = new RedCard(ref1,match,player.getPlayer());
+//        match.addEventToList(RedCard1);
     }
 
 
@@ -503,8 +609,7 @@ public class SystemOperationsController {
     }
 
 
-
-        public static void initSystemObjectsEden() throws Exception {
+    public static void initSystemObjectsEden() throws Exception {
         MainSystem system=MainSystem.getInstance();
         system.startSystem();
         SystemManager marioSystemManager=system.getSystemManagers().get(0);//there is only one system manager now (the default)

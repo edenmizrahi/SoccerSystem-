@@ -18,6 +18,12 @@ import java.util.Calendar;
 
 public class SchedualeOption2 implements SchedulingPolicy {
 
+
+    @Override
+    public String getNameOfSchedulingPolicy(){
+        return "SchedualeOption2";
+    }
+
     //TODO test
     /**
      * This function gets hash of each league and all the teams inside her, hash of referees and main referee

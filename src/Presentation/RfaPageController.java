@@ -15,29 +15,47 @@ import java.io.IOException;
 public class RfaPageController extends HomePageController {
 
 
-    @FXML
-    Button viewSettings;
-    @FXML
-    Button registrationForGamesAlerts;
-    @FXML
-    Button myAlerts;
+//    @FXML
+//    Button viewSettings;
+//    @FXML
+//    Button registrationForGamesAlerts;
+//    @FXML
+//    Button myAlerts;
 
     @FXML
     public javafx.scene.control.Button definePolicyBtn;
 
 
-
-//    private String userName="Ilan12";
-    private String userName;
+    private String userName = "nadav124";
 
 
     @FXML
+    public void initUser (String userName) throws IOException {
+        this.userName=userName;
+    }
+
+    @FXML
     public void definePolicies(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = (Parent) loader.load(getClass().getResource("DefinePolicy.fxml").openStream());
-        stage.setScene(new Scene(root));
-        stage.show();
+
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("DefinePolicy.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = new Scene(root, 900, 600);
+
+        DefinePolicyController definePolicyController = loader.getController();
+        definePolicyController.initUser(userName);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+
+
+//        FXMLLoader loader = new FXMLLoader();
+//        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+//        Parent root = (Parent) loader.load(getClass().getResource("DefinePolicy.fxml").openStream());
+//        stage.setScene(new Scene(root));
+//        stage.show();
 
     }
 

@@ -135,7 +135,7 @@ public class HomePageController {
     @FXML
     public void myRolesEventClick(ActionEvent event) throws IOException {
         FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("Presentation/MyRoles.fxml"));
+        loader.setLocation(getClass().getResource("MyRoles.fxml"));
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root, 900, 600);

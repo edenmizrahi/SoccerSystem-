@@ -381,6 +381,19 @@ public class TeamManagementController {
         }
 
     }
+    public void becomeRole(String userName, String role){
+        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        if(role.equals("Team Owner")){
+            user.becomeTeamOwner();
+        }
+        else if(role.equals("Coach")){
+            user.becomeCoach();
+        }
+        else if(role.equals("Player")){
+            user.becomePlayer();
+        }
+    }
+
         //<editor-fold desc="getters">
 
     /**
@@ -522,6 +535,49 @@ public class TeamManagementController {
      */
     public Field getField (Team team){
         return team.getField();
+    }
+
+    /**
+     * adi
+     * @param userName
+     * @return
+     */
+    public LinkedList<String> getMyRoles (String userName){
+        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        LinkedList<String> myRoles = new LinkedList<>();
+        if (user.isTeamOwner()){
+            myRoles.add("Team Owner");
+        }
+        if (user.isTeamManager()){
+            myRoles.add("Team Manager");
+        }
+        if (user.isCoach()){
+            myRoles.add("Coach");
+        }
+        if (user.isPlayer()){
+            myRoles.add("Player");
+        }
+        return myRoles;
+    }
+
+    /**
+     * adi
+     * @param userName
+     * @return
+     */
+    public LinkedList<String> getWhatICanBecome (String userName){
+        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        LinkedList<String> canBecome = new LinkedList<>();
+        if (!user.isTeamOwner()){
+            canBecome.add("Team Owner");
+        }
+        if (!user.isCoach()){
+            canBecome.add("Coach");
+        }
+        if (!user.isPlayer()){
+            canBecome.add("Player");
+        }
+        return canBecome;
     }
     //</editor-fold>
 

@@ -503,6 +503,19 @@ public class TeamManagementController {
         }
         return ans;
     }
+    public LinkedList<TeamRole> getAllTeamRolesThatArentCoachWithTeamObject(){
+        LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
+        LinkedList<TeamRole> ans = new LinkedList<>();
+        for(TeamRole teamRole : allTeamRole){
+            if(teamRole.getCoach() == null){
+                ans.add(teamRole);
+            }
+            else if(teamRole.getCoach().getCoachTeam() == null){
+                ans.add(teamRole);
+            }
+        }
+        return ans;
+    }
     /**
      * adi
      * @return
@@ -516,6 +529,19 @@ public class TeamManagementController {
             }
             else if(teamRole.getPlayer().getTeam() == null){
                 ans.add(teamRole.getUserName());
+            }
+        }
+        return ans;
+    }
+    public LinkedList<TeamRole> getAllTeamRolesThatArentPlayerWithTeamObject(){
+        LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
+        LinkedList<TeamRole> ans = new LinkedList<>();
+        for(TeamRole teamRole : allTeamRole){
+            if(teamRole.getPlayer() == null){
+                ans.add(teamRole);
+            }
+            else if(teamRole.getPlayer().getTeam() == null){
+                ans.add(teamRole);
             }
         }
         return ans;

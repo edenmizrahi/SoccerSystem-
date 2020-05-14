@@ -4,6 +4,7 @@ import Domain.LeagueManagment.Team;
 import Domain.Users.User;
 import Service.TeamManagementController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,12 +43,14 @@ public class TeamManagementUIController implements Initializable {
     private Label playersLabel = new Label();
     @FXML
     private AnchorPane activateTeamPane;
-    String userName = "Ilan";
+    String userName;
     private TeamManagementController tMController = new TeamManagementController();
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        activateScene();
+        Platform.runLater(() -> {
+            activateScene();
+        });
     }
 
     @FXML
@@ -119,8 +122,7 @@ public class TeamManagementUIController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("MyRoles.fxml").openStream());
         MyRolesController myRolesCont = loader.getController();
-        //TODO add init user
-        //myRolesCont.initUser(userName);
+        myRolesCont.initUser(userName);
         // stage.setTitle("second scene");
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -143,10 +145,12 @@ public class TeamManagementUIController implements Initializable {
 
     @FXML
     public void activateScene(){
-        LinkedList<String> approvedTeams = tMController.getMyApprovedTeams(userName);
-        teamNameCB.getItems().clear();
-        for (String teamName : approvedTeams) {
-            teamNameCB.getItems().add(teamName);
+        if (tMController.getMyApprovedTeams(userName) !=  null && tMController.getMyApprovedTeams(userName).size() != 0) {
+            LinkedList<String> approvedTeams = tMController.getMyApprovedTeams(userName);
+            teamNameCB.getItems().clear();
+            for (String teamName : approvedTeams) {
+                teamNameCB.getItems().add(teamName);
+            }
         }
 
         LinkedList<String> tempPlayers = tMController.getAllTeamRolesThatArentPlayerWithTeam();

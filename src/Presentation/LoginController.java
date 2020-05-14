@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.control.TextField;
@@ -34,20 +36,60 @@ public class LoginController{
     }
     @FXML
     public void validationHandling(MouseEvent mouseEvent) {
-        User user=new User(MainSystem.getInstance());
         UserController uc=new UserController();
         try {
-            String f= uc.login(user,txt_userName.getText(),txt_password.getText());
+            String userName= uc.login(txt_userName.getText(),txt_password.getText());
             lbl_error.setText("");
-            if(f.equals("RFA")){
-
+            /**notification*/
+            if (uc.haveUnreadNotifications(txt_userName.getText())) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("");
+                DialogPane dialogPane = alert.getDialogPane();
+                alert.setContentText("You have unread notifications!");
+                dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
+                dialogPane.getStyleClass().add("alert");
+                alert.show();
+            }
+            if(userName.equals("RFA")){
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("RfaPage.fxml"));
+                Parent root=loader.load();
+                Scene scene = new Scene(root, 900, 600);
+                //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+                RfaPageController rfaC=loader.getController();
+                rfaC.initUser(userName);
+                Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+                stageTheEventSourceNodeBelongs.setScene(scene);
+                stageTheEventSourceNodeBelongs.show();
             }
             else{
-                if(f.equals("Referee")){
+                if(userName.equals("Referee")){
+                    FXMLLoader loader=new FXMLLoader();
+                    loader.setLocation(getClass().getResource("RefereePage.fxml"));
+                    Parent root=loader.load();
+                    // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
+                    Scene scene = new Scene(root, 900, 600);
+                    //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+                    RefereePageController refereeController=loader.getController();
+                    refereeController.initUser(userName);
 
+                    Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+                    stageTheEventSourceNodeBelongs.setScene(scene);
+                    stageTheEventSourceNodeBelongs.show();
                 }
                 else{
+                    FXMLLoader loader=new FXMLLoader();
+                    loader.setLocation(getClass().getResource("HomePage.fxml"));
+                    Parent root=loader.load();
+                    // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
+                    Scene scene = new Scene(root, 900, 600);
+                    //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+                    HomePageController hpc=loader.getController();
+//                    hpc.initUser(userName);
 
+                    Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+                    stageTheEventSourceNodeBelongs.setScene(scene);
+                    stageTheEventSourceNodeBelongs.show();
                 }
             }
             //call to home page

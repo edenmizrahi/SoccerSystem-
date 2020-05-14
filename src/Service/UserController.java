@@ -8,19 +8,20 @@ import Domain.Users.User;
 
 import javax.activation.MailcapCommandMap;
 import javax.naming.ldap.Rdn;
+import java.util.LinkedList;
+import java.util.List;
 
 public class UserController {
-
+    SystemOperationsController smc=new SystemOperationsController();
     /**
      * login function
-     * @param u
      * @param userName
      * @param password
      * @return
      * @throws Exception
      *  @codeBy Eden
      */
-    public String login(User u, String userName , String password ) throws Exception {
+    public String login(String userName , String password ) throws Exception {
         Fan f= MainSystem.getInstance().logIn(userName,password);
         if(f==null){
             throw new Exception("Incorrect user name or password");
@@ -33,4 +34,13 @@ public class UserController {
         }
         return "Fan";
     }
+
+    public boolean haveUnreadNotifications(String userName ) {
+        User u=smc.getUserByUserName(userName);
+        if(((Fan)(u)).getUnReadNotifications().size()>0){
+            return true;
+        }
+        return false;
+    }
+
 }

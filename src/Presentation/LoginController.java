@@ -37,9 +37,19 @@ public class LoginController{
         User user=new User(MainSystem.getInstance());
         UserController uc=new UserController();
         try {
-            Fan f= uc.login(user,txt_userName.getText(),txt_password.getText());
+            String f= uc.login(user,txt_userName.getText(),txt_password.getText());
             lbl_error.setText("");
+            if(f.equals("RFA")){
 
+            }
+            else{
+                if(f.equals("Referee")){
+
+                }
+                else{
+
+                }
+            }
             //call to home page
         }
         catch (Exception e){

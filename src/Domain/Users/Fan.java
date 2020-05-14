@@ -38,6 +38,7 @@ public class Fan extends User implements NotificationsUser {
         myComplaints = new LinkedList<>();
         matchesFollow=new LinkedList<>();
         this.searchHisroty= new LinkedList<>();
+        this.notificationHashSet=new HashSet<>();
 
         //add userName to the hashset
         ms.addUserName(userName);

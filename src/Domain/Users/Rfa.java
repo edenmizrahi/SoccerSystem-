@@ -377,6 +377,7 @@ public class Rfa extends Fan implements NotificationsUser {
             throw new NullPointerException();
         }
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), season);
+        season.setPlaySchedualingPolicy(true);
         LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa"));
     }
 
@@ -403,6 +404,7 @@ public class Rfa extends Fan implements NotificationsUser {
 
         if(seasonExist){
             season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
+            season.setPlayCalculationPolicy(true);
             LOG.info(String.format("%s - %s", this.getUserName(), "start calculating policy by the rfa "));
         }
         else{

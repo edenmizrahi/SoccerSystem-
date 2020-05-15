@@ -69,10 +69,22 @@
                      </rowConstraints>
                      <children>
                         <TextField fx:id="updateNameFeild" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update name" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <TextField fx:id="currPhonNumberField" layoutX="352.0" layoutY="89.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="fanUserName" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" />
-                        <TextField fx:id="currNameField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="currEmailField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="currPhonNumberLabel" layoutX="352.0" layoutY="89.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Aharoni Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="fanUserName" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Aharoni Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="currNameLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Aharoni Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="currEmailLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Aharoni Bold" size="15.0" />
+                           </font></Label>
                         <Label prefHeight="17.0" prefWidth="293.0" text="Email:" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="20.0" />
@@ -98,17 +110,18 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="currPasswardField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button fx:id="fanNameUpdateButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="update name" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Button fx:id="fanPasswardUpdateButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="update passward" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Button fx:id="FanPhonNumberUpdateButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="update phon number" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Button fx:id="fanEmailUpdateButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="update email" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <Button fx:id="fanDateUpdateButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="update date" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Aharoni Bold" size="15.0" />
+                           </font></Label>
+                        <Button fx:id="UpdateButton" mnemonicParsing="false" onAction="#updateNameByUser" prefHeight="126.0" prefWidth="95.0" text="update details" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField fx:id="updatePasswardField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update passward" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <TextField fx:id="updatePhonNumField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update phon nuber" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <TextField fx:id="updateEmailField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update email" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                        <TextField fx:id="updateDateField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update date" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <TextField fx:id="currDateOfBirthField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="currDateOfBirthLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Aharoni Bold" size="15.0" />
+                           </font></Label>
                         <Label text="Date of birth:" GridPane.rowIndex="5">
                            <padding>
                               <Insets left="20.0" />
@@ -125,7 +138,10 @@
             <Font name="Aharoni Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="25.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="33.0" prefWidth="58.0" text="log out" />
-      <TextField fx:id="welcomeUserNameField" layoutX="329.0" layoutY="58.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+      <Button layoutX="25.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="33.0" prefWidth="58.0" text="back" />
+      <Label fx:id="welcomeUserNameField" layoutX="381.0" layoutY="58.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
+         <font>
+            <Font name="Aharoni Bold" size="15.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -65,12 +65,18 @@ public class TeamManagementController {
 
     public LinkedList<String> getMyApprovedTeams(String userName){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
-        LinkedList<Team> teams =  user.getTeamOwner().getApprovedTeams();
-        LinkedList<String> teamNames = new LinkedList<>();
-        for (Team t : teams){
-            teamNames.add(t.getName());
+        if (user.getTeamOwner().getApprovedTeams() == null){
+            return null;
         }
-        return teamNames;
+        LinkedList<Team> teams =  user.getTeamOwner().getApprovedTeams();
+        if (teams != null && teams.size() != 0) {
+            LinkedList<String> teamNames = new LinkedList<>();
+            for (Team t : teams) {
+                teamNames.add(t.getName());
+            }
+            return teamNames;
+        }
+        return null;
     }
     /**
      * adi
@@ -503,6 +509,19 @@ public class TeamManagementController {
         }
         return ans;
     }
+    public LinkedList<TeamRole> getAllTeamRolesThatArentCoachWithTeamObject(){
+        LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
+        LinkedList<TeamRole> ans = new LinkedList<>();
+        for(TeamRole teamRole : allTeamRole){
+            if(teamRole.getCoach() == null){
+                ans.add(teamRole);
+            }
+            else if(teamRole.getCoach().getCoachTeam() == null){
+                ans.add(teamRole);
+            }
+        }
+        return ans;
+    }
     /**
      * adi
      * @return
@@ -516,6 +535,19 @@ public class TeamManagementController {
             }
             else if(teamRole.getPlayer().getTeam() == null){
                 ans.add(teamRole.getUserName());
+            }
+        }
+        return ans;
+    }
+    public LinkedList<TeamRole> getAllTeamRolesThatArentPlayerWithTeamObject(){
+        LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
+        LinkedList<TeamRole> ans = new LinkedList<>();
+        for(TeamRole teamRole : allTeamRole){
+            if(teamRole.getPlayer() == null){
+                ans.add(teamRole);
+            }
+            else if(teamRole.getPlayer().getTeam() == null){
+                ans.add(teamRole);
             }
         }
         return ans;

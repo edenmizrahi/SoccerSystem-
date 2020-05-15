@@ -1,8 +1,10 @@
 package AcceptRejectTests;
+import Domain.Controllers.SystemOperationsController;
+import Domain.Controllers.TeamManagementController;
 import Domain.LeagueManagment.Team;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
@@ -14,8 +16,8 @@ public class RemoveTeamManagerTest {
 
     @Test
     public void accept1() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         // team manager to remove
         TeamRole davidTeamManager = (TeamRole) systemOperationsController.getUserByUserName("David");
         TeamRole avi = (TeamRole)systemOperationsController.getUserByUserName("Avi");
@@ -27,8 +29,8 @@ public class RemoveTeamManagerTest {
 
     @Test
     public void reject1() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         // team manager to remove
         TeamRole mosheTeamManager = (TeamRole) systemOperationsController.getUserByUserName("Moshe");
         TeamRole avi = (TeamRole)systemOperationsController.getUserByUserName("Avi");

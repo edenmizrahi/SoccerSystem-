@@ -1,10 +1,11 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.SystemOperationsController;
 import Domain.MainSystem;
 import Domain.Users.Fan;
 import Domain.Users.SystemManager;
 import Domain.Users.User;
-import Service.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 

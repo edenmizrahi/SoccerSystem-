@@ -1,26 +1,22 @@
 package Presentation;
 
-import Service.FanController;
-import Service.SystemOperationsController;
+import Service.FanApplication;
+import Service.SystemOperationsApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import Service.FanController;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -39,8 +35,8 @@ public class RegistrationGamesAlertsController {
 
 
 
-    private FanController fanController= new FanController();
-    private SystemOperationsController syOpController =new SystemOperationsController();
+    private FanApplication fanApplication = new FanApplication();
+    private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // is teamRole
     private List<String> fanMatchsList=new LinkedList<>();
     private List<String> allMatchsList=new LinkedList<>();
@@ -63,7 +59,7 @@ public class RegistrationGamesAlertsController {
         //for comboBox of fan matches
         fanMatchsList.clear();
         fanMatchsList.add("matches you are follow and get and receive alerts");
-        LinkedList<String> allFanMatchs = fanController.getUserMachesFollows(userName);
+        LinkedList<String> allFanMatchs = fanApplication.getUserMachesFollows(userName);
         for (String str:allFanMatchs) {
             fanMatchsList.add(str);
         }
@@ -75,7 +71,7 @@ public class RegistrationGamesAlertsController {
         //for comboBox of system matches
         allMatchsList.clear();
         allMatchsList.add("select match you want to follow");
-        HashSet<String> allMatchesInSystem=syOpController.getAllMatchsInSytem();
+        HashSet<String> allMatchesInSystem=syOpApp.getAllMatchsInSytem();
         for (String str:allMatchesInSystem) {
             allMatchsList.add(str);
         }
@@ -107,7 +103,7 @@ public class RegistrationGamesAlertsController {
             chooseFile.show();
         }
         else { // add match to fan matches follow
-            String massage=fanController.addMatchToFanMatchesFollow(userName,matchToFollow);
+            String massage= fanApplication.addMatchToFanMatchesFollow(userName,matchToFollow);
             if (massage.equals("ok")){
                 Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                 chooseFile.setHeaderText("ok");

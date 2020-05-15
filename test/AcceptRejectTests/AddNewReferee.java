@@ -1,14 +1,14 @@
 package AcceptRejectTests;
 
 
-import Domain.LeagueManagment.League;
+import Domain.Controllers.RfaController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.MainSystem;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-import Service.RfaController;
-import Service.SystemManagerController;
-import Service.SystemOperationsController;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class AddNewReferee {
     @Test
     public void accept() throws Exception{
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/
@@ -66,8 +66,8 @@ public class AddNewReferee {
     @Test
     public void reject() throws Exception{
         /*****system init*****/
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/

@@ -1,7 +1,8 @@
 package AcceptRejectTests;
 
 
-import Domain.LeagueManagment.League;
+import Domain.Controllers.RfaController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
 import Domain.LeagueManagment.Season;
@@ -10,8 +11,8 @@ import Domain.MainSystem;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-import Service.RfaController;
-import Service.SystemOperationsController;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,7 +35,7 @@ public class DefineSchedulingPolicy {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma = MainSystem.getInstance();
 
         /*****get RFA *****/

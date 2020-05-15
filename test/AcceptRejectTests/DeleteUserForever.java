@@ -1,22 +1,16 @@
 package AcceptRejectTests;
 
-import Domain.BudgetControl.BudgetControl;
-import Domain.LeagueManagment.League;
+import Domain.Controllers.SystemManagerController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.Match;
-import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 //import Domain.Main;
 import Domain.MainSystem;
-import Domain.TeamSubscription;
 import Domain.Users.*;
-import Service.SystemManagerController;
-import Service.SystemOperationsController;
-import Stubs.TeamStub;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
-import org.junit.Assert.*;
 import org.junit.Test;
 
-import java.sql.Ref;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -38,7 +32,7 @@ public class DeleteUserForever {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         sm=operationsController.showAllSystemManagers().get(0);
         /**delete team owner with subscriptions*/
@@ -253,8 +247,8 @@ public class DeleteUserForever {
     @Test
     public void reject() throws Exception {
         /*****system init*****/
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         sm=operationsController.showAllSystemManagers().get(0);
         /******************************/

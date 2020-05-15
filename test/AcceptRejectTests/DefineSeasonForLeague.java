@@ -1,5 +1,7 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.RfaController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
@@ -9,18 +11,14 @@ import Domain.MainSystem;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-import Service.RfaController;
-import Service.SystemOperationsController;
-import javafx.scene.effect.Reflection;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
 
 import static org.junit.Assert.fail;
-import java.lang.reflect.Method;
-import java.lang.reflect.Field;
-import java.lang.reflect.Constructor;
 
 
 /**  define a season for league by year. UC: 29   **/
@@ -34,7 +32,7 @@ public class DefineSeasonForLeague {
     @Test
     public void accept() throws Exception{
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/
@@ -111,8 +109,8 @@ public class DefineSeasonForLeague {
     @Test
     public void reject() throws Exception{
         /*****system init*****/
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/

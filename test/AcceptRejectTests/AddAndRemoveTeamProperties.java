@@ -1,15 +1,13 @@
 package AcceptRejectTests;
-import Domain.Enums.TeamManagerPermissions;
+import Domain.Controllers.SystemOperationsController;
+import Domain.Controllers.TeamManagementController;
 import Domain.LeagueManagment.Team;
-import Domain.Users.Coach;
-import Domain.Users.Fan;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.junit.Assert;
 import org.junit.Test;
-import sun.awt.image.ImageWatched;
-import java.util.HashSet;
+
 import java.util.LinkedList;
 
 import static org.junit.Assert.assertEquals;
@@ -20,8 +18,8 @@ public class AddAndRemoveTeamProperties {
 
     @Test
     public void acceptRemoveAndReplaceCoach() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole haimCoachToRemove = (TeamRole)systemOperationsController.getUserByUserName("Haim");
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
@@ -35,8 +33,8 @@ public class AddAndRemoveTeamProperties {
     }
     @Test
     public void rejectRemoveAndReplaceCoach() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole mark = (TeamRole)systemOperationsController.getUserByUserName("Mark");
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
@@ -53,8 +51,8 @@ public class AddAndRemoveTeamProperties {
     }
     @Test
     public void acceptAddPlayer() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 
@@ -67,8 +65,8 @@ public class AddAndRemoveTeamProperties {
     }
     @Test
     public void rejectAddPlayer() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 
@@ -83,8 +81,8 @@ public class AddAndRemoveTeamProperties {
     }
     @Test
     public void acceptRemovePlayer() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole aviTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Avi");
         Team t2 = teamManagementController.getAllMyTeams(aviTeamOwner.getTeamOwner()).get(0);
 
@@ -95,8 +93,8 @@ public class AddAndRemoveTeamProperties {
     }
     @Test
     public void rejectRemovePlayer() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole aviTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Avi");
         Team t2 = teamManagementController.getAllMyTeams(aviTeamOwner.getTeamOwner()).get(0);
 
@@ -112,8 +110,8 @@ public class AddAndRemoveTeamProperties {
     }
     @Test
     public void acceptRemoveAndReplaceField() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 

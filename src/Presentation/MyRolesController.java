@@ -1,11 +1,9 @@
 package Presentation;
 
-import Service.TeamManagementController;
-import com.sun.xml.internal.bind.v2.TODO;
+import Service.TeamManagementApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +12,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.LinkedList;
-import java.util.ResourceBundle;
 
 public class MyRolesController { //implements Initializable {
 
@@ -25,7 +21,7 @@ public class MyRolesController { //implements Initializable {
     @FXML
     private ChoiceBox becomeRoleCB = new ChoiceBox();
     String userName; //= "Mike";
-    private TeamManagementController tMController = new TeamManagementController();
+    private TeamManagementApplication tMApp = new TeamManagementApplication();
 
 //    @Override
 //    public void initialize(URL location, ResourceBundle resources){
@@ -39,13 +35,13 @@ public class MyRolesController { //implements Initializable {
     }
     @FXML
     public void initScene(){
-        LinkedList<String> myRoles = tMController.getMyRoles(userName);
+        LinkedList<String> myRoles = tMApp.getMyRoles(userName);
         myRolesCB.getItems().clear();
         for (String role : myRoles) {
             myRolesCB.getItems().add(role);
         }
 
-        LinkedList<String> canBecome = tMController.getWhatICanBecome(userName);
+        LinkedList<String> canBecome = tMApp.getWhatICanBecome(userName);
         becomeRoleCB.getItems().clear();
         for (String role : canBecome) {
             becomeRoleCB.getItems().add(role);
@@ -59,7 +55,7 @@ public class MyRolesController { //implements Initializable {
             alertError("Please choose a role.");
         }
         else {
-            tMController.becomeRole(userName, role);
+            tMApp.becomeRole(userName, role);
             initScene();
             Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
             chooseFile.setContentText("Congrats! You are now a " + role + "!");

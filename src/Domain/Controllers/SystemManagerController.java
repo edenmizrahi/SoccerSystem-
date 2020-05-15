@@ -1,4 +1,4 @@
-package Service;
+package Domain.Controllers;
 
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
@@ -128,5 +128,6 @@ public class SystemManagerController {
 
 
 }
+
 
 

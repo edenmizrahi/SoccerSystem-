@@ -1,18 +1,15 @@
 package Presentation;
 
-import Service.FanController;
+import Service.FanApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 public class HomePageController {
@@ -31,7 +28,7 @@ public class HomePageController {
 
 
 
-    private FanController fanController= new FanController();
+    private FanApplication fanApplication = new FanApplication();
     private String userName="Ilan12"; // is teamRole
 
 
@@ -127,7 +124,7 @@ public class HomePageController {
     @FXML
     public void initHomePage(){ // String userName
         this.userName=userName;
-        String isTeamRole=fanController.fanIsTeamRole(userName);
+        String isTeamRole= fanApplication.fanIsTeamRole(userName);
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);
         }

@@ -1,14 +1,15 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.RfaController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.Events.Event;
 import Domain.LeagueManagment.*;
 import Domain.MainSystem;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-import Service.RfaController;
-import Service.SystemOperationsController;
-import Stubs.TeamStub;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -30,7 +31,7 @@ public class DefineCalculationPolicy {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma = MainSystem.getInstance();
 
         /*****get RFA *****/

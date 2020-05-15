@@ -1,23 +1,19 @@
 package AcceptRejectTests;
-import Domain.BudgetControl.BudgetControl;
+import Domain.Controllers.SystemManagerController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
-import Domain.Main;
 import Domain.MainSystem;
 import Domain.TeamSubscription;
 import Domain.Users.*;
-import Service.SystemManagerController;
-import Service.SystemOperationsController;
-import Stubs.TeamStub;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
-import org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -34,7 +30,7 @@ public class CloseTeamForeverTest {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.initSystemObjectsEden();
         MainSystem ma= MainSystem.getInstance();
         HashSet<Team> teams=operationsController.showAllTeams();
         int size=teams.size();
@@ -92,8 +88,8 @@ public class CloseTeamForeverTest {
      */
     @Test
     public  void reject() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsEden();
         MainSystem ma= MainSystem.getInstance();
         Season season=new Season(ma,null,null,2019);
         ma.setCurrSeason(season);

@@ -1,13 +1,13 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.SystemOperationsController;
+import Domain.Controllers.TeamManagementController;
 import Domain.LeagueManagment.Team;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.LinkedList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,8 +17,8 @@ public class ReportIncomeAndExpense {
 
     @Test
     public void acceptAddIncomeToTeam() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 
@@ -29,8 +29,8 @@ public class ReportIncomeAndExpense {
     }
     @Test
     public void rejectAddIncomeToTeam() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 
@@ -44,8 +44,8 @@ public class ReportIncomeAndExpense {
     }
     @Test
     public void acceptAddExpenseToTeam() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 
@@ -58,8 +58,8 @@ public class ReportIncomeAndExpense {
     }
     @Test
     public void rejectAddExpenseToTeam() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 

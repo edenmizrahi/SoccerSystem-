@@ -1,4 +1,4 @@
-package Service;
+package Domain.Controllers;
 
 import Domain.MainSystem;
 import Domain.Users.Fan;

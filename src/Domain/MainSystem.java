@@ -25,8 +25,7 @@ public class MainSystem {
     private HashSet<Team> activeTeams;
     private HashSet<String> userNames;
     private HashSet<String> teamNames;
-
-    //    public static final String pattern = "dd-M-yyyy hh:mm:ss";
+    // public static final String pattern = "dd-M-yyyy hh:mm:ss";
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     public static final SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
     private static final Logger LOG = LogManager.getLogger("MainSystem");

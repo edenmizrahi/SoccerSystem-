@@ -4,6 +4,7 @@ import Domain.LeagueManagment.Team;
 import Domain.Users.User;
 import Service.TeamManagementController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,7 +28,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-public class TeamManagementUIController implements Initializable {
+public class TeamManagementUIController { //implements Initializable {
     @FXML
     private ChoiceBox teamNameCB = new ChoiceBox();
     @FXML
@@ -38,24 +39,21 @@ public class TeamManagementUIController implements Initializable {
     private TextField fieldName;
     @FXML
     private TextField newTeamName;
-    @FXML
-    private Label playersLabel = new Label();
-    @FXML
-    private AnchorPane activateTeamPane;
-    String userName = "Ilan";
+    String userName;
     private TeamManagementController tMController = new TeamManagementController();
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources){
-        activateScene();
-    }
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources){
+//            activateScene();
+//    }
 
     @FXML
     public void initUser(String userName){
         this.userName = userName;
+        activateScene();
     }
 
-    @FXML
+    /*@FXML
     public void changeToRequestScene(ActionEvent actionEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -65,10 +63,27 @@ public class TeamManagementUIController implements Initializable {
         //stage.setTitle("second scene");
         stage.setScene(new Scene(root));
         stage.show();
-    }
+    }*/
+    private void changeScene (ActionEvent event, String fxml) throws IOException{
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxml));
+        Parent root=loader.load();
+        // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        TeamManagementUIController tMUICont = loader.getController();
+        tMUICont.initUser(userName);
 
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+    }
     @FXML
-    public void changeToActivateScene(ActionEvent actionEvent) throws Exception{
+    public void changeToRequestScene (ActionEvent event) throws IOException {
+        changeScene(event, "RequestNewTeam.fxml");
+    }
+    @FXML
+    public void changeToActivateScene(ActionEvent event) throws Exception{
         LinkedList<String> approvedTeams = tMController.getMyApprovedTeams(userName);
         LinkedList<String> tempPlayers = tMController.getAllTeamRolesThatArentPlayerWithTeam();
         LinkedList<String> Coaches = tMController.getAllTeamRolesThatArentCoachWithTeam();
@@ -82,71 +97,78 @@ public class TeamManagementUIController implements Initializable {
             alertError("Cannot create a new team. There aren't any potential coaches in the system.");
         }
         else {
-            FXMLLoader loader = new FXMLLoader();
+            /*FXMLLoader loader = new FXMLLoader();
             Parent root = loader.load(getClass().getResource("ActivateTeam.fxml").openStream());
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.show();
+            stage.show();*/
+            changeScene(event, "ActivateTeam.fxml");
         }
     }
 
     @FXML
     public void changeToTeamManagementScene(ActionEvent actionEvent) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("TeamOwner.fxml").openStream());
-        //SecondController secondController = loader.getController();
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+       changeScene(actionEvent, "TeamOwner.fxml");
     }
     @FXML
     public void changeToHomePage(ActionEvent actionEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("HomePage.fxml").openStream());
+        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        Parent root=loader.load();
+        // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController homeCont = loader.getController();
-        //TODO add init user
-        //homeCont.initUser(userName);
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        //TODO send username
+        //homeCont.initHomePage(userName);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
     }
+
     @FXML
     public void changeToMyRolesScene(ActionEvent actionEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("MyRoles.fxml").openStream());
+        loader.setLocation(getClass().getResource("MyRoles.fxml"));
+        Parent root=loader.load();
+        // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyRolesController myRolesCont = loader.getController();
-        //TODO add init user
-        //myRolesCont.initUser(userName);
-        // stage.setTitle("second scene");
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        myRolesCont.initUser(userName);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
     }
     @FXML
     public void requestNewTeam(ActionEvent event) throws Exception{
 
         String teamName = newTeamName.getText();
-        String message = tMController.requestNewTeam(userName, teamName);
-
-        if (message == "team name not unique, already exist in system"){
-            alertError("This team name already exists. Please choose a different team name.");
+        if (teamName == null || teamName.equals("")){
+            alertError("Please insert a team name.");
         }
         else {
-            alertInformation("Your request has been sent to the RFA. Once approved you may activate your team.");
-            changeToTeamManagementScene(event);
+            String message = tMController.requestNewTeam(userName, teamName);
+
+            if (message == "team name not unique, already exist in system") {
+                alertError("This team name already exists. Please choose a different team name.");
+            } else {
+                alertInformation("Your request has been sent to the RFA. Once approved you may activate your team.");
+                changeToTeamManagementScene(event);
+            }
         }
     }
 
     @FXML
     public void activateScene(){
-        LinkedList<String> approvedTeams = tMController.getMyApprovedTeams(userName);
-        teamNameCB.getItems().clear();
-        for (String teamName : approvedTeams) {
-            teamNameCB.getItems().add(teamName);
+        if (tMController.getMyApprovedTeams(userName) !=  null && tMController.getMyApprovedTeams(userName).size() != 0) {
+            LinkedList<String> approvedTeams = tMController.getMyApprovedTeams(userName);
+            teamNameCB.getItems().clear();
+            for (String teamName : approvedTeams) {
+                teamNameCB.getItems().add(teamName);
+            }
         }
 
         LinkedList<String> tempPlayers = tMController.getAllTeamRolesThatArentPlayerWithTeam();

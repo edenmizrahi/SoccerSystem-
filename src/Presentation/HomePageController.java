@@ -140,7 +140,7 @@ public class HomePageController {
         loader.setLocation(getClass().getResource("MyRoles.fxml"));
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyRolesController myRolesController=loader.getController();
         myRolesController.initUser(userName);

@@ -17,19 +17,21 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-public class MyRolesController implements Initializable {
+public class MyRolesController{ // implements Initializable
 
     @FXML
     private ChoiceBox myRolesCB = new ChoiceBox();
     @FXML
     private ChoiceBox becomeRoleCB = new ChoiceBox();
-    String userName = "Mike";
+    String userName; // = "Mike"
     private TeamManagementController tMController = new TeamManagementController();
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources){
-        initScene();
-    }
+
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources){
+//        initScene();
+//    }
     @FXML
     public void initScene(){
         LinkedList<String> myRoles = tMController.getMyRoles(userName);
@@ -46,7 +48,19 @@ public class MyRolesController implements Initializable {
     }
     @FXML
     public void initUser(String userName){
+
         this.userName = userName;
+        LinkedList<String> myRoles = tMController.getMyRoles(userName);
+        myRolesCB.getItems().clear();
+        for (String role : myRoles) {
+            myRolesCB.getItems().add(role);
+        }
+
+        LinkedList<String> canBecome = tMController.getWhatICanBecome(userName);
+        becomeRoleCB.getItems().clear();
+        for (String role : canBecome) {
+            becomeRoleCB.getItems().add(role);
+        }
     }
 
     @FXML

@@ -563,11 +563,11 @@ public class SystemOperationsController {
 
 
         //ref2.addMatchToList(match);
-        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
+//        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
 
 
         //Event goal = new Goal(mosheReferee,m3,teamRole1.getPlayer());
-        match.addEvent(goal);
+ //       match.addEvent(goal);
 
     }
 

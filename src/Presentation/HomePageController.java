@@ -96,7 +96,8 @@ public class HomePageController {
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("MyAlerts.fxml"));
         Parent root=loader.load();
-        Scene scene = new Scene(root, 900, 600);
+        //Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
         myRolesController.initAllertsUser(userName);
@@ -125,6 +126,7 @@ public class HomePageController {
      */
     @FXML
     public void initHomePage(){ // String userName
+        this.userName=userName;
         String isTeamRole=fanController.fanIsTeamRole(userName);
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);

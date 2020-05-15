@@ -3,6 +3,7 @@ package Domain.Users;
 import Domain.*;
 
 import Domain.BudgetControl.BudgetReport;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Match;
@@ -377,6 +378,7 @@ public class Rfa extends Fan implements NotificationsUser {
             throw new NullPointerException();
         }
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), season);
+        season.setPlaySchedualingPolicy(true);
         LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa"));
     }
 
@@ -403,6 +405,7 @@ public class Rfa extends Fan implements NotificationsUser {
 
         if(seasonExist){
             season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
+            season.setPlayCalculationPolicy(true);
             LOG.info(String.format("%s - %s", this.getUserName(), "start calculating policy by the rfa "));
         }
         else{
@@ -420,6 +423,11 @@ public class Rfa extends Fan implements NotificationsUser {
             if(arg.equals("request to open new team")){//open new team
                 this.teamRequests.add((Team)o);
                 this.notifications.add(new Notification(o,arg,false));
+            }
+        }
+        else{
+            if(arg instanceof Event){
+                super.update(o,arg);
             }
         }
     }

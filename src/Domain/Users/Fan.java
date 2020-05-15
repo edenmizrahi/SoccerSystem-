@@ -38,8 +38,7 @@ public class Fan extends User implements NotificationsUser {
         myComplaints = new LinkedList<>();
         matchesFollow=new LinkedList<>();
         this.searchHisroty= new LinkedList<>();
-        this.notificationHashSet=new HashSet<>();
-
+        notificationHashSet=new HashSet<>();
         //add userName to the hashset
         ms.addUserName(userName);
     }
@@ -185,7 +184,9 @@ public class Fan extends User implements NotificationsUser {
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof  Match){
-            notificationHashSet.add(new Notification(o, arg, false));
+            if(arg instanceof  Match) {
+                notificationHashSet.add(new Notification(o, arg, false));
+            }
 //            /**change place or time event */
 //            /**Game result*/
 //            if(arg instanceof String){

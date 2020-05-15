@@ -16,6 +16,9 @@ public class Season {
     private HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues;
     private SchedulingPolicy schedulingPolicy;
     private CalculationPolicy calculationPolicy;
+    private boolean playSchedualingPolicy;
+    private boolean playCalculationPolicy;
+
     private MainSystem mainSystem;
     private int year;
     private static final Logger LOG = LogManager.getLogger("Season");
@@ -24,6 +27,8 @@ public class Season {
         this.schedulingPolicy = schedule;
         this.calculationPolicy = calculate;
         this.year = year;
+        this.playCalculationPolicy = false;
+        this.playSchedualingPolicy = false;
         this.teamsInCurrentSeasonLeagues=new HashMap<>();
         this.mainSystem=ms;
         mainSystem.addSeason(this);
@@ -37,6 +42,23 @@ public class Season {
 //        this.mainSystem=ms;
 //        mainSystem.addSeason(this);
 //    }
+
+
+    public boolean isPlaySchedualingPolicy() {
+        return playSchedualingPolicy;
+    }
+
+    public void setPlaySchedualingPolicy(boolean playSchedualingPolicy) {
+        this.playSchedualingPolicy = playSchedualingPolicy;
+    }
+
+    public boolean isPlayCalculationPolicy() {
+        return playCalculationPolicy;
+    }
+
+    public void setPlayCalculationPolicy(boolean playCalculationPolicy) {
+        this.playCalculationPolicy = playCalculationPolicy;
+    }
 
     /**
      * Add teams by league to this season.
@@ -96,6 +118,7 @@ public class Season {
     public HashMap<League, HashSet<Team>> getTeamsInCurrentSeasonLeagues() {
         return teamsInCurrentSeasonLeagues;
     }
+
 
     public void setTeamsInCurrentSeesonleagus(HashMap<League, HashSet<Team>> teamsInCurrentSeasonLeagues) {
         this.teamsInCurrentSeasonLeagues = teamsInCurrentSeasonLeagues;

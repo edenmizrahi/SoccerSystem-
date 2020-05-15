@@ -17,7 +17,6 @@ import java.util.Observable;
 public class Referee extends Fan implements NotificationsUser {
 
     private LinkedList<Match> matches;
-    private LinkedList<Event> events;
     private HashSet<Notification> refNotifications;
 
     private String qualification;
@@ -27,14 +26,12 @@ public class Referee extends Fan implements NotificationsUser {
     public Referee(Fan fan, MainSystem ms){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         matches = new LinkedList<>();
-        events = new LinkedList<>();
         refNotifications =new HashSet<>();
     }
 
     public Referee(Fan fan, MainSystem ms, String qualification){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(),fan.getDateOfBirth());
         matches = new LinkedList<>();
-        events = new LinkedList<>();
         this.qualification = qualification;
         refNotifications =new HashSet<>();
         //TODO add permissions
@@ -44,7 +41,6 @@ public class Referee extends Fan implements NotificationsUser {
     public Referee (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, String qualification, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
         matches = new LinkedList<>();
-        events = new LinkedList<>();
         this.qualification=qualification;
         refNotifications =new HashSet<>();
         //TODO add permissions
@@ -58,9 +54,6 @@ public class Referee extends Fan implements NotificationsUser {
         return matches;
     }
 
-    public LinkedList<Event> getEvents() {
-        return events;
-    }
 
     public String getQualification() { return qualification; }
 
@@ -328,8 +321,15 @@ public class Referee extends Fan implements NotificationsUser {
     /**Yarden**/
     @Override
     public void update(Observable o, Object arg) {
-        if(o instanceof Match){
-                this.refNotifications.add(new Notification(o,arg,false));
+        if(o instanceof Match) {
+            if (arg instanceof String) {
+                this.refNotifications.add(new Notification(o, arg, false));
+            }
+            else{
+                if(arg instanceof  Event){
+                    super.update(o,arg);
+                }
+            }
         }
     }
 

@@ -184,7 +184,9 @@ public class Fan extends User implements NotificationsUser {
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof  Match){
-            notificationHashSet.add(new Notification(o, arg, false));
+            if(arg instanceof  Match) {
+                notificationHashSet.add(new Notification(o, arg, false));
+            }
 //            /**change place or time event */
 //            /**Game result*/
 //            if(arg instanceof String){

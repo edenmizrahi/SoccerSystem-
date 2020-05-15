@@ -142,6 +142,7 @@ public class Match extends Observable {
                 this.getEvents().add(e);
                 LOG.info(String.format("%s - %s", e.getName(), "add event to match between " + getHomeTeam().getName() + " to ")
                         + getAwayTeam().getName());
+                addEvent(e);
             }
         }
     }

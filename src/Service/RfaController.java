@@ -12,7 +12,6 @@ import Domain.Notifications.Notification;
 import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-//import org.reflections.Reflections;
 import org.reflections.Reflections;
 import sun.awt.image.ImageWatched;
 
@@ -98,12 +97,12 @@ public class RfaController {
      */
     public LinkedList<String> getAllCalculationPoliciesString() {
         LinkedList<String> calculationList = new LinkedList<>();
-        /*Reflections reflections = new Reflections("Domain");
+        Reflections reflections = new Reflections("Domain");
         Set<Class<? extends CalculationPolicy>> classes = reflections.getSubTypesOf(CalculationPolicy.class);
 
         for (Class class1 : classes) {
             calculationList.add(class1.getSimpleName());
-        }*/
+        }
 
         return calculationList;
     }

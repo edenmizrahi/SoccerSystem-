@@ -8,7 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -16,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -23,29 +26,21 @@ public class FanDetailsController { //implements Initializable
 
 
     @FXML
-    private TextField fanUserName; //V
+    private Label fanUserName; //V
     @FXML
-    private TextField currNameField; //V
+    private Label currNameLabel; //V
     @FXML
-    private TextField currPasswardField; //V
+    private Label currPasswardLable; //V
     @FXML
-    private TextField currPhonNumberField; // V
+    private Label currPhonNumberLabel; // V
     @FXML
-    private TextField currEmailField; //V
+    private Label currEmailLabel; //V
     @FXML
-    private TextField currDateOfBirthField; //V
-    @FXML
-    private Button updateMyDetailsButton; //V
+    private Label currDateOfBirthLable; //V
     @FXML
     private TextField updateNameFeild; // V
     @FXML
-    private Button fanNameUpdateButton; //V
-    @FXML
-    private Button fanPasswardUpdateButton; //V
-    @FXML
-    private Button FanPhonNumberUpdateButton; //V
-    @FXML
-    private Button fanEmailUpdateButton; //V
+    private Button UpdateButton; //V
     @FXML
     private TextField updatePasswardField; //V
     @FXML
@@ -53,11 +48,7 @@ public class FanDetailsController { //implements Initializable
     @FXML
     private TextField updateEmailField; //V
     @FXML
-    private TextField welcomeUserNameField; //V
-    @FXML
-    private Button fanDateUpdateButton;
-    @FXML
-    private TextField updateDateField;
+    private Label welcomeUserNameField; //V
 
 
 
@@ -87,63 +78,114 @@ public class FanDetailsController { //implements Initializable
     */
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUserDetails (String userName) throws IOException {
         this.userName=userName;
-        List<String> fanDetails= syOpController.getPrivateDetails(userName);
-        //list : name, Password, PhoneNumber, Email, DateOfBirth
-        currNameField.setText(fanDetails.get(0));
-        currPasswardField.setText(fanDetails.get(1));
-        currPhonNumberField.setText(fanDetails.get(2));
-        currEmailField.setText(fanDetails.get(3));
-        currDateOfBirthField.setText(fanDetails.get(4));
-        fanUserName.setText(userName);
-        welcomeUserNameField.setText(userName);
+        showDetails();
 
     }
 
 
-        @FXML
+    @FXML
     private void showDetails() {
         List<String> fanDetails= syOpController.getPrivateDetails(userName);
         //list : name, Password, PhoneNumber, Email, DateOfBirth
-        currNameField.setText(fanDetails.get(0));
-        currPasswardField.setText(fanDetails.get(1));
-        currPhonNumberField.setText(fanDetails.get(2));
-        currEmailField.setText(fanDetails.get(3));
-        currDateOfBirthField.setText(fanDetails.get(4));
+        currNameLabel.setText(fanDetails.get(0));
+        currPasswardLable.setText(fanDetails.get(1));
+        currPhonNumberLabel.setText(fanDetails.get(2));
+        currEmailLabel.setText(fanDetails.get(3));
+        currDateOfBirthLable.setText(fanDetails.get(4));
         fanUserName.setText(userName);
         welcomeUserNameField.setText(userName);
-
-        //String desc = fanName.getText();
     }
 
-    @FXML
-    public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
-        stageTheEventSourceNodeBelongs.setScene(scene);
-
-    }
 
     @FXML
     public void showAllhideFiels(MouseEvent mouseEvent) throws IOException {
 
         updateNameFeild.setVisible(true);
-        fanNameUpdateButton.setVisible(true);
-        fanPasswardUpdateButton.setVisible(true);
-        FanPhonNumberUpdateButton.setVisible(true);
-        fanEmailUpdateButton.setVisible(true);
+        UpdateButton.setVisible(true);
+        //fanPasswardUpdateButton.setVisible(true);
+        //FanPhonNumberUpdateButton.setVisible(true);
+        //fanEmailUpdateButton.setVisible(true);
         updatePasswardField.setVisible(true);
         updatePhonNumField.setVisible(true);
         updateEmailField.setVisible(true);
-        fanDateUpdateButton.setVisible(true);
-        updateDateField.setVisible(true);
-        //updatetemp.setVisible(true);
+        //fanDateUpdateButton.setVisible(true);
 
+        updateNameFeild.setText(currNameLabel.getText());
+        updatePasswardField.setText(currPasswardLable.getText());
+        updatePhonNumField.setText(currPhonNumberLabel.getText());
+        updateEmailField.setText(currEmailLabel.getText());
     }
 
+    /**
+     *
+     * update ditails of fan . check if input is valid.
+     * @throws Exception
+     */
+    @FXML
+    public void updateNameByUser() throws Exception {
+        String newName=updateNameFeild.getText();
+        String newPassward=updatePasswardField.getText();
+        String newPhonNum=updatePhonNumField.getText();
+        String newEmail=updateEmailField.getText();
+        if(newName.equals("") || newName==null){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("name field is empty. Please insert name.");
+            chooseFile.show();
+        }//password length is 6 or more
+        else if(newPassward.equals("")|| newPassward ==null || newPassward.length() < 6){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("Invalid password. Please enter a valid password. password length is 6 or more");
+            chooseFile.show();
+        }// phone number is 10 digits
+        else if(newPhonNum == null || newPhonNum.equals("")|| !(newPhonNum.matches("^[0-9]*$")) || newPhonNum.length() != 10){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("Invalid phone Number. Please enter a valid phone Number. phone Number length is 10 numbers");
+            chooseFile.show();
+        }//email contains @
+        else if(newEmail.equals("")|| newEmail==null || ((!newEmail.contains(".com") && !newEmail.contains("il")))){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("Invalid email. Please enter a valid email. email must contains @ and end with .com or .il");
+            chooseFile.show();
+        }
+//        else if(newDateOfBirth.equals("")|| newDateOfBirth==null){
+//            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+//            chooseFile.setHeaderText("Error");
+//            chooseFile.setContentText("date field is empty. Please insert date.");
+//            chooseFile.show();
+//        }
+//            // all good!!
+        else {
+            String massage= fanController.setFanDetails(userName,newName,newPassward,newPhonNum,newEmail);
+            if(massage.equals("ok")){
+                showDetails();
+                Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                chooseFile.setHeaderText("ok");
+                chooseFile.setContentText("details is updated");
+                chooseFile.show();
+            }
+            else{
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText("Nothing is updated");
+                chooseFile.show();
+            }
+        }
+    }
+
+    @FXML
+    public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        stageTheEventSourceNodeBelongs.setScene(scene);
+    }
 
 }

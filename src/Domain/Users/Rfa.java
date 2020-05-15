@@ -3,6 +3,7 @@ package Domain.Users;
 import Domain.*;
 
 import Domain.BudgetControl.BudgetReport;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Match;
@@ -420,6 +421,11 @@ public class Rfa extends Fan implements NotificationsUser {
             if(arg.equals("request to open new team")){//open new team
                 this.teamRequests.add((Team)o);
                 this.notifications.add(new Notification(o,arg,false));
+            }
+        }
+        else{
+            if(arg instanceof Event){
+                super.update(o,arg);
             }
         }
     }

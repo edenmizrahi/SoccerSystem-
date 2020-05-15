@@ -3,6 +3,7 @@ package Service;
 import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.Events.Event;
+import Domain.Events.Goal;
 import Domain.Events.RedCard;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
@@ -15,6 +16,7 @@ import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.*;
 import Stubs.StubExternalSystem;
+import Stubs.TeamStub;
 import sun.awt.image.ImageWatched;
 
 import java.text.ParseException;
@@ -22,6 +24,37 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class SystemOperationsController {
+
+    /**
+     * return all matches in system that have not yet happened - match format
+     * @return
+     */
+    public HashSet<Match> getAllCurrMatchs() {
+        List<Referee> allReferees =this.showAllReferee();
+        HashSet<Match> allMatches=new HashSet<>();
+        for (Referee ref:allReferees) {
+            LinkedList<Match> allRefereeMatches=ref.getMatches();
+            for (Match m:allRefereeMatches) {
+                allMatches.add(m);
+            }
+        }
+        return allMatches;
+    }
+
+    /**
+     * return all matches in system that have not yet happened - String format
+     */
+    public HashSet<String> getAllMatchsInSytem(){
+        List<Referee> allReferees =this.showAllReferee();
+        HashSet<String> allMatches=new HashSet<>();
+        for (Referee ref:allReferees) {
+            LinkedList<Match> allRefereeMatches=ref.getMatches();
+            for (Match m:allRefereeMatches) {
+                allMatches.add(m.toString());
+            }
+        }
+        return allMatches;
+    }
 
     public HashSet<Team> showAllTeams(){
         return MainSystem.getInstance().getActiveTeams();
@@ -484,15 +517,57 @@ public class SystemOperationsController {
         MainSystem system = MainSystem.getInstance();
         system.startSystem();
         SystemManager marioSystemManager = system.getSystemManagers().get(0);//there is only one system manager now (the default)
+        SimpleDateFormat dt = new SimpleDateFormat("dd-MM-yyyy HH:MM:ss");
+        Date date = new Date(System.currentTimeMillis());
         Team t1 = new Team();
 
         /*********************************************/
         Fan f1=new Fan(system, "Ilan", "0549716910","yossi@gmail.com", "Ilan12", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
-//        TeamRole ilanTeamOwner=new TeamRole(f1);
-//        ilanTeamOwner.becomeTeamOwner();
-//        ilanTeamOwner.getTeamOwner().addNewTeam(t1);
-//        t1.setFounder(ilanTeamOwner.getTeamOwner());
-//        t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
+        TeamRole ilanTeamOwner=new TeamRole(f1);
+        ilanTeamOwner.becomeTeamOwner();
+        ilanTeamOwner.getTeamOwner().addNewTeam(t1);
+        t1.setFounder(ilanTeamOwner.getTeamOwner());
+        t1.addTeamOwner(ilanTeamOwner.getTeamOwner());
+
+        // add maches
+
+        TeamStub team1 = new TeamStub("macabi TLV");
+        TeamStub team2 = new TeamStub("hapoel TLV");
+        TeamStub team3 = new TeamStub("bear sheva");
+        TeamStub team4 = new TeamStub("bitar");
+        TeamStub team5 = new TeamStub("team5");
+        TeamStub team6 = new TeamStub("team6");
+
+        Referee mosheReferee = new Referee(system,"moshe","0546145795","moseh@gmail.com","moshe123","moshe123","a",MainSystem.birthDateFormat.parse("08-09-1995"));
+
+        Match m1 = new Match(6,4,team1,team2, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , mosheReferee,dt.format(date));
+
+        Match m2 = new Match(4,2,team3,team1, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , mosheReferee,dt.format(date));
+
+        Match m3 = new Match(3,3,team5,team4, new Field("f1"), new HashSet<Event>(), new HashSet<Referee>()
+                , mosheReferee,dt.format(date));
+
+        Match match = new Match(0,0,team3,team1,new Field("a"),new HashSet<>(),new HashSet<>()
+                ,mosheReferee,dt.format(date));
+//        Match match = new Match(0,0,team2,team1,new Field("a"),new HashSet<>(),
+//                new HashSet<>(),mosheReferee,dt.format(date));
+        ilanTeamOwner.addMatchFollow(m3);
+        ilanTeamOwner.addMatchFollow(m2);
+        ilanTeamOwner.addMatchFollow(match);
+
+        TeamRole teamRole1 = new TeamRole(system,"yarden","0546260171","yarden@gmail.com","yarden012", "yarden012", MainSystem.birthDateFormat.parse("15-09-1995"));
+        teamRole1.becomePlayer();
+        team1.addPlayer(teamRole1.getPlayer());
+
+
+        //ref2.addMatchToList(match);
+        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
+
+
+        //Event goal = new Goal(mosheReferee,m3,teamRole1.getPlayer());
+        match.addEvent(goal);
 
     }
 

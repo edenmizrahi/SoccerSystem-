@@ -16,6 +16,7 @@ public class RefereeApplication {
     }
 
     //get list of players name
+    //TODO???
     public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
         return refereeController.getPlayersFromTeamInList(players);
     }

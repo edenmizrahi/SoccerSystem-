@@ -6519,3 +6519,34 @@
 13.05.2020 09:33:38 ERROR Event - This player isn't in one of the participating teams
 13.05.2020 09:33:38 INFO  TeamRole - yarden012 - become player
 13.05.2020 09:33:38 INFO  Match - Goal - add event to match between team4 to team3
+16.05.2020 23:09:24 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:09:24 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:09:24 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:09:24 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:09:24 INFO  TeamRole - yarden012 - become player
+16.05.2020 23:09:59 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:09:59 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:09:59 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:09:59 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:09:59 INFO  TeamRole - yarden012 - become player
+16.05.2020 23:11:02 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:11:02 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:11:02 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:11:02 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:11:02 INFO  TeamRole - yarden012 - become player
+16.05.2020 23:13:07 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:13:07 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:13:07 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:13:07 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:13:07 INFO  TeamRole - yarden012 - become player
+16.05.2020 23:13:30 INFO  TeamRole - Ilan12 - become coach
+16.05.2020 23:16:23 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:16:23 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:16:23 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:16:23 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:16:23 INFO  TeamRole - yarden012 - become player
+16.05.2020 23:16:47 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:16:47 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:16:47 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:16:47 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:16:47 INFO  TeamRole - yarden012 - become player

@@ -321,6 +321,9 @@ public class Referee extends Fan implements NotificationsUser {
     /**Yarden**/
     @Override
     public void update(Observable o, Object arg) {
+        //fan update!!!
+        super.update(o, arg);
+
         if(o instanceof Match) {
             if (arg instanceof String) {
                 this.refNotifications.add(new Notification(o, arg, false));

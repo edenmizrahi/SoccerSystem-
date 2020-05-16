@@ -419,6 +419,9 @@ public class Rfa extends Fan implements NotificationsUser {
     @Override
     //TODO test
     public void update(Observable o, Object arg) {
+        //call fan update
+        super.update(o, arg);
+
         if(o instanceof Team){
             if(arg.equals("request to open new team")){//open new team
                 this.teamRequests.add((Team)o);

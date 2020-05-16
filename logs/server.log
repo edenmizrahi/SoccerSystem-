@@ -6550,3 +6550,8 @@
 16.05.2020 23:16:47 INFO  TeamRole - Ilan12 - become team owner
 16.05.2020 23:16:47 INFO  TeamOwner - Ilan12 -  new team was added: null
 16.05.2020 23:16:47 INFO  TeamRole - yarden012 - become player
+16.05.2020 23:45:42 INFO  SystemManager - systemManager - Added to system
+16.05.2020 23:45:42 INFO  MainSystem -  - system was started for the first time
+16.05.2020 23:45:42 INFO  TeamRole - Ilan12 - become team owner
+16.05.2020 23:45:42 INFO  TeamOwner - Ilan12 -  new team was added: null
+16.05.2020 23:45:42 INFO  TeamRole - yarden012 - become player

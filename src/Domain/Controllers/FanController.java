@@ -38,15 +38,7 @@ public class FanController {
     }
 
 
-    /**
-     * logOutFromSystem
-     *
-     * @param curUser
-     * @codeBy Eden
-     */
-    public void logOut(Fan curUser) {
-        curUser.logOut();
-    }
+
 
     /**
      * change user details , return list of changed fields

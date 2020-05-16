@@ -35,9 +35,27 @@ public class UserController {
         return "Fan";
     }
 
+    /**OR
+     * log out from system
+     * @param username
+     * @return
+     */
+    public String logOut(String username){
+        User u=smc.getUserByUserName(username);
+        if(u instanceof Fan){
+            try {
+                MainSystem.getInstance().logOut((Fan)u);
+                return "succes";
+            } catch (Exception e) {
+                return e.getMessage();
+            }
+        }
+        return "user is not a fan";
+    }
+
     public boolean haveUnreadNotifications(String userName ) {
         User u=smc.getUserByUserName(userName);
-        if(((Fan)(u)).getUnReadNotifications().size()>0){
+        if( u instanceof  Fan &&((Fan)(u)).getUnReadNotifications().size()>0){
             return true;
         }
         return false;

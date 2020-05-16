@@ -172,11 +172,7 @@ public class Fan extends User implements NotificationsUser {
         myPages.add(page);
     }
 
-    /**OR**/
-    public void logOut(){
-        //nothing to do now.....
-        LOG.info(String.format("%s - %s", userName, "loged out from system"));
-    }
+
 
 
     //<editor-fold desc="Notifications Handler">

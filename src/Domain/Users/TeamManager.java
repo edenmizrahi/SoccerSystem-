@@ -285,6 +285,10 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
      */
     @Override
     public void update(Observable o, Object arg) {
+        //call fan team role
+        teamRole.update(o, arg);
+
+
         /**notification about close team forever*/
         if (o instanceof Team && arg instanceof String && ((String) arg).contains("removed")) {
             notificationsList.add(new Notification(o, arg, false));

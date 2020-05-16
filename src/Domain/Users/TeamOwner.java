@@ -455,6 +455,8 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
      * **/
     @Override
     public void update(Observable o, Object arg) {
+        //team role of fan!!!!
+        teamRole.update(o,arg);
 
         if(o instanceof Team){
             /**team request answer***/

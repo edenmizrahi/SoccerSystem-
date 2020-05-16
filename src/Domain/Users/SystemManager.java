@@ -676,6 +676,9 @@ public class SystemManager extends Fan implements NotificationsUser {
      */
     @Override
     public void update(Observable o, Object arg) {
+        //call fan update!!!
+        super.update(o, arg);
+
         /**get new complaint*/
         if(o instanceof  Complaint){
             if(o instanceof Complaint){

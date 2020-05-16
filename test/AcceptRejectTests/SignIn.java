@@ -1,9 +1,8 @@
 package AcceptRejectTests;
 
 import Domain.MainSystem;
-import Domain.Users.Player;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +10,7 @@ import java.text.ParseException;
 
 public class SignIn {
 
-    SystemOperationsController operationsController=new SystemOperationsController();
+    SystemOperationsApplication operationsController=new SystemOperationsApplication();
 
     /**Or**/
     @Test

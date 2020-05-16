@@ -1,10 +1,9 @@
 package Presentation;
 
-import Service.FanController;
-import Service.SystemOperationsController;
+import Service.FanApplication;
+import Service.SystemOperationsApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,10 +16,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
-import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class FanDetailsController { //implements Initializable
 
@@ -52,8 +48,8 @@ public class FanDetailsController { //implements Initializable
 
 
 
-    private FanController fanController = new FanController();
-    private SystemOperationsController syOpController =new SystemOperationsController();
+    private FanApplication fanApplication = new FanApplication();
+    private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // userName; set!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -61,7 +57,7 @@ public class FanDetailsController { //implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(userName!=null){
-            List<String> fanDetails= syOpController.getPrivateDetails(userName);
+            List<String> fanDetails= syOpApp.getPrivateDetails(userName);
             //list : name, Password, PhoneNumber, Email, DateOfBirth
             currNameField.setText(fanDetails.get(0));
             currPasswardField.setText(fanDetails.get(1));
@@ -87,7 +83,7 @@ public class FanDetailsController { //implements Initializable
 
     @FXML
     private void showDetails() {
-        List<String> fanDetails= syOpController.getPrivateDetails(userName);
+        List<String> fanDetails= syOpApp.getPrivateDetails(userName);
         //list : name, Password, PhoneNumber, Email, DateOfBirth
         currNameLabel.setText(fanDetails.get(0));
         currPasswardLable.setText(fanDetails.get(1));
@@ -162,7 +158,7 @@ public class FanDetailsController { //implements Initializable
 //        }
 //            // all good!!
         else {
-            String massage= fanController.setFanDetails(userName,newName,newPassward,newPhonNum,newEmail);
+            String massage= fanApplication.setFanDetails(userName,newName,newPassward,newPhonNum,newEmail);
             if(massage.equals("ok")){
                 showDetails();
                 Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);

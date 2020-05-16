@@ -1,4 +1,4 @@
-package Service;
+package Domain.Controllers;
 
 import Domain.PageOwner;
 import Domain.PrivatePage;
@@ -65,3 +65,4 @@ public class PageOwnerController {
         return pO.getPage();
     }
 }
+

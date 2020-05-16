@@ -1,4 +1,5 @@
-package Service;
+package Domain.Controllers;
+
 import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Field;
@@ -400,7 +401,7 @@ public class TeamManagementController {
         }
     }
 
-        //<editor-fold desc="getters">
+    //<editor-fold desc="getters">
 
     /**
      * adi
@@ -455,7 +456,7 @@ public class TeamManagementController {
      * @return
      */
     public LinkedList<Team> getAllMyTeams (TeamOwner user){
-            return user.getTeams();
+        return user.getTeams();
     }
     /**
      * adi
@@ -614,3 +615,4 @@ public class TeamManagementController {
     //</editor-fold>
 
 }
+

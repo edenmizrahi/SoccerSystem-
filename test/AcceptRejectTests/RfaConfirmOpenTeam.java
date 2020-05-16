@@ -1,12 +1,14 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.RfaController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
 import Domain.Users.TeamOwner;
-import Service.RfaController;
-import Service.SystemOperationsController;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +28,7 @@ public class RfaConfirmOpenTeam {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma = MainSystem.getInstance();
 
         /*****get RFA *****/
@@ -61,8 +63,8 @@ public class RfaConfirmOpenTeam {
     @Test
     public void reject() throws Exception {
         /*****system init*****/
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAvital();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsAvital();
         MainSystem ma = MainSystem.getInstance();
 
         /*****get RFA *****/

@@ -1,6 +1,6 @@
 package Presentation;
 
-import Service.RefereeController;
+import Service.RefereeApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +32,7 @@ public class RefereePageController extends HomePageController {
     public javafx.scene.control.Button idReportbtn;
 
     @FXML
-    private Service.RefereeController RefereeController = new RefereeController();
+    private RefereeApplication refereeApplication = new RefereeApplication();
 
     private String userName = "dana123";
 
@@ -46,7 +46,7 @@ public class RefereePageController extends HomePageController {
     @FXML
     public void addEventToMatch(ActionEvent actionEvent) throws IOException {
 
-        String match = RefereeController.displayAllMatches(userName);
+        String match = refereeApplication.displayAllMatches(userName);
         if(match!=null) {
             //display matches that still not take place
             FXMLLoader loader = new FXMLLoader();
@@ -73,7 +73,7 @@ public class RefereePageController extends HomePageController {
 
 
     public void createReport(ActionEvent actionEvent) throws IOException {
-        LinkedList<String> matches = RefereeController.getAllMatches(userName);
+        LinkedList<String> matches = refereeApplication.getAllMatches(userName);
         if(matches.size() > 0){
 
             FXMLLoader loader=new FXMLLoader();

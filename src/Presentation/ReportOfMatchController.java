@@ -1,13 +1,12 @@
 package Presentation;
 
-import Service.RefereeController;
+import Service.RefereeApplication;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,9 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 public class ReportOfMatchController {
 
@@ -33,7 +30,7 @@ public class ReportOfMatchController {
 
 
     @FXML
-    private Service.RefereeController RefereeController = new RefereeController();
+    private RefereeApplication refereeApplication = new RefereeApplication();
 
     private String userName;
     private LinkedList<String> matches;
@@ -66,7 +63,7 @@ public class ReportOfMatchController {
     public void createReportInline() throws Exception {
         reportTable.setVisible(true);
         String match =  idMatches.getSelectionModel().getSelectedItem();
-        LinkedList<String> report = this.RefereeController.createReportOfMatch(match,userName);
+        LinkedList<String> report = this.refereeApplication.createReportOfMatch(match,userName);
 
         reportTable.getItems().addAll(report);
 
@@ -80,7 +77,7 @@ public class ReportOfMatchController {
 //    @FXML
 //    public void startCreatReport() throws Exception {
 //        String match =  idMatches.getSelectionModel().getSelectedItem();
-//        LinkedList<String> report = this.RefereeController.createReportOfMatch(match,userName);
+//        LinkedList<String> report = this.RefereeApplication.createReportOfMatch(match,userName);
 //
 //        TableView<String> tableView = new TableView<>();
 //        Stage stage = new Stage();

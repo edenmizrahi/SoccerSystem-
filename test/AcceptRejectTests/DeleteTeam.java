@@ -1,10 +1,12 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.SystemOperationsController;
+import Domain.Controllers.TeamManagementController;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,8 +18,8 @@ public class DeleteTeam {
 
     @Test
     public void acceptDeleteTeam() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 
@@ -29,8 +31,8 @@ public class DeleteTeam {
     }
     @Test
     public void rejectDeleteTeam() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
         teamManagementController.deleteTeam(ilanTeamOwner.getTeamOwner(), t1Macabi);

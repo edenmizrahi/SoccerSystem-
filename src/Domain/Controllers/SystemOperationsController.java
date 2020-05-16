@@ -1,4 +1,4 @@
-package Service;
+package Domain.Controllers;
 
 import Domain.Complaint;
 import Domain.Enums.TeamManagerPermissions;
@@ -135,9 +135,9 @@ public class SystemOperationsController {
 
     }
 
-     public  List<Player> getAllPlayers(){
+    public  List<Player> getAllPlayers(){
         return MainSystem.getInstance().getAllPlayer();
-     }
+    }
 
     /**
      * start system - if its first start
@@ -147,20 +147,20 @@ public class SystemOperationsController {
      * @throws ParseException
      * @codeBy Eden
      */
-     public List<String> startSystem() throws ParseException {
+    public List<String> startSystem() throws ParseException {
         List <String > defaultDetails=new LinkedList<>();
-         if(MainSystem.getInstance().getUsers().size()==0){
-             defaultDetails.add("systemManager");
-             defaultDetails.add("systemManager101");
-             MainSystem.getInstance().startSystem();
-             return defaultDetails;
-         }
-         else{
-             MainSystem.getInstance().startSystem();
-             return null;
-         }
+        if(MainSystem.getInstance().getUsers().size()==0){
+            defaultDetails.add("systemManager");
+            defaultDetails.add("systemManager101");
+            MainSystem.getInstance().startSystem();
+            return defaultDetails;
+        }
+        else{
+            MainSystem.getInstance().startSystem();
+            return null;
+        }
 
-     }
+    }
 
 
     public static void initSystemObjectsAdi() throws Exception {
@@ -563,11 +563,11 @@ public class SystemOperationsController {
 
 
         //ref2.addMatchToList(match);
-        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
+//        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
 
 
         //Event goal = new Goal(mosheReferee,m3,teamRole1.getPlayer());
-        match.addEvent(goal);
+        //       match.addEvent(goal);
 
     }
 
@@ -843,32 +843,33 @@ public class SystemOperationsController {
 
     public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
         MainSystem ms=MainSystem.getInstance();
-       try {
-           if (role.equals("Player")) {
-               ms.signInAsPlayer(name, phoneNumber, email, userName, password, dateOfBirth);
+        try {
+            if (role.equals("Player")) {
+                ms.signInAsPlayer(name, phoneNumber, email, userName, password, dateOfBirth);
 
-           }
-           if (role.equals("Coach")) {
-               ms.signInAsCoach(name, phoneNumber, email, userName, password, dateOfBirth);
+            }
+            if (role.equals("Coach")) {
+                ms.signInAsCoach(name, phoneNumber, email, userName, password, dateOfBirth);
 
-           }
-           if (role.equals("Fan")) {
-               ms.signInAsFan(name, phoneNumber, email, userName, password, dateOfBirth);
+            }
+            if (role.equals("Fan")) {
+                ms.signInAsFan(name, phoneNumber, email, userName, password, dateOfBirth);
 
-           }
-           if (role.equals("RFA")) {
-               ms.signInAsRFA(name, phoneNumber, email, userName, password, dateOfBirth);
+            }
+            if (role.equals("RFA")) {
+                ms.signInAsRFA(name, phoneNumber, email, userName, password, dateOfBirth);
 
-           }
-           if (role.equals("TeamOwner")) {
-               ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, dateOfBirth);
+            }
+            if (role.equals("TeamOwner")) {
+                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, dateOfBirth);
 
-           }
-       }
-       catch (Exception e){
-           return "error - user name is not valid.";
-       }
+            }
+        }
+        catch (Exception e){
+            return "error - user name is not valid.";
+        }
 
         return "ok";
     }
 }
+

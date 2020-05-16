@@ -1,13 +1,13 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.RfaController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.League;
 import Domain.MainSystem;
-import Domain.TeamSubscription;
 import Domain.Users.Rfa;
 import Domain.Users.SystemManager;
-import Service.RfaController;
-import Service.SystemManagerController;
-import Service.SystemOperationsController;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class AddLeagueToSystem {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsAvital();// main system become
+        operationsController.initSystemObjectsAvital();// main system become
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/
@@ -70,8 +70,8 @@ public class AddLeagueToSystem {
 
         /**added league with name that already exist in system **/
         /*****system init*****/
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAvital();// main system become
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsAvital();// main system become
         MainSystem ma= MainSystem.getInstance();
 
         /*****get RFA *****/

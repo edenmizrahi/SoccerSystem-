@@ -1,13 +1,13 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.SystemOperationsController;
+import Domain.Controllers.TeamManagementController;
 import Domain.LeagueManagment.Team;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.LinkedList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +17,7 @@ public class EditTeamProperties {
 
     @Test
     public void acceptEditCoachRole() throws Exception {
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole haimCoach = (TeamRole)systemOperationsController.getUserByUserName("Haim");
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
 
@@ -26,7 +26,7 @@ public class EditTeamProperties {
     }
     @Test
     public void rejectEditCoachRole() throws Exception {
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole moshe = (TeamRole)systemOperationsController.getUserByUserName("Moshe");
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         try {
@@ -39,7 +39,7 @@ public class EditTeamProperties {
     }
     @Test
     public void acceptEditPlayerRole() throws Exception {
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole player = (TeamRole)systemOperationsController.getUserByUserName("player:macabi0d");
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
 
@@ -48,7 +48,7 @@ public class EditTeamProperties {
     }
     @Test
     public void rejectEditPlayerRole() throws Exception {
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ben = (TeamRole)systemOperationsController.getUserByUserName("Ben");
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         try {
@@ -61,7 +61,7 @@ public class EditTeamProperties {
     }
     @Test
     public void acceptEditFieldName() throws Exception {
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.initSystemObjectsAdi();
         TeamRole ilanTeamOwner = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
         Team t1Macabi = teamManagementController.getAllMyTeams(ilanTeamOwner.getTeamOwner()).get(0);
 

@@ -1,11 +1,11 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.SystemOperationsController;
+import Domain.Controllers.TeamManagementController;
 import Domain.LeagueManagment.Team;
-import Domain.Users.Fan;
-import Domain.Users.TeamOwner;
 import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,8 +18,8 @@ public class RemoveTeamOwnerTest {
 
     @Test
     public void accept1() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
        // team owner to remove
         TeamRole arnoldTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Arnold");
         TeamRole ilan = (TeamRole)systemOperationsController.getUserByUserName("Ilan");
@@ -36,8 +36,8 @@ public class RemoveTeamOwnerTest {
     /***************SAME TESTS EXCEPT THIS TIME WITH TEAM MANAGER****************/
     @Test
     public void accept2() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         // team owner to remove
         TeamRole arminTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Armin");
         TeamRole moshe = (TeamRole)systemOperationsController.getUserByUserName("Moshe");
@@ -49,8 +49,8 @@ public class RemoveTeamOwnerTest {
     // team manager without permission
     @Test
     public void reject() throws Exception {
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsAdi();
+        systemOperationsController.deleteSystem();
+        systemOperationsController.initSystemObjectsAdi();
         // team owner to remove
         TeamRole aviTeamOwner = (TeamRole) systemOperationsController.getUserByUserName("Avi");
         TeamRole david = (TeamRole)systemOperationsController.getUserByUserName("David");

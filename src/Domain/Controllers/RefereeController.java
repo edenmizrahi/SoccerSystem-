@@ -1,4 +1,4 @@
-package Service;
+package Domain.Controllers;
 
 import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
@@ -110,18 +110,18 @@ public class RefereeController {
      */
     public String displayAllMatches(String nameOfReferee){
 
-    //LinkedList<String> listOfMatches = new LinkedList<>();
+        //LinkedList<String> listOfMatches = new LinkedList<>();
         Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
         Date currentDate = new Date(System.currentTimeMillis());
         for (Match match: currentReferee.getMatches()) {
-                //check if the game is takes place right now
-                if(currentDate.after(match.getStartDate()) && currentDate.before(DateUtils.addMinutes(match.getStartDate(),match.getNumOfMinutes()))) {
-    //listOfMatches.add(match.toString());
-                    return match.toString();
-                }
+            //check if the game is takes place right now
+            if(currentDate.after(match.getStartDate()) && currentDate.before(DateUtils.addMinutes(match.getStartDate(),match.getNumOfMinutes()))) {
+                //listOfMatches.add(match.toString());
+                return match.toString();
+            }
         }
         return null;
-    //return listOfMatches;
+        //return listOfMatches;
     }
 
     /**

@@ -1,4 +1,4 @@
-package Service;
+package Domain.Controllers;
 
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
@@ -181,3 +181,4 @@ public class FanController {
 
 
 }
+

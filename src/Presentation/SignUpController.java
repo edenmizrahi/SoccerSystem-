@@ -2,7 +2,7 @@ package Presentation;
 
 //import Domain.Main;
 import Domain.MainSystem;
-import Service.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,16 +12,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.BorderWidths;
-import javafx.scene.layout.CornerRadii;
 import javafx.stage.Stage;
 
 
-import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -70,7 +63,7 @@ public class SignUpController {
     @FXML
     Label lbl_phoneError;
 
-    SystemOperationsController soc=new SystemOperationsController();
+    SystemOperationsApplication soc = new SystemOperationsApplication();
 
     public void closeEvent(MouseEvent mouseEvent) {
         System.exit(0);

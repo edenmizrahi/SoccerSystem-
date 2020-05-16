@@ -1,4 +1,5 @@
-package Service;
+package Domain.Controllers;
+
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -85,7 +86,7 @@ public class RfaController {
         Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
 
         for (Class class1 : classes) {
-           schedulingList.add(class1.getSimpleName());
+            schedulingList.add(class1.getSimpleName());
         }
 
         return schedulingList;
@@ -140,12 +141,12 @@ public class RfaController {
      * @return  List of Scheduling Policies
      *  @codeBy Eden
      */
-     public List<SchedulingPolicy> watchSchedulingPolicies(){
+    public List<SchedulingPolicy> watchSchedulingPolicies(){
         List <SchedulingPolicy> list=new LinkedList<>();
         list.add(new SchedualeOption1());
         list.add(new SchedualeOption2());
         return list;
-     }
+    }
 
 //    /**
 //     * Define Calculating policy to specific season
@@ -185,11 +186,11 @@ public class RfaController {
      * @param teams
      *  @codeBy Eden
      */
-     public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
+    public void defineSeasonToLeagues(Rfa user, List <League> leaguesToDefine, int season, SchedulingPolicy sp, CalculationPolicy cp, HashSet<Team> teams, LinkedHashSet<Referee> referees,boolean defineCurrSeason) throws Exception {
         for( League l:leaguesToDefine){
             user.defineSeasonToLeague(sp,cp,season,l,teams,referees,defineCurrSeason);
         }
-     }
+    }
 
     /**
      * delete referee - before this function show all referee from systemOperationsController
@@ -198,9 +199,9 @@ public class RfaController {
      * @throws Exception
      *  @codeBy Eden
      */
-     public void  deleteReferee(Referee re, Rfa user) throws Exception {
-         user.deleteReferee(re);
-     }
+    public void  deleteReferee(Referee re, Rfa user) throws Exception {
+        user.deleteReferee(re);
+    }
 
     /**
      * add new referee
@@ -215,26 +216,26 @@ public class RfaController {
      * @throws Exception
      *  @codeBy Eden
      */
-     public void addReferee(Rfa user,String name, String phoneNumber, String email, String userName, String password, String qualification, Date birthDate) throws Exception{
-         user.addReferee(name,phoneNumber,email,userName,password,qualification,birthDate);
-     }
+    public void addReferee(Rfa user,String name, String phoneNumber, String email, String userName, String password, String qualification, Date birthDate) throws Exception{
+        user.addReferee(name,phoneNumber,email,userName,password,qualification,birthDate);
+    }
 
-     public void startSchedulingPolicy(Rfa user, Season season, HashSet<Referee> refs, Referee mainReferee) throws Exception {
-         if(refs==null||mainReferee==null){
-             throw new Exception("please choose referees");
-         }
-         if(season!=null) {
-             for (Map.Entry<League, HashSet<Team>> entry : season.getTeamsInCurrentSeasonLeagues().entrySet()) {
-                 if (entry.getValue().size() < 0) {
-                     throw new Exception("league " + entry.getKey().getName() + " without teams, add teams first");
-                 }
-             }
-             user.startSchedulingPolicy(season);
-         }
-         else{
-             throw new Exception("first define the season");
-         }
-     }
+    public void startSchedulingPolicy(Rfa user, Season season, HashSet<Referee> refs, Referee mainReferee) throws Exception {
+        if(refs==null||mainReferee==null){
+            throw new Exception("please choose referees");
+        }
+        if(season!=null) {
+            for (Map.Entry<League, HashSet<Team>> entry : season.getTeamsInCurrentSeasonLeagues().entrySet()) {
+                if (entry.getValue().size() < 0) {
+                    throw new Exception("league " + entry.getKey().getName() + " without teams, add teams first");
+                }
+            }
+            user.startSchedulingPolicy(season);
+        }
+        else{
+            throw new Exception("first define the season");
+        }
+    }
 
 
     public void startCalculationPolicy(Rfa user, Season season) throws Exception {
@@ -246,16 +247,16 @@ public class RfaController {
         }
     }
 
-     /***Handling with team request:**/
+    /***Handling with team request:**/
     /**
      * show team request
      * @param user
      * @return
      *  @codeBy Eden
      */
-     public HashSet<Team> getTeamRequest(Rfa user){
-         return user.getTeamRequests();
-     }
+    public HashSet<Team> getTeamRequest(Rfa user){
+        return user.getTeamRequests();
+    }
 
     /***
      * answer to team request
@@ -329,3 +330,4 @@ public class RfaController {
     }
 
 }
+

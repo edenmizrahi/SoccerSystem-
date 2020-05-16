@@ -1,7 +1,6 @@
 package Presentation;
 
-import Service.RefereeController;
-import Service.RfaController;
+import Service.RefereeApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,7 +44,7 @@ public class eventsPageController {
     public TextField idNumOfMinute;
 
     @FXML
-    private Service.RefereeController RefereeController = new RefereeController();
+    private RefereeApplication refereeApplication = new RefereeApplication();
 
     private String userName;
     private String match;
@@ -73,7 +72,7 @@ public class eventsPageController {
         String[] s1 = s[1].split(",");
         String id =s1[0];
 
-        LinkedList<String> allPlayers = RefereeController.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
+        LinkedList<String> allPlayers = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
         List<String> list = new LinkedList<>();
         for (String str:allPlayers) {
             list.add(str);
@@ -140,39 +139,39 @@ public class eventsPageController {
 
     public void onClickGoalSubmit() throws Exception {
         String player = playerForGoal.getSelectionModel().getSelectedItem();
-        this.RefereeController.createGoalEvent(userName,match,player);
+        this.refereeApplication.createGoalEvent(userName,match,player);
     }
 
     public void onClickInjurySubmit() throws Exception {
         String player = playerForInjury.getSelectionModel().getSelectedItem();
-        this.RefereeController.createInjuryEvent(userName,match,player);
+        this.refereeApplication.createInjuryEvent(userName,match,player);
     }
 
     public void onClickOffenseSubmit() throws Exception {
         String player = playerForOffense.getSelectionModel().getSelectedItem();
-        this.RefereeController.createOffenseEvent(userName,match,player);
+        this.refereeApplication.createOffenseEvent(userName,match,player);
     }
 
     public void onClickOffsideSubmit() throws Exception {
         String player = playerForOffSide.getSelectionModel().getSelectedItem();
-        this.RefereeController.createOffSideEvent(userName,match,player);
+        this.refereeApplication.createOffSideEvent(userName,match,player);
     }
 
     public void onClickReplaceSubmit() throws Exception {
         String player1 = player1ForReplace.getSelectionModel().getSelectedItem();
         String player2 = player2ForReplace.getSelectionModel().getSelectedItem();
-        this.RefereeController.createReplaceEvent(userName,match,player1,player2);
+        this.refereeApplication.createReplaceEvent(userName,match,player1,player2);
     }
 
 
     public void onClickRedCardSubmit() throws Exception {
         String player = playerForRedCard.getSelectionModel().getSelectedItem();
-        this.RefereeController.createRedCardEvent(userName,match,player);
+        this.refereeApplication.createRedCardEvent(userName,match,player);
     }
 
     public void onClickYellowCardSubmit() throws Exception {
         String player = playerForYellowCard.getSelectionModel().getSelectedItem();
-        this.RefereeController.createYellowCardEvent(userName,match,player);
+        this.refereeApplication.createYellowCardEvent(userName,match,player);
     }
 
 
@@ -180,7 +179,7 @@ public class eventsPageController {
         idNumOfMinute.setDisable(true);
         String numOfMinute = idNumOfMinute.getText();
          if(Pattern.matches("[0-9]+", numOfMinute)){
-             this.RefereeController.createExtraTimeEvent(userName,match,numOfMinute);
+             this.refereeApplication.createExtraTimeEvent(userName,match,numOfMinute);
          }
 
         idNumOfMinute.setDisable(false);

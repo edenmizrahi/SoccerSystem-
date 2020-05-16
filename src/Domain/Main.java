@@ -1,26 +1,9 @@
 package Domain;
 
-import Domain.Events.Event;
-import Domain.LeagueManagment.Field;
-import Domain.LeagueManagment.Match;
-import Domain.LeagueManagment.Scheduling.SchedulingPolicy;
-import Domain.LeagueManagment.Team;
-import Domain.Users.Fan;
-import Domain.Users.Referee;
-import Domain.Users.TeamOwner;
-import Domain.Users.TeamRole;
-import Service.SystemOperationsController;
-import Stubs.TeamStub;
-import Stubs.TeamStubOr;
-import org.apache.commons.lang3.time.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 //import org.reflections.Reflections;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Main {
 
@@ -148,7 +131,7 @@ public class Main {
 //        Collections.addAll(teamsForLeague2,beitarYerushalaim,macabiTelAviv,hapoelRaanana);
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
-        //SystemOperationsController.initSystemObjectsAdi();
+        //SystemOperationsApplication.initSystemObjectsAdi();
 
     }
 }

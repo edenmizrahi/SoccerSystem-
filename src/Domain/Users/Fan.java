@@ -1,6 +1,7 @@
 package Domain.Users;
 
 import Domain.*;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
@@ -184,7 +185,7 @@ public class Fan extends User implements NotificationsUser {
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof  Match){
-            if(arg instanceof  Match) {
+            if(arg instanceof Event) { //$$
                 notificationHashSet.add(new Notification(o, arg, false));
             }
 //            /**change place or time event */

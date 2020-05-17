@@ -79,7 +79,7 @@ public class FanController {
 
     }
 
-    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email) throws Exception {
+    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email){
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         Date dateFormat= null;
 //        try {

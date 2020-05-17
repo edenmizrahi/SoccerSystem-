@@ -1,7 +1,6 @@
 package Service;
 
 import Domain.Controllers.SystemOperationsController;
-import java.text.ParseException;
 import java.util.*;
 
 public class SystemOperationsApplication {
@@ -15,27 +14,6 @@ public class SystemOperationsApplication {
         return systemOperationsController.getAllMatchsInSytem();
     }
 
-    /**
-     *
-     * @return LinkedList<String> off all the season in the system
-     */
-    public LinkedList<String> getAllStringSeasons(){
-        return systemOperationsController.getAllStringSeasons();
-    }
-
-
-    /**
-     * start system - if its first start
-     * return the default user name and password
-     * otherwise return null.
-     * @return List of default user name and password or null
-     * @throws ParseException
-     * @codeBy Eden
-     */
-     public List<String> startSystem() throws ParseException {
-       return systemOperationsController.startSystem();
-
-     }
 
     /**
      * return list with all private details of the fan
@@ -43,7 +21,7 @@ public class SystemOperationsApplication {
      * @param userName
      * @return list of details of fan
      */
-    public List<String> getPrivateDetails(String userName) { //##
+    public List<String> getPrivateDetails(String userName) {
         return systemOperationsController.getPrivateDetails(userName);
     }
 

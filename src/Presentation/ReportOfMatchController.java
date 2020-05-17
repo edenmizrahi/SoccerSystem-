@@ -52,7 +52,7 @@ public class ReportOfMatchController {
 
 
     @FXML
-    public void chooseMatchBtn(MouseEvent event) throws ParseException {
+    public void chooseMatchBtn(MouseEvent event) {
         ObservableList<String> elements = FXCollections.observableArrayList(this.matches);
         idMatches.setItems(elements);
         idMatches.getSelectionModel().selectFirst();
@@ -60,7 +60,7 @@ public class ReportOfMatchController {
 
 
     @FXML
-    public void createReportInline() throws Exception {
+    public void createReportInline() {
         reportTable.setVisible(true);
         String match =  idMatches.getSelectionModel().getSelectedItem();
         LinkedList<String> report = this.refereeApplication.createReportOfMatch(match,userName);

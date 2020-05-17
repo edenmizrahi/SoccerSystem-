@@ -4,10 +4,10 @@ import  java.sql.*;
 
 public class SQLite {
     public static  void main (String [] args) throws ClassNotFoundException, SQLException {
-        Connection con =null;
+      Connection con =null;
         try{
             Class.forName("org.sqlite.JDBC");
-            con=DriverManager.getConnection("jdbc:sqlite.football.db");
+            con=DriverManager.getConnection("jdbc:sqlite.test.db");
             System.out.println("sqlLite DB connected");
 
         }

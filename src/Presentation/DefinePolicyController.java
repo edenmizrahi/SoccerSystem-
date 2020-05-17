@@ -65,7 +65,7 @@ public class DefinePolicyController {
     }
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUser (String userName) {
         this.userName=userName;
     }
 

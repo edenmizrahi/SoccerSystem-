@@ -46,7 +46,7 @@ public class RegistrationGamesAlertsController {
 
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUser (String userName) {
         this.userName=userName;
         //update comoboxs
         updateMachesFollsComoBox();
@@ -58,7 +58,7 @@ public class RegistrationGamesAlertsController {
     public void updateMachesFollsComoBox(){
         //for comboBox of fan matches
         fanMatchsList.clear();
-        fanMatchsList.add("matches you are follow and get and receive alerts");
+        fanMatchsList.add("Matches you are following and receive alerts");
         LinkedList<String> allFanMatchs = fanApplication.getUserMachesFollows(userName);
         for (String str:allFanMatchs) {
             fanMatchsList.add(str);
@@ -70,7 +70,7 @@ public class RegistrationGamesAlertsController {
 
         //for comboBox of system matches
         allMatchsList.clear();
-        allMatchsList.add("select match you want to follow");
+        allMatchsList.add("select a match you want to follow");
         HashSet<String> allMatchesInSystem=syOpApp.getAllMatchsInSytem();
         for (String str:allMatchesInSystem) {
             allMatchsList.add(str);
@@ -99,7 +99,7 @@ public class RegistrationGamesAlertsController {
         if(fanMatchsList.contains(matchToFollow)){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
-            chooseFile.setContentText("You are already following this match. Please select other match.");
+            chooseFile.setContentText("You are already following this match. Please select another match.");
             chooseFile.show();
         }
         else { // add match to fan matches follow
@@ -107,7 +107,7 @@ public class RegistrationGamesAlertsController {
             if (massage.equals("ok")){
                 Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                 chooseFile.setHeaderText("ok");
-                chooseFile.setContentText("match added to your matches follows.");
+                chooseFile.setContentText("match added to your followed matches.");
                 chooseFile.show();
                 updateMachesFollsComoBox();
             }

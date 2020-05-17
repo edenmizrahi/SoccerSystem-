@@ -31,7 +31,7 @@ public class MyAlertsControllr {
 
 
     @FXML
-    public void initAllertsUser (String userName) throws IOException {
+    public void initAllertsUser (String userName) {
         this.userName=userName;
         //update comoboxs
         updateNotificationsComoBox();
@@ -42,7 +42,7 @@ public class MyAlertsControllr {
     @FXML
     public void updateNotificationsComoBox(){
         fanNotificationsList.clear();
-        fanNotificationsList.add("all my alerts on matches");
+        fanNotificationsList.add("all my alerts about matches");
         LinkedList<String> allFanAllerts = fanApplication.getFanNotifications(userName);
         for (String str:allFanAllerts) {
             fanNotificationsList.add(str);

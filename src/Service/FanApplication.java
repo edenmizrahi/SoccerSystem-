@@ -7,10 +7,11 @@ public class FanApplication {
     FanController fanController = new FanController();
 
     public String fanIsTeamRole(String userName) {
-       return fanController.fanIsTeamRole(userName);
+
+        return fanController.fanIsTeamRole(userName);
     }
 
-    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email) throws Exception {
+    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email){
       return fanController.setFanDetails(userName, name, password, phoneNumber, email);
     }
 

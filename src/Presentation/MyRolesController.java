@@ -49,7 +49,7 @@ public class MyRolesController { //implements Initializable {
     }
 
     @FXML
-    public void addButton (ActionEvent actionEvent) throws Exception {
+    public void addButton (ActionEvent actionEvent) {
         String role = (String) becomeRoleCB.getValue();
         if (role == null || role == ""){
             alertError("Please choose a role.");
@@ -64,7 +64,7 @@ public class MyRolesController { //implements Initializable {
     }
 
     @FXML
-    public void goToRoleButton (ActionEvent actionEvent) throws Exception{
+    public void goToRoleButton (ActionEvent actionEvent) throws IOException{
         String role = (String) myRolesCB.getValue();
         if (role == null || role == ""){
             alertError("Please choose a role.");
@@ -82,7 +82,7 @@ public class MyRolesController { //implements Initializable {
         }
     }
     @FXML
-    public void changeToHomePage(ActionEvent actionEvent) throws Exception{
+    public void changeToHomePage(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("HomePage.fxml").openStream());
         HomePageController homeCont = loader.getController();
@@ -95,18 +95,6 @@ public class MyRolesController { //implements Initializable {
         stage.show();
     }
 
-    /*@FXML
-    public void changeToRoleScene(ActionEvent actionEvent, String role) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource(role + ".fxml").openStream());
-        TeamManagementUIController tMUICont = loader.getController();
-        tMUICont.initUser(userName);
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }*/
     @FXML
     public void changeToRoleScene(ActionEvent event, String role) throws IOException {
         FXMLLoader loader = new FXMLLoader();

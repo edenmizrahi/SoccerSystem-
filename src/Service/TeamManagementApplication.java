@@ -13,7 +13,7 @@ public class TeamManagementApplication {
      * @param name
      * @throws Exception
      */
-    public String requestNewTeam(String userName, String name) throws Exception {
+    public String requestNewTeam(String userName, String name) {
         return teamManagementController.requestNewTeam(userName, name);
     }
 
@@ -26,8 +26,8 @@ public class TeamManagementApplication {
      * @param nameOfNewField
      * @throws Exception
      */
-    public void makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField) throws Exception{
-       teamManagementController.makeTeamActive(userName, teamName, playerNames, coachUserName, nameOfNewField);
+    public String makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField){
+       return teamManagementController.makeTeamActive(userName, teamName, playerNames, coachUserName, nameOfNewField);
     }
 
     public LinkedList<String> getMyApprovedTeams(String userName){
@@ -38,38 +38,21 @@ public class TeamManagementApplication {
         teamManagementController.becomeRole(userName, role);
     }
 
-        //<editor-fold desc="getters">
+    //<editor-fold desc="getters">
 
-    /**
-     * adi
-     * @return
-     */
     public LinkedList<String> getAllTeamRolesThatArentCoachWithTeam(){
         return teamManagementController.getAllTeamRolesThatArentCoachWithTeam();
     }
 
-    /**
-     * adi
-     * @return
-     */
     public LinkedList<String> getAllTeamRolesThatArentPlayerWithTeam(){
         return teamManagementController.getAllTeamRolesThatArentPlayerWithTeam();
     }
 
-    /**
-     * adi
-     * @param userName
-     * @return
-     */
     public LinkedList<String> getMyRoles (String userName){
        return teamManagementController.getMyRoles(userName);
     }
 
-    /**
-     * adi
-     * @param userName
-     * @return
-     */
+
     public LinkedList<String> getWhatICanBecome (String userName){
         return teamManagementController.getWhatICanBecome(userName);
     }

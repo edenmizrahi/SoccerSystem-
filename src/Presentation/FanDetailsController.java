@@ -74,7 +74,7 @@ public class FanDetailsController { //implements Initializable
     */
 
     @FXML
-    public void initUserDetails (String userName) throws IOException {
+    public void initUserDetails (String userName) {
         this.userName=userName;
         showDetails();
 
@@ -97,7 +97,7 @@ public class FanDetailsController { //implements Initializable
 
 
     @FXML
-    public void showAllhideFiels(MouseEvent mouseEvent) throws IOException {
+    public void showAllhideFiels(MouseEvent mouseEvent) {
 
         updateNameFeild.setVisible(true);
         UpdateButton.setVisible(true);
@@ -121,7 +121,7 @@ public class FanDetailsController { //implements Initializable
      * @throws Exception
      */
     @FXML
-    public void updateNameByUser() throws Exception {
+    public void updateNameByUser() {
         String newName=updateNameFeild.getText();
         String newPassward=updatePasswardField.getText();
         String newPhonNum=updatePhonNumField.getText();
@@ -129,25 +129,25 @@ public class FanDetailsController { //implements Initializable
         if(newName.equals("") || newName==null){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
-            chooseFile.setContentText("name field is empty. Please insert name.");
+            chooseFile.setContentText("The name field is empty. Please insert your name.");
             chooseFile.show();
         }//password length is 6 or more
         else if(newPassward.equals("")|| newPassward ==null || newPassward.length() < 6){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
-            chooseFile.setContentText("Invalid password. Please enter a valid password. password length is 6 or more");
+            chooseFile.setContentText("Invalid password, please enter a valid password. Password length must be at least 6 characters.");
             chooseFile.show();
         }// phone number is 10 digits
         else if(newPhonNum == null || newPhonNum.equals("")|| !(newPhonNum.matches("^[0-9]*$")) || newPhonNum.length() != 10){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
-            chooseFile.setContentText("Invalid phone Number. Please enter a valid phone Number. phone Number length is 10 numbers");
+            chooseFile.setContentText("Invalid phone number, please enter a valid phone number. Phone Number length must be 10 digits.");
             chooseFile.show();
         }//email contains @
         else if(newEmail.equals("")|| newEmail==null || ((!newEmail.contains(".com") && !newEmail.contains("il")))){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
-            chooseFile.setContentText("Invalid email. Please enter a valid email. email must contains @ and end with .com or .il");
+            chooseFile.setContentText("Invalid email, please enter a valid email. Email must contain a @ and end with .com or .il");
             chooseFile.show();
         }
 //        else if(newDateOfBirth.equals("")|| newDateOfBirth==null){
@@ -163,13 +163,13 @@ public class FanDetailsController { //implements Initializable
                 showDetails();
                 Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                 chooseFile.setHeaderText("ok");
-                chooseFile.setContentText("details is updated");
+                chooseFile.setContentText("Your details are updated");
                 chooseFile.show();
             }
             else{
                 Alert chooseFile = new Alert(Alert.AlertType.ERROR);
                 chooseFile.setHeaderText("Error");
-                chooseFile.setContentText("Nothing is updated");
+                chooseFile.setContentText("Update canceled.");
                 chooseFile.show();
             }
         }

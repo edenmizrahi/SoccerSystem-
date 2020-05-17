@@ -23,7 +23,7 @@ public class TeamManagementController {
      * @param name
      * @throws Exception
      */
-    public String requestNewTeam(String userName, String name) throws Exception {
+    public String requestNewTeam(String userName, String name){
         try {
             TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
             user.getTeamOwner().requestNewTeam(name);
@@ -43,25 +43,31 @@ public class TeamManagementController {
      * @param nameOfNewField
      * @throws Exception
      */
-    public void makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField) throws Exception{
-        TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
-        Team team = new Team();
-        for(Team t : user.getTeamOwner().getApprovedTeams()){
-            if (t.getName().equals(teamName)){
-                team = t;
-                break;
+    public String makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField) {
+        try {
+            TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+            Team team = new Team();
+            for (Team t : user.getTeamOwner().getApprovedTeams()) {
+                if (t.getName().equals(teamName)) {
+                    team = t;
+                    break;
+                }
             }
-        }
-        HashSet<TeamRole> players = new HashSet<>();
-        for (String pName : playerNames){
-            TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
-            players.add(p);
-        }
-        TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
+            HashSet<TeamRole> players = new HashSet<>();
+            for (String pName : playerNames) {
+                TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
+                players.add(p);
+            }
+            TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
 
-        Field field = new Field(nameOfNewField);
+            Field field = new Field(nameOfNewField);
 
-        user.getTeamOwner().makeTeamActive(team, players, coach, field);
+            user.getTeamOwner().makeTeamActive(team, players, coach, field);
+        }
+        catch (Exception e){
+           return e.getMessage();
+        }
+        return "";
     }
 
     public LinkedList<String> getMyApprovedTeams(String userName){

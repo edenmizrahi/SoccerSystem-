@@ -38,7 +38,7 @@ public class RefereePageController extends HomePageController {
 
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUser (String userName) {
         this.userName=userName;
     }
 
@@ -64,8 +64,8 @@ public class RefereePageController extends HomePageController {
         }
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("You do not have match that take place right now so you can not add" +
-                    " any events");
+            alert.setContentText("You do not have a match that takes place right now so you can not add"
+                    + " any events.");
             alert.show();
         }
 
@@ -92,8 +92,8 @@ public class RefereePageController extends HomePageController {
         }
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("You do not have a match in which you are a main referee and already over," +
-                    " so you can not creat a report");
+            alert.setContentText("You do not have a match that ended and in which you were a main referee," +
+                    " so you can not create a report");
             alert.show();
         }
     }

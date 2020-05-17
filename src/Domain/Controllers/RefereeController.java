@@ -50,23 +50,27 @@ public class RefereeController {
      * @return LinkedList<String> of players at specific match
      * @throws ParseException
      */
-    public LinkedList<String> displayPlayersAtMatch(String nameOfReferee, String match) throws ParseException {
+    public LinkedList<String> displayPlayersAtMatch(String nameOfReferee, String match){
+        try {
+            Match m = this.matchObjectFromString(match, nameOfReferee);
 
-        Match m = this.matchObjectFromString(match,nameOfReferee);
+            Team away = m.getAwayTeam();
+            Team home = m.getHomeTeam();
 
-        Team away = m.getAwayTeam();
-        Team home = m.getHomeTeam();
+            HashSet<Player> awayPlayers = away.getPlayers();
+            LinkedList<String> awayPlayersName = this.getPlayersFromTeamInList(awayPlayers);
 
-        HashSet<Player> awayPlayers = away.getPlayers();
-        LinkedList<String> awayPlayersName = this.getPlayersFromTeamInList(awayPlayers);
+            HashSet<Player> homePlayers = home.getPlayers();
+            LinkedList<String> homePlayersName = this.getPlayersFromTeamInList(homePlayers);
 
-        HashSet<Player> homePlayers = home.getPlayers();
-        LinkedList<String> homePlayersName = this.getPlayersFromTeamInList(homePlayers);
-
-        LinkedList<String> allPlayers = awayPlayersName;
-        allPlayers.addAll(homePlayersName);
-
-        return allPlayers;
+            LinkedList<String> allPlayers = awayPlayersName;
+            allPlayers.addAll(homePlayersName);
+            return allPlayers;
+        }
+        catch (ParseException e){
+            //return "";
+        }
+        return null;
     }
 
     //check if 2 players at the same team
@@ -147,17 +151,21 @@ public class RefereeController {
     }
 
 
-    public LinkedList<String> createReportOfMatch(String match, String nameOfReferee) throws Exception {
-        LinkedList<String> listOfEventsInMatch = new LinkedList<>();
-        Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
-        Match m = this.matchObjectFromString(match,nameOfReferee);
+    public LinkedList<String> createReportOfMatch(String match, String nameOfReferee) {
+        try {
+            LinkedList<String> listOfEventsInMatch = new LinkedList<>();
+            Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
+            Match m = this.matchObjectFromString(match, nameOfReferee);
 
-        HashSet<Event> allEvents = currentReferee.createReport(m);
-        for (Event e: allEvents) {
-            listOfEventsInMatch.add(e.toString());
+            HashSet<Event> allEvents = currentReferee.createReport(m);
+            for (Event e : allEvents) {
+                listOfEventsInMatch.add(e.toString());
+            }
+            return listOfEventsInMatch;
+        } catch(Exception e){
+            //return "";
         }
-
-        return listOfEventsInMatch;
+        return null;
     }
 
     /**
@@ -194,77 +202,116 @@ public class RefereeController {
     }
 
 
-    public void createGoalEvent(String referee, String match, String player) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-        Event e = currentReferee.createGoalEvent(playerMakeEvent,currentMatch);
-        currentReferee.addEventsDuringMatch(currentMatch,e);
+    public String createGoalEvent(String referee, String match, String player) {
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Event e = currentReferee.createGoalEvent(playerMakeEvent, currentMatch);
+            currentReferee.addEventsDuringMatch(currentMatch, e);
+        } catch(Exception e){
+            return "";
+        }
+        return "";
     }
 
-    public void createInjuryEvent(String referee, String match, String player) throws Exception {
+    public String createInjuryEvent(String referee, String match, String player)  {
+        try{
         Referee currentReferee = this.getRefereeByUserName(referee);
         Match currentMatch = this.matchObjectFromString(match, referee);
         Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
         Event e = currentReferee.createInjuryEvent(playerMakeEvent,currentMatch);
         currentReferee.addEventsDuringMatch(currentMatch,e);
+        } catch(Exception e){
+            return "";
+        }
+        return "";
     }
 
-    public void createOffenseEvent(String referee, String match, String player) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-        Event e = currentReferee.createOffenseEvent(playerMakeEvent,currentMatch);
-        currentReferee.addEventsDuringMatch(currentMatch,e);
-    }
-
-    public void createOffSideEvent(String referee, String match, String player) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-        Event e = currentReferee.createOffSideCardEvent(playerMakeEvent,currentMatch);
-        currentReferee.addEventsDuringMatch(currentMatch,e);
-    }
-
-    public void createRedCardEvent(String referee, String match, String player) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-        Event e = currentReferee.createRedCardEvent(playerMakeEvent,currentMatch);
-        currentReferee.addEventsDuringMatch(currentMatch,e);
-    }
-
-    public void createYellowCardEvent(String referee, String match, String player) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-        Event e = currentReferee.createYellowCardEvent(playerMakeEvent,currentMatch);
-        currentReferee.addEventsDuringMatch(currentMatch,e);
-    }
-
-    public void createReplaceEvent(String referee, String match, String firstPlayer, String secondPlayer) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player player1 = this.systemOperationsController.getPlayerByUserName(firstPlayer);
-        Player player2 = this.systemOperationsController.getPlayerByUserName(secondPlayer);
-        //choose that player1 and player2 different and exist in the same team
-        if(checkIfAtTheSameTeam(firstPlayer,secondPlayer,referee,match)) {
-            Event e = currentReferee.createReplacementEvent(player1, player2, currentMatch);
+    public String createOffenseEvent(String referee, String match, String player){
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Event e = currentReferee.createOffenseEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
+        } catch(Exception e){
+            return "";
         }
-        else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Notice that the players must to be from the same team");
-            alert.show();
-        }
+        return "";
     }
 
-    public void createExtraTimeEvent(String referee, String match, String time) throws Exception {
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        int minutes = Integer.parseInt(time);
-        Event e = currentReferee.createExtraTimeEvent(currentMatch, minutes);
-        currentReferee.addEventsDuringMatch(currentMatch, e);
+    public String createOffSideEvent(String referee, String match, String player) {
+        try{
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Event e = currentReferee.createOffSideCardEvent(playerMakeEvent,currentMatch);
+            currentReferee.addEventsDuringMatch(currentMatch,e);
+        } catch(Exception e){
+            return "";
+        }
+        return "";
+    }
+
+    public String createRedCardEvent(String referee, String match, String player) {
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Event e = currentReferee.createRedCardEvent(playerMakeEvent, currentMatch);
+            currentReferee.addEventsDuringMatch(currentMatch, e);
+        } catch(Exception e){
+            return "";
+        }
+        return "";
+    }
+
+    public String createYellowCardEvent(String referee, String match, String player) {
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Event e = currentReferee.createYellowCardEvent(playerMakeEvent, currentMatch);
+            currentReferee.addEventsDuringMatch(currentMatch, e);
+        } catch(Exception e){
+            return "";
+        }
+        return "";
+    }
+
+    public String createReplaceEvent(String referee, String match, String firstPlayer, String secondPlayer) {
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player player1 = this.systemOperationsController.getPlayerByUserName(firstPlayer);
+            Player player2 = this.systemOperationsController.getPlayerByUserName(secondPlayer);
+            //choose that player1 and player2 different and exist in the same team
+            if (checkIfAtTheSameTeam(firstPlayer, secondPlayer, referee, match)) {
+                Event e = currentReferee.createReplacementEvent(player1, player2, currentMatch);
+                currentReferee.addEventsDuringMatch(currentMatch, e);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Notice that the players must be from the same team");
+                alert.show();
+            }
+        } catch(Exception e){
+            return "";
+        }
+        return "";
+    }
+
+    public String createExtraTimeEvent(String referee, String match, String time) {
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            int minutes = Integer.parseInt(time);
+            Event e = currentReferee.createExtraTimeEvent(currentMatch, minutes);
+            currentReferee.addEventsDuringMatch(currentMatch, e);
+        } catch(Exception e){
+            return "";
+        }
+        return "";
     }
 
 

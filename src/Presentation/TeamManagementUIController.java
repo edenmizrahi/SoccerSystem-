@@ -41,17 +41,6 @@ public class TeamManagementUIController { //implements Initializable {
         activateScene();
     }
 
-    /*@FXML
-    public void changeToRequestScene(ActionEvent actionEvent) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = (Parent) loader.load(getClass().getResource("RequestNewTeam.fxml").openStream());
-        //SecondController secondController = loader.getController();
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }*/
     private void changeScene (ActionEvent event, String fxml) throws IOException{
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource(fxml));
@@ -71,7 +60,7 @@ public class TeamManagementUIController { //implements Initializable {
         changeScene(event, "RequestNewTeam.fxml");
     }
     @FXML
-    public void changeToActivateScene(ActionEvent event) throws Exception{
+    public void changeToActivateScene(ActionEvent event) throws IOException{
         LinkedList<String> approvedTeams = tMApp.getMyApprovedTeams(userName);
         LinkedList<String> tempPlayers = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
         LinkedList<String> Coaches = tMApp.getAllTeamRolesThatArentCoachWithTeam();
@@ -90,11 +79,11 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
     @FXML
-    public void changeToTeamManagementScene(ActionEvent actionEvent) throws Exception{
+    public void changeToTeamManagementScene(ActionEvent actionEvent) throws IOException{
        changeScene(actionEvent, "TeamOwner.fxml");
     }
     @FXML
-    public void changeToHomePage(ActionEvent actionEvent) throws Exception{
+    public void changeToHomePage(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("HomePage.fxml"));
         Parent root=loader.load();
@@ -111,7 +100,7 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
     @FXML
-    public void changeToMyRolesScene(ActionEvent actionEvent) throws Exception{
+    public void changeToMyRolesScene(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MyRoles.fxml"));
         Parent root=loader.load();
@@ -126,7 +115,7 @@ public class TeamManagementUIController { //implements Initializable {
         stageTheEventSourceNodeBelongs.show();
     }
     @FXML
-    public void requestNewTeam(ActionEvent event) throws Exception{
+    public void requestNewTeam(ActionEvent event) throws IOException{
 
         String teamName = newTeamName.getText();
         if (teamName == null || teamName.equals("")){
@@ -168,7 +157,7 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
     @FXML
-    public void activateButton(ActionEvent actionEvent) throws Exception {
+    public void activateButton(ActionEvent actionEvent) throws IOException {
         String teamName = (String) teamNameCB.getValue();
 
         String coachUserName = (String) coachCB.getValue();
@@ -190,9 +179,14 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Please choose players.");
         }
         else {
-            tMApp.makeTeamActive(userName, teamName, players, coachUserName, field);
-            changeToTeamManagementScene(actionEvent);
-            alertInformation("Congratulations! Your new team has been activated.");
+            String message = tMApp.makeTeamActive(userName, teamName, players, coachUserName, field);
+            if (message.equals("this team is not approved by RFA")){
+                alertError("This team was not approved by the RFA.");
+            }
+            else {
+                changeToTeamManagementScene(actionEvent);
+                alertInformation("Congratulations! Your new team has been activated.");
+            }
         }
     }
 

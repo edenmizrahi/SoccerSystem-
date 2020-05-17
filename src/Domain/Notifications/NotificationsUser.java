@@ -10,4 +10,7 @@ public interface NotificationsUser extends Observer{
     HashSet<Notification> getUnReadNotifications();
     HashSet<Notification> getNotificationsList();
     void MarkAsReadNotification(Notification not);
+    //TODO
+    //boolean checkNotificationAlert();
+
 }

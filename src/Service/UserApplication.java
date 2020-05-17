@@ -17,7 +17,7 @@ public class UserApplication {
         return userController.login(userName, password);
     }
 
-    public String logout(String userName ) throws Exception {
+    public String logout(String userName )  {
         return userController.logOut(userName);
     }
 

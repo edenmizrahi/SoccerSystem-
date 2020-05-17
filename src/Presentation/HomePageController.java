@@ -57,7 +57,7 @@ public class HomePageController {
 
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("checking notifications");
+                System.out.println("checking notifications!!");
                 String ans=fanApplication.checkForNewNotifications(userName);
                 if(ans.equals("gotFanNotification")){//fan
                     Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);

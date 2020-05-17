@@ -6519,8 +6519,8 @@
 13.05.2020 09:33:38 ERROR Event - This player isn't in one of the participating teams
 13.05.2020 09:33:38 INFO  TeamRole - yarden012 - become player
 13.05.2020 09:33:38 INFO  Match - Goal - add event to match between team4 to team3
-17.05.2020 22:41:36 INFO  SystemManager - systemManager - Added to system
-17.05.2020 22:41:36 INFO  MainSystem -  - system was started for the first time
-17.05.2020 22:41:36 INFO  TeamRole - Ilan12 - become team owner
-17.05.2020 22:41:36 INFO  TeamOwner - Ilan12 -  new team was added: null
-17.05.2020 22:41:36 INFO  TeamRole - yarden012 - become player
+17.05.2020 20:10:53 INFO  SystemManager - systemManager - Added to system
+17.05.2020 20:10:53 INFO  MainSystem -  - system was started for the first time
+17.05.2020 20:10:53 INFO  TeamRole - Ilan12 - become team owner
+17.05.2020 20:10:53 INFO  TeamOwner - Ilan12 -  new team was added: null
+17.05.2020 20:10:53 INFO  TeamRole - yarden012 - become player

@@ -29,9 +29,9 @@ public class SystemOperationsController {
      * return all matches in system that have not yet happened - match format
      * @return
      */
-    public HashSet<Match> getAllCurrMatchs() {
+    public LinkedHashSet<Match> getAllCurrMatchs() {
         List<Referee> allReferees =this.showAllReferee();
-        HashSet<Match> allMatches=new HashSet<>();
+        LinkedHashSet<Match> allMatches=new LinkedHashSet<>();
         for (Referee ref:allReferees) {
             LinkedList<Match> allRefereeMatches=ref.getMatches();
             for (Match m:allRefereeMatches) {
@@ -571,11 +571,11 @@ public class SystemOperationsController {
 
 
         //ref2.addMatchToList(match);
-//        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
+        Event goal = new Goal(mosheReferee,match,teamRole1.getPlayer());
 
 
         //Event goal = new Goal(mosheReferee,m3,teamRole1.getPlayer());
-        //       match.addEvent(goal);
+        match.addEvent(goal);
 
     }
 

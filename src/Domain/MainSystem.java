@@ -17,6 +17,7 @@ import java.util.List;
 
 public class MainSystem {
     //private LinkedList<Complaint> complaints;// *??????
+    public List<User> loginUsers;
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
@@ -40,6 +41,7 @@ public class MainSystem {
         this.activeTeams = new HashSet<>();
         this.userNames = new HashSet<>();
         this.teamNames = new HashSet<>();
+        this.loginUsers= new LinkedList<>();
     }
 
     public static MainSystem getInstance() {
@@ -566,6 +568,8 @@ public class MainSystem {
         for (Fan fan:getAllFans() ) {
             if(fan.getUserName().equals(userName) && fan.getPassword().equals(password)){
                 LOG.info(String.format("%s - %s", userName, "loged in to system"));
+                //add user to loged in users
+                loginUsers.add(fan);
                 return fan;
             }
         }
@@ -573,5 +577,22 @@ public class MainSystem {
         throw new Exception("details not correct, no fan in system");
     }
 
+    /**OR
+     * log out user from system
+     * @param f
+     * @throws Exception
+     */
+    public void logOut(Fan f) throws Exception {
+        if( !loginUsers.contains(f)){
+            LOG.error("fan is not logged in to system ");
+            throw new Exception("fan is not logged in to system ");
+        }
+        LOG.info(String.format("%s - %s", f.getUserName(), "logged out from system"));
+        loginUsers.remove(f);
+    }
+
+    public boolean userLoggedIn(User u){
+        return loginUsers.contains(u);
+    }
 
 }

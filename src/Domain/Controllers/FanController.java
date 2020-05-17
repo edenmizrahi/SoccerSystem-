@@ -4,9 +4,7 @@ import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
-import Domain.Users.Fan;
-import Domain.Users.Referee;
-import Domain.Users.TeamRole;
+import Domain.Users.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,15 +36,7 @@ public class FanController {
     }
 
 
-    /**
-     * logOutFromSystem
-     *
-     * @param curUser
-     * @codeBy Eden
-     */
-    public void logOut(Fan curUser) {
-        curUser.logOut();
-    }
+
 
     /**
      * change user details , return list of changed fields
@@ -183,6 +173,26 @@ public class FanController {
         return massage;
     }
 
+    /**
+     * check for new Notification
+     * @param username
+     * @return
+     */
+    public String checkForNewNotifications(String username){
+        User user= systemOperationsController.getUserByUserName(username);
+        if(user instanceof Referee){
+            return ((Referee)user).checkNotificationAlert();
+        }
+        else if(user instanceof Rfa){
+            return ((Rfa)user).checkNotificationAlert();
+        }
+        else if(user instanceof Fan){
+            return ((Fan)user).checkNotificationAlert();
+        }
+        else{
+            return "user instance of fan";
+        }
+    }
 
 }
 

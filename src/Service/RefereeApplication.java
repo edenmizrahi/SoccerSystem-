@@ -1,12 +1,21 @@
 package Service;
 
 import Domain.Controllers.RefereeController;
+import Domain.Users.Player;
+
 import java.text.ParseException;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
 
+
+    //get list of players name
+    //TODO???
+    public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
+        return refereeController.getPlayersFromTeamInList(players);
+    }
 
     /**
      *

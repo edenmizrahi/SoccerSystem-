@@ -7887,3 +7887,8 @@
 17.05.2020 15:52:17 INFO  Team - hapoel - add team to league:ligaA and season2020
 17.05.2020 15:52:17 INFO  Team - macabi - add team to league:ligaA and season2020
 17.05.2020 15:52:17 INFO  Rfa - DanaBandana - define season to ligaAby Rfa
+17.05.2020 16:07:45 INFO  SystemManager - systemManager - Added to system
+17.05.2020 16:07:45 INFO  MainSystem -  - system was started for the first time
+17.05.2020 16:07:45 INFO  TeamRole - Ilan12 - become team owner
+17.05.2020 16:07:45 INFO  TeamOwner - Ilan12 -  new team was added: null
+17.05.2020 16:07:45 INFO  TeamRole - yarden012 - become player

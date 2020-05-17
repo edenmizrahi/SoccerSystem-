@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -72,7 +73,8 @@ public class eventsPageController {
         String[] s1 = s[1].split(",");
         String id =s1[0];
 
-        LinkedList<String> allPlayers = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
+        String allPlayersStr = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
+        List<String> allPlayers = Arrays.asList(allPlayersStr.split(","));
         List<String> list = new LinkedList<>();
         for (String str:allPlayers) {
             list.add(str);

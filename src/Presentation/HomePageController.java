@@ -1,14 +1,19 @@
 package Presentation;
 
 import Service.FanApplication;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -42,6 +47,45 @@ public class HomePageController {
 //        stageTheEventSourceNodeBelongs.setScene(scene);
 //
 //    }
+
+    /**
+     * or- check if notification function works
+     */
+    @FXML
+    public void initialize() {
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("checking notifications!!");
+                String ans=fanApplication.checkForNewNotifications(userName);
+                if(ans.equals("gotFanNotification")){//fan
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have a new Notification about a game you are following !");
+                    chooseFile.show();
+                }
+                else if(ans.equals("gotRFAnotification")){//rfa
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have a new team to approve !");
+                    chooseFile.show();
+                }
+                else if(ans.equals("gotRefereeNotification")){//referee
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have a new notification about your match !");
+                    chooseFile.show();
+                }
+                else if(ans.equals("multipleNotifications")){//referee
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have multiple new notifications!");
+                    chooseFile.show();
+                }
+
+
+            }
+        }));
+        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+        fiveSecondsWonder.play();
+    }
 
 
     @FXML
@@ -128,6 +172,7 @@ public class HomePageController {
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);
         }
+
 
     }
 

@@ -26,11 +26,11 @@ public class TeamManagementApplication {
      * @param nameOfNewField
      * @throws Exception
      */
-    public String makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField){
+    public String makeTeamActive(String userName, String teamName, String playerNames , String coachUserName, String nameOfNewField){
        return teamManagementController.makeTeamActive(userName, teamName, playerNames, coachUserName, nameOfNewField);
     }
 
-    public LinkedList<String> getMyApprovedTeams(String userName){
+    public String getMyApprovedTeams(String userName){
         return teamManagementController.getMyApprovedTeams(userName);
     }
 
@@ -40,20 +40,20 @@ public class TeamManagementApplication {
 
     //<editor-fold desc="getters">
 
-    public LinkedList<String> getAllTeamRolesThatArentCoachWithTeam(){
+    public String getAllTeamRolesThatArentCoachWithTeam(){
         return teamManagementController.getAllTeamRolesThatArentCoachWithTeam();
     }
 
-    public LinkedList<String> getAllTeamRolesThatArentPlayerWithTeam(){
+    public String getAllTeamRolesThatArentPlayerWithTeam(){
         return teamManagementController.getAllTeamRolesThatArentPlayerWithTeam();
     }
 
-    public LinkedList<String> getMyRoles (String userName){
+    public String getMyRoles (String userName){
        return teamManagementController.getMyRoles(userName);
     }
 
 
-    public LinkedList<String> getWhatICanBecome (String userName){
+    public String getWhatICanBecome (String userName){
         return teamManagementController.getWhatICanBecome(userName);
     }
     //</editor-fold>

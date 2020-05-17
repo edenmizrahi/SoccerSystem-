@@ -13,8 +13,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 
 public class TeamManagementUIController { //implements Initializable {
     @FXML
@@ -61,10 +63,15 @@ public class TeamManagementUIController { //implements Initializable {
     }
     @FXML
     public void changeToActivateScene(ActionEvent event) throws IOException{
-        LinkedList<String> approvedTeams = tMApp.getMyApprovedTeams(userName);
-        LinkedList<String> tempPlayers = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
-        LinkedList<String> Coaches = tMApp.getAllTeamRolesThatArentCoachWithTeam();
-        if (approvedTeams == null || approvedTeams.size() == 0){
+        String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
+
+        String tempPlayersStr = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
+        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(","));
+
+        String CoachesStr = tMApp.getAllTeamRolesThatArentCoachWithTeam();
+        List<String> Coaches = Arrays.asList(CoachesStr.split(","));
+
+        if (approvedTeamsStr == null || approvedTeamsStr.equals("")){
             alertError("You do not have any teams to activate.");
         }
         else if (tempPlayers.size() < 11){
@@ -74,6 +81,7 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Cannot create a new team. There aren't any potential coaches in the system.");
         }
         else {
+            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(","));
             changeScene(event, "ActivateTeam.fxml");
         }
     }
@@ -135,21 +143,27 @@ public class TeamManagementUIController { //implements Initializable {
 
     @FXML
     public void activateScene(){
-        if (tMApp.getMyApprovedTeams(userName) !=  null && tMApp.getMyApprovedTeams(userName).size() != 0) {
-            LinkedList<String> approvedTeams = tMApp.getMyApprovedTeams(userName);
+        if (tMApp.getMyApprovedTeams(userName) !=  null && tMApp.getMyApprovedTeams(userName).length() != 0) {
+            String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
+            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(","));
+
             teamNameCB.getItems().clear();
             for (String teamName : approvedTeams) {
                 teamNameCB.getItems().add(teamName);
             }
         }
 
-        LinkedList<String> tempPlayers = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
+        String tempPlayersStr = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
+        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(","));
+
         ObservableList<String> players = FXCollections.observableArrayList(tempPlayers);
         playersListView.getItems().clear();
         playersListView.setItems(players);
         playersListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        LinkedList<String> Coaches = tMApp.getAllTeamRolesThatArentCoachWithTeam();
+        String CoachesStr = tMApp.getAllTeamRolesThatArentCoachWithTeam();
+        List<String> Coaches = Arrays.asList(CoachesStr.split(","));
+
         coachCB.getItems().clear();
         for (String coachUserName : Coaches) {
             coachCB.getItems().add(coachUserName);
@@ -164,6 +178,10 @@ public class TeamManagementUIController { //implements Initializable {
 
         ObservableList<String> selectedPlayers = playersListView.getSelectionModel().getSelectedItems();
         HashSet<String> players = new HashSet<>(selectedPlayers);
+        String playersStr = new String();
+        for (String p : players){
+            playersStr += p + ",";
+        }
         String field = fieldName.getText();
 
         if (teamName == null) {
@@ -179,7 +197,7 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Please choose players.");
         }
         else {
-            String message = tMApp.makeTeamActive(userName, teamName, players, coachUserName, field);
+            String message = tMApp.makeTeamActive(userName, teamName, playersStr, coachUserName, field);
             if (message.equals("this team is not approved by RFA")){
                 alertError("This team was not approved by the RFA.");
             }

@@ -15,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -30,7 +31,7 @@ public class DefinePolicyController {
     @FXML
     public javafx.scene.control.Button defineCalcPolicyBtn;
     @FXML
-    private RfaApplication RfaApplication = new RfaApplication();
+    private RfaApplication rfaApplication = new RfaApplication();
     @FXML
     private SystemOperationsApplication sysOpApp = new SystemOperationsApplication();
 
@@ -39,7 +40,8 @@ public class DefinePolicyController {
 
     public void initialize() {
         //for comboBox of calculation policy
-        LinkedList<String> allCalculationPolicies = RfaApplication.getAllCalculationPoliciesString();
+        String allCalculationPoliciesStr = rfaApplication.getAllCalculationPoliciesString();
+        List<String> allCalculationPolicies = Arrays.asList(allCalculationPoliciesStr.split(","));
         List<String> list = new LinkedList<>();
         for (String str:allCalculationPolicies) {
             list.add(str);
@@ -52,7 +54,8 @@ public class DefinePolicyController {
 
 
         //for comboBox of scheduling policy
-        LinkedList<String> allSchedulingPolicies = RfaApplication.getAllschedulingString();
+        String allSchedulingPoliciesStr = rfaApplication.getAllschedulingString();
+        List<String> allSchedulingPolicies = Arrays.asList(allSchedulingPoliciesStr.split(","));
         List<String> listOfSched = new LinkedList<>();
         for (String str:allSchedulingPolicies) {
             listOfSched.add(str);
@@ -82,7 +85,7 @@ public class DefinePolicyController {
 
             String calcPolicySelected = chooseCalcPolicyBtn.getSelectionModel().getSelectedItem().toString();
             String schedPolicySelected = chooseSchedPolicyBtn.getSelectionModel().getSelectedItem().toString();
-            this.RfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            this.rfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
         }
         else{
             //throw alert that the year of season incorrect syntax

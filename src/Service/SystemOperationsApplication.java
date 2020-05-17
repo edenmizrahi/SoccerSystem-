@@ -10,7 +10,7 @@ public class SystemOperationsApplication {
     /**
      * return all matches in system that have not yet happened - String format
      */
-    public HashSet<String> getAllMatchsInSytem(){
+    public String getAllMatchsInSytem(){
         return systemOperationsController.getAllMatchsInSytem();
     }
 
@@ -21,7 +21,7 @@ public class SystemOperationsApplication {
      * @param userName
      * @return list of details of fan
      */
-    public List<String> getPrivateDetails(String userName) {
+    public String getPrivateDetails(String userName) {
         return systemOperationsController.getPrivateDetails(userName);
     }
 

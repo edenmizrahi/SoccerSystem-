@@ -14,7 +14,6 @@ import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import sun.rmi.runtime.Log;
 
 
 import java.time.*;
@@ -26,20 +25,20 @@ public class Rfa extends Fan implements NotificationsUser {
     public static HashSet<Team> teamRequests;
     public static HashSet<Notification> notifications;
 
+    public boolean gotRFAnotification;
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
         system.removeUser(fan);
-        //TODO add permissions
+        gotRFAnotification =false;
     }
 
     public Rfa(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms,name,phoneNumber,email,userName,password,date);
         this.teamRequests= new HashSet<>();
         notifications=new HashSet<>();
-        //TODO add permissions
-        //this.permissions.add();
+        gotRFAnotification =false;
     }
     //<editor-fold desc="getters and setters">
 
@@ -419,13 +418,18 @@ public class Rfa extends Fan implements NotificationsUser {
     @Override
     //TODO test
     public void update(Observable o, Object arg) {
+        //call fan update
+
         if(o instanceof Team){
             if(arg.equals("request to open new team")){//open new team
+                if(system.userLoggedIn(this)){
+                    gotRFAnotification =true;
+                }
                 this.teamRequests.add((Team)o);
                 this.notifications.add(new Notification(o,arg,false));
             }
         }
-        else{
+        if(o instanceof  Match){
             if(arg instanceof Event){
                 super.update(o,arg);
             }
@@ -460,15 +464,20 @@ public class Rfa extends Fan implements NotificationsUser {
      * @param not-unread notification to mark as read
      * @codeBy Eden
      */
+    @Override
     public void MarkAsReadNotification(Notification not){
         not.setRead(true);
+        //we dont want the alert to show if the user is in the notification inbox
+        gotRFAnotification =false;
     }
 
     /**
      * get all notifications read and unread
      * @return
      */
+    @Override
     public HashSet<Notification> getNotificationsList() {
+        gotRFAnotification =false;
         return notifications;
     }
 
@@ -478,6 +487,7 @@ public class Rfa extends Fan implements NotificationsUser {
      */
     @Override
     public HashSet<Notification> getUnReadNotifications(){
+        gotRFAnotification =false;
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notifications){
             if(n.isRead()==false){
@@ -486,4 +496,24 @@ public class Rfa extends Fan implements NotificationsUser {
         }
         return unRead;
     }
+
+    @Override
+    public String checkNotificationAlert() {
+        if(gotRFAnotification && gotFanNotification){
+            gotRFAnotification =false;
+            gotFanNotification=false;
+            return "multipleNotifications";
+        }
+        else if(gotFanNotification){
+            gotFanNotification=false;
+            return "gotFanNotification";
+        }
+        else if(gotRFAnotification){
+            gotRFAnotification =false;
+            return "gotRFAnotification";
+        }
+        return "";
+    }
+
+
 }

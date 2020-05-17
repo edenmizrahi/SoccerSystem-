@@ -1,6 +1,7 @@
 package Domain.Users;
 
 import Domain.*;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.Notifications.Notification;
@@ -19,6 +20,8 @@ public class SystemManager extends Fan implements NotificationsUser {
     private static final Logger LOG = LogManager.getLogger("SystemManager");
     private HashSet<Notification> notifications;
 
+    private boolean gotSMNotification;
+
     /***
      * create system manager from fan:
      *      1.adding system manager to system.
@@ -33,7 +36,7 @@ public class SystemManager extends Fan implements NotificationsUser {
         /**remove fan from system*/
         ms.removeUser(fan);
         LOG.info(String.format("%s - %s", this.getUserName(), "Added to system"));
-
+        gotSMNotification=false;
 
     }
 
@@ -42,6 +45,7 @@ public class SystemManager extends Fan implements NotificationsUser {
 //        this.complaints = new HashSet<>();
         notifications=new HashSet<>();
         LOG.info(String.format("%s - %s", this.getUserName(), "Added to system"));
+        gotSMNotification=false;
     }
 
 
@@ -664,6 +668,25 @@ public class SystemManager extends Fan implements NotificationsUser {
         return unRead;
     }
 
+    @Override
+    public String checkNotificationAlert() {
+        if(gotSMNotification && gotFanNotification){
+            gotSMNotification =false;
+            gotFanNotification=false;
+            return "gotSMNotification&gotFanNotification";
+        }
+        else if(gotFanNotification){
+            gotFanNotification=false;
+            return "gotFanNotification";
+        }
+        else if(gotSMNotification){
+            gotSMNotification =false;
+            return "gotSMNotification";
+        }
+        return "";
+    }
+
+
     /**
      * Get notifications about:
      *  1.Get new complaint.
@@ -676,8 +699,7 @@ public class SystemManager extends Fan implements NotificationsUser {
      */
     @Override
     public void update(Observable o, Object arg) {
-        //call fan update!!!
-        super.update(o, arg);
+
 
         /**get new complaint*/
         if(o instanceof  Complaint){
@@ -707,6 +729,11 @@ public class SystemManager extends Fan implements NotificationsUser {
         if (o instanceof Team) {
             if (arg.equals("team deleted by team owner")) {// the team was deleted by system manager and not active any more
                 notifications.add(new Notification(o, arg, false));
+            }
+        }
+        else if(o instanceof Match){
+            if(arg instanceof Event){
+                super.update(o, arg);
             }
         }
     }

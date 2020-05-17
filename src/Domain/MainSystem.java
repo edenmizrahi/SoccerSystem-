@@ -591,4 +591,8 @@ public class MainSystem {
         loginUsers.remove(f);
     }
 
+    public boolean userLoggedIn(User u){
+        return loginUsers.contains(u);
+    }
+
 }

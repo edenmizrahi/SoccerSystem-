@@ -22,11 +22,13 @@ public class Referee extends Fan implements NotificationsUser {
     private String qualification;
     private static final Logger LOG = LogManager.getLogger("Referee");
 
+    private boolean gotRefereeNotification;
 
     public Referee(Fan fan, MainSystem ms){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         matches = new LinkedList<>();
         refNotifications =new HashSet<>();
+        gotRefereeNotification=false;
     }
 
     public Referee(Fan fan, MainSystem ms, String qualification){
@@ -34,8 +36,7 @@ public class Referee extends Fan implements NotificationsUser {
         matches = new LinkedList<>();
         this.qualification = qualification;
         refNotifications =new HashSet<>();
-        //TODO add permissions
-        //this.permissions.add();
+        gotRefereeNotification=false;
     }
 
     public Referee (MainSystem ms, String name, String phoneNumber, String email, String userName, String password, String qualification, Date date) {
@@ -43,8 +44,7 @@ public class Referee extends Fan implements NotificationsUser {
         matches = new LinkedList<>();
         this.qualification=qualification;
         refNotifications =new HashSet<>();
-        //TODO add permissions
-        //this.permissions.add();
+        gotRefereeNotification=false;
     }
 
 
@@ -321,11 +321,12 @@ public class Referee extends Fan implements NotificationsUser {
     /**Yarden**/
     @Override
     public void update(Observable o, Object arg) {
-        //fan update!!!
-        super.update(o, arg);
 
         if(o instanceof Match) {
             if (arg instanceof String) {
+                if(system.userLoggedIn(this)){
+                    gotRefereeNotification=true;
+                }
                 this.refNotifications.add(new Notification(o, arg, false));
             }
             else{
@@ -341,15 +342,21 @@ public class Referee extends Fan implements NotificationsUser {
      * @param not-unread notification to mark as read
      * @codeBy Eden
      */
+    @Override
     public void MarkAsReadNotification(Notification not){
         not.setRead(true);
+        //we dont want the alert to show if the user is in the notification inbox
+        gotRefereeNotification=false;
     }
 
     /**
      * get all refNotifications read and unread
      * @return
      */
+    @Override
     public HashSet<Notification> getNotificationsList() {
+        //we dont want the alert to show if the user is in the notification inbox
+        gotRefereeNotification=false;
         return refNotifications;
     }
 
@@ -359,6 +366,8 @@ public class Referee extends Fan implements NotificationsUser {
      */
     @Override
     public HashSet<Notification> getUnReadNotifications(){
+        //we dont want the alert to show if the user is in the notification inbox
+        gotRefereeNotification=false;
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: refNotifications){
             if(n.isRead()==false){
@@ -368,4 +377,21 @@ public class Referee extends Fan implements NotificationsUser {
         return unRead;
     }
 
+    @Override
+    public String checkNotificationAlert() {
+        if(gotRefereeNotification && gotFanNotification){
+            gotRefereeNotification =false;
+            gotFanNotification=false;
+            return "gotRefereeNotification&gotFanNotification";
+        }
+        else if(gotFanNotification){
+            gotFanNotification=false;
+            return "gotFanNotification";
+        }
+        else if(gotRefereeNotification){
+            gotRefereeNotification =false;
+            return "gotRefereeNotification";
+        }
+        return "";
+    }
 }

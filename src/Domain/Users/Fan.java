@@ -1,6 +1,7 @@
 package Domain.Users;
 
 import Domain.*;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
@@ -26,6 +27,8 @@ public class Fan extends User implements NotificationsUser {
     private String password;
     private Date dateOfBirth;
 
+    protected boolean gotFanNotification;
+
     public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms);
         this.name = name;
@@ -41,6 +44,7 @@ public class Fan extends User implements NotificationsUser {
         notificationHashSet=new HashSet<>();
         //add userName to the hashset
         ms.addUserName(userName);
+        gotFanNotification=false;
     }
 
     //<editor-fold desc="getters and setters">
@@ -180,7 +184,10 @@ public class Fan extends User implements NotificationsUser {
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof  Match){
-            if(arg instanceof  Match) {
+            if(arg instanceof Event) {
+                if(system.userLoggedIn(this)){
+                    gotFanNotification=true;
+                }
                 notificationHashSet.add(new Notification(o, arg, false));
             }
 //            /**change place or time event */
@@ -230,6 +237,9 @@ public class Fan extends User implements NotificationsUser {
         if(o instanceof Complaint){
             Complaint comp=((Complaint)o);
             String ans=comp.getAnswer();
+            if(system.userLoggedIn(this)){
+                gotFanNotification=true;
+            }
             notificationHashSet.add(new Notification(o, "Answer: "+ans, false));
 
         }
@@ -244,9 +254,23 @@ public class Fan extends User implements NotificationsUser {
     @Override
     public void MarkAsReadNotification(Notification not){
         not.setRead(true);
+        //we dont want the alert to show if the user is in the notification inbox
+        gotFanNotification=false;
     }
+
+    @Override
+    public String checkNotificationAlert() {
+        if(gotFanNotification){
+            gotFanNotification=false;
+            return "gotFanNotification";
+        }
+        return "";
+    }
+
+
     @Override
     public HashSet<Notification> getNotificationsList() {
+        gotFanNotification=false;
         return notificationHashSet;
     }
 
@@ -256,6 +280,7 @@ public class Fan extends User implements NotificationsUser {
      */
     @Override
     public HashSet<Notification> getUnReadNotifications(){
+        gotFanNotification=false;
         HashSet<Notification> unRead=new HashSet<>();
         for(Notification n: notificationHashSet){
             if(n.isRead()==false){
@@ -273,4 +298,5 @@ public class Fan extends User implements NotificationsUser {
         return "{"+userName  +
                 '}';
     }
+
 }

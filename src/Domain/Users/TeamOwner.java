@@ -2,6 +2,7 @@ package Domain.Users;
 
 import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
@@ -22,6 +23,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
     private static final Logger LOG = LogManager.getLogger("TeamOwner");
     private HashSet<Notification> notifications;
 
+    private boolean gotTeamOwnerNotification;
 
     //team owner founder- with no team.
     public TeamOwner(TeamRole teamRole) {
@@ -33,6 +35,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
         this.approvedTeams= new LinkedList<>();
         this.teamRole= teamRole;
         this.notifications= new HashSet<>();
+        gotTeamOwnerNotification=false;
     }
 
 
@@ -455,8 +458,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
      * **/
     @Override
     public void update(Observable o, Object arg) {
-        //team role of fan!!!!
-        teamRole.update(o,arg);
+
 
         if(o instanceof Team){
             /**team request answer***/
@@ -488,6 +490,11 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
 
             }
         }
+        else if(o instanceof Match){
+            if(arg instanceof Event){
+                teamRole.update(o, arg);
+            }
+        }
     }
 
     /**
@@ -497,6 +504,24 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
      */
     public void MarkAsReadNotification(Notification not){
         not.setRead(true);
+    }
+
+    @Override
+    public String checkNotificationAlert() {
+        if(gotTeamOwnerNotification && teamRole.gotFanNotification){
+            gotTeamOwnerNotification =false;
+            teamRole.gotFanNotification=false;
+            return "gotTeamOwnerNotification&gotFanNotification";
+        }
+        else if(teamRole.gotFanNotification){
+            teamRole.gotFanNotification=false;
+            return "gotFanNotification";
+        }
+        else if(gotTeamOwnerNotification){
+            gotTeamOwnerNotification =false;
+            return "gotTeamOwnerNotification";
+        }
+        return "";
     }
 
     public HashSet<Notification> getNotificationsList() {

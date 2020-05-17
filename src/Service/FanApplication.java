@@ -42,4 +42,13 @@ public class FanApplication {
         return fanController.addMatchToFanMatchesFollow(userName, match);
     }
 
+    /**
+     * check for new Notification
+     * @param username
+     * @return
+     */
+    public String checkForNewNotifications(String username){
+        return fanController.checkForNewNotifications(username);
+    }
+
 }

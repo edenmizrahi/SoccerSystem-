@@ -10,8 +10,10 @@ import javafx.scene.control.Alert;
 import sun.awt.image.ImageWatched;
 
 import java.security.acl.Permission;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 
 
 public class TeamManagementController {
@@ -38,12 +40,12 @@ public class TeamManagementController {
      * adi
      * @param userName
      * @param teamName
-     * @param playerNames
+     * @param playerNamesStr
      * @param coachUserName
      * @param nameOfNewField
      * @throws Exception
      */
-    public String makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField) {
+    public String makeTeamActive(String userName, String teamName, String playerNamesStr , String coachUserName, String nameOfNewField) {
         try {
             TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
             Team team = new Team();
@@ -53,6 +55,7 @@ public class TeamManagementController {
                     break;
                 }
             }
+            List<String> playerNames = Arrays.asList(playerNamesStr.split(","));
             HashSet<TeamRole> players = new HashSet<>();
             for (String pName : playerNames) {
                 TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
@@ -70,16 +73,18 @@ public class TeamManagementController {
         return "";
     }
 
-    public LinkedList<String> getMyApprovedTeams(String userName){
+    public String getMyApprovedTeams(String userName){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
         if (user.getTeamOwner().getApprovedTeams() == null){
             return null;
         }
         LinkedList<Team> teams =  user.getTeamOwner().getApprovedTeams();
         if (teams != null && teams.size() != 0) {
-            LinkedList<String> teamNames = new LinkedList<>();
+            //LinkedList<String> teamNames = new LinkedList<>();
+            String teamNames = new String();
             for (Team t : teams) {
-                teamNames.add(t.getName());
+                //teamNames.add(t.getName());
+                teamNames += t.getName() + ",";
             }
             return teamNames;
         }
@@ -503,15 +508,18 @@ public class TeamManagementController {
      * adi
      * @return
      */
-    public LinkedList<String> getAllTeamRolesThatArentCoachWithTeam(){
+    public String getAllTeamRolesThatArentCoachWithTeam(){
         LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
-        LinkedList<String> ans = new LinkedList<>();
+        //LinkedList<String> ans = new LinkedList<>();
+        String ans = new String();
         for(TeamRole teamRole : allTeamRole){
             if(teamRole.getCoach() == null){
-                ans.add(teamRole.getUserName());
+                //ans.add(teamRole.getUserName());
+                ans += teamRole.getUserName() + ",";
             }
             else if(teamRole.getCoach().getCoachTeam() == null){
-                ans.add(teamRole.getUserName());
+                //ans.add(teamRole.getUserName());
+                ans += teamRole.getUserName() + ",";
             }
         }
         return ans;
@@ -533,15 +541,18 @@ public class TeamManagementController {
      * adi
      * @return
      */
-    public LinkedList<String> getAllTeamRolesThatArentPlayerWithTeam(){
+    public String getAllTeamRolesThatArentPlayerWithTeam(){
         LinkedList<TeamRole> allTeamRole = MainSystem.getInstance().getTeamRoles();
-        LinkedList<String> ans = new LinkedList<>();
+        //LinkedList<String> ans = new LinkedList<>();
+        String ans = new String();
         for(TeamRole teamRole : allTeamRole){
             if(teamRole.getPlayer() == null){
-                ans.add(teamRole.getUserName());
+                //ans.add(teamRole.getUserName());
+                ans += teamRole.getUserName() + ",";
             }
             else if(teamRole.getPlayer().getTeam() == null){
-                ans.add(teamRole.getUserName());
+                //ans.add(teamRole.getUserName());
+                ans += teamRole.getUserName() + ",";
             }
         }
         return ans;
@@ -581,20 +592,25 @@ public class TeamManagementController {
      * @param userName
      * @return
      */
-    public LinkedList<String> getMyRoles (String userName){
+    public String getMyRoles (String userName){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
-        LinkedList<String> myRoles = new LinkedList<>();
+        //LinkedList<String> myRoles = new LinkedList<>();
+        String myRoles = new String();
         if (user.isTeamOwner()){
-            myRoles.add("Team Owner");
+            //myRoles.add("Team Owner");
+            myRoles += "Team Owner,";
         }
         if (user.isTeamManager()){
-            myRoles.add("Team Manager");
+            //myRoles.add("Team Manager");
+            myRoles += "Team Manager,";
         }
         if (user.isCoach()){
-            myRoles.add("Coach");
+            //myRoles.add("Coach");
+            myRoles += "Coach,";
         }
         if (user.isPlayer()){
-            myRoles.add("Player");
+            //myRoles.add("Player");
+            myRoles += "Player,";
         }
         return myRoles;
     }
@@ -604,17 +620,21 @@ public class TeamManagementController {
      * @param userName
      * @return
      */
-    public LinkedList<String> getWhatICanBecome (String userName){
+    public String getWhatICanBecome (String userName){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
-        LinkedList<String> canBecome = new LinkedList<>();
+        //LinkedList<String> canBecome = new LinkedList<>();
+        String canBecome = new String();
         if (!user.isTeamOwner()){
-            canBecome.add("Team Owner");
+            //canBecome.add("Team Owner");
+            canBecome += "Team Owner,";
         }
         if (!user.isCoach()){
-            canBecome.add("Coach");
+            //canBecome.add("Coach");
+            canBecome += "Coach,";
         }
         if (!user.isPlayer()){
-            canBecome.add("Player");
+            //canBecome.add("Player");
+            canBecome += "Player,";
         }
         return canBecome;
     }

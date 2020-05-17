@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class FanDetailsController { //implements Initializable
@@ -83,7 +84,8 @@ public class FanDetailsController { //implements Initializable
 
     @FXML
     private void showDetails() {
-        List<String> fanDetails= syOpApp.getPrivateDetails(userName);
+        String fanDetailsStr = syOpApp.getPrivateDetails(userName);
+        List<String> fanDetails = Arrays.asList(fanDetailsStr.split(","));
         //list : name, Password, PhoneNumber, Email, DateOfBirth
         currNameLabel.setText(fanDetails.get(0));
         currPasswardLable.setText(fanDetails.get(1));

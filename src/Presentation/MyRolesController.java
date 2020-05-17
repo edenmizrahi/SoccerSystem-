@@ -12,7 +12,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MyRolesController { //implements Initializable {
 
@@ -35,13 +37,15 @@ public class MyRolesController { //implements Initializable {
     }
     @FXML
     public void initScene(){
-        LinkedList<String> myRoles = tMApp.getMyRoles(userName);
+        String myRolesStr = tMApp.getMyRoles(userName);
+        List<String> myRoles = Arrays.asList(myRolesStr.split(","));
         myRolesCB.getItems().clear();
         for (String role : myRoles) {
             myRolesCB.getItems().add(role);
         }
 
-        LinkedList<String> canBecome = tMApp.getWhatICanBecome(userName);
+        String canBecomeStr = tMApp.getWhatICanBecome(userName);
+        List<String> canBecome = Arrays.asList(canBecomeStr.split(","));
         becomeRoleCB.getItems().clear();
         for (String role : canBecome) {
             becomeRoleCB.getItems().add(role);

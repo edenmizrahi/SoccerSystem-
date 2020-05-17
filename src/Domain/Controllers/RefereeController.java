@@ -50,7 +50,7 @@ public class RefereeController {
      * @return LinkedList<String> of players at specific match
      * @throws ParseException
      */
-    public LinkedList<String> displayPlayersAtMatch(String nameOfReferee, String match){
+    public String displayPlayersAtMatch(String nameOfReferee, String match){
         try {
             Match m = this.matchObjectFromString(match, nameOfReferee);
 
@@ -63,8 +63,12 @@ public class RefereeController {
             HashSet<Player> homePlayers = home.getPlayers();
             LinkedList<String> homePlayersName = this.getPlayersFromTeamInList(homePlayers);
 
-            LinkedList<String> allPlayers = awayPlayersName;
-            allPlayers.addAll(homePlayersName);
+            //LinkedList<String> allPlayers = awayPlayersName;
+            String allPlayers = new String();
+            for(String pName : homePlayersName){
+                allPlayers += pName + ",";
+            }
+            //allPlayers.addAll(homePlayersName);
             return allPlayers;
         }
         catch (ParseException e){
@@ -133,16 +137,18 @@ public class RefereeController {
      * @param nameOfReferee
      * @return
      */
-    public LinkedList<String> getAllMatches(String nameOfReferee) {
+    public String getAllMatches(String nameOfReferee) {
 
-        LinkedList<String> listOfMatches = new LinkedList<>();
+        //LinkedList<String> listOfMatches = new LinkedList<>();
+        String listOfMatches = new String();
         Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
         Date currentDate = new Date(System.currentTimeMillis());
 
         for (Match match: currentReferee.getMatches()) {
             if(match.getMainReferee().getUserName().equals(nameOfReferee)) {
                 if (currentDate.after(DateUtils.addMinutes(match.getStartDate(), match.getNumOfMinutes()))) {
-                    listOfMatches.add(match.toString());
+                    //listOfMatches.add(match.toString());
+                    listOfMatches += match.toString() + ",";
                 }
             }
         }
@@ -151,15 +157,17 @@ public class RefereeController {
     }
 
 
-    public LinkedList<String> createReportOfMatch(String match, String nameOfReferee) {
+    public String createReportOfMatch(String match, String nameOfReferee) {
         try {
-            LinkedList<String> listOfEventsInMatch = new LinkedList<>();
+            //LinkedList<String> listOfEventsInMatch = new LinkedList<>();
+            String listOfEventsInMatch = new String();
             Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
             Match m = this.matchObjectFromString(match, nameOfReferee);
 
             HashSet<Event> allEvents = currentReferee.createReport(m);
             for (Event e : allEvents) {
-                listOfEventsInMatch.add(e.toString());
+                //listOfEventsInMatch.add(e.toString());
+                listOfEventsInMatch += e.toString() + ",";
             }
             return listOfEventsInMatch;
         } catch(Exception e){

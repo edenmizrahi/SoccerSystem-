@@ -29,9 +29,9 @@ public class SystemOperationsController {
      * return all matches in system that have not yet happened - match format
      * @return
      */
-    public HashSet<Match> getAllCurrMatchs() {
+    public LinkedHashSet<Match> getAllCurrMatchs() {
         List<Referee> allReferees =this.showAllReferee();
-        HashSet<Match> allMatches=new HashSet<>();
+        LinkedHashSet<Match> allMatches=new LinkedHashSet<>();
         for (Referee ref:allReferees) {
             LinkedList<Match> allRefereeMatches=ref.getMatches();
             for (Match m:allRefereeMatches) {

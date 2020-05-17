@@ -27,7 +27,7 @@ public class Fan extends User implements NotificationsUser {
     private String password;
     private Date dateOfBirth;
 
-    protected boolean gotFanNotification;
+    public boolean gotFanNotification;
 
     public Fan(MainSystem ms, String name, String phoneNumber, String email, String userName, String password, Date date) {
         super(ms);

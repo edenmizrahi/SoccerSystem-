@@ -34,11 +34,12 @@ public class RfaConfirmOpenTeam {
         /*****get RFA *****/
         Rfa rfa = operationsController.getAllRFA().get(0);
         SystemManager sm = operationsController.showAllSystemManagers().get(0);
-
+        //MainSystem.getInstance().loginUsers.add(rfa);
         List<TeamOwner> allTeamOwners = operationsController.showAllTeamOwner();
         TeamOwner ilanTeamOwner = allTeamOwners.get(0);
         /***  teamOner want add new team - add team to  requestsTeam list  ***/
         ilanTeamOwner.requestNewTeam("hiffa");
+
         Team newTeam = ilanTeamOwner.getRequestedTeams().get(0);
         /***  rfa Confirm to open team ***/
         try {

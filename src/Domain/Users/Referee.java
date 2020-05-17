@@ -382,7 +382,7 @@ public class Referee extends Fan implements NotificationsUser {
         if(gotRefereeNotification && gotFanNotification){
             gotRefereeNotification =false;
             gotFanNotification=false;
-            return "gotRefereeNotification&gotFanNotification";
+            return "multipleNotifications";
         }
         else if(gotFanNotification){
             gotFanNotification=false;

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MainSystem {
     //private LinkedList<Complaint> complaints;// *??????
-    private List<User> loginUsers;
+    public List<User> loginUsers;
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*

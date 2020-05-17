@@ -25,7 +25,7 @@ public class Rfa extends Fan implements NotificationsUser {
     public static HashSet<Team> teamRequests;
     public static HashSet<Notification> notifications;
 
-    private boolean gotRFAnotification;
+    public boolean gotRFAnotification;
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();
@@ -502,7 +502,7 @@ public class Rfa extends Fan implements NotificationsUser {
         if(gotRFAnotification && gotFanNotification){
             gotRFAnotification =false;
             gotFanNotification=false;
-            return "gotRFAnotification&gotFanNotification";
+            return "multipleNotifications";
         }
         else if(gotFanNotification){
             gotFanNotification=false;

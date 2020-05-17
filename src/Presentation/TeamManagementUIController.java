@@ -85,11 +85,6 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Cannot create a new team. There aren't any potential coaches in the system.");
         }
         else {
-            /*FXMLLoader loader = new FXMLLoader();
-            Parent root = loader.load(getClass().getResource("ActivateTeam.fxml").openStream());
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();*/
             changeScene(event, "ActivateTeam.fxml");
         }
     }

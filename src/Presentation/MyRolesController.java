@@ -49,7 +49,7 @@ public class MyRolesController { //implements Initializable {
     }
 
     @FXML
-    public void addButton (ActionEvent actionEvent) throws Exception {
+    public void addButton (ActionEvent actionEvent) {
         String role = (String) becomeRoleCB.getValue();
         if (role == null || role == ""){
             alertError("Please choose a role.");

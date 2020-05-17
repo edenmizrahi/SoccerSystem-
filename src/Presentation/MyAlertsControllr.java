@@ -1,7 +1,7 @@
 package Presentation;
 
-import Service.FanController;
-import Service.SystemOperationsController;
+import Service.FanApplication;
+import Service.SystemOperationsApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,8 +22,8 @@ public class MyAlertsControllr {
     @FXML
     private ComboBox<String > myNotifictionsCombo;
 
-    private FanController fanController= new FanController();
-    private SystemOperationsController syOpController =new SystemOperationsController();
+    private FanApplication fanApplication = new FanApplication();
+    private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private List<String> fanNotificationsList=new LinkedList<>();
     private String userName; // is teamRole
 
@@ -32,7 +31,7 @@ public class MyAlertsControllr {
 
 
     @FXML
-    public void initAllertsUser (String userName) throws IOException {
+    public void initAllertsUser (String userName) {
         this.userName=userName;
         //update comoboxs
         updateNotificationsComoBox();
@@ -43,8 +42,8 @@ public class MyAlertsControllr {
     @FXML
     public void updateNotificationsComoBox(){
         fanNotificationsList.clear();
-        fanNotificationsList.add("all my alerts on matches");
-        LinkedList<String> allFanAllerts = fanController.getFanNotifications(userName);
+        fanNotificationsList.add("all my alerts about matches");
+        LinkedList<String> allFanAllerts = fanApplication.getFanNotifications(userName);
         for (String str:allFanAllerts) {
             fanNotificationsList.add(str);
         }

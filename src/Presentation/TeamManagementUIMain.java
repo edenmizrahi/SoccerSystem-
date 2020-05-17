@@ -1,5 +1,6 @@
 package Presentation;
-import Service.SystemOperationsController;
+import Domain.Controllers.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

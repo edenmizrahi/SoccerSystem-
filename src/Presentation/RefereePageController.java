@@ -1,6 +1,6 @@
 package Presentation;
 
-import Service.RefereeController;
+import Service.RefereeApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,13 +32,13 @@ public class RefereePageController extends HomePageController {
     public javafx.scene.control.Button idReportbtn;
 
     @FXML
-    private Service.RefereeController RefereeController = new RefereeController();
+    private RefereeApplication refereeApplication = new RefereeApplication();
 
     private String userName = "dana123";
 
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUser (String userName) {
         this.userName=userName;
     }
 
@@ -46,7 +46,7 @@ public class RefereePageController extends HomePageController {
     @FXML
     public void addEventToMatch(ActionEvent actionEvent) throws IOException {
 
-        String match = RefereeController.displayAllMatches(userName);
+        String match = refereeApplication.displayAllMatches(userName);
         if(match!=null) {
             //display matches that still not take place
             FXMLLoader loader = new FXMLLoader();
@@ -64,8 +64,8 @@ public class RefereePageController extends HomePageController {
         }
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("You do not have match that take place right now so you can not add" +
-                    " any events");
+            alert.setContentText("You do not have a match that takes place right now so you can not add"
+                    + " any events.");
             alert.show();
         }
 
@@ -73,7 +73,7 @@ public class RefereePageController extends HomePageController {
 
 
     public void createReport(ActionEvent actionEvent) throws IOException {
-        LinkedList<String> matches = RefereeController.getAllMatches(userName);
+        LinkedList<String> matches = refereeApplication.getAllMatches(userName);
         if(matches.size() > 0){
 
             FXMLLoader loader=new FXMLLoader();
@@ -92,8 +92,8 @@ public class RefereePageController extends HomePageController {
         }
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("You do not have a match in which you are a main referee and already over," +
-                    " so you can not creat a report");
+            alert.setContentText("You do not have a match that ended and in which you were a main referee," +
+                    " so you can not create a report");
             alert.show();
         }
     }

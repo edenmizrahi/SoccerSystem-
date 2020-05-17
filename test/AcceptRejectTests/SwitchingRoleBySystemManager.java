@@ -1,12 +1,12 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.SystemManagerController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.*;
-import Service.SystemManagerController;
-import Service.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
-import org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -23,7 +23,7 @@ public class SwitchingRoleBySystemManager {
     @Test
     public void accept() throws Exception {
         /*****system init*****/
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         sm=operationsController.showAllSystemManagers().get(0);
         /*********************/
@@ -75,8 +75,8 @@ public class SwitchingRoleBySystemManager {
     @Test
     public void reject() throws Exception{
         /*****system init*****/
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         sm=operationsController.showAllSystemManagers().get(0);
         /*********************/

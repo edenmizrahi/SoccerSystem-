@@ -1,11 +1,7 @@
 package Presentation;
 
-import Domain.LeagueManagment.Season;
-import Service.RfaController;
-import Service.SystemOperationsController;
-import Service.TeamManagementController;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import Service.RfaApplication;
+import Service.SystemOperationsApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,13 +12,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
-import javax.lang.model.element.Element;
 import java.io.IOException;
-import java.lang.annotation.ElementType;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -38,16 +30,16 @@ public class DefinePolicyController {
     @FXML
     public javafx.scene.control.Button defineCalcPolicyBtn;
     @FXML
-    private RfaController RfaController = new RfaController();
+    private RfaApplication RfaApplication = new RfaApplication();
     @FXML
-    private SystemOperationsController sysOpController = new SystemOperationsController();
+    private SystemOperationsApplication sysOpApp = new SystemOperationsApplication();
 
 
     private String userName;
 
     public void initialize() {
         //for comboBox of calculation policy
-        LinkedList<String> allCalculationPolicies = RfaController.getAllCalculationPoliciesString();
+        LinkedList<String> allCalculationPolicies = RfaApplication.getAllCalculationPoliciesString();
         List<String> list = new LinkedList<>();
         for (String str:allCalculationPolicies) {
             list.add(str);
@@ -60,7 +52,7 @@ public class DefinePolicyController {
 
 
         //for comboBox of scheduling policy
-        LinkedList<String> allSchedulingPolicies = RfaController.getAllschedulingString();
+        LinkedList<String> allSchedulingPolicies = RfaApplication.getAllschedulingString();
         List<String> listOfSched = new LinkedList<>();
         for (String str:allSchedulingPolicies) {
             listOfSched.add(str);
@@ -73,7 +65,7 @@ public class DefinePolicyController {
     }
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUser (String userName) {
         this.userName=userName;
     }
 
@@ -90,7 +82,7 @@ public class DefinePolicyController {
 
             String calcPolicySelected = chooseCalcPolicyBtn.getSelectionModel().getSelectedItem().toString();
             String schedPolicySelected = chooseSchedPolicyBtn.getSelectionModel().getSelectedItem().toString();
-            this.RfaController.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            this.RfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
         }
         else{
             //throw alert that the year of season incorrect syntax

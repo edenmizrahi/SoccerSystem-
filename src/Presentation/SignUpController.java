@@ -2,7 +2,7 @@ package Presentation;
 
 //import Domain.Main;
 import Domain.MainSystem;
-import Service.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,16 +12,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.BorderWidths;
-import javafx.scene.layout.CornerRadii;
 import javafx.stage.Stage;
 
 
-import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -70,11 +63,12 @@ public class SignUpController {
     @FXML
     Label lbl_phoneError;
 
-    SystemOperationsController soc=new SystemOperationsController();
+    SystemOperationsApplication soc = new SystemOperationsApplication();
 
     public void closeEvent(MouseEvent mouseEvent) {
         System.exit(0);
     }
+
     public void backHandling(MouseEvent mouseEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -82,7 +76,8 @@ public class SignUpController {
         scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
-    public void signUpHandling(MouseEvent mouseEvent) throws IOException {
+
+    public void signUpHandling(MouseEvent mouseEvent) {
         MainSystem ms= MainSystem.getInstance();
         boolean isValid=true;
         if(txt_name.getText().trim().isEmpty()){
@@ -102,7 +97,7 @@ public class SignUpController {
         }
         //password length is 6 or more
         if(txt_password.getText().trim().isEmpty() ||txt_password.getText().length()<6){
-            lbl_PasswordError.setText("Password required, more than 6 numbers or letters");
+            lbl_PasswordError.setText("Password required, must be at least 6 characters");
             isValid=false;
         }
         else{
@@ -121,7 +116,7 @@ public class SignUpController {
             System.out.println("invalidPhone");
         }
         if(txt_phoneNumber.getText().trim().isEmpty() || txt_phoneNumber.getText().length()!=10||!( txt_phoneNumber.getText().matches("^[0-9]*$"))){
-            lbl_phoneError.setText("Phone number is required - only numbers");
+            lbl_phoneError.setText("Phone number is required and must be only numbers");
             isValid=false;
         }
         else{
@@ -170,7 +165,7 @@ public class SignUpController {
                 stageTheEventSourceNodeBelongs.setScene(scene);
             }
             catch (Exception e){
-                lbl_userNameError.setText("User name is already use");
+                lbl_userNameError.setText("User name already exists");
             }
         }
     }

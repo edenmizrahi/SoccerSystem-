@@ -1,9 +1,6 @@
 package Presentation;
 
-import Domain.MainSystem;
-import Domain.Users.Fan;
-import Domain.Users.User;
-import Service.UserController;
+import Service.UserApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,11 +12,8 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class LoginController{
@@ -36,7 +30,7 @@ public class LoginController{
     }
     @FXML
     public void validationHandling(MouseEvent mouseEvent) {
-        UserController uc=new UserController();
+        UserApplication uc=new UserApplication();
         try {
             String userName= uc.login(txt_userName.getText(),txt_password.getText());
             lbl_error.setText("");

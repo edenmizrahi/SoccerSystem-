@@ -1,13 +1,11 @@
 package AcceptRejectTests;
 
+import Domain.Controllers.PageOwnerController;
+import Domain.Controllers.SystemOperationsController;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Users.Fan;
-import Domain.Users.SystemManager;
-import Domain.Users.User;
-import Service.PageOwnerController;
-import Service.SystemManagerController;
-import Service.SystemOperationsController;
+import Service.SystemOperationsApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +26,7 @@ public class PageManagement {
      */
     @Test
     public void accept() throws Exception {
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         /***add team private page**/
         HashSet<Team> teams=operationsController.showAllTeams();
@@ -88,8 +86,8 @@ public class PageManagement {
      */
     @Test
     public void reject() throws Exception{
-        SystemOperationsController.deleteSystem();
-        SystemOperationsController.initSystemObjectsEden();
+        operationsController.deleteSystem();
+        operationsController.initSystemObjectsEden();
         system= MainSystem.getInstance();
         /***add team private page**/
         HashSet<Team> teams=operationsController.showAllTeams();

@@ -80,13 +80,15 @@ public class RfaController {
      *
      * @return linkedList of all subClasses that implement SchedulingPolicy interface
      */
-    public LinkedList<String> getAllschedulingString() {
-        LinkedList<String> schedulingList = new LinkedList<>();
+    public String getAllschedulingString() {
+        //LinkedList<String> schedulingList = new LinkedList<>();
+        String schedulingList = new String();
         Reflections reflections = new Reflections("Domain");
         Set<Class<? extends SchedulingPolicy>> classes = reflections.getSubTypesOf(SchedulingPolicy.class);
 
         for (Class class1 : classes) {
-            schedulingList.add(class1.getSimpleName());
+            //schedulingList.add(class1.getSimpleName());
+            schedulingList += class1.getSimpleName() + ",";
         }
 
         return schedulingList;
@@ -96,13 +98,15 @@ public class RfaController {
      *
      * @return linkedList of all subClasses that implement Calculation interface
      */
-    public LinkedList<String> getAllCalculationPoliciesString() {
-        LinkedList<String> calculationList = new LinkedList<>();
+    public String getAllCalculationPoliciesString() {
+        //LinkedList<String> calculationList = new LinkedList<>();
+        String calculationList = new String();
         Reflections reflections = new Reflections("Domain");
         Set<Class<? extends CalculationPolicy>> classes = reflections.getSubTypesOf(CalculationPolicy.class);
 
         for (Class class1 : classes) {
-            calculationList.add(class1.getSimpleName());
+            //calculationList.add(class1.getSimpleName());
+            calculationList += class1.getSimpleName() + ",";
         }
 
         return calculationList;

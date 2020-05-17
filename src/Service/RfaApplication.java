@@ -12,7 +12,7 @@ public class RfaApplication {
      *
      * @return linkedList of all subClasses that implement SchedulingPolicy interface
      */
-    public LinkedList<String> getAllschedulingString() {
+    public String getAllschedulingString() {
         return rfaController.getAllschedulingString();
     }
 
@@ -20,7 +20,7 @@ public class RfaApplication {
      *
      * @return linkedList of all subClasses that implement Calculation interface
      */
-    public LinkedList<String> getAllCalculationPoliciesString() {
+    public String getAllCalculationPoliciesString() {
         return rfaController.getAllCalculationPoliciesString();
     }
 
@@ -35,14 +35,4 @@ public class RfaApplication {
     public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
         rfaController.DefinePoliciesToSeason(year, calc, sched, rfaUserName);
     }
-
-    /**
-     * show Budget Role Options
-     * @return
-     *  @codeBy Eden
-     */
-    public List<String> showBudgetRoleOptions(){
-        return rfaController.showBudgetRoleOptions();
-    }
-
 }

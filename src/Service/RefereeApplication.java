@@ -15,7 +15,7 @@ public class RefereeApplication {
      * @return LinkedList<String> of players at specific match
      * @throws ParseException
      */
-    public LinkedList<String> displayPlayersAtMatch(String nameOfReferee, String match) {
+    public String displayPlayersAtMatch(String nameOfReferee, String match) {
         return refereeController.displayPlayersAtMatch(nameOfReferee, match);
     }
 
@@ -34,12 +34,12 @@ public class RefereeApplication {
      * @param nameOfReferee
      * @return
      */
-    public LinkedList<String> getAllMatches(String nameOfReferee) {
+    public String getAllMatches(String nameOfReferee) {
         return refereeController.getAllMatches(nameOfReferee);
     }
 
 
-    public LinkedList<String> createReportOfMatch(String match, String nameOfReferee) {
+    public String createReportOfMatch(String match, String nameOfReferee) {
         return refereeController.createReportOfMatch(match, nameOfReferee);
     }
 

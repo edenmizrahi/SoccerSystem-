@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,7 +44,8 @@ public class MyAlertsControllr {
     public void updateNotificationsComoBox(){
         fanNotificationsList.clear();
         fanNotificationsList.add("all my alerts about matches");
-        LinkedList<String> allFanAllerts = fanApplication.getFanNotifications(userName);
+        String allFanAllertsStr = fanApplication.getFanNotifications(userName);
+        List<String> allFanAllerts = Arrays.asList(allFanAllertsStr.split(","));
         for (String str:allFanAllerts) {
             fanNotificationsList.add(str);
         }

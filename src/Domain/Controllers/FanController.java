@@ -110,12 +110,14 @@ public class FanController {
      * @param userName
      * @return
      */
-    public LinkedList<String> getFanNotifications(String userName){
-        LinkedList<String> fanNotificationsString=new LinkedList<>();
+    public String getFanNotifications(String userName){
+        //LinkedList<String> fanNotificationsString=new LinkedList<>();
+        String fanNotificationsString = new String();
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         HashSet<Notification> fanNotifications= fan.getNotificationsList();
         for (Notification noti:fanNotifications) {
-            fanNotificationsString.add(noti.getContent().toString());
+            //fanNotificationsString.add(noti.getContent().toString());
+            fanNotificationsString += noti.getContent().toString() + ",";
             noti.setRead(true);
         }
 
@@ -142,12 +144,14 @@ public class FanController {
      * @param userName
      * @return
      */
-    public LinkedList<String> getUserMachesFollows(String userName){
+    public String getUserMachesFollows(String userName){
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         LinkedList<Match> fanMachesFollw= fan.getMatchesFollow();
-        LinkedList<String> fanMachesFollwsString = new LinkedList<>();
+        //LinkedList<String> fanMachesFollwsString = new LinkedList<>();
+        String fanMachesFollwsString = new String();
         for (Match match:fanMachesFollw) {
-            fanMachesFollwsString.add(match.toString());
+            //fanMachesFollwsString.add(match.toString());
+            fanMachesFollwsString += match.toString() + ",";
         }
         return fanMachesFollwsString;
     }

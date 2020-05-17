@@ -20,7 +20,7 @@ public class FanApplication {
      * @param userName
      * @return
      */
-    public LinkedList<String> getFanNotifications(String userName){
+    public String getFanNotifications(String userName){
         return fanController.getFanNotifications(userName);
     }
 
@@ -29,7 +29,7 @@ public class FanApplication {
      * @param userName
      * @return
      */
-    public LinkedList<String> getUserMachesFollows(String userName){
+    public String getUserMachesFollows(String userName){
        return fanController.getUserMachesFollows(userName);
     }
 

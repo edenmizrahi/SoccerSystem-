@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class RefereePageController extends HomePageController {
 
@@ -73,7 +75,9 @@ public class RefereePageController extends HomePageController {
 
 
     public void createReport(ActionEvent actionEvent) throws IOException {
-        LinkedList<String> matches = refereeApplication.getAllMatches(userName);
+        String matchesStr = refereeApplication.getAllMatches(userName);
+        List<String> matches = Arrays.asList(matchesStr.split(","));
+
         if(matches.size() > 0){
 
             FXMLLoader loader=new FXMLLoader();

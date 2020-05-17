@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -59,7 +60,9 @@ public class RegistrationGamesAlertsController {
         //for comboBox of fan matches
         fanMatchsList.clear();
         fanMatchsList.add("Matches you are following and receive alerts");
-        LinkedList<String> allFanMatchs = fanApplication.getUserMachesFollows(userName);
+        String allFanMatchsStr = fanApplication.getUserMachesFollows(userName);
+        List<String> allFanMatchs = Arrays.asList(allFanMatchsStr.split(","));
+
         for (String str:allFanMatchs) {
             fanMatchsList.add(str);
         }
@@ -71,7 +74,9 @@ public class RegistrationGamesAlertsController {
         //for comboBox of system matches
         allMatchsList.clear();
         allMatchsList.add("select a match you want to follow");
-        HashSet<String> allMatchesInSystem=syOpApp.getAllMatchsInSytem();
+        String allMatchesInSystemStr = syOpApp.getAllMatchsInSytem();
+        List<String> allMatchesInSystem = Arrays.asList(allMatchesInSystemStr.split(","));
+
         for (String str:allMatchesInSystem) {
             allMatchsList.add(str);
         }

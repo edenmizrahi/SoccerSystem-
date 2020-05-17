@@ -44,13 +44,15 @@ public class SystemOperationsController {
     /**
      * return all matches in system that have not yet happened - String format
      */
-    public HashSet<String> getAllMatchsInSytem(){
+    public String getAllMatchsInSytem(){
         List<Referee> allReferees =this.showAllReferee();
-        HashSet<String> allMatches=new HashSet<>();
+        //HashSet<String> allMatches=new HashSet<>();
+        String allMatches = new String();
         for (Referee ref:allReferees) {
             LinkedList<Match> allRefereeMatches=ref.getMatches();
             for (Match m:allRefereeMatches) {
-                allMatches.add(m.toString());
+                //allMatches.add(m.toString());
+                allMatches += m.toString() + ",";
             }
         }
         return allMatches;
@@ -371,14 +373,20 @@ public class SystemOperationsController {
      * @param userName
      * @return list of details of fan
      */
-    public List<String> getPrivateDetails(String userName) { //##
+    public String getPrivateDetails(String userName) {
         Fan fan= (Fan)getUserByUserName(userName);
-        List<String> details = new LinkedList<>();
-        details.add(fan.getName());
-        details.add(fan.getPassword());
-        details.add(fan.getPhoneNumber());
-        details.add(fan.getEmail());
-        details.add(String.valueOf(fan.getDateOfBirth()));
+        //List<String> details = new LinkedList<>();
+        String details = new String();
+//        details.add(fan.getName());
+        details += fan.getName() + ",";
+//        details.add(fan.getPassword());
+        details += fan.getPassword() + ",";
+//        details.add(fan.getPhoneNumber());
+        details += fan.getPhoneNumber() + ",";
+//        details.add(fan.getEmail());
+        details += fan.getEmail() + ",";
+//        details.add(String.valueOf(fan.getDateOfBirth()));
+        details += fan.getDateOfBirth();
 
         return details;
     }

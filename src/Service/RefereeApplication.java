@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
 
+
     /**
      *
      * @param username
@@ -112,14 +113,13 @@ public class RefereeApplication {
         return refereeController.createReplaceEvent(username, match, firstPlayer, secondPlayer);
     }
 
-    @Path("/createReplaceEvent/{username}/{match}/{time}")
+    @Path("/createExtraTimeEvent/{username}/{match}/{time}")
     @GET
     @Produces("text/plain")
     public String createExtraTimeEvent(@PathParam("username")String username,@PathParam("match") String match,
                                      @PathParam("time")String time) {
         return refereeController.createExtraTimeEvent(username, match, time);
     }
-
 
 
 }

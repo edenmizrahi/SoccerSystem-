@@ -16,7 +16,7 @@ public class FanApplication {
     }
 
     @Path("/setFanDetails/{username}/{name}/{password}/{phoneNumber}/{email}")
-    @POST
+    @GET
     @Produces("text/plain")
     public String setFanDetails(@PathParam("username")String userName,@PathParam("name")String name,
                                 @PathParam("password")String password,@PathParam("phoneNumber") String phoneNumber,

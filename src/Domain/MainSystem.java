@@ -445,32 +445,37 @@ public class MainSystem {
 
     /**OR**/
     //TODO test- V
+    //TODO save user to DB - fan, teamRole, player
     public void signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole newPlayer= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
         newPlayer.becomePlayer();
+        /**save user to DB - fan, teamRole, player**/
         LOG.info(String.format("%s - %s", userName, "sign in as Player"));
-
     }
 
     /**OR**/
     //TODO test- V
+    //TODO save user to DB - fan, teamRole, coach
     public void signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole newCoach= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
         newCoach.becomeCoach();
+        //save user to DB - fan, teamRole, coach
         LOG.info(String.format("%s - %s", userName, "sign in as Coach"));
     }
 
 
     /**OR**/
     //TODO test- V
+    //TODO save user to DB - fan
     public void signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         Fan newFan= new Fan(this,name,phoneNumber,email,userName,password, dateOfBirth);
+        //save user to DB - fan
         LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
     }
 
@@ -478,20 +483,24 @@ public class MainSystem {
 
     /**OR**/
     //TODO test- V
+    //TODO save user to DB - rfa, fan
     public void signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         Rfa newRFA= new Rfa(this,name,phoneNumber,email,userName,password,dateOfBirth);
+        //save user to DB - rfa, fan
         LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
     }
 
     /**OR**/
     //TODO test- V
+    //TODO save user to DB - teamRole, fan
     public void signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole teamOwner= new TeamRole(this,name,phoneNumber,email,userName,password, dateOfBirth);
         teamOwner.becomeTeamOwner();
+        //save user to DB - teamRole, fan
         LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
     }
 
@@ -563,6 +572,9 @@ public class MainSystem {
             LOG.error("password not valid");
             throw new Exception("password not valid");
         }
+
+        //search type of user
+        //create an object and save as connect user
         for (Fan fan:getAllFans() ) {
             if(fan.getUserName().equals(userName) && fan.getPassword().equals(password)){
                 LOG.info(String.format("%s - %s", userName, "loged in to system"));

@@ -44,6 +44,7 @@ public class TeamManagementController {
      * @throws Exception
      */
     public void makeTeamActive(String userName, String teamName, HashSet<String> playerNames , String coachUserName, String nameOfNewField) throws Exception{
+        //search in the activated users
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
         Team team = new Team();
         for(Team t : user.getTeamOwner().getApprovedTeams()){
@@ -54,7 +55,7 @@ public class TeamManagementController {
         }
         HashSet<TeamRole> players = new HashSet<>();
         for (String pName : playerNames){
-            TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
+            TeamRole p = (TeamRole) sOController.getUserByUserName(pName); //search in DB
             players.add(p);
         }
         TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);

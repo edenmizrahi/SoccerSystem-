@@ -48,7 +48,6 @@ public class MatchTest {
 //            String s = match.toString();
             Date date = new Date();
             match.setStartDate(date);
-            System.out.println("yarden");
         }
         catch (Exception e){
             fail();

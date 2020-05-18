@@ -47,6 +47,24 @@ public class Fan extends User implements NotificationsUser {
         gotFanNotification=false;
     }
 
+
+    public Fan( String name, String phoneNumber, String email, String userName, String password, Date date) {
+        super(MainSystem.getInstance());
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.dateOfBirth=date;
+        myPages = new LinkedList<>();
+        myComplaints = new LinkedList<>();
+        matchesFollow=new LinkedList<>();
+        this.searchHisroty= new LinkedList<>();
+        notificationHashSet=new HashSet<>();
+        //add userName to the hashset
+//        MainSystem.getInstance().addUserName(userName);
+        gotFanNotification=false;
+    }
     //<editor-fold desc="getters and setters">
     public List<PrivatePage> getMyPages() {
         return myPages;

@@ -1,8 +1,11 @@
 package Service;
 
 import Domain.Controllers.SystemOperationsController;
+
+import javax.ws.rs.*;
 import java.util.*;
 
+@Path("/SystemOperationsApplication")
 public class SystemOperationsApplication {
     SystemOperationsController systemOperationsController = new SystemOperationsController();
 
@@ -10,6 +13,9 @@ public class SystemOperationsApplication {
     /**
      * return all matches in system that have not yet happened - String format
      */
+    @Path("/getAllMatchsInSytem")
+    @GET
+    @Produces("text/plain")
     public String getAllMatchsInSytem(){
         return systemOperationsController.getAllMatchsInSytem();
     }
@@ -21,12 +27,19 @@ public class SystemOperationsApplication {
      * @param userName
      * @return list of details of fan
      */
-    public String getPrivateDetails(String userName) {
+    @Path("/getPrivateDetails/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getPrivateDetails(@PathParam("username")String userName) {
         return systemOperationsController.getPrivateDetails(userName);
     }
 
-
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
+    @Path("/signUp/{role}/{name}/{phoneNumber}/{email}/{username}/{password}/{dateOfBirth}")
+    @POST
+    @Produces("text/plain")
+    public String  signUp(@PathParam("role")String role,@PathParam("name") String name,@PathParam("phoneNumber") String phoneNumber,
+                          @PathParam("email") String email, @PathParam("username")String userName,
+                          @PathParam("password")String password,@PathParam("dateOfBirth") String dateOfBirth) {
        return systemOperationsController.signUp(role, name, phoneNumber, email, userName, password, dateOfBirth);
     }
 }

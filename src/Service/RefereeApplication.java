@@ -125,7 +125,7 @@ public class RefereeApplication {
         return refereeController.createReplaceEvent(username, match, firstPlayer, secondPlayer);
     }
 
-    @Path("/createReplaceEvent/{username}/{match}/{time}")
+    @Path("/createExtraTimeEvent/{username}/{match}/{time}")
     @GET
     @Produces("text/plain")
     public String createExtraTimeEvent(@PathParam("username")String username,@PathParam("match") String match,

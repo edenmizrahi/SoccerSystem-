@@ -31,7 +31,11 @@ public class LoginController{
     @FXML
     public void validationHandling(MouseEvent mouseEvent) {
         UserApplication uc=new UserApplication();
+
         try {
+            if(txt_userName.getText().contains(";")||txt_password.getText().contains(";")){
+                throw new Exception();
+            }
             String userName= uc.login(txt_userName.getText(),txt_password.getText());
             lbl_error.setText("");
             /**notification*/

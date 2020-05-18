@@ -13,6 +13,7 @@ import Domain.Users.Referee;
 import Domain.Users.Rfa;
 import Domain.Users.TeamRole;
 import Stubs.TeamStub;
+import org.jooq.meta.derby.sys.Sys;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -47,6 +48,7 @@ public class MatchTest {
 //            String s = match.toString();
             Date date = new Date();
             match.setStartDate(date);
+            System.out.println("yarden");
         }
         catch (Exception e){
             fail();

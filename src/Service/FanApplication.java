@@ -1,10 +1,8 @@
 package Service;
 
 import Domain.Controllers.FanController;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+
+import javax.ws.rs.*;
 
 @Path("/Fan")
 public class FanApplication {
@@ -17,7 +15,12 @@ public class FanApplication {
         return fanController.fanIsTeamRole(userName);
     }
 
-    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email){
+    @Path("/setFanDetails/{username}/{name}/{password}/{phoneNumber}/{email}")
+    @POST
+    @Produces("text/plain")
+    public String setFanDetails(@PathParam("username")String userName,@PathParam("name")String name,
+                                @PathParam("password")String password,@PathParam("phoneNumber") String phoneNumber,
+                                @PathParam("email")String email){
       return fanController.setFanDetails(userName, name, password, phoneNumber, email);
     }
 
@@ -26,7 +29,10 @@ public class FanApplication {
      * @param userName
      * @return
      */
-    public String getFanNotifications(String userName){
+    @Path("/getFanNotifications/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getFanNotifications(@PathParam("username") String userName){
         return fanController.getFanNotifications(userName);
     }
 
@@ -35,7 +41,10 @@ public class FanApplication {
      * @param userName
      * @return
      */
-    public String getUserMachesFollows(String userName){
+    @Path("/getUserMachesFollows/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getUserMachesFollows(@PathParam("username")String userName){
        return fanController.getUserMachesFollows(userName);
     }
 
@@ -45,7 +54,10 @@ public class FanApplication {
      * @param match
      * @return
      */
-    public String addMatchToFanMatchesFollow(String userName, String match) {
+    @Path("/addMatchToFanMatchesFollow/{username}/{match}")
+    @GET
+    @Produces("text/plain")
+    public String addMatchToFanMatchesFollow(@PathParam("username")String userName,@PathParam("match") String match) {
         return fanController.addMatchToFanMatchesFollow(userName, match);
     }
 
@@ -54,7 +66,10 @@ public class FanApplication {
      * @param username
      * @return
      */
-    public String checkForNewNotifications(String username){
+    @Path("/checkForNewNotifications/{username}")
+    @GET
+    @Produces("text/plain")
+    public String checkForNewNotifications(@PathParam("username")String username){
         return fanController.checkForNewNotifications(username);
     }
 

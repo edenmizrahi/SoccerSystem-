@@ -16,12 +16,6 @@ public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
 
 
-    //get list of players name
-    //TODO???
-    public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
-        return refereeController.getPlayersFromTeamInList(players);
-    }
-
     /**
      *
      * @param username
@@ -133,6 +127,5 @@ public class RefereeApplication {
         return refereeController.createExtraTimeEvent(username, match, time);
     }
 
-
-
+    
 }

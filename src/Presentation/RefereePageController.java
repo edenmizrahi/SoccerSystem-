@@ -76,7 +76,7 @@ public class RefereePageController extends HomePageController {
 
     public void createReport(ActionEvent actionEvent) throws IOException {
         String matchesStr = refereeApplication.getAllMatches(userName);
-        List<String> matches = Arrays.asList(matchesStr.split(","));
+        List<String> matches = Arrays.asList(matchesStr.split(";"));
 
         if(matches.size() > 0){
 

@@ -1,7 +1,5 @@
 package Service;
 import Domain.Controllers.TeamManagementController;
-import java.util.HashSet;
-import java.util.LinkedList;
 
 
 public class TeamManagementApplication {
@@ -11,7 +9,6 @@ public class TeamManagementApplication {
      * adi
      * @param userName
      * @param name
-     * @throws Exception
      */
     public String requestNewTeam(String userName, String name) {
         return teamManagementController.requestNewTeam(userName, name);
@@ -24,7 +21,6 @@ public class TeamManagementApplication {
      * @param playerNames
      * @param coachUserName
      * @param nameOfNewField
-     * @throws Exception
      */
     public String makeTeamActive(String userName, String teamName, String playerNames , String coachUserName, String nameOfNewField){
        return teamManagementController.makeTeamActive(userName, teamName, playerNames, coachUserName, nameOfNewField);

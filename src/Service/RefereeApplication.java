@@ -1,33 +1,20 @@
 package Service;
 
 import Domain.Controllers.RefereeController;
-import Domain.Users.Player;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import java.text.ParseException;
-import java.util.HashSet;
-import java.util.LinkedList;
 
 @Path("/RefereeApplication")
 public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
-
-
-    //get list of players name
-    //TODO???
-    public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
-        return refereeController.getPlayersFromTeamInList(players);
-    }
 
     /**
      *
      * @param username
      * @param match
      * @return LinkedList<String> of players at specific match
-     * @throws ParseException
      */
     @Path("/displayPlayersAtMatch/{username}/{match}")
     @GET

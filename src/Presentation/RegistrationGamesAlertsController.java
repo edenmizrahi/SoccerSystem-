@@ -61,7 +61,7 @@ public class RegistrationGamesAlertsController {
         fanMatchsList.clear();
         fanMatchsList.add("Matches you are following and receive alerts");
         String allFanMatchsStr = fanApplication.getUserMachesFollows(userName);
-        List<String> allFanMatchs = Arrays.asList(allFanMatchsStr.split(","));
+        List<String> allFanMatchs = Arrays.asList(allFanMatchsStr.split(";"));
 
         for (String str:allFanMatchs) {
             fanMatchsList.add(str);
@@ -75,7 +75,7 @@ public class RegistrationGamesAlertsController {
         allMatchsList.clear();
         allMatchsList.add("select a match you want to follow");
         String allMatchesInSystemStr = syOpApp.getAllMatchsInSytem();
-        List<String> allMatchesInSystem = Arrays.asList(allMatchesInSystemStr.split(","));
+        List<String> allMatchesInSystem = Arrays.asList(allMatchesInSystemStr.split(";"));
 
         for (String str:allMatchesInSystem) {
             allMatchsList.add(str);

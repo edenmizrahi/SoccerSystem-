@@ -1,8 +1,6 @@
 package Service;
 import Domain.Controllers.RfaController;
 
-import java.util.*;
-
 public class RfaApplication {
 
     RfaController rfaController = new RfaController();

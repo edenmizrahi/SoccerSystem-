@@ -88,7 +88,7 @@ public class RfaController {
 
         for (Class class1 : classes) {
             //schedulingList.add(class1.getSimpleName());
-            schedulingList += class1.getSimpleName() + ",";
+            schedulingList += class1.getSimpleName() + ";";
         }
 
         return schedulingList;
@@ -106,7 +106,7 @@ public class RfaController {
 
         for (Class class1 : classes) {
             //calculationList.add(class1.getSimpleName());
-            calculationList += class1.getSimpleName() + ",";
+            calculationList += class1.getSimpleName() + ";";
         }
 
         return calculationList;

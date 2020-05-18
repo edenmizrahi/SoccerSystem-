@@ -217,6 +217,7 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createGoalEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
+            //update in tables
         } catch(Exception e){
             return "";
         }

@@ -853,8 +853,10 @@ public class SystemOperationsController {
 
     public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
         MainSystem ms=MainSystem.getInstance();
+        //list of userName in Fan table - check if userName contains
         try {
             if (role.equals("Player")) {
+
                 ms.signInAsPlayer(name, phoneNumber, email, userName, password, dateOfBirth);
 
             }

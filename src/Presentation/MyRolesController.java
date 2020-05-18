@@ -38,14 +38,14 @@ public class MyRolesController { //implements Initializable {
     @FXML
     public void initScene(){
         String myRolesStr = tMApp.getMyRoles(userName);
-        List<String> myRoles = Arrays.asList(myRolesStr.split(","));
+        List<String> myRoles = Arrays.asList(myRolesStr.split(";"));
         myRolesCB.getItems().clear();
         for (String role : myRoles) {
             myRolesCB.getItems().add(role);
         }
 
         String canBecomeStr = tMApp.getWhatICanBecome(userName);
-        List<String> canBecome = Arrays.asList(canBecomeStr.split(","));
+        List<String> canBecome = Arrays.asList(canBecomeStr.split(";"));
         becomeRoleCB.getItems().clear();
         for (String role : canBecome) {
             becomeRoleCB.getItems().add(role);

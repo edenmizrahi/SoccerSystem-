@@ -66,7 +66,7 @@ public class ReportOfMatchController {
         reportTable.setVisible(true);
         String match =  idMatches.getSelectionModel().getSelectedItem();
         String reportStr = this.refereeApplication.createReportOfMatch(match,userName);
-        List<String> report = Arrays.asList(reportStr.split(","));
+        List<String> report = Arrays.asList(reportStr.split(";"));
 
         reportTable.getItems().addAll(report);
 

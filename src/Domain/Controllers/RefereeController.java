@@ -66,7 +66,7 @@ public class RefereeController {
             //LinkedList<String> allPlayers = awayPlayersName;
             String allPlayers = new String();
             for(String pName : homePlayersName){
-                allPlayers += pName + ",";
+                allPlayers += pName + ";";
             }
             //allPlayers.addAll(homePlayersName);
             return allPlayers;
@@ -148,7 +148,7 @@ public class RefereeController {
             if(match.getMainReferee().getUserName().equals(nameOfReferee)) {
                 if (currentDate.after(DateUtils.addMinutes(match.getStartDate(), match.getNumOfMinutes()))) {
                     //listOfMatches.add(match.toString());
-                    listOfMatches += match.toString() + ",";
+                    listOfMatches += match.toString() + ";";
                 }
             }
         }
@@ -167,7 +167,7 @@ public class RefereeController {
             HashSet<Event> allEvents = currentReferee.createReport(m);
             for (Event e : allEvents) {
                 //listOfEventsInMatch.add(e.toString());
-                listOfEventsInMatch += e.toString() + ",";
+                listOfEventsInMatch += e.toString() + ";";
             }
             return listOfEventsInMatch;
         } catch(Exception e){

@@ -2,8 +2,6 @@ package Service;
 import Domain.Controllers.TeamManagementController;
 
 import javax.ws.rs.*;
-import java.util.HashSet;
-import java.util.LinkedList;
 
 @Path("/TeamManagementApplication")
 public class TeamManagementApplication {
@@ -13,7 +11,6 @@ public class TeamManagementApplication {
      * adi
      * @param username
      * @param name
-     * @throws Exception
      */
     @Path("/requestNewTeam/{username}/{name}")
     @GET
@@ -29,7 +26,6 @@ public class TeamManagementApplication {
      * @param playerNames
      * @param coachUserName
      * @param nameOfNewField
-     * @throws Exception
      */
     @Path("/makeTeamActive/{userName}/{teamName}/{playerNames}/{coachUserName}/{nameOfNewField}")
     @GET

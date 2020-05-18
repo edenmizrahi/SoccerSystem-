@@ -55,7 +55,7 @@ public class TeamManagementController {
                     break;
                 }
             }
-            List<String> playerNames = Arrays.asList(playerNamesStr.split(","));
+            List<String> playerNames = Arrays.asList(playerNamesStr.split(";"));
             HashSet<TeamRole> players = new HashSet<>();
             for (String pName : playerNames) {
                 TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
@@ -84,7 +84,7 @@ public class TeamManagementController {
             String teamNames = new String();
             for (Team t : teams) {
                 //teamNames.add(t.getName());
-                teamNames += t.getName() + ",";
+                teamNames += t.getName() + ";";
             }
             return teamNames;
         }
@@ -515,11 +515,11 @@ public class TeamManagementController {
         for(TeamRole teamRole : allTeamRole){
             if(teamRole.getCoach() == null){
                 //ans.add(teamRole.getUserName());
-                ans += teamRole.getUserName() + ",";
+                ans += teamRole.getUserName() + ";";
             }
             else if(teamRole.getCoach().getCoachTeam() == null){
                 //ans.add(teamRole.getUserName());
-                ans += teamRole.getUserName() + ",";
+                ans += teamRole.getUserName() + ";";
             }
         }
         return ans;
@@ -548,11 +548,11 @@ public class TeamManagementController {
         for(TeamRole teamRole : allTeamRole){
             if(teamRole.getPlayer() == null){
                 //ans.add(teamRole.getUserName());
-                ans += teamRole.getUserName() + ",";
+                ans += teamRole.getUserName() + ";";
             }
             else if(teamRole.getPlayer().getTeam() == null){
                 //ans.add(teamRole.getUserName());
-                ans += teamRole.getUserName() + ",";
+                ans += teamRole.getUserName() + ";";
             }
         }
         return ans;

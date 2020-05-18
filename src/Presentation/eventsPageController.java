@@ -74,7 +74,7 @@ public class eventsPageController {
         String id =s1[0];
 
         String allPlayersStr = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
-        List<String> allPlayers = Arrays.asList(allPlayersStr.split(","));
+        List<String> allPlayers = Arrays.asList(allPlayersStr.split(";"));
         List<String> list = new LinkedList<>();
         for (String str:allPlayers) {
             list.add(str);

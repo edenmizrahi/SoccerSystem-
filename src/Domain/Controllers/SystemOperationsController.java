@@ -851,29 +851,35 @@ public class SystemOperationsController {
         system.setTeamNames(new HashSet<>());
     }
 
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) {
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth) {
+        SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date;
+        try{
+            date= birthDateFormat.parse(dateOfBirth);
+        }catch (ParseException e){
+            return "date not in right format";
+        }
         MainSystem ms=MainSystem.getInstance();
         //list of userName in Fan table - check if userName contains
         try {
             if (role.equals("Player")) {
-
-                ms.signInAsPlayer(name, phoneNumber, email, userName, password, dateOfBirth);
+                ms.signInAsPlayer(name, phoneNumber, email, userName, password, date);
 
             }
             if (role.equals("Coach")) {
-                ms.signInAsCoach(name, phoneNumber, email, userName, password, dateOfBirth);
+                ms.signInAsCoach(name, phoneNumber, email, userName, password, date);
 
             }
             if (role.equals("Fan")) {
-                ms.signInAsFan(name, phoneNumber, email, userName, password, dateOfBirth);
+                ms.signInAsFan(name, phoneNumber, email, userName, password, date);
 
             }
             if (role.equals("RFA")) {
-                ms.signInAsRFA(name, phoneNumber, email, userName, password, dateOfBirth);
+                ms.signInAsRFA(name, phoneNumber, email, userName, password, date);
 
             }
             if (role.equals("TeamOwner")) {
-                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, dateOfBirth);
+                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date);
 
             }
         }

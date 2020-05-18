@@ -48,8 +48,8 @@ public class TeamManagementApplication {
     @Path("/becomeRole/{username}/{role}")
     @GET
     @Produces("text/plain")
-    public void becomeRole(@PathParam("username")String userName,@PathParam("role") String role){
-        teamManagementController.becomeRole(userName, role);
+    public String becomeRole(@PathParam("username")String userName,@PathParam("role") String role){
+        return teamManagementController.becomeRole(userName, role);
     }
 
     //<editor-fold desc="getters">

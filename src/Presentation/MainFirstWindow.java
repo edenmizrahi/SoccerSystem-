@@ -28,9 +28,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainFirstWindow extends Application {
-
-
     static Stage primary_Stage;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));

@@ -79,30 +79,45 @@ public class SignUpController {
     }
 
     public void signUpHandling(MouseEvent mouseEvent) {
-        MainSystem ms= MainSystem.getInstance();
-        boolean isValid=true;
-        if(txt_name.getText().trim().isEmpty()){
-           lbl_nameError.setText("Name required");
-            isValid=false;
-        }
-        else{
-            lbl_nameError.setText("");
+        MainSystem ms = MainSystem.getInstance();
+        boolean isValid = true;
+        if (txt_name.getText().trim().contains(";")) {
+            lbl_nameError.setText(" ; is not valid character");
+            isValid = false;
+        } else {
+            if (txt_name.getText().trim().isEmpty()) {
+                lbl_nameError.setText("Name required");
+                isValid = false;
+            } else {
+                lbl_nameError.setText("");
+            }
         }
         //check that username in unique
-        if(txt_userName.getText().trim().isEmpty() ){
-            lbl_userNameError.setText("User name required");
-            isValid=false;
+        if (txt_userName.getText().trim().contains(";")) {
+            lbl_userNameError.setText(" ; is not valid character");
+            isValid = false;
         }
-        else{
-            lbl_userNameError.setText("");
+        else {
+            if (txt_userName.getText().trim().isEmpty()) {
+                lbl_userNameError.setText("User name required");
+                isValid = false;
+            } else {
+                lbl_userNameError.setText("");
+            }
         }
+
         //password length is 6 or more
-        if(txt_password.getText().trim().isEmpty() ||txt_password.getText().length()<6){
-            lbl_PasswordError.setText("Password required, must be at least 6 characters");
-            isValid=false;
+        if (txt_password.getText().trim().contains(";")) {
+            lbl_PasswordError.setText(" ; is not valid character");
+            isValid = false;
         }
-        else{
-            lbl_PasswordError.setText("");
+        else {
+            if (txt_password.getText().trim().isEmpty() || txt_password.getText().length() < 6) {
+                lbl_PasswordError.setText("Password required, must be at least 6 characters");
+                isValid = false;
+            } else {
+                lbl_PasswordError.setText("");
+            }
         }
         //password length is 6 or more
         if(txt_passwordConfi.getText().trim().isEmpty() ||!txt_password.getText().equals(txt_passwordConfi.getText())){
@@ -113,24 +128,34 @@ public class SignUpController {
             lbl_PasswordError1.setText("");
         }
         // phone number is 10 digits
-        if(!( txt_phoneNumber.getText().matches("^[0-9]*$"))){
-            System.out.println("invalidPhone");
+        if (txt_phoneNumber.getText().trim().contains(";")) {
+            lbl_phoneError.setText(" ; is not valid character");
+            isValid = false;
         }
-        if(txt_phoneNumber.getText().trim().isEmpty() || txt_phoneNumber.getText().length()!=10||!( txt_phoneNumber.getText().matches("^[0-9]*$"))){
-            lbl_phoneError.setText("Phone number is required and must be only numbers");
-            isValid=false;
-        }
-        else{
-            lbl_phoneError.setText("");
+        else {
+            if (!(txt_phoneNumber.getText().matches("^[0-9]*$"))) {
+                System.out.println("invalidPhone");
+            }
+            if (txt_phoneNumber.getText().trim().isEmpty() || txt_phoneNumber.getText().length() != 10 || !(txt_phoneNumber.getText().matches("^[0-9]*$"))) {
+                lbl_phoneError.setText("Phone number is required and must be only numbers");
+                isValid = false;
+            } else {
+                lbl_phoneError.setText("");
+            }
         }
         //email contains @
-        if(txt_email.getText().trim().isEmpty() ||! txt_email.getText().contains("@")||(!(txt_email.getText().contains(".com")) && !txt_email.getText().contains(".co.il"))){
-            lbl_emailError.setText("Email not valid");
-            isValid=false;
+        if (txt_email.getText().trim().contains(";")) {
+            lbl_emailError.setText(" ; is not valid character");
+            isValid = false;
         }
-        else{
-            lbl_emailError.setText("");
+        else {
+            if (txt_email.getText().trim().isEmpty() || !txt_email.getText().contains("@") || (!(txt_email.getText().contains(".com")) && !txt_email.getText().contains(".co.il"))) {
+                lbl_emailError.setText("Email not valid");
+                isValid = false;
+            } else {
+                lbl_emailError.setText("");
 
+            }
         }
         //birthday
         Date date=null;
@@ -208,3 +233,4 @@ public class SignUpController {
     }
 
 }
+

@@ -31,7 +31,11 @@ public class LoginController{
     @FXML
     public void validationHandling(MouseEvent mouseEvent) {
         UserApplication uc=new UserApplication();
+
         try {
+            if(txt_userName.getText().contains(";")||txt_password.getText().contains(";")){
+                throw new Exception();
+            }
             String userName= uc.login(txt_userName.getText(),txt_password.getText());
             //String userName = ClientController.connectToServer("UserApplication", "login", txt_userName.getText(),txt_password.getText());
 
@@ -83,7 +87,7 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
-//                    hpc.initUser(userName);
+                    hpc.initHomePage(userName);
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);

@@ -23,11 +23,11 @@ public class UserController {
      */
     public String login(String userName , String password ) {
         try {
-            //Todo this function returns exceptions, need to catch them here and return the message
-            Fan f = MainSystem.getInstance().logIn(userName, password);
-            if (f == null) {
-                //Todo change to return string message and not exception
-                throw new Exception("Incorrect user name or password");
+        //Todo this function returns exceptions, need to catch them here and return the message
+                Fan f = MainSystem.getInstance().logIn(userName, password);
+                if (f == null) {
+                    //Todo change to return string message and not exception
+                    throw new Exception("Incorrect user name or password");
             }
             if (f instanceof Rfa) {
                 return "RFA";

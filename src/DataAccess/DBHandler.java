@@ -1,6 +1,5 @@
-package MariaDB;
+package DataAccess;
 
-import DB.Tables.tables.Fans;
 import org.jooq.DSLContext;
 import org.jooq.Result;
 import org.jooq.SQLDialect;

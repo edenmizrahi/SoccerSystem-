@@ -349,7 +349,9 @@ public class SystemOperationsController {
      * @codeBy Eden
      */
     public User getUserByUserName(String userName) {
+        //take the activate users
         List<User> users = MainSystem.getInstance().getUsers();
+
         LinkedList<User> matches = new LinkedList<User>();
         for (User cur : users) {
             Fan curr = (Fan)cur;

@@ -1,8 +1,13 @@
 package Service;
 import Domain.Controllers.RfaController;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import java.util.*;
 
+@Path("/RfaApplication")
 public class RfaApplication {
 
     RfaController rfaController = new RfaController();
@@ -12,6 +17,9 @@ public class RfaApplication {
      *
      * @return linkedList of all subClasses that implement SchedulingPolicy interface
      */
+    @Path("/getAllschedulingString")
+    @GET
+    @Produces("text/plain")
     public String getAllschedulingString() {
         return rfaController.getAllschedulingString();
     }
@@ -20,6 +28,9 @@ public class RfaApplication {
      *
      * @return linkedList of all subClasses that implement Calculation interface
      */
+    @Path("/getAllCalculationPoliciesString")
+    @GET
+    @Produces("text/plain")
     public String getAllCalculationPoliciesString() {
         return rfaController.getAllCalculationPoliciesString();
     }
@@ -32,7 +43,11 @@ public class RfaApplication {
      * @param calc
      * @param sched
      */
-    public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
+    @Path("/DefinePoliciesToSeason/{year}/{calc}/{sched}/{rfausername}")
+    @GET
+    @Produces("text/plain")
+    public void DefinePoliciesToSeason(@PathParam("year")String year, @PathParam("calc")String calc,
+                                       @PathParam("sched")String sched, @PathParam("rfausername")String rfaUserName){
         rfaController.DefinePoliciesToSeason(year, calc, sched, rfaUserName);
     }
 }

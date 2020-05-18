@@ -2,6 +2,12 @@ package Service;
 
 import Domain.Controllers.UserController;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+@Path("/TeamManagementApplication")
 public class UserApplication {
     UserController userController = new UserController();
 
@@ -13,15 +19,24 @@ public class UserApplication {
      * @throws Exception
      *  @codeBy Eden
      */
-    public String login(String userName , String password ) {
+    @Path("/login/{userName}/{password}")
+    @GET
+    @Produces("text/plain")
+    public String login(@PathParam("userName")String userName, @PathParam("password")String password ) {
         return userController.login(userName, password);
     }
 
-    public String logout(String userName )  {
+    @Path("/logout/{userName}")
+    @GET
+    @Produces("text/plain")
+    public String logout(@PathParam("userName")String userName )  {
         return userController.logOut(userName);
     }
 
-    public boolean haveUnreadNotifications(String userName ) {
+    @Path("/haveUnreadNotifications/{userName}")
+    @GET
+    @Produces("text/plain")
+    public boolean haveUnreadNotifications(@PathParam("userName")String userName ) {
         return userController.haveUnreadNotifications(userName);
     }
 

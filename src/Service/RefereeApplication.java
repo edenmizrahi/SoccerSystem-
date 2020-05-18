@@ -16,12 +16,6 @@ public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
 
 
-    //get list of players name
-    //TODO???
-    public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
-        return refereeController.getPlayersFromTeamInList(players);
-    }
-
     /**
      *
      * @param username
@@ -125,14 +119,13 @@ public class RefereeApplication {
         return refereeController.createReplaceEvent(username, match, firstPlayer, secondPlayer);
     }
 
-    @Path("/createReplaceEvent/{username}/{match}/{time}")
+    @Path("/createExtraTimeEvent/{username}/{match}/{time}")
     @GET
     @Produces("text/plain")
     public String createExtraTimeEvent(@PathParam("username")String username,@PathParam("match") String match,
                                      @PathParam("time")String time) {
         return refereeController.createExtraTimeEvent(username, match, time);
     }
-
 
 
 }

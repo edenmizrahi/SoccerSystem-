@@ -1,20 +1,25 @@
 package Service;
 import Domain.Controllers.TeamManagementController;
+
+import javax.ws.rs.*;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-
+@Path("/TeamManagementApplication")
 public class TeamManagementApplication {
     TeamManagementController teamManagementController = new TeamManagementController();
 
     /**
      * adi
-     * @param userName
+     * @param username
      * @param name
      * @throws Exception
      */
-    public String requestNewTeam(String userName, String name) {
-        return teamManagementController.requestNewTeam(userName, name);
+    @Path("/requestNewTeam/{username}/{name}")
+    @GET
+    @Produces("text/plain")
+    public String requestNewTeam(@PathParam("username")String username, @PathParam("name")String name) {
+        return teamManagementController.requestNewTeam(username, name);
     }
 
     /**
@@ -26,34 +31,57 @@ public class TeamManagementApplication {
      * @param nameOfNewField
      * @throws Exception
      */
-    public String makeTeamActive(String userName, String teamName, String playerNames , String coachUserName, String nameOfNewField){
+    @Path("/makeTeamActive/{userName}/{teamName}/{playerNames}/{coachUserName}/{nameOfNewField}")
+    @GET
+    @Produces("text/plain")
+    public String makeTeamActive(@PathParam("userName")String userName,@PathParam("teamName") String teamName,
+                                 @PathParam("playerNames")String playerNames ,@PathParam("coachUserName") String coachUserName,
+                                 @PathParam("nameOfNewField")String nameOfNewField){
        return teamManagementController.makeTeamActive(userName, teamName, playerNames, coachUserName, nameOfNewField);
     }
 
-    public String getMyApprovedTeams(String userName){
+
+    @Path("/getMyApprovedTeams/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getMyApprovedTeams(@PathParam("username")String userName){
         return teamManagementController.getMyApprovedTeams(userName);
     }
 
-    public void becomeRole(String userName, String role){
+
+    @Path("/becomeRole/{username}/{role}")
+    @GET
+    @Produces("text/plain")
+    public void becomeRole(@PathParam("username")String userName,@PathParam("role") String role){
         teamManagementController.becomeRole(userName, role);
     }
 
     //<editor-fold desc="getters">
-
+    @Path("/getAllTeamRolesThatArentCoachWithTeam")
+    @GET
+    @Produces("text/plain")
     public String getAllTeamRolesThatArentCoachWithTeam(){
         return teamManagementController.getAllTeamRolesThatArentCoachWithTeam();
     }
 
+    @Path("/getAllTeamRolesThatArentPlayerWithTeam")
+    @GET
+    @Produces("text/plain")
     public String getAllTeamRolesThatArentPlayerWithTeam(){
         return teamManagementController.getAllTeamRolesThatArentPlayerWithTeam();
     }
 
-    public String getMyRoles (String userName){
+    @Path("/getMyRoles/{userName}")
+    @GET
+    @Produces("text/plain")
+    public String getMyRoles (@PathParam("userName")String userName){
        return teamManagementController.getMyRoles(userName);
     }
 
-
-    public String getWhatICanBecome (String userName){
+    @Path("/getWhatICanBecome/{userName}")
+    @GET
+    @Produces("text/plain")
+    public String getWhatICanBecome (@PathParam("userName")String userName){
         return teamManagementController.getWhatICanBecome(userName);
     }
     //</editor-fold>

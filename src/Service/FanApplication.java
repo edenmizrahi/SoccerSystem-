@@ -4,7 +4,7 @@ import Domain.Controllers.FanController;
 
 import javax.ws.rs.*;
 
-@Path("/Fan")
+@Path("/FanApplication")
 public class FanApplication {
     FanController fanController = new FanController();
 

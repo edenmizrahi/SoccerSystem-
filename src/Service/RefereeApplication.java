@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-@Path("/Referee")
+@Path("/RefereeApplication")
 public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
 

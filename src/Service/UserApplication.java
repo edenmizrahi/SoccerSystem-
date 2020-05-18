@@ -13,8 +13,12 @@ public class UserApplication {
      * @throws Exception
      *  @codeBy Eden
      */
-    public String login(String userName , String password ) throws Exception {
+    public String login(String userName , String password ) {
         return userController.login(userName, password);
+    }
+
+    public String logout(String userName )  {
+        return userController.logOut(userName);
     }
 
     public boolean haveUnreadNotifications(String userName ) {

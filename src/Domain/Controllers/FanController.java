@@ -4,9 +4,7 @@ import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
-import Domain.Users.Fan;
-import Domain.Users.Referee;
-import Domain.Users.TeamRole;
+import Domain.Users.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,15 +36,7 @@ public class FanController {
     }
 
 
-    /**
-     * logOutFromSystem
-     *
-     * @param curUser
-     * @codeBy Eden
-     */
-    public void logOut(Fan curUser) {
-        curUser.logOut();
-    }
+
 
     /**
      * change user details , return list of changed fields
@@ -89,7 +79,7 @@ public class FanController {
 
     }
 
-    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email) throws Exception {
+    public String setFanDetails(String userName,String name, String password, String phoneNumber, String email){
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         Date dateFormat= null;
 //        try {
@@ -110,12 +100,14 @@ public class FanController {
      * @param userName
      * @return
      */
-    public LinkedList<String> getFanNotifications(String userName){
-        LinkedList<String> fanNotificationsString=new LinkedList<>();
+    public String getFanNotifications(String userName){
+        //LinkedList<String> fanNotificationsString=new LinkedList<>();
+        String fanNotificationsString = new String();
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         HashSet<Notification> fanNotifications= fan.getNotificationsList();
         for (Notification noti:fanNotifications) {
-            fanNotificationsString.add(noti.getContent().toString());
+            //fanNotificationsString.add(noti.getContent().toString());
+            fanNotificationsString += noti.getContent().toString() + ",";
             noti.setRead(true);
         }
 
@@ -142,12 +134,14 @@ public class FanController {
      * @param userName
      * @return
      */
-    public LinkedList<String> getUserMachesFollows(String userName){
+    public String getUserMachesFollows(String userName){
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         LinkedList<Match> fanMachesFollw= fan.getMatchesFollow();
-        LinkedList<String> fanMachesFollwsString = new LinkedList<>();
+        //LinkedList<String> fanMachesFollwsString = new LinkedList<>();
+        String fanMachesFollwsString = new String();
         for (Match match:fanMachesFollw) {
-            fanMachesFollwsString.add(match.toString());
+            //fanMachesFollwsString.add(match.toString());
+            fanMachesFollwsString += match.toString() + ",";
         }
         return fanMachesFollwsString;
     }
@@ -179,6 +173,26 @@ public class FanController {
         return massage;
     }
 
+    /**
+     * check for new Notification
+     * @param username
+     * @return
+     */
+    public String checkForNewNotifications(String username){
+        User user= systemOperationsController.getUserByUserName(username);
+        if(user instanceof Referee){
+            return ((Referee)user).checkNotificationAlert();
+        }
+        else if(user instanceof Rfa){
+            return ((Rfa)user).checkNotificationAlert();
+        }
+        else if(user instanceof Fan){
+            return ((Fan)user).checkNotificationAlert();
+        }
+        else{
+            return "user instance of fan";
+        }
+    }
 
 }
 

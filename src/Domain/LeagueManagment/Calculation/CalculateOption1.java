@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class CalculateOption1 implements CalculationPolicy {
-
-
     //TODO test - V
     @Override
     public String getNameOfCalculationPolicy(){

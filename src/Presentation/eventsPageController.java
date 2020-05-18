@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -65,14 +66,15 @@ public class eventsPageController {
     }
 
     @FXML
-    public void initComboBox(MouseEvent event) throws ParseException {
+    public void initComboBox(MouseEvent event) {
 
         String fullId = event.getSource().toString();
         String[]s = fullId.split("=");
         String[] s1 = s[1].split(",");
         String id =s1[0];
 
-        LinkedList<String> allPlayers = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
+        String allPlayersStr = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
+        List<String> allPlayers = Arrays.asList(allPlayersStr.split(","));
         List<String> list = new LinkedList<>();
         for (String str:allPlayers) {
             list.add(str);
@@ -137,45 +139,45 @@ public class eventsPageController {
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
-    public void onClickGoalSubmit() throws Exception {
+    public void onClickGoalSubmit() {
         String player = playerForGoal.getSelectionModel().getSelectedItem();
         this.refereeApplication.createGoalEvent(userName,match,player);
     }
 
-    public void onClickInjurySubmit() throws Exception {
+    public void onClickInjurySubmit() {
         String player = playerForInjury.getSelectionModel().getSelectedItem();
         this.refereeApplication.createInjuryEvent(userName,match,player);
     }
 
-    public void onClickOffenseSubmit() throws Exception {
+    public void onClickOffenseSubmit() {
         String player = playerForOffense.getSelectionModel().getSelectedItem();
         this.refereeApplication.createOffenseEvent(userName,match,player);
     }
 
-    public void onClickOffsideSubmit() throws Exception {
+    public void onClickOffsideSubmit() {
         String player = playerForOffSide.getSelectionModel().getSelectedItem();
         this.refereeApplication.createOffSideEvent(userName,match,player);
     }
 
-    public void onClickReplaceSubmit() throws Exception {
+    public void onClickReplaceSubmit() {
         String player1 = player1ForReplace.getSelectionModel().getSelectedItem();
         String player2 = player2ForReplace.getSelectionModel().getSelectedItem();
         this.refereeApplication.createReplaceEvent(userName,match,player1,player2);
     }
 
 
-    public void onClickRedCardSubmit() throws Exception {
+    public void onClickRedCardSubmit() {
         String player = playerForRedCard.getSelectionModel().getSelectedItem();
         this.refereeApplication.createRedCardEvent(userName,match,player);
     }
 
-    public void onClickYellowCardSubmit() throws Exception {
+    public void onClickYellowCardSubmit() {
         String player = playerForYellowCard.getSelectionModel().getSelectedItem();
         this.refereeApplication.createYellowCardEvent(userName,match,player);
     }
 
 
-    public void onClickExtraTimeSubmit() throws Exception {
+    public void onClickExtraTimeSubmit() {
         idNumOfMinute.setDisable(true);
         String numOfMinute = idNumOfMinute.getText();
          if(Pattern.matches("[0-9]+", numOfMinute)){

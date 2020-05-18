@@ -13,8 +13,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 
 public class TeamManagementUIController { //implements Initializable {
     @FXML
@@ -41,17 +43,6 @@ public class TeamManagementUIController { //implements Initializable {
         activateScene();
     }
 
-    /*@FXML
-    public void changeToRequestScene(ActionEvent actionEvent) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = (Parent) loader.load(getClass().getResource("RequestNewTeam.fxml").openStream());
-        //SecondController secondController = loader.getController();
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }*/
     private void changeScene (ActionEvent event, String fxml) throws IOException{
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource(fxml));
@@ -71,11 +62,16 @@ public class TeamManagementUIController { //implements Initializable {
         changeScene(event, "RequestNewTeam.fxml");
     }
     @FXML
-    public void changeToActivateScene(ActionEvent event) throws Exception{
-        LinkedList<String> approvedTeams = tMApp.getMyApprovedTeams(userName);
-        LinkedList<String> tempPlayers = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
-        LinkedList<String> Coaches = tMApp.getAllTeamRolesThatArentCoachWithTeam();
-        if (approvedTeams == null || approvedTeams.size() == 0){
+    public void changeToActivateScene(ActionEvent event) throws IOException{
+        String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
+
+        String tempPlayersStr = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
+        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(","));
+
+        String CoachesStr = tMApp.getAllTeamRolesThatArentCoachWithTeam();
+        List<String> Coaches = Arrays.asList(CoachesStr.split(","));
+
+        if (approvedTeamsStr == null || approvedTeamsStr.equals("")){
             alertError("You do not have any teams to activate.");
         }
         else if (tempPlayers.size() < 11){
@@ -85,21 +81,17 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Cannot create a new team. There aren't any potential coaches in the system.");
         }
         else {
-            /*FXMLLoader loader = new FXMLLoader();
-            Parent root = loader.load(getClass().getResource("ActivateTeam.fxml").openStream());
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();*/
+            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(","));
             changeScene(event, "ActivateTeam.fxml");
         }
     }
 
     @FXML
-    public void changeToTeamManagementScene(ActionEvent actionEvent) throws Exception{
+    public void changeToTeamManagementScene(ActionEvent actionEvent) throws IOException{
        changeScene(actionEvent, "TeamOwner.fxml");
     }
     @FXML
-    public void changeToHomePage(ActionEvent actionEvent) throws Exception{
+    public void changeToHomePage(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("HomePage.fxml"));
         Parent root=loader.load();
@@ -116,7 +108,7 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
     @FXML
-    public void changeToMyRolesScene(ActionEvent actionEvent) throws Exception{
+    public void changeToMyRolesScene(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MyRoles.fxml"));
         Parent root=loader.load();
@@ -131,7 +123,7 @@ public class TeamManagementUIController { //implements Initializable {
         stageTheEventSourceNodeBelongs.show();
     }
     @FXML
-    public void requestNewTeam(ActionEvent event) throws Exception{
+    public void requestNewTeam(ActionEvent event) throws IOException{
 
         String teamName = newTeamName.getText();
         if (teamName == null || teamName.equals("")){
@@ -151,21 +143,27 @@ public class TeamManagementUIController { //implements Initializable {
 
     @FXML
     public void activateScene(){
-        if (tMApp.getMyApprovedTeams(userName) !=  null && tMApp.getMyApprovedTeams(userName).size() != 0) {
-            LinkedList<String> approvedTeams = tMApp.getMyApprovedTeams(userName);
+        if (tMApp.getMyApprovedTeams(userName) !=  null && tMApp.getMyApprovedTeams(userName).length() != 0) {
+            String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
+            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(","));
+
             teamNameCB.getItems().clear();
             for (String teamName : approvedTeams) {
                 teamNameCB.getItems().add(teamName);
             }
         }
 
-        LinkedList<String> tempPlayers = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
+        String tempPlayersStr = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
+        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(","));
+
         ObservableList<String> players = FXCollections.observableArrayList(tempPlayers);
         playersListView.getItems().clear();
         playersListView.setItems(players);
         playersListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        LinkedList<String> Coaches = tMApp.getAllTeamRolesThatArentCoachWithTeam();
+        String CoachesStr = tMApp.getAllTeamRolesThatArentCoachWithTeam();
+        List<String> Coaches = Arrays.asList(CoachesStr.split(","));
+
         coachCB.getItems().clear();
         for (String coachUserName : Coaches) {
             coachCB.getItems().add(coachUserName);
@@ -173,13 +171,17 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
     @FXML
-    public void activateButton(ActionEvent actionEvent) throws Exception {
+    public void activateButton(ActionEvent actionEvent) throws IOException {
         String teamName = (String) teamNameCB.getValue();
 
         String coachUserName = (String) coachCB.getValue();
 
         ObservableList<String> selectedPlayers = playersListView.getSelectionModel().getSelectedItems();
         HashSet<String> players = new HashSet<>(selectedPlayers);
+        String playersStr = new String();
+        for (String p : players){
+            playersStr += p + ",";
+        }
         String field = fieldName.getText();
 
         if (teamName == null) {
@@ -195,9 +197,14 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Please choose players.");
         }
         else {
-            tMApp.makeTeamActive(userName, teamName, players, coachUserName, field);
-            changeToTeamManagementScene(actionEvent);
-            alertInformation("Congratulations! Your new team has been activated.");
+            String message = tMApp.makeTeamActive(userName, teamName, playersStr, coachUserName, field);
+            if (message.equals("this team is not approved by RFA")){
+                alertError("This team was not approved by the RFA.");
+            }
+            else {
+                changeToTeamManagementScene(actionEvent);
+                alertInformation("Congratulations! Your new team has been activated.");
+            }
         }
     }
 

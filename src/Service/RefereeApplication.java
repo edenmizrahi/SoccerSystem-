@@ -1,9 +1,8 @@
 package Service;
 
 import Domain.Controllers.RefereeController;
-import Domain.LeagueManagment.Match;
 import Domain.Users.Player;
-import Domain.Users.Referee;
+
 import java.text.ParseException;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -11,11 +10,9 @@ import java.util.LinkedList;
 public class RefereeApplication {
     RefereeController refereeController = new RefereeController();
 
-    public Referee getRefereeByUserName(String refName){
-        return refereeController.getRefereeByUserName(refName);
-    }
 
     //get list of players name
+    //TODO???
     public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
         return refereeController.getPlayersFromTeamInList(players);
     }
@@ -27,14 +24,10 @@ public class RefereeApplication {
      * @return LinkedList<String> of players at specific match
      * @throws ParseException
      */
-    public LinkedList<String> displayPlayersAtMatch(String nameOfReferee, String match) throws ParseException {
+    public String displayPlayersAtMatch(String nameOfReferee, String match) {
         return refereeController.displayPlayersAtMatch(nameOfReferee, match);
     }
 
-    //check if 2 players at the same team
-    public boolean checkIfAtTheSameTeam(String firstPlayer, String secondPlayer, String nameOfReferee, String match) throws ParseException {
-        return refereeController.checkIfAtTheSameTeam(firstPlayer, secondPlayer, nameOfReferee, match);
-    }
 
     /**
      *
@@ -50,47 +43,47 @@ public class RefereeApplication {
      * @param nameOfReferee
      * @return
      */
-    public LinkedList<String> getAllMatches(String nameOfReferee) {
+    public String getAllMatches(String nameOfReferee) {
         return refereeController.getAllMatches(nameOfReferee);
     }
 
 
-    public LinkedList<String> createReportOfMatch(String match, String nameOfReferee) throws Exception {
+    public String createReportOfMatch(String match, String nameOfReferee) {
         return refereeController.createReportOfMatch(match, nameOfReferee);
     }
 
 
-    public void createGoalEvent(String referee, String match, String player) throws Exception {
-        refereeController.createGoalEvent(referee, match, player);
+    public String createGoalEvent(String referee, String match, String player) {
+        return refereeController.createGoalEvent(referee, match, player);
     }
 
-    public void createInjuryEvent(String referee, String match, String player) throws Exception {
-        refereeController.createInjuryEvent(referee, match, player);
+    public String createInjuryEvent(String referee, String match, String player) {
+        return refereeController.createInjuryEvent(referee, match, player);
     }
 
-    public void createOffenseEvent(String referee, String match, String player) throws Exception {
-        refereeController.createOffenseEvent(referee, match, player);
+    public String createOffenseEvent(String referee, String match, String player) {
+        return refereeController.createOffenseEvent(referee, match, player);
     }
 
-    public void createOffSideEvent(String referee, String match, String player) throws Exception {
-       refereeController.createOffSideEvent(referee, match, player);
+    public String createOffSideEvent(String referee, String match, String player) {
+        return refereeController.createOffSideEvent(referee, match, player);
     }
 
-    public void createRedCardEvent(String referee, String match, String player) throws Exception {
-        refereeController.createRedCardEvent(referee, match, player);
+    public String createRedCardEvent(String referee, String match, String player) {
+        return refereeController.createRedCardEvent(referee, match, player);
     }
 
-    public void createYellowCardEvent(String referee, String match, String player) throws Exception {
-        refereeController.createYellowCardEvent(referee, match, player);
+    public String createYellowCardEvent(String referee, String match, String player) {
+        return refereeController.createYellowCardEvent(referee, match, player);
 
     }
 
-    public void createReplaceEvent(String referee, String match, String firstPlayer, String secondPlayer) throws Exception {
-        refereeController.createReplaceEvent(referee, match, firstPlayer, secondPlayer);
+    public String createReplaceEvent(String referee, String match, String firstPlayer, String secondPlayer){
+        return refereeController.createReplaceEvent(referee, match, firstPlayer, secondPlayer);
     }
 
-    public void createExtraTimeEvent(String referee, String match, String time) throws Exception {
-        refereeController.createExtraTimeEvent(referee, match, time);
+    public String createExtraTimeEvent(String referee, String match, String time) {
+        return refereeController.createExtraTimeEvent(referee, match, time);
     }
 
 

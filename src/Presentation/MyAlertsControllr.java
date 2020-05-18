@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class MyAlertsControllr {
 
 
     @FXML
-    public void initAllertsUser (String userName) throws IOException {
+    public void initAllertsUser (String userName) {
         this.userName=userName;
         //update comoboxs
         updateNotificationsComoBox();
@@ -42,8 +43,9 @@ public class MyAlertsControllr {
     @FXML
     public void updateNotificationsComoBox(){
         fanNotificationsList.clear();
-        fanNotificationsList.add("all my alerts on matches");
-        LinkedList<String> allFanAllerts = fanApplication.getFanNotifications(userName);
+        fanNotificationsList.add("all my alerts about matches");
+        String allFanAllertsStr = fanApplication.getFanNotifications(userName);
+        List<String> allFanAllerts = Arrays.asList(allFanAllertsStr.split(","));
         for (String str:allFanAllerts) {
             fanNotificationsList.add(str);
         }

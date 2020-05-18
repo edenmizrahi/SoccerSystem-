@@ -12,7 +12,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MyRolesController { //implements Initializable {
 
@@ -35,13 +37,15 @@ public class MyRolesController { //implements Initializable {
     }
     @FXML
     public void initScene(){
-        LinkedList<String> myRoles = tMApp.getMyRoles(userName);
+        String myRolesStr = tMApp.getMyRoles(userName);
+        List<String> myRoles = Arrays.asList(myRolesStr.split(","));
         myRolesCB.getItems().clear();
         for (String role : myRoles) {
             myRolesCB.getItems().add(role);
         }
 
-        LinkedList<String> canBecome = tMApp.getWhatICanBecome(userName);
+        String canBecomeStr = tMApp.getWhatICanBecome(userName);
+        List<String> canBecome = Arrays.asList(canBecomeStr.split(","));
         becomeRoleCB.getItems().clear();
         for (String role : canBecome) {
             becomeRoleCB.getItems().add(role);
@@ -49,7 +53,7 @@ public class MyRolesController { //implements Initializable {
     }
 
     @FXML
-    public void addButton (ActionEvent actionEvent) throws Exception {
+    public void addButton (ActionEvent actionEvent) {
         String role = (String) becomeRoleCB.getValue();
         if (role == null || role == ""){
             alertError("Please choose a role.");
@@ -64,7 +68,7 @@ public class MyRolesController { //implements Initializable {
     }
 
     @FXML
-    public void goToRoleButton (ActionEvent actionEvent) throws Exception{
+    public void goToRoleButton (ActionEvent actionEvent) throws IOException{
         String role = (String) myRolesCB.getValue();
         if (role == null || role == ""){
             alertError("Please choose a role.");
@@ -82,7 +86,7 @@ public class MyRolesController { //implements Initializable {
         }
     }
     @FXML
-    public void changeToHomePage(ActionEvent actionEvent) throws Exception{
+    public void changeToHomePage(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("HomePage.fxml").openStream());
         HomePageController homeCont = loader.getController();
@@ -95,18 +99,6 @@ public class MyRolesController { //implements Initializable {
         stage.show();
     }
 
-    /*@FXML
-    public void changeToRoleScene(ActionEvent actionEvent, String role) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource(role + ".fxml").openStream());
-        TeamManagementUIController tMUICont = loader.getController();
-        tMUICont.initUser(userName);
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }*/
     @FXML
     public void changeToRoleScene(ActionEvent event, String role) throws IOException {
         FXMLLoader loader = new FXMLLoader();

@@ -18,7 +18,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class ReportOfMatchController {
 
@@ -33,9 +35,9 @@ public class ReportOfMatchController {
     private RefereeApplication refereeApplication = new RefereeApplication();
 
     private String userName;
-    private LinkedList<String> matches;
+    private List<String> matches;
 
-    public void initPage(String userName, LinkedList<String> matches) {
+    public void initPage(String userName, List<String> matches) {
         this.userName = userName;
         this.matches = matches;
 
@@ -52,7 +54,7 @@ public class ReportOfMatchController {
 
 
     @FXML
-    public void chooseMatchBtn(MouseEvent event) throws ParseException {
+    public void chooseMatchBtn(MouseEvent event) {
         ObservableList<String> elements = FXCollections.observableArrayList(this.matches);
         idMatches.setItems(elements);
         idMatches.getSelectionModel().selectFirst();
@@ -60,10 +62,11 @@ public class ReportOfMatchController {
 
 
     @FXML
-    public void createReportInline() throws Exception {
+    public void createReportInline() {
         reportTable.setVisible(true);
         String match =  idMatches.getSelectionModel().getSelectedItem();
-        LinkedList<String> report = this.refereeApplication.createReportOfMatch(match,userName);
+        String reportStr = this.refereeApplication.createReportOfMatch(match,userName);
+        List<String> report = Arrays.asList(reportStr.split(","));
 
         reportTable.getItems().addAll(report);
 

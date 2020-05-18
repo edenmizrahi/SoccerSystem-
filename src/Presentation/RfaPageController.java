@@ -30,7 +30,7 @@ public class RfaPageController extends HomePageController {
 
 
     @FXML
-    public void initUser (String userName) throws IOException {
+    public void initUser (String userName) {
         this.userName=userName;
     }
 

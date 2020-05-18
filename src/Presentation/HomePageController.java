@@ -53,7 +53,7 @@ public class HomePageController {
      */
     @FXML
     public void initialize() {
-        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {

@@ -17,7 +17,6 @@ import static org.jooq.impl.DSL.name;
 //import org.jooq.impl.DSL;
 
 public class DBHandler  {
-
     String username="root";
     String password ="root";
     String myDriver="org.mariadb.jdbc.Driver";
@@ -28,7 +27,6 @@ public class DBHandler  {
             Class.forName(myDriver);
             connection= DriverManager.getConnection(myUrl,username,password);
             System.out.println("DB connected");
-
         }
         catch (SQLException e) {
             System.out.println("Connection in now null");
@@ -41,7 +39,7 @@ public class DBHandler  {
         DSLContext create = DSL.using(connection, SQLDialect.MARIADB);
         Result<?> result= create.select().from(DSL.table(name("fans")))
                 .where(DSL.field(name("userName")).eq("eden")).fetch();
-        if(result.isEmpty()) {
+        if(!result.isEmpty()) {
             return true;
         }
         return false;
@@ -51,7 +49,7 @@ public class DBHandler  {
         DSLContext create = DSL.using(connection, SQLDialect.MARIADB);
         Result<?> result= create.select().
                 from(FANS).where(FANS.USERNAME.eq("eden")).fetch();
-        if(result.isEmpty()) {
+        if(!result.isEmpty()) {
             return true;
         }
         return false;

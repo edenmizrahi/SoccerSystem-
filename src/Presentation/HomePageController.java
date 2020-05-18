@@ -166,8 +166,8 @@ public class HomePageController {
      * @param // userName
      */
     @FXML
-    public void initHomePage(){ // String userName
-        this.userName=userName;
+    public void initHomePage(String um){ // String userName
+        this.userName=um;
         String isTeamRole= fanApplication.fanIsTeamRole(userName);
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);

@@ -79,7 +79,7 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
-//                    hpc.initUser(userName);
+                    hpc.initHomePage(userName);
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);

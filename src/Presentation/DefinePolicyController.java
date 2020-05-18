@@ -106,11 +106,6 @@ public class DefinePolicyController {
         Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
         Scene scene = new Scene(root, 900, 600);
         stageTheEventSourceNodeBelongs.setScene(scene);
-
-
-        ClientController.connectToServer("classname","funcname");
-        ClientController.connectToServer("classname","funcname","username");
-        ClientController.connectToServer("classname","funcname","username","password");
     }
 
 

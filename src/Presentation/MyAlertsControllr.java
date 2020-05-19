@@ -45,7 +45,9 @@ public class MyAlertsControllr {
         fanNotificationsList.clear();
         fanNotificationsList.add("all my alerts about matches");
         String allFanAllertsStr = fanApplication.getFanNotifications(userName);
-        List<String> allFanAllerts = Arrays.asList(allFanAllertsStr.split(","));
+        //String allFanAllertsStr = ClientController.connectToServer("FanApplication", "getFanNotifications", userName);
+
+        List<String> allFanAllerts = Arrays.asList(allFanAllertsStr.split(";"));
         for (String str:allFanAllerts) {
             fanNotificationsList.add(str);
         }

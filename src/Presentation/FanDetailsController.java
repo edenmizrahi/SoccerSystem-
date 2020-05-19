@@ -85,7 +85,9 @@ public class FanDetailsController { //implements Initializable
     @FXML
     private void showDetails() {
         String fanDetailsStr = syOpApp.getPrivateDetails(userName);
-        List<String> fanDetails = Arrays.asList(fanDetailsStr.split(","));
+        //String fanDetailsStr = ClientController.connectToServer("SystemOperationsApplication", "getPrivateDetails", userName);
+
+        List<String> fanDetails = Arrays.asList(fanDetailsStr.split(";"));
         //list : name, Password, PhoneNumber, Email, DateOfBirth
         currNameLabel.setText(fanDetails.get(0));
         currPasswardLable.setText(fanDetails.get(1));
@@ -161,6 +163,8 @@ public class FanDetailsController { //implements Initializable
 //            // all good!!
         else {
             String massage= fanApplication.setFanDetails(userName,newName,newPassward,newPhonNum,newEmail);
+            //String massage = ClientController.connectToServer("FanApplication", "setFanDetails", userName,newName,newPassward,newPhonNum,newEmail);
+
             if(massage.equals("ok")){
                 showDetails();
                 Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);

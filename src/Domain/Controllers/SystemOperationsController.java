@@ -52,7 +52,7 @@ public class SystemOperationsController {
             LinkedList<Match> allRefereeMatches=ref.getMatches();
             for (Match m:allRefereeMatches) {
                 //allMatches.add(m.toString());
-                allMatches += m.toString() + ",";
+                allMatches += m.toString() + ";";
             }
         }
         return allMatches;
@@ -380,13 +380,13 @@ public class SystemOperationsController {
         //List<String> details = new LinkedList<>();
         String details = new String();
 //        details.add(fan.getName());
-        details += fan.getName() + ",";
+        details += fan.getName() + ";";
 //        details.add(fan.getPassword());
-        details += fan.getPassword() + ",";
+        details += fan.getPassword() + ";";
 //        details.add(fan.getPhoneNumber());
-        details += fan.getPhoneNumber() + ",";
+        details += fan.getPhoneNumber() + ";";
 //        details.add(fan.getEmail());
-        details += fan.getEmail() + ",";
+        details += fan.getEmail() + ";";
 //        details.add(String.valueOf(fan.getDateOfBirth()));
         details += fan.getDateOfBirth();
 

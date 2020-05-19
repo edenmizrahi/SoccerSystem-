@@ -31,11 +31,19 @@ public class LoginController{
     @FXML
     public void validationHandling(MouseEvent mouseEvent) {
         UserApplication uc=new UserApplication();
+
         try {
+            if(txt_userName.getText().contains(";")||txt_password.getText().contains(";")){
+                throw new Exception();
+            }
             String userName= uc.login(txt_userName.getText(),txt_password.getText());
+            //String userName = ClientController.connectToServer("UserApplication", "login", txt_userName.getText(),txt_password.getText());
+
             lbl_error.setText("");
             /**notification*/
             if (uc.haveUnreadNotifications(txt_userName.getText())) {
+            //TODO change function so returns string instead of boolean!!!
+            //if (ClientController.connectToServer("UserApplication", "haveUnreadNotifications", txt_userName.getText()))
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("");
                 DialogPane dialogPane = alert.getDialogPane();
@@ -79,7 +87,7 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
-//                    hpc.initUser(userName);
+                    hpc.initHomePage(userName);
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);

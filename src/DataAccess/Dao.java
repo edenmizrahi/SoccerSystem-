@@ -4,9 +4,9 @@ import java.util.*;
 
 public interface Dao <T> {
 
-    Optional<T> get(List<T> keys);
+    List<T> get(List<T> keys);
 
-    List<T> getAll(T collName, T filter);
+    List<List<T>> getAll(T collName, T filter);
 
     void save(List<T> strings) throws SQLException;
 

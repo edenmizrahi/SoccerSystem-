@@ -107,7 +107,7 @@ public class FanController {
         HashSet<Notification> fanNotifications= fan.getNotificationsList();
         for (Notification noti:fanNotifications) {
             //fanNotificationsString.add(noti.getContent().toString());
-            fanNotificationsString += noti.getContent().toString() + ",";
+            fanNotificationsString += noti.getContent().toString() + ";";
             noti.setRead(true);
         }
 
@@ -141,7 +141,7 @@ public class FanController {
         String fanMachesFollwsString = new String();
         for (Match match:fanMachesFollw) {
             //fanMachesFollwsString.add(match.toString());
-            fanMachesFollwsString += match.toString() + ",";
+            fanMachesFollwsString += match.toString() + ";";
         }
         return fanMachesFollwsString;
     }

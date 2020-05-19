@@ -211,44 +211,43 @@ public class MainSystemTest {
     }
 
 
-    @Test
-    public void logIn() {
-
-        try {
-            ms.logIn("user",null);
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("password null",e.getMessage());
-        }
-
-        try {
-            ms.logIn("username","1234");
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("password not valid",e.getMessage());
-        }
-
-        try {
-            SystemManager manager= new SystemManager(ms,"systemManager","0542150912","sys@gmail.com","system101","sys1234",MainSystem.birthDateFormat.parse("01-05-1997"));
-            User userLog= ms.logIn("system101","sys1234");
-            assertEquals(manager,userLog);
-            //assertEquals("password not valid",e.getMessage());
-        } catch (Exception e) {
-            Assert.fail();
-
-        }
-
-        try {
-           ms.logIn("usernotsys","no1234523");
-            Assert.fail();
-        } catch (Exception e) {
-            assertEquals(Exception.class, e.getClass());
-            assertEquals("details not correct, no fan in system",e.getMessage());
-        }
-
-    }
+//    @Test
+//    public void logIn() {
+//        try {
+//            ms.logIn("user",null);
+//            Assert.fail();
+//        } catch (Exception e) {
+//            assertEquals(Exception.class, e.getClass());
+//            assertEquals("password null",e.getMessage());
+//        }
+//
+//        try {
+//            ms.logIn("username","1234");
+//            Assert.fail();
+//        } catch (Exception e) {
+//            assertEquals(Exception.class, e.getClass());
+//            assertEquals("password not valid",e.getMessage());
+//        }
+//
+//        try {
+//            SystemManager manager= new SystemManager(ms,"systemManager","0542150912","sys@gmail.com","system101","sys1234",MainSystem.birthDateFormat.parse("01-05-1997"));
+//            User userLog= ms.logIn("system101","sys1234");
+//            assertEquals(manager,userLog);
+//            //assertEquals("password not valid",e.getMessage());
+//        } catch (Exception e) {
+//            Assert.fail();
+//
+//        }
+//
+//        try {
+//           ms.logIn("usernotsys","no1234523");
+//            Assert.fail();
+//        } catch (Exception e) {
+//            assertEquals(Exception.class, e.getClass());
+//            assertEquals("details not correct, no fan in system",e.getMessage());
+//        }
+//
+//    }
 
     @Test
     public void signInAsTeamOwner() {

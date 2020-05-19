@@ -6,7 +6,7 @@ public interface Dao <T> {
 
     LinkedList<T> get(List<T> keys);
 
-    List<T> getAll(T collName, T filter);
+    List<List<T>> getAll(T collName, T filter);
 
     void save(List<T> strings) throws SQLException;
 

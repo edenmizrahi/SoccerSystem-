@@ -2,17 +2,16 @@ package DataAccess;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 public class DaoPlayer implements Dao<String> {
 
     @Override
-    public Optional<String> get(List<String> keys) {
-        return Optional.empty();
+    public List<String> get(List<String> keys) {
+        return null;
     }
 
     @Override
-    public List<String> getAll(String collName, String filter) {
+    public List<List<String>> getAll(String collName, String filter) {
         return null;
     }
 

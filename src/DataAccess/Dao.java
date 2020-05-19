@@ -4,7 +4,7 @@ import java.util.*;
 
 public interface Dao <T> {
 
-    List<T> get(List<T> keys);
+    LinkedList<T> get(List<T> keys);
 
     List<T> getAll(T collName, T filter);
 

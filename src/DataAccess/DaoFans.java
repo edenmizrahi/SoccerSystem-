@@ -9,7 +9,7 @@ import java.util.Optional;
 public class DaoFans implements Dao<String> {
     @Override
     public List<String> get(List<String> keys) {
-        return null;
+        return null
     }
 
     @Override

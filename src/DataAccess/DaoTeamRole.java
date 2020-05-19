@@ -11,7 +11,7 @@ public class DaoTeamRole implements Dao<String > {
     }
 
     @Override
-    public List<String> getAll(String collName, String filter) {
+    public List<List<String>> getAll(String collName, String filter) {
         return null;
     }
 

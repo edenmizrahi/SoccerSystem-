@@ -5,8 +5,8 @@ import java.util.List;
 
 public class DaoFans implements Dao<String> {
     @Override
-    public List<String> get(List<String> keys) {
-        return null
+    public List<String > get(List<String> keys) {
+        return null;
     }
 
     @Override

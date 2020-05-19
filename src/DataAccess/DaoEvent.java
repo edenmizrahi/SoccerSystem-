@@ -2,8 +2,11 @@ package DataAccess;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
-public class DaoFans implements Dao<String> {
+public class DaoEvent implements Dao<String> {
+
+
     @Override
     public List<String> get(List<String> keys) {
         return null;

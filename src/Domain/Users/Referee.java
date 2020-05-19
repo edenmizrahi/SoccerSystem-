@@ -31,6 +31,15 @@ public class Referee extends Fan implements NotificationsUser {
         gotRefereeNotification=false;
     }
 
+    //for DB
+    public Referee(Fan fan, String qualification){
+        super(fan.getName(),fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
+        matches = new LinkedList<>();
+        this.qualification = qualification;
+        refNotifications =new HashSet<>();
+        gotRefereeNotification=false;
+    }
+
     public Referee(Fan fan, MainSystem ms, String qualification){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(),fan.getDateOfBirth());
         matches = new LinkedList<>();

@@ -2,7 +2,6 @@ package DataAccess;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 public class DaoTeamRole implements Dao<String > {
     @Override
@@ -11,7 +10,7 @@ public class DaoTeamRole implements Dao<String > {
     }
 
     @Override
-    public List<String> getAll(String collName, String filter) {
+    public List<List<String>> getAll(String collName, String filter) {
         return null;
     }
 

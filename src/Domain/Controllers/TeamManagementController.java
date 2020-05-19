@@ -399,17 +399,18 @@ public class TeamManagementController {
         }
 
     }
-    public void becomeRole(String userName, String role){
+    public String becomeRole(String userName, String role){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
         if(role.equals("Team Owner")){
-            user.becomeTeamOwner();
+            return user.becomeTeamOwner();
         }
         else if(role.equals("Coach")){
-            user.becomeCoach();
+            return user.becomeCoach();
         }
         else if(role.equals("Player")){
-            user.becomePlayer();
+            return user.becomePlayer();
         }
+        return "fail";
     }
 
     //<editor-fold desc="getters">

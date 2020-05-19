@@ -14,13 +14,12 @@ public class FanAdapter implements DbObject<Fan> {
 
     @Override
     public Fan ToObj(List<String> fields) throws Exception {
-            try {
+        try {
             return new Fan(fields.get(1),fields.get(3),fields.get(4),fields.get(0),fields.get(2),birthDateFormat.parse(fields.get(5)));
         }
         catch (ParseException e){
             throw new Exception ("date format is wrong ");
         }
-
     }
 
     @Override

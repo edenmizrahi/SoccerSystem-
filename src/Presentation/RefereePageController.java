@@ -49,6 +49,8 @@ public class RefereePageController extends HomePageController {
     public void addEventToMatch(ActionEvent actionEvent) throws IOException {
 
         String match = refereeApplication.displayAllMatches(userName);
+        //String match = ClientController.connectToServer("RefereeApplication", "displayAllMatches", userName);
+
         if(match!=null) {
             //display matches that still not take place
             FXMLLoader loader = new FXMLLoader();
@@ -76,6 +78,8 @@ public class RefereePageController extends HomePageController {
 
     public void createReport(ActionEvent actionEvent) throws IOException {
         String matchesStr = refereeApplication.getAllMatches(userName);
+        //String match = ClientController.connectToServer("RefereeApplication", "getAllMatches", userName);
+
         List<String> matches = Arrays.asList(matchesStr.split(";"));
 
         if(matches.size() > 0){

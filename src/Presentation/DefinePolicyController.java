@@ -42,6 +42,7 @@ public class DefinePolicyController {
     public void initialize() {
         //for comboBox of calculation policy
         String allCalculationPoliciesStr = rfaApplication.getAllCalculationPoliciesString();
+        //String allCalculationPoliciesStr = ClientController.connectToServer("RfaApplication", "getAllCalculationPoliciesString");
         List<String> allCalculationPolicies = Arrays.asList(allCalculationPoliciesStr.split(";"));
         List<String> list = new LinkedList<>();
         for (String str:allCalculationPolicies) {
@@ -56,6 +57,8 @@ public class DefinePolicyController {
 
         //for comboBox of scheduling policy
         String allSchedulingPoliciesStr = rfaApplication.getAllschedulingString();
+        //String allSchedulingPoliciesStr = ClientController.connectToServer("RfaApplication", "getAllschedulingString");
+
         List<String> allSchedulingPolicies = Arrays.asList(allSchedulingPoliciesStr.split(";"));
         List<String> listOfSched = new LinkedList<>();
         for (String str:allSchedulingPolicies) {
@@ -87,6 +90,8 @@ public class DefinePolicyController {
             String calcPolicySelected = chooseCalcPolicyBtn.getSelectionModel().getSelectedItem().toString();
             String schedPolicySelected = chooseSchedPolicyBtn.getSelectionModel().getSelectedItem().toString();
             this.rfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            //String ans = ClientController.connectToServer("RfaApplication", "DefinePoliciesToSeason", seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+
         }
         else{
             //throw alert that the year of season incorrect syntax

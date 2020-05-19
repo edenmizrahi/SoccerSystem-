@@ -37,9 +37,13 @@ public class LoginController{
                 throw new Exception();
             }
             String userName= uc.login(txt_userName.getText(),txt_password.getText());
+            //String userName = ClientController.connectToServer("UserApplication", "login", txt_userName.getText(),txt_password.getText());
+
             lbl_error.setText("");
             /**notification*/
             if (uc.haveUnreadNotifications(txt_userName.getText())) {
+            //TODO change function so returns string instead of boolean!!!
+            //if (ClientController.connectToServer("UserApplication", "haveUnreadNotifications", txt_userName.getText()))
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("");
                 DialogPane dialogPane = alert.getDialogPane();

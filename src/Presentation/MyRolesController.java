@@ -38,6 +38,8 @@ public class MyRolesController { //implements Initializable {
     @FXML
     public void initScene(){
         String myRolesStr = tMApp.getMyRoles(userName);
+        //String myRolesStr = ClientController.connectToServer("TeamManagementApplication", "getMyRoles", userName);
+
         List<String> myRoles = Arrays.asList(myRolesStr.split(";"));
         myRolesCB.getItems().clear();
         for (String role : myRoles) {
@@ -45,6 +47,8 @@ public class MyRolesController { //implements Initializable {
         }
 
         String canBecomeStr = tMApp.getWhatICanBecome(userName);
+        //String canBecomeStr = ClientController.connectToServer("TeamManagementApplication", "getWhatICanBecome", userName);
+
         List<String> canBecome = Arrays.asList(canBecomeStr.split(";"));
         becomeRoleCB.getItems().clear();
         for (String role : canBecome) {
@@ -59,11 +63,18 @@ public class MyRolesController { //implements Initializable {
             alertError("Please choose a role.");
         }
         else {
-            tMApp.becomeRole(userName, role);
-            initScene();
-            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-            chooseFile.setContentText("Congrats! You are now a " + role + "!");
-            chooseFile.show();
+            String ans = tMApp.becomeRole(userName, role);
+            //String ans = ClientController.connectToServer("TeamManagementApplication", "becomeRole", userName, role);
+
+            if (ans.equals("success")) {
+                initScene();
+                Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                chooseFile.setContentText("Congrats! You are now a " + role + "!");
+                chooseFile.show();
+            }
+            else{
+                alertError("Error, role was not added");
+            }
         }
     }
 

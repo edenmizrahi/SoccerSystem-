@@ -74,6 +74,9 @@ public class eventsPageController {
         String id =s1[0];
 
         String allPlayersStr = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
+        //String allPlayersStr = ClientController.connectToServer("RefereeApplication", "displayPlayersAtMatch", userName, idOfMatch.getSelectionModel().getSelectedItem());
+
+
         List<String> allPlayers = Arrays.asList(allPlayersStr.split(";"));
         List<String> list = new LinkedList<>();
         for (String str:allPlayers) {
@@ -142,38 +145,52 @@ public class eventsPageController {
     public void onClickGoalSubmit() {
         String player = playerForGoal.getSelectionModel().getSelectedItem();
         this.refereeApplication.createGoalEvent(userName,match,player);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createGoalEvent", userName,match,player);
+
     }
 
     public void onClickInjurySubmit() {
         String player = playerForInjury.getSelectionModel().getSelectedItem();
         this.refereeApplication.createInjuryEvent(userName,match,player);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createInjuryEvent", userName,match,player);
+
     }
 
     public void onClickOffenseSubmit() {
         String player = playerForOffense.getSelectionModel().getSelectedItem();
         this.refereeApplication.createOffenseEvent(userName,match,player);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createOffenseEvent", userName,match,player);
+
     }
 
     public void onClickOffsideSubmit() {
         String player = playerForOffSide.getSelectionModel().getSelectedItem();
         this.refereeApplication.createOffSideEvent(userName,match,player);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createOffSideEvent", userName,match,player);
+
     }
 
     public void onClickReplaceSubmit() {
         String player1 = player1ForReplace.getSelectionModel().getSelectedItem();
         String player2 = player2ForReplace.getSelectionModel().getSelectedItem();
         this.refereeApplication.createReplaceEvent(userName,match,player1,player2);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createReplaceEvent", userName,match,player1,player2);
+
     }
 
 
     public void onClickRedCardSubmit() {
         String player = playerForRedCard.getSelectionModel().getSelectedItem();
         this.refereeApplication.createRedCardEvent(userName,match,player);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createRedCardEvent", userName,match,player);
+
     }
 
     public void onClickYellowCardSubmit() {
         String player = playerForYellowCard.getSelectionModel().getSelectedItem();
         this.refereeApplication.createYellowCardEvent(userName,match,player);
+        //String ans = ClientController.connectToServer("RefereeApplication", "createYellowCardEvent", userName,match,player);
+
     }
 
 
@@ -182,6 +199,8 @@ public class eventsPageController {
         String numOfMinute = idNumOfMinute.getText();
          if(Pattern.matches("[0-9]+", numOfMinute)){
              this.refereeApplication.createExtraTimeEvent(userName,match,numOfMinute);
+             //String ans = ClientController.connectToServer("RefereeApplication", "createExtraTimeEvent", userName,match,numOfMinute);
+
          }
 
         idNumOfMinute.setDisable(false);

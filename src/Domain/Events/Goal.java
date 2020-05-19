@@ -36,6 +36,10 @@ public class Goal extends Event {
         }
     }
 
+    public Player getPlayer(){
+        return player;
+    }
+
     @Override
     public String toString() {
         return super.getDateTime() +","+super.getMinuteOfMatch() +","+"Goal by "+player.getTeamRole().getName();

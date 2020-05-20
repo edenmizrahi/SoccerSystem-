@@ -229,25 +229,25 @@ public class Fan extends User implements NotificationsUser {
 //                }
 //            }
 //            else{
-//                if(arg instanceof Domain.Events.Goal){
+//                if(arg instanceof Domain.EventsAdapter.Goal){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.RedCard){
+//                if(arg instanceof Domain.EventsAdapter.RedCard){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.YellowCard){
+//                if(arg instanceof Domain.EventsAdapter.YellowCard){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.OffSide){
+//                if(arg instanceof Domain.EventsAdapter.OffSide){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.Offense){
+//                if(arg instanceof Domain.EventsAdapter.Offense){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.Injury){
+//                if(arg instanceof Domain.EventsAdapter.Injury){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.Replacement){
+//                if(arg instanceof Domain.EventsAdapter.Replacement){
 //                    return;
 //                }
 //            }

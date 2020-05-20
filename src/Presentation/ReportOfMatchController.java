@@ -72,7 +72,7 @@ public class ReportOfMatchController {
 
         reportTable.getItems().addAll(report);
 
-        TableColumn<String,String> column1= new TableColumn<>("Events");
+        TableColumn<String,String> column1= new TableColumn<>("EventsAdapter");
         column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 
         reportTable.getColumns().setAll(column1);
@@ -93,7 +93,7 @@ public class ReportOfMatchController {
 //
 //        tableView.getItems().addAll(report);
 //
-//        TableColumn<String,String> column1= new TableColumn<>("Events");
+//        TableColumn<String,String> column1= new TableColumn<>("EventsAdapter");
 //        column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 //
 //        tableView.getColumns().setAll(column1);

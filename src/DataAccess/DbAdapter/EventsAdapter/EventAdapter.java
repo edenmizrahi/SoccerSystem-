@@ -1,11 +1,9 @@
-package DataAccess.DbAdapter.Events;
+package DataAccess.DbAdapter.EventsAdapter;
 
 import DataAccess.DbAdapter.DbObject;
 import Domain.Events.Event;
 import Domain.MainSystem;
-import Domain.Users.Fan;
 
-import java.text.ParseException;
 import java.util.LinkedList;
 import java.util.List;
 

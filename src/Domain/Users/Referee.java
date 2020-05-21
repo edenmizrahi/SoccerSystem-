@@ -93,7 +93,6 @@ public class Referee extends Fan implements NotificationsUser {
      * @CodeBy Yarden
      */
     public void addEventsDuringMatch(Match match, Event event) throws Exception {
-
        //checking whether this is a game the referee is judging
         if(this.getMatches().contains(match)){
 

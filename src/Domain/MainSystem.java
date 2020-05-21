@@ -552,17 +552,43 @@ public class MainSystem {
     public  void writeToLogError(String err){
         LOG.error(err);
     }
-    /**OR*
+    /**OR
      * this function return the user that the userName and password are correct
      * null if there is no user that fits
      * @param userName
      * @param password
      * @return
-     */
-    public Fan logIn(String userName, String password ,Fan fan) throws Exception {
-        LOG.info(String.format("%s - %s", userName, "loged in to system"));
-        loginUsers.add(fan);
-        return fan;
+             */
+    public Fan logIn(String userName, String password) throws Exception {
+        if(userName==null){
+            LOG.error("userName null");
+            throw new Exception("userName null");
+        }
+        if(userName.length()==0){
+            LOG.error("userName empty");
+            throw new Exception("userName empty");
+        }
+        if(password==null){
+            LOG.error("password null");
+            throw new Exception("password null");
+        }
+        if(password.length()<6){
+            LOG.error("password not valid");
+            throw new Exception("password not valid");
+        }
+
+        //search type of user
+        //create an object and save as connect user
+        for (Fan fan:getAllFans() ) {
+            if(fan.getUserName().equals(userName) && fan.getPassword().equals(password)){
+                LOG.info(String.format("%s - %s", userName, "loged in to system"));
+                //add user to loged in users
+                loginUsers.add(fan);
+                return fan;
+            }
+        }
+        LOG.error("details not correct, no fan in system");
+        throw new Exception("details not correct, no fan in system");
     }
 
     /**OR

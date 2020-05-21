@@ -26,6 +26,7 @@ public class Rfa extends Fan implements NotificationsUser {
     public static HashSet<Notification> notifications;
 
     public boolean gotRFAnotification;
+
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();

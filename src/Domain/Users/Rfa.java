@@ -26,11 +26,18 @@ public class Rfa extends Fan implements NotificationsUser {
     public static HashSet<Notification> notifications;
 
     public boolean gotRFAnotification;
+    /* FOR TESTS**/
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
         system.removeUser(fan);
+        gotRFAnotification =false;
+    }
+    public Rfa(Fan fan) {
+        super(fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
+        this.teamRequests= new HashSet<>();
+        this.notifications=new HashSet<>();
         gotRFAnotification =false;
     }
 

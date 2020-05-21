@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Observable;
 
-public class Match extends Observable {
+public class  Match extends Observable {
     private int homeScore;
     private int guestScore;
     private Team awayTeam;

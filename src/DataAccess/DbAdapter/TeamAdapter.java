@@ -4,10 +4,10 @@ import Domain.LeagueManagment.Team;
 
 import java.util.List;
 
-public class TeamAdapter implements  DbObject<Team> {
+public class TeamAdapter implements DbObject<Team> {
     @Override
     public Team ToObj(List<String> fields) throws Exception {
-        return null;
+        return new Team(fields.get(0), Integer.parseInt(fields.get(5)));
     }
 
     @Override

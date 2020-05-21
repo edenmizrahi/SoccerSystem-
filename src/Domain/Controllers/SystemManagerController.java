@@ -18,33 +18,6 @@ import java.util.List;
 
 public class SystemManagerController {
 
-    DaoApprovedTeamReq daoApprovedTeamReq = new DaoApprovedTeamReq();
-    DaoCalculationPolicy daoCalculationPolicy = new DaoCalculationPolicy();
-    DaoCoaches daoCoaches = new DaoCoaches();
-    DaoEvent daoEvent = new DaoEvent();
-    DaoExtraTimeEvent daoExtraTimeEvent = new DaoExtraTimeEvent();
-    DaoFanMatchesFollow daoFanMatchesFollow = new DaoFanMatchesFollow();
-    DaoFans daoFans = new DaoFans();
-    DaoFields daoFields = new DaoFields();
-    DaoLeagues daoLeagues = new DaoLeagues();
-    DaoLeagueSeasonReferees daoLeagueSeasonReferees = new DaoLeagueSeasonReferees();
-    DaoLeagueSeasonTeams daoLeagueSeasonTeams = new DaoLeagueSeasonTeams();
-    DaoMatch daoMatch = new DaoMatch();
-    DaoNotificaionsReferee daoNotificaionsReferee = new DaoNotificaionsReferee();
-    DaoNotificationFan daoNotificationFan = new DaoNotificationFan();
-    DaoNotificationsRfa daoNotificationsRfa = new DaoNotificationsRfa();
-    DaoOnePlayerEvents daoOnePlayerEvents = new DaoOnePlayerEvents();
-    DaoPlayer daoPlayer = new DaoPlayer();
-    DaoReferee daoReferee = new DaoReferee();
-    DaoRefereesMatchs daoRefereesMatchs = new DaoRefereesMatchs();
-    DaoRfa daoRfa = new DaoRfa();
-    DaoSchedulingPolicy daoSchedulingPolicy = new DaoSchedulingPolicy();
-    DaoSeasons daoSeasons = new DaoSeasons();
-    DaoTeamOwnersTeams daoTeamOwnersTeams = new DaoTeamOwnersTeams();
-    DaoTeamRequests daoTeamRequests = new DaoTeamRequests();
-    DaoTeamRole daoTeamRole = new DaoTeamRole();
-    DaoTeams daoTeams = new DaoTeams();
-    DaoTwoPlayersEvents daoTwoPlayersEvents = new DaoTwoPlayersEvents();
 
     /**
      * close team  forever
@@ -155,22 +128,6 @@ public class SystemManagerController {
         }
     }
 
-
-    public void initSystemFromDB (){
-
-        List<User> loginUsers;
-        LinkedList<League> leagues;
-        LinkedList<User> users;
-        LinkedList<Season> seasons;
-        Season currSeason;
-        HashSet<Team> activeTeams;
-        HashSet<String> userNames;
-        HashSet<String> teamNames;
-        HashSet<Field> fields;
-        HashMap<Integer, Season> yearPerSeason;
-        HashMap<String, League> nameOfLeaguePerLeague;
-
-    }
 
 
 

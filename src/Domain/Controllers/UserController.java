@@ -6,7 +6,6 @@ import DataAccess.DaoRfa;
 import DataAccess.DaoTeamRole;
 import DataAccess.DbAdapter.FanAdapter;
 import DataAccess.DbAdapter.RefereeAdapter;
-import DataAccess.DbAdapter.RfaAdapter;
 import DataAccess.DbAdapter.TeamRoleAdapter;
 import Domain.Main;
 import Domain.MainSystem;
@@ -19,7 +18,6 @@ import java.util.Optional;
 public class UserController{
     SystemOperationsController smc=new SystemOperationsController();
     FanAdapter fanAdapter=new FanAdapter();
-    RfaAdapter rfaAdapter=new RfaAdapter();
     RefereeAdapter refereeAdapter=new RefereeAdapter();
     TeamRoleAdapter teamRoleAdapter=new TeamRoleAdapter();
 

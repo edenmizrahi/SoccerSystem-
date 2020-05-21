@@ -278,7 +278,7 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createInjuryEvent(Player p, Match match) throws Exception {
         if(p!=null && match!=null) {
-            if (this.matches.contains(match)) {
+            if (this.matches.contains(match)) { //check if referee-matches table contains this match - in controller
                 return (new Injury(this, match, p));
             }
             else{

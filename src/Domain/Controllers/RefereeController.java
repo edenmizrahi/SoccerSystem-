@@ -171,9 +171,9 @@ public class RefereeController {
             }
             return listOfEventsInMatch;
         } catch(Exception e){
-            //return "";
+            return "";
         }
-        return null;
+        //return null;
     }
 
     /**

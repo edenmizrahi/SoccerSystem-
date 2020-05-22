@@ -1,18 +1,30 @@
 package Domain.Controllers;
 
+import DataAccess.DaoFans;
+import DataAccess.DaoReferee;
+import DataAccess.DaoRfa;
+import DataAccess.DaoTeamRole;
+import DataAccess.DbAdapter.FanAdapter;
+import DataAccess.DbAdapter.RefereeAdapter;
+import DataAccess.DbAdapter.TeamRoleAdapter;
+import Domain.Main;
 import Domain.MainSystem;
-import Domain.Users.Fan;
-import Domain.Users.Referee;
-import Domain.Users.Rfa;
-import Domain.Users.User;
+import Domain.Users.*;
 
-import javax.activation.MailcapCommandMap;
-import javax.naming.ldap.Rdn;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
-public class UserController {
+public class UserController{
     SystemOperationsController smc=new SystemOperationsController();
+    FanAdapter fanAdapter=new FanAdapter();
+    RefereeAdapter refereeAdapter=new RefereeAdapter();
+    TeamRoleAdapter teamRoleAdapter=new TeamRoleAdapter();
+
+    DaoFans fansTable=new DaoFans();
+    DaoRfa rfaTable=new DaoRfa();
+    DaoReferee refereeTable=new DaoReferee();
+    DaoTeamRole teamRoleTable=new DaoTeamRole();
     /**
      * login function
      * @param userName
@@ -21,26 +33,26 @@ public class UserController {
      * @throws Exception
      *  @codeBy Eden
      */
-    public String login(String userName , String password ) {
-        try {
-            //Todo this function returns exceptions, need to catch them here and return the message
-            Fan f = MainSystem.getInstance().logIn(userName, password);
-            if (f == null) {
-                //Todo change to return string message and not exception
-                throw new Exception("Incorrect user name or password");
+        public String login(String userName , String password ) {
+            try {
+                //Todo this function returns exceptions, need to catch them here and return the message
+                Fan f = MainSystem.getInstance().logIn(userName, password);
+                if (f == null) {
+                    //Todo change to return string message and not exception
+                    throw new Exception("Incorrect user name or password");
+                }
+                if (f instanceof Rfa) {
+                    return "RFA";
+                }
+                if (f instanceof Referee) {
+                    return "Referee";
+                }
+                return "Fan";
+            } catch(Exception e){
+                //Todo change the return
+                return e.getMessage();
             }
-            if (f instanceof Rfa) {
-                return "RFA";
-            }
-            if (f instanceof Referee) {
-                return "Referee";
-            }
-            return "Fan";
-        } catch(Exception e){
-            //Todo change the return
-            return "";
         }
-    }
 
     /**OR
      * log out from system
@@ -67,5 +79,6 @@ public class UserController {
         }
         return false;
     }
+
 
 }

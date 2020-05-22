@@ -39,25 +39,25 @@ public class TeamRole extends Fan {
     //<editor-fold desc="become functions">
     /**OR**/
     //TODO test - avital V
-    public boolean becomePlayer(){
+    public String becomePlayer(){
         if(this.player == null){
             player= new Player(this);
             LOG.info(String.format("%s - %s", getUserName(), "become player"));
-            return true;
+            return "success";
         }
         LOG.error("already player- can not become player");
-        return false;
+        return "fail";
     }
     /**OR**/
     //TODO test - avital V
-    public boolean becomeCoach(){
+    public String becomeCoach(){
         if (this.coach==null){
             coach= new Coach(this);
             LOG.info(String.format("%s - %s", getUserName(), "become coach"));
-            return true;
+            return "success";
         }
         LOG.error("already coach- can not become coach");
-        return false;
+        return "fail";
     }
 
     /**OR**/
@@ -73,14 +73,14 @@ public class TeamRole extends Fan {
     }
     /**OR**/
     //TODO test - avital V
-    public boolean becomeTeamOwner(){
+    public String becomeTeamOwner(){
         if(this.teamOwner == null){
-            teamOwner= new TeamOwner(this);
+            teamOwner = new TeamOwner(this);
             LOG.info(String.format("%s - %s", getUserName(), "become team owner"));
-            return true;
+            return "success";
         }
         LOG.error("already team owner- can not become team owner");
-        return false;
+        return "fail";
     }
 
     // adi

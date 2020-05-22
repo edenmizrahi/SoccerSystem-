@@ -47,6 +47,24 @@ public class Fan extends User implements NotificationsUser {
         gotFanNotification=false;
     }
 
+
+    public Fan( String name, String phoneNumber, String email, String userName, String password, Date date) {
+        super(MainSystem.getInstance());
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.dateOfBirth=date;
+        myPages = new LinkedList<>();
+        myComplaints = new LinkedList<>();
+        matchesFollow=new LinkedList<>();
+        this.searchHisroty= new LinkedList<>();
+        notificationHashSet=new HashSet<>();
+        //add userName to the hashset
+//        MainSystem.getInstance().addUserName(userName);
+        gotFanNotification=false;
+    }
     //<editor-fold desc="getters and setters">
     public List<PrivatePage> getMyPages() {
         return myPages;
@@ -211,25 +229,25 @@ public class Fan extends User implements NotificationsUser {
 //                }
 //            }
 //            else{
-//                if(arg instanceof Domain.Events.Goal){
+//                if(arg instanceof Domain.EventsAdapter.Goal){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.RedCard){
+//                if(arg instanceof Domain.EventsAdapter.RedCard){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.YellowCard){
+//                if(arg instanceof Domain.EventsAdapter.YellowCard){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.OffSide){
+//                if(arg instanceof Domain.EventsAdapter.OffSide){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.Offense){
+//                if(arg instanceof Domain.EventsAdapter.Offense){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.Injury){
+//                if(arg instanceof Domain.EventsAdapter.Injury){
 //                    return;
 //                }
-//                if(arg instanceof Domain.Events.Replacement){
+//                if(arg instanceof Domain.EventsAdapter.Replacement){
 //                    return;
 //                }
 //            }

@@ -66,7 +66,7 @@ public class RefereeController {
             //LinkedList<String> allPlayers = awayPlayersName;
             String allPlayers = new String();
             for(String pName : homePlayersName){
-                allPlayers += pName + ",";
+                allPlayers += pName + ";";
             }
             //allPlayers.addAll(homePlayersName);
             return allPlayers;
@@ -148,7 +148,7 @@ public class RefereeController {
             if(match.getMainReferee().getUserName().equals(nameOfReferee)) {
                 if (currentDate.after(DateUtils.addMinutes(match.getStartDate(), match.getNumOfMinutes()))) {
                     //listOfMatches.add(match.toString());
-                    listOfMatches += match.toString() + ",";
+                    listOfMatches += match.toString() + ";";
                 }
             }
         }
@@ -167,7 +167,7 @@ public class RefereeController {
             HashSet<Event> allEvents = currentReferee.createReport(m);
             for (Event e : allEvents) {
                 //listOfEventsInMatch.add(e.toString());
-                listOfEventsInMatch += e.toString() + ",";
+                listOfEventsInMatch += e.toString() + ";";
             }
             return listOfEventsInMatch;
         } catch(Exception e){
@@ -212,11 +212,12 @@ public class RefereeController {
 
     public String createGoalEvent(String referee, String match, String player) {
         try {
-            Referee currentReferee = this.getRefereeByUserName(referee);
-            Match currentMatch = this.matchObjectFromString(match, referee);
-            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Referee currentReferee = this.getRefereeByUserName(referee); //from DB
+            Match currentMatch = this.matchObjectFromString(match, referee); //from DB
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player); //fromDB
             Event e = currentReferee.createGoalEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
+            //update in tables
         } catch(Exception e){
             return "";
         }
@@ -229,7 +230,9 @@ public class RefereeController {
         Match currentMatch = this.matchObjectFromString(match, referee);
         Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
         Event e = currentReferee.createInjuryEvent(playerMakeEvent,currentMatch);
+        //add to DB and update in events T and injury T
         currentReferee.addEventsDuringMatch(currentMatch,e);
+
         } catch(Exception e){
             return "";
         }

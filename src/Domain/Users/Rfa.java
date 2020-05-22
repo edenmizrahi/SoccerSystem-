@@ -26,11 +26,18 @@ public class Rfa extends Fan implements NotificationsUser {
     public static HashSet<Notification> notifications;
 
     public boolean gotRFAnotification;
+    /* FOR TESTS**/
     public Rfa(Fan fan, MainSystem ms) {
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
         this.teamRequests= new HashSet<>();
         this.notifications=new HashSet<>();
         system.removeUser(fan);
+        gotRFAnotification =false;
+    }
+    public Rfa(Fan fan) {
+        super(fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
+        this.teamRequests= new HashSet<>();
+        this.notifications=new HashSet<>();
         gotRFAnotification =false;
     }
 
@@ -377,7 +384,7 @@ public class Rfa extends Fan implements NotificationsUser {
             throw new NullPointerException();
         }
         season.getSchedulingPolicy().assign(season.getTeamsInCurrentSeasonLeagues(), season);
-        season.setPlaySchedualingPolicy(true);
+//        season.setPlaySchedualingPolicy(true);
         LOG.info(String.format("%s - %s", this.getUserName(), "start scheduling policy by the rfa"));
     }
 
@@ -404,7 +411,7 @@ public class Rfa extends Fan implements NotificationsUser {
 
         if(seasonExist){
             season.getCalculationPolicy().calculate(season.getTeamsInCurrentSeasonLeagues());
-            season.setPlayCalculationPolicy(true);
+//            season.setPlayCalculationPolicy(true);
             LOG.info(String.format("%s - %s", this.getUserName(), "start calculating policy by the rfa "));
         }
         else{

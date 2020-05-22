@@ -31,6 +31,24 @@ public class Referee extends Fan implements NotificationsUser {
         gotRefereeNotification=false;
     }
 
+    //for DB
+    public Referee(Fan fan, String qualification){
+        super(fan.getName(),fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(), fan.getDateOfBirth());
+        matches = new LinkedList<>();
+        this.qualification = qualification;
+        refNotifications =new HashSet<>();
+        gotRefereeNotification=false;
+    }
+    //for DB
+    public Referee (String name, String phoneNumber, String email, String userName, String password, Date date, String qualification) {
+        super(name,phoneNumber,email,userName,password,date);
+        matches = new LinkedList<>();
+        this.qualification=qualification;
+        refNotifications =new HashSet<>();
+        gotRefereeNotification=false;
+    }
+
+
     public Referee(Fan fan, MainSystem ms, String qualification){
         super(ms, fan.getName(), fan.getPhoneNumber(), fan.getEmail(), fan.getUserName(), fan.getPassword(),fan.getDateOfBirth());
         matches = new LinkedList<>();
@@ -75,7 +93,6 @@ public class Referee extends Fan implements NotificationsUser {
      * @CodeBy Yarden
      */
     public void addEventsDuringMatch(Match match, Event event) throws Exception {
-
        //checking whether this is a game the referee is judging
         if(this.getMatches().contains(match)){
 
@@ -270,7 +287,7 @@ public class Referee extends Fan implements NotificationsUser {
 
     public Event createInjuryEvent(Player p, Match match) throws Exception {
         if(p!=null && match!=null) {
-            if (this.matches.contains(match)) {
+            if (this.matches.contains(match)) { //check if referee-matches table contains this match - in controller
                 return (new Injury(this, match, p));
             }
             else{

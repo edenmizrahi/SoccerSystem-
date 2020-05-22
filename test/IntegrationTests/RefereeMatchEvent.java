@@ -20,7 +20,7 @@ import static org.junit.Assert.fail;
 
 
 /**
- * Integration between - Referee, Match and Events
+ * Integration between - Referee, Match and EventsAdapter
  *
  * The match created and the referee can add events during match
  *

@@ -47,6 +47,8 @@ public abstract class Event  {
         }
     }
 
+    public int getId(){ return id;}
+
     public Referee getReferee() { return referee; }
 
     public Match getMatch() { return match; }

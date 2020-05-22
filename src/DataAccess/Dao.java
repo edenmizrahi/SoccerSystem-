@@ -4,14 +4,14 @@ import java.util.*;
 
 public interface Dao <T> {
 
-    Optional<T> get(long id);
+    List<T> get(List<T> keys);
 
-    List<T> getAll();
+    List<List<T>> getAll(T collName, T filter);
 
-    void save(T t) throws SQLException;
+    void save(List<T> strings) throws SQLException;
 
-    void update(T t, String[] params);
+    void update(T t, List<T> string);
 
-    void delete(T t);
+    void delete(List<T> strings);
 }
 

@@ -549,14 +549,16 @@ public class MainSystem {
     }
     //</editor-fold>
 
-
-    /**OR*
+    public  void writeToLogError(String err){
+        LOG.error(err);
+    }
+    /**OR
      * this function return the user that the userName and password are correct
      * null if there is no user that fits
      * @param userName
      * @param password
      * @return
-     */
+             */
     public Fan logIn(String userName, String password) throws Exception {
         if(userName==null){
             LOG.error("userName null");

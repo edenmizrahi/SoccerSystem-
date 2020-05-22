@@ -64,12 +64,17 @@ public class TeamManagementUIController { //implements Initializable {
     @FXML
     public void changeToActivateScene(ActionEvent event) throws IOException{
         String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
+        //String approvedTeamsStr = ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName);
 
         String tempPlayersStr = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
-        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(","));
+        //String tempPlayersStr = ClientController.connectToServer("TeamManagementApplication", "getAllTeamRolesThatArentPlayerWithTeam");
+
+        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(";"));
 
         String CoachesStr = tMApp.getAllTeamRolesThatArentCoachWithTeam();
-        List<String> Coaches = Arrays.asList(CoachesStr.split(","));
+        //String CoachesStr = ClientController.connectToServer("TeamManagementApplication", "getAllTeamRolesThatArentCoachWithTeam");
+
+        List<String> Coaches = Arrays.asList(CoachesStr.split(";"));
 
         if (approvedTeamsStr == null || approvedTeamsStr.equals("")){
             alertError("You do not have any teams to activate.");
@@ -81,7 +86,7 @@ public class TeamManagementUIController { //implements Initializable {
             alertError("Cannot create a new team. There aren't any potential coaches in the system.");
         }
         else {
-            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(","));
+            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(";"));
             changeScene(event, "ActivateTeam.fxml");
         }
     }
@@ -131,6 +136,8 @@ public class TeamManagementUIController { //implements Initializable {
         }
         else {
             String message = tMApp.requestNewTeam(userName, teamName);
+            //String message = ClientController.connectToServer("TeamManagementApplication", "requestNewTeam", userName, teamName);
+
 
             if (message == "team name not unique, already exist in system") {
                 alertError("This team name already exists. Please choose a different team name.");
@@ -144,8 +151,11 @@ public class TeamManagementUIController { //implements Initializable {
     @FXML
     public void activateScene(){
         if (tMApp.getMyApprovedTeams(userName) !=  null && tMApp.getMyApprovedTeams(userName).length() != 0) {
+        //if(ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName) != null && ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName).length() != 0){
             String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
-            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(","));
+            //String approvedTeamsStr = ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName);
+
+            List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(";"));
 
             teamNameCB.getItems().clear();
             for (String teamName : approvedTeams) {
@@ -154,7 +164,9 @@ public class TeamManagementUIController { //implements Initializable {
         }
 
         String tempPlayersStr = tMApp.getAllTeamRolesThatArentPlayerWithTeam();
-        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(","));
+        //String tempPlayersStr = ClientController.connectToServer("TeamManagementApplication", "getAllTeamRolesThatArentPlayerWithTeam");
+
+        List<String> tempPlayers = Arrays.asList(tempPlayersStr.split(";"));
 
         ObservableList<String> players = FXCollections.observableArrayList(tempPlayers);
         playersListView.getItems().clear();
@@ -162,7 +174,9 @@ public class TeamManagementUIController { //implements Initializable {
         playersListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         String CoachesStr = tMApp.getAllTeamRolesThatArentCoachWithTeam();
-        List<String> Coaches = Arrays.asList(CoachesStr.split(","));
+        //String tempPlayersStr = ClientController.connectToServer("TeamManagementApplication", "getAllTeamRolesThatArentCoachWithTeam");
+
+        List<String> Coaches = Arrays.asList(CoachesStr.split(";"));
 
         coachCB.getItems().clear();
         for (String coachUserName : Coaches) {
@@ -180,24 +194,34 @@ public class TeamManagementUIController { //implements Initializable {
         HashSet<String> players = new HashSet<>(selectedPlayers);
         String playersStr = new String();
         for (String p : players){
-            playersStr += p + ",";
+            playersStr += p + ";";
         }
         String field = fieldName.getText();
 
         if (teamName == null) {
             alertError("Please choose a team name.");
-        }else if (selectedPlayers == null || selectedPlayers.size() < 11){
+        }
+        else if (teamName.contains(";")){
+            alertError("Team Name cannot contain: ;");
+        }
+        else if (selectedPlayers == null || selectedPlayers.size() < 11){
             alertError("Please choose at least 11 players.");
         }
         else if (coachUserName == null) {
             alertError("Please choose a coach.");
         } else if (field == null || field.equals("")) {
             alertError("Please insert a field name.");
-        } else if(players == null || players.size() < 11){
+        }
+        else if (field.contains(";")){
+            alertError("Field name cannot contain: ;");
+        }
+        else if(players == null || players.size() < 11){
             alertError("Please choose players.");
         }
         else {
             String message = tMApp.makeTeamActive(userName, teamName, playersStr, coachUserName, field);
+            //String message = ClientController.connectToServer("TeamManagementApplication", "makeTeamActive", userName, teamName, playersStr, coachUserName, field);
+
             if (message.equals("this team is not approved by RFA")){
                 alertError("This team was not approved by the RFA.");
             }

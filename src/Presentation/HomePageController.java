@@ -58,7 +58,8 @@ public class HomePageController {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("checking notifications!!");
-                String ans=fanApplication.checkForNewNotifications(userName);
+                String ans = fanApplication.checkForNewNotifications(userName);
+                //String ans = ClientController.connectToServer("FanApplication", "checkForNewNotifications", userName);
                 if(ans.equals("gotFanNotification")){//fan
                     Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                     chooseFile.setContentText("You have a new Notification about a game you are following !");
@@ -166,9 +167,10 @@ public class HomePageController {
      * @param // userName
      */
     @FXML
-    public void initHomePage(){ // String userName
-        this.userName=userName;
+    public void initHomePage(String um){ // String userName
+        this.userName=um;
         String isTeamRole= fanApplication.fanIsTeamRole(userName);
+        //String ans = ClientController.connectToServer("FanApplication", "fanIsTeamRole", userName);
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);
         }

@@ -1,14 +1,19 @@
-package DataAccess.DbAdapter.Events;
+package DataAccess.DbAdapter.EventsAdapter;
 
-import DataAccess.DaoReferee;
+import DataAccess.*;
 import DataAccess.DbAdapter.DbObject;
 import Domain.Events.Goal;
 
-import javax.jnlp.IntegrationService;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GoalEventAdapter implements DbObject<Goal> {
+
+    DaoReferee daoReferee = new DaoReferee();
+    DaoFans daoFans = new DaoFans();
+    DaoTeamRole daoTeamRole = new DaoTeamRole();
+    DaoPlayer daoPlayer = new DaoPlayer();
+    DaoMatch daoMatch = new DaoMatch();
 
     @Override
     public Goal ToObj(List<String> fields) throws Exception {
@@ -18,7 +23,7 @@ public class GoalEventAdapter implements DbObject<Goal> {
         // Player(TeamRole teamRole, Team playerTeam, String roleAtField)
         // TeamRole(Fan fan)
         // Fan(String name, String phoneNumber, String email, String userName, String password, Date date)
-        DaoReferee daoReferee;
+
         return null;
     }
 

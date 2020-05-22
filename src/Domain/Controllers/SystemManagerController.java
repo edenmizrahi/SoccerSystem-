@@ -1,5 +1,9 @@
 package Domain.Controllers;
 
+import DataAccess.*;
+import Domain.LeagueManagment.Field;
+import Domain.LeagueManagment.League;
+import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
@@ -7,11 +11,13 @@ import Domain.Users.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
 public class SystemManagerController {
+
 
     /**
      * close team  forever
@@ -121,6 +127,8 @@ public class SystemManagerController {
             }
         }
     }
+
+
 
 
     // TODO: 19/04/2020  watching and answers complaints - next iteration

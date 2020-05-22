@@ -60,6 +60,23 @@ public class Team extends Observable implements PageOwner {
         mainSystem.addTeamName(name);
     }
 
+    //for DB
+    public Team(String name, int score){
+        this.name = name;
+        this.teamOwners = new HashSet<>();
+        this.isActive=false;
+        this.mainSystem= MainSystem.getInstance();
+        this.leaguePerSeason = new HashMap<>();
+        this.players = new LinkedHashSet<>();
+        this.coach = null;
+        this.teamManager = null;
+        this.field = null;
+        this.budgetControl= new BudgetControl(this);
+        this.home= new HashSet<>();
+        this.away= new HashSet<>();
+        this.score = score;
+    }
+
     //just for tests!!!!!1
     public Team(){
         System.out.println("THIS TEAM CONSTRUCTOR IS ONLY FOR TESTS");
@@ -76,6 +93,7 @@ public class Team extends Observable implements PageOwner {
         this.home= new HashSet<>();
         this.away= new HashSet<>();
     }
+
     //just for tests!!!!!!!
     public Team(String name){
         System.out.println("THIS TEAM CONSTRUCTOR IS ONLY FOR TESTS");

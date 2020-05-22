@@ -6545,3 +6545,7 @@
 18.05.2020 12:36:00 INFO  TeamOwner - Ilan12 -  new team was added: null
 18.05.2020 12:36:00 INFO  TeamRole - yarden012 - become player
 18.05.2020 16:06:33 INFO  MainSystem - oralf345 - sign in as RFA
+22.05.2020 13:18:36 INFO  TeamRole - coach101 - become team owner
+22.05.2020 13:33:05 ERROR Rfa - team not in request list
+22.05.2020 13:33:23 INFO  TeamRole - coach101 - become team owner
+22.05.2020 17:12:20 ERROR Rfa - team not in request list

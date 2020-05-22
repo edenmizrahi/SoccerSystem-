@@ -111,7 +111,7 @@ public class Match extends Observable {
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
         setChanged();
-        notifyObservers("The match time between team-" + homeTeam.getName() + "to team-" + awayTeam.getName() +
+        notifyObservers("The match time between team-" + homeTeam.getName() + " to team-" + awayTeam.getName() +
                 " changed to " + this.startDate);
     }
 

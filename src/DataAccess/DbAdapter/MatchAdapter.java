@@ -9,7 +9,8 @@ import java.util.List;
 public class MatchAdapter implements DbObject<Match> {
     @Override
     public Match ToObj(List<String> fields) throws Exception {
-        return null;
+        return new Match(fields.get(0),Integer.parseInt(fields.get(3)), Integer.parseInt(fields.get(4)),
+                Integer.parseInt(fields.get(7)));
     }
 
     @Override

@@ -180,7 +180,7 @@ public class TeamManagementUIController { //implements Initializable {
 
         coachCB.getItems().clear();
         for (String coachUserName : Coaches) {
-            coachCB.getItems().add(coachUserName);
+        coachCB.getItems().add(coachUserName);
         }
     }
 

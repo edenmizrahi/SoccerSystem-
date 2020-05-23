@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import static DB.Tables.Tables.FANS;
+//import static DB.Tables.Tables.FANS;
 import static org.jooq.impl.DSL.name;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -45,12 +45,14 @@ public class DBHandler  {
     }
 
     public boolean dslCheckConfig(){
+        /*
         DSLContext create = DSL.using(connection, SQLDialect.MARIADB);
         Result<?> result= create.select().
                 from(FANS).where(FANS.USERNAME.eq("eden")).fetch();
         if(!result.isEmpty()) {
             return true;
         }
+        */
         return false;
     }
 

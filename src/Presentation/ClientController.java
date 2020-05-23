@@ -17,16 +17,20 @@ public class ClientController {
 
 
     public static String connectToServer(String appClassName, String funcName, String... parameters){
-        String ans;
-        ClientConfig config = new DefaultClientConfig();
-        Client client = Client.create(config);
-        WebResource service = client.resource(url);
-        service=service.path(appClassName).path(funcName);
-        for (String param:parameters) {
-            service=service.path(param);
+        String ans="";
+        try {
+            ClientConfig config = new DefaultClientConfig();
+            Client client = Client.create(config);
+            WebResource service = client.resource(url);
+            service=service.path(appClassName).path(funcName);
+            for (String param:parameters) {
+                service=service.path(param);
+            }
+            ans=service.accept(MediaType.TEXT_PLAIN).get(ClientResponse.class).getEntity(String.class);
+            System.out.println("Server answer "+ans);
+        }catch (Exception e){
+            System.out.println("exp thrown");
         }
-        ans=service.accept(MediaType.TEXT_PLAIN).get(ClientResponse.class).getEntity(String.class);
-        System.out.println("Server answer "+ans);
         return ans;
     }
 

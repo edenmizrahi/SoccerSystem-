@@ -171,7 +171,7 @@ public class SystemOperationsController {
         MainSystem ms=MainSystem.getInstance();
         /***-----data structures for objects and DB records :------*/
 
-            /**schedling policies:*/
+            /**scheduling policies:*/
         HashMap<String ,SchedulingPolicy > schedulingPolicyHashMap=new HashMap<String ,SchedulingPolicy >();
             /**fields:*/
         HashMap<String ,List<String> > fieldsByFieldName=new HashMap<String ,List<String> >();
@@ -289,11 +289,53 @@ public class SystemOperationsController {
             seasonsByYear.get(rec.get(0)).setCalculationPolicy(calculationPoliciesByName.get(rec.get(2)),"");
             /***set schedulingPolicy to season*/
             seasonsByYear.get(rec.get(0)).setSchedulingPolicy(schedulingPolicyHashMap.get(rec.get(1)),"");
+        }
+
+        /**matches**/
+        List<List<String>> matchesString  = daoMatch.getAll(null, null);
+
+        LinkedList<Match> matchesObject = new LinkedList<>();
+        MatchAdapter matchAdapter = new MatchAdapter();
+        for(List<String> match : matchesString){
+            matchesObject.add(matchAdapter.ToObj(match));
+        }
+
+        for(List<String> matchRec : matchesString){
+            /**0 - date**/
+
+            /**1 - name home team**/
+            Team home = this.getTeambyTeamName(matchRec.get(1));
+            /**2 - name away team**/
+            Team away = this.getTeambyTeamName(matchRec.get(2));
+            /**3 - score home team**/
+
+            /**4 - score away team**/
+
+            /**5 - field**/
+            Field field = new Field(matchRec.get(5));
+
+            /**6 - main Referee**/
+            MainSystem.getInstance().getUsers();
+            /**7 - time of match**/
+
+
 
         }
 
 
 
+    }
+
+
+    public Team getTeamByName(String teamName){
+        HashSet<Team> activeTeams = MainSystem.getInstance().getActiveTeams();
+
+        for(Team team: activeTeams){
+            if(team.getName().equals(teamName))
+                return team;
+        }
+
+        return null;
     }
 
     private void createHashMapByUserName(HashMap<String, List<String>> hashMapByUserName, List<List<String>> records) {

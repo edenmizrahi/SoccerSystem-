@@ -174,7 +174,7 @@ public class SystemOperationsController {
             /**scheduling policies:*/
         HashMap<String ,SchedulingPolicy > schedulingPolicyHashMap=new HashMap<String ,SchedulingPolicy >();
             /**fields:*/
-        HashMap<String ,List<String> > fieldsByFieldName=new HashMap<String ,List<String> >();
+        HashMap<String ,Field > fieldsByFieldName=new HashMap<String ,Field >();
             /**Team Roles:**/
         HashMap<String,List<String>> teamRolesTrcordsByUserName=new  HashMap<String,List<String>>();
             /***Referees:*/
@@ -248,16 +248,23 @@ public class SystemOperationsController {
 
         /**teams*/
         List<List<String>> teamsList = daoTeams.getAll(null, null);
+        HashMap<String, List<String>> teamsRecordsByName=new HashMap<>();
         for(List<String > teamRec: teamsList){
             TeamAdapter ta=new TeamAdapter();
             Team team=ta.ToObj(teamRec);
             ms.getTeamNames().add(team.getName());
             ms.getActiveTeams().add(team);
+            teamsRecordsByName.put(team.getName(),teamRec);
         }
 
         /**fields*/
         List<List<String>> fieldsList = daoFields.getAll(null, null);
-        createHashMapByUserName(fieldsByFieldName,fieldsList);
+        FieldAdapter fieldAdapter=new FieldAdapter();
+        for(List<String> fieldRec:fieldsList){
+            Field field=fieldAdapter.ToObj(fieldRec);
+            fieldsByFieldName.put(fieldRec.get(0),field);
+        }
+
 
         /***calculationPolicy*/
         List<List<String>> calculationPolicies = daoCalculationPolicy.getAll(null, null);
@@ -290,7 +297,38 @@ public class SystemOperationsController {
             /***set schedulingPolicy to season*/
             seasonsByYear.get(rec.get(0)).setSchedulingPolicy(schedulingPolicyHashMap.get(rec.get(1)),"");
         }
+        /****Teams:****/
+       HashSet<Team> teams =ms.getActiveTeams();
+       for(Team team: teams){
+           List<String> teamRecord=teamsRecordsByName.get(team.getName());
+           String teamManagerUserName= teamRecord.get(1);
+           String teamFounderUserName= teamRecord.get(2);
+           String teamCoachUserName= teamRecord.get(3);
+           String teamfield= teamRecord.get(4);
 
+           /**set team manager**/
+           TeamRole teamManager=(TeamRole)getUserByUserName(teamManagerUserName);
+           teamManager.getTeamManager().setTeam(team);
+           team.setTeamManager(teamManager.getTeamManager());
+
+           /**setFounder**/
+           TeamRole founder=((TeamRole)getUserByUserName(teamFounderUserName));
+           team.setFounder(founder.getTeamOwner());
+
+           /**setCoach**/
+           TeamRole coach=((TeamRole)getUserByUserName(teamCoachUserName));
+           teamManager.getCoach().setCoachTeam(team);
+           team.setCoach(coach.getCoach());
+
+           /**setCoach**/
+           Field field=fieldsByFieldName.get(teamfield);
+           teamManager.getCoach().setCoachTeam(team);
+           team.setCoach(coach.getCoach());
+
+       }
+
+
+       /*************/
         /**matches**/
         List<List<String>> matchesString  = daoMatch.getAll(null, null);
 
@@ -325,6 +363,11 @@ public class SystemOperationsController {
 
 
     }
+
+
+
+
+
 
 
     public Team getTeamByName(String teamName){

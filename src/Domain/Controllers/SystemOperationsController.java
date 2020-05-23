@@ -27,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
 public class SystemOperationsController {
     DaoApprovedTeamReq daoApprovedTeamReq = new DaoApprovedTeamReq();
     DaoCalculationPolicy daoCalculationPolicy = new DaoCalculationPolicy();
@@ -55,6 +56,7 @@ public class SystemOperationsController {
     DaoTeamRole daoTeamRole = new DaoTeamRole();
     DaoTeams daoTeams = new DaoTeams();
     DaoTwoPlayersEvents daoTwoPlayersEvents = new DaoTwoPlayersEvents();
+    //DBHandler dbHandler=new DBHandler();
 
     /**
      * return all matches in system that have not yet happened - match format
@@ -158,6 +160,11 @@ public class SystemOperationsController {
     }
 
 
+    public void initSystemFromDBTempAvital () throws Exception {
+        DBHandler.conectToDB();
+    }
+
+
     public void initSystemFromDB () throws Exception {
         FanAdapter fa = new FanAdapter();
         List<User> loginUsers;
@@ -169,6 +176,10 @@ public class SystemOperationsController {
         HashMap<Integer, Season> yearPerSeason;
         HashMap<String, League> nameOfLeaguePerLeague;
         MainSystem ms=MainSystem.getInstance();
+
+        /**--- connect to DB ---**/
+        DBHandler.conectToDB();
+
         /***-----data structures for objects and DB records :------*/
 
             /**scheduling policies:*/

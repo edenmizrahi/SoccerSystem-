@@ -55,7 +55,7 @@ public class DefinePolicyController {
         chooseCalcPolicyBtn.getSelectionModel().selectFirst();
 
 
-        //for comboBox of scheduling policy
+        // for comboBox of scheduling policy
         String allSchedulingPoliciesStr = rfaApplication.getAllschedulingString();
         //String allSchedulingPoliciesStr = ClientController.connectToServer("RfaApplication", "getAllschedulingString");
 

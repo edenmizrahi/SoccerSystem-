@@ -8,26 +8,20 @@ import org.jooq.impl.DSL;
 import java.sql.SQLException;
 import java.util.List;
 
-//import static DB.Tables.Tables.FANS;
+import static DB.Tables.Tables.FANS;
 
 public class DaoSeasons implements Dao<String>{
     private DBHandler dbHandler=new DBHandler();
 
     @Override
     public List<String> get(List<String> keys) {
-        String leagueYearKey= keys.get(0);
-
-//        //DSLContext create = DSL.using(connection, SQLDialect.MARIADB);
+//        DBHandler.conectToDB();
+//        String seasonYearKey= keys.get(0);
+//        int seasonYear=Integer.parseInt(seasonYearKey);
+//        DSLContext create = DBHandler.getDSLConnect();    //DSL.using(connection, SQLDialect.MARIADB);
 //        Result<?> result= create.select().
-//                from(FANS).where(FANS.USERNAME.eq("eden")).fetch();
-////        if(!result.isEmpty()) {
-////            return true;
-//        }
-//        return false;
-
-
-
-
+//                from(SEASONS).where(SEASONS.YEAR.eq(seasonYear)).fetch();
+//
 
         return null;
     }

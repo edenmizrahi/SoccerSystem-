@@ -5,10 +5,13 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
+import java.util.concurrent.TimeUnit;
 
 
 public class ClientController {
@@ -21,6 +24,8 @@ public class ClientController {
         try {
             ClientConfig config = new DefaultClientConfig();
             Client client = Client.create(config);
+            client.setReadTimeout(5000);
+            client.setConnectTimeout(5000);
             WebResource service = client.resource(url);
             service=service.path(appClassName).path(funcName);
             for (String param:parameters) {
@@ -29,7 +34,13 @@ public class ClientController {
             ans=service.accept(MediaType.TEXT_PLAIN).get(ClientResponse.class).getEntity(String.class);
             System.out.println("Server answer "+ans);
         }catch (Exception e){
+            ans="ERROR";
             System.out.println("exp thrown");
+            Platform.runLater(() -> {
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setContentText("Connection problem ! Please try to connect later");
+                chooseFile.show();
+            });
         }
         return ans;
     }

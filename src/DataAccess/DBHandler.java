@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-//import static DB.Tables.Tables.FANS;
+import static DB.Tables.Tables.FANS;
 import static org.jooq.impl.DSL.name;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

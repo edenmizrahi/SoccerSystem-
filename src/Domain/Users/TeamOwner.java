@@ -465,7 +465,7 @@ public class TeamOwner extends ManagmentActions implements NotificationsUser {
             if(arg.equals(true)){// the team can be open
                requestedTeams.remove(o);
                approvedTeams.add((Team)o);
-               notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));
+               //notifications.add(new Notification(o,"Team "+((Team)o).getName()+" can be open",false));
             }
             else if(arg.equals(false)){// the team cant be open
                 ((Team)o).deleteObservers();

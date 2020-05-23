@@ -8,6 +8,7 @@ import Domain.Users.Referee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -50,6 +51,20 @@ public class  Match extends Observable {
             LOG.error("one of details to create match in null");
             throw new Exception("Please valid details that requires to create a match");
         }
+    }
+
+    //for DB
+    public Match(String date, int homeScore, int guestScore, int numOfMinutes  ) throws ParseException {
+        this.homeScore = homeScore;
+        this.guestScore = guestScore;
+        this.awayTeam = null;
+        this.homeTeam = null;
+        this.field = null;
+        this.events = new HashSet<Event>();
+        this.referees = new HashSet<Referee>();
+        this.mainReferee = null;
+        this.startDate = MainSystem.simpleDateFormat.parse(date);
+        this.numOfMinutes = numOfMinutes;
     }
 
 
@@ -111,7 +126,7 @@ public class  Match extends Observable {
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
         setChanged();
-        notifyObservers("The match time between team-" + homeTeam.getName() + "to team-" + awayTeam.getName() +
+        notifyObservers("The match time between team-" + homeTeam.getName() + " to team-" + awayTeam.getName() +
                 " changed to " + this.startDate);
     }
 

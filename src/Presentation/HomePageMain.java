@@ -17,6 +17,7 @@ public class HomePageMain extends Application {
         primaryStage.setTitle("home page");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
+        //avital
     }
 
 

@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static DB.Tables.Tables.FANS;
-import static DB.Tables.Tables.SEASONS;
 
 public class DaoSeasons implements Dao<String>{
     private DBHandler dbHandler=new DBHandler();

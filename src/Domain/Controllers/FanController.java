@@ -190,7 +190,7 @@ public class FanController {
             return ((Fan)user).checkNotificationAlert();
         }
         else{
-            return "user instance of fan";
+            return "user not instance of fan";
         }
     }
 

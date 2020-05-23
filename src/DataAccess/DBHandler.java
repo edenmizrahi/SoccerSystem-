@@ -11,9 +11,9 @@ import java.sql.SQLException;
 
 import static DB.Tables.Tables.FANS;
 import static org.jooq.impl.DSL.name;
-//import org.jooq.DSLContext;
-//import org.jooq.SQLDialect;
-//import org.jooq.impl.DSL;
+import org.jooq.DSLContext;
+import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
 
 public class DBHandler  {
     String username="root";
@@ -37,7 +37,7 @@ public class DBHandler  {
     public  boolean dslCheck(){
         DSLContext create = DSL.using(connection, SQLDialect.MARIADB);
         Result<?> result= create.select().from(DSL.table(name("fans")))
-                .where(DSL.field(name("userName")).eq("eden")).fetch();
+                .where(DSL.field(name("userName")).eq("chen")).fetch();
         if(!result.isEmpty()) {
             return true;
         }

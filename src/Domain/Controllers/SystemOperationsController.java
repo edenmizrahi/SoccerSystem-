@@ -1335,9 +1335,9 @@ public class SystemOperationsController {
         //list of userName in Fan table - check if userName contains
         try {
             password=sha256(password);
-            boolean isPlayer=false;
-            boolean isCoach=false;
-            boolean isTeamOwner=false;
+            int isPlayer=0;
+            int isCoach=0;
+            int isTeamOwner=0;
             LinkedList<String> details = new LinkedList<>();
             details.add(userName);
             details.add(name);
@@ -1352,14 +1352,14 @@ public class SystemOperationsController {
                 ms.signInAsPlayer(name, phoneNumber, email, userName, password, date);
                 specificDetails.add(null);
                 daoPlayer.save(specificDetails);
-                isPlayer=true;
+                isPlayer=1;
             }
             if (role.equals("Coach")) {
                 ms.signInAsCoach(name, phoneNumber, email, userName, password, date);
                 specificDetails.add(null);
                 specificDetails.add(null);
                 daoCoaches.save(specificDetails);
-                isCoach=true;
+                isCoach=1;
 
             }
             if (role.equals("Fan")) {
@@ -1373,7 +1373,7 @@ public class SystemOperationsController {
             }
             if (role.equals("TeamOwner")) {
                 ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date);
-                isTeamOwner=true;
+                isTeamOwner=1;
             }
             LinkedList<String> teamRoleRecord=new LinkedList<>();
             teamRoleRecord.add(userName);
@@ -1381,7 +1381,7 @@ public class SystemOperationsController {
             teamRoleRecord.add(""+isCoach);
             teamRoleRecord.add(""+isTeamOwner);
             teamRoleRecord.add(""+false);
-            if(isCoach||isPlayer||isTeamOwner){
+            if(isCoach==1||isPlayer==1||isTeamOwner==1){
                 daoTeamRole.save(teamRoleRecord);
             }
         }

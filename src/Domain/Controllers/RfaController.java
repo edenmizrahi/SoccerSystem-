@@ -143,8 +143,9 @@ public class RfaController {
                 else{
                     recordInSeasonTable.add(3,"false");
                 }
-
-                daoSeasons.update(String.valueOf(s.getYear()), recordInSeasonTable);
+                LinkedList<String> keys=new LinkedList<>();
+                keys.add(String.valueOf(s.getYear()));
+                daoSeasons.update(keys, recordInSeasonTable);
             }
         }
 

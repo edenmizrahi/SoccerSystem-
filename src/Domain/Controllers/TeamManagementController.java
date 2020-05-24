@@ -77,9 +77,16 @@ public class TeamManagementController {
                 name.add(pName);
                 records.add(teamName);
                 records.add(null);
-//                daoPlayer.update(name,records);
+                daoPlayer.update(name,records);
             }
             TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
+            /**coach- add team to db**/
+            LinkedList<String> records =new LinkedList<>();
+            records.add(teamName);
+            records.add(null);
+            LinkedList<String> name=new LinkedList<>();
+            name.add(coachUserName);
+            daoCoaches.update(name,records);
 
             Field field = new Field(nameOfNewField);
 

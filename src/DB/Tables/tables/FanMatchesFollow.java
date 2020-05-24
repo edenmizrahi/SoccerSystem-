@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanMatchesFollow extends TableImpl<FanMatchesFollowRecord> {
 
-    private static final long serialVersionUID = 38621191;
+    private static final long serialVersionUID = -946829166;
 
     /**
      * The reference instance of <code>footballsystem_db.fan_matches_follow</code>
@@ -117,11 +117,15 @@ public class FanMatchesFollow extends TableImpl<FanMatchesFollowRecord> {
 
     @Override
     public List<ForeignKey<FanMatchesFollowRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<FanMatchesFollowRecord, ?>>asList(Keys.FK_FAN_MATCHES_FOLLOW_FANS);
+        return Arrays.<ForeignKey<FanMatchesFollowRecord, ?>>asList(Keys.FK_FAN_MATCHES_FOLLOW_FANS, Keys.FK_FAN_MATCHES_FOLLOW_MATCHES);
     }
 
     public Fans fans() {
         return new Fans(this, Keys.FK_FAN_MATCHES_FOLLOW_FANS);
+    }
+
+    public Matches matches() {
+        return new Matches(this, Keys.FK_FAN_MATCHES_FOLLOW_MATCHES);
     }
 
     @Override

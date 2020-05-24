@@ -5,9 +5,12 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
+import DB.Tables.Keys;
 import DB.Tables.tables.records.FanNotificationRecord;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
@@ -18,6 +21,7 @@ import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -28,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanNotification extends TableImpl<FanNotificationRecord> {
 
-    private static final long serialVersionUID = -1761778074;
+    private static final long serialVersionUID = -1641335767;
 
     /**
      * The reference instance of <code>footballsystem_db.fan-notification</code>
@@ -109,6 +113,33 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     @Override
     public Schema getSchema() {
         return FootballsystemDb.FOOTBALLSYSTEM_DB;
+    }
+
+    @Override
+    public UniqueKey<FanNotificationRecord> getPrimaryKey() {
+        return Keys.KEY_FAN_NOTIFICATION_PRIMARY;
+    }
+
+    @Override
+    public List<UniqueKey<FanNotificationRecord>> getKeys() {
+        return Arrays.<UniqueKey<FanNotificationRecord>>asList(Keys.KEY_FAN_NOTIFICATION_PRIMARY);
+    }
+
+    @Override
+    public List<ForeignKey<FanNotificationRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<FanNotificationRecord, ?>>asList(Keys.FK_FAN_NOTIFICATION_MATCHES, Keys.FK_FAN_NOTIFICATION_FANS, Keys.FK_FAN_NOTIFICATION_EVENTS);
+    }
+
+    public Matches matches() {
+        return new Matches(this, Keys.FK_FAN_NOTIFICATION_MATCHES);
+    }
+
+    public Fans fans() {
+        return new Fans(this, Keys.FK_FAN_NOTIFICATION_FANS);
+    }
+
+    public Events events() {
+        return new Events(this, Keys.FK_FAN_NOTIFICATION_EVENTS);
     }
 
     @Override

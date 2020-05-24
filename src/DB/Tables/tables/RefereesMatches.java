@@ -5,9 +5,12 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
+import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereesMatchesRecord;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
@@ -18,6 +21,7 @@ import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -28,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereesMatches extends TableImpl<RefereesMatchesRecord> {
 
-    private static final long serialVersionUID = 473962959;
+    private static final long serialVersionUID = -1780945240;
 
     /**
      * The reference instance of <code>footballsystem_db.referees_matches</code>
@@ -99,6 +103,29 @@ public class RefereesMatches extends TableImpl<RefereesMatchesRecord> {
     @Override
     public Schema getSchema() {
         return FootballsystemDb.FOOTBALLSYSTEM_DB;
+    }
+
+    @Override
+    public UniqueKey<RefereesMatchesRecord> getPrimaryKey() {
+        return Keys.KEY_REFEREES_MATCHES_PRIMARY;
+    }
+
+    @Override
+    public List<UniqueKey<RefereesMatchesRecord>> getKeys() {
+        return Arrays.<UniqueKey<RefereesMatchesRecord>>asList(Keys.KEY_REFEREES_MATCHES_PRIMARY);
+    }
+
+    @Override
+    public List<ForeignKey<RefereesMatchesRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<RefereesMatchesRecord, ?>>asList(Keys.FK__MATCHES, Keys.FK_REFEREES_MATCHES_REFEREES);
+    }
+
+    public Matches matches() {
+        return new Matches(this, Keys.FK__MATCHES);
+    }
+
+    public Referees referees() {
+        return new Referees(this, Keys.FK_REFEREES_MATCHES_REFEREES);
     }
 
     @Override

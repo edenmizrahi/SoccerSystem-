@@ -24,9 +24,6 @@ public class League {
 
     private HashMap<Season, LinkedHashSet<Referee>> refereesInLeague;
 
-
-
-
     public League(String name, MainSystem mainSystem, Season currSeason) throws Exception {
         this.name = name;
         teamsInSeason=new HashMap<>();

@@ -5,9 +5,12 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
+import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereeNotificationRecord;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
@@ -18,6 +21,7 @@ import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -28,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
 
-    private static final long serialVersionUID = 1431677942;
+    private static final long serialVersionUID = 1036754868;
 
     /**
      * The reference instance of <code>footballsystem_db.referee_notification</code>
@@ -109,6 +113,29 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     @Override
     public Schema getSchema() {
         return FootballsystemDb.FOOTBALLSYSTEM_DB;
+    }
+
+    @Override
+    public UniqueKey<RefereeNotificationRecord> getPrimaryKey() {
+        return Keys.KEY_REFEREE_NOTIFICATION_PRIMARY;
+    }
+
+    @Override
+    public List<UniqueKey<RefereeNotificationRecord>> getKeys() {
+        return Arrays.<UniqueKey<RefereeNotificationRecord>>asList(Keys.KEY_REFEREE_NOTIFICATION_PRIMARY);
+    }
+
+    @Override
+    public List<ForeignKey<RefereeNotificationRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<RefereeNotificationRecord, ?>>asList(Keys.FK_REFEREE_NOTIFICATION_MATCHES, Keys.FK_REFEREE_NOTIFICATION_REFEREES);
+    }
+
+    public Matches matches() {
+        return new Matches(this, Keys.FK_REFEREE_NOTIFICATION_MATCHES);
+    }
+
+    public Referees referees() {
+        return new Referees(this, Keys.FK_REFEREE_NOTIFICATION_REFEREES);
     }
 
     @Override

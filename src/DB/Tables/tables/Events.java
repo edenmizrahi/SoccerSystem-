@@ -33,7 +33,11 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events extends TableImpl<EventsRecord> {
 
+<<<<<<< HEAD
     private static final long serialVersionUID = 692852228;
+=======
+    private static final long serialVersionUID = -1494729603;
+>>>>>>> origin/master
 
     /**
      * The reference instance of <code>footballsystem_db.events</code>
@@ -56,7 +60,11 @@ public class Events extends TableImpl<EventsRecord> {
     /**
      * The column <code>footballsystem_db.events.date</code>.
      */
+<<<<<<< HEAD
     public final TableField<EventsRecord, LocalDateTime> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
+=======
+    public final TableField<EventsRecord, LocalDate> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+>>>>>>> origin/master
 
     /**
      * The column <code>footballsystem_db.events.referee</code>.
@@ -138,13 +146,24 @@ public class Events extends TableImpl<EventsRecord> {
 
     @Override
     public List<ForeignKey<EventsRecord, ?>> getReferences() {
+<<<<<<< HEAD
         return Arrays.<ForeignKey<EventsRecord, ?>>asList(Keys.FK_EVENTS2_REFEREES);
+=======
+        return Arrays.<ForeignKey<EventsRecord, ?>>asList(Keys.FK_EVENTS2_REFEREES, Keys.FK_EVENTS2_MATCHES);
+>>>>>>> origin/master
     }
 
     public Referees referees() {
         return new Referees(this, Keys.FK_EVENTS2_REFEREES);
     }
 
+<<<<<<< HEAD
+=======
+    public Matches matches() {
+        return new Matches(this, Keys.FK_EVENTS2_MATCHES);
+    }
+
+>>>>>>> origin/master
     @Override
     public Events as(String alias) {
         return new Events(DSL.name(alias), this);
@@ -176,7 +195,11 @@ public class Events extends TableImpl<EventsRecord> {
     // -------------------------------------------------------------------------
 
     @Override
+<<<<<<< HEAD
     public Row8<Integer, LocalDateTime, String, LocalDate, String, String, String, Integer> fieldsRow() {
+=======
+    public Row8<Integer, LocalDate, String, LocalDate, String, String, String, Integer> fieldsRow() {
+>>>>>>> origin/master
         return (Row8) super.fieldsRow();
     }
 }

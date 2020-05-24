@@ -44,6 +44,8 @@ public class MainSystem {
         this.loginUsers= new LinkedList<>();
     }
 
+
+
     public static MainSystem getInstance() {
         if (mainSystem_instance == null) {
             mainSystem_instance = new MainSystem();
@@ -62,6 +64,14 @@ public class MainSystem {
             }
         }
         return ans;
+    }
+
+    public Season getSeasonByYear(int year){
+        for(Season s : seasons){
+         if(s.getYear() == year)
+            return s;
+        }
+        return null;
     }
 
     /**

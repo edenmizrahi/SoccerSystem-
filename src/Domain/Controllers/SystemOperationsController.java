@@ -21,6 +21,7 @@ import Stubs.TeamStub;
 import sun.awt.image.ImageWatched;
 
 import java.io.StringReader;
+import java.sql.Ref;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -328,6 +329,7 @@ public class SystemOperationsController {
 
 
        /*************/
+
         /**matches**/
         List<List<String>> matchesString  = daoMatch.getAll(null, null);
 
@@ -339,32 +341,30 @@ public class SystemOperationsController {
 
         for(List<String> matchRec : matchesString){
             /**0 - date**/
-
             /**1 - name home team**/
             Team home = this.getTeambyTeamName(matchRec.get(1));
             /**2 - name away team**/
             Team away = this.getTeambyTeamName(matchRec.get(2));
             /**3 - score home team**/
-
             /**4 - score away team**/
-
             /**5 - field**/
-            Field field = new Field(matchRec.get(5));
-
+            Field field = fieldsByFieldName.get(matchRec.get(5));
             /**6 - main Referee**/
             Referee mainRef = refereeController.getRefereeByUserName(matchRec.get(6));
             /**7 - time of match**/
-//            public Match(int homeScore, int guestScore, Team awayTeam, Team homeTeam, Field field, HashSet<Event> events, HashSet<Referee> referees
-//                    , Referee mainReferee, String date)
+
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)),Integer.parseInt(matchRec.get(4)),away,home,
                     field,new HashSet<>(),new HashSet<>(),mainRef,matchRec.get(0));
+
             /**teams connections**/
             home.getHome().add(newMatch);
             away.getAway().add(newMatch);
+
             /**field connections**/
             field.getMatches().add(newMatch);
-            field.getTeams().add(home);
-            field.getTeams().add(away);
+//            field.getTeams().add(home);
+//            field.getTeams().add(away);
+
             /**main referee**/
             mainRef.addMatchToList(newMatch);
 
@@ -394,14 +394,13 @@ public class SystemOperationsController {
 
             for (List<String> event : events){
                 if(event.get(6).equals("Extra time")){
-//                    public ExtraTime(Referee referee, Match match, int minutesToAdd)
                     List<String> key = new LinkedList<>();
                     key.add(event.get(0));
                     List<String> record = daoExtraTimeEvent.get(key);
                     ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                             Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                     newMatch.addEventToList(extraTimeEvent);
-                }
+                }//extra time
                 else{
                     if(event.get(6).equals("Goal")){
                         List<String> key = new LinkedList<>();
@@ -410,7 +409,7 @@ public class SystemOperationsController {
                         Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                         newMatch.addEventToList(GoalEvent);
-                    }
+                    }//goal
                     else{
                         if(event.get(6).equals("Injury")){
                             List<String> key = new LinkedList<>();
@@ -419,7 +418,7 @@ public class SystemOperationsController {
                             Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                             newMatch.addEventToList(InjuryEvent);
-                        }
+                        }//injury
                         else{
                             if(event.get(6).equals("Offense")){
                                 List<String> key = new LinkedList<>();
@@ -428,7 +427,7 @@ public class SystemOperationsController {
                                 Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                         this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                 newMatch.addEventToList(OffenseEvent);
-                            }
+                            }//offense
                             else{
                                 if(event.get(6).equals("OffSide")){
                                     List<String> key = new LinkedList<>();
@@ -437,7 +436,7 @@ public class SystemOperationsController {
                                     OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                             this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                     newMatch.addEventToList(OffSideEvent);
-                                }
+                                }//offside
                                 else{
                                     if(event.get(6).equals("Red Card")){
                                         List<String> key = new LinkedList<>();
@@ -446,7 +445,7 @@ public class SystemOperationsController {
                                         RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                         newMatch.addEventToList(RedCardEvent);
-                                    }
+                                    }//red card
                                     else{
                                         if(event.get(6).equals("Yellow Card")){
                                             List<String> key = new LinkedList<>();
@@ -455,7 +454,7 @@ public class SystemOperationsController {
                                             YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                             newMatch.addEventToList(YellowCardEvent);
-                                        }
+                                        }//yellow card
                                         else{
                                             if(event.get(6).equals("Replacement")){
                                                 List<String> key = new LinkedList<>();
@@ -464,7 +463,7 @@ public class SystemOperationsController {
                                                 Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
                                                         this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                                 newMatch.addEventToList(ReplacementEvent);
-                                            }
+                                            }//replacement
                                         }
                                     }
                                 }
@@ -476,6 +475,28 @@ public class SystemOperationsController {
 
 
         }
+
+        /*************/
+
+        /**League**/
+        for(League league : MainSystem.getInstance().getLeagues()) {
+            List<List<String>> refSeasonPerLeagueRecords = daoLeagueSeasonReferees.getAll("LEAGUE_NAME", league.getName());
+
+            for (List<String> rec : refSeasonPerLeagueRecords) {
+                Season season = MainSystem.getInstance().getSeasonByYear(Integer.parseInt(rec.get(2)));
+                Referee referee = refereeController.getRefereeByUserName(rec.get(0));
+
+                LinkedHashSet<Referee> hashToSet = new LinkedHashSet<Referee>();
+                if(league.getRefereesInLeague().containsKey(season)) {
+                    league.setRefereePerSeasonToHash(season,referee);
+                }
+                else{
+                    hashToSet.add(referee);
+                    league.getRefereesInLeague().put(season,hashToSet);
+                }
+            }
+        }
+        /**********/
 
 
     }

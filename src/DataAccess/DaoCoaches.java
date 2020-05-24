@@ -76,7 +76,6 @@ public class DaoCoaches implements Dao<String> {
             return ans;
 
         }
-
         ResultSet rs=null;
         Result<Record> result=null;
         int numOfCols=0;
@@ -105,18 +104,6 @@ public class DaoCoaches implements Dao<String> {
         }
         return ans;
     }
-/*
-    List <String>list2 = (List<String>) result.getValues("roleAtTeam");
-
-        create.select().from(COACHS)
-                .where(COACHS.ROLEATTEAM.eq(filter)).fetch();
-
-    List<String> titles1 = create.select().from(COACHS).fetch().getValues(COACHS.ROLEATTEAM); // list of all useanams
-
-    Result<Record> rowsAfterFilter = create.select().from(COACHS)
-            .where(COACHS.ROLEATTEAM.eq(filter)).fetch();
-
-*/
 
     @Override
     public void save(List<String> strings) throws SQLException { //add new row
@@ -153,17 +140,13 @@ public class DaoCoaches implements Dao<String> {
         /** check connection to DB  **/
         DBHandler.conectToDB();
         DSLContext create = DBHandler.getDSLConnect();//DSL.using(connection, SQLDialect.MARIADB);
-        /** check if key not already exist in DB  **/
-
-//        Result<Record> isExist = create.select().from(COACHS)
-//                .where(COACHS.USERNAME.eq(key)).fetch();
-
 
         /** select retrieval row from table  **/
         CoachsRecord coachsRecord=create.selectFrom(COACHS)
                 .where(COACHS.USERNAME.eq(key)).fetchOne();
 
-        if(coachsRecord != null) { // key not exist
+        /** check if key exist in DB  **/
+        if(coachsRecord != null) {
 
             /**update row in  DB **/
             coachsRecord.setCoachteam(string.get(0));
@@ -171,11 +154,11 @@ public class DaoCoaches implements Dao<String> {
             try{
                 coachsRecord.store();
 
-            }catch (DataAccessException e){ //  foreign key not exist.
+                /** foreign key not exist  **/
+            }catch (DataAccessException e){
                 //e.printStackTrace();
                 System.out.println("foreign key not exist. need to change it");
             }
-
         }
     }
 

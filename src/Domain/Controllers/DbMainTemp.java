@@ -43,5 +43,19 @@ public class DbMainTemp {
         daoCoaches.update("dan",q);
 
 
+
+        /*
+    List <String>list2 = (List<String>) result.getValues("roleAtTeam");
+
+        create.select().from(COACHS)
+                .where(COACHS.ROLEATTEAM.eq(filter)).fetch();
+
+    List<String> titles1 = create.select().from(COACHS).fetch().getValues(COACHS.ROLEATTEAM); // list of all useanams
+
+    Result<Record> rowsAfterFilter = create.select().from(COACHS)
+            .where(COACHS.ROLEATTEAM.eq(filter)).fetch();
+
+*/
+
     }
 }

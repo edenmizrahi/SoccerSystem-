@@ -20,7 +20,7 @@ public class DaoMatch implements Dao<String> {
     }
 
     @Override
-    public void update(String s, List<String> string) {
+    public void update(List<String> keys, List<String> string) {
 
     }
 

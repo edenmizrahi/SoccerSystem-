@@ -31,7 +31,7 @@ public interface Dao <T> {
 
     /**
      * update exist row in table
-     * @param t list od keys
+     * @param t list of keys
      * @param string list of rest of values of new row (not conatins keys!)
      */
     void update(List<T> t, List<T> string);

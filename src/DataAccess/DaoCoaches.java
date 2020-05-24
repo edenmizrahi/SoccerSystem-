@@ -138,7 +138,7 @@ public class DaoCoaches implements Dao<String> {
     }
 
     @Override
-    public void update(List<String>  keys, List<String> string) {
+    public void update(List<String> keys, List<String> string) {
         /** check connection to DB  **/
         DBHandler.conectToDB();
         DSLContext create = DBHandler.getDSLConnect();//DSL.using(connection, SQLDialect.MARIADB);

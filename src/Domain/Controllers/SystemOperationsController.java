@@ -26,8 +26,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
 public class SystemOperationsController {
-    RefereeController refereeController = new RefereeController();
+   // RefereeController refereeController = new RefereeController();
     DaoApprovedTeamReq daoApprovedTeamReq = new DaoApprovedTeamReq();
     DaoCalculationPolicy daoCalculationPolicy = new DaoCalculationPolicy();
     DaoCoaches daoCoaches = new DaoCoaches();
@@ -55,6 +56,7 @@ public class SystemOperationsController {
     DaoTeamRole daoTeamRole = new DaoTeamRole();
     DaoTeams daoTeams = new DaoTeams();
     DaoTwoPlayersEvents daoTwoPlayersEvents = new DaoTwoPlayersEvents();
+    //DBHandler dbHandler=new DBHandler();
 
     /**
      * return all matches in system that have not yet happened - match format
@@ -158,6 +160,11 @@ public class SystemOperationsController {
     }
 
 
+    public void initSystemFromDBTempAvital () throws Exception {
+        DBHandler.conectToDB();
+    }
+
+
     public void initSystemFromDB () throws Exception {
         FanAdapter fa = new FanAdapter();
         List<User> loginUsers;
@@ -169,6 +176,10 @@ public class SystemOperationsController {
         HashMap<Integer, Season> yearPerSeason;
         HashMap<String, League> nameOfLeaguePerLeague;
         MainSystem ms=MainSystem.getInstance();
+
+        /**--- connect to DB ---**/
+        DBHandler.conectToDB();
+
         /***-----data structures for objects and DB records :------*/
 
             /**scheduling policies:*/
@@ -350,7 +361,7 @@ public class SystemOperationsController {
             /**5 - field**/
             Field field = fieldsByFieldName.get(matchRec.get(5));
             /**6 - main Referee**/
-            Referee mainRef = refereeController.getRefereeByUserName(matchRec.get(6));
+            Referee mainRef = getRefereeByUserName(matchRec.get(6));
             /**7 - time of match**/
 
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)),Integer.parseInt(matchRec.get(4)),away,home,
@@ -373,7 +384,7 @@ public class SystemOperationsController {
             for(List<String> refereePerMatchRec : refereePerMatch) {
                 if(refereePerMatchRec.get(0).equals(matchRec.get(0)) && refereePerMatchRec.get(1).equals(matchRec.get(1)) &&
                         refereePerMatchRec.get(2).equals(matchRec.get(2))){
-                    Referee refInMatch = refereeController.getRefereeByUserName(refereePerMatchRec.get(3));
+                    Referee refInMatch = getRefereeByUserName(refereePerMatchRec.get(3));
 //                    refInMatch.getMatches().add(newMatch);
                     newMatch.getReferees().add(refInMatch);
                     refInMatch.addMatchToList(newMatch);
@@ -397,7 +408,7 @@ public class SystemOperationsController {
                     List<String> key = new LinkedList<>();
                     key.add(event.get(0));
                     List<String> record = daoExtraTimeEvent.get(key);
-                    ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                    ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                             Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                     newMatch.addEventToList(extraTimeEvent);
                 }//extra time
@@ -406,7 +417,7 @@ public class SystemOperationsController {
                         List<String> key = new LinkedList<>();
                         key.add(event.get(0));
                         List<String> record = daoOnePlayerEvents.get(key);
-                        Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                        Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                         newMatch.addEventToList(GoalEvent);
                     }//goal
@@ -415,7 +426,7 @@ public class SystemOperationsController {
                             List<String> key = new LinkedList<>();
                             key.add(event.get(0));
                             List<String> record = daoOnePlayerEvents.get(key);
-                            Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                            Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                             newMatch.addEventToList(InjuryEvent);
                         }//injury
@@ -424,7 +435,7 @@ public class SystemOperationsController {
                                 List<String> key = new LinkedList<>();
                                 key.add(event.get(0));
                                 List<String> record = daoOnePlayerEvents.get(key);
-                                Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                                Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)),getRefereeByUserName(event.get(2)), newMatch,
                                         this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                 newMatch.addEventToList(OffenseEvent);
                             }//offense
@@ -433,7 +444,7 @@ public class SystemOperationsController {
                                     List<String> key = new LinkedList<>();
                                     key.add(event.get(0));
                                     List<String> record = daoOnePlayerEvents.get(key);
-                                    OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                                    OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                             this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                     newMatch.addEventToList(OffSideEvent);
                                 }//offside
@@ -442,7 +453,7 @@ public class SystemOperationsController {
                                         List<String> key = new LinkedList<>();
                                         key.add(event.get(0));
                                         List<String> record = daoOnePlayerEvents.get(key);
-                                        RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                                        RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                         newMatch.addEventToList(RedCardEvent);
                                     }//red card
@@ -451,7 +462,7 @@ public class SystemOperationsController {
                                             List<String> key = new LinkedList<>();
                                             key.add(event.get(0));
                                             List<String> record = daoOnePlayerEvents.get(key);
-                                            YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                                            YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)) );
                                             newMatch.addEventToList(YellowCardEvent);
                                         }//yellow card
@@ -460,7 +471,7 @@ public class SystemOperationsController {
                                                 List<String> key = new LinkedList<>();
                                                 key.add(event.get(0));
                                                 List<String> record = daoTwoPlayersEvents.get(key);
-                                                Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), refereeController.getRefereeByUserName(event.get(2)), newMatch,
+                                                Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                         this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                                 newMatch.addEventToList(ReplacementEvent);
                                             }//replacement
@@ -1285,6 +1296,17 @@ public class SystemOperationsController {
         }
 
         return "ok";
+    }
+
+    public Referee getRefereeByUserName(String refName){
+        List<Referee> allReferees = MainSystem.getInstance().getAllReferees();
+
+        for (Referee ref: allReferees) {
+            if(ref.getUserName().contains(refName)){
+                return ref;
+            }
+        }
+        return null;
     }
 }
 

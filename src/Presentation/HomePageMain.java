@@ -23,7 +23,7 @@ public class HomePageMain extends Application {
 
     public static void main(String[] args) throws Exception {
 
-        SystemOperationsController systemOperationsController = new SystemOperationsController();
+       SystemOperationsController systemOperationsController = new SystemOperationsController();
         systemOperationsController.initSystemObjectsAvitalForUI();
         MainSystem ma= MainSystem.getInstance();
 

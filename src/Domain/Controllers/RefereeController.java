@@ -27,11 +27,11 @@ public class RefereeController {
     DaoExtraTimeEvent daoExtraTimeEvent = new DaoExtraTimeEvent();
     DaoMatch daoMatch = new DaoMatch();
 
-    public Referee getRefereeByUserName(String refName){
+    public Referee getRefereeByUserName(String refName) {
         List<Referee> allReferees = MainSystem.getInstance().getAllReferees();
 
-        for (Referee ref: allReferees) {
-            if(ref.getUserName().contains(refName)){
+        for (Referee ref : allReferees) {
+            if (ref.getUserName().contains(refName)) {
                 return ref;
             }
         }
@@ -39,10 +39,10 @@ public class RefereeController {
     }
 
     //get list of players name
-    public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players){
+    public LinkedList<String> getPlayersFromTeamInList(HashSet<Player> players) {
 
         LinkedList<String> listOfPlayers = new LinkedList<>();
-        for (Player player: players) {
+        for (Player player : players) {
             listOfPlayers.add(player.getTeamRole().getUserName());
         }
 
@@ -50,13 +50,12 @@ public class RefereeController {
     }
 
     /**
-     *
      * @param nameOfReferee
      * @param match
      * @return LinkedList<String> of players at specific match
      * @throws ParseException
      */
-    public String displayPlayersAtMatch(String nameOfReferee, String match){
+    public String displayPlayersAtMatch(String nameOfReferee, String match) {
         try {
             Match m = this.matchObjectFromString(match, nameOfReferee);
 
@@ -71,18 +70,17 @@ public class RefereeController {
 
             //LinkedList<String> allPlayers = awayPlayersName;
             String allPlayers = new String();
-            for(String pName : homePlayersName){
+            for (String pName : homePlayersName) {
                 allPlayers += pName + ";";
             }
 
-            for(String pAName : awayPlayersName){
+            for (String pAName : awayPlayersName) {
                 allPlayers += pAName + ";";
             }
 
             //allPlayers.addAll(homePlayersName);
             return allPlayers;
-        }
-        catch (ParseException e){
+        } catch (ParseException e) {
             //return "";
         }
         return null;
@@ -91,7 +89,7 @@ public class RefereeController {
     //check if 2 players at the same team
     public boolean checkIfAtTheSameTeam(String firstPlayer, String secondPlayer, String nameOfReferee, String match) throws ParseException {
 
-        if(!firstPlayer.equals(secondPlayer)) {
+        if (!firstPlayer.equals(secondPlayer)) {
 
             Match m = this.matchObjectFromString(match, nameOfReferee);
 
@@ -123,18 +121,17 @@ public class RefereeController {
     }
 
     /**
-     *
      * @param nameOfReferee
      * @return match that the referee judging that take place right now - probably just one
      */
-    public String displayAllMatches(String nameOfReferee){
+    public String displayAllMatches(String nameOfReferee) {
 
         //LinkedList<String> listOfMatches = new LinkedList<>();
         Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
         Date currentDate = new Date(System.currentTimeMillis());
-        for (Match match: currentReferee.getMatches()) {
+        for (Match match : currentReferee.getMatches()) {
             //check if the game is takes place right now
-            if(currentDate.after(match.getStartDate()) && currentDate.before(DateUtils.addMinutes(match.getStartDate(),match.getNumOfMinutes()))) {
+            if (currentDate.after(match.getStartDate()) && currentDate.before(DateUtils.addMinutes(match.getStartDate(), match.getNumOfMinutes()))) {
                 //listOfMatches.add(match.toString());
                 return match.toString();
             }
@@ -145,6 +142,7 @@ public class RefereeController {
 
     /**
      * This function return all the matches that the referee is a main referee, and already over
+     *
      * @param nameOfReferee
      * @return
      */
@@ -155,8 +153,8 @@ public class RefereeController {
         Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
         Date currentDate = new Date(System.currentTimeMillis());
 
-        for (Match match: currentReferee.getMatches()) {
-            if(match.getMainReferee().getUserName().equals(nameOfReferee)) {
+        for (Match match : currentReferee.getMatches()) {
+            if (match.getMainReferee().getUserName().equals(nameOfReferee)) {
                 if (currentDate.after(DateUtils.addMinutes(match.getStartDate(), match.getNumOfMinutes()))) {
                     //listOfMatches.add(match.toString());
                     listOfMatches += match.toString() + ";";
@@ -181,7 +179,7 @@ public class RefereeController {
                 listOfEventsInMatch += e.toString() + ";";
             }
             return listOfEventsInMatch;
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         //return null;
@@ -189,6 +187,7 @@ public class RefereeController {
 
     /**
      * This function convert string of match to Match object
+     *
      * @param match
      * @param nameOfReferee
      * @return Match object
@@ -211,8 +210,8 @@ public class RefereeController {
 
         Referee ref = this.getRefereeByUserName(nameOfReferee);
 
-        for (Match m: ref.getMatches()) {
-            if(m.getAwayTeam().equals(awayTeam) && m.getHomeTeam().equals(homeTeam) && m.getStartDate().equals(matchDate)){
+        for (Match m : ref.getMatches()) {
+            if (m.getAwayTeam().equals(awayTeam) && m.getHomeTeam().equals(homeTeam) && m.getStartDate().equals(matchDate)) {
                 return m;
             }
         }
@@ -220,45 +219,46 @@ public class RefereeController {
         return null;
     }
 
-    //<editor-fold desc="save and update DB">
+    //<editor-fold desc="save to DB">
     public void saveInEventTableDB(Event e, String referee, Match currentMatch) throws SQLException {
 
         List<String> eventRecord = new LinkedList<>();
-        eventRecord.add(0,String.valueOf(e.getId()));
-        eventRecord.add(1,MainSystem.simpleDateFormat.format(e.getDateTime()));
-        eventRecord.add(2,referee);
-        eventRecord.add(3,MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
-        eventRecord.add(4,currentMatch.getHomeTeam().getName());
-        eventRecord.add(5,currentMatch.getAwayTeam().getName());
-        eventRecord.add(6,e.getName());
-        eventRecord.add(7,String.valueOf(e.getMinuteOfMatch()));
+        eventRecord.add(0, String.valueOf(e.getId()));
+        eventRecord.add(1, MainSystem.simpleDateFormat.format(e.getDateTime()));
+        eventRecord.add(2, referee);
+        eventRecord.add(3, MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
+        eventRecord.add(4, currentMatch.getHomeTeam().getName());
+        eventRecord.add(5, currentMatch.getAwayTeam().getName());
+        eventRecord.add(6, e.getName());
+        eventRecord.add(7, String.valueOf(e.getMinuteOfMatch()));
         daoEvent.save(eventRecord);
     }
 
     public void saveInOnePlayerEventTableDB(Event e, String player) throws SQLException {
         List<String> Record = new LinkedList<>();
-        Record.add(0,String.valueOf(e.getId()));
-        Record.add(0,player);
+        Record.add(0, String.valueOf(e.getId()));
+        Record.add(0, player);
         daoOnePlayerEvents.save(Record);
     }
 
     public void saveInTwoPlayerEventTableDB(Event e, String player1, String player2) throws SQLException {
         List<String> Record = new LinkedList<>();
-        Record.add(0,String.valueOf(e.getId()));
-        Record.add(1,player1);
-        Record.add(2,player2);
+        Record.add(0, String.valueOf(e.getId()));
+        Record.add(1, player1);
+        Record.add(2, player2);
         daoOnePlayerEvents.save(Record);
     }
 
     public void saveInExtraTimeEventTableDB(Event e, String time) throws SQLException {
         List<String> Record = new LinkedList<>();
-        Record.add(0,String.valueOf(e.getId()));
-        Record.add(1,time);
+        Record.add(0, String.valueOf(e.getId()));
+        Record.add(1, time);
         daoOnePlayerEvents.save(Record);
     }
 
     //</editor-fold>
 
+    //<editor-fold desc="create events">
     public String createGoalEvent(String referee, String match, String player) {
         try {
             Referee currentReferee = this.getRefereeByUserName(referee);
@@ -268,51 +268,51 @@ public class RefereeController {
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
-            saveInEventTableDB(e, referee,currentMatch);
-            //goal table
-            saveInOnePlayerEventTableDB(e,player);
+            saveInEventTableDB(e, referee, currentMatch);
+            //onePlayerEvent table
+            saveInOnePlayerEventTableDB(e, player);
 
-            //@TODO update to match table
             //update score of teams - match table
-            List<String> matchRecord = new LinkedList<>();
-            matchRecord.add(0,MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
-            matchRecord.add(1,currentMatch.getHomeTeam().getName());
-            matchRecord.add(2,currentMatch.getAwayTeam().getName());
-            matchRecord.add(3,String.valueOf(currentMatch.getAwayTeam().getScore()));
-            matchRecord.add(4,String.valueOf(currentMatch.getHomeTeam().getScore()));
-            matchRecord.add(5,currentMatch.getField().getNameOfField());
-            matchRecord.add(6,currentMatch.getMainReferee().getUserName());
-            matchRecord.add(7,String.valueOf(currentMatch.getNumOfMinutes()));
-            daoMatch.update("",matchRecord);
+            List<String> matchKeys = new LinkedList<>();
+            matchKeys.add(0, MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
+            matchKeys.add(1, currentMatch.getHomeTeam().getName());
+            matchKeys.add(2, currentMatch.getAwayTeam().getName());
 
-        } catch(Exception e){
+            List<String> matchRecord = new LinkedList<>();
+            matchRecord.add(0, String.valueOf(currentMatch.getAwayTeam().getScore()));
+            matchRecord.add(1, String.valueOf(currentMatch.getHomeTeam().getScore()));
+            matchRecord.add(2, currentMatch.getField().getNameOfField());
+            matchRecord.add(3, currentMatch.getMainReferee().getUserName());
+            matchRecord.add(4, String.valueOf(currentMatch.getNumOfMinutes()));
+            daoMatch.update(matchKeys, matchRecord);
+
+        } catch (Exception e) {
             return "";
         }
         return "";
     }
 
 
-
-    public String createInjuryEvent(String referee, String match, String player)  {
-        try{
-        Referee currentReferee = this.getRefereeByUserName(referee);
-        Match currentMatch = this.matchObjectFromString(match, referee);
-        Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-        Event e = currentReferee.createInjuryEvent(playerMakeEvent,currentMatch);
-        currentReferee.addEventsDuringMatch(currentMatch,e);
+    public String createInjuryEvent(String referee, String match, String player) {
+        try {
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
+            Event e = currentReferee.createInjuryEvent(playerMakeEvent, currentMatch);
+            currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
-            saveInEventTableDB(e, referee,currentMatch);
-            //goal table
-            saveInOnePlayerEventTableDB(e,player);
+            saveInEventTableDB(e, referee, currentMatch);
+            //onePlayerEvent table
+            saveInOnePlayerEventTableDB(e, player);
 
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         return "";
     }
 
-    public String createOffenseEvent(String referee, String match, String player){
+    public String createOffenseEvent(String referee, String match, String player) {
         try {
             Referee currentReferee = this.getRefereeByUserName(referee);
             Match currentMatch = this.matchObjectFromString(match, referee);
@@ -321,31 +321,31 @@ public class RefereeController {
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
-            saveInEventTableDB(e, referee,currentMatch);
-            //goal table
-            saveInOnePlayerEventTableDB(e,player);
+            saveInEventTableDB(e, referee, currentMatch);
+            //onePlayerEvent table
+            saveInOnePlayerEventTableDB(e, player);
 
 
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         return "";
     }
 
     public String createOffSideEvent(String referee, String match, String player) {
-        try{
+        try {
             Referee currentReferee = this.getRefereeByUserName(referee);
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
-            Event e = currentReferee.createOffSideCardEvent(playerMakeEvent,currentMatch);
-            currentReferee.addEventsDuringMatch(currentMatch,e);
+            Event e = currentReferee.createOffSideCardEvent(playerMakeEvent, currentMatch);
+            currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
-            saveInEventTableDB(e, referee,currentMatch);
-            //goal table
-            saveInOnePlayerEventTableDB(e,player);
+            saveInEventTableDB(e, referee, currentMatch);
+            //onePlayerEvent table
+            saveInOnePlayerEventTableDB(e, player);
 
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         return "";
@@ -361,11 +361,11 @@ public class RefereeController {
 
             /**save in tables**/
             //Events table
-            saveInEventTableDB(e, referee,currentMatch);
-            //goal table
-            saveInOnePlayerEventTableDB(e,player);
+            saveInEventTableDB(e, referee, currentMatch);
+            //onePlayerEvent table
+            saveInOnePlayerEventTableDB(e, player);
 
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         return "";
@@ -381,11 +381,11 @@ public class RefereeController {
 
             /**save in tables**/
             //Events table
-            saveInEventTableDB(e, referee,currentMatch);
-            //yellow card table
-            saveInOnePlayerEventTableDB(e,player);
+            saveInEventTableDB(e, referee, currentMatch);
+            //onePlayerEvent table
+            saveInOnePlayerEventTableDB(e, player);
 
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         return "";
@@ -404,14 +404,16 @@ public class RefereeController {
 
                 /**save in tables**/
                 //Events table
-                saveInEventTableDB(e, referee,currentMatch);
+                saveInEventTableDB(e, referee, currentMatch);
+                //TwoPlayersEvent table
+                saveInTwoPlayerEventTableDB(e, firstPlayer, secondPlayer);
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Notice that the players must be from the same team");
                 alert.show();
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
         return "";
@@ -424,12 +426,18 @@ public class RefereeController {
             int minutes = Integer.parseInt(time);
             Event e = currentReferee.createExtraTimeEvent(currentMatch, minutes);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-        } catch(Exception e){
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee, currentMatch);
+            //ExtraTime Event table
+            saveInExtraTimeEventTableDB(e, time);
+
+        } catch (Exception e) {
             return "";
         }
         return "";
     }
 
-
+    //</editor-fold>
 
 }

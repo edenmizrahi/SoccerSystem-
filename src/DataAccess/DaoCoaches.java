@@ -30,7 +30,7 @@ public class DaoCoaches implements Dao<String> {
         CoachsRecord coachsRecord=create.selectFrom(COACHS)
                 .where(COACHS.USERNAME.eq(Key)).fetchOne();
         /** key noy found in table  **/
-        if (coachsRecord == null){
+        if (coachsRecord == null || coachsRecord.size()==0){
             //return null;
             throw new ParseException("key noy found in table",0);
         }
@@ -78,10 +78,11 @@ public class DaoCoaches implements Dao<String> {
             return ans;
 
         }
+        /** fikter **/
         ResultSet rs=null;
         Result<Record> result=null;
         int numOfCols=0;
-        String sql="SELECT * FROM coachs WHERE "+collName+"= '" + filter + "'";
+        String sql="SELECT * FROM coachs WHERE "+collName+"= '" + filter + "'"; //!!!!!!!!!!!!!!!!!!!!!!!!!
         try {
             rs=DBHandler.getConnection().createStatement().executeQuery(sql);
             result=DBHandler.getDSLConnect().fetch(rs);

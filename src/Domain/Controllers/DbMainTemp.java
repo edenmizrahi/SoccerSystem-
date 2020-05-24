@@ -1,9 +1,6 @@
 package Domain.Controllers;
 
-import DataAccess.DBHandler;
-import DataAccess.DaoCoaches;
-import DataAccess.DaoFans;
-import DataAccess.DaoRfa;
+import DataAccess.*;
 import Domain.MainSystem;
 
 import java.sql.SQLException;
@@ -21,16 +18,21 @@ public class DbMainTemp {
         //DaoRfa daoRfa=new DaoRfa();
         DaoFans daoFans=new DaoFans();
         List <String> q=new LinkedList<>();
-        //q.add("avital");
-        q.add("hapoel bash");
-        q.add("firstCoach");
+        List <String> values=new LinkedList<>();
+        q.add("bashField1");
+        values.add("newwwwwwwwwww");
+//        q.add("hapoel bash");
+//        q.add("firstCoach");
 
+        DaoFields daoFields=new DaoFields();
+        daoFields.get(q);
+        daoFields.getAll("name","aaa");
+        daoFields.update(q,values);
+        //daoFans.get(q);
+        daoFans.getAll("FULLNAME","adi avinun");
+        daoFans.getAll(null,null);
 
-        //List <String> ans= daoFans.get(q);
-        //daoFans.getAll("FULLNAME","adi avinun");
-        daoFans.getAll("USERNAME","adi2");
-        DaoCoaches daoCoaches=new DaoCoaches();
-        //daoCoaches.getAll("roleAtTeam","firstCoach");
+        //daoCoaches.getAll("fullName","adi avinun");
         //daoCoaches.getAll(null,null);
         //daoCoaches.get(q);
         //daoCoaches.delete(q);
@@ -39,7 +41,7 @@ public class DbMainTemp {
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }
-        daoCoaches.delete(q);
+       // daoCoaches.delete(q);
         //daoCoaches.update("dan",q);
 
 

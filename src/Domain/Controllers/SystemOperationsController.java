@@ -495,7 +495,7 @@ public class SystemOperationsController {
 
             for (List<String> rec : refSeasonPerLeagueRecords) {
                 Season season = MainSystem.getInstance().getSeasonByYear(Integer.parseInt(rec.get(2)));
-                Referee referee = refereeController.getRefereeByUserName(rec.get(0));
+                Referee referee = this.getRefereeByUserName(rec.get(0));
 
                 LinkedHashSet<Referee> hashToSet = new LinkedHashSet<Referee>();
                 if(league.getRefereesInLeague().containsKey(season)) {

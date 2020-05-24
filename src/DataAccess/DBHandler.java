@@ -47,12 +47,14 @@ public final class DBHandler  {
     }
 
     public boolean dslCheckConfig(){
+        
         DSLContext create = DSL.using(connection, SQLDialect.MARIADB);
         Result<?> result= create.select().
                 from(FANS).where(FANS.USERNAME.eq("eden")).fetch();
         if(!result.isEmpty()) {
             return true;
         }
+
         return false;
     }
 

@@ -203,22 +203,18 @@ public class SystemOperationsController {
         List<User> allUsersAtSystem = MainSystem.getInstance().getUsers();
 
         /**------------------------------------------------------------*/
-
         List<List<String>> fansList;
         /**create TeamRole Map by userName*/
         List<List<String>> teamRoleRecords = daoTeamRole.getAll(null, null);
         createHashMapByUserName(teamRolesTrcordsByUserName, teamRoleRecords);
 
-
         /**create refereeMap by userName*/
         List<List<String>> refereesRecs = daoReferee.getAll(null, null);
         createHashMapByUserName(RefereesRecordsByUserName, refereesRecs);
 
-
         /**create RFA Map by userName*/
         List<List<String>> rfsRecords = daoRfa.getAll(null, null);
         createHashMapByUserName(rfaRecordsByUserName, rfsRecords);
-
 
         fansList = daoFans.getAll(null, null);
         for (List<String> fan : fansList) {
@@ -276,7 +272,6 @@ public class SystemOperationsController {
             Field field = fieldAdapter.ToObj(fieldRec);
             fieldsByFieldName.put(fieldRec.get(0), field);
         }
-
 
         /***calculationPolicy*/
         List<List<String>> calculationPolicies = daoCalculationPolicy.getAll(null, null);
@@ -381,13 +376,8 @@ public class SystemOperationsController {
 
                 /**set season-league in team*/
                 team.getLeaguePerSeason().put(s, l);
-
             }
-
-
         }
-
-
         /**matches**/
         List<List<String>> matchesString = daoMatch.getAll(null, null);
 
@@ -410,22 +400,17 @@ public class SystemOperationsController {
             /**6 - main Referee**/
             Referee mainRef = getRefereeByUserName(matchRec.get(6));
             /**7 - time of match**/
-
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
                     field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
-
             /**teams connections**/
             home.getHome().add(newMatch);
             away.getAway().add(newMatch);
-
             /**field connections**/
             field.getMatches().add(newMatch);
 //            field.getTeams().add(home);
 //            field.getTeams().add(away);
-
             /**main referee**/
             mainRef.addMatchToList(newMatch);
-
             /**connection between all referees in match**/
             List<List<String>> refereePerMatch = daoRefereesMatchs.getAll(null, null);
             for (List<String> refereePerMatchRec : refereePerMatch) {

@@ -76,6 +76,10 @@ public final class DBHandler  {
         return create;
     }
 
+    public static Connection getConnection(){
+        return connection;
+    }
+
     public static void main( String[] args ) throws SQLException {
         DBHandler db=new DBHandler();
         conectToDB();

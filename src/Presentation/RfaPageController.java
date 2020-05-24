@@ -70,4 +70,21 @@ public class RfaPageController extends HomePageController {
 
     }
 
+    @FXML
+    public void registrationForGamesAlertsMouseClickHandling(ActionEvent event) throws IOException {
+
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RegistrationGamesAlerts.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = new Scene(root, 900, 600);
+
+        RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
+        registrationGamesAlertsController.initUser(userName);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+    }
+
 }

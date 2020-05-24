@@ -18,9 +18,13 @@ import Domain.MainSystem;
 import Domain.Users.*;
 import Stubs.StubExternalSystem;
 import Stubs.TeamStub;
+import org.bouncycastle.util.encoders.Hex;
 import sun.awt.image.ImageWatched;
 
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Ref;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -414,9 +418,26 @@ public class SystemOperationsController {
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
                     field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
 
-            //@TODO fan observers
+            //add observer
+            List<List<String>> fansFollow =daoFanMatchesFollow.getAll(null,null);
+            LinkedList<List<String>> fansFollowRelevantToMatch=new LinkedList<>();
 
+            for(List<String> record:fansFollow){
+                if(record.get(2).equals(newMatch.getHomeTeam().getName())&&
+                        record.get(3).equals(newMatch.getAwayTeam().getName())&&
+                            record.get(1).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))){
+                    fansFollowRelevantToMatch.add(record);
+                }
+            }
 
+            HashSet<Fan> fansObjectsFollow=new HashSet<>();
+            for(List<String > follow: fansFollowRelevantToMatch){
+                fansObjectsFollow.add((Fan) getUserByUserName(follow.get(0)));
+            }
+            for(Fan fann :  fansObjectsFollow){
+                fann.getMatchesFollow().add(newMatch);
+                newMatch.addObserver(fann);
+            }
             /**teams connections**/
             home.getHome().add(newMatch);
             away.getAway().add(newMatch);
@@ -1312,12 +1333,32 @@ public class SystemOperationsController {
         MainSystem ms=MainSystem.getInstance();
         //list of userName in Fan table - check if userName contains
         try {
+            password=sha256(password);
+            boolean isPlayer=false;
+            boolean isCoach=false;
+            boolean isTeamOwner=false;
+            LinkedList<String> details = new LinkedList<>();
+            details.add(userName);
+            details.add(name);
+            details.add(password);
+            details.add(phoneNumber);
+            details.add(email);
+            details.add(dateOfBirth);
+            daoFans.save(details);
+            LinkedList<String> specificDetails = new LinkedList<>();
+            specificDetails.add(userName);
             if (role.equals("Player")) {
                 ms.signInAsPlayer(name, phoneNumber, email, userName, password, date);
-
+                specificDetails.add(null);
+                daoPlayer.save(specificDetails);
+                isPlayer=true;
             }
             if (role.equals("Coach")) {
                 ms.signInAsCoach(name, phoneNumber, email, userName, password, date);
+                specificDetails.add(null);
+                specificDetails.add(null);
+                daoCoaches.save(specificDetails);
+                isCoach=true;
 
             }
             if (role.equals("Fan")) {
@@ -1326,11 +1367,21 @@ public class SystemOperationsController {
             }
             if (role.equals("RFA")) {
                 ms.signInAsRFA(name, phoneNumber, email, userName, password, date);
+                daoRfa.save(specificDetails);
 
             }
             if (role.equals("TeamOwner")) {
                 ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date);
-
+                isTeamOwner=true;
+            }
+            LinkedList<String> teamRoleRecord=new LinkedList<>();
+            teamRoleRecord.add(userName);
+            teamRoleRecord.add(""+isPlayer);
+            teamRoleRecord.add(""+isCoach);
+            teamRoleRecord.add(""+isTeamOwner);
+            teamRoleRecord.add(""+false);
+            if(isCoach||isPlayer||isTeamOwner){
+                daoTeamRole.save(teamRoleRecord);
             }
         }
         catch (Exception e){
@@ -1349,6 +1400,20 @@ public class SystemOperationsController {
             }
         }
         return null;
+    }
+
+    /***
+     * sha256 encrypt.
+     * @param pass
+     * @return encrypt password
+     * @throws NoSuchAlgorithmException
+     */
+    public String sha256(String pass) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(
+                pass.getBytes(StandardCharsets.UTF_8));
+        String sha256hex = new String(Hex.encode(hash));
+        return  sha256hex;
     }
 }
 

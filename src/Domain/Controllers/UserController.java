@@ -36,7 +36,7 @@ public class UserController{
         public String login(String userName , String password ) {
             try {
                 //Todo this function returns exceptions, need to catch them here and return the message
-                Fan f = MainSystem.getInstance().logIn(userName, password);
+                Fan f = MainSystem.getInstance().logIn(userName, smc.sha256(password));
                 if (f == null) {
                     //Todo change to return string message and not exception
                     throw new Exception("Incorrect user name or password");

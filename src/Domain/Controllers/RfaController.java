@@ -122,6 +122,7 @@ public class RfaController {
      * @param sched
      */
     public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
+        DaoSeasons daoSeasons = new DaoSeasons();
         LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
         int yearOfSeason = Integer.parseInt(year);
         boolean seasonExist = false;
@@ -130,8 +131,8 @@ public class RfaController {
                 seasonExist = true;
                 s.setCalculationPolicy(this.calculationPolicyByString(calc) , rfaUserName);
                 s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
+
                 //update DB - table DaoSeason
-                DaoSeasons daoSeasons = new DaoSeasons();
                 List<String> recordInSeasonTable = new LinkedList<>();
                 recordInSeasonTable.add(0,year);
                 recordInSeasonTable.add(1,sched);
@@ -140,7 +141,7 @@ public class RfaController {
                     recordInSeasonTable.add(3,"true");
                 }
                 else{
-                    recordInSeasonTable.add(3,"true");
+                    recordInSeasonTable.add(3,"false");
                 }
 
                 daoSeasons.update(String.valueOf(s.getYear()), recordInSeasonTable);
@@ -149,6 +150,8 @@ public class RfaController {
 
         if(!seasonExist){
             Season newSeason = new Season(MainSystem.getInstance(),this.schedulingPolicyByString(sched),this.calculationPolicyByString(calc),yearOfSeason);
+            //save into DB - table DaoSeason
+
         }
 
     }

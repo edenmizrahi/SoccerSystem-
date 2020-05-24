@@ -1,5 +1,6 @@
 package Domain.Controllers;
 
+import DataAccess.*;
 import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
@@ -9,6 +10,7 @@ import Domain.Users.Referee;
 import javafx.scene.control.Alert;
 import org.apache.commons.lang3.time.DateUtils;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
@@ -19,7 +21,11 @@ public class RefereeController {
     // TODO: 21/04/2020 next iteration
 
     SystemOperationsController systemOperationsController = new SystemOperationsController();
-
+    DaoEvent daoEvent = new DaoEvent();
+    DaoTwoPlayersEvents daoTwoPlayersEvents = new DaoTwoPlayersEvents();
+    DaoOnePlayerEvents daoOnePlayerEvents = new DaoOnePlayerEvents();
+    DaoExtraTimeEvent daoExtraTimeEvent = new DaoExtraTimeEvent();
+    DaoMatch daoMatch = new DaoMatch();
 
     public Referee getRefereeByUserName(String refName){
         List<Referee> allReferees = MainSystem.getInstance().getAllReferees();
@@ -68,6 +74,11 @@ public class RefereeController {
             for(String pName : homePlayersName){
                 allPlayers += pName + ";";
             }
+
+            for(String pAName : awayPlayersName){
+                allPlayers += pAName + ";";
+            }
+
             //allPlayers.addAll(homePlayersName);
             return allPlayers;
         }
@@ -209,20 +220,78 @@ public class RefereeController {
         return null;
     }
 
+    //<editor-fold desc="save and update DB">
+    public void saveInEventTableDB(Event e, String referee, Match currentMatch) throws SQLException {
+
+        List<String> eventRecord = new LinkedList<>();
+        eventRecord.add(0,String.valueOf(e.getId()));
+        eventRecord.add(1,MainSystem.simpleDateFormat.format(e.getDateTime()));
+        eventRecord.add(2,referee);
+        eventRecord.add(3,MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
+        eventRecord.add(4,currentMatch.getHomeTeam().getName());
+        eventRecord.add(5,currentMatch.getAwayTeam().getName());
+        eventRecord.add(6,e.getName());
+        eventRecord.add(7,String.valueOf(e.getMinuteOfMatch()));
+        daoEvent.save(eventRecord);
+    }
+
+    public void saveInOnePlayerEventTableDB(Event e, String player) throws SQLException {
+        List<String> Record = new LinkedList<>();
+        Record.add(0,String.valueOf(e.getId()));
+        Record.add(0,player);
+        daoOnePlayerEvents.save(Record);
+    }
+
+    public void saveInTwoPlayerEventTableDB(Event e, String player1, String player2) throws SQLException {
+        List<String> Record = new LinkedList<>();
+        Record.add(0,String.valueOf(e.getId()));
+        Record.add(1,player1);
+        Record.add(2,player2);
+        daoOnePlayerEvents.save(Record);
+    }
+
+    public void saveInExtraTimeEventTableDB(Event e, String time) throws SQLException {
+        List<String> Record = new LinkedList<>();
+        Record.add(0,String.valueOf(e.getId()));
+        Record.add(1,time);
+        daoOnePlayerEvents.save(Record);
+    }
+
+    //</editor-fold>
 
     public String createGoalEvent(String referee, String match, String player) {
         try {
-            Referee currentReferee = this.getRefereeByUserName(referee); //from DB
-            Match currentMatch = this.matchObjectFromString(match, referee); //from DB
-            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player); //fromDB
+            Referee currentReferee = this.getRefereeByUserName(referee);
+            Match currentMatch = this.matchObjectFromString(match, referee);
+            Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createGoalEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-            //update in tables
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee,currentMatch);
+            //goal table
+            saveInOnePlayerEventTableDB(e,player);
+
+            //@TODO update to match table
+            //update score of teams - match table
+            List<String> matchRecord = new LinkedList<>();
+            matchRecord.add(0,MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
+            matchRecord.add(1,currentMatch.getHomeTeam().getName());
+            matchRecord.add(2,currentMatch.getAwayTeam().getName());
+            matchRecord.add(3,String.valueOf(currentMatch.getAwayTeam().getScore()));
+            matchRecord.add(4,String.valueOf(currentMatch.getHomeTeam().getScore()));
+            matchRecord.add(5,currentMatch.getField().getNameOfField());
+            matchRecord.add(6,currentMatch.getMainReferee().getUserName());
+            matchRecord.add(7,String.valueOf(currentMatch.getNumOfMinutes()));
+            daoMatch.update("",matchRecord);
+
         } catch(Exception e){
             return "";
         }
         return "";
     }
+
+
 
     public String createInjuryEvent(String referee, String match, String player)  {
         try{
@@ -230,8 +299,12 @@ public class RefereeController {
         Match currentMatch = this.matchObjectFromString(match, referee);
         Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
         Event e = currentReferee.createInjuryEvent(playerMakeEvent,currentMatch);
-        //add to DB and update in events T and injury T
         currentReferee.addEventsDuringMatch(currentMatch,e);
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee,currentMatch);
+            //goal table
+            saveInOnePlayerEventTableDB(e,player);
 
         } catch(Exception e){
             return "";
@@ -246,6 +319,13 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createOffenseEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee,currentMatch);
+            //goal table
+            saveInOnePlayerEventTableDB(e,player);
+
+
         } catch(Exception e){
             return "";
         }
@@ -259,6 +339,12 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createOffSideCardEvent(playerMakeEvent,currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch,e);
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee,currentMatch);
+            //goal table
+            saveInOnePlayerEventTableDB(e,player);
+
         } catch(Exception e){
             return "";
         }
@@ -272,6 +358,13 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createRedCardEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
+
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee,currentMatch);
+            //goal table
+            saveInOnePlayerEventTableDB(e,player);
+
         } catch(Exception e){
             return "";
         }
@@ -285,6 +378,13 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createYellowCardEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
+
+            /**save in tables**/
+            //Events table
+            saveInEventTableDB(e, referee,currentMatch);
+            //yellow card table
+            saveInOnePlayerEventTableDB(e,player);
+
         } catch(Exception e){
             return "";
         }
@@ -301,6 +401,11 @@ public class RefereeController {
             if (checkIfAtTheSameTeam(firstPlayer, secondPlayer, referee, match)) {
                 Event e = currentReferee.createReplacementEvent(player1, player2, currentMatch);
                 currentReferee.addEventsDuringMatch(currentMatch, e);
+
+                /**save in tables**/
+                //Events table
+                saveInEventTableDB(e, referee,currentMatch);
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Notice that the players must be from the same team");

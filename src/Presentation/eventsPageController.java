@@ -76,7 +76,6 @@ public class eventsPageController {
         String allPlayersStr = refereeApplication.displayPlayersAtMatch(userName, idOfMatch.getSelectionModel().getSelectedItem());
         //String allPlayersStr = ClientController.connectToServer("RefereeApplication", "displayPlayersAtMatch", userName, idOfMatch.getSelectionModel().getSelectedItem());
 
-
         List<String> allPlayers = Arrays.asList(allPlayersStr.split(";"));
         List<String> list = new LinkedList<>();
         for (String str:allPlayers) {

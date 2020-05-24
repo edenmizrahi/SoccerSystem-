@@ -40,7 +40,7 @@ public class DbMainTemp {
 //            e.printStackTrace();
 //        }
         daoCoaches.delete(q);
-        daoCoaches.update("dan",q);
+        //daoCoaches.update("dan",q);
 
 
 

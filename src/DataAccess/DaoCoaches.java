@@ -9,6 +9,7 @@ import org.jooq.exception.DataAccessException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,7 +19,7 @@ import static DB.Tables.Tables.FANS;
 
 public class DaoCoaches implements Dao<String> {
     @Override
-    public List<String> get(List<String> keys) {
+    public List<String> get(List<String> keys) throws ParseException {
         /** check connection to DB  **/
         DBHandler.conectToDB();
         DSLContext create = DBHandler.getDSLConnect();//DSL.using(connection, SQLDialect.MARIADB);
@@ -30,7 +31,8 @@ public class DaoCoaches implements Dao<String> {
                 .where(COACHS.USERNAME.eq(Key)).fetchOne();
         /** key noy found in table  **/
         if (coachsRecord == null){
-            return null;
+            //return null;
+            throw new ParseException("key noy found in table",0);
         }
 
         for (int i = 0; i <coachsRecord.size() ; i++) {
@@ -136,11 +138,12 @@ public class DaoCoaches implements Dao<String> {
     }
 
     @Override
-    public void update(String key, List<String> string) {
+    public void update(List<String>  keys, List<String> string) {
         /** check connection to DB  **/
         DBHandler.conectToDB();
         DSLContext create = DBHandler.getDSLConnect();//DSL.using(connection, SQLDialect.MARIADB);
 
+        String key= keys.get(0);
         /** select retrieval row from table  **/
         CoachsRecord coachsRecord=create.selectFrom(COACHS)
                 .where(COACHS.USERNAME.eq(key)).fetchOne();

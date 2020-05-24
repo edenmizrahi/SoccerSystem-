@@ -414,6 +414,9 @@ public class SystemOperationsController {
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
                     field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
 
+            //@TODO fan observers
+
+
             /**teams connections**/
             home.getHome().add(newMatch);
             away.getAway().add(newMatch);

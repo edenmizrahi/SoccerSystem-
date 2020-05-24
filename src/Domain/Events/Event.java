@@ -47,6 +47,24 @@ public abstract class Event  {
         }
     }
 
+    public Event(int idOfEvent, Referee referee, Match match, Date currentDate, int time) throws Exception {
+        if(referee != null && match != null) {
+            id=idOfEvent;
+            this.referee = referee;
+            this.match = match;
+            this.dateTime = currentDate;
+            this.minuteOfMatch = time;
+//            if(minuteOfMatch > match.getNumOfMinutes() || minuteOfMatch < 0){
+//                LOG.error("invalid event creation");
+//                throw new Exception("invalid event creation");
+//            }
+        }
+        else{
+            LOG.error("one of parameters null");
+            throw new NullPointerException();
+        }
+    }
+
     public int getId(){ return id;}
 
     public Referee getReferee() { return referee; }

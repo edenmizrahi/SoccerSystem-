@@ -35,6 +35,7 @@ public class HomePageController {
 
     private FanApplication fanApplication = new FanApplication();
     private String userName="Ilan12"; // is teamRole
+    CheckNotificationsTask scheduler;
 
 
 //    @FXML
@@ -53,13 +54,14 @@ public class HomePageController {
      */
     @FXML
     public void initialize() {
-        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("checking notifications!!");
-                String ans = fanApplication.checkForNewNotifications(userName);
-                //String ans = ClientController.connectToServer("FanApplication", "checkForNewNotifications", userName);
+        scheduler= new CheckNotificationsTask(userName,fanApplication);
+        scheduler.setPeriod(Duration.seconds(10));
+        scheduler.setOnSucceeded(
+                e -> {
+                    System.out.println(scheduler.getValue());
+                    /*
+
                 if(ans.equals("gotFanNotification")){//fan
                     Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                     chooseFile.setContentText("You have a new Notification about a game you are following !");
@@ -83,9 +85,10 @@ public class HomePageController {
 
 
             }
-        }));
-        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
-        fiveSecondsWonder.play();
+        */});
+        scheduler.setOnFailed(e -> System.out.println("failed to run"));
+        scheduler.start();
+
     }
 
 

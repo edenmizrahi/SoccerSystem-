@@ -1,5 +1,6 @@
 package Domain.Controllers;
 
+import DataAccess.DaoSeasons;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -128,8 +129,21 @@ public class RfaController {
             if(s.getYear()==yearOfSeason){
                 seasonExist = true;
                 s.setCalculationPolicy(this.calculationPolicyByString(calc) , rfaUserName);
-
                 s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
+                //update DB - table DaoSeason
+                DaoSeasons daoSeasons = new DaoSeasons();
+                List<String> recordInSeasonTable = new LinkedList<>();
+                recordInSeasonTable.add(0,year);
+                recordInSeasonTable.add(1,sched);
+                recordInSeasonTable.add(2,calc);
+                if(MainSystem.getInstance().getCurrSeason().getYear() == s.getYear()){
+                    recordInSeasonTable.add(3,"true");
+                }
+                else{
+                    recordInSeasonTable.add(3,"true");
+                }
+
+                daoSeasons.update(String.valueOf(s.getYear()), recordInSeasonTable);
             }
         }
 

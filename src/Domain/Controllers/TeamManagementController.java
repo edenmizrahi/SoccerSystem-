@@ -1,5 +1,6 @@
 package Domain.Controllers;
 
+import DataAccess.*;
 import Domain.*;
 import Domain.Enums.TeamManagerPermissions;
 import Domain.LeagueManagment.Field;
@@ -17,6 +18,12 @@ import java.util.List;
 
 
 public class TeamManagementController {
+    DaoTeamRequests daoTeamRequests=new DaoTeamRequests();
+    DaoApprovedTeamReq daoApprovedTeamReq=new DaoApprovedTeamReq();
+    DaoTeams daoTeams =new DaoTeams();
+    DaoPlayer daoPlayer=new DaoPlayer();
+    DaoCoaches daoCoaches=new DaoCoaches();
+    DaoTeamOwnersTeams daoTeamOwnersTeams=new DaoTeamOwnersTeams();
     private SystemOperationsController sOController = new SystemOperationsController();
 
     /**
@@ -29,6 +36,10 @@ public class TeamManagementController {
         try {
             TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
             user.getTeamOwner().requestNewTeam(name);
+            LinkedList<String> record =new LinkedList<>();
+            record.add(userName);
+            record.add(name);
+            daoTeamRequests.save(record);
         }
         catch (Exception e){
             return e.getMessage();
@@ -60,12 +71,46 @@ public class TeamManagementController {
             for (String pName : playerNames) {
                 TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
                 players.add(p);
+                /**player- add team to db**/
+                LinkedList<String> records =new LinkedList<>();
+                LinkedList<String> name=new LinkedList<>();
+                name.add(pName);
+                records.add(teamName);
+                records.add(null);
+                daoPlayer.update(name,records);
             }
             TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
+            /**coach- add team to db**/
+            LinkedList<String> records =new LinkedList<>();
+            records.add(teamName);
+            records.add(null);
+            LinkedList<String> name=new LinkedList<>();
+            name.add(coachUserName);
+            daoCoaches.update(name,records);
 
             Field field = new Field(nameOfNewField);
 
             user.getTeamOwner().makeTeamActive(team, players, coach, field);
+            LinkedList<String> teamRecord=new LinkedList<>();
+            teamRecord.add(teamName);
+            teamRecord.add(userName);
+            teamRecord.add(userName);
+            teamRecord.add(coachUserName);
+            teamRecord.add(nameOfNewField);
+            teamRecord.add("0");
+            LinkedList<String> toRemove = new LinkedList<>();
+            toRemove.add(userName);
+            toRemove.add(teamName);
+            daoApprovedTeamReq.delete(toRemove);
+            daoTeams.save(teamRecord);
+            /**teamOwner*/
+            LinkedList<String> key=new LinkedList<>();
+            key.add(userName);
+            key.add(teamName);
+            daoTeamOwnersTeams.save(key);
+
+
+
         }
         catch (Exception e){
            return e.getMessage();

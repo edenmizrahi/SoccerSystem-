@@ -51,3 +51,5 @@
 15.05.2020 22:03:03 ERROR Event - <init> - invalid event creation
 22.05.2020 13:33:05 ERROR Rfa - answerRequest - team not in request list
 22.05.2020 17:12:20 ERROR Rfa - answerRequest - team not in request list
+23.05.2020 20:00:15 ERROR Event - <init> - invalid event creation
+23.05.2020 20:00:34 ERROR Event - <init> - invalid event creation

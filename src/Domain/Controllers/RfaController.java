@@ -1,5 +1,6 @@
 package Domain.Controllers;
 
+import DataAccess.DaoSeasons;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -121,6 +122,7 @@ public class RfaController {
      * @param sched
      */
     public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
+        DaoSeasons daoSeasons = new DaoSeasons();
         LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
         int yearOfSeason = Integer.parseInt(year);
         boolean seasonExist = false;
@@ -128,13 +130,29 @@ public class RfaController {
             if(s.getYear()==yearOfSeason){
                 seasonExist = true;
                 s.setCalculationPolicy(this.calculationPolicyByString(calc) , rfaUserName);
-
                 s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
+
+                //update DB - table DaoSeason
+                List<String> recordInSeasonTable = new LinkedList<>();
+                recordInSeasonTable.add(0,year);
+                recordInSeasonTable.add(1,sched);
+                recordInSeasonTable.add(2,calc);
+                if(MainSystem.getInstance().getCurrSeason().getYear() == s.getYear()){
+                    recordInSeasonTable.add(3,"true");
+                }
+                else{
+                    recordInSeasonTable.add(3,"false");
+                }
+                LinkedList<String> keys=new LinkedList<>();
+                keys.add(String.valueOf(s.getYear()));
+                daoSeasons.update(keys, recordInSeasonTable);
             }
         }
 
         if(!seasonExist){
             Season newSeason = new Season(MainSystem.getInstance(),this.schedulingPolicyByString(sched),this.calculationPolicyByString(calc),yearOfSeason);
+            //save into DB - table DaoSeason
+
         }
 
     }

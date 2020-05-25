@@ -32,6 +32,16 @@ public class ClientController {
                 service=service.path(param);
             }
             ans=service.accept(MediaType.TEXT_PLAIN).get(ClientResponse.class).getEntity(String.class);
+            if(ans.contains("HTTP Status 404 – Not Found")){
+                ans="ERROR";
+                System.out.println("exp thrown");
+                Platform.runLater(() -> {
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setContentText("Connection problem ! Please try to connect later");
+                    chooseFile.show();
+
+                });
+            }
             System.out.println("Server answer "+ans);
         }catch (Exception e){
             ans="ERROR";

@@ -51,7 +51,7 @@ public class RefereePageController extends HomePageController {
         String match = refereeApplication.displayAllMatches(userName);
         //String match = ClientController.connectToServer("RefereeApplication", "displayAllMatches", userName);
 
-        if(match!=null) {
+        if(! match.equals("")) {
             //display matches that still not take place
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("eventsPage.fxml"));
@@ -72,9 +72,7 @@ public class RefereePageController extends HomePageController {
                     + " any events.");
             alert.show();
         }
-
     }
-
 
     public void createReport(ActionEvent actionEvent) throws IOException {
         String matchesStr = refereeApplication.getAllMatches(userName);
@@ -96,7 +94,6 @@ public class RefereePageController extends HomePageController {
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             stageTheEventSourceNodeBelongs.setScene(scene);
             stageTheEventSourceNodeBelongs.show();
-
         }
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -115,6 +112,23 @@ public class RefereePageController extends HomePageController {
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
 
+    }
+
+    @FXML
+    public void registrationForGamesAlertsMouseClickHandling(ActionEvent event) throws IOException {
+
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RegistrationGamesAlerts.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = new Scene(root, 900, 600);
+
+        RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
+        registrationGamesAlertsController.initUser(userName);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
     }
 
 }

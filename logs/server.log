@@ -5535,3 +5535,8 @@
 12.05.2020 10:06:06 INFO  TeamRole - player:hapoel3a - become player
 12.05.2020 10:06:06 INFO  ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
 12.05.2020 10:06:06 INFO  TeamRole - player:hapoel4a - become player
+23.05.2020 20:05:39 INFO  SystemManager - systemManager - Added to system
+23.05.2020 20:05:39 INFO  MainSystem -  - system was started for the first time
+23.05.2020 20:05:39 INFO  TeamRole - Ilan12 - become team owner
+23.05.2020 20:05:39 INFO  TeamOwner - Ilan12 -  new team was added: null
+23.05.2020 20:05:39 INFO  TeamRole - yarden012 - become player

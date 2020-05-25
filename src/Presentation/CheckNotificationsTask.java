@@ -21,8 +21,8 @@ public class CheckNotificationsTask extends ScheduledService<String> {
             protected String call() throws Exception {
                 System.out.println("checking notifications!!");
                 String ans;
-               // ans = fanApplication.checkForNewNotifications(userName);
-                ans = ClientController.connectToServer("FanApplication", "checkForNewNotifications", userName);
+                ans = fanApplication.checkForNewNotifications(userName);
+                //ans = ClientController.connectToServer("FanApplication", "checkForNewNotifications", userName);
                 return ans;
             }
         };

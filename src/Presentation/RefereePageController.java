@@ -51,7 +51,7 @@ public class RefereePageController extends HomePageController {
         String match = refereeApplication.displayAllMatches(userName);
         //String match = ClientController.connectToServer("RefereeApplication", "displayAllMatches", userName);
 
-        if(match!=null) {
+        if(! match.equals("")) {
             //display matches that still not take place
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("eventsPage.fxml"));

@@ -72,9 +72,12 @@ public class RefereeController {
             return allPlayers;
         }
         catch (ParseException e){
-            //return "";
+            return "parse error";
         }
-        return null;
+        catch (Exception e){
+            return e.getMessage();
+        }
+
     }
 
     //check if 2 players at the same team
@@ -128,7 +131,7 @@ public class RefereeController {
                 return match.toString();
             }
         }
-        return null;
+        return "";
         //return listOfMatches;
     }
 
@@ -140,7 +143,7 @@ public class RefereeController {
     public String getAllMatches(String nameOfReferee) {
 
         //LinkedList<String> listOfMatches = new LinkedList<>();
-        String listOfMatches = new String();
+        String listOfMatches = "";
         Referee currentReferee = this.getRefereeByUserName(nameOfReferee);
         Date currentDate = new Date(System.currentTimeMillis());
 
@@ -170,8 +173,10 @@ public class RefereeController {
                 listOfEventsInMatch += e.toString() + ";";
             }
             return listOfEventsInMatch;
-        } catch(Exception e){
-            return "";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
         //return null;
     }
@@ -218,10 +223,13 @@ public class RefereeController {
             Event e = currentReferee.createGoalEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             //update in tables
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
+
     }
 
     public String createInjuryEvent(String referee, String match, String player)  {
@@ -233,10 +241,12 @@ public class RefereeController {
         //add to DB and update in events T and injury T
         currentReferee.addEventsDuringMatch(currentMatch,e);
 
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
     public String createOffenseEvent(String referee, String match, String player){
@@ -246,10 +256,12 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createOffenseEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
     public String createOffSideEvent(String referee, String match, String player) {
@@ -259,10 +271,12 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createOffSideCardEvent(playerMakeEvent,currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch,e);
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
     public String createRedCardEvent(String referee, String match, String player) {
@@ -272,10 +286,12 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createRedCardEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
     public String createYellowCardEvent(String referee, String match, String player) {
@@ -285,10 +301,12 @@ public class RefereeController {
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createYellowCardEvent(playerMakeEvent, currentMatch);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
     public String createReplaceEvent(String referee, String match, String firstPlayer, String secondPlayer) {
@@ -306,10 +324,12 @@ public class RefereeController {
                 alert.setContentText("Notice that the players must be from the same team");
                 alert.show();
             }
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
     public String createExtraTimeEvent(String referee, String match, String time) {
@@ -319,10 +339,12 @@ public class RefereeController {
             int minutes = Integer.parseInt(time);
             Event e = currentReferee.createExtraTimeEvent(currentMatch, minutes);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-        } catch(Exception e){
-            return "";
+            return "ok";
+        } catch (ParseException p){
+            return "parse error";
+        }catch (Exception e){
+            return  "error " +e.getMessage();
         }
-        return "";
     }
 
 

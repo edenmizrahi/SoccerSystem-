@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -67,15 +68,24 @@ public class ReportOfMatchController {
         String match =  idMatches.getSelectionModel().getSelectedItem();
         String reportStr = this.refereeApplication.createReportOfMatch(match,userName);
         //String reportStr = ClientController.connectToServer("RefereeApplication", "createReportOfMatch", match, userName);
+        //check for error
+        if(reportStr.contains("error")){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText(reportStr);
+            chooseFile.show();
+        }
+        else{//else no problem
+            List<String> report = Arrays.asList(reportStr.split(";"));
 
-        List<String> report = Arrays.asList(reportStr.split(";"));
+            reportTable.getItems().addAll(report);
 
-        reportTable.getItems().addAll(report);
+            TableColumn<String,String> column1= new TableColumn<>("EventsAdapter");
+            column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 
-        TableColumn<String,String> column1= new TableColumn<>("EventsAdapter");
-        column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+            reportTable.getColumns().setAll(column1);
+        }
 
-        reportTable.getColumns().setAll(column1);
     }
 
 

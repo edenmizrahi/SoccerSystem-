@@ -254,7 +254,7 @@ public class MainSystemTest {
 
         ms.setUsers(new LinkedList<>());
         try {
-            ms.signInAsTeamOwner("name1","0542150912","name1@gmail.co.il","towner","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsTeamOwner("name1","0542150912","name1@gmail.co.il","towner","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.assertTrue(ms.getUserNames().contains("towner"));
             User u= ms.getUsers().get(0);
             Assert.assertTrue(u instanceof TeamRole);
@@ -264,7 +264,7 @@ public class MainSystemTest {
 
         }
         try {
-            ms.signInAsTeamOwner("name1","0542150912","name1@gmail.co.il","towner","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsTeamOwner("name1","0542150912","name1@gmail.co.il","towner","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.fail();
         } catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
@@ -278,7 +278,7 @@ public class MainSystemTest {
 
         ms.setUsers(new LinkedList<>());
         try {
-            ms.signInAsCoach("name1","0542150912","name1@gmail.co.il","coach","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsCoach("name1","0542150912","name1@gmail.co.il","coach","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.assertTrue(ms.getUserNames().contains("coach"));
             User u= ms.getUsers().get(0);
             Assert.assertTrue(u instanceof TeamRole);
@@ -289,7 +289,7 @@ public class MainSystemTest {
 
         }
         try {
-            ms.signInAsCoach("name1","0542150912","name1@gmail.co.il","coach","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsCoach("name1","0542150912","name1@gmail.co.il","coach","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.fail();
         } catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
@@ -303,7 +303,7 @@ public class MainSystemTest {
 
         ms.setUsers(new LinkedList<>());
         try {
-            ms.signInAsPlayer("name1","0542150912","name1@gmail.co.il","player","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsPlayer("name1","0542150912","name1@gmail.co.il","player","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.assertTrue(ms.getUserNames().contains("player"));
             User u= ms.getUsers().get(0);
             Assert.assertTrue(u instanceof TeamRole);
@@ -313,7 +313,7 @@ public class MainSystemTest {
 
         }
         try {
-            ms.signInAsPlayer("name1","0542150912","name1@gmail.co.il","player","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsPlayer("name1","0542150912","name1@gmail.co.il","player","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.fail();
         } catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
@@ -327,7 +327,7 @@ public class MainSystemTest {
 
         ms.setUsers(new LinkedList<>());
         try {
-            ms.signInAsFan("name1","0542150912","name1@gmail.co.il","fan","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsFan("name1","0542150912","name1@gmail.co.il","fan","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.assertTrue(ms.getUserNames().contains("fan"));
             User u= ms.getUsers().get(0);
             Assert.assertTrue(u instanceof Fan);
@@ -336,7 +336,7 @@ public class MainSystemTest {
 
         }
         try {
-            ms.signInAsPlayer("name1","0542150912","name1@gmail.co.il","fan","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsPlayer("name1","0542150912","name1@gmail.co.il","fan","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.fail();
         } catch (Exception e) {
             assertEquals(Exception.class, e.getClass());
@@ -353,7 +353,7 @@ public class MainSystemTest {
 
         ms.setUsers(new LinkedList<>());
         try {
-            ms.signInAsRFA("name1","0542150912","name1@gmail.co.il","rfa","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsRFA("name1","0542150912","name1@gmail.co.il","rfa","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.assertTrue(ms.getUserNames().contains("rfa"));
             User u= ms.getUsers().get(0);
             Assert.assertTrue(u instanceof Rfa);
@@ -362,7 +362,7 @@ public class MainSystemTest {
 
         }
         try {
-            ms.signInAsRFA("name1","0542150912","name1@gmail.co.il","rfa","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")));
+            ms.signInAsRFA("name1","0542150912","name1@gmail.co.il","rfa","password123",MainSystem.getInstance().birthDateFormat.parse(("01-01-1885")),false);
             Assert.fail();
         } catch (Exception e) {
             assertEquals(Exception.class, e.getClass());

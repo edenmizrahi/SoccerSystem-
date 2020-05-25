@@ -438,6 +438,7 @@ public class SystemOperationsController {
                 fann.getMatchesFollow().add(newMatch);
                 newMatch.addObserver(fann);
             }
+
             /**teams connections**/
             home.getHome().add(newMatch);
             away.getAway().add(newMatch);

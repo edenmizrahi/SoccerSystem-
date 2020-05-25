@@ -481,6 +481,18 @@ public class SystemOperationsController {
 //                    refInMatch.getMatches().add(newMatch);
                     newMatch.getReferees().add(refInMatch);
                     refInMatch.addMatchToList(newMatch);
+                    //notifications:
+                    List<List<String>> refereeNotificationsRecords= daoNotificaionsReferee.getAll("referee",refInMatch.getUserName());
+                    refereeNotificationsRecords=getMatchNotifications(refereeNotificationsRecords,newMatch);
+                    for(List<String> rec: refereeNotificationsRecords){
+                        boolean isRead=false;
+                        if(rec.get(5).equals("1")){
+                            isRead=true;
+                        }
+                        Notification notif=new Notification(newMatch,rec.get(4),isRead);
+                        refInMatch.getNotificationsList().add(notif);
+
+                    }
                 }
             }
 
@@ -615,6 +627,26 @@ public class SystemOperationsController {
         }
         /**********/
     }
+
+    /***
+     * get referee notifications and filter by match name
+     * @param refereeNotificationsRecords
+     * @param newMatch
+     * @return
+     */
+    private List<List<String>> getMatchNotifications(List<List<String>> refereeNotificationsRecords, Match newMatch) {
+        List<List<String>> res= new LinkedList<>();
+        for(List<String> record: refereeNotificationsRecords){
+            if(record.get(1).equals(newMatch.getHomeTeam().getName())&&
+                    record.get(2).equals(newMatch.getAwayTeam().getName())&&
+                    record.get(0).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate())))
+            {
+                res.add(record);
+            }
+        }
+        return res;
+    }
+
     public Team getTeamByName(String teamName){
         HashSet<Team> activeTeams = MainSystem.getInstance().getActiveTeams();
 
@@ -631,8 +663,6 @@ public class SystemOperationsController {
             hashMapByUserName.put(rec.get(0),rec);
         }
     }
-
-
 
     public void addEventNotificationToFans(HashMap<Integer,Event> events,Match newMatch,HashSet<Fan> fansObjectsFollow){
         /**update notification list in fan (events)**/

@@ -182,8 +182,11 @@ public class SignUpController {
                 //change by or- need to send String object and not date
                 SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 String dateStr= birthDateFormat.format(date);
-                String ans = soc.signUp(role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr);
-                //String ans = ClientController.connectToServer("SystemOperationsApplication", "signUp", role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr);
+                //TODO: get the email boolean from the user and send it as string(!!) - in the controller it becomes boolean
+                //I put false by defult
+                String sendByEmailstr="false";
+                String ans = soc.signUp(role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr,sendByEmailstr);
+                //String ans = ClientController.connectToServer("SystemOperationsApplication", "signUp", role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr, sendByEmailstr);
 
                 if(ans.contains("error")){//USER NAME ALREADY EXIST.
                     throw new Exception();

@@ -1380,8 +1380,15 @@ public class SystemOperationsController {
         system.setTeamNames(new HashSet<>());
     }
 
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth) {
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth,String sendByEmail) {
         SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        boolean sendByEmailBoolean;
+        if(sendByEmail.equals("true")){
+            sendByEmailBoolean=true;
+        }else{
+            sendByEmailBoolean=false;
+        }
+
         Date date;
         try{
             date= birthDateFormat.parse(dateOfBirth);
@@ -1406,13 +1413,13 @@ public class SystemOperationsController {
             LinkedList<String> specificDetails = new LinkedList<>();
             specificDetails.add(userName);
             if (role.equals("Player")) {
-                ms.signInAsPlayer(name, phoneNumber, email, userName, password, date);
+                ms.signInAsPlayer(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
                 specificDetails.add(null);
                 daoPlayer.save(specificDetails);
                 isPlayer=1;
             }
             if (role.equals("Coach")) {
-                ms.signInAsCoach(name, phoneNumber, email, userName, password, date);
+                ms.signInAsCoach(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
                 specificDetails.add(null);
                 specificDetails.add(null);
                 daoCoaches.save(specificDetails);
@@ -1420,16 +1427,16 @@ public class SystemOperationsController {
 
             }
             if (role.equals("Fan")) {
-                ms.signInAsFan(name, phoneNumber, email, userName, password, date);
+                ms.signInAsFan(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
 
             }
             if (role.equals("RFA")) {
-                ms.signInAsRFA(name, phoneNumber, email, userName, password, date);
+                ms.signInAsRFA(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
                 daoRfa.save(specificDetails);
 
             }
             if (role.equals("TeamOwner")) {
-                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date);
+                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
                 isTeamOwner=1;
             }
             LinkedList<String> teamRoleRecord=new LinkedList<>();

@@ -26,6 +26,7 @@ public class Fan extends User implements NotificationsUser {
     private String userName;
     private String password;
     private Date dateOfBirth;
+    private boolean sendByEmail;
 
     public boolean gotFanNotification;
 
@@ -45,6 +46,7 @@ public class Fan extends User implements NotificationsUser {
         //add userName to the hashset
         ms.addUserName(userName);
         gotFanNotification=false;
+        sendByEmail=false;
     }
 
 
@@ -64,6 +66,7 @@ public class Fan extends User implements NotificationsUser {
         //add userName to the hashset
 //        MainSystem.getInstance().addUserName(userName);
         gotFanNotification=false;
+        sendByEmail=false;
     }
     //<editor-fold desc="getters and setters">
     public List<PrivatePage> getMyPages() {
@@ -141,6 +144,14 @@ public class Fan extends User implements NotificationsUser {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public boolean isSendByEmail() {
+        return sendByEmail;
+    }
+
+    public void setSendByEmail(boolean sendByEmail) {
+        this.sendByEmail = sendByEmail;
+    }
+
     //</editor-fold>
 
 
@@ -206,6 +217,9 @@ public class Fan extends User implements NotificationsUser {
                 if(system.userLoggedIn(this)){
                     gotFanNotification=true;
                 }
+                if(isSendByEmail()==true){
+                    //send email with notification
+                }
                 notificationHashSet.add(new Notification(o, arg, false));
             }
 //            /**change place or time event */
@@ -257,6 +271,9 @@ public class Fan extends User implements NotificationsUser {
             String ans=comp.getAnswer();
             if(system.userLoggedIn(this)){
                 gotFanNotification=true;
+            }
+            if(isSendByEmail()==true){
+                //send email with notification
             }
             notificationHashSet.add(new Notification(o, "Answer: "+ans, false));
 

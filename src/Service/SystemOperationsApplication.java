@@ -34,12 +34,13 @@ public class SystemOperationsApplication {
         return systemOperationsController.getPrivateDetails(userName);
     }
 
-    @Path("/signUp/{role}/{name}/{phoneNumber}/{email}/{username}/{password}/{dateOfBirth}")
+    @Path("/signUp/{role}/{name}/{phoneNumber}/{email}/{username}/{password}/{dateOfBirth}/{sendByEmail}")
     @POST
     @Produces("text/plain")
     public String  signUp(@PathParam("role")String role,@PathParam("name") String name,@PathParam("phoneNumber") String phoneNumber,
                           @PathParam("email") String email, @PathParam("username")String userName,
-                          @PathParam("password")String password,@PathParam("dateOfBirth") String dateOfBirth) {
-       return systemOperationsController.signUp(role, name, phoneNumber, email, userName, password, dateOfBirth);
+                          @PathParam("password")String password,@PathParam("dateOfBirth") String dateOfBirth,
+                          @PathParam("sendByEmail")String sendEmail) {
+       return systemOperationsController.signUp(role, name, phoneNumber, email, userName, password, dateOfBirth,sendEmail);
     }
 }

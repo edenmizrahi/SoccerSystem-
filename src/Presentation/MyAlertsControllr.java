@@ -22,23 +22,17 @@ public class MyAlertsControllr {
 
     @FXML
     private ComboBox<String > myNotifictionsCombo;
-
     private FanApplication fanApplication = new FanApplication();
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private List<String> fanNotificationsList=new LinkedList<>();
     private String userName; // is teamRole
-
-
-
 
     @FXML
     public void initAllertsUser (String userName) {
         this.userName=userName;
         //update comoboxs
         updateNotificationsComoBox();
-
     }
-
 
     @FXML
     public void updateNotificationsComoBox(){
@@ -55,7 +49,6 @@ public class MyAlertsControllr {
 
         myNotifictionsCombo.setItems(elementsCombo);
         myNotifictionsCombo.getSelectionModel().selectFirst();
-
     }
 
     @FXML
@@ -67,8 +60,5 @@ public class MyAlertsControllr {
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
-
-
-
 
 }

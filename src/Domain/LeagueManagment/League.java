@@ -9,6 +9,7 @@ import sun.font.GlyphLayout;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
 
 public class League {
 
@@ -22,9 +23,6 @@ public class League {
     private HashMap<Season, HashSet<Team>> teamsInSeason;
 
     private HashMap<Season, LinkedHashSet<Referee>> refereesInLeague;
-
-
-
 
     public League(String name, MainSystem mainSystem, Season currSeason) throws Exception {
         this.name = name;
@@ -83,6 +81,10 @@ public class League {
     }
 
     //</editor-fold>
+
+    public void setRefereePerSeasonToHash(Season s, Referee referee){
+        refereesInLeague.get(s).add(referee);
+    }
 
     /**
      * Add teams by Season to this league.

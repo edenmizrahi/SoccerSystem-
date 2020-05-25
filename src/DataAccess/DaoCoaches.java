@@ -78,32 +78,33 @@ public class DaoCoaches implements Dao<String> {
             return ans;
 
         }
-        /** fikter **/
+        /** filter **/
         ResultSet rs=null;
         Result<Record> result=null;
         int numOfCols=0;
         String sql="SELECT * FROM coachs WHERE "+collName+"= '" + filter + "'"; //!!!!!!!!!!!!!!!!!!!!!!!!!
+        List<List<String>> ans=null;
         try {
             rs=DBHandler.getConnection().createStatement().executeQuery(sql);
             result=DBHandler.getDSLConnect().fetch(rs);
             ResultSetMetaData rsmd=rs.getMetaData();
             numOfCols=rsmd.getColumnCount();
+            /** iinitialize List<List<String>> **/
+            ans=new ArrayList<>(result.size());
+            for(int i=0; i<result.size(); i++){
+                List<String> temp = new LinkedList<>();
+                ans.add(temp);
+            }
+            /** insert coll values to ans  **/
+            for(int i=0;i< numOfCols;i++){
+                List <String> currCol = (List<String>)result.getValues(i);
+                for (int j = 0; j <result.size() ; j++) {
+                    ans.get(j).add(currCol.get(j));
+
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        /** iinitialize List<List<String>> **/
-        List<List<String>> ans=new ArrayList<>(result.size());
-        for(int i=0; i<result.size(); i++){
-            List<String> temp = new LinkedList<>();
-            ans.add(temp);
-        }
-        /** insert coll values to ans  **/
-        for(int i=0;i< numOfCols;i++){
-            List <String> currCol = (List<String>)result.getValues(i);
-            for (int j = 0; j <result.size() ; j++) {
-                ans.get(j).add(currCol.get(j));
-
-            }
         }
         return ans;
     }

@@ -24,6 +24,12 @@ import java.util.Date;
 
 public class SignUpController {
     @FXML
+    RadioButton rb_yesEmail;
+    @FXML
+    RadioButton rb_noEmail;
+    @FXML
+    Label lbl_messagesError;
+    @FXML
     RadioButton rd_rfa;
     @FXML
     RadioButton rd_fan;
@@ -177,15 +183,20 @@ public class SignUpController {
         else{
             lbl_RoleError.setText("");
         }
+        String emailChoose=getEmailChoose();
+        if(role==null){
+            lbl_messagesError.setText("Role is required");
+            isValid=false;
+        }
+        else{
+            lbl_messagesError.setText("");
+        }
         if(isValid){
             try {
                 //change by or- need to send String object and not date
                 SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 String dateStr= birthDateFormat.format(date);
-                //TODO: get the email boolean from the user and send it as string(!!) - in the controller it becomes boolean
-                //I put false by defult
-                String sendByEmailstr="false";
-                String ans = soc.signUp(role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr,sendByEmailstr);
+                String ans = soc.signUp(role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr,emailChoose);
                 //String ans = ClientController.connectToServer("SystemOperationsApplication", "signUp", role, txt_name.getText(), txt_phoneNumber.getText(), txt_email.getText(), txt_userName.getText(), txt_password.getText(), dateStr, sendByEmailstr);
 
                 if(ans.contains("error")){//USER NAME ALREADY EXIST.
@@ -202,6 +213,16 @@ public class SignUpController {
                 lbl_userNameError.setText("User name already exists");
             }
         }
+    }
+
+    private String getEmailChoose(){
+        if(rb_yesEmail.isSelected()){
+            return "true";
+        }
+        if(rb_noEmail.isSelected()){
+            return "false";
+        }
+        return null;
     }
 
     private String getRoleChoose() {

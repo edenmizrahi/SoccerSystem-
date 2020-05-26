@@ -1,6 +1,8 @@
 package Domain.Controllers;
 
+import DataAccess.DaoApprovedTeamReq;
 import DataAccess.DaoSeasons;
+import DataAccess.DaoTeamRequests;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
 import Domain.LeagueManagment.League;
@@ -17,9 +19,15 @@ import Domain.Users.SystemManager;
 import org.reflections.Reflections;
 import sun.awt.image.ImageWatched;
 
+import java.text.ParseException;
 import java.util.*;
 
 public class RfaController {
+
+    public SystemOperationsController systemOperationsController = new SystemOperationsController();
+    public DaoTeamRequests daoTeamRequests = new DaoTeamRequests();
+    public DaoApprovedTeamReq daoApprovedTeamReq = new DaoApprovedTeamReq();
+
     /**
      * create new league
      * @param leagueName
@@ -143,8 +151,9 @@ public class RfaController {
                 else{
                     recordInSeasonTable.add(3,"false");
                 }
-
-               // daoSeasons.update(String.valueOf(s.getYear()), recordInSeasonTable);
+                LinkedList<String> keys=new LinkedList<>();
+                keys.add(String.valueOf(s.getYear()));
+                daoSeasons.update(keys, recordInSeasonTable);
             }
         }
 
@@ -281,12 +290,45 @@ public class RfaController {
 
     /***
      * answer to team request
-     * @param team
-     * @param desicion
+     * @param rfaUserName
+     * @param teamName
+     * @param decision
      *  @codeBy Eden
      */
-    public void answerToRequest(Rfa user,Team team, boolean desicion) throws Exception {
-        user.answerRequest(team,desicion);
+    public void answerToRequest(String rfaUserName,String teamName, String decision) {
+        try {
+            Rfa rfa = this.getRfaByUserName(rfaUserName);
+            Team team = this.systemOperationsController.getTeambyTeamName(teamName);
+
+            List<String> listOfKeys = new LinkedList<>();
+            listOfKeys.add(0,team.getOwnerName());
+            listOfKeys.add(1,teamName);
+
+            if (decision.equals("true")) {
+                rfa.answerRequest(team, true);
+                //remove from request team hash
+                getTeamRequest(rfa).remove(team);
+                //remove from requestedTeams
+                daoTeamRequests.delete(listOfKeys);
+                //add to approved teams table
+                daoApprovedTeamReq.save(listOfKeys);
+
+            } else {
+                if (decision.equals("false")) {
+                    rfa.answerRequest(team, false);
+                    //remove from request team hash
+                    getTeamRequest(rfa).remove(team);
+                    //remove from request team table
+                    daoTeamRequests.delete(listOfKeys);
+                }
+            }
+        }
+        catch (ParseException e){
+            System.out.println("parse error");
+        }
+        catch (Exception e){
+            System.out.println("error"+ e.getMessage());
+        }
     }
 
     /***
@@ -348,6 +390,39 @@ public class RfaController {
             }
         }
         return AllTeamsInSeason;
+    }
+
+    /**
+     * return Rfa object by his user name
+     * @param rfaUserName
+     * @return
+     */
+    public Rfa getRfaByUserName(String rfaUserName){
+        LinkedList<Rfa> rfaLinkedList = MainSystem.getInstance().getRfas();
+        for (Rfa rfa: rfaLinkedList) {
+            if(rfa.getUserName().equals(rfaUserName)){
+                return rfa;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * return all team requests
+     * @param userName
+     * @return
+     */
+    public String getTeamRequests(String userName){
+
+        String teamRequestStr = new String();
+        Rfa rfa = this.getRfaByUserName(userName);
+
+        HashSet<Team> refereeRequests = getTeamRequest(rfa);
+        for (Team team : refereeRequests) {
+            teamRequestStr += team.getName() + ";";
+        }
+
+        return teamRequestStr;
     }
 
 }

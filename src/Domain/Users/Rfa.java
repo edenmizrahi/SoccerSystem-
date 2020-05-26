@@ -258,6 +258,7 @@ public class Rfa extends Fan implements NotificationsUser {
         }
         system.checkValidDetails(name, userName, password, phoneNumber,email);
         Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
+        newRef.setSendByEmail(true);
         LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Rfa"));
     }
 
@@ -426,11 +427,13 @@ public class Rfa extends Fan implements NotificationsUser {
     //TODO test
     public void update(Observable o, Object arg) {
         //call fan update
-
         if(o instanceof Team){
             if(arg.equals("request to open new team")){//open new team
                 if(system.userLoggedIn(this)){
                     gotRFAnotification =true;
+                }
+                if(isSendByEmail()==true){
+                    //send email with notification
                 }
                 this.teamRequests.add((Team)o);
                 this.notifications.add(new Notification(o,arg,false));

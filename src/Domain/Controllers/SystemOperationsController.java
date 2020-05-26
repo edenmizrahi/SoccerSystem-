@@ -15,12 +15,18 @@ import Domain.LeagueManagment.*;
 import Domain.LeagueManagment.Team;
 import Domain.Main;
 import Domain.MainSystem;
+import Domain.Notifications.Notification;
 import Domain.Users.*;
 import Stubs.StubExternalSystem;
 import Stubs.TeamStub;
+import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
+import org.bouncycastle.util.encoders.Hex;
 import sun.awt.image.ImageWatched;
 
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Ref;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -258,7 +264,7 @@ public class SystemOperationsController {
         }
 
 
-        /**teams*/
+        /**active teams*/
         List<List<String>> teamsList = daoTeams.getAll(null, null);
         HashMap<String, List<String>> teamsRecordsByName = new HashMap<>();
         for (List<String> teamRec : teamsList) {
@@ -267,6 +273,25 @@ public class SystemOperationsController {
             ms.getTeamNames().add(team.getName());
             ms.getActiveTeams().add(team);
             teamsRecordsByName.put(team.getName(), teamRec);
+        }
+
+        /**approved teams*/
+        List<List<String>> approvedTeas = daoApprovedTeamReq.getAll(null, null);
+//        HashMap<String, List<String>> approvedTeamsReacords = new HashMap<>();
+        TeamAdapter ta = new TeamAdapter();
+        for (List<String> teamRec : approvedTeas) {
+            TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(1));
+            Team team =  new Team(teamRec.get(0),tr.getTeamOwner());
+            tr.getTeamOwner().getApprovedTeams().add(team);
+        }
+
+        /**request teams*/
+        List<List<String>> requestsTeams = daoTeamRequests.getAll(null, null);
+        for (List<String> teamRec : requestsTeams) {
+            TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(1));
+            Team team =  new Team(teamRec.get(0),tr.getTeamOwner());
+            tr.getTeamOwner().getRequestedTeams().add(team);
+            Rfa.getTeamRequests().add(team);
         }
 
         /**fields*/
@@ -414,8 +439,26 @@ public class SystemOperationsController {
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
                     field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
 
-            //@TODO fan observers
+            //add observer
+            List<List<String>> fansFollow =daoFanMatchesFollow.getAll(null,null);
+            LinkedList<List<String>> fansFollowRelevantToMatch=new LinkedList<>();
 
+            for(List<String> record:fansFollow){
+                if(record.get(2).equals(newMatch.getHomeTeam().getName())&&
+                        record.get(3).equals(newMatch.getAwayTeam().getName())&&
+                            record.get(1).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))){
+                    fansFollowRelevantToMatch.add(record);
+                }
+            }
+
+            HashSet<Fan> fansObjectsFollow=new HashSet<>();
+            for(List<String > follow: fansFollowRelevantToMatch){
+                fansObjectsFollow.add((Fan) getUserByUserName(follow.get(0)));
+            }
+            for(Fan fann :  fansObjectsFollow){
+                fann.getMatchesFollow().add(newMatch);
+                newMatch.addObserver(fann);
+            }
 
             /**teams connections**/
             home.getHome().add(newMatch);
@@ -438,6 +481,18 @@ public class SystemOperationsController {
 //                    refInMatch.getMatches().add(newMatch);
                     newMatch.getReferees().add(refInMatch);
                     refInMatch.addMatchToList(newMatch);
+                    //notifications:
+                    List<List<String>> refereeNotificationsRecords= daoNotificaionsReferee.getAll("referee",refInMatch.getUserName());
+                    refereeNotificationsRecords=getMatchNotifications(refereeNotificationsRecords,newMatch);
+                    for(List<String> rec: refereeNotificationsRecords){
+                        boolean isRead=false;
+                        if(rec.get(5).equals("1")){
+                            isRead=true;
+                        }
+                        Notification notif=new Notification(newMatch,rec.get(4),isRead);
+                        refInMatch.getNotificationsList().add(notif);
+
+                    }
                 }
             }
 
@@ -452,7 +507,7 @@ public class SystemOperationsController {
 //                    eventsInMatch.add(eventRecord);
 //                }
 //            }
-
+        HashMap<Integer, Event> eventsInGame=new HashMap<>();
             for (List<String> event : events) {
                 if (event.get(6).equals("Extra time")) {
                     List<String> key = new LinkedList<>();
@@ -461,6 +516,7 @@ public class SystemOperationsController {
                     ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                             Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                     newMatch.addEventToList(extraTimeEvent);
+                    eventsInGame.put(extraTimeEvent.getId(),extraTimeEvent);
                 }//extra time
                 else {
                     if (event.get(6).equals("Goal")) {
@@ -470,6 +526,7 @@ public class SystemOperationsController {
                         Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                         newMatch.addEventToList(GoalEvent);
+                        eventsInGame.put(GoalEvent.getId(),GoalEvent);
                     }//goal
                     else {
                         if (event.get(6).equals("Injury")) {
@@ -479,6 +536,8 @@ public class SystemOperationsController {
                             Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                             newMatch.addEventToList(InjuryEvent);
+                            eventsInGame.put(InjuryEvent.getId(),InjuryEvent);
+
                         }//injury
                         else {
                             if (event.get(6).equals("Offense")) {
@@ -488,6 +547,8 @@ public class SystemOperationsController {
                                 Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                         this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                 newMatch.addEventToList(OffenseEvent);
+                                eventsInGame.put(OffenseEvent.getId(),OffenseEvent);
+
                             }//offense
                             else {
                                 if (event.get(6).equals("OffSide")) {
@@ -497,6 +558,8 @@ public class SystemOperationsController {
                                     OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                             this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                     newMatch.addEventToList(OffSideEvent);
+                                    eventsInGame.put(OffSideEvent.getId(),OffSideEvent);
+
                                 }//offside
                                 else {
                                     if (event.get(6).equals("Red Card")) {
@@ -506,6 +569,8 @@ public class SystemOperationsController {
                                         RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                         newMatch.addEventToList(RedCardEvent);
+                                        eventsInGame.put(RedCardEvent.getId(),RedCardEvent);
+
                                     }//red card
                                     else {
                                         if (event.get(6).equals("Yellow Card")) {
@@ -515,6 +580,8 @@ public class SystemOperationsController {
                                             YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                             newMatch.addEventToList(YellowCardEvent);
+                                            eventsInGame.put(YellowCardEvent.getId(),YellowCardEvent);
+
                                         }//yellow card
                                         else {
                                             if (event.get(6).equals("Replacement")) {
@@ -524,6 +591,8 @@ public class SystemOperationsController {
                                                 Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                         this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
                                                 newMatch.addEventToList(ReplacementEvent);
+                                                eventsInGame.put(ReplacementEvent.getId(),ReplacementEvent);
+
                                             }//replacement
                                         }
                                     }
@@ -534,9 +603,9 @@ public class SystemOperationsController {
                 }
             }
 
-
+            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
         }
-
+//
         /*************/
 
         /**League**/
@@ -558,6 +627,26 @@ public class SystemOperationsController {
         }
         /**********/
     }
+
+    /***
+     * get referee notifications and filter by match name
+     * @param refereeNotificationsRecords
+     * @param newMatch
+     * @return
+     */
+    private List<List<String>> getMatchNotifications(List<List<String>> refereeNotificationsRecords, Match newMatch) {
+        List<List<String>> res= new LinkedList<>();
+        for(List<String> record: refereeNotificationsRecords){
+            if(record.get(1).equals(newMatch.getHomeTeam().getName())&&
+                    record.get(2).equals(newMatch.getAwayTeam().getName())&&
+                    record.get(0).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate())))
+            {
+                res.add(record);
+            }
+        }
+        return res;
+    }
+
     public Team getTeamByName(String teamName){
         HashSet<Team> activeTeams = MainSystem.getInstance().getActiveTeams();
 
@@ -575,8 +664,27 @@ public class SystemOperationsController {
         }
     }
 
+    public void addEventNotificationToFans(HashMap<Integer,Event> events,Match newMatch,HashSet<Fan> fansObjectsFollow){
+        /**update notification list in fan (events)**/
+        List<List<String>> notificationsFans =daoNotificationFan.getAll(null,null);
+        for(List<String> record:notificationsFans){
+            Fan f= (Fan)getUserByUserName(record.get(3));
+            //if the record is this match record:
+            if(notificationsFans.get(1).equals(newMatch.getHomeTeam().getName())&&
+                    notificationsFans.get(2).equals(newMatch.getAwayTeam().getName())&&
+                    notificationsFans.get(0).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))) {
+                ///is thi is the write user
+                if (fansObjectsFollow.contains(f)) {
+                    boolean isRead=false;
+                    if( notificationsFans.get(5).equals("1")){
+                        isRead=true;
+                    }
+                    Notification n = new Notification(newMatch,events.get( notificationsFans.get(4)),isRead);
+                }
+            }
+        }
 
-
+    }
     /**
      * return current season
      * @return
@@ -853,6 +961,7 @@ public class SystemOperationsController {
         }
         return null;
     }
+
     public List<SystemManager> showAllSystemManagers(){
         return MainSystem.getInstance().getSystemManagers();
     }
@@ -1301,8 +1410,15 @@ public class SystemOperationsController {
         system.setTeamNames(new HashSet<>());
     }
 
-    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth) {
+    public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth,String sendByEmail) {
         SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        boolean sendByEmailBoolean;
+        if(sendByEmail.equals("true")){
+            sendByEmailBoolean=true;
+        }else{
+            sendByEmailBoolean=false;
+        }
+
         Date date;
         try{
             date= birthDateFormat.parse(dateOfBirth);
@@ -1312,25 +1428,55 @@ public class SystemOperationsController {
         MainSystem ms=MainSystem.getInstance();
         //list of userName in Fan table - check if userName contains
         try {
+            password=sha256(password);
+            int isPlayer=0;
+            int isCoach=0;
+            int isTeamOwner=0;
+            LinkedList<String> details = new LinkedList<>();
+            details.add(userName);
+            details.add(name);
+            details.add(password);
+            details.add(phoneNumber);
+            details.add(email);
+            details.add(dateOfBirth);
+            daoFans.save(details);
+            LinkedList<String> specificDetails = new LinkedList<>();
+            specificDetails.add(userName);
             if (role.equals("Player")) {
-                ms.signInAsPlayer(name, phoneNumber, email, userName, password, date);
-
+                ms.signInAsPlayer(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
+                specificDetails.add(null);
+                daoPlayer.save(specificDetails);
+                isPlayer=1;
             }
             if (role.equals("Coach")) {
-                ms.signInAsCoach(name, phoneNumber, email, userName, password, date);
+                ms.signInAsCoach(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
+                specificDetails.add(null);
+                specificDetails.add(null);
+                daoCoaches.save(specificDetails);
+                isCoach=1;
 
             }
             if (role.equals("Fan")) {
-                ms.signInAsFan(name, phoneNumber, email, userName, password, date);
+                ms.signInAsFan(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
 
             }
             if (role.equals("RFA")) {
-                ms.signInAsRFA(name, phoneNumber, email, userName, password, date);
+                ms.signInAsRFA(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
+                daoRfa.save(specificDetails);
 
             }
             if (role.equals("TeamOwner")) {
-                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date);
-
+                ms.signInAsTeamOwner(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
+                isTeamOwner=1;
+            }
+            LinkedList<String> teamRoleRecord=new LinkedList<>();
+            teamRoleRecord.add(userName);
+            teamRoleRecord.add(""+isPlayer);
+            teamRoleRecord.add(""+isCoach);
+            teamRoleRecord.add(""+isTeamOwner);
+            teamRoleRecord.add(""+false);
+            if(isCoach==1||isPlayer==1||isTeamOwner==1){
+                daoTeamRole.save(teamRoleRecord);
             }
         }
         catch (Exception e){
@@ -1349,6 +1495,20 @@ public class SystemOperationsController {
             }
         }
         return null;
+    }
+
+    /***
+     * sha256 encrypt.
+     * @param pass
+     * @return encrypt password
+     * @throws NoSuchAlgorithmException
+     */
+    public String sha256(String pass) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(
+                pass.getBytes(StandardCharsets.UTF_8));
+        String sha256hex = new String(Hex.encode(hash));
+        return  sha256hex;
     }
 }
 

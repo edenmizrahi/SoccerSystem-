@@ -32,7 +32,7 @@ public interface Dao <T> {
     /**
      * update exist row in table
      * @param t list of keys
-     * @param string list of rest of values of new row (not conatins keys!)
+     * @param string list of rest of values of new row (not contains keys!)
      */
     void update(List<T> t, List<T> string);
 

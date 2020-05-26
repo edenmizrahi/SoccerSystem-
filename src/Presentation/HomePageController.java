@@ -35,7 +35,10 @@ public class HomePageController {
 
     private FanApplication fanApplication = new FanApplication();
     private String userName="Ilan12"; // is teamRole
-    CheckNotificationsTask scheduler;
+
+    //for notifications
+    static CheckNotificationsTask scheduler=null;
+    static boolean connectionOK=true;
 
 
 //    @FXML
@@ -54,12 +57,17 @@ public class HomePageController {
      */
     @FXML
     public void initialize() {
+        if(connectionOK && scheduler==null) {
+            scheduler = new CheckNotificationsTask(userName, fanApplication);
+            scheduler.setPeriod(Duration.seconds(10));
+            scheduler.setOnSucceeded(
+                    e -> {
+                        System.out.println(scheduler.getValue());
+                        if (scheduler.getValue().equals("ERROR")) {
+                            scheduler.cancel();
+                            connectionOK=false;
+                        }
 
-        scheduler= new CheckNotificationsTask(userName,fanApplication);
-        scheduler.setPeriod(Duration.seconds(10));
-        scheduler.setOnSucceeded(
-                e -> {
-                    System.out.println(scheduler.getValue());
                     /*
 
                 if(ans.equals("gotFanNotification")){//fan
@@ -85,9 +93,11 @@ public class HomePageController {
 
 
             }
-        */});
-        scheduler.setOnFailed(e -> System.out.println("failed to run"));
-        scheduler.start();
+        */
+                    });
+            scheduler.setOnFailed(e -> System.out.println("failed to run"));
+            scheduler.start();
+        }
 
     }
 

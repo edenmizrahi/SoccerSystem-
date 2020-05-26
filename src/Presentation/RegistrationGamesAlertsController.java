@@ -122,6 +122,12 @@ public class RegistrationGamesAlertsController {
                 chooseFile.show();
                 updateMachesFollsComoBox();
             }
+            else if(massage.equals("error- match not added")){
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText("error- match not added");
+                chooseFile.show();
+            }
         }
 
     }

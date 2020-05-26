@@ -458,11 +458,12 @@ public class MainSystem {
     /**OR**/
     //TODO test- V
     //TODO save user to DB - fan, teamRole, player
-    public void signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+    public void signInAsPlayer(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth, boolean sendByEmail) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole newPlayer= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
         newPlayer.becomePlayer();
+        newPlayer.setSendByEmail(sendByEmail);
         /**save user to DB - fan, teamRole, player**/
         LOG.info(String.format("%s - %s", userName, "sign in as Player"));
     }
@@ -470,11 +471,12 @@ public class MainSystem {
     /**OR**/
     //TODO test- V
     //TODO save user to DB - fan, teamRole, coach
-    public void signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth) throws Exception {
+    public void signInAsCoach(String name, String phoneNumber, String email, String userName, String password,Date dateOfBirth, boolean sendByEmail) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole newCoach= new TeamRole(this,name,phoneNumber,email,userName,password,dateOfBirth);
         newCoach.becomeCoach();
+        newCoach.setSendByEmail(sendByEmail);
         //save user to DB - fan, teamRole, coach
         LOG.info(String.format("%s - %s", userName, "sign in as Coach"));
     }
@@ -483,10 +485,11 @@ public class MainSystem {
     /**OR**/
     //TODO test- V
     //TODO save user to DB - fan
-    public void signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
+    public void signInAsFan(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth, boolean sendByEmail) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         Fan newFan= new Fan(this,name,phoneNumber,email,userName,password, dateOfBirth);
+        newFan.setSendByEmail(sendByEmail);
         //save user to DB - fan
         LOG.info(String.format("%s - %s", userName, "sign in as Domain.Users.Fan"));
     }
@@ -496,10 +499,11 @@ public class MainSystem {
     /**OR**/
     //TODO test- V
     //TODO save user to DB - rfa, fan
-    public void signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth) throws Exception {
+    public void signInAsRFA(String name, String phoneNumber, String email, String userName, String password,  Date dateOfBirth, boolean sendByEmail) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         Rfa newRFA= new Rfa(this,name,phoneNumber,email,userName,password,dateOfBirth);
+        newRFA.setSendByEmail(sendByEmail);
         //save user to DB - rfa, fan
         LOG.info(String.format("%s - %s", userName, "sign in as RFA"));
     }
@@ -507,11 +511,12 @@ public class MainSystem {
     /**OR**/
     //TODO test- V
     //TODO save user to DB - teamRole, fan
-    public void signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth) throws Exception {
+    public void signInAsTeamOwner(String name, String phoneNumber, String email, String userName, String password, Date dateOfBirth, boolean sendByEmail) throws Exception {
         // first check valid details
         checkValidDetails(name,userName,password,phoneNumber,email);
         TeamRole teamOwner= new TeamRole(this,name,phoneNumber,email,userName,password, dateOfBirth);
         teamOwner.becomeTeamOwner();
+        teamOwner.setSendByEmail(sendByEmail);
         //save user to DB - teamRole, fan
         LOG.info(String.format("%s - %s", userName, "sign in as team owner"));
     }

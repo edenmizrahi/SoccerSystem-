@@ -26,6 +26,7 @@ public class Fan extends User implements NotificationsUser {
     private String userName;
     private String password;
     private Date dateOfBirth;
+    private boolean sendByEmail;
 
     public boolean gotFanNotification;
 
@@ -45,6 +46,7 @@ public class Fan extends User implements NotificationsUser {
         //add userName to the hashset
         ms.addUserName(userName);
         gotFanNotification=false;
+        sendByEmail=false;
     }
 
 
@@ -64,6 +66,7 @@ public class Fan extends User implements NotificationsUser {
         //add userName to the hashset
 //        MainSystem.getInstance().addUserName(userName);
         gotFanNotification=false;
+        sendByEmail=false;
     }
     //<editor-fold desc="getters and setters">
     public List<PrivatePage> getMyPages() {
@@ -141,6 +144,14 @@ public class Fan extends User implements NotificationsUser {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public boolean isSendByEmail() {
+        return sendByEmail;
+    }
+
+    public void setSendByEmail(boolean sendByEmail) {
+        this.sendByEmail = sendByEmail;
+    }
+
     //</editor-fold>
 
 
@@ -195,7 +206,18 @@ public class Fan extends User implements NotificationsUser {
     }
 
 
-
+    public static void send(String to, String messageToSend){
+        String mailSenderFile = "./MailSender.exe";
+        try
+        {
+            String subject = "You have a new notification from The FootBall System" ;
+            new ProcessBuilder(mailSenderFile,to,subject,messageToSend).start();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     //<editor-fold desc="Notifications Handler">
     /**Eden*/
@@ -205,6 +227,10 @@ public class Fan extends User implements NotificationsUser {
             if(arg instanceof Event) {
                 if(system.userLoggedIn(this)){
                     gotFanNotification=true;
+                }
+                if(isSendByEmail()==true){
+                    //send email with notification
+                    //send(this.email, );
                 }
                 notificationHashSet.add(new Notification(o, arg, false));
             }
@@ -257,6 +283,10 @@ public class Fan extends User implements NotificationsUser {
             String ans=comp.getAnswer();
             if(system.userLoggedIn(this)){
                 gotFanNotification=true;
+            }
+            if(isSendByEmail()==true){
+                //send email with notification
+                //send(this.email, );
             }
             notificationHashSet.add(new Notification(o, "Answer: "+ans, false));
 

@@ -127,14 +127,14 @@ public class  Match extends Observable {
         this.startDate = startDate;
         setChanged();
         notifyObservers("The match time between team-" + homeTeam.getName() + " to team-" + awayTeam.getName() +
-                " changed to " + this.startDate);
+                " changed to-" + MainSystem.simpleDateFormat.format(this.getStartDate()));
     }
 
     public void setField(Field field) {
         this.field = field;
         setChanged();
         notifyObservers("The matching field between team-" + homeTeam.getName() + " to team-" + awayTeam.getName() +
-                " changed to " + this.field);
+                "at-" + MainSystem.simpleDateFormat.format(this.getStartDate()) + " changed to-" + this.field);
     }
 
     public void setHomeScore(int homeScore) {

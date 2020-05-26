@@ -121,5 +121,28 @@ public class RefereeApplication {
         return refereeController.createExtraTimeEvent(username, match, time);
     }
 
+    /**
+     * return all unread notifications of referee
+     * @param userName
+     * @return
+     */
+    @Path("/getRefereeUnreadNotifications/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getRefereeUnreadNotifications(@PathParam("username") String userName){
+        return refereeController.getRefereeUnreadNotifications(userName);
+    }
+
+    /**
+     * mark notification as read
+     * @param notification
+     * @param refereeUserName
+     */
+    @Path("/markNotificationAsRead/{notification}/{refereeUserName}")
+    @GET
+    @Produces("text/plain")
+    public void markNotificationAsRead(@PathParam("notification") String notification, @PathParam("refereeUserName") String refereeUserName){
+        refereeController.markNotificationAsRead(notification,refereeUserName);
+    }
 
 }

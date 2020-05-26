@@ -34,7 +34,7 @@ public class DaoEvent implements Dao<String> {
         int key=Integer.parseInt(keys.get(0)) ;
         List<String> result=new LinkedList<>();
         /** select retrieval row from table  **/
-        EventsRecord eventsRecord =create.selectFrom(EVENTS)
+        EventsRecord eventsRecord =create.selectFrom(EVENTS) // ##
                 .where(EVENTS.EVENT_ID.eq(key)).fetchOne();
         /** key noy found in table  **/
         if (eventsRecord == null || eventsRecord.size()==0){
@@ -63,7 +63,7 @@ public class DaoEvent implements Dao<String> {
 
         if( collName==null && filter==null){
             /** return all rows in table **/
-            Result<Record> result=create.select().from(EVENTS).fetch();
+            Result<Record> result=create.select().from(EVENTS).fetch(); //##
 
             /** iinitialize List<List<String>> **/
             List<List<String>> ans=new ArrayList<>(result.size());
@@ -227,7 +227,7 @@ public class DaoEvent implements Dao<String> {
         int key=Integer.parseInt(strings.get(0)) ;
 
         create.delete(EVENTS)
-                .where(EVENTS.EVENT_ID.gt(key))
+                .where(EVENTS.EVENT_ID.eq(key))
                 .execute();
 
     }

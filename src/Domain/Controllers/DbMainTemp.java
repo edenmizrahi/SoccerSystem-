@@ -20,59 +20,46 @@ public class DbMainTemp {
         List <String> k=new LinkedList<>();
         List <String> values=new LinkedList<>();
         List <String> newRow=new LinkedList<>();
-        k.add("avital");
+        k.add("gini");
         k.add("01-06-2020 20:00:00");
         k.add("macabi TLV");
         k.add("hapoel TLV");
         k.add("hapoel bash");
+        //values.add("gini");
+        values.add("ginnnnnnnnnnnn");
+        values.add("gini999bini");
+        values.add("097827837");
+        values.add("gini@gmail");
+        values.add("03-06-2020");
         values.add("1");
-        values.add("1");
-        values.add(null);
-        values.add(null);
-        newRow.add("adi");
-        newRow.add("03-06-2020 20:00:00");
-        newRow.add("hapoel TLV");
-        newRow.add("macabi TLV");
-        newRow.add("Offense");
-        newRow.add("14");
+
+        newRow.add("gini");
+        newRow.add("gini bini");
+        newRow.add("gini999bini");
+        newRow.add("097827837");
+        newRow.add("gini@gmail");
+        newRow.add("03-06-2020");
+        newRow.add(null);
+//        newRow.add("hapoel TLV");
+//        newRow.add("macabi TLV");
+//        newRow.add("Offense");
+//        newRow.add("14");
 
         DaoFanMatchesFollow daoFanMatchesFollow=new DaoFanMatchesFollow();
-        daoFanMatchesFollow.get(k);
-        List<List<String>> ans= daoFanMatchesFollow.getAll("match_date","01-06-2020 20:00:00");
-        ans= daoFanMatchesFollow.getAll(null,null);
-        daoFanMatchesFollow.update(newRow,newRow);
-        daoFanMatchesFollow.save(newRow);
-        daoFanMatchesFollow.delete(newRow);
-        //daoFans.get(k);
-        daoFans.getAll("FULLNAME","adi avinun");
-        daoFans.getAll(null,null);
+//        daoFanMatchesFollow.get(k);
+//        List<List<String>> ans= daoFanMatchesFollow.getAll("match_date","01-06-2020 20:00:00");
+//        ans= daoFanMatchesFollow.getAll(null,null);
+//        daoFanMatchesFollow.update(newRow,newRow);
+//        daoFanMatchesFollow.save(newRow);
+//        daoFanMatchesFollow.delete(newRow);
 
-        //daoCoaches.getAll("fullName","adi avinun");
-        //daoCoaches.getAll(null,null);
-        //daoCoaches.get(q);
-        //daoCoaches.delete(q);
-//        try {
-//            daoCoaches.save(q);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-       // daoCoaches.delete(q);
-        //daoCoaches.update("dan",q);
+//        daoFans.get(k);
+//        daoFans.getAll("FULLNAME","adi avinun");
+//        daoFans.getAll(null,null);
+//        //daoFans.save(newRow);
+//        daoFans.update(k,values);
+//        daoFans.delete(k);
 
-
-
-        /*
-    List <String>list2 = (List<String>) result.getValues("roleAtTeam");
-
-        create.select().from(COACHS)
-                .where(COACHS.ROLEATTEAM.eq(filter)).fetch();
-
-    List<String> titles1 = create.select().from(COACHS).fetch().getValues(COACHS.ROLEATTEAM); // list of all useanams
-
-    Result<Record> rowsAfterFilter = create.select().from(COACHS)
-            .where(COACHS.ROLEATTEAM.eq(filter)).fetch();
-
-*/
 
     }
 }

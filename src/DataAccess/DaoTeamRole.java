@@ -121,7 +121,7 @@ public class DaoTeamRole implements Dao<String > {
                 int size=strings.size();
                 for (int i = 1; i < size; i++) {
                     if(strings.get(i)==null){
-                        strings.add(i,"0");
+                        strings.set(i,"0");
                     }
                 }
                 create.insertInto(TEAMROLES,

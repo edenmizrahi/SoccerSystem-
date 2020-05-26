@@ -20,11 +20,11 @@ public class DbMainTemp {
         List <String> k=new LinkedList<>();
         List <String> values=new LinkedList<>();
         List <String> newRow=new LinkedList<>();
-        k.add("gini");
-        k.add("01-06-2020 20:00:00");
-        k.add("macabi TLV");
+        k.add("2020");
+        k.add("hal");
         k.add("hapoel TLV");
-        k.add("hapoel bash");
+
+
         //values.add("gini");
         values.add("ginnnnnnnnnnnn");
         values.add("gini999bini");
@@ -33,10 +33,10 @@ public class DbMainTemp {
         values.add("03-06-2020");
         values.add("1");
 
-        newRow.add("gini");
-        newRow.add("gini bini");
-        newRow.add("gini999bini");
-        newRow.add("097827837");
+        //newRow.add("adi");
+        newRow.add("2020");
+        newRow.add("hal");
+        newRow.add("hapoel TLV");
         newRow.add("gini@gmail");
         newRow.add("03-06-2020");
         newRow.add(null);
@@ -45,13 +45,13 @@ public class DbMainTemp {
 //        newRow.add("Offense");
 //        newRow.add("14");
 
-        DaoFanMatchesFollow daoFanMatchesFollow=new DaoFanMatchesFollow();
-//        daoFanMatchesFollow.get(k);
-//        List<List<String>> ans= daoFanMatchesFollow.getAll("match_date","01-06-2020 20:00:00");
-//        ans= daoFanMatchesFollow.getAll(null,null);
-//        daoFanMatchesFollow.update(newRow,newRow);
-//        daoFanMatchesFollow.save(newRow);
-//        daoFanMatchesFollow.delete(newRow);
+        DaoLeagueSeasonTeams daoLeagueSeasonTeams=new DaoLeagueSeasonTeams();
+        daoLeagueSeasonTeams.get(k);
+        List<List<String>> ans= daoLeagueSeasonTeams.getAll("league_name","hal");
+        ans= daoLeagueSeasonTeams.getAll(null,null);
+//        daoLeagueSeasonReferees.update(newRow,newRow);
+        daoLeagueSeasonTeams.save(newRow);
+        daoLeagueSeasonTeams.delete(newRow);
 
 //        daoFans.get(k);
 //        daoFans.getAll("FULLNAME","adi avinun");

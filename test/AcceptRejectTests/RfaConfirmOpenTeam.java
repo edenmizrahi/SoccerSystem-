@@ -43,7 +43,7 @@ public class RfaConfirmOpenTeam {
         Team newTeam = ilanTeamOwner.getRequestedTeams().get(0);
         /***  rfa Confirm to open team ***/
         try {
-            rfaController.answerToRequest(rfa, newTeam, true);
+            //rfaController.answerToRequest(rfa, newTeam, true);
         } catch (Exception e) {
             fail();
         }
@@ -79,7 +79,7 @@ public class RfaConfirmOpenTeam {
         Team newTeam = ilanTeamOwner.getRequestedTeams().get(0);
         /***  rfa deny to open team ***/
         try {
-            rfaController.answerToRequest(rfa, newTeam, false);
+           // rfaController.answerToRequest(rfa, newTeam, false);
         } catch (Exception e) {
             fail();
         }

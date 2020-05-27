@@ -41,7 +41,15 @@ public class DaoReferee implements Dao<String>{
                 result.add(refereesRecord.get(i).toString());
             }
         }
+        result=insertNull(result);
         return result;
+    }
+
+    public List<String> insertNull(List<String> list){
+        if(list.size()==1){
+            list.add(null);
+        }
+        return list;
     }
 
     @Override
@@ -68,6 +76,10 @@ public class DaoReferee implements Dao<String>{
                     ans.get(j).add(currCol.get(j));
 
                 }
+            }
+            // insert null for difult
+            for (int i = 0; i < ans.size(); i++) {
+                ans.set(i,insertNull(ans.get(i)));
             }
             return ans;
 
@@ -100,6 +112,10 @@ public class DaoReferee implements Dao<String>{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        // insert null for difult
+        for (int i = 0; i < ans.size(); i++) {
+            ans.set(i,insertNull(ans.get(i)));
+        }
         return ans;
     }
 
@@ -116,6 +132,7 @@ public class DaoReferee implements Dao<String>{
         if(isExist.size()== 0){ // key not exist
             /**add new row to DB **/
             try{
+                strings=insertNull(strings);
                 create.insertInto(REFEREES,
                         REFEREES.USERNAME, REFEREES.QUALIFICATION)
                         .values(strings.get(0), strings.get(1)).execute();

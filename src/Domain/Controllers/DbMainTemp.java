@@ -24,11 +24,11 @@ public class DbMainTemp {
 //        k.add("01-06-2020 20:00:00");
 //        k.add("macabi TLV");
 //        k.add("hapoel TLV");
-//        k.add("or");
+//        k.add("shimi");
+        k.add("avital");
 //        k.add("The match time between macabi TLV to hapoel TLV changed to 2020-06-01");
         //The match time between macabi TLV to hapoel TLV changed to 2020-06-01
 
-        k.add("2019");
 
 
 
@@ -76,11 +76,16 @@ public class DbMainTemp {
 //        daoNotificaionsReferee.update(newRow,values);
 //        daoNotificaionsReferee.delete(newRow);
 
-        DaoSeasons x=new DaoSeasons();
+        DaoNotificationFan x=new DaoNotificationFan();
+        DaoTeamRole y=new DaoTeamRole();
+        DaoPlayer z=new DaoPlayer();
+        z.save(k);
 //        List<String> ll=x.get(k);
-//        x.getAll("current_season","0");
 //        x.getAll(null,null);
-
+//        x.getAll("username","timor");
+//        x.getAll("home_team","macabi TLV");
+        y.getAll("player","1");
+        x.getAll("read","1");
         x.save(newRow);
         x.update(k,values);
         x.delete(k);

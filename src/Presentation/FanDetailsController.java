@@ -46,6 +46,8 @@ public class FanDetailsController { //implements Initializable
     private TextField updateEmailField; //V
     @FXML
     private Label welcomeUserNameField; //V
+    @FXML
+    private Button updateMyDetailsButton;
 
 
 
@@ -117,6 +119,8 @@ public class FanDetailsController { //implements Initializable
         updatePasswardField.setText(currPasswardLable.getText());
         updatePhonNumField.setText(currPhonNumberLabel.getText());
         updateEmailField.setText(currEmailLabel.getText());
+
+        updateMyDetailsButton.setVisible(false);
     }
 
     /**

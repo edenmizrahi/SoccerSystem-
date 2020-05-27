@@ -44,7 +44,7 @@
                                 <Font name="Bodoni MT Bold" size="25.0" />
                             </font>
                         </Label>
-                        <Button fx:id="backHomeButton" layoutX="24.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="37.0" prefWidth="100.0" text="home page" />
+                        <Button fx:id="backHomeButton" layoutX="24.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="37.0" prefWidth="100.0" text="back" />
                         <GridPane layoutX="64.0" layoutY="94.0" prefHeight="221.0" prefWidth="614.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.6666259765625" minWidth="10.0" prefWidth="104.66668701171875" />

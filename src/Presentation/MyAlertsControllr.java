@@ -2,6 +2,7 @@ package Presentation;
 
 import Service.FanApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -61,4 +62,9 @@ public class MyAlertsControllr {
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
+    public void closeHandling(MouseEvent mouseEvent) {
+        HomePageController.scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
+    }
 }

@@ -102,8 +102,7 @@ public class RfaPageController extends HomePageController {
             loader.setLocation(getClass().getResource("Login.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
-
+            Scene scene = new Scene(root, 700, 400);
 
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             stageTheEventSourceNodeBelongs.setScene(scene);
@@ -111,7 +110,6 @@ public class RfaPageController extends HomePageController {
         }
 
         else{
-
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setContentText("Logout was unsuccessful");
             chooseFile.show();

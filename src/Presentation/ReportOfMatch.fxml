@@ -16,6 +16,11 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.ReportOfMatchController">
    <children>
+       <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+           <font>
+               <Font size="24.0" />
+           </font>
+       </Label>
       <BorderPane prefHeight="600.0" prefWidth="850.0">
          <top>
             <GridPane BorderPane.alignment="CENTER">

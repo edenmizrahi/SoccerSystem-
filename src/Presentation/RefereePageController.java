@@ -3,6 +3,7 @@ package Presentation;
 import Service.FanApplication;
 import Service.RefereeApplication;
 import Service.UserApplication;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -189,7 +190,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("Login.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root, 700, 400);
 
 
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -204,5 +205,11 @@ public class RefereePageController extends HomePageController {
             chooseFile.show();
         }
 
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) {
+        HomePageController.scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
     }
 }

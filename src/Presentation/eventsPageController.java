@@ -1,6 +1,7 @@
 package Presentation;
 
 import Service.RefereeApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -196,6 +197,12 @@ public class eventsPageController {
              //String ans = ClientController.connectToServer("RefereeApplication", "createExtraTimeEvent", userName,match,numOfMinute);
          }
         idNumOfMinute.setDisable(false);
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) {
+        HomePageController.scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
     }
 
     //</editor-fold>

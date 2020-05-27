@@ -3,6 +3,7 @@ package Presentation;
 import Service.RefereeApplication;
 import Service.RfaApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -56,5 +57,11 @@ public class RfaNotificationController {
     public void onApprove(ActionEvent actionEvent) {
         String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
         this.rfaApplication.answerRequest(userName,teamName,"true");
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) {
+        HomePageController.scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
     }
 }

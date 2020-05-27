@@ -3,6 +3,7 @@ package Presentation;
 import Service.FanApplication;
 import Service.RefereeApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,5 +50,11 @@ public class RefereeNotificationController {
     public void ClickOnMarkAsRead(ActionEvent actionEvent) {
         String notification = myNotificationsCombo.getSelectionModel().getSelectedItem();
         this.refereeApplication.markNotificationAsRead(notification, this.userName);
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) {
+        HomePageController.scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
     }
 }

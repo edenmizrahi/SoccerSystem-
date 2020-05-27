@@ -5,6 +5,7 @@ import Service.FanApplication;
 import Service.UserApplication;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -209,7 +211,7 @@ public class HomePageController {
         stageTheEventSourceNodeBelongs.show();
     }
 
-
+    @FXML
     public void onLogOut(ActionEvent actionEvent) throws IOException {
         scheduler.cancel();
         String ans= userApplication.logout(userName);
@@ -219,7 +221,7 @@ public class HomePageController {
             loader.setLocation(getClass().getResource("Login.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root, 700, 400);
 
 
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -234,5 +236,12 @@ public class HomePageController {
             chooseFile.show();
         }
 
+    }
+
+    @FXML
+    public void closeHandling(MouseEvent mouseEvent) {
+        scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
     }
 }

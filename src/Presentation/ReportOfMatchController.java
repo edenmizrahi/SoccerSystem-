@@ -1,6 +1,7 @@
 package Presentation;
 
 import Service.RefereeApplication;
+import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,6 +87,12 @@ public class ReportOfMatchController {
             reportTable.getColumns().setAll(column1);
         }
 
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) {
+        HomePageController.scheduler.cancel();
+        Platform.exit();
+        System.exit(0);
     }
 
 

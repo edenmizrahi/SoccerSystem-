@@ -233,6 +233,7 @@ public class SystemOperationsController {
                 isEmail=true;
             }
             String userName = fan.get(0);
+            ms.getUserNames().add(userName);
             boolean isFan = true;
             /**create Referees**/
             if (RefereesRecordsByUserName.containsKey(userName)) {
@@ -289,16 +290,16 @@ public class SystemOperationsController {
 //        HashMap<String, List<String>> approvedTeamsReacords = new HashMap<>();
         TeamAdapter ta = new TeamAdapter();
         for (List<String> teamRec : approvedTeas) {
-            TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(1));
-            Team team =  new Team(teamRec.get(0),tr.getTeamOwner());
+            TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(0));
+            Team team =  new Team(teamRec.get(1),tr.getTeamOwner());
             tr.getTeamOwner().getApprovedTeams().add(team);
         }
 
         /**request teams*/
         List<List<String>> requestsTeams = daoTeamRequests.getAll(null, null);
         for (List<String> teamRec : requestsTeams) {
-            TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(1));
-            Team team =  new Team(teamRec.get(0),tr.getTeamOwner());
+            TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(0));
+            Team team =  new Team(teamRec.get(1),tr.getTeamOwner());
             tr.getTeamOwner().getRequestedTeams().add(team);
             Rfa.getTeamRequests().add(team);
         }
@@ -342,20 +343,26 @@ public class SystemOperationsController {
             seasonsByYear.get(rec.get(0)).setCalculationPolicy(calculationPoliciesByName.get(rec.get(2)), "");
             /***set schedulingPolicy to season*/
             seasonsByYear.get(rec.get(0)).setSchedulingPolicy(schedulingPolicyHashMap.get(rec.get(1)), "");
+            if(rec.get(3).equals("1")){
+                ms.setCurrSeason(seasonsByYear.get(rec.get(0)));
+            }
         }
+
+
+        /***connections:****/
         /****Teams:****/
         HashSet<Team> teams = ms.getActiveTeams();
         for (Team team : teams) {
             List<String> teamRecord = teamsRecordsByName.get(team.getName());
-            String teamManagerUserName = teamRecord.get(1);
+//            String teamManagerUserName = teamRecord.get(1);
             String teamFounderUserName = teamRecord.get(2);
             String teamCoachUserName = teamRecord.get(3);
             String teamfield = teamRecord.get(4);
 
             /**set team manager**/
-            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
-            teamManager.getTeamManager().setTeam(team);
-            team.setTeamManager(teamManager.getTeamManager());
+//            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
+//            teamManager.getTeamManager().setTeam(team);
+//            team.setTeamManager(teamManager.getTeamManager());
 
             /**setFounder**/
             TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
@@ -363,7 +370,7 @@ public class SystemOperationsController {
 
             /**setCoach**/
             TeamRole coach = ((TeamRole) getUserByUserName(teamCoachUserName));
-            teamManager.getCoach().setCoachTeam(team);
+            coach.getCoach().setCoachTeam(team);
             team.setCoach(coach.getCoach());
 
             /**setField**/
@@ -372,7 +379,7 @@ public class SystemOperationsController {
             team.setField(field);
 
             /**set team owners*/
-            List<List<String>> teamOwnersAtTeams = daoTeamOwnersTeams.getAll("teamName", team.getName());
+            List<List<String>> teamOwnersAtTeams = daoTeamOwnersTeams.getAll("team_name", team.getName());
             for (List<String> teamOwnerRecord : teamOwnersAtTeams) {
                 TeamRole teamOwner = (TeamRole) getUserByUserName(teamOwnerRecord.get(0));
                 teamOwner.getTeamOwner().getTeams().add(team);
@@ -380,7 +387,7 @@ public class SystemOperationsController {
             }
 
             /**set players*/
-            List<List<String>> playersAtTeam = daoPlayer.getAll("teamName", team.getName());
+            List<List<String>> playersAtTeam = daoPlayer.getAll("playerTeamName", team.getName());
             for (List<String> playerRecord : playersAtTeam) {
                 TeamRole player = (TeamRole) getUserByUserName(playerRecord.get(0));
                 player.getPlayer().setPlayerTeam(team);

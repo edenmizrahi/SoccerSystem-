@@ -433,7 +433,10 @@ public class Rfa extends Fan implements NotificationsUser {
                     gotRFAnotification =true;
                 }
                 if(isSendByEmail()==true){
-                    //send email with notification
+                    if(isSendByEmail()==true){
+                        sendEmail(this.getEmail(),"You have a new team request.\n"+
+                                "The team's name: \n"+ ((Team) o).getName());
+                    }
                 }
                 this.teamRequests.add((Team)o);
                 this.notifications.add(new Notification(o,arg,false));

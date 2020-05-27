@@ -21,7 +21,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRecord> implements Record6<LocalDateTime, String, String, String, Integer, Byte> {
 
-    private static final long serialVersionUID = 914568290;
+    private static final long serialVersionUID = -1204845758;
 
     /**
      * Setter for <code>footballsystem_db.fan_notification.match_date</code>.
@@ -94,16 +94,16 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
     }
 
     /**
-     * Setter for <code>footballsystem_db.fan_notification.read</code>.
+     * Setter for <code>footballsystem_db.fan_notification.readed</code>.
      */
-    public void setRead(Byte value) {
+    public void setReaded(Byte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan_notification.read</code>.
+     * Getter for <code>footballsystem_db.fan_notification.readed</code>.
      */
-    public Byte getRead() {
+    public Byte getReaded() {
         return (Byte) get(5);
     }
 
@@ -157,7 +157,7 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
 
     @Override
     public Field<Byte> field6() {
-        return FanNotification.FAN_NOTIFICATION.READ;
+        return FanNotification.FAN_NOTIFICATION.READED;
     }
 
     @Override
@@ -187,7 +187,7 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
 
     @Override
     public Byte component6() {
-        return getRead();
+        return getReaded();
     }
 
     @Override
@@ -217,7 +217,7 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
 
     @Override
     public Byte value6() {
-        return getRead();
+        return getReaded();
     }
 
     @Override
@@ -252,7 +252,7 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
 
     @Override
     public FanNotificationRecord value6(Byte value) {
-        setRead(value);
+        setReaded(value);
         return this;
     }
 
@@ -281,7 +281,7 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
     /**
      * Create a detached, initialised FanNotificationRecord
      */
-    public FanNotificationRecord(LocalDateTime matchDate, String homeTeam, String awayTeam, String username, Integer eventId, Byte read) {
+    public FanNotificationRecord(LocalDateTime matchDate, String homeTeam, String awayTeam, String username, Integer eventId, Byte readed) {
         super(FanNotification.FAN_NOTIFICATION);
 
         set(0, matchDate);
@@ -289,6 +289,6 @@ public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRe
         set(2, awayTeam);
         set(3, username);
         set(4, eventId);
-        set(5, read);
+        set(5, readed);
     }
 }

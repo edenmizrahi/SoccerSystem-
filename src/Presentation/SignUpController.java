@@ -143,7 +143,8 @@ public class SignUpController {
                 System.out.println("invalidPhone");
             }
             if (txt_phoneNumber.getText().trim().isEmpty() || txt_phoneNumber.getText().length() != 10 || !(txt_phoneNumber.getText().matches("^[0-9]*$"))) {
-                lbl_phoneError.setText("Phone number is required and must be only numbers");
+                lbl_phoneError.setText("Phone number is required and \n" +
+                        "must be only numbers");
                 isValid = false;
             } else {
                 lbl_phoneError.setText("");
@@ -184,8 +185,8 @@ public class SignUpController {
             lbl_RoleError.setText("");
         }
         String emailChoose=getEmailChoose();
-        if(role==null){
-            lbl_messagesError.setText("Role is required");
+        if(emailChoose==null){
+            lbl_messagesError.setText("Please choose an option");
             isValid=false;
         }
         else{

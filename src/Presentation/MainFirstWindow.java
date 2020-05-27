@@ -1,5 +1,7 @@
 package Presentation;
 
+import Domain.Controllers.SystemOperationsController;
+import Domain.MainSystem;
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -49,7 +51,11 @@ public class MainFirstWindow extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        SystemOperationsController systemOperationsController = new SystemOperationsController();
+        systemOperationsController.initSystemObjectsAvitalForUI();
+        MainSystem ma= MainSystem.getInstance();
+
         launch(args);
     }
 }

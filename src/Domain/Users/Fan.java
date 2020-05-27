@@ -206,7 +206,7 @@ public class Fan extends User implements NotificationsUser {
     }
 
 
-    public static void send(String to, String messageToSend){
+    public static void sendEmail(String to, String messageToSend){
         String mailSenderFile = "./MailSender.exe";
         try
         {
@@ -229,8 +229,8 @@ public class Fan extends User implements NotificationsUser {
                     gotFanNotification=true;
                 }
                 if(isSendByEmail()==true){
-                    //send email with notification
-                    //send(this.email, );
+                    sendEmail(this.email,"You have a new notification about a game you are following.\n"+
+                            "The event: \n"+ arg.toString());
                 }
                 notificationHashSet.add(new Notification(o, arg, false));
             }

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Event  {
     /**Update from db (the bigger serial number) during the initial***/
-    static int serialNumber=0;
+    static int serialNumber=1;
     /****************************************************************/
     private int id;
     private Referee referee;
@@ -50,6 +50,7 @@ public abstract class Event  {
     public Event(int idOfEvent, Referee referee, Match match, Date currentDate, int time) throws Exception {
         if(referee != null && match != null) {
             id=idOfEvent;
+            serialNumber++;
             this.referee = referee;
             this.match = match;
             this.dateTime = currentDate;

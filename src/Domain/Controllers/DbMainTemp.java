@@ -78,8 +78,9 @@ public class DbMainTemp {
 
         DaoNotificationFan x=new DaoNotificationFan();
         DaoTeamRole y=new DaoTeamRole();
-        DaoPlayer z=new DaoPlayer();
-        z.save(k);
+        DaoEvent z=new DaoEvent();
+        int num=z.getMaxEventId();
+        System.out.println(num+2);
 //        List<String> ll=x.get(k);
 //        x.getAll(null,null);
 //        x.getAll("username","timor");

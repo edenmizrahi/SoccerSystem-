@@ -395,11 +395,10 @@ public class SystemOperationsController {
             }
 
             /**League - Season - Team**/
-            List<List<String>> league_season_team = daoLeagueSeasonTeams.getAll("teamName", team.getName());
+            List<List<String>> league_season_team = daoLeagueSeasonTeams.getAll("team_name", team.getName());
             for (List<String> record : league_season_team) {
-                Season s = seasonsByYear.get(Integer.parseInt(record.get(0)));
+                Season s = seasonsByYear.get(record.get(0));
                 League l = leaguesHashMapByName.get(record.get(1));
-
                 /**Season*/
                 HashMap<League, HashSet<Team>> currentSeasonLeague = s.getTeamsInCurrentSeasonLeagues();
                 if (currentSeasonLeague.containsKey(l)) {
@@ -431,7 +430,6 @@ public class SystemOperationsController {
 
         /**matches**/
         List<List<String>> matchesString = daoMatch.getAll(null, null);
-
         LinkedList<Match> matchesObject = new LinkedList<>();
         MatchAdapter matchAdapter = new MatchAdapter();
         for (List<String> match : matchesString) {

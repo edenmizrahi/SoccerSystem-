@@ -238,10 +238,22 @@ public class HomePageController {
 
     }
 
-    @FXML
-    public void closeHandling(MouseEvent mouseEvent) {
-        scheduler.cancel();
-        Platform.exit();
-        System.exit(0);
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        HomePageController.scheduler.cancel();
+        String ans = ClientController.connectToServer("UserApplication", "logout", userName);
+        if(ans.equals("success")){
+            Platform.exit();
+            System.exit(0);
+        }
+        else{
+            /*
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setContentText("Logout was unsuccessful");
+            chooseFile.show();
+            */
+            Platform.exit();
+            System.exit(0);
+        }
+
     }
 }

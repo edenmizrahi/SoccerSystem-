@@ -21,7 +21,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotificationRecord> implements Record6<LocalDateTime, String, String, String, String, Byte> {
 
-    private static final long serialVersionUID = -3777615;
+    private static final long serialVersionUID = 696138171;
 
     /**
      * Setter for <code>footballsystem_db.referee_notification.match_date</code>.
@@ -94,16 +94,16 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
     }
 
     /**
-     * Setter for <code>footballsystem_db.referee_notification.read</code>.
+     * Setter for <code>footballsystem_db.referee_notification.readed</code>.
      */
-    public void setRead(Byte value) {
+    public void setReaded(Byte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.referee_notification.read</code>.
+     * Getter for <code>footballsystem_db.referee_notification.readed</code>.
      */
-    public Byte getRead() {
+    public Byte getReaded() {
         return (Byte) get(5);
     }
 
@@ -157,7 +157,7 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
 
     @Override
     public Field<Byte> field6() {
-        return RefereeNotification.REFEREE_NOTIFICATION.READ;
+        return RefereeNotification.REFEREE_NOTIFICATION.READED;
     }
 
     @Override
@@ -187,7 +187,7 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
 
     @Override
     public Byte component6() {
-        return getRead();
+        return getReaded();
     }
 
     @Override
@@ -217,7 +217,7 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
 
     @Override
     public Byte value6() {
-        return getRead();
+        return getReaded();
     }
 
     @Override
@@ -252,7 +252,7 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
 
     @Override
     public RefereeNotificationRecord value6(Byte value) {
-        setRead(value);
+        setReaded(value);
         return this;
     }
 
@@ -281,7 +281,7 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
     /**
      * Create a detached, initialised RefereeNotificationRecord
      */
-    public RefereeNotificationRecord(LocalDateTime matchDate, String homeTeam, String awayTeam, String referee, String notificationContent, Byte read) {
+    public RefereeNotificationRecord(LocalDateTime matchDate, String homeTeam, String awayTeam, String referee, String notificationContent, Byte readed) {
         super(RefereeNotification.REFEREE_NOTIFICATION);
 
         set(0, matchDate);
@@ -289,6 +289,6 @@ public class RefereeNotificationRecord extends UpdatableRecordImpl<RefereeNotifi
         set(2, awayTeam);
         set(3, referee);
         set(4, notificationContent);
-        set(5, read);
+        set(5, readed);
     }
 }

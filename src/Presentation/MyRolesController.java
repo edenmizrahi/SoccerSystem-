@@ -136,9 +136,10 @@ public class MyRolesController { //implements Initializable {
         chooseFile.show();
     }
 
-    public void closeHandling(MouseEvent mouseEvent) {
-        HomePageController.scheduler.cancel();
-        Platform.exit();
-        System.exit(0);
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
     }
 }

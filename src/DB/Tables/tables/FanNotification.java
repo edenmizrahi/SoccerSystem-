@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanNotification extends TableImpl<FanNotificationRecord> {
 
-    private static final long serialVersionUID = -1840557445;
+    private static final long serialVersionUID = -1497556364;
 
     /**
      * The reference instance of <code>footballsystem_db.fan_notification</code>
@@ -73,9 +73,9 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     public final TableField<FanNotificationRecord, Integer> EVENT_ID = createField(DSL.name("event_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>footballsystem_db.fan_notification.read</code>.
+     * The column <code>footballsystem_db.fan_notification.readed</code>.
      */
-    public final TableField<FanNotificationRecord, Integer> READ = createField(DSL.name("read"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<FanNotificationRecord, Byte> READED = createField(DSL.name("readed"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * Create a <code>footballsystem_db.fan_notification</code> table reference
@@ -173,7 +173,7 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<LocalDateTime, String, String, String, Integer, Integer> fieldsRow() {
+    public Row6<LocalDateTime, String, String, String, Integer, Byte> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 }

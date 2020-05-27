@@ -26,7 +26,11 @@ public class Main {
         MainSystem ms = MainSystem.getInstance();
         RefereeApplication refereeApplication = new RefereeApplication();
         String matches = refereeApplication.displayAllMatches("or");
-        refereeApplication.createGoalEvent("or",matches,"player26");
+//        refereeApplication.createGoalEvent("or",matches,"player26");
+        refereeApplication.createInjuryEvent("or",matches,"player26");
+        refereeApplication.createRedCardEvent("or",matches,"player26");
+        refereeApplication.createReplaceEvent("or",matches,"player26","player27");
+        refereeApplication.createExtraTimeEvent("or",matches,"10");
         int x=0;
 //        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
 //

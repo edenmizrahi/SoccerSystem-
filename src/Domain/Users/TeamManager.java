@@ -20,7 +20,6 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
     private static final Logger LOG = LogManager.getLogger();
     private HashSet<TeamManagerPermissions> teamManagerPermissions;
     private HashSet<Notification> notificationsList;
-
     private boolean gotTeamManagerNotification;
 
     public TeamManager(TeamRole teamRole,Team team, HashSet<TeamManagerPermissions> pers) {

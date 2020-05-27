@@ -21,87 +21,87 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanNotificationRecord extends UpdatableRecordImpl<FanNotificationRecord> implements Record6<LocalDateTime, String, String, String, Integer, Byte> {
 
-    private static final long serialVersionUID = -358832030;
+    private static final long serialVersionUID = 914568290;
 
     /**
-     * Setter for <code>footballsystem_db.fan-notification.match_date</code>.
+     * Setter for <code>footballsystem_db.fan_notification.match_date</code>.
      */
     public void setMatchDate(LocalDateTime value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan-notification.match_date</code>.
+     * Getter for <code>footballsystem_db.fan_notification.match_date</code>.
      */
     public LocalDateTime getMatchDate() {
         return (LocalDateTime) get(0);
     }
 
     /**
-     * Setter for <code>footballsystem_db.fan-notification.home_team</code>.
+     * Setter for <code>footballsystem_db.fan_notification.home_team</code>.
      */
     public void setHomeTeam(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan-notification.home_team</code>.
+     * Getter for <code>footballsystem_db.fan_notification.home_team</code>.
      */
     public String getHomeTeam() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>footballsystem_db.fan-notification.away_team</code>.
+     * Setter for <code>footballsystem_db.fan_notification.away_team</code>.
      */
     public void setAwayTeam(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan-notification.away_team</code>.
+     * Getter for <code>footballsystem_db.fan_notification.away_team</code>.
      */
     public String getAwayTeam() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>footballsystem_db.fan-notification.userName</code>.
+     * Setter for <code>footballsystem_db.fan_notification.userName</code>.
      */
     public void setUsername(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan-notification.userName</code>.
+     * Getter for <code>footballsystem_db.fan_notification.userName</code>.
      */
     public String getUsername() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>footballsystem_db.fan-notification.event_id</code>.
+     * Setter for <code>footballsystem_db.fan_notification.event_id</code>.
      */
     public void setEventId(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan-notification.event_id</code>.
+     * Getter for <code>footballsystem_db.fan_notification.event_id</code>.
      */
     public Integer getEventId() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>footballsystem_db.fan-notification.read</code>.
+     * Setter for <code>footballsystem_db.fan_notification.read</code>.
      */
     public void setRead(Byte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>footballsystem_db.fan-notification.read</code>.
+     * Getter for <code>footballsystem_db.fan_notification.read</code>.
      */
     public Byte getRead() {
         return (Byte) get(5);

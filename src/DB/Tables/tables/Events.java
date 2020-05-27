@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events extends TableImpl<EventsRecord> {
 
-    private static final long serialVersionUID = 1008671690;
+    private static final long serialVersionUID = -859212250;
 
     /**
      * The reference instance of <code>footballsystem_db.events</code>
@@ -55,7 +55,7 @@ public class Events extends TableImpl<EventsRecord> {
     /**
      * The column <code>footballsystem_db.events.date</code>.
      */
-    public final TableField<EventsRecord, LocalDateTime> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
+    public final TableField<EventsRecord, LocalDateTime> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("'2020-01-01 20:30:00'", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>footballsystem_db.events.referee</code>.

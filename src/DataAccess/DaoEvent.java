@@ -212,11 +212,6 @@ public class DaoEvent implements Dao<String> {
                 System.out.println("foreign key not exist. need to change it");
             }
         }
-
-
-
-
-
     }
 
     @Override
@@ -229,6 +224,26 @@ public class DaoEvent implements Dao<String> {
         create.delete(EVENTS)
                 .where(EVENTS.EVENT_ID.eq(key))
                 .execute();
+
+    }
+
+    public int getMaxEventId () {
+        int max=0;
+        DSLContext create = DBHandler.getDSLConnect();
+
+        /** return all rows in table **/
+        Result<Record> result=create.select().from(EVENTS).fetch(); //##
+
+        /** insert coll values to ans  **/
+        int numOfCols=result.fields().length; //8!
+            List <?> currCol = result.getValues(0);
+            for (int j = 0; j <result.size() ; j++) {
+                   if(Integer.parseInt(String.valueOf((Integer)currCol.get(j)))>max){
+                       max=Integer.parseInt(String.valueOf((Integer)currCol.get(j)));
+                   }
+            }
+
+        return max;
 
     }
 }

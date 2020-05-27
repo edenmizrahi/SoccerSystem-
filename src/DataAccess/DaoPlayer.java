@@ -43,7 +43,19 @@ public class DaoPlayer implements Dao<String> {
                 result.add(playersRecord.get(i).toString());
             }
         }
+        result=insertNull(result);
         return result;
+    }
+
+    public List<String> insertNull(List<String> list){
+        if(list.size()==2){
+            list.add(null);
+        }
+        else if(list.size()==1){
+            list.add(null);
+            list.add(null);
+        }
+        return list;
     }
 
     @Override
@@ -72,6 +84,11 @@ public class DaoPlayer implements Dao<String> {
 
                 }
             }
+            // insert null for difult
+            for (int i = 0; i < ans.size(); i++) {
+                ans.set(i,insertNull(ans.get(i)));
+            }
+
             return ans;
 
         }
@@ -103,6 +120,10 @@ public class DaoPlayer implements Dao<String> {
             e.printStackTrace();
         }
 
+        // insert null for difult
+        for (int i = 0; i < ans.size(); i++) {
+            ans.set(i,insertNull(ans.get(i)));
+        }
         return ans;
     }
 
@@ -120,6 +141,7 @@ public class DaoPlayer implements Dao<String> {
         if(isExist.size()== 0){ // key not exist
             /**add new row to DB **/
             try{
+                strings=insertNull(strings);
                 create.insertInto(PLAYERS,
                         PLAYERS.USERNAME, PLAYERS.PLAYERTEAMNAME, PLAYERS.ROLEATFIELD)
                         .values(strings.get(0), strings.get(1), strings.get(2)).execute();

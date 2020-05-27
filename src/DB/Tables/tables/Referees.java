@@ -31,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Referees extends TableImpl<RefereesRecord> {
 
-    private static final long serialVersionUID = 984868335;
+    private static final long serialVersionUID = -16213438;
 
     /**
      * The reference instance of <code>footballsystem_db.referees</code>
@@ -54,7 +54,7 @@ public class Referees extends TableImpl<RefereesRecord> {
     /**
      * The column <code>footballsystem_db.referees.qualification</code>.
      */
-    public final TableField<RefereesRecord, String> QUALIFICATION = createField(DSL.name("qualification"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false).defaultValue(org.jooq.impl.DSL.field("'null'", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
+    public final TableField<RefereesRecord, String> QUALIFICATION = createField(DSL.name("qualification"), org.jooq.impl.SQLDataType.VARCHAR(50).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * Create a <code>footballsystem_db.referees</code> table reference

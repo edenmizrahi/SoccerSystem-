@@ -59,7 +59,7 @@ public class LoginController{
                 Scene scene = new Scene(root, 900, 600);
                 //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                 RfaPageController rfaC=loader.getController();
-                rfaC.initUser(userName);
+                rfaC.initUser(txt_userName.getText());
                 Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                 stageTheEventSourceNodeBelongs.setScene(scene);
                 stageTheEventSourceNodeBelongs.show();
@@ -73,7 +73,7 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     RefereePageController refereeController=loader.getController();
-                    refereeController.initUser(userName);
+                    refereeController.initUser(txt_userName.getText());
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);
@@ -87,7 +87,7 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
-                    hpc.initHomePage(userName);
+                    hpc.initHomePage(txt_userName.getText());
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);

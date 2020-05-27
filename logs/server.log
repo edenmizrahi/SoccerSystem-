@@ -9832,3 +9832,43 @@
 27.05.2020 13:44:38 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
 27.05.2020 13:44:39 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
 27.05.2020 13:47:47 INFO  Match - Goal - add event to match between hapoel TLV to macabi bash
+27.05.2020 17:12:55 INFO  SystemManager - systemManager - Added to system
+27.05.2020 17:12:55 INFO  MainSystem -  - system was started for the first time
+27.05.2020 17:12:55 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 17:12:55 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 17:12:55 INFO  TeamRole - yarden012 - become player
+27.05.2020 17:15:31 INFO  MainSystem - oralfbla - sign in as Domain.Users.Fan
+27.05.2020 17:16:34 INFO  MainSystem - oralfbla - loged in to system
+27.05.2020 17:23:58 INFO  SystemManager - systemManager - Added to system
+27.05.2020 17:23:58 INFO  MainSystem -  - system was started for the first time
+27.05.2020 17:23:58 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 17:23:58 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 17:23:58 INFO  TeamRole - yarden012 - become player
+27.05.2020 17:25:21 INFO  MainSystem - oralf1 - sign in as Domain.Users.Fan
+27.05.2020 17:26:21 INFO  MainSystem - oralf1 - loged in to system
+27.05.2020 17:32:04 INFO  SystemManager - systemManager - Added to system
+27.05.2020 17:32:04 INFO  MainSystem -  - system was started for the first time
+27.05.2020 17:32:04 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 17:32:04 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 17:32:04 INFO  TeamRole - yarden012 - become player
+27.05.2020 17:32:11 ERROR MainSystem - details not correct, no fan in system
+27.05.2020 17:32:40 INFO  SystemManager - systemManager - Added to system
+27.05.2020 17:32:40 INFO  MainSystem -  - system was started for the first time
+27.05.2020 17:32:40 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 17:32:40 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 17:32:40 INFO  TeamRole - yarden012 - become player
+27.05.2020 17:33:23 INFO  SystemManager - systemManager - Added to system
+27.05.2020 17:33:23 INFO  MainSystem -  - system was started for the first time
+27.05.2020 17:33:23 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 17:33:23 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 17:33:23 INFO  TeamRole - yarden012 - become player
+27.05.2020 17:34:12 INFO  MainSystem - oralf12 - sign in as Domain.Users.Fan
+27.05.2020 17:34:51 INFO  MainSystem - oralf12 - loged in to system
+27.05.2020 17:35:26 INFO  MainSystem - oralf12 - logged out from system
+27.05.2020 17:36:39 INFO  SystemManager - systemManager - Added to system
+27.05.2020 17:36:39 INFO  MainSystem -  - system was started for the first time
+27.05.2020 17:36:39 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 17:36:39 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 17:36:39 INFO  TeamRole - yarden012 - become player
+27.05.2020 17:36:47 ERROR MainSystem - details not correct, no fan in system
+27.05.2020 17:37:00 ERROR MainSystem - details not correct, no fan in system

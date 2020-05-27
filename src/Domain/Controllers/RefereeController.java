@@ -5,6 +5,7 @@ import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
+import Domain.Notifications.Notification;
 import Domain.Users.Player;
 import Domain.Users.Referee;
 import javafx.scene.control.Alert;
@@ -26,6 +27,7 @@ public class RefereeController {
     DaoOnePlayerEvents daoOnePlayerEvents = new DaoOnePlayerEvents();
     DaoExtraTimeEvent daoExtraTimeEvent = new DaoExtraTimeEvent();
     DaoMatch daoMatch = new DaoMatch();
+    DaoNotificaionsReferee daoNotificaionsReferee = new DaoNotificaionsReferee();
 
     public Referee getRefereeByUserName(String refName) {
         List<Referee> allReferees = MainSystem.getInstance().getAllReferees();
@@ -459,4 +461,47 @@ public class RefereeController {
 
     //</editor-fold>
 
+    /**
+     * return all unread notifications of referee
+     * @param userName
+     * @return
+     */
+    public String getRefereeUnreadNotifications(String userName){
+
+        String refereeNotificationsString = new String();
+        Referee referee = this.getRefereeByUserName(userName);
+
+        HashSet<Notification> refereeNotifications = referee.getUnReadNotifications();
+        for (Notification notification : refereeNotifications) {
+            refereeNotificationsString += notification.getContent().toString() + ";";
+        }
+
+        return refereeNotificationsString;
+    }
+
+    public void markNotificationAsRead(String notificationContent, String referee){
+        Referee ref = this.getRefereeByUserName(referee);
+        for( Notification notification : ref.getUnReadNotifications()){
+            if(notification.getContent().equals(notificationContent)){
+                notification.setRead(true);
+
+                //update in table of referees notifications that notification is read
+                String[] notificationSplit = notificationContent.split("-");
+                String home = notificationSplit[1];
+                String away = notificationSplit[3];
+                String date = notificationSplit[5];
+                List<String> NotificationsKeysList = new LinkedList<>();
+                NotificationsKeysList.add(0,date);
+                NotificationsKeysList.add(1,home);
+                NotificationsKeysList.add(2,away);
+                NotificationsKeysList.add(3,referee);
+                NotificationsKeysList.add(4,notificationContent);
+
+                List<String> NotificationsIsReadOrNot = new LinkedList<>();
+                NotificationsIsReadOrNot.add(0,"1");
+
+                daoNotificaionsReferee.update(NotificationsKeysList,NotificationsIsReadOrNot);
+            }
+        }
+    }
 }

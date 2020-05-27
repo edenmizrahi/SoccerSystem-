@@ -427,7 +427,6 @@ public class Rfa extends Fan implements NotificationsUser {
     //TODO test
     public void update(Observable o, Object arg) {
         //call fan update
-
         if(o instanceof Team){
             if(arg.equals("request to open new team")){//open new team
                 if(system.userLoggedIn(this)){

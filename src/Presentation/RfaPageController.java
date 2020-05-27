@@ -87,4 +87,7 @@ public class RfaPageController extends HomePageController {
         stageTheEventSourceNodeBelongs.show();
     }
 
+    public void onLogOut(ActionEvent actionEvent) {
+
+    }
 }

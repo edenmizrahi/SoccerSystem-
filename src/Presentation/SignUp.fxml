@@ -60,5 +60,13 @@
             <Font size="25.0" />
          </font>
       </Label>
+   <Label layoutX="153.0" layoutY="306.0" text="Get notifications by:" />
+   <RadioButton fx:id="rb_noEmail" layoutX="176.0" layoutY="331.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="174.0" text="Application's message box" >
+      <toggleGroup>
+         <ToggleGroup fx:id="emailOrNot" />
+      </toggleGroup>
+   </RadioButton>
+   <RadioButton fx:id="rb_yesEmail" layoutX="176.0" layoutY="356.0" mnemonicParsing="false" text="Email" toggleGroup="emailOrNot"/>
+   <Label fx:id="lbl_messagesError" layoutX="279.0" layoutY="307.0" prefHeight="17.0" prefWidth="93.0" textFill="RED" />
 
 </AnchorPane>

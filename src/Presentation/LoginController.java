@@ -1,6 +1,7 @@
 package Presentation;
 
 import Service.UserApplication;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -26,6 +27,7 @@ public class LoginController{
 
     @FXML
     public void closeHandling(MouseEvent mouseEvent) {
+        Platform.exit();
         System.exit(0);
     }
     @FXML
@@ -36,8 +38,8 @@ public class LoginController{
             if(txt_userName.getText().contains(";")||txt_password.getText().contains(";")){
                 throw new Exception();
             }
-            String userName= uc.login(txt_userName.getText(),txt_password.getText());
-            //String userName = ClientController.connectToServer("UserApplication", "login", txt_userName.getText(),txt_password.getText());
+            String userRole= uc.login(txt_userName.getText(),txt_password.getText());
+            //String userRole = ClientController.connectToServer("UserApplication", "login", txt_userName.getText(),txt_password.getText());
 
             lbl_error.setText("");
             /**notification*/
@@ -52,20 +54,19 @@ public class LoginController{
                 dialogPane.getStyleClass().add("alert");
                 alert.show();
             }
-            if(userName.equals("RFA")){
+            if(userRole.equals("RFA")){
                 FXMLLoader loader=new FXMLLoader();
                 loader.setLocation(getClass().getResource("RfaPage.fxml"));
                 Parent root=loader.load();
                 Scene scene = new Scene(root, 900, 600);
                 //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                 RfaPageController rfaC=loader.getController();
-                rfaC.initUser(userName);
+                rfaC.initUser(txt_userName.getText());
                 Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                 stageTheEventSourceNodeBelongs.setScene(scene);
                 stageTheEventSourceNodeBelongs.show();
             }
-            else{
-                if(userName.equals("Referee")){
+            else if(userRole.equals("Referee")){
                     FXMLLoader loader=new FXMLLoader();
                     loader.setLocation(getClass().getResource("RefereePage.fxml"));
                     Parent root=loader.load();
@@ -73,13 +74,13 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     RefereePageController refereeController=loader.getController();
-                    refereeController.initUser(userName);
+                    refereeController.initUser(txt_userName.getText());
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);
                     stageTheEventSourceNodeBelongs.show();
-                }
-                else{
+            }
+            else if (userRole.equals("Fan")){
                     FXMLLoader loader=new FXMLLoader();
                     loader.setLocation(getClass().getResource("HomePage.fxml"));
                     Parent root=loader.load();
@@ -87,13 +88,16 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
-                    hpc.initHomePage(userName);
+                    hpc.initHomePage(txt_userName.getText());
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);
                     stageTheEventSourceNodeBelongs.show();
                 }
+            else{//problem!!
+                lbl_error.setText("incorrect user name or password");
             }
+
             //call to home page
         }
         catch (Exception e){

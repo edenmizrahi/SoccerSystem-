@@ -13,6 +13,11 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.eventsPageController">
    <children>
+      <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
       <GridPane layoutX="23.0" prefHeight="600.0" prefWidth="800.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="131.0" />

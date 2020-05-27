@@ -64,7 +64,7 @@ public class UserController{
         if(u instanceof Fan){
             try {
                 MainSystem.getInstance().logOut((Fan)u);
-                return "succes";
+                return "success";
             } catch (Exception e) {
                 return e.getMessage();
             }
@@ -74,6 +74,9 @@ public class UserController{
 
     public boolean haveUnreadNotifications(String userName ) {
         User u = smc.getUserByUserName(userName);
+        if(u==null){
+            return false;
+        }
         if(((Fan)(u)).getUnReadNotifications().size()>0){
             return true;
         }

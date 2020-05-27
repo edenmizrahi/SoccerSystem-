@@ -2,6 +2,7 @@ package Presentation;
 
 import Service.FanApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -194,4 +195,10 @@ public class FanDetailsController { //implements Initializable
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
+    }
 }

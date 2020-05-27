@@ -1,6 +1,9 @@
 package Presentation;
 
+import Service.FanApplication;
 import Service.RefereeApplication;
+import Service.UserApplication;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.*;
 import java.io.IOException;
@@ -35,9 +39,55 @@ public class RefereePageController extends HomePageController {
 
     @FXML
     private RefereeApplication refereeApplication = new RefereeApplication();
+    private FanApplication fanApplication= new FanApplication();
+    private UserApplication userApplication= new UserApplication();
 
     private String userName = "dana123";
 
+    @FXML
+    public void initialize() {
+        if (connectionOK && scheduler == null) {
+            scheduler = new CheckNotificationsTask(userName, fanApplication);
+            scheduler.setPeriod(Duration.seconds(10));
+            scheduler.setOnSucceeded(
+                    e -> {
+                        System.out.println(scheduler.getValue());
+                        if (scheduler.getValue().equals("ERROR")) {
+                            scheduler.cancel();
+                            connectionOK = false;
+                        }
+
+                    /*
+
+                if(ans.equals("gotFanNotification")){//fan
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have a new Notification about a game you are following !");
+                    chooseFile.show();
+                }
+                else if(ans.equals("gotRFAnotification")){//rfa
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have a new team to approve !");
+                    chooseFile.show();
+                }
+                else if(ans.equals("gotRefereeNotification")){//referee
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have a new notification about your match !");
+                    chooseFile.show();
+                }
+                else if(ans.equals("multipleNotifications")){//referee
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("You have multiple new notifications!");
+                    chooseFile.show();
+                }
+
+
+            }
+        */
+                    });
+            scheduler.setOnFailed(e -> System.out.println("failed to run"));
+            scheduler.start();
+        }
+    }
 
     @FXML
     public void initUser (String userName) {
@@ -131,7 +181,36 @@ public class RefereePageController extends HomePageController {
         stageTheEventSourceNodeBelongs.show();
     }
 
-    public void onLogOut(ActionEvent actionEvent) {
+    public void onLogOut(ActionEvent actionEvent) throws IOException {
+        scheduler.cancel();
+        String ans= userApplication.logout(userName);
+        //String ans = ClientController.connectToServer("UserApplication", "logout", userName);
+        if(ans.equals("success")){
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("Login.fxml"));
+            Parent root=loader.load();
 
+            Scene scene = new Scene(root, 700, 400);
+
+
+            Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            stageTheEventSourceNodeBelongs.setScene(scene);
+            stageTheEventSourceNodeBelongs.show();
+        }
+
+        else{
+
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setContentText("Logout was unsuccessful");
+            chooseFile.show();
+        }
+
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
     }
 }

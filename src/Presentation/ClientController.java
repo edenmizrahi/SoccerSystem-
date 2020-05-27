@@ -32,7 +32,7 @@ public class ClientController {
                 service=service.path(param);
             }
             ans=service.accept(MediaType.TEXT_PLAIN).get(ClientResponse.class).getEntity(String.class);
-            if(ans.contains("HTTP Status 404 – Not Found")){
+            if(ans.contains("HTTP Status 404")){
                 ans="ERROR";
                 System.out.println("exp thrown");
                 Platform.runLater(() -> {
@@ -42,7 +42,10 @@ public class ClientController {
 
                 });
             }
-            System.out.println("Server answer "+ans);
+            else{
+                System.out.println("Server answer :"+ans);
+            }
+
         }catch (Exception e){
             ans="ERROR";
             System.out.println("exp thrown");

@@ -1,6 +1,7 @@
 package Presentation;
 
 import Service.RefereeApplication;
+import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,6 +87,13 @@ public class ReportOfMatchController {
             reportTable.getColumns().setAll(column1);
         }
 
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
     }
 
 

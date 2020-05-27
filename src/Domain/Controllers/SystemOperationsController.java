@@ -346,7 +346,7 @@ public class SystemOperationsController {
         HashSet<Team> teams = ms.getActiveTeams();
         for (Team team : teams) {
             List<String> teamRecord = teamsRecordsByName.get(team.getName());
-//            String teamManagerUserName = teamRecord.get(1);
+            String teamManagerUserName = teamRecord.get(1);
             String teamFounderUserName = teamRecord.get(2);
             String teamCoachUserName = teamRecord.get(3);
             String teamfield = teamRecord.get(4);
@@ -356,6 +356,11 @@ public class SystemOperationsController {
 //            teamManager.getTeamManager().setTeam(team);
 //            team.setTeamManager(teamManager.getTeamManager());
 
+            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
+            if(teamManager!=null) {
+                teamManager.getTeamManager().setTeam(team);
+                team.setTeamManager(teamManager.getTeamManager());
+            }
             /**setFounder**/
             TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
             team.setFounder(founder.getTeamOwner());
@@ -1426,10 +1431,13 @@ public class SystemOperationsController {
     public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth,String sendByEmail) {
         SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         boolean sendByEmailBoolean;
+        int sendByEmailBooleanInt;
         if(sendByEmail.equals("true")){
             sendByEmailBoolean=true;
+            sendByEmailBooleanInt=1;
         }else{
             sendByEmailBoolean=false;
+            sendByEmailBooleanInt=0;
         }
 
         Date date;
@@ -1452,11 +1460,13 @@ public class SystemOperationsController {
             details.add(phoneNumber);
             details.add(email);
             details.add(dateOfBirth);
+            details.add(""+sendByEmailBooleanInt);
             daoFans.save(details);
             LinkedList<String> specificDetails = new LinkedList<>();
             specificDetails.add(userName);
             if (role.equals("Player")) {
                 ms.signInAsPlayer(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
+                specificDetails.add(null);
                 specificDetails.add(null);
                 daoPlayer.save(specificDetails);
                 isPlayer=1;
@@ -1487,7 +1497,7 @@ public class SystemOperationsController {
             teamRoleRecord.add(""+isPlayer);
             teamRoleRecord.add(""+isCoach);
             teamRoleRecord.add(""+isTeamOwner);
-            teamRoleRecord.add(""+false);
+            teamRoleRecord.add(""+0);
             if(isCoach==1||isPlayer==1||isTeamOwner==1){
                 daoTeamRole.save(teamRoleRecord);
             }
@@ -1522,6 +1532,14 @@ public class SystemOperationsController {
                 pass.getBytes(StandardCharsets.UTF_8));
         String sha256hex = new String(Hex.encode(hash));
         return  sha256hex;
+    }
+
+
+    /** OR
+     * init external systems
+     */
+    public void initExternalSystems(){
+        MainSystem.getInstance().initMainSystem();
     }
 }
 

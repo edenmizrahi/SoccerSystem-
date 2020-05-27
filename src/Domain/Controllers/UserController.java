@@ -64,7 +64,7 @@ public class UserController{
         if(u instanceof Fan){
             try {
                 MainSystem.getInstance().logOut((Fan)u);
-                return "succes";
+                return "success";
             } catch (Exception e) {
                 return e.getMessage();
             }

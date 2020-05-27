@@ -4,6 +4,9 @@ import Domain.Controllers.RefereeController;
 import Domain.Controllers.SystemOperationsController;
 import Service.RefereeApplication;
 import Service.RfaApplication;
+import Domain.Controllers.UserController;
+import Service.SystemOperationsApplication;
+import Service.TeamManagementApplication;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 //import org.reflections.Reflections;
@@ -151,9 +154,31 @@ public class Main {
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
         //SystemOperationsApplication.initSystemObjectsAdi();
+        /**********/
+        SystemOperationsController sop =new SystemOperationsController();
+        sop.initSystemFromDB();
+        SystemOperationsApplication soa=new SystemOperationsApplication();
+//        System.out.println(soa.signUp("TeamOwner","eden","0526621646","eden04060925@gmail.com","ilan","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player46","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player47","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player48","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player49","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player50","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player51","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player52","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player53","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player54","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player55","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Coach","eden","0526621646","eden04060925@gmail.com","coach12","e111111","04-04-1994","true"));
 
-//        SystemOperationsController sop =new SystemOperationsController();
-//        sop.initSystemFromDB();
+//        String players="player46;player47;player48;player49;player50;player51;player52;player53;player54;player55;player48";
+//        UserController uc=new UserController();
+//        System.out.println(uc.login("ilan","e111111"));
+//        TeamManagementApplication te=new TeamManagementApplication();
+//        te.makeTeamActive("ilan","theBestTeamEver",players,"coach12","bashField1");
+//        /**********/
+
+
 
     }
 }

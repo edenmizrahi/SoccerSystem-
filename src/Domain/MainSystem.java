@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.ExternalSystems.*;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
@@ -32,6 +33,10 @@ public class MainSystem {
     private static final Logger LOG = LogManager.getLogger("MainSystem");
     private static MainSystem mainSystem_instance = null;
 
+    /**ExternalSystems **/
+    private RFABudgetControlInterface rfaBudgetControl;
+    private TaxLawInterface taxSystem;
+
     private MainSystem() {
         this.leagues = new LinkedList<>();
         this.users = new LinkedList<>();
@@ -42,10 +47,12 @@ public class MainSystem {
         this.userNames = new HashSet<>();
         this.teamNames = new HashSet<>();
         this.loginUsers= new LinkedList<>();
+        taxSystem=null;
+        rfaBudgetControl=null;
     }
 
 
-
+    //Singleton
     public static MainSystem getInstance() {
         if (mainSystem_instance == null) {
             mainSystem_instance = new MainSystem();
@@ -376,6 +383,11 @@ public class MainSystem {
             extSystem.connectToSystem(this);
             LOG.info(String.format("%s - %s", "", "system was started"));
         }
+    }
+
+    public void initMainSystem(){
+        rfaBudgetControl= new RFABudgetControlProxy(new RFABudgetControl());
+        taxSystem=new TaxSystemProxy(new TaxLawSystem());
     }
 
     /**

@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Fans extends TableImpl<FansRecord> {
 
-    private static final long serialVersionUID = 794336033;
+    private static final long serialVersionUID = -866902063;
 
     /**
      * The reference instance of <code>footballsystem_db.fans</code>
@@ -60,7 +60,7 @@ public class Fans extends TableImpl<FansRecord> {
     /**
      * The column <code>footballsystem_db.fans.password_hash</code>.
      */
-    public final TableField<FansRecord, String> PASSWORD_HASH = createField(DSL.name("password_hash"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+    public final TableField<FansRecord, String> PASSWORD_HASH = createField(DSL.name("password_hash"), org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
 
     /**
      * The column <code>footballsystem_db.fans.phoneNumber</code>.

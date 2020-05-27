@@ -7370,3 +7370,8 @@
 27.05.2020 11:11:48 INFO  MainSystem - MainSystem - system was added new season:2020
 27.05.2020 11:11:48 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
 27.05.2020 11:11:48 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:29:22 INFO  SystemManager - systemManager - Added to system
+27.05.2020 12:29:22 INFO  MainSystem -  - system was started for the first time
+27.05.2020 12:29:22 INFO  TeamRole - Ilan12 - become team owner
+27.05.2020 12:29:22 INFO  TeamOwner - Ilan12 -  new team was added: null
+27.05.2020 12:29:22 INFO  TeamRole - yarden012 - become player

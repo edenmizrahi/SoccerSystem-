@@ -1524,5 +1524,13 @@ public class SystemOperationsController {
         String sha256hex = new String(Hex.encode(hash));
         return  sha256hex;
     }
+
+
+    /** OR
+     * init external systems
+     */
+    public void initExternalSystems(){
+        MainSystem.getInstance().initMainSystem();
+    }
 }
 

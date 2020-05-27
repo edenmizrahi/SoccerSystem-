@@ -345,7 +345,8 @@ public class Referee extends Fan implements NotificationsUser {
                     gotRefereeNotification=true;
                 }
                 if(isSendByEmail()==true){
-                    //send email with notification
+                        sendEmail(this.getEmail(),"You have a new notification about a game you are judging.\n"+
+                                "The notification: \n"+ arg);
                 }
                 this.refNotifications.add(new Notification(o, arg, false));
             }

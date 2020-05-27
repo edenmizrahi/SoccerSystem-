@@ -53,3 +53,6 @@
 22.05.2020 17:12:20 ERROR Rfa - answerRequest - team not in request list
 23.05.2020 20:00:15 ERROR Event - <init> - invalid event creation
 23.05.2020 20:00:34 ERROR Event - <init> - invalid event creation
+27.05.2020 14:13:59 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 14:14:32 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 16:27:39 ERROR Team - becomeActive -  number of players are less than 11

@@ -354,16 +354,18 @@ public class SystemOperationsController {
         HashSet<Team> teams = ms.getActiveTeams();
         for (Team team : teams) {
             List<String> teamRecord = teamsRecordsByName.get(team.getName());
-//            String teamManagerUserName = teamRecord.get(1);
+            String teamManagerUserName = teamRecord.get(1);
             String teamFounderUserName = teamRecord.get(2);
             String teamCoachUserName = teamRecord.get(3);
             String teamfield = teamRecord.get(4);
 
             /**set team manager**/
-//            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
-//            teamManager.getTeamManager().setTeam(team);
-//            team.setTeamManager(teamManager.getTeamManager());
 
+            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
+            if(teamManager!=null) {
+                teamManager.getTeamManager().setTeam(team);
+                team.setTeamManager(teamManager.getTeamManager());
+            }
             /**setFounder**/
             TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
             team.setFounder(founder.getTeamOwner());
@@ -427,219 +429,219 @@ public class SystemOperationsController {
 
         }
 
-
-        /**matches**/
-        List<List<String>> matchesString = daoMatch.getAll(null, null);
-        LinkedList<Match> matchesObject = new LinkedList<>();
-        MatchAdapter matchAdapter = new MatchAdapter();
-        for (List<String> match : matchesString) {
-            matchesObject.add(matchAdapter.ToObj(match));
-        }
-
-        for (List<String> matchRec : matchesString) {
-            /**0 - date**/
-            /**1 - name home team**/
-            Team home = this.getTeambyTeamName(matchRec.get(1));
-            /**2 - name away team**/
-            Team away = this.getTeambyTeamName(matchRec.get(2));
-            /**3 - score home team**/
-            /**4 - score away team**/
-            /**5 - field**/
-            Field field = fieldsByFieldName.get(matchRec.get(5));
-            /**6 - main Referee**/
-            Referee mainRef = getRefereeByUserName(matchRec.get(6));
-            /**7 - time of match**/
-
-            Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
-                    field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
-
-            //add observer
-            List<List<String>> fansFollow =daoFanMatchesFollow.getAll(null,null);
-            LinkedList<List<String>> fansFollowRelevantToMatch=new LinkedList<>();
-
-            for(List<String> record:fansFollow){
-                if(record.get(2).equals(newMatch.getHomeTeam().getName())&&
-                        record.get(3).equals(newMatch.getAwayTeam().getName())&&
-                            record.get(1).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))){
-                    fansFollowRelevantToMatch.add(record);
-                }
-            }
-
-            HashSet<Fan> fansObjectsFollow=new HashSet<>();
-            for(List<String > follow: fansFollowRelevantToMatch){
-                fansObjectsFollow.add((Fan) getUserByUserName(follow.get(0)));
-            }
-            for(Fan fann :  fansObjectsFollow){
-                fann.getMatchesFollow().add(newMatch);
-                newMatch.addObserver(fann);
-            }
-
-            /**teams connections**/
-            home.getHome().add(newMatch);
-            away.getAway().add(newMatch);
-
-            /**field connections**/
-            field.getMatches().add(newMatch);
-//            field.getTeams().add(home);
-//            field.getTeams().add(away);
-
-            /**main referee**/
-            mainRef.addMatchToList(newMatch);
-
-            /**connection between all referees in match**/
-            List<List<String>> refereePerMatch = daoRefereesMatchs.getAll(null, null);
-            for (List<String> refereePerMatchRec : refereePerMatch) {
-                if (refereePerMatchRec.get(0).equals(matchRec.get(0)) && refereePerMatchRec.get(1).equals(matchRec.get(1)) &&
-                        refereePerMatchRec.get(2).equals(matchRec.get(2))) {
-                    Referee refInMatch = getRefereeByUserName(refereePerMatchRec.get(3));
-//                    refInMatch.getMatches().add(newMatch);
-                    newMatch.getReferees().add(refInMatch);
-                    refInMatch.addMatchToList(newMatch);
-                    //notifications:
-                    List<List<String>> refereeNotificationsRecords= daoNotificaionsReferee.getAll("referee",refInMatch.getUserName());
-                    refereeNotificationsRecords=getMatchNotifications(refereeNotificationsRecords,newMatch);
-                    for(List<String> rec: refereeNotificationsRecords){
-                        boolean isRead=false;
-                        if(rec.get(5).equals("1")){
-                            isRead=true;
-                        }
-                        Notification notif=new Notification(newMatch,rec.get(4),isRead);
-                        refInMatch.getNotificationsList().add(notif);
-
-                    }
-                }
-            }
-
-            /**events in match**/
-//            List<List<String>> events  = daoEvent.getAll(null, null);
-            List<List<String>> events = daoEvent.getAll("DATE", matchRec.get(0));
-
-//            //return just the records of the specific match
-//            List<List<String>> eventsInMatch = new LinkedList<>();
-//            for(List<String> eventRecord : events){
-//                if(eventRecord.get(3).equals(matchRec.get(0))){
-//                    eventsInMatch.add(eventRecord);
+//
+//        /**matches**/
+//        List<List<String>> matchesString = daoMatch.getAll(null, null);
+//        LinkedList<Match> matchesObject = new LinkedList<>();
+//        MatchAdapter matchAdapter = new MatchAdapter();
+//        for (List<String> match : matchesString) {
+//            matchesObject.add(matchAdapter.ToObj(match));
+//        }
+//
+//        for (List<String> matchRec : matchesString) {
+//            /**0 - date**/
+//            /**1 - name home team**/
+//            Team home = this.getTeambyTeamName(matchRec.get(1));
+//            /**2 - name away team**/
+//            Team away = this.getTeambyTeamName(matchRec.get(2));
+//            /**3 - score home team**/
+//            /**4 - score away team**/
+//            /**5 - field**/
+//            Field field = fieldsByFieldName.get(matchRec.get(5));
+//            /**6 - main Referee**/
+//            Referee mainRef = getRefereeByUserName(matchRec.get(6));
+//            /**7 - time of match**/
+//
+//            Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
+//                    field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
+//
+//            //add observer
+//            List<List<String>> fansFollow =daoFanMatchesFollow.getAll(null,null);
+//            LinkedList<List<String>> fansFollowRelevantToMatch=new LinkedList<>();
+//
+//            for(List<String> record:fansFollow){
+//                if(record.get(2).equals(newMatch.getHomeTeam().getName())&&
+//                        record.get(3).equals(newMatch.getAwayTeam().getName())&&
+//                            record.get(1).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))){
+//                    fansFollowRelevantToMatch.add(record);
 //                }
 //            }
-        HashMap<Integer, Event> eventsInGame=new HashMap<>();
-            for (List<String> event : events) {
-                if (event.get(6).equals("Extra time")) {
-                    List<String> key = new LinkedList<>();
-                    key.add(event.get(0));
-                    List<String> record = daoExtraTimeEvent.get(key);
-                    ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                            Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                    newMatch.addEventToList(extraTimeEvent);
-                    eventsInGame.put(extraTimeEvent.getId(),extraTimeEvent);
-                }//extra time
-                else {
-                    if (event.get(6).equals("Goal")) {
-                        List<String> key = new LinkedList<>();
-                        key.add(event.get(0));
-                        List<String> record = daoOnePlayerEvents.get(key);
-                        Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                        newMatch.addEventToList(GoalEvent);
-                        eventsInGame.put(GoalEvent.getId(),GoalEvent);
-                    }//goal
-                    else {
-                        if (event.get(6).equals("Injury")) {
-                            List<String> key = new LinkedList<>();
-                            key.add(event.get(0));
-                            List<String> record = daoOnePlayerEvents.get(key);
-                            Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                    this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                            newMatch.addEventToList(InjuryEvent);
-                            eventsInGame.put(InjuryEvent.getId(),InjuryEvent);
-
-                        }//injury
-                        else {
-                            if (event.get(6).equals("Offense")) {
-                                List<String> key = new LinkedList<>();
-                                key.add(event.get(0));
-                                List<String> record = daoOnePlayerEvents.get(key);
-                                Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                        this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                newMatch.addEventToList(OffenseEvent);
-                                eventsInGame.put(OffenseEvent.getId(),OffenseEvent);
-
-                            }//offense
-                            else {
-                                if (event.get(6).equals("OffSide")) {
-                                    List<String> key = new LinkedList<>();
-                                    key.add(event.get(0));
-                                    List<String> record = daoOnePlayerEvents.get(key);
-                                    OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                            this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                    newMatch.addEventToList(OffSideEvent);
-                                    eventsInGame.put(OffSideEvent.getId(),OffSideEvent);
-
-                                }//offside
-                                else {
-                                    if (event.get(6).equals("Red Card")) {
-                                        List<String> key = new LinkedList<>();
-                                        key.add(event.get(0));
-                                        List<String> record = daoOnePlayerEvents.get(key);
-                                        RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                                this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                        newMatch.addEventToList(RedCardEvent);
-                                        eventsInGame.put(RedCardEvent.getId(),RedCardEvent);
-
-                                    }//red card
-                                    else {
-                                        if (event.get(6).equals("Yellow Card")) {
-                                            List<String> key = new LinkedList<>();
-                                            key.add(event.get(0));
-                                            List<String> record = daoOnePlayerEvents.get(key);
-                                            YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                                    this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                            newMatch.addEventToList(YellowCardEvent);
-                                            eventsInGame.put(YellowCardEvent.getId(),YellowCardEvent);
-
-                                        }//yellow card
-                                        else {
-                                            if (event.get(6).equals("Replacement")) {
-                                                List<String> key = new LinkedList<>();
-                                                key.add(event.get(0));
-                                                List<String> record = daoTwoPlayersEvents.get(key);
-                                                Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
-                                                        this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                                newMatch.addEventToList(ReplacementEvent);
-                                                eventsInGame.put(ReplacementEvent.getId(),ReplacementEvent);
-
-                                            }//replacement
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
-        }
 //
-        /*************/
-
-        /**League**/
-        for (League league : MainSystem.getInstance().getLeagues()) {
-            List<List<String>> refSeasonPerLeagueRecords = daoLeagueSeasonReferees.getAll("LEAGUE_NAME", league.getName());
-
-            for (List<String> rec : refSeasonPerLeagueRecords) {
-                Season season = MainSystem.getInstance().getSeasonByYear(Integer.parseInt(rec.get(2)));
-                Referee referee = getRefereeByUserName(rec.get(0));
-
-                LinkedHashSet<Referee> hashToSet = new LinkedHashSet<Referee>();
-                if (league.getRefereesInLeague().containsKey(season)) {
-                    league.setRefereePerSeasonToHash(season, referee);
-                } else {
-                    hashToSet.add(referee);
-                    league.getRefereesInLeague().put(season, hashToSet);
-                }
-            }
-        }
-        /**********/
+//            HashSet<Fan> fansObjectsFollow=new HashSet<>();
+//            for(List<String > follow: fansFollowRelevantToMatch){
+//                fansObjectsFollow.add((Fan) getUserByUserName(follow.get(0)));
+//            }
+//            for(Fan fann :  fansObjectsFollow){
+//                fann.getMatchesFollow().add(newMatch);
+//                newMatch.addObserver(fann);
+//            }
+//
+//            /**teams connections**/
+//            home.getHome().add(newMatch);
+//            away.getAway().add(newMatch);
+//
+//            /**field connections**/
+//            field.getMatches().add(newMatch);
+////            field.getTeams().add(home);
+////            field.getTeams().add(away);
+//
+//            /**main referee**/
+//            mainRef.addMatchToList(newMatch);
+//
+//            /**connection between all referees in match**/
+//            List<List<String>> refereePerMatch = daoRefereesMatchs.getAll(null, null);
+//            for (List<String> refereePerMatchRec : refereePerMatch) {
+//                if (refereePerMatchRec.get(0).equals(matchRec.get(0)) && refereePerMatchRec.get(1).equals(matchRec.get(1)) &&
+//                        refereePerMatchRec.get(2).equals(matchRec.get(2))) {
+//                    Referee refInMatch = getRefereeByUserName(refereePerMatchRec.get(3));
+////                    refInMatch.getMatches().add(newMatch);
+//                    newMatch.getReferees().add(refInMatch);
+//                    refInMatch.addMatchToList(newMatch);
+//                    //notifications:
+//                    List<List<String>> refereeNotificationsRecords= daoNotificaionsReferee.getAll("referee",refInMatch.getUserName());
+//                    refereeNotificationsRecords=getMatchNotifications(refereeNotificationsRecords,newMatch);
+//                    for(List<String> rec: refereeNotificationsRecords){
+//                        boolean isRead=false;
+//                        if(rec.get(5).equals("1")){
+//                            isRead=true;
+//                        }
+//                        Notification notif=new Notification(newMatch,rec.get(4),isRead);
+//                        refInMatch.getNotificationsList().add(notif);
+//
+//                    }
+//                }
+//            }
+//
+//            /**events in match**/
+////            List<List<String>> events  = daoEvent.getAll(null, null);
+//            List<List<String>> events = daoEvent.getAll("DATE", matchRec.get(0));
+//
+////            //return just the records of the specific match
+////            List<List<String>> eventsInMatch = new LinkedList<>();
+////            for(List<String> eventRecord : events){
+////                if(eventRecord.get(3).equals(matchRec.get(0))){
+////                    eventsInMatch.add(eventRecord);
+////                }
+////            }
+//        HashMap<Integer, Event> eventsInGame=new HashMap<>();
+//            for (List<String> event : events) {
+//                if (event.get(6).equals("Extra time")) {
+//                    List<String> key = new LinkedList<>();
+//                    key.add(event.get(0));
+//                    List<String> record = daoExtraTimeEvent.get(key);
+//                    ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                            Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                    newMatch.addEventToList(extraTimeEvent);
+//                    eventsInGame.put(extraTimeEvent.getId(),extraTimeEvent);
+//                }//extra time
+//                else {
+//                    if (event.get(6).equals("Goal")) {
+//                        List<String> key = new LinkedList<>();
+//                        key.add(event.get(0));
+//                        List<String> record = daoOnePlayerEvents.get(key);
+//                        Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                        newMatch.addEventToList(GoalEvent);
+//                        eventsInGame.put(GoalEvent.getId(),GoalEvent);
+//                    }//goal
+//                    else {
+//                        if (event.get(6).equals("Injury")) {
+//                            List<String> key = new LinkedList<>();
+//                            key.add(event.get(0));
+//                            List<String> record = daoOnePlayerEvents.get(key);
+//                            Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                    this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                            newMatch.addEventToList(InjuryEvent);
+//                            eventsInGame.put(InjuryEvent.getId(),InjuryEvent);
+//
+//                        }//injury
+//                        else {
+//                            if (event.get(6).equals("Offense")) {
+//                                List<String> key = new LinkedList<>();
+//                                key.add(event.get(0));
+//                                List<String> record = daoOnePlayerEvents.get(key);
+//                                Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                        this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                                newMatch.addEventToList(OffenseEvent);
+//                                eventsInGame.put(OffenseEvent.getId(),OffenseEvent);
+//
+//                            }//offense
+//                            else {
+//                                if (event.get(6).equals("OffSide")) {
+//                                    List<String> key = new LinkedList<>();
+//                                    key.add(event.get(0));
+//                                    List<String> record = daoOnePlayerEvents.get(key);
+//                                    OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                            this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                                    newMatch.addEventToList(OffSideEvent);
+//                                    eventsInGame.put(OffSideEvent.getId(),OffSideEvent);
+//
+//                                }//offside
+//                                else {
+//                                    if (event.get(6).equals("Red Card")) {
+//                                        List<String> key = new LinkedList<>();
+//                                        key.add(event.get(0));
+//                                        List<String> record = daoOnePlayerEvents.get(key);
+//                                        RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                                this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                                        newMatch.addEventToList(RedCardEvent);
+//                                        eventsInGame.put(RedCardEvent.getId(),RedCardEvent);
+//
+//                                    }//red card
+//                                    else {
+//                                        if (event.get(6).equals("Yellow Card")) {
+//                                            List<String> key = new LinkedList<>();
+//                                            key.add(event.get(0));
+//                                            List<String> record = daoOnePlayerEvents.get(key);
+//                                            YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                                    this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                                            newMatch.addEventToList(YellowCardEvent);
+//                                            eventsInGame.put(YellowCardEvent.getId(),YellowCardEvent);
+//
+//                                        }//yellow card
+//                                        else {
+//                                            if (event.get(6).equals("Replacement")) {
+//                                                List<String> key = new LinkedList<>();
+//                                                key.add(event.get(0));
+//                                                List<String> record = daoTwoPlayersEvents.get(key);
+//                                                Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
+//                                                        this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
+//                                                newMatch.addEventToList(ReplacementEvent);
+//                                                eventsInGame.put(ReplacementEvent.getId(),ReplacementEvent);
+//
+//                                            }//replacement
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//
+//            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
+//        }
+////
+//        /*************/
+//
+//        /**League**/
+//        for (League league : MainSystem.getInstance().getLeagues()) {
+//            List<List<String>> refSeasonPerLeagueRecords = daoLeagueSeasonReferees.getAll("LEAGUE_NAME", league.getName());
+//
+//            for (List<String> rec : refSeasonPerLeagueRecords) {
+//                Season season = MainSystem.getInstance().getSeasonByYear(Integer.parseInt(rec.get(2)));
+//                Referee referee = getRefereeByUserName(rec.get(0));
+//
+//                LinkedHashSet<Referee> hashToSet = new LinkedHashSet<Referee>();
+//                if (league.getRefereesInLeague().containsKey(season)) {
+//                    league.setRefereePerSeasonToHash(season, referee);
+//                } else {
+//                    hashToSet.add(referee);
+//                    league.getRefereesInLeague().put(season, hashToSet);
+//                }
+//            }
+//        }
+//        /**********/
     }
 
     /***
@@ -1427,10 +1429,13 @@ public class SystemOperationsController {
     public String  signUp(String role, String name, String phoneNumber, String email, String userName, String password, String dateOfBirth,String sendByEmail) {
         SimpleDateFormat birthDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         boolean sendByEmailBoolean;
+        int sendByEmailBooleanInt;
         if(sendByEmail.equals("true")){
             sendByEmailBoolean=true;
+            sendByEmailBooleanInt=1;
         }else{
             sendByEmailBoolean=false;
+            sendByEmailBooleanInt=0;
         }
 
         Date date;
@@ -1453,11 +1458,13 @@ public class SystemOperationsController {
             details.add(phoneNumber);
             details.add(email);
             details.add(dateOfBirth);
+            details.add(""+sendByEmailBooleanInt);
             daoFans.save(details);
             LinkedList<String> specificDetails = new LinkedList<>();
             specificDetails.add(userName);
             if (role.equals("Player")) {
                 ms.signInAsPlayer(name, phoneNumber, email, userName, password, date,sendByEmailBoolean);
+                specificDetails.add(null);
                 specificDetails.add(null);
                 daoPlayer.save(specificDetails);
                 isPlayer=1;
@@ -1488,7 +1495,7 @@ public class SystemOperationsController {
             teamRoleRecord.add(""+isPlayer);
             teamRoleRecord.add(""+isCoach);
             teamRoleRecord.add(""+isTeamOwner);
-            teamRoleRecord.add(""+false);
+            teamRoleRecord.add(""+0);
             if(isCoach==1||isPlayer==1||isTeamOwner==1){
                 daoTeamRole.save(teamRoleRecord);
             }

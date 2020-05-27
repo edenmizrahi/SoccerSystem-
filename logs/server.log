@@ -5623,3 +5623,8 @@
 24.05.2020 18:37:33 INFO  SystemManager - ofer - Added to system
 24.05.2020 18:37:33 INFO  SystemManager - systemManager - add new System Manager , user name: ofer
 24.05.2020 18:37:33 INFO  Rfa - DanaBandana - Add referee by Rfa
+25.05.2020 13:37:37 INFO  SystemManager - systemManager - Added to system
+25.05.2020 13:37:37 INFO  MainSystem -  - system was started for the first time
+25.05.2020 13:37:37 INFO  TeamRole - Ilan12 - become team owner
+25.05.2020 13:37:37 INFO  TeamOwner - Ilan12 -  new team was added: null
+25.05.2020 13:37:37 INFO  TeamRole - yarden012 - become player

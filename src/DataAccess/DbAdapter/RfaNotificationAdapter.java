@@ -19,7 +19,7 @@ public class RfaNotificationAdapter implements DbObject<Notification> {
 
         String readOrNot = fields.get(2);
         Notification notification;
-        if(readOrNot.equals("true")) {
+        if(readOrNot.equals("1")) {
 
             notification = new Notification(team, fields.get(1), true);
         }

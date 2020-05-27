@@ -131,4 +131,7 @@ public class RefereePageController extends HomePageController {
         stageTheEventSourceNodeBelongs.show();
     }
 
+    public void onLogOut(ActionEvent actionEvent) {
+
+    }
 }

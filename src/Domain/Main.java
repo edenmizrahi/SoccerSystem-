@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.Controllers.SystemOperationsController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 //import org.reflections.Reflections;
@@ -36,8 +37,8 @@ public class Main {
 
 
         /**LOGGER FORAMT**/
-        LOG.info(String.format("%s - %s", "try", "action?"));
-        LOG.error("something");
+//        LOG.info(String.format("%s - %s", "try", "action?"));
+//        LOG.error("something");
 
 //
 //        Reflections reflections = new Reflections("Domain");
@@ -132,6 +133,9 @@ public class Main {
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
         //SystemOperationsApplication.initSystemObjectsAdi();
+
+        SystemOperationsController sop =new SystemOperationsController();
+        sop.initSystemFromDB();
 
     }
 }

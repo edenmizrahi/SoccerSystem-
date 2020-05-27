@@ -34,6 +34,15 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
         gotTeamManagerNotification=false;
     }
 
+
+    public TeamManager(TeamRole teamRole) {
+        this.team = team;
+        mySubscriptions = new HashSet<>();
+        teamManagerPermissions = new HashSet<>();
+        this.teamRole= teamRole;
+        notificationsList=new HashSet<>();
+        gotTeamManagerNotification=false;
+    }
     //<editor-fold desc="getters and setters">
 
     public HashSet<TeamSubscription> getMySubscriptions() {

@@ -228,20 +228,26 @@ public class SystemOperationsController {
 
         fansList = daoFans.getAll(null, null);
         for (List<String> fan : fansList) {
+            boolean isEmail=false;
+            if(fan.remove(6).equals(1)){
+                isEmail=true;
+            }
             String userName = fan.get(0);
             boolean isFan = true;
             /**create Referees**/
             if (RefereesRecordsByUserName.containsKey(userName)) {
                 fan.addAll(RefereesRecordsByUserName.get(userName));
                 RefereeAdapter refereeAdapter = new RefereeAdapter();
-                refereeAdapter.ToObj(fan);
+                Referee ref= refereeAdapter.ToObj(fan);
+                ref.setSendByEmail(isEmail);
                 isFan = false;
             }
             /***create RFAs**/
             if (rfaRecordsByUserName.containsKey(userName)) {
                 Fan rfaFan = fa.ToObj(fan);
-                new Rfa(rfaFan, MainSystem.getInstance());
+                Rfa newRfa=new Rfa(rfaFan, MainSystem.getInstance());
                 isFan = false;
+                newRfa.setSendByEmail(isEmail);
 
             }
             /**create teamRoles**/
@@ -255,12 +261,15 @@ public class SystemOperationsController {
                 if (teamRole.getPlayer() != null) {
                     teamRole.getPlayer().setRoleAtField(teamRolesTrcordsByUserName.get(userName).get(2));
                 }
+                ((Fan)teamRole).setSendByEmail(isEmail);
                 isFan = false;
             }
             /**create Fan*/
             if (isFan) {
-                fa.ToObj(fan);
+                Fan newFan=fa.ToObj(fan);
+                newFan.setSendByEmail(isEmail);
             }
+
         }
 
 

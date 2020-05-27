@@ -14,22 +14,26 @@ public class TeamRoleAdapter implements DbObject<TeamRole> {
 
         //player
         if(fields.get(7).equals("1")){
-            Player player = new Player(teamRole);
+//            Player player = new Player(teamRole);
+            teamRole.becomePlayer();
         }
 
         //coach
         if(fields.get(8).equals("1")){
-            Coach coach = new Coach(teamRole);
+//            Coach coach = new Coach(teamRole);
+            teamRole.becomeCoach();
         }
 
         //team owner
         if(fields.get(9).equals("1")){
-            TeamOwner teamOwner = new TeamOwner(teamRole);
+//            TeamOwner teamOwner = new TeamOwner(teamRole);
+            teamRole.becomeTeamOwner();
         }
 
         //team manager
         if(fields.get(10).equals("1")){
-            TeamManager teamManager = new TeamManager(teamRole, null, null);
+//            TeamManager teamManager = new TeamManager(teamRole, null, null);
+            teamRole.becomeTeamManager();
         }
 
         return teamRole;

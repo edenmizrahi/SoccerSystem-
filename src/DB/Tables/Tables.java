@@ -70,14 +70,14 @@ public class Tables {
     public static final EventsTwoPlayers EVENTS_TWO_PLAYERS = EventsTwoPlayers.EVENTS_TWO_PLAYERS;
 
     /**
-     * The table <code>footballsystem_db.fan-notification</code>.
-     */
-    public static final FanNotification FAN_NOTIFICATION = FanNotification.FAN_NOTIFICATION;
-
-    /**
      * The table <code>footballsystem_db.fan_matches_follow</code>.
      */
     public static final FanMatchesFollow FAN_MATCHES_FOLLOW = FanMatchesFollow.FAN_MATCHES_FOLLOW;
+
+    /**
+     * The table <code>footballsystem_db.fan_notification</code>.
+     */
+    public static final FanNotification FAN_NOTIFICATION = FanNotification.FAN_NOTIFICATION;
 
     /**
      * The table <code>footballsystem_db.fans</code>.

@@ -46,7 +46,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FootballsystemDb extends SchemaImpl {
 
-    private static final long serialVersionUID = 1624552812;
+    private static final long serialVersionUID = -1066062248;
 
     /**
      * The reference instance of <code>footballsystem_db</code>
@@ -84,14 +84,14 @@ public class FootballsystemDb extends SchemaImpl {
     public final EventsTwoPlayers EVENTS_TWO_PLAYERS = EventsTwoPlayers.EVENTS_TWO_PLAYERS;
 
     /**
-     * The table <code>footballsystem_db.fan-notification</code>.
-     */
-    public final FanNotification FAN_NOTIFICATION = FanNotification.FAN_NOTIFICATION;
-
-    /**
      * The table <code>footballsystem_db.fan_matches_follow</code>.
      */
     public final FanMatchesFollow FAN_MATCHES_FOLLOW = FanMatchesFollow.FAN_MATCHES_FOLLOW;
+
+    /**
+     * The table <code>footballsystem_db.fan_notification</code>.
+     */
+    public final FanNotification FAN_NOTIFICATION = FanNotification.FAN_NOTIFICATION;
 
     /**
      * The table <code>footballsystem_db.fans</code>.
@@ -210,8 +210,8 @@ public class FootballsystemDb extends SchemaImpl {
             EventsOnePlayer.EVENTS_ONE_PLAYER,
             EventsTime.EVENTS_TIME,
             EventsTwoPlayers.EVENTS_TWO_PLAYERS,
-            FanNotification.FAN_NOTIFICATION,
             FanMatchesFollow.FAN_MATCHES_FOLLOW,
+            FanNotification.FAN_NOTIFICATION,
             Fans.FANS,
             FieldsInSystem.FIELDS_IN_SYSTEM,
             Leagues.LEAGUES,

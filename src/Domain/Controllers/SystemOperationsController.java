@@ -415,10 +415,7 @@ public class SystemOperationsController {
 
                 /**set season-league in team*/
                 team.getLeaguePerSeason().put(s, l);
-
             }
-
-
         }
 
 

@@ -71,6 +71,16 @@ public class TeamRole extends Fan {
         LOG.error("already team manager- can not become team manager");
         return false;
     }
+
+    public boolean becomeTeamManager(){
+        if(this.teamManager==null){
+            teamManager= new TeamManager(this);
+            LOG.info(String.format("%s - %s", getUserName(), "become team manager "));
+            return true;
+        }
+        LOG.error("already team manager- can not become team manager");
+        return false;
+    }
     /**OR**/
     //TODO test - avital V
     public String becomeTeamOwner(){

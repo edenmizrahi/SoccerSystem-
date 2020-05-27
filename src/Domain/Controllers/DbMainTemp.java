@@ -21,17 +21,17 @@ public class DbMainTemp {
         List <String> values=new LinkedList<>();
         List <String> newRow=new LinkedList<>();
 
-//        k.add("01-06-2020 20:00:00");
-//        k.add("macabi TLV");
-//        k.add("hapoel TLV");
-//        k.add("or");
-//        k.add("The match time between macabi TLV to hapoel TLV changed to 2020-06-01");
-        //The match time between macabi TLV to hapoel TLV changed to 2020-06-01
-        k.add("03-06-2020 20:00:00");
-        k.add("hapoel TLV");
+        k.add("01-06-2020 20:00:00");
         k.add("macabi TLV");
+        k.add("hapoel TLV");
         k.add("or");
-        k.add("5");
+        k.add("The match time between macabi TLV to hapoel TLV changed to 2020-06-01");
+        //The match time between macabi TLV to hapoel TLV changed to 2020-06-01
+//        k.add("03-06-2020 20:00:00");
+//        k.add("hapoel TLV");
+//        k.add("macabi TLV");
+//        k.add("or");
+//        k.add("5");
 
 
 
@@ -52,23 +52,12 @@ public class DbMainTemp {
 //        values.add("10");
 
         //newRow.add("adi");
-        newRow.add("03-06-2020 20:00:00");
-        newRow.add("hapoel TLV");
+        newRow.add("01-06-2020 20:00:00");
         newRow.add("macabi TLV");
+        newRow.add("hapoel TLV");
         newRow.add("or");
-        newRow.add("5");
+        newRow.add("lalallalalal");
         newRow.add("1");
-//        newRow.add("bashField1");
-//        newRow.add("adi");
-//        newRow.add("10");
-//        newRow.add("hapoel TLV");
-//        newRow.add("macabi TLV");
-        newRow.add("2019");
-        newRow.add("SchedualeOption1");
-        newRow.add("CalculateOption1");
-        newRow.add("1");
-
-
 
 
 
@@ -76,16 +65,10 @@ public class DbMainTemp {
 //        daoNotificaionsReferee.get(k);
 //        List<List<String>> ans= daoNotificaionsReferee.getAll(null,null);
 //        ans=  daoNotificaionsReferee.getAll("readed","1");
-//        daoNotificaionsReferee.save(newRow);
-//        daoNotificaionsReferee.update(newRow,values);
-//        daoNotificaionsReferee.delete(newRow);
+        daoNotificaionsReferee.save(newRow);
+        daoNotificaionsReferee.update(newRow,values);
+        daoNotificaionsReferee.delete(newRow);
 
-        DaoNotificationFan x=new DaoNotificationFan();
-
-        //x.getAll("readed","0");
-        //x.save(newRow);
-        x.update(k,values);
-        x.delete(k);
 
 
     }

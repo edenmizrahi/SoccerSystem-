@@ -53,3 +53,4 @@
 22.05.2020 17:12:20 ERROR Rfa - answerRequest - team not in request list
 23.05.2020 20:00:15 ERROR Event - <init> - invalid event creation
 23.05.2020 20:00:34 ERROR Event - <init> - invalid event creation
+27.05.2020 12:18:18 ERROR League - <init> - There is already league with the same name

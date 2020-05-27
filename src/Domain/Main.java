@@ -11,6 +11,10 @@ public class Main {
     private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
+
+        SystemOperationsController systemOperationsController = new SystemOperationsController();
+        systemOperationsController.initSystemFromDB();
+        int x=0;
 //        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
 //
 //       String s =  "04-06-2020 20:00:00";
@@ -134,8 +138,8 @@ public class Main {
 
         //SystemOperationsApplication.initSystemObjectsAdi();
 
-        SystemOperationsController sop =new SystemOperationsController();
-        sop.initSystemFromDB();
+//        SystemOperationsController sop =new SystemOperationsController();
+//        sop.initSystemFromDB();
 
     }
 }

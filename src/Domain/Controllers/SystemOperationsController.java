@@ -351,89 +351,89 @@ public class SystemOperationsController {
 
         /***connections:****/
         /****Teams:****/
-        HashSet<Team> teams = ms.getActiveTeams();
-        for (Team team : teams) {
-            List<String> teamRecord = teamsRecordsByName.get(team.getName());
-//            String teamManagerUserName = teamRecord.get(1);
-            String teamFounderUserName = teamRecord.get(2);
-            String teamCoachUserName = teamRecord.get(3);
-            String teamfield = teamRecord.get(4);
-
-            /**set team manager**/
-//            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
-//            teamManager.getTeamManager().setTeam(team);
-//            team.setTeamManager(teamManager.getTeamManager());
-
-            /**setFounder**/
-            TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
-            team.setFounder(founder.getTeamOwner());
-
-            /**setCoach**/
-            TeamRole coach = ((TeamRole) getUserByUserName(teamCoachUserName));
-            coach.getCoach().setCoachTeam(team);
-            team.setCoach(coach.getCoach());
-
-            /**setField**/
-            Field field = fieldsByFieldName.get(teamfield);
-            field.getTeams().add(team);
-            team.setField(field);
-
-            /**set team owners*/
-            List<List<String>> teamOwnersAtTeams = daoTeamOwnersTeams.getAll("team_name", team.getName());
-            for (List<String> teamOwnerRecord : teamOwnersAtTeams) {
-                TeamRole teamOwner = (TeamRole) getUserByUserName(teamOwnerRecord.get(0));
-                teamOwner.getTeamOwner().getTeams().add(team);
-                team.getTeamOwners().add(teamOwner.getTeamOwner());
-            }
-
-            /**set players*/
-            List<List<String>> playersAtTeam = daoPlayer.getAll("playerTeamName", team.getName());
-            for (List<String> playerRecord : playersAtTeam) {
-                TeamRole player = (TeamRole) getUserByUserName(playerRecord.get(0));
-                player.getPlayer().setPlayerTeam(team);
-                team.getPlayers().add(player.getPlayer());
-            }
-
-            /**League - Season - Team**/
-            List<List<String>> league_season_team = daoLeagueSeasonTeams.getAll("teamName", team.getName());
-            for (List<String> record : league_season_team) {
-                Season s = seasonsByYear.get(Integer.parseInt(record.get(0)));
-                League l = leaguesHashMapByName.get(record.get(1));
-
-                /**Season*/
-                HashMap<League, HashSet<Team>> currentSeasonLeague = s.getTeamsInCurrentSeasonLeagues();
-                if (currentSeasonLeague.containsKey(l)) {
-                    currentSeasonLeague.get(l).add(team);
-                } else {
-                    HashSet<Team> teamsInLeague = new HashSet<>();
-                    teamsInLeague.add(team);
-                    currentSeasonLeague.put(l, teamsInLeague);
-                }
-
-                /**League**/
-                HashMap<Season, HashSet<Team>> currentLeagueSeasons = l.getTeamsInSeason();
-                if (!currentLeagueSeasons.containsKey(s)) {
-                    HashSet<Team> teamsInSeason = new HashSet<>();
-                    teamsInSeason.add(team);
-                    currentLeagueSeasons.put(s, teamsInSeason);
-                } else {
-                    currentLeagueSeasons.get(s).add(team);
-                }
-
-                /**set season-league in team*/
-                team.getLeaguePerSeason().put(s, l);
-            }
-        }
+//        HashSet<Team> teams = ms.getActiveTeams();
+//        for (Team team : teams) {
+//            List<String> teamRecord = teamsRecordsByName.get(team.getName());
+////            String teamManagerUserName = teamRecord.get(1);
+//            String teamFounderUserName = teamRecord.get(2);
+//            String teamCoachUserName = teamRecord.get(3);
+//            String teamfield = teamRecord.get(4);
+//
+//            /**set team manager**/
+////            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
+////            teamManager.getTeamManager().setTeam(team);
+////            team.setTeamManager(teamManager.getTeamManager());
+//
+//            /**setFounder**/
+//            TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
+//            team.setFounder(founder.getTeamOwner());
+//
+//            /**setCoach**/
+//            TeamRole coach = ((TeamRole) getUserByUserName(teamCoachUserName));
+//            coach.getCoach().setCoachTeam(team);
+//            team.setCoach(coach.getCoach());
+//
+//            /**setField**/
+//            Field field = fieldsByFieldName.get(teamfield);
+//            field.getTeams().add(team);
+//            team.setField(field);
+//
+//            /**set team owners*/
+//            List<List<String>> teamOwnersAtTeams = daoTeamOwnersTeams.getAll("team_name", team.getName());
+//            for (List<String> teamOwnerRecord : teamOwnersAtTeams) {
+//                TeamRole teamOwner = (TeamRole) getUserByUserName(teamOwnerRecord.get(0));
+//                teamOwner.getTeamOwner().getTeams().add(team);
+//                team.getTeamOwners().add(teamOwner.getTeamOwner());
+//            }
+//
+//            /**set players*/
+//            List<List<String>> playersAtTeam = daoPlayer.getAll("playerTeamName", team.getName());
+//            for (List<String> playerRecord : playersAtTeam) {
+//                TeamRole player = (TeamRole) getUserByUserName(playerRecord.get(0));
+//                player.getPlayer().setPlayerTeam(team);
+//                team.getPlayers().add(player.getPlayer());
+//            }
+//
+//            /**League - Season - Team**/
+//            List<List<String>> league_season_team = daoLeagueSeasonTeams.getAll("teamName", team.getName());
+//            for (List<String> record : league_season_team) {
+//                Season s = seasonsByYear.get(Integer.parseInt(record.get(0)));
+//                League l = leaguesHashMapByName.get(record.get(1));
+//
+//                /**Season*/
+//                HashMap<League, HashSet<Team>> currentSeasonLeague = s.getTeamsInCurrentSeasonLeagues();
+//                if (currentSeasonLeague.containsKey(l)) {
+//                    currentSeasonLeague.get(l).add(team);
+//                } else {
+//                    HashSet<Team> teamsInLeague = new HashSet<>();
+//                    teamsInLeague.add(team);
+//                    currentSeasonLeague.put(l, teamsInLeague);
+//                }
+//
+//                /**League**/
+//                HashMap<Season, HashSet<Team>> currentLeagueSeasons = l.getTeamsInSeason();
+//                if (!currentLeagueSeasons.containsKey(s)) {
+//                    HashSet<Team> teamsInSeason = new HashSet<>();
+//                    teamsInSeason.add(team);
+//                    currentLeagueSeasons.put(s, teamsInSeason);
+//                } else {
+//                    currentLeagueSeasons.get(s).add(team);
+//                }
+//
+//                /**set season-league in team*/
+//                team.getLeaguePerSeason().put(s, l);
+//            }
+//        }
 
 
         /**matches**/
         List<List<String>> matchesString = daoMatch.getAll(null, null);
 
         LinkedList<Match> matchesObject = new LinkedList<>();
-        MatchAdapter matchAdapter = new MatchAdapter();
-        for (List<String> match : matchesString) {
-            matchesObject.add(matchAdapter.ToObj(match));
-        }
+//        MatchAdapter matchAdapter = new MatchAdapter();
+//        for (List<String> match : matchesString) {
+//            matchesObject.add(matchAdapter.ToObj(match));
+//        }
 
         for (List<String> matchRec : matchesString) {
             /**0 - date**/
@@ -451,6 +451,8 @@ public class SystemOperationsController {
 
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
                     field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
+
+            matchesObject.add(newMatch);
 
             //add observer
             List<List<String>> fansFollow =daoFanMatchesFollow.getAll(null,null);
@@ -483,35 +485,39 @@ public class SystemOperationsController {
 //            field.getTeams().add(away);
 
             /**main referee**/
-            mainRef.addMatchToList(newMatch);
+//            mainRef.addMatchToList(newMatch);
 
             /**connection between all referees in match**/
             List<List<String>> refereePerMatch = daoRefereesMatchs.getAll(null, null);
             for (List<String> refereePerMatchRec : refereePerMatch) {
                 if (refereePerMatchRec.get(0).equals(matchRec.get(0)) && refereePerMatchRec.get(1).equals(matchRec.get(1)) &&
                         refereePerMatchRec.get(2).equals(matchRec.get(2))) {
-                    Referee refInMatch = getRefereeByUserName(refereePerMatchRec.get(3));
-//                    refInMatch.getMatches().add(newMatch);
-                    newMatch.getReferees().add(refInMatch);
-                    refInMatch.addMatchToList(newMatch);
-                    //notifications:
-                    List<List<String>> refereeNotificationsRecords= daoNotificaionsReferee.getAll("referee",refInMatch.getUserName());
-                    refereeNotificationsRecords=getMatchNotifications(refereeNotificationsRecords,newMatch);
-                    for(List<String> rec: refereeNotificationsRecords){
-                        boolean isRead=false;
-                        if(rec.get(5).equals("1")){
-                            isRead=true;
-                        }
-                        Notification notif=new Notification(newMatch,rec.get(4),isRead);
-                        refInMatch.getNotificationsList().add(notif);
 
+                    Referee refInMatch = getRefereeByUserName(refereePerMatchRec.get(3));
+                    if(! newMatch.getMainReferee().getUserName().equals(refInMatch.getUserName())) {
+//                    refInMatch.getMatches().add(newMatch);
+                        newMatch.getReferees().add(refInMatch);
+                        refInMatch.addMatchToList(newMatch);
                     }
+//                        //notifications:
+//                        List<List<String>> refereeNotificationsRecords = daoNotificaionsReferee.getAll("referee", refInMatch.getUserName());
+//                        refereeNotificationsRecords = getMatchNotifications(refereeNotificationsRecords, newMatch);
+//                        for (List<String> rec : refereeNotificationsRecords) {
+//                            boolean isRead = false;
+//                            if (rec.get(5).equals("1")) {
+//                                isRead = true;
+//                            }
+//                            Notification notif = new Notification(newMatch, rec.get(4), isRead);
+//                            refInMatch.getNotificationsList().add(notif);
+//
+//                        }
+
                 }
             }
 
             /**events in match**/
 //            List<List<String>> events  = daoEvent.getAll(null, null);
-            List<List<String>> events = daoEvent.getAll("DATE", matchRec.get(0));
+            List<List<String>> events = daoEvent.getAll("match_date", matchRec.get(0));
 
 //            //return just the records of the specific match
 //            List<List<String>> eventsInMatch = new LinkedList<>();
@@ -522,7 +528,7 @@ public class SystemOperationsController {
 //            }
         HashMap<Integer, Event> eventsInGame=new HashMap<>();
             for (List<String> event : events) {
-                if (event.get(6).equals("Extra time")) {
+                if (event.get(6).equals("ExtraTime")) {
                     List<String> key = new LinkedList<>();
                     key.add(event.get(0));
                     List<String> record = daoExtraTimeEvent.get(key);
@@ -575,7 +581,7 @@ public class SystemOperationsController {
 
                                 }//offside
                                 else {
-                                    if (event.get(6).equals("Red Card")) {
+                                    if (event.get(6).equals("RedCard")) {
                                         List<String> key = new LinkedList<>();
                                         key.add(event.get(0));
                                         List<String> record = daoOnePlayerEvents.get(key);
@@ -586,7 +592,7 @@ public class SystemOperationsController {
 
                                     }//red card
                                     else {
-                                        if (event.get(6).equals("Yellow Card")) {
+                                        if (event.get(6).equals("YellowCard")) {
                                             List<String> key = new LinkedList<>();
                                             key.add(event.get(0));
                                             List<String> record = daoOnePlayerEvents.get(key);
@@ -616,21 +622,21 @@ public class SystemOperationsController {
                 }
             }
 
-            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
+//            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
         }
 //
         /*************/
 
         /**League**/
         for (League league : MainSystem.getInstance().getLeagues()) {
-            List<List<String>> refSeasonPerLeagueRecords = daoLeagueSeasonReferees.getAll("LEAGUE_NAME", league.getName());
+            List<List<String>> refSeasonPerLeagueRecords = daoLeagueSeasonReferees.getAll("league_name", league.getName());
 
             for (List<String> rec : refSeasonPerLeagueRecords) {
-                Season season = MainSystem.getInstance().getSeasonByYear(Integer.parseInt(rec.get(2)));
+                Season season = MainSystem.getInstance().getSeasonByYear(Integer.parseInt(rec.get(1)));
                 Referee referee = getRefereeByUserName(rec.get(0));
 
                 LinkedHashSet<Referee> hashToSet = new LinkedHashSet<Referee>();
-                if (league.getRefereesInLeague().containsKey(season)) {
+                if (league.getRefereesInLeague()!=null && league.getRefereesInLeague().containsKey(season)) {
                     league.setRefereePerSeasonToHash(season, referee);
                 } else {
                     hashToSet.add(referee);

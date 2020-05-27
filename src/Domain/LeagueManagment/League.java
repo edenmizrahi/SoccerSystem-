@@ -27,6 +27,7 @@ public class League {
     public League(String name, MainSystem mainSystem, Season currSeason) throws Exception {
         this.name = name;
         teamsInSeason=new HashMap<>();
+        refereesInLeague = new HashMap<>();
         this.mainSystem = mainSystem;
         if(! mainSystem.addLeague(this)){
             LOG.error("There is already league with the same name");
@@ -39,6 +40,7 @@ public class League {
             this.name = name;
             this.mainSystem = mainSystem;
             teamsInSeason = new HashMap<>();
+            refereesInLeague = new HashMap<>();
             //if cannot ad the league, there is league with the same name
             if(! mainSystem.addLeague(this)){
                 LOG.error("There is already league with the same name");

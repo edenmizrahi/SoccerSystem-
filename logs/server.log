@@ -7134,3 +7134,1631 @@
 27.05.2020 10:25:01 INFO  MainSystem - MainSystem - system was added new season:2020
 27.05.2020 10:25:01 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
 27.05.2020 10:25:01 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 10:37:26 INFO  TeamRole - arnold - become team owner
+27.05.2020 10:37:26 INFO  TeamRole - dan - become player
+27.05.2020 10:37:26 INFO  TeamRole - dan - become coach
+27.05.2020 10:37:26 INFO  TeamRole - gal1 - become player
+27.05.2020 10:37:26 INFO  TeamRole - may2 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player10 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player11 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player12 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player13 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player14 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player15 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player16 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player17 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player18 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player19 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player20 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player21 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player22 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player23 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player24 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player25 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player26 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player27 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player28 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player29 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player30 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player31 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player32 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player33 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player34 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player35 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player36 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player37 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player38 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player39 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player39 - become coach
+27.05.2020 10:37:26 INFO  TeamRole - player40 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player41 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player42 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player43 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player44 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player45 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player5 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player6 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player7 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player8 - become player
+27.05.2020 10:37:26 INFO  TeamRole - player9 - become player
+27.05.2020 10:37:26 INFO  TeamRole - shimi - become team owner
+27.05.2020 10:37:26 INFO  TeamRole - shon - become coach
+27.05.2020 10:37:26 INFO  TeamRole - tal4 - become player
+27.05.2020 10:37:26 INFO  TeamRole - tal4 - become team owner
+27.05.2020 10:37:26 INFO  TeamRole - timor - become coach
+27.05.2020 10:37:26 INFO  TeamRole - timor - become team owner
+27.05.2020 10:37:26 INFO  TeamRole - tom3 - become player
+27.05.2020 10:37:26 INFO  TeamRole - tom3 - become coach
+27.05.2020 10:37:26 INFO  TeamRole - zipi - become team manager 
+27.05.2020 10:37:27 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 10:37:27 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 10:37:27 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 10:56:28 INFO  TeamRole - arnold - become team owner
+27.05.2020 10:56:28 INFO  TeamRole - dan - become player
+27.05.2020 10:56:28 INFO  TeamRole - dan - become coach
+27.05.2020 10:56:28 INFO  TeamRole - gal1 - become player
+27.05.2020 10:56:28 INFO  TeamRole - may2 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player10 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player11 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player12 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player13 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player14 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player15 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player16 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player17 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player18 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player19 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player20 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player21 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player22 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player23 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player24 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player25 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player26 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player27 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player28 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player29 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player30 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player31 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player32 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player33 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player34 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player35 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player36 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player37 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player38 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player39 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player39 - become coach
+27.05.2020 10:56:28 INFO  TeamRole - player40 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player41 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player42 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player43 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player44 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player45 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player5 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player6 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player7 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player8 - become player
+27.05.2020 10:56:28 INFO  TeamRole - player9 - become player
+27.05.2020 10:56:28 INFO  TeamRole - shimi - become team owner
+27.05.2020 10:56:28 INFO  TeamRole - shon - become coach
+27.05.2020 10:56:28 INFO  TeamRole - tal4 - become player
+27.05.2020 10:56:28 INFO  TeamRole - tal4 - become team owner
+27.05.2020 10:56:28 INFO  TeamRole - timor - become coach
+27.05.2020 10:56:28 INFO  TeamRole - timor - become team owner
+27.05.2020 10:56:28 INFO  TeamRole - tom3 - become player
+27.05.2020 10:56:28 INFO  TeamRole - tom3 - become coach
+27.05.2020 10:56:28 INFO  TeamRole - zipi - become team manager 
+27.05.2020 10:56:29 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 10:56:29 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 10:56:29 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:06:25 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:06:25 INFO  TeamRole - dan - become player
+27.05.2020 11:06:25 INFO  TeamRole - dan - become coach
+27.05.2020 11:06:25 INFO  TeamRole - gal1 - become player
+27.05.2020 11:06:25 INFO  TeamRole - may2 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player10 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player11 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player12 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player13 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player14 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player15 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player16 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player17 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player18 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player19 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player20 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player21 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player22 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player23 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player24 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player25 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player26 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player27 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player28 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player29 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player30 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player31 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player32 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player33 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player34 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player35 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player36 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player37 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player38 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player39 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player39 - become coach
+27.05.2020 11:06:25 INFO  TeamRole - player40 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player41 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player42 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player43 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player44 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player45 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player5 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player6 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player7 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player8 - become player
+27.05.2020 11:06:25 INFO  TeamRole - player9 - become player
+27.05.2020 11:06:25 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:06:25 INFO  TeamRole - shon - become coach
+27.05.2020 11:06:25 INFO  TeamRole - tal4 - become player
+27.05.2020 11:06:25 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:06:25 INFO  TeamRole - timor - become coach
+27.05.2020 11:06:25 INFO  TeamRole - timor - become team owner
+27.05.2020 11:06:25 INFO  TeamRole - tom3 - become player
+27.05.2020 11:06:25 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:06:25 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:06:26 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:06:26 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:06:26 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:20:15 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:20:15 INFO  TeamRole - dan - become player
+27.05.2020 11:20:15 INFO  TeamRole - dan - become coach
+27.05.2020 11:20:15 INFO  TeamRole - gal1 - become player
+27.05.2020 11:20:15 INFO  TeamRole - may2 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player10 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player11 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player12 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player13 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player14 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player15 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player16 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player17 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player18 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player19 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player20 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player21 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player22 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player23 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player24 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player25 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player26 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player27 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player28 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player29 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player30 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player31 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player32 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player33 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player34 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player35 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player36 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player37 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player38 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player39 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player39 - become coach
+27.05.2020 11:20:15 INFO  TeamRole - player40 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player41 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player42 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player43 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player44 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player45 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player5 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player6 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player7 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player8 - become player
+27.05.2020 11:20:15 INFO  TeamRole - player9 - become player
+27.05.2020 11:20:15 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:20:15 INFO  TeamRole - shon - become coach
+27.05.2020 11:20:15 INFO  TeamRole - tal4 - become player
+27.05.2020 11:20:15 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:20:15 INFO  TeamRole - timor - become coach
+27.05.2020 11:20:15 INFO  TeamRole - timor - become team owner
+27.05.2020 11:20:15 INFO  TeamRole - tom3 - become player
+27.05.2020 11:20:15 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:20:15 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:20:16 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:20:16 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:20:16 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:21:59 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:21:59 INFO  TeamRole - dan - become player
+27.05.2020 11:21:59 INFO  TeamRole - dan - become coach
+27.05.2020 11:21:59 INFO  TeamRole - gal1 - become player
+27.05.2020 11:21:59 INFO  TeamRole - may2 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player10 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player11 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player12 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player13 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player14 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player15 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player16 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player17 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player18 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player19 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player20 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player21 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player22 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player23 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player24 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player25 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player26 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player27 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player28 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player29 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player30 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player31 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player32 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player33 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player34 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player35 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player36 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player37 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player38 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player39 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player39 - become coach
+27.05.2020 11:21:59 INFO  TeamRole - player40 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player41 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player42 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player43 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player44 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player45 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player5 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player6 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player7 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player8 - become player
+27.05.2020 11:21:59 INFO  TeamRole - player9 - become player
+27.05.2020 11:21:59 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:21:59 INFO  TeamRole - shon - become coach
+27.05.2020 11:21:59 INFO  TeamRole - tal4 - become player
+27.05.2020 11:21:59 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:21:59 INFO  TeamRole - timor - become coach
+27.05.2020 11:21:59 INFO  TeamRole - timor - become team owner
+27.05.2020 11:21:59 INFO  TeamRole - tom3 - become player
+27.05.2020 11:21:59 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:21:59 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:22:00 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:22:00 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:22:00 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:23:17 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:23:17 INFO  TeamRole - dan - become player
+27.05.2020 11:23:17 INFO  TeamRole - dan - become coach
+27.05.2020 11:23:17 INFO  TeamRole - gal1 - become player
+27.05.2020 11:23:17 INFO  TeamRole - may2 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player10 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player11 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player12 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player13 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player14 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player15 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player16 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player17 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player18 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player19 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player20 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player21 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player22 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player23 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player24 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player25 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player26 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player27 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player28 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player29 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player30 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player31 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player32 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player33 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player34 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player35 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player36 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player37 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player38 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player39 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player39 - become coach
+27.05.2020 11:23:17 INFO  TeamRole - player40 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player41 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player42 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player43 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player44 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player45 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player5 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player6 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player7 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player8 - become player
+27.05.2020 11:23:17 INFO  TeamRole - player9 - become player
+27.05.2020 11:23:17 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:23:17 INFO  TeamRole - shon - become coach
+27.05.2020 11:23:17 INFO  TeamRole - tal4 - become player
+27.05.2020 11:23:17 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:23:17 INFO  TeamRole - timor - become coach
+27.05.2020 11:23:17 INFO  TeamRole - timor - become team owner
+27.05.2020 11:23:17 INFO  TeamRole - tom3 - become player
+27.05.2020 11:23:17 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:23:17 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:23:18 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:23:18 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:23:18 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:26:18 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:26:18 INFO  TeamRole - dan - become player
+27.05.2020 11:26:18 INFO  TeamRole - dan - become coach
+27.05.2020 11:26:18 INFO  TeamRole - gal1 - become player
+27.05.2020 11:26:18 INFO  TeamRole - may2 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player10 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player11 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player12 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player13 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player14 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player15 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player16 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player17 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player18 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player19 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player20 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player21 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player22 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player23 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player24 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player25 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player26 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player27 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player28 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player29 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player30 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player31 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player32 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player33 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player34 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player35 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player36 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player37 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player38 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player39 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player39 - become coach
+27.05.2020 11:26:18 INFO  TeamRole - player40 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player41 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player42 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player43 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player44 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player45 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player5 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player6 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player7 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player8 - become player
+27.05.2020 11:26:18 INFO  TeamRole - player9 - become player
+27.05.2020 11:26:18 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:26:18 INFO  TeamRole - shon - become coach
+27.05.2020 11:26:18 INFO  TeamRole - tal4 - become player
+27.05.2020 11:26:18 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:26:18 INFO  TeamRole - timor - become coach
+27.05.2020 11:26:18 INFO  TeamRole - timor - become team owner
+27.05.2020 11:26:18 INFO  TeamRole - tom3 - become player
+27.05.2020 11:26:18 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:26:18 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:26:19 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:26:19 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:26:19 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:35:27 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:35:27 INFO  TeamRole - dan - become player
+27.05.2020 11:35:27 INFO  TeamRole - dan - become coach
+27.05.2020 11:35:27 INFO  TeamRole - gal1 - become player
+27.05.2020 11:35:27 INFO  TeamRole - may2 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player10 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player11 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player12 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player13 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player14 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player15 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player16 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player17 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player18 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player19 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player20 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player21 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player22 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player23 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player24 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player25 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player26 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player27 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player28 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player29 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player30 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player31 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player32 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player33 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player34 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player35 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player36 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player37 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player38 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player39 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player39 - become coach
+27.05.2020 11:35:27 INFO  TeamRole - player40 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player41 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player42 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player43 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player44 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player45 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player5 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player6 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player7 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player8 - become player
+27.05.2020 11:35:27 INFO  TeamRole - player9 - become player
+27.05.2020 11:35:27 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:35:27 INFO  TeamRole - shon - become coach
+27.05.2020 11:35:27 INFO  TeamRole - tal4 - become player
+27.05.2020 11:35:27 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:35:27 INFO  TeamRole - timor - become coach
+27.05.2020 11:35:27 INFO  TeamRole - timor - become team owner
+27.05.2020 11:35:27 INFO  TeamRole - tom3 - become player
+27.05.2020 11:35:27 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:35:27 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:35:28 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:35:28 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:35:28 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:37:27 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:37:27 INFO  TeamRole - dan - become player
+27.05.2020 11:37:27 INFO  TeamRole - dan - become coach
+27.05.2020 11:37:27 INFO  TeamRole - gal1 - become player
+27.05.2020 11:37:27 INFO  TeamRole - may2 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player10 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player11 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player12 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player13 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player14 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player15 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player16 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player17 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player18 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player19 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player20 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player21 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player22 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player23 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player24 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player25 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player26 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player27 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player28 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player29 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player30 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player31 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player32 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player33 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player34 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player35 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player36 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player37 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player38 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player39 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player39 - become coach
+27.05.2020 11:37:27 INFO  TeamRole - player40 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player41 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player42 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player43 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player44 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player45 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player5 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player6 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player7 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player8 - become player
+27.05.2020 11:37:27 INFO  TeamRole - player9 - become player
+27.05.2020 11:37:27 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:37:27 INFO  TeamRole - shon - become coach
+27.05.2020 11:37:27 INFO  TeamRole - tal4 - become player
+27.05.2020 11:37:27 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:37:27 INFO  TeamRole - timor - become coach
+27.05.2020 11:37:27 INFO  TeamRole - timor - become team owner
+27.05.2020 11:37:27 INFO  TeamRole - tom3 - become player
+27.05.2020 11:37:27 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:37:27 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:37:29 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:37:29 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:37:29 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:38:26 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:38:26 INFO  TeamRole - dan - become player
+27.05.2020 11:38:26 INFO  TeamRole - dan - become coach
+27.05.2020 11:38:26 INFO  TeamRole - gal1 - become player
+27.05.2020 11:38:26 INFO  TeamRole - may2 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player10 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player11 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player12 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player13 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player14 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player15 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player16 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player17 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player18 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player19 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player20 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player21 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player22 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player23 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player24 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player25 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player26 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player27 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player28 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player29 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player30 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player31 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player32 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player33 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player34 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player35 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player36 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player37 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player38 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player39 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player39 - become coach
+27.05.2020 11:38:26 INFO  TeamRole - player40 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player41 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player42 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player43 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player44 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player45 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player5 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player6 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player7 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player8 - become player
+27.05.2020 11:38:26 INFO  TeamRole - player9 - become player
+27.05.2020 11:38:26 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:38:26 INFO  TeamRole - shon - become coach
+27.05.2020 11:38:26 INFO  TeamRole - tal4 - become player
+27.05.2020 11:38:26 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:38:26 INFO  TeamRole - timor - become coach
+27.05.2020 11:38:26 INFO  TeamRole - timor - become team owner
+27.05.2020 11:38:26 INFO  TeamRole - tom3 - become player
+27.05.2020 11:38:26 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:38:26 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:38:27 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:38:27 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:38:27 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:40:22 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:40:22 INFO  TeamRole - dan - become player
+27.05.2020 11:40:22 INFO  TeamRole - dan - become coach
+27.05.2020 11:40:22 INFO  TeamRole - gal1 - become player
+27.05.2020 11:40:22 INFO  TeamRole - may2 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player10 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player11 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player12 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player13 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player14 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player15 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player16 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player17 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player18 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player19 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player20 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player21 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player22 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player23 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player24 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player25 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player26 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player27 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player28 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player29 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player30 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player31 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player32 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player33 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player34 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player35 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player36 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player37 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player38 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player39 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player39 - become coach
+27.05.2020 11:40:22 INFO  TeamRole - player40 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player41 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player42 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player43 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player44 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player45 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player5 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player6 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player7 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player8 - become player
+27.05.2020 11:40:22 INFO  TeamRole - player9 - become player
+27.05.2020 11:40:22 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:40:22 INFO  TeamRole - shon - become coach
+27.05.2020 11:40:22 INFO  TeamRole - tal4 - become player
+27.05.2020 11:40:22 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:40:22 INFO  TeamRole - timor - become coach
+27.05.2020 11:40:22 INFO  TeamRole - timor - become team owner
+27.05.2020 11:40:22 INFO  TeamRole - tom3 - become player
+27.05.2020 11:40:22 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:40:22 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:40:24 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:40:24 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:40:24 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:44:50 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:47:56 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:53:12 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:53:12 INFO  TeamRole - dan - become player
+27.05.2020 11:53:12 INFO  TeamRole - dan - become coach
+27.05.2020 11:53:12 INFO  TeamRole - gal1 - become player
+27.05.2020 11:53:12 INFO  TeamRole - may2 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player10 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player11 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player12 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player13 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player14 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player15 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player16 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player17 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player18 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player19 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player20 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player21 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player22 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player23 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player24 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player25 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player26 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player27 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player28 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player29 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player30 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player31 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player32 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player33 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player34 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player35 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player36 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player37 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player38 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player39 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player39 - become coach
+27.05.2020 11:53:12 INFO  TeamRole - player40 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player41 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player42 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player43 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player44 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player45 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player5 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player6 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player7 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player8 - become player
+27.05.2020 11:53:12 INFO  TeamRole - player9 - become player
+27.05.2020 11:53:12 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:53:12 INFO  TeamRole - shon - become coach
+27.05.2020 11:53:12 INFO  TeamRole - tal4 - become player
+27.05.2020 11:53:12 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:53:12 INFO  TeamRole - timor - become coach
+27.05.2020 11:53:12 INFO  TeamRole - timor - become team owner
+27.05.2020 11:53:12 INFO  TeamRole - tom3 - become player
+27.05.2020 11:53:12 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:53:12 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:53:13 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:53:13 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:53:13 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:53:23 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:53:29 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:54:42 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:54:42 INFO  TeamRole - dan - become player
+27.05.2020 11:54:42 INFO  TeamRole - dan - become coach
+27.05.2020 11:54:42 INFO  TeamRole - gal1 - become player
+27.05.2020 11:54:42 INFO  TeamRole - may2 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player10 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player11 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player12 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player13 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player14 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player15 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player16 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player17 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player18 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player19 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player20 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player21 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player22 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player23 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player24 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player25 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player26 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player27 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player28 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player29 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player30 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player31 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player32 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player33 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player34 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player35 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player36 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player37 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player38 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player39 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player39 - become coach
+27.05.2020 11:54:42 INFO  TeamRole - player40 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player41 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player42 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player43 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player44 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player45 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player5 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player6 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player7 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player8 - become player
+27.05.2020 11:54:42 INFO  TeamRole - player9 - become player
+27.05.2020 11:54:42 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:54:42 INFO  TeamRole - shon - become coach
+27.05.2020 11:54:42 INFO  TeamRole - tal4 - become player
+27.05.2020 11:54:42 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:54:42 INFO  TeamRole - timor - become coach
+27.05.2020 11:54:42 INFO  TeamRole - timor - become team owner
+27.05.2020 11:54:42 INFO  TeamRole - tom3 - become player
+27.05.2020 11:54:42 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:54:42 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:54:43 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:54:43 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:54:43 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:54:46 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:54:46 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:54:53 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:54:53 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:55:19 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:55:19 INFO  TeamRole - dan - become player
+27.05.2020 11:55:19 INFO  TeamRole - dan - become coach
+27.05.2020 11:55:19 INFO  TeamRole - gal1 - become player
+27.05.2020 11:55:19 INFO  TeamRole - may2 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player10 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player11 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player12 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player13 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player14 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player15 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player16 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player17 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player18 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player19 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player20 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player21 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player22 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player23 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player24 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player25 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player26 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player27 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player28 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player29 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player30 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player31 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player32 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player33 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player34 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player35 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player36 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player37 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player38 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player39 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player39 - become coach
+27.05.2020 11:55:19 INFO  TeamRole - player40 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player41 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player42 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player43 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player44 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player45 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player5 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player6 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player7 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player8 - become player
+27.05.2020 11:55:19 INFO  TeamRole - player9 - become player
+27.05.2020 11:55:19 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:55:19 INFO  TeamRole - shon - become coach
+27.05.2020 11:55:19 INFO  TeamRole - tal4 - become player
+27.05.2020 11:55:19 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:55:19 INFO  TeamRole - timor - become coach
+27.05.2020 11:55:19 INFO  TeamRole - timor - become team owner
+27.05.2020 11:55:19 INFO  TeamRole - tom3 - become player
+27.05.2020 11:55:19 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:55:19 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:55:20 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:55:20 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:55:20 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:57:32 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:57:32 INFO  TeamRole - dan - become player
+27.05.2020 11:57:32 INFO  TeamRole - dan - become coach
+27.05.2020 11:57:32 INFO  TeamRole - gal1 - become player
+27.05.2020 11:57:32 INFO  TeamRole - may2 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player10 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player11 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player12 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player13 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player14 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player15 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player16 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player17 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player18 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player19 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player20 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player21 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player22 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player23 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player24 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player25 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player26 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player27 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player28 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player29 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player30 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player31 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player32 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player33 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player34 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player35 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player36 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player37 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player38 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player39 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player39 - become coach
+27.05.2020 11:57:32 INFO  TeamRole - player40 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player41 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player42 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player43 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player44 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player45 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player5 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player6 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player7 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player8 - become player
+27.05.2020 11:57:32 INFO  TeamRole - player9 - become player
+27.05.2020 11:57:32 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:57:32 INFO  TeamRole - shon - become coach
+27.05.2020 11:57:32 INFO  TeamRole - tal4 - become player
+27.05.2020 11:57:32 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:57:32 INFO  TeamRole - timor - become coach
+27.05.2020 11:57:32 INFO  TeamRole - timor - become team owner
+27.05.2020 11:57:32 INFO  TeamRole - tom3 - become player
+27.05.2020 11:57:32 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:57:32 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:57:33 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:57:33 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:57:33 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:57:37 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:57:37 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:57:44 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:57:44 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:57:44 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:57:51 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 11:57:51 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 11:57:55 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 11:59:12 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:59:12 INFO  TeamRole - dan - become player
+27.05.2020 11:59:12 INFO  TeamRole - dan - become coach
+27.05.2020 11:59:12 INFO  TeamRole - gal1 - become player
+27.05.2020 11:59:12 INFO  TeamRole - may2 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player10 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player11 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player12 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player13 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player14 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player15 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player16 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player17 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player18 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player19 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player20 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player21 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player22 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player23 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player24 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player25 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player26 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player27 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player28 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player29 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player30 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player31 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player32 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player33 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player34 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player35 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player36 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player37 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player38 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player39 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player39 - become coach
+27.05.2020 11:59:12 INFO  TeamRole - player40 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player41 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player42 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player43 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player44 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player45 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player5 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player6 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player7 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player8 - become player
+27.05.2020 11:59:12 INFO  TeamRole - player9 - become player
+27.05.2020 11:59:12 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:59:12 INFO  TeamRole - shon - become coach
+27.05.2020 11:59:12 INFO  TeamRole - tal4 - become player
+27.05.2020 11:59:12 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:59:12 INFO  TeamRole - timor - become coach
+27.05.2020 11:59:12 INFO  TeamRole - timor - become team owner
+27.05.2020 11:59:12 INFO  TeamRole - tom3 - become player
+27.05.2020 11:59:12 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:59:12 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:59:13 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:59:13 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:59:13 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:59:14 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:59:14 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:59:14 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:59:14 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:59:15 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:59:15 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 11:59:15 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 11:59:16 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 11:59:40 INFO  TeamRole - arnold - become team owner
+27.05.2020 11:59:40 INFO  TeamRole - dan - become player
+27.05.2020 11:59:40 INFO  TeamRole - dan - become coach
+27.05.2020 11:59:40 INFO  TeamRole - gal1 - become player
+27.05.2020 11:59:40 INFO  TeamRole - may2 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player10 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player11 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player12 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player13 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player14 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player15 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player16 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player17 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player18 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player19 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player20 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player21 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player22 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player23 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player24 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player25 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player26 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player27 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player28 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player29 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player30 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player31 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player32 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player33 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player34 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player35 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player36 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player37 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player38 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player39 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player39 - become coach
+27.05.2020 11:59:40 INFO  TeamRole - player40 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player41 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player42 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player43 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player44 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player45 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player5 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player6 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player7 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player8 - become player
+27.05.2020 11:59:40 INFO  TeamRole - player9 - become player
+27.05.2020 11:59:40 INFO  TeamRole - shimi - become team owner
+27.05.2020 11:59:40 INFO  TeamRole - shon - become coach
+27.05.2020 11:59:40 INFO  TeamRole - tal4 - become player
+27.05.2020 11:59:40 INFO  TeamRole - tal4 - become team owner
+27.05.2020 11:59:40 INFO  TeamRole - timor - become coach
+27.05.2020 11:59:40 INFO  TeamRole - timor - become team owner
+27.05.2020 11:59:40 INFO  TeamRole - tom3 - become player
+27.05.2020 11:59:40 INFO  TeamRole - tom3 - become coach
+27.05.2020 11:59:40 INFO  TeamRole - zipi - become team manager 
+27.05.2020 11:59:41 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 11:59:41 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 11:59:41 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 11:59:42 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:59:42 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 11:59:42 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:59:42 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:59:43 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 11:59:43 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 11:59:43 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 11:59:44 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:01:11 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:01:11 INFO  TeamRole - dan - become player
+27.05.2020 12:01:11 INFO  TeamRole - dan - become coach
+27.05.2020 12:01:11 INFO  TeamRole - gal1 - become player
+27.05.2020 12:01:11 INFO  TeamRole - may2 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player10 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player11 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player12 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player13 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player14 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player15 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player16 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player17 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player18 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player19 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player20 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player21 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player22 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player23 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player24 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player25 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player26 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player27 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player28 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player29 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player30 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player31 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player32 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player33 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player34 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player35 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player36 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player37 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player38 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player39 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player39 - become coach
+27.05.2020 12:01:11 INFO  TeamRole - player40 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player41 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player42 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player43 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player44 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player45 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player5 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player6 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player7 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player8 - become player
+27.05.2020 12:01:11 INFO  TeamRole - player9 - become player
+27.05.2020 12:01:11 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:01:11 INFO  TeamRole - shon - become coach
+27.05.2020 12:01:11 INFO  TeamRole - tal4 - become player
+27.05.2020 12:01:11 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:01:11 INFO  TeamRole - timor - become coach
+27.05.2020 12:01:11 INFO  TeamRole - timor - become team owner
+27.05.2020 12:01:11 INFO  TeamRole - tom3 - become player
+27.05.2020 12:01:11 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:01:11 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:01:12 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:01:12 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:01:12 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:01:13 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:01:13 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:01:13 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:01:13 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:01:13 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:01:14 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:01:14 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:01:15 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:01:55 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:01:55 INFO  TeamRole - dan - become player
+27.05.2020 12:01:55 INFO  TeamRole - dan - become coach
+27.05.2020 12:01:55 INFO  TeamRole - gal1 - become player
+27.05.2020 12:01:55 INFO  TeamRole - may2 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player10 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player11 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player12 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player13 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player14 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player15 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player16 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player17 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player18 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player19 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player20 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player21 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player22 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player23 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player24 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player25 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player26 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player27 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player28 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player29 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player30 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player31 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player32 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player33 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player34 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player35 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player36 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player37 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player38 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player39 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player39 - become coach
+27.05.2020 12:01:55 INFO  TeamRole - player40 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player41 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player42 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player43 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player44 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player45 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player5 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player6 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player7 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player8 - become player
+27.05.2020 12:01:55 INFO  TeamRole - player9 - become player
+27.05.2020 12:01:55 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:01:55 INFO  TeamRole - shon - become coach
+27.05.2020 12:01:55 INFO  TeamRole - tal4 - become player
+27.05.2020 12:01:55 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:01:55 INFO  TeamRole - timor - become coach
+27.05.2020 12:01:55 INFO  TeamRole - timor - become team owner
+27.05.2020 12:01:55 INFO  TeamRole - tom3 - become player
+27.05.2020 12:01:55 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:01:55 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:01:56 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:01:56 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:01:56 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:01:56 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:01:56 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:01:57 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:01:57 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:01:57 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:01:58 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:01:58 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:01:58 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:08:05 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:08:05 INFO  TeamRole - dan - become player
+27.05.2020 12:08:05 INFO  TeamRole - dan - become coach
+27.05.2020 12:08:05 INFO  TeamRole - gal1 - become player
+27.05.2020 12:08:05 INFO  TeamRole - may2 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player10 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player11 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player12 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player13 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player14 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player15 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player16 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player17 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player18 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player19 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player20 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player21 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player22 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player23 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player24 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player25 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player26 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player27 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player28 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player29 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player30 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player31 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player32 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player33 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player34 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player35 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player36 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player37 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player38 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player39 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player39 - become coach
+27.05.2020 12:08:05 INFO  TeamRole - player40 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player41 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player42 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player43 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player44 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player45 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player5 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player6 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player7 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player8 - become player
+27.05.2020 12:08:05 INFO  TeamRole - player9 - become player
+27.05.2020 12:08:05 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:08:05 INFO  TeamRole - shon - become coach
+27.05.2020 12:08:05 INFO  TeamRole - tal4 - become player
+27.05.2020 12:08:05 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:08:05 INFO  TeamRole - timor - become coach
+27.05.2020 12:08:05 INFO  TeamRole - timor - become team owner
+27.05.2020 12:08:05 INFO  TeamRole - tom3 - become player
+27.05.2020 12:08:05 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:08:05 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:08:06 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:08:06 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:08:06 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:08:07 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:08:07 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:08:07 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:08:07 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:08:08 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:08:08 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:08:08 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:08:09 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:08:52 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:08:52 INFO  TeamRole - dan - become player
+27.05.2020 12:08:52 INFO  TeamRole - dan - become coach
+27.05.2020 12:08:52 INFO  TeamRole - gal1 - become player
+27.05.2020 12:08:52 INFO  TeamRole - may2 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player10 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player11 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player12 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player13 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player14 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player15 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player16 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player17 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player18 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player19 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player20 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player21 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player22 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player23 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player24 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player25 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player26 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player27 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player28 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player29 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player30 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player31 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player32 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player33 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player34 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player35 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player36 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player37 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player38 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player39 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player39 - become coach
+27.05.2020 12:08:52 INFO  TeamRole - player40 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player41 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player42 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player43 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player44 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player45 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player5 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player6 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player7 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player8 - become player
+27.05.2020 12:08:52 INFO  TeamRole - player9 - become player
+27.05.2020 12:08:52 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:08:52 INFO  TeamRole - shon - become coach
+27.05.2020 12:08:52 INFO  TeamRole - tal4 - become player
+27.05.2020 12:08:52 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:08:52 INFO  TeamRole - timor - become coach
+27.05.2020 12:08:52 INFO  TeamRole - timor - become team owner
+27.05.2020 12:08:52 INFO  TeamRole - tom3 - become player
+27.05.2020 12:08:52 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:08:52 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:08:53 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:08:53 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:08:53 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:08:53 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:08:53 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:08:54 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:08:54 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:08:54 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:08:55 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:08:55 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:08:55 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:11:39 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:11:39 INFO  TeamRole - dan - become player
+27.05.2020 12:11:39 INFO  TeamRole - dan - become coach
+27.05.2020 12:11:39 INFO  TeamRole - gal1 - become player
+27.05.2020 12:11:39 INFO  TeamRole - may2 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player10 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player11 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player12 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player13 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player14 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player15 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player16 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player17 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player18 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player19 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player20 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player21 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player22 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player23 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player24 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player25 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player26 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player27 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player28 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player29 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player30 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player31 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player32 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player33 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player34 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player35 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player36 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player37 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player38 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player39 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player39 - become coach
+27.05.2020 12:11:39 INFO  TeamRole - player40 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player41 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player42 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player43 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player44 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player45 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player5 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player6 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player7 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player8 - become player
+27.05.2020 12:11:39 INFO  TeamRole - player9 - become player
+27.05.2020 12:11:39 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:11:39 INFO  TeamRole - shon - become coach
+27.05.2020 12:11:39 INFO  TeamRole - tal4 - become player
+27.05.2020 12:11:39 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:11:39 INFO  TeamRole - timor - become coach
+27.05.2020 12:11:39 INFO  TeamRole - timor - become team owner
+27.05.2020 12:11:39 INFO  TeamRole - tom3 - become player
+27.05.2020 12:11:39 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:11:39 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:11:40 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:11:40 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:11:40 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:11:41 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:11:41 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:11:41 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:11:42 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:11:42 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:11:42 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:11:42 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:11:43 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:17:09 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:17:09 INFO  TeamRole - dan - become player
+27.05.2020 12:17:09 INFO  TeamRole - dan - become coach
+27.05.2020 12:17:09 INFO  TeamRole - gal1 - become player
+27.05.2020 12:17:09 INFO  TeamRole - may2 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player10 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player11 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player12 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player13 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player14 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player15 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player16 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player17 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player18 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player19 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player20 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player21 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player22 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player23 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player24 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player25 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player26 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player27 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player28 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player29 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player30 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player31 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player32 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player33 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player34 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player35 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player36 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player37 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player38 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player39 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player39 - become coach
+27.05.2020 12:17:09 INFO  TeamRole - player40 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player41 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player42 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player43 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player44 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player45 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player5 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player6 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player7 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player8 - become player
+27.05.2020 12:17:09 INFO  TeamRole - player9 - become player
+27.05.2020 12:17:09 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:17:09 INFO  TeamRole - shon - become coach
+27.05.2020 12:17:09 INFO  TeamRole - tal4 - become player
+27.05.2020 12:17:09 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:17:09 INFO  TeamRole - timor - become coach
+27.05.2020 12:17:09 INFO  TeamRole - timor - become team owner
+27.05.2020 12:17:09 INFO  TeamRole - tom3 - become player
+27.05.2020 12:17:09 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:17:09 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:17:10 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:17:10 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:17:10 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:17:11 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:17:11 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:17:12 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:17:12 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:17:12 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:17:12 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:17:13 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:17:13 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:18:17 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:18:17 INFO  TeamRole - dan - become player
+27.05.2020 12:18:17 INFO  TeamRole - dan - become coach
+27.05.2020 12:18:17 INFO  TeamRole - gal1 - become player
+27.05.2020 12:18:17 INFO  TeamRole - may2 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player10 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player11 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player12 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player13 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player14 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player15 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player16 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player17 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player18 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player19 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player20 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player21 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player22 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player23 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player24 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player25 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player26 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player27 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player28 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player29 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player30 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player31 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player32 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player33 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player34 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player35 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player36 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player37 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player38 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player39 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player39 - become coach
+27.05.2020 12:18:17 INFO  TeamRole - player40 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player41 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player42 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player43 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player44 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player45 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player5 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player6 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player7 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player8 - become player
+27.05.2020 12:18:17 INFO  TeamRole - player9 - become player
+27.05.2020 12:18:17 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:18:17 INFO  TeamRole - shon - become coach
+27.05.2020 12:18:17 INFO  TeamRole - tal4 - become player
+27.05.2020 12:18:17 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:18:17 INFO  TeamRole - timor - become coach
+27.05.2020 12:18:17 INFO  TeamRole - timor - become team owner
+27.05.2020 12:18:17 INFO  TeamRole - tom3 - become player
+27.05.2020 12:18:17 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:18:17 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:18:18 ERROR League - There is already league with the same name
+27.05.2020 12:46:23 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:46:23 INFO  TeamRole - dan - become player
+27.05.2020 12:46:23 INFO  TeamRole - dan - become coach
+27.05.2020 12:46:23 INFO  TeamRole - gal1 - become player
+27.05.2020 12:46:23 INFO  TeamRole - may2 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player10 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player11 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player12 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player13 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player14 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player15 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player16 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player17 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player18 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player19 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player20 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player21 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player22 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player23 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player24 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player25 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player26 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player27 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player28 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player29 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player30 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player31 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player32 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player33 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player34 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player35 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player36 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player37 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player38 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player39 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player39 - become coach
+27.05.2020 12:46:23 INFO  TeamRole - player40 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player41 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player42 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player43 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player44 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player45 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player5 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player6 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player7 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player8 - become player
+27.05.2020 12:46:23 INFO  TeamRole - player9 - become player
+27.05.2020 12:46:23 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:46:23 INFO  TeamRole - shon - become coach
+27.05.2020 12:46:23 INFO  TeamRole - tal4 - become player
+27.05.2020 12:46:23 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:46:23 INFO  TeamRole - timor - become coach
+27.05.2020 12:46:23 INFO  TeamRole - timor - become team owner
+27.05.2020 12:46:23 INFO  TeamRole - tom3 - become player
+27.05.2020 12:46:23 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:46:23 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:46:24 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:46:24 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:46:24 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:46:25 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:46:25 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:46:25 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:46:25 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:46:25 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:46:26 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:46:26 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:46:27 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash
+27.05.2020 12:46:49 INFO  TeamRole - arnold - become team owner
+27.05.2020 12:46:49 INFO  TeamRole - dan - become player
+27.05.2020 12:46:49 INFO  TeamRole - dan - become coach
+27.05.2020 12:46:49 INFO  TeamRole - gal1 - become player
+27.05.2020 12:46:49 INFO  TeamRole - may2 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player10 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player11 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player12 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player13 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player14 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player15 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player16 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player17 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player18 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player19 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player20 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player21 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player22 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player23 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player24 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player25 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player26 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player27 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player28 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player29 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player30 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player31 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player32 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player33 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player34 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player35 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player36 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player37 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player38 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player39 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player39 - become coach
+27.05.2020 12:46:49 INFO  TeamRole - player40 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player41 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player42 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player43 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player44 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player45 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player5 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player6 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player7 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player8 - become player
+27.05.2020 12:46:49 INFO  TeamRole - player9 - become player
+27.05.2020 12:46:49 INFO  TeamRole - shimi - become team owner
+27.05.2020 12:46:49 INFO  TeamRole - shon - become coach
+27.05.2020 12:46:49 INFO  TeamRole - tal4 - become player
+27.05.2020 12:46:49 INFO  TeamRole - tal4 - become team owner
+27.05.2020 12:46:49 INFO  TeamRole - timor - become coach
+27.05.2020 12:46:49 INFO  TeamRole - timor - become team owner
+27.05.2020 12:46:49 INFO  TeamRole - tom3 - become player
+27.05.2020 12:46:49 INFO  TeamRole - tom3 - become coach
+27.05.2020 12:46:49 INFO  TeamRole - zipi - become team manager 
+27.05.2020 12:46:51 INFO  MainSystem - MainSystem - system was added new season:2020
+27.05.2020 12:46:51 INFO  Season -  - changed calculation policy of season 2020 to: CalculateOption1
+27.05.2020 12:46:51 INFO  Season -  - changed scheduling policy of season 2020 to: SchedualeOption2
+27.05.2020 12:46:51 INFO  Match - Extra time - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:46:51 INFO  Match - Goal - add event to match between macabi TLV to hapoel TLV
+27.05.2020 12:46:52 INFO  Match - Injury - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:46:52 INFO  Match - Offense - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:46:52 INFO  Match - Replacement - add event to match between hapoel TLV to macabi TLV
+27.05.2020 12:46:53 INFO  Match - OffSide - add event to match between macabi bash to hapoel bash
+27.05.2020 12:46:53 INFO  Match - Red Card - add event to match between macabi bash to hapoel bash
+27.05.2020 12:46:53 INFO  Match - Yellow Card - add event to match between hapoel bash to macabi bash

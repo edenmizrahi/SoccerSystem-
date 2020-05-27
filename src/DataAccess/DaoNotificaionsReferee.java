@@ -1,17 +1,144 @@
 package DataAccess;
 
+import DB.Tables.tables.records.MatchesRecord;
+import DB.Tables.tables.records.RefereeNotificationRecord;
+import org.jooq.DSLContext;
+import org.jooq.Record;
+import org.jooq.Result;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
+import static DB.Tables.Tables.MATCHES;
+import static DB.Tables.Tables.REFEREE_NOTIFICATION;
+
+/**
+ * table name : referee_notification
+ * 5 keys!
+ * **/
+
 public class DaoNotificaionsReferee implements Dao<String> {
+    private DateTimeFormatter out = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private DateTimeFormatter in= DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
     @Override
-    public List<String> get(List<String> keys) {
-        return null;
+    public List<String> get(List<String> keys) throws ParseException  {
+        /** check connection to DB  **/
+        DBHandler.conectToDB();
+        DSLContext create = DBHandler.getDSLConnect();
+
+        String key0Date=out.format(in.parse(keys.get(0)));
+        LocalDateTime dateTime = LocalDateTime.parse(key0Date, out);
+        String key1= keys.get(1);
+        String key2=keys.get(2);
+        String key3=keys.get(3);
+        String key4=keys.get(4);
+
+        List<String> result=new LinkedList<>();
+        /** select retrieval row from table  **/
+        RefereeNotificationRecord refereeNotificationRecord =create.selectFrom(REFEREE_NOTIFICATION)
+                .where(REFEREE_NOTIFICATION.MATCH_DATE.ge(dateTime))
+                .and(REFEREE_NOTIFICATION.HOME_TEAM.eq(key1))
+                .and(REFEREE_NOTIFICATION.AWAY_TEAM.eq(key2))
+                .and(REFEREE_NOTIFICATION.REFEREE.eq(key3))
+                .and(REFEREE_NOTIFICATION.NOTIFICATION_CONTENT.eq(key4))
+                .fetchOne();
+        /** key noy found in table  **/
+        if (refereeNotificationRecord == null || refereeNotificationRecord.size()==0){
+            //return null;
+            throw new ParseException("key noy found in table",0);
+        }
+
+        for (int i = 0; i <refereeNotificationRecord.size() ; i++) {
+            if(refereeNotificationRecord.get(i) instanceof LocalDateTime){
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                result.add(((LocalDateTime) refereeNotificationRecord.get(i)).format(formatter));
+                //dd-MM-yyyy HH:mm:ss
+            }
+            else{
+                result.add(refereeNotificationRecord.get(i).toString());
+            }
+
+        }
+        return result;
     }
 
     @Override
     public List<List<String>> getAll(String collName, String filter) {
-        return null;
+        /** check connection to DB  **/
+        DBHandler.conectToDB();
+        DSLContext create = DBHandler.getDSLConnect();
+
+        if( collName==null && filter==null){
+            /** return all rows in table **/
+            Result<Record> result=create.select().from(REFEREE_NOTIFICATION).fetch();
+
+            /** iinitialize List<List<String>> **/
+            List<List<String>> ans=new ArrayList<>(result.size());
+            for(int i=0; i<result.size(); i++){
+                List<String> temp = new LinkedList<>();
+                ans.add(temp);
+            }
+            /** insert coll values to ans  **/
+            int numOfCols=result.fields().length; //6!
+            for(int i=0;i< numOfCols;i++){
+                List <?> currCol = result.getValues(i);
+                for (int j = 0; j <result.size() ; j++) {
+                    if(currCol.get(j) instanceof LocalDateTime){
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        ans.get(j).add(((LocalDateTime) currCol.get(j)).format(formatter));
+                    }
+                    else{
+                        ans.get(j).add(currCol.get(j).toString());
+                    }
+                }
+            }
+            return ans;
+
+        }
+        /** filter **/
+        if(collName.equals("match_date")){
+            filter=out.format(in.parse(filter));
+        }
+        ResultSet rs=null;
+        Result<Record> result=null;
+        int numOfCols=0;
+        String sql="SELECT * FROM referee_notification WHERE "+collName+"= '" + filter + "'"; //!!!!!!!!!!!!!!!!!!!!!!!!!
+        List<List<String>> ans=null;
+        try {
+            rs=DBHandler.getConnection().createStatement().executeQuery(sql);
+            result=DBHandler.getDSLConnect().fetch(rs);
+            ResultSetMetaData rsmd=rs.getMetaData();
+            numOfCols=rsmd.getColumnCount();
+            /** iinitialize List<List<String>> **/
+            ans=new ArrayList<>(result.size());
+            for(int i=0; i<result.size(); i++){
+                List<String> temp = new LinkedList<>();
+                ans.add(temp);
+            }
+            /** insert coll values to ans  **/
+            //List<?> coll=result.getValues(1);
+            //System.out.println(coll.get(1).toString());
+            for(int i=0;i< numOfCols;i++){
+                List <?> currCol = result.getValues(i);
+                for (int j = 0; j <result.size() ; j++) {
+                    ans.get(j).add(currCol.get(j).toString());
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ans;
     }
 
     @Override

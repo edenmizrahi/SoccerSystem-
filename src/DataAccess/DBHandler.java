@@ -80,6 +80,19 @@ public final class DBHandler  {
         return connection;
     }
 
+    /**
+     * convert to java date format - only date : dd-mm-yyyy
+     * @param st DB date format
+     * @return  dd-mm-yyyy
+     */
+    public static String convertToDateFormat(String st){
+        String[] parts = st.split("-");
+        String dateFormat= parts[2]+"-"+parts[1]+"-"+parts[0];
+        return dateFormat;
+    }
+
+
+
     public static void main( String[] args ) throws SQLException {
         DBHandler db=new DBHandler();
         conectToDB();

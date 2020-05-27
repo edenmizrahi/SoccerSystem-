@@ -258,7 +258,7 @@ public class Rfa extends Fan implements NotificationsUser {
         }
         system.checkValidDetails(name, userName, password, phoneNumber,email);
         Referee newRef = new Referee(system, name, phoneNumber, email, userName, password, qualification,birthDate);
-        newRef.setSendByEmail(true);
+        newRef.setSendByEmail(false);
         LOG.info(String.format("%s - %s", this.getUserName(), "Add referee by Rfa"));
     }
 

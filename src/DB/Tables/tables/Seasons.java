@@ -8,7 +8,6 @@ import DB.Tables.FootballsystemDb;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.SeasonsRecord;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Seasons extends TableImpl<SeasonsRecord> {
 
-    private static final long serialVersionUID = -2090904913;
+    private static final long serialVersionUID = 1106490356;
 
     /**
      * The reference instance of <code>footballsystem_db.seasons</code>
@@ -50,7 +49,7 @@ public class Seasons extends TableImpl<SeasonsRecord> {
     /**
      * The column <code>footballsystem_db.seasons.year</code>.
      */
-    public final TableField<SeasonsRecord, LocalDate> YEAR = createField(DSL.name("year"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<SeasonsRecord, String> YEAR = createField(DSL.name("year"), org.jooq.impl.SQLDataType.VARCHAR(4).nullable(false).defaultValue(org.jooq.impl.DSL.field("''", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>footballsystem_db.seasons.schedulingPolicy</code>.
@@ -159,7 +158,7 @@ public class Seasons extends TableImpl<SeasonsRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<LocalDate, String, String, Byte> fieldsRow() {
+    public Row4<String, String, String, Byte> fieldsRow() {
         return (Row4) super.fieldsRow();
     }
 }

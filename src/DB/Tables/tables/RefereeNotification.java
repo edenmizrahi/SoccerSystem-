@@ -8,7 +8,7 @@ import DB.Tables.FootballsystemDb;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereeNotificationRecord;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
 
-    private static final long serialVersionUID = 1036754868;
+    private static final long serialVersionUID = -601177989;
 
     /**
      * The reference instance of <code>footballsystem_db.referee_notification</code>
@@ -50,7 +50,7 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     /**
      * The column <code>footballsystem_db.referee_notification.match_date</code>.
      */
-    public final TableField<RefereeNotificationRecord, LocalDate> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<RefereeNotificationRecord, LocalDateTime> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
 
     /**
      * The column <code>footballsystem_db.referee_notification.home_team</code>.
@@ -127,15 +127,15 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
 
     @Override
     public List<ForeignKey<RefereeNotificationRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<RefereeNotificationRecord, ?>>asList(Keys.FK_REFEREE_NOTIFICATION_MATCHES, Keys.FK_REFEREE_NOTIFICATION_REFEREES);
+        return Arrays.<ForeignKey<RefereeNotificationRecord, ?>>asList(Keys.FK_REFEREE_NOTIFICATION_MATCHES, Keys.FK_REFEREE_NOTIFICATION_FANS);
     }
 
     public Matches matches() {
         return new Matches(this, Keys.FK_REFEREE_NOTIFICATION_MATCHES);
     }
 
-    public Referees referees() {
-        return new Referees(this, Keys.FK_REFEREE_NOTIFICATION_REFEREES);
+    public Fans fans() {
+        return new Fans(this, Keys.FK_REFEREE_NOTIFICATION_FANS);
     }
 
     @Override
@@ -169,7 +169,7 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<LocalDate, String, String, String, String, Byte> fieldsRow() {
+    public Row6<LocalDateTime, String, String, String, String, Byte> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 }

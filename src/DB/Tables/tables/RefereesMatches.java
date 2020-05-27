@@ -8,7 +8,7 @@ import DB.Tables.FootballsystemDb;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereesMatchesRecord;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereesMatches extends TableImpl<RefereesMatchesRecord> {
 
-    private static final long serialVersionUID = -1780945240;
+    private static final long serialVersionUID = 1250375451;
 
     /**
      * The reference instance of <code>footballsystem_db.referees_matches</code>
@@ -50,7 +50,7 @@ public class RefereesMatches extends TableImpl<RefereesMatchesRecord> {
     /**
      * The column <code>footballsystem_db.referees_matches.matche_date</code>.
      */
-    public final TableField<RefereesMatchesRecord, LocalDate> MATCHE_DATE = createField(DSL.name("matche_date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<RefereesMatchesRecord, LocalDateTime> MATCHE_DATE = createField(DSL.name("matche_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
 
     /**
      * The column <code>footballsystem_db.referees_matches.home_team</code>.
@@ -117,15 +117,15 @@ public class RefereesMatches extends TableImpl<RefereesMatchesRecord> {
 
     @Override
     public List<ForeignKey<RefereesMatchesRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<RefereesMatchesRecord, ?>>asList(Keys.FK__MATCHES, Keys.FK_REFEREES_MATCHES_REFEREES);
+        return Arrays.<ForeignKey<RefereesMatchesRecord, ?>>asList(Keys.FK_REFEREES_MATCHES_MATCHES, Keys.FK_REFEREES_MATCHES_FANS);
     }
 
     public Matches matches() {
-        return new Matches(this, Keys.FK__MATCHES);
+        return new Matches(this, Keys.FK_REFEREES_MATCHES_MATCHES);
     }
 
-    public Referees referees() {
-        return new Referees(this, Keys.FK_REFEREES_MATCHES_REFEREES);
+    public Fans fans() {
+        return new Fans(this, Keys.FK_REFEREES_MATCHES_FANS);
     }
 
     @Override
@@ -159,7 +159,7 @@ public class RefereesMatches extends TableImpl<RefereesMatchesRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<LocalDate, String, String, String> fieldsRow() {
+    public Row4<LocalDateTime, String, String, String> fieldsRow() {
         return (Row4) super.fieldsRow();
     }
 }

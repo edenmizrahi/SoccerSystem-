@@ -8,7 +8,7 @@ import DB.Tables.FootballsystemDb;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.EventsRecord;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events extends TableImpl<EventsRecord> {
 
-    private static final long serialVersionUID = -1494729603;
+    private static final long serialVersionUID = -859212250;
 
     /**
      * The reference instance of <code>footballsystem_db.events</code>
@@ -55,7 +55,7 @@ public class Events extends TableImpl<EventsRecord> {
     /**
      * The column <code>footballsystem_db.events.date</code>.
      */
-    public final TableField<EventsRecord, LocalDate> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<EventsRecord, LocalDateTime> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("'2020-01-01 20:30:00'", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>footballsystem_db.events.referee</code>.
@@ -65,7 +65,7 @@ public class Events extends TableImpl<EventsRecord> {
     /**
      * The column <code>footballsystem_db.events.match_date</code>.
      */
-    public final TableField<EventsRecord, LocalDate> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<EventsRecord, LocalDateTime> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
 
     /**
      * The column <code>footballsystem_db.events.home_team_match</code>.
@@ -137,7 +137,7 @@ public class Events extends TableImpl<EventsRecord> {
 
     @Override
     public List<ForeignKey<EventsRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<EventsRecord, ?>>asList(Keys.FK_EVENTS2_REFEREES, Keys.FK_EVENTS2_MATCHES);
+        return Arrays.<ForeignKey<EventsRecord, ?>>asList(Keys.FK_EVENTS2_REFEREES, Keys.FK_EVENTS_MATCHES);
     }
 
     public Referees referees() {
@@ -145,7 +145,7 @@ public class Events extends TableImpl<EventsRecord> {
     }
 
     public Matches matches() {
-        return new Matches(this, Keys.FK_EVENTS2_MATCHES);
+        return new Matches(this, Keys.FK_EVENTS_MATCHES);
     }
 
     @Override
@@ -179,7 +179,7 @@ public class Events extends TableImpl<EventsRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, LocalDate, String, LocalDate, String, String, String, Integer> fieldsRow() {
+    public Row8<Integer, LocalDateTime, String, LocalDateTime, String, String, String, Integer> fieldsRow() {
         return (Row8) super.fieldsRow();
     }
 }

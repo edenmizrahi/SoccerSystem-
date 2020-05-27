@@ -8,7 +8,6 @@ import DB.Tables.FootballsystemDb;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereeSeasonLeagueRecord;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereeSeasonLeague extends TableImpl<RefereeSeasonLeagueRecord> {
 
-    private static final long serialVersionUID = -469674718;
+    private static final long serialVersionUID = 1311639133;
 
     /**
      * The reference instance of <code>footballsystem_db.referee_season_league</code>
@@ -55,7 +54,7 @@ public class RefereeSeasonLeague extends TableImpl<RefereeSeasonLeagueRecord> {
     /**
      * The column <code>footballsystem_db.referee_season_league.season_year</code>.
      */
-    public final TableField<RefereeSeasonLeagueRecord, LocalDate> SEASON_YEAR = createField(DSL.name("season_year"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<RefereeSeasonLeagueRecord, String> SEASON_YEAR = createField(DSL.name("season_year"), org.jooq.impl.SQLDataType.VARCHAR(4).nullable(false).defaultValue(org.jooq.impl.DSL.field("''", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>footballsystem_db.referee_season_league.league_name</code>.
@@ -158,7 +157,7 @@ public class RefereeSeasonLeague extends TableImpl<RefereeSeasonLeagueRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<String, LocalDate, String> fieldsRow() {
+    public Row3<String, String, String> fieldsRow() {
         return (Row3) super.fieldsRow();
     }
 }

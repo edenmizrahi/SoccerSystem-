@@ -9,7 +9,7 @@ import DB.Tables.Indexes;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.MatchesRecord;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Matches extends TableImpl<MatchesRecord> {
 
-    private static final long serialVersionUID = -1967037004;
+    private static final long serialVersionUID = 973415093;
 
     /**
      * The reference instance of <code>footballsystem_db.matches</code>
@@ -52,7 +52,7 @@ public class Matches extends TableImpl<MatchesRecord> {
     /**
      * The column <code>footballsystem_db.matches.date</code>.
      */
-    public final TableField<MatchesRecord, LocalDate> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<MatchesRecord, LocalDateTime> DATE = createField(DSL.name("date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("'2020-00-00 20:00:00'", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>footballsystem_db.matches.home_team</code>.
@@ -194,7 +194,7 @@ public class Matches extends TableImpl<MatchesRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<LocalDate, String, String, Integer, Integer, String, String, Integer> fieldsRow() {
+    public Row8<LocalDateTime, String, String, Integer, Integer, String, String, Integer> fieldsRow() {
         return (Row8) super.fieldsRow();
     }
 }

@@ -50,4 +50,29 @@ public class RfaApplication {
                                        @PathParam("sched")String sched, @PathParam("rfausername")String rfaUserName){
         rfaController.DefinePoliciesToSeason(year, calc, sched, rfaUserName);
     }
+
+    /**
+     * mark notification as read
+     * @param userName
+     */
+    @Path("/markNotificationAsRead/{userName}")
+    @GET
+    @Produces("text/plain")
+    public String getTeamRequests(@PathParam("userName") String userName){
+        return rfaController.getTeamRequests(userName);
+    }
+
+    /**
+     * mark notification as read
+     * @param rfaUserName
+     * @param teamName
+     * @param decision
+     */
+    @Path("/markNotificationAsRead/{rfaUserName}/{teamName}/{decision}")
+    @GET
+    @Produces("text/plain")
+    public void answerRequest(@PathParam("rfaUserName") String rfaUserName, @PathParam("teamName") String teamName,
+                              @PathParam("decision") String decision) {
+        rfaController.answerToRequest(rfaUserName, teamName, decision);
+    }
 }

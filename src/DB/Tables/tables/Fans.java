@@ -16,7 +16,7 @@ import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row6;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Fans extends TableImpl<FansRecord> {
 
-    private static final long serialVersionUID = -249851497;
+    private static final long serialVersionUID = 794336033;
 
     /**
      * The reference instance of <code>footballsystem_db.fans</code>
@@ -76,6 +76,11 @@ public class Fans extends TableImpl<FansRecord> {
      * The column <code>footballsystem_db.fans.birthday</code>.
      */
     public final TableField<FansRecord, LocalDate> BIRTHDAY = createField(DSL.name("birthday"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+
+    /**
+     * The column <code>footballsystem_db.fans.to_email</code>.
+     */
+    public final TableField<FansRecord, Byte> TO_EMAIL = createField(DSL.name("to_email"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * Create a <code>footballsystem_db.fans</code> table reference
@@ -152,11 +157,11 @@ public class Fans extends TableImpl<FansRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row6 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<String, String, String, String, String, LocalDate> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row7<String, String, String, String, String, LocalDate, Byte> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 }

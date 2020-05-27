@@ -8,7 +8,7 @@ import DB.Tables.FootballsystemDb;
 import DB.Tables.Keys;
 import DB.Tables.tables.records.FanMatchesFollowRecord;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanMatchesFollow extends TableImpl<FanMatchesFollowRecord> {
 
-    private static final long serialVersionUID = -946829166;
+    private static final long serialVersionUID = 551478514;
 
     /**
      * The reference instance of <code>footballsystem_db.fan_matches_follow</code>
@@ -55,7 +55,7 @@ public class FanMatchesFollow extends TableImpl<FanMatchesFollowRecord> {
     /**
      * The column <code>footballsystem_db.fan_matches_follow.match_date</code>.
      */
-    public final TableField<FanMatchesFollowRecord, LocalDate> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATE.nullable(false), this, "");
+    public final TableField<FanMatchesFollowRecord, LocalDateTime> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
 
     /**
      * The column <code>footballsystem_db.fan_matches_follow.home_team</code>.
@@ -159,7 +159,7 @@ public class FanMatchesFollow extends TableImpl<FanMatchesFollowRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<String, LocalDate, String, String> fieldsRow() {
+    public Row4<String, LocalDateTime, String, String> fieldsRow() {
         return (Row4) super.fieldsRow();
     }
 }

@@ -27,7 +27,6 @@ public class Team extends Observable implements PageOwner {
     private MainSystem mainSystem;
     private int score;
 
-
 //Open team and wait for approval
     public Team(String name, TeamOwner teamOwner){
         //TODO check the name in unique

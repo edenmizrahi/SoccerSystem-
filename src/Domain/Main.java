@@ -1,5 +1,9 @@
 package Domain;
 
+import Domain.Controllers.RefereeController;
+import Domain.Controllers.SystemOperationsController;
+import Service.RefereeApplication;
+import Service.RfaApplication;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 //import org.reflections.Reflections;
@@ -10,6 +14,17 @@ public class Main {
     private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
+
+        SystemOperationsController systemOperationsController = new SystemOperationsController();
+        systemOperationsController.initSystemFromDB();
+//        RfaApplication rfaApplication = new RfaApplication();
+//        rfaApplication.DefinePoliciesToSeason("2020","CalculateOption1","SchedualeOption1","amir");
+//
+        MainSystem ms = MainSystem.getInstance();
+        RefereeApplication refereeApplication = new RefereeApplication();
+        String matches = refereeApplication.displayAllMatches("or");
+        refereeApplication.createGoalEvent("or",matches,"player26");
+        int x=0;
 //        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
 //
 //       String s =  "04-06-2020 20:00:00";
@@ -36,8 +51,8 @@ public class Main {
 
 
         /**LOGGER FORAMT**/
-        LOG.info(String.format("%s - %s", "try", "action?"));
-        LOG.error("something");
+//        LOG.info(String.format("%s - %s", "try", "action?"));
+//        LOG.error("something");
 
 //
 //        Reflections reflections = new Reflections("Domain");
@@ -132,6 +147,9 @@ public class Main {
 //        season2019.addLeagueWithTeams(league2,teamsForLeague1);
 
         //SystemOperationsApplication.initSystemObjectsAdi();
+
+//        SystemOperationsController sop =new SystemOperationsController();
+//        sop.initSystemFromDB();
 
     }
 }

@@ -20,7 +20,6 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
     private static final Logger LOG = LogManager.getLogger();
     private HashSet<TeamManagerPermissions> teamManagerPermissions;
     private HashSet<Notification> notificationsList;
-
     private boolean gotTeamManagerNotification;
 
     public TeamManager(TeamRole teamRole,Team team, HashSet<TeamManagerPermissions> pers) {
@@ -34,6 +33,15 @@ public class TeamManager extends ManagmentActions implements NotificationsUser {
         gotTeamManagerNotification=false;
     }
 
+
+    public TeamManager(TeamRole teamRole) {
+        this.team = team;
+        mySubscriptions = new HashSet<>();
+        teamManagerPermissions = new HashSet<>();
+        this.teamRole= teamRole;
+        notificationsList=new HashSet<>();
+        gotTeamManagerNotification=false;
+    }
     //<editor-fold desc="getters and setters">
 
     public HashSet<TeamSubscription> getMySubscriptions() {

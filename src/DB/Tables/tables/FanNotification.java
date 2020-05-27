@@ -32,10 +32,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanNotification extends TableImpl<FanNotificationRecord> {
 
-    private static final long serialVersionUID = 1132775491;
+    private static final long serialVersionUID = 39120949;
 
     /**
-     * The reference instance of <code>footballsystem_db.fan-notification</code>
+     * The reference instance of <code>footballsystem_db.fan_notification</code>
      */
     public static final FanNotification FAN_NOTIFICATION = new FanNotification();
 
@@ -48,51 +48,51 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     }
 
     /**
-     * The column <code>footballsystem_db.fan-notification.match_date</code>.
+     * The column <code>footballsystem_db.fan_notification.match_date</code>.
      */
     public final TableField<FanNotificationRecord, LocalDateTime> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
 
     /**
-     * The column <code>footballsystem_db.fan-notification.home_team</code>.
+     * The column <code>footballsystem_db.fan_notification.home_team</code>.
      */
     public final TableField<FanNotificationRecord, String> HOME_TEAM = createField(DSL.name("home_team"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>footballsystem_db.fan-notification.away_team</code>.
+     * The column <code>footballsystem_db.fan_notification.away_team</code>.
      */
     public final TableField<FanNotificationRecord, String> AWAY_TEAM = createField(DSL.name("away_team"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>footballsystem_db.fan-notification.userName</code>.
+     * The column <code>footballsystem_db.fan_notification.userName</code>.
      */
     public final TableField<FanNotificationRecord, String> USERNAME = createField(DSL.name("userName"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>footballsystem_db.fan-notification.event_id</code>.
+     * The column <code>footballsystem_db.fan_notification.event_id</code>.
      */
     public final TableField<FanNotificationRecord, Integer> EVENT_ID = createField(DSL.name("event_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>footballsystem_db.fan-notification.read</code>.
+     * The column <code>footballsystem_db.fan_notification.read</code>.
      */
     public final TableField<FanNotificationRecord, Byte> READ = createField(DSL.name("read"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
-     * Create a <code>footballsystem_db.fan-notification</code> table reference
+     * Create a <code>footballsystem_db.fan_notification</code> table reference
      */
     public FanNotification() {
-        this(DSL.name("fan-notification"), null);
+        this(DSL.name("fan_notification"), null);
     }
 
     /**
-     * Create an aliased <code>footballsystem_db.fan-notification</code> table reference
+     * Create an aliased <code>footballsystem_db.fan_notification</code> table reference
      */
     public FanNotification(String alias) {
         this(DSL.name(alias), FAN_NOTIFICATION);
     }
 
     /**
-     * Create an aliased <code>footballsystem_db.fan-notification</code> table reference
+     * Create an aliased <code>footballsystem_db.fan_notification</code> table reference
      */
     public FanNotification(Name alias) {
         this(alias, FAN_NOTIFICATION);

@@ -174,14 +174,6 @@ public class SystemOperationsController {
 
     public void initSystemFromDB () throws Exception {
         FanAdapter fa = new FanAdapter();
-        List<User> loginUsers;
-        Season currSeason;
-        HashSet<Team> activeTeams;
-        HashSet<String> userNames;
-        HashSet<String> teamNames;
-        HashSet<Field> fields;
-        HashMap<Integer, Season> yearPerSeason;
-        HashMap<String, League> nameOfLeaguePerLeague;
         MainSystem ms = MainSystem.getInstance();
 
         /**--- connect to DB ---**/
@@ -622,7 +614,7 @@ public class SystemOperationsController {
                     }
                 }
             }
-
+            int x= 0;
 //            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
         }
 //

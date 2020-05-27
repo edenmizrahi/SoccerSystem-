@@ -351,84 +351,85 @@ public class SystemOperationsController {
 
         /***connections:****/
         /****Teams:****/
-//        HashSet<Team> teams = ms.getActiveTeams();
-//        for (Team team : teams) {
-//            List<String> teamRecord = teamsRecordsByName.get(team.getName());
-////            String teamManagerUserName = teamRecord.get(1);
-//            String teamFounderUserName = teamRecord.get(2);
-//            String teamCoachUserName = teamRecord.get(3);
-//            String teamfield = teamRecord.get(4);
-//
-//            /**set team manager**/
-////            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
-////            teamManager.getTeamManager().setTeam(team);
-////            team.setTeamManager(teamManager.getTeamManager());
-//
-//            /**setFounder**/
-//            TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
-//            team.setFounder(founder.getTeamOwner());
-//
-//            /**setCoach**/
-//            TeamRole coach = ((TeamRole) getUserByUserName(teamCoachUserName));
-//            coach.getCoach().setCoachTeam(team);
-//            team.setCoach(coach.getCoach());
-//
-//            /**setField**/
-//            Field field = fieldsByFieldName.get(teamfield);
-//            field.getTeams().add(team);
-//            team.setField(field);
-//
-//            /**set team owners*/
-//            List<List<String>> teamOwnersAtTeams = daoTeamOwnersTeams.getAll("team_name", team.getName());
-//            for (List<String> teamOwnerRecord : teamOwnersAtTeams) {
-//                TeamRole teamOwner = (TeamRole) getUserByUserName(teamOwnerRecord.get(0));
-//                teamOwner.getTeamOwner().getTeams().add(team);
-//                team.getTeamOwners().add(teamOwner.getTeamOwner());
-//            }
-//
-//            /**set players*/
-//            List<List<String>> playersAtTeam = daoPlayer.getAll("playerTeamName", team.getName());
-//            for (List<String> playerRecord : playersAtTeam) {
-//                TeamRole player = (TeamRole) getUserByUserName(playerRecord.get(0));
-//                player.getPlayer().setPlayerTeam(team);
-//                team.getPlayers().add(player.getPlayer());
-//            }
-//
-//            /**League - Season - Team**/
-//            List<List<String>> league_season_team = daoLeagueSeasonTeams.getAll("teamName", team.getName());
-//            for (List<String> record : league_season_team) {
-//                Season s = seasonsByYear.get(Integer.parseInt(record.get(0)));
-//                League l = leaguesHashMapByName.get(record.get(1));
-//
-//                /**Season*/
-//                HashMap<League, HashSet<Team>> currentSeasonLeague = s.getTeamsInCurrentSeasonLeagues();
-//                if (currentSeasonLeague.containsKey(l)) {
-//                    currentSeasonLeague.get(l).add(team);
-//                } else {
-//                    HashSet<Team> teamsInLeague = new HashSet<>();
-//                    teamsInLeague.add(team);
-//                    currentSeasonLeague.put(l, teamsInLeague);
-//                }
-//
-//                /**League**/
-//                HashMap<Season, HashSet<Team>> currentLeagueSeasons = l.getTeamsInSeason();
-//                if (!currentLeagueSeasons.containsKey(s)) {
-//                    HashSet<Team> teamsInSeason = new HashSet<>();
-//                    teamsInSeason.add(team);
-//                    currentLeagueSeasons.put(s, teamsInSeason);
-//                } else {
-//                    currentLeagueSeasons.get(s).add(team);
-//                }
-//
-//                /**set season-league in team*/
-//                team.getLeaguePerSeason().put(s, l);
-//            }
-//        }
+        HashSet<Team> teams = ms.getActiveTeams();
+        for (Team team : teams) {
+            List<String> teamRecord = teamsRecordsByName.get(team.getName());
+//            String teamManagerUserName = teamRecord.get(1);
+            String teamFounderUserName = teamRecord.get(2);
+            String teamCoachUserName = teamRecord.get(3);
+            String teamfield = teamRecord.get(4);
+
+            /**set team manager**/
+//            TeamRole teamManager = (TeamRole) getUserByUserName(teamManagerUserName);
+//            teamManager.getTeamManager().setTeam(team);
+//            team.setTeamManager(teamManager.getTeamManager());
+
+            /**setFounder**/
+            TeamRole founder = ((TeamRole) getUserByUserName(teamFounderUserName));
+            team.setFounder(founder.getTeamOwner());
+
+            /**setCoach**/
+            TeamRole coach = ((TeamRole) getUserByUserName(teamCoachUserName));
+            coach.getCoach().setCoachTeam(team);
+            team.setCoach(coach.getCoach());
+
+            /**setField**/
+            Field field = fieldsByFieldName.get(teamfield);
+            field.getTeams().add(team);
+            team.setField(field);
+
+            /**set team owners*/
+            List<List<String>> teamOwnersAtTeams = daoTeamOwnersTeams.getAll("team_name", team.getName());
+            for (List<String> teamOwnerRecord : teamOwnersAtTeams) {
+                TeamRole teamOwner = (TeamRole) getUserByUserName(teamOwnerRecord.get(0));
+                teamOwner.getTeamOwner().getTeams().add(team);
+                team.getTeamOwners().add(teamOwner.getTeamOwner());
+            }
+
+            /**set players*/
+            List<List<String>> playersAtTeam = daoPlayer.getAll("playerTeamName", team.getName());
+            for (List<String> playerRecord : playersAtTeam) {
+                TeamRole player = (TeamRole) getUserByUserName(playerRecord.get(0));
+                player.getPlayer().setPlayerTeam(team);
+                team.getPlayers().add(player.getPlayer());
+            }
+
+            /**League - Season - Team**/
+            List<List<String>> league_season_team = daoLeagueSeasonTeams.getAll("team_name", team.getName());
+            for (List<String> record : league_season_team) {
+                Season s = seasonsByYear.get(record.get(0));
+                League l = leaguesHashMapByName.get(record.get(1));
+                /**Season*/
+                HashMap<League, HashSet<Team>> currentSeasonLeague = s.getTeamsInCurrentSeasonLeagues();
+                if (currentSeasonLeague.containsKey(l)) {
+                    currentSeasonLeague.get(l).add(team);
+                } else {
+                    HashSet<Team> teamsInLeague = new HashSet<>();
+                    teamsInLeague.add(team);
+                    currentSeasonLeague.put(l, teamsInLeague);
+                }
+
+                /**League**/
+                HashMap<Season, HashSet<Team>> currentLeagueSeasons = l.getTeamsInSeason();
+                if (!currentLeagueSeasons.containsKey(s)) {
+                    HashSet<Team> teamsInSeason = new HashSet<>();
+                    teamsInSeason.add(team);
+                    currentLeagueSeasons.put(s, teamsInSeason);
+                } else {
+                    currentLeagueSeasons.get(s).add(team);
+                }
+
+                /**set season-league in team*/
+                team.getLeaguePerSeason().put(s, l);
+
+            }
+
+
+        }
 
 
         /**matches**/
         List<List<String>> matchesString = daoMatch.getAll(null, null);
-
         LinkedList<Match> matchesObject = new LinkedList<>();
 //        MatchAdapter matchAdapter = new MatchAdapter();
 //        for (List<String> match : matchesString) {

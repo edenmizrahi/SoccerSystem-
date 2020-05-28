@@ -8,25 +8,25 @@
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %msg%n"/>
+            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %logger - %msg%n"/>
         </Console>
         <RollingFile name="File" fileName="${filename}" filePattern="${filename}-%d{yyyy.MM.dd_HH.mm.ss}-%i.log" >
-            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %msg%n"/>
+            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %logger - %msg%n"/>
             <SizeBasedTriggeringPolicy size="1 MB"/>
             <ThresholdFilter level="INFO"/>
         </RollingFile>
         <RollingFile name="eFile" fileName="${errorfilename}" filePattern="${errorfilename}-%d{yyyy.MM.dd_HH.mm.ss}-%i.log" >
-            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %M - %msg%n"/>
+            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %logger - %M - %msg%n"/>
             <SizeBasedTriggeringPolicy size="1 MB"/>
             <ThresholdFilter level="ERROR"/>
         </RollingFile>
     </Appenders>
 
     <Loggers>
-        <Root level="debug">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
-            <AppenderRef ref="eFile"/>
+        <Root level="DEBUG" additivity="false">
+            <AppenderRef ref = "Console" />
+            <AppenderRef ref="eFile" />
+            <AppenderRef ref="File" />
         </Root>
     </Loggers>
 </Configuration>

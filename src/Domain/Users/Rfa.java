@@ -421,6 +421,15 @@ public class Rfa extends Fan implements NotificationsUser {
         }
     }
 
+    public Team getFromTeamRequests(String team){
+        HashSet<Team> teams = getTeamRequests();
+        for (Team t: teams) {
+            if(t.getName().equals(team)){
+                return t;
+            }
+        }
+        return null;
+    }
 
     /**Or**/
     @Override

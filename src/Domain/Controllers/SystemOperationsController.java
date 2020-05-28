@@ -420,8 +420,6 @@ public class SystemOperationsController {
                 team.getLeaguePerSeason().put(s, l);
 
             }
-
-
         }
 
 
@@ -539,7 +537,7 @@ public class SystemOperationsController {
                     List<String> record = daoExtraTimeEvent.get(key);
                     ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                             Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                    newMatch.addEventToList(extraTimeEvent);
+                    newMatch.addEventToListInInit(extraTimeEvent);
                     eventsInGame.put(extraTimeEvent.getId(),extraTimeEvent);
                 }//extra time
                 else {
@@ -549,7 +547,7 @@ public class SystemOperationsController {
                         List<String> record = daoOnePlayerEvents.get(key);
                         Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                        newMatch.addEventToList(GoalEvent);
+                        newMatch.addEventToListInInit(GoalEvent);
                         eventsInGame.put(GoalEvent.getId(),GoalEvent);
                     }//goal
                     else {
@@ -559,7 +557,7 @@ public class SystemOperationsController {
                             List<String> record = daoOnePlayerEvents.get(key);
                             Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                            newMatch.addEventToList(InjuryEvent);
+                            newMatch.addEventToListInInit(InjuryEvent);
                             eventsInGame.put(InjuryEvent.getId(),InjuryEvent);
 
                         }//injury
@@ -570,7 +568,7 @@ public class SystemOperationsController {
                                 List<String> record = daoOnePlayerEvents.get(key);
                                 Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                         this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                newMatch.addEventToList(OffenseEvent);
+                                newMatch.addEventToListInInit(OffenseEvent);
                                 eventsInGame.put(OffenseEvent.getId(),OffenseEvent);
 
                             }//offense
@@ -581,7 +579,7 @@ public class SystemOperationsController {
                                     List<String> record = daoOnePlayerEvents.get(key);
                                     OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                             this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                    newMatch.addEventToList(OffSideEvent);
+                                    newMatch.addEventToListInInit(OffSideEvent);
                                     eventsInGame.put(OffSideEvent.getId(),OffSideEvent);
 
                                 }//offside
@@ -592,7 +590,7 @@ public class SystemOperationsController {
                                         List<String> record = daoOnePlayerEvents.get(key);
                                         RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                        newMatch.addEventToList(RedCardEvent);
+                                        newMatch.addEventToListInInit(RedCardEvent);
                                         eventsInGame.put(RedCardEvent.getId(),RedCardEvent);
 
                                     }//red card
@@ -603,7 +601,7 @@ public class SystemOperationsController {
                                             List<String> record = daoOnePlayerEvents.get(key);
                                             YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                            newMatch.addEventToList(YellowCardEvent);
+                                            newMatch.addEventToListInInit(YellowCardEvent);
                                             eventsInGame.put(YellowCardEvent.getId(),YellowCardEvent);
 
                                         }//yellow card
@@ -614,7 +612,7 @@ public class SystemOperationsController {
                                                 List<String> record = daoTwoPlayersEvents.get(key);
                                                 Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                         this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                                newMatch.addEventToList(ReplacementEvent);
+                                                newMatch.addEventToListInInit(ReplacementEvent);
                                                 eventsInGame.put(ReplacementEvent.getId(),ReplacementEvent);
 
                                             }//replacement
@@ -629,9 +627,7 @@ public class SystemOperationsController {
             int x= 0;
 //            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
         }
-//        System.out.println(Rfa.notifications);
-        int y=3;
-//
+
         /*************/
 
         /**League**/
@@ -1490,7 +1486,7 @@ public class SystemOperationsController {
         //list of userName in Fan table - check if userName contains
         try {
             password=sha256(password);
-             int isPlayer=0;
+            int isPlayer=0;
             int isCoach=0;
             int isTeamOwner=0;
             LinkedList<String> details = new LinkedList<>();

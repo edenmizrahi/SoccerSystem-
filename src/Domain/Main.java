@@ -17,14 +17,17 @@ public class Main {
     private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
-
+//        LOG.info("tryyyyyyyyyyy");
+//
+//        LOG.error("erorrrrr");
 //        SystemOperationsController systemOperationsController = new SystemOperationsController();
 //        systemOperationsController.initSystemFromDB();
 //        RfaApplication rfaApplication = new RfaApplication();
 //        rfaApplication.DefinePoliciesToSeason("2020","CalculateOption1","SchedualeOption1","amir");
-//
+
 //        MainSystem ms = MainSystem.getInstance();
 //        RefereeApplication refereeApplication = new RefereeApplication();
+//        rfaApplication.answerRequest("amir","real","false");
 //        String matches = refereeApplication.displayAllMatches("or");
 //        refereeApplication.createGoalEvent("or",matches,"player26");
 //        refereeApplication.createInjuryEvent("or",matches,"player26");

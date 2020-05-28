@@ -20,20 +20,21 @@ public class Main {
 //        LOG.info("tryyyyyyyyyyy");
 //
 //        LOG.error("erorrrrr");
-//        SystemOperationsController systemOperationsController = new SystemOperationsController();
-//        systemOperationsController.initSystemFromDB();
-//        RfaApplication rfaApplication = new RfaApplication();
+        SystemOperationsController systemOperationsController = new SystemOperationsController();
+        systemOperationsController.initSystemFromDB();
+        RfaApplication rfaApplication = new RfaApplication();
 //        rfaApplication.DefinePoliciesToSeason("2020","CalculateOption1","SchedualeOption1","amir");
-//
-//        MainSystem ms = MainSystem.getInstance();
-//        RefereeApplication refereeApplication = new RefereeApplication();
+
+        MainSystem ms = MainSystem.getInstance();
+        RefereeApplication refereeApplication = new RefereeApplication();
+        rfaApplication.answerRequest("amir","real","false");
 //        String matches = refereeApplication.displayAllMatches("or");
-////        refereeApplication.createGoalEvent("or",matches,"player26");
+//        refereeApplication.createGoalEvent("or",matches,"player26");
 //        refereeApplication.createInjuryEvent("or",matches,"player26");
 //        refereeApplication.createRedCardEvent("or",matches,"player26");
 //        refereeApplication.createReplaceEvent("or",matches,"player26","player27");
 //        refereeApplication.createExtraTimeEvent("or",matches,"10");
-//        int x=0;
+        int x=0;
 //        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
 //
 //       String s =  "04-06-2020 20:00:00";

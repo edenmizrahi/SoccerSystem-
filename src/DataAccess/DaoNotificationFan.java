@@ -21,7 +21,7 @@ import java.util.List;
 
 import static DB.Tables.Tables.FAN_NOTIFICATION;
 import static DB.Tables.Tables.TEAMROLES;
-import static DB.Tables.tables.FanNotification.FAN_NOTIFICATION;
+//import static DB.Tables.tables.FanNotification.FAN_NOTIFICATION;
 
 /**
  * table name : fan-notification

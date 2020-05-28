@@ -420,8 +420,6 @@ public class SystemOperationsController {
                 team.getLeaguePerSeason().put(s, l);
 
             }
-
-
         }
 
 
@@ -453,11 +451,17 @@ public class SystemOperationsController {
 
             matchesObject.add(newMatch);
 
-            //add observer
+            //add observer- fan notifications
             List<List<String>> fansFollow =daoFanMatchesFollow.getAll(null,null);
             LinkedList<List<String>> fansFollowRelevantToMatch=new LinkedList<>();
+            String homeTeam=newMatch.getHomeTeam().getName();
+            String awayTeam=newMatch.getAwayTeam().getName();
+            String date=MainSystem.simpleDateFormat.format(newMatch.getStartDate());
 
             for(List<String> record:fansFollow){
+//                System.out.println("home:"+homeTeam+"="+record.get(2));
+//                System.out.println("ayar:"+awayTeam+"="+record.get(3));
+//                System.out.println("date:"+date+"="+record.get(1));
                 if(record.get(2).equals(newMatch.getHomeTeam().getName())&&
                         record.get(3).equals(newMatch.getAwayTeam().getName())&&
                             record.get(1).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))){
@@ -498,7 +502,7 @@ public class SystemOperationsController {
                         newMatch.getReferees().add(refInMatch);
                         refInMatch.addMatchToList(newMatch);
                     }
-//                        //notifications:
+                        //Referee notifications:
 //                        List<List<String>> refereeNotificationsRecords = daoNotificaionsReferee.getAll("referee", refInMatch.getUserName());
 //                        refereeNotificationsRecords = getMatchNotifications(refereeNotificationsRecords, newMatch);
 //                        for (List<String> rec : refereeNotificationsRecords) {
@@ -518,13 +522,13 @@ public class SystemOperationsController {
 //            List<List<String>> events  = daoEvent.getAll(null, null);
             List<List<String>> events = daoEvent.getAll("match_date", matchRec.get(0));
 
-//            //return just the records of the specific match
-//            List<List<String>> eventsInMatch = new LinkedList<>();
-//            for(List<String> eventRecord : events){
-//                if(eventRecord.get(3).equals(matchRec.get(0))){
-//                    eventsInMatch.add(eventRecord);
-//                }
-//            }
+            //return just the records of the specific match
+            List<List<String>> eventsInMatch = new LinkedList<>();
+            for(List<String> eventRecord : events){
+                if(eventRecord.get(3).equals(matchRec.get(0))){
+                    eventsInMatch.add(eventRecord);
+                }
+            }
         HashMap<Integer, Event> eventsInGame=new HashMap<>();
             for (List<String> event : events) {
                 if (event.get(6).equals("ExtraTime")) {
@@ -533,7 +537,7 @@ public class SystemOperationsController {
                     List<String> record = daoExtraTimeEvent.get(key);
                     ExtraTime extraTimeEvent = new ExtraTime(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                             Integer.parseInt(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                    newMatch.addEventToList(extraTimeEvent);
+                    newMatch.addEventToListInInit(extraTimeEvent);
                     eventsInGame.put(extraTimeEvent.getId(),extraTimeEvent);
                 }//extra time
                 else {
@@ -543,7 +547,7 @@ public class SystemOperationsController {
                         List<String> record = daoOnePlayerEvents.get(key);
                         Goal GoalEvent = new Goal(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                        newMatch.addEventToList(GoalEvent);
+                        newMatch.addEventToListInInit(GoalEvent);
                         eventsInGame.put(GoalEvent.getId(),GoalEvent);
                     }//goal
                     else {
@@ -553,7 +557,7 @@ public class SystemOperationsController {
                             List<String> record = daoOnePlayerEvents.get(key);
                             Injury InjuryEvent = new Injury(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                            newMatch.addEventToList(InjuryEvent);
+                            newMatch.addEventToListInInit(InjuryEvent);
                             eventsInGame.put(InjuryEvent.getId(),InjuryEvent);
 
                         }//injury
@@ -564,7 +568,7 @@ public class SystemOperationsController {
                                 List<String> record = daoOnePlayerEvents.get(key);
                                 Offense OffenseEvent = new Offense(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                         this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                newMatch.addEventToList(OffenseEvent);
+                                newMatch.addEventToListInInit(OffenseEvent);
                                 eventsInGame.put(OffenseEvent.getId(),OffenseEvent);
 
                             }//offense
@@ -575,7 +579,7 @@ public class SystemOperationsController {
                                     List<String> record = daoOnePlayerEvents.get(key);
                                     OffSide OffSideEvent = new OffSide(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                             this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                    newMatch.addEventToList(OffSideEvent);
+                                    newMatch.addEventToListInInit(OffSideEvent);
                                     eventsInGame.put(OffSideEvent.getId(),OffSideEvent);
 
                                 }//offside
@@ -586,7 +590,7 @@ public class SystemOperationsController {
                                         List<String> record = daoOnePlayerEvents.get(key);
                                         RedCard RedCardEvent = new RedCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                 this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                        newMatch.addEventToList(RedCardEvent);
+                                        newMatch.addEventToListInInit(RedCardEvent);
                                         eventsInGame.put(RedCardEvent.getId(),RedCardEvent);
 
                                     }//red card
@@ -597,7 +601,7 @@ public class SystemOperationsController {
                                             List<String> record = daoOnePlayerEvents.get(key);
                                             YellowCard YellowCardEvent = new YellowCard(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                     this.getPlayerByUserName(record.get(1)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                            newMatch.addEventToList(YellowCardEvent);
+                                            newMatch.addEventToListInInit(YellowCardEvent);
                                             eventsInGame.put(YellowCardEvent.getId(),YellowCardEvent);
 
                                         }//yellow card
@@ -608,7 +612,7 @@ public class SystemOperationsController {
                                                 List<String> record = daoTwoPlayersEvents.get(key);
                                                 Replacement ReplacementEvent = new Replacement(Integer.parseInt(event.get(0)), getRefereeByUserName(event.get(2)), newMatch,
                                                         this.getPlayerByUserName(record.get(1)), this.getPlayerByUserName(record.get(2)), MainSystem.simpleDateFormat.parse(event.get(1)), Integer.parseInt(event.get(7)));
-                                                newMatch.addEventToList(ReplacementEvent);
+                                                newMatch.addEventToListInInit(ReplacementEvent);
                                                 eventsInGame.put(ReplacementEvent.getId(),ReplacementEvent);
 
                                             }//replacement
@@ -623,7 +627,7 @@ public class SystemOperationsController {
             int x= 0;
 //            addEventNotificationToFans(eventsInGame,newMatch,fansObjectsFollow);
         }
-//
+
         /*************/
 
         /**League**/
@@ -644,6 +648,34 @@ public class SystemOperationsController {
             }
         }
         /**********/
+
+        for (User f: ms.getUsers()) {
+            boolean isNoti=false;
+            if(f instanceof Referee){
+                HashSet<Notification> nof =((Referee) f).getNotificationsList();
+                if(!nof.isEmpty()){
+                    System.out.println(((Fan)(f)).getUserName()+" Notifications as referee:");
+                    isNoti=true;
+                }
+                for (Notification n: nof){
+                    System.out.println("sender: "+n.getSender());
+                    System.out.println("content: "+n.getContent());
+                    System.out.println("isRead: "+n.isRead());
+                }
+            }
+            HashSet<Notification> nofs=((Fan)(f)).getFanNotification();
+            if(!nofs.isEmpty()){
+                System.out.println(((Fan)(f)).getUserName()+" Notifications as Fan:");
+                isNoti=true;
+                for (Notification n: nofs){
+                    System.out.println("sender: "+n.getSender());
+                    System.out.println("content: "+n.getContent());
+                    System.out.println("isRead: "+n.isRead());
+                }
+            }
+           if(isNoti)
+               System.out.println("\n");
+        }
     }
 
     /***
@@ -688,9 +720,12 @@ public class SystemOperationsController {
         for(List<String> record:notificationsFans){
             Fan f= (Fan)getUserByUserName(record.get(3));
             //if the record is this match record:
-            if(notificationsFans.get(1).equals(newMatch.getHomeTeam().getName())&&
-                    notificationsFans.get(2).equals(newMatch.getAwayTeam().getName())&&
-                    notificationsFans.get(0).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))) {
+            System.out.println("home"+record.get(1)+"="+newMatch.getHomeTeam().getName()+ "  "+notificationsFans.get(1).equals(newMatch.getHomeTeam().getName()));
+            System.out.println("ayay"+record.get(2)+"="+newMatch.getAwayTeam().getName()+"   "+notificationsFans.get(2).equals(newMatch.getAwayTeam().getName()));
+            System.out.println("date"+record.get(0)+"="+MainSystem.simpleDateFormat.format(newMatch.getStartDate())+"   "+                    notificationsFans.get(0).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate())));
+            if(record.get(1).equals(newMatch.getHomeTeam().getName())&&
+                    record.get(2).equals(newMatch.getAwayTeam().getName())&&
+                    record.get(0).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))) {
                 ///is thi is the write user
                 if (fansObjectsFollow.contains(f)) {
                     boolean isRead=false;
@@ -698,6 +733,7 @@ public class SystemOperationsController {
                         isRead=true;
                     }
                     Notification n = new Notification(newMatch,events.get( notificationsFans.get(4)),isRead);
+                   (f).getFanNotification().add(n);
                 }
             }
         }
@@ -1450,7 +1486,7 @@ public class SystemOperationsController {
         //list of userName in Fan table - check if userName contains
         try {
             password=sha256(password);
-             int isPlayer=0;
+            int isPlayer=0;
             int isCoach=0;
             int isTeamOwner=0;
             LinkedList<String> details = new LinkedList<>();

@@ -34,27 +34,18 @@ public class RegistrationGamesAlertsController {
     private ComboBox<String> allMatchesInSystemCombo;
     @FXML
     private Button followMatchButton;
-
-
-
     private FanApplication fanApplication = new FanApplication();
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // is teamRole
     private List<String> fanMatchsList=new LinkedList<>();
     private List<String> allMatchsList=new LinkedList<>();
 
-
-
-
-
     @FXML
     public void initUser (String userName) {
         this.userName=userName;
         //update comoboxs
         updateMachesFollsComoBox();
-
     }
-
 
     @FXML
     public void updateMachesFollsComoBox(){
@@ -93,14 +84,15 @@ public class RegistrationGamesAlertsController {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
-
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        HomePageController controller = loader.getController();
+        controller.initHomePage(userName);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
-
 
 
     @FXML
@@ -130,7 +122,6 @@ public class RegistrationGamesAlertsController {
                 chooseFile.show();
             }
         }
-
     }
 
 
@@ -138,6 +129,7 @@ public class RegistrationGamesAlertsController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
+        controller.initHomePage(userName);
         controller.closeHandling(mouseEvent);
     }
 }

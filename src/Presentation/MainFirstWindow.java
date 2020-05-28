@@ -53,9 +53,9 @@ public class MainFirstWindow extends Application {
 
     public static void main(String[] args) throws Exception {
         SystemOperationsController systemOperationsController = new SystemOperationsController();
-        systemOperationsController.initSystemObjectsAvitalForUI();
+        //systemOperationsController.initSystemObjectsAvitalForUI();
+        systemOperationsController.initSystemFromDB();
         MainSystem ma= MainSystem.getInstance();
-
         launch(args);
     }
 }

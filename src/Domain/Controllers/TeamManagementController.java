@@ -644,19 +644,19 @@ public class TeamManagementController {
         String myRoles = new String();
         if (user.isTeamOwner()){
             //myRoles.add("Team Owner");
-            myRoles += "Team Owner,";
+            myRoles += "Team Owner;";
         }
         if (user.isTeamManager()){
             //myRoles.add("Team Manager");
-            myRoles += "Team Manager,";
+            myRoles += "Team Manager;";
         }
         if (user.isCoach()){
             //myRoles.add("Coach");
-            myRoles += "Coach,";
+            myRoles += "Coach;";
         }
         if (user.isPlayer()){
             //myRoles.add("Player");
-            myRoles += "Player,";
+            myRoles += "Player;";
         }
         return myRoles;
     }
@@ -672,15 +672,15 @@ public class TeamManagementController {
         String canBecome = new String();
         if (!user.isTeamOwner()){
             //canBecome.add("Team Owner");
-            canBecome += "Team Owner,";
+            canBecome += "Team Owner;";
         }
         if (!user.isCoach()){
             //canBecome.add("Coach");
-            canBecome += "Coach,";
+            canBecome += "Coach;";
         }
         if (!user.isPlayer()){
             //canBecome.add("Player");
-            canBecome += "Player,";
+            canBecome += "Player;";
         }
         return canBecome;
     }

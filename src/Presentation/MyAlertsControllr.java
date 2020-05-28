@@ -2,7 +2,6 @@ package Presentation;
 
 import Service.FanApplication;
 import Service.SystemOperationsApplication;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;

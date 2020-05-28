@@ -66,6 +66,20 @@ public class TeamManagementController {
                     break;
                 }
             }
+
+            LinkedList<String> teamRecord=new LinkedList<>();
+            teamRecord.add(teamName);
+            teamRecord.add(null);
+            teamRecord.add(userName);
+            teamRecord.add(coachUserName);
+            teamRecord.add(nameOfNewField);
+            teamRecord.add("0");
+            LinkedList<String> toRemove = new LinkedList<>();
+            toRemove.add(userName);
+            toRemove.add(teamName);
+            daoApprovedTeamReq.delete(toRemove);
+            daoTeams.save(teamRecord);
+
             List<String> playerNames = Arrays.asList(playerNamesStr.split(";"));
             HashSet<TeamRole> players = new HashSet<>();
             for (String pName : playerNames) {
@@ -91,18 +105,7 @@ public class TeamManagementController {
             Field field = new Field(nameOfNewField);
 
             user.getTeamOwner().makeTeamActive(team, players, coach, field);
-            LinkedList<String> teamRecord=new LinkedList<>();
-            teamRecord.add(teamName);
-            teamRecord.add(userName);
-            teamRecord.add(userName);
-            teamRecord.add(coachUserName);
-            teamRecord.add(nameOfNewField);
-            teamRecord.add("0");
-            LinkedList<String> toRemove = new LinkedList<>();
-            toRemove.add(userName);
-            toRemove.add(teamName);
-            daoApprovedTeamReq.delete(toRemove);
-            daoTeams.save(teamRecord);
+
             /**teamOwner*/
             LinkedList<String> key=new LinkedList<>();
             key.add(userName);

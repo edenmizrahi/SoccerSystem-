@@ -525,14 +525,14 @@ public class Team extends Observable implements PageOwner {
                 throw new Exception("The number of players are less than 11");
             }
             this.players = players;
-            for (Player player : players) {
-                if (player.getTeam() == null) {
-                    player.setPlayerTeam(this);
-                } else {
-                    LOG.error("one of the players team is not null");
-                    throw new Exception("one of the players team is not null");
-                }
-            }
+//            for (Player player : players) {
+//                if (player.getTeam() == null) {
+//                    player.setPlayerTeam(this);
+//                } else {
+//                    LOG.error("one of the players team is not null");
+//                    throw new Exception("one of the players team is not null");
+//                }
+//            }
             this.coach = coach;
             this.coach.setCoachTeam(this);
             this.field = field;

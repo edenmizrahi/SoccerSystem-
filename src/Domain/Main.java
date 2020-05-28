@@ -18,20 +18,20 @@ public class Main {
 
     public static void main(String [] args) throws Exception {
 
-        SystemOperationsController systemOperationsController = new SystemOperationsController();
-        systemOperationsController.initSystemFromDB();
+//        SystemOperationsController systemOperationsController = new SystemOperationsController();
+//        systemOperationsController.initSystemFromDB();
 //        RfaApplication rfaApplication = new RfaApplication();
 //        rfaApplication.DefinePoliciesToSeason("2020","CalculateOption1","SchedualeOption1","amir");
 //
-        MainSystem ms = MainSystem.getInstance();
-        RefereeApplication refereeApplication = new RefereeApplication();
-        String matches = refereeApplication.displayAllMatches("or");
+//        MainSystem ms = MainSystem.getInstance();
+//        RefereeApplication refereeApplication = new RefereeApplication();
+//        String matches = refereeApplication.displayAllMatches("or");
 //        refereeApplication.createGoalEvent("or",matches,"player26");
-        refereeApplication.createInjuryEvent("or",matches,"player26");
-        refereeApplication.createRedCardEvent("or",matches,"player26");
-        refereeApplication.createReplaceEvent("or",matches,"player26","player27");
-        refereeApplication.createExtraTimeEvent("or",matches,"10");
-        int x=0;
+//        refereeApplication.createInjuryEvent("or",matches,"player26");
+//        refereeApplication.createRedCardEvent("or",matches,"player26");
+//        refereeApplication.createReplaceEvent("or",matches,"player26","player27");
+//        refereeApplication.createExtraTimeEvent("or",matches,"10");
+//        int x=0;
 //        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
 //
 //       String s =  "04-06-2020 20:00:00";
@@ -169,13 +169,13 @@ public class Main {
 //        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player53","e111111","04-04-1994","true"));
 //        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player54","e111111","04-04-1994","true"));
 //        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player55","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Coach","eden","0526621646","eden04060925@gmail.com","coach12","e111111","04-04-1994","true"));
+        System.out.println(soa.signUp("Coach","eden","0526621646","eden04060925@gmail.com","coach12","e111111","04-04-1994","true"));
 
-//        String players="player46;player47;player48;player49;player50;player51;player52;player53;player54;player55;player48";
-//        UserController uc=new UserController();
-//        System.out.println(uc.login("ilan","e111111"));
-//        TeamManagementApplication te=new TeamManagementApplication();
-//        te.makeTeamActive("ilan","theBestTeamEver",players,"coach12","bashField1");
+        String players="player46;player47;player48;player49;player50;player51;player52;player53;player54;player55;player56";
+        UserController uc=new UserController();
+        System.out.println(uc.login("ilan","e111111"));
+        TeamManagementApplication te=new TeamManagementApplication();
+        te.makeTeamActive("ilan","theBestTeamEver",players,"coach12","bashField1");
 //        /**********/
 
 

@@ -74,7 +74,7 @@ public class RfaNotificationController {
 
     public void BackToRfa(ActionEvent actionEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Rfa.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
         Scene scene = new Scene(root, 900, 600);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }

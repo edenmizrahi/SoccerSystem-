@@ -40,6 +40,7 @@ public class RegistrationGamesAlertsController {
     private FanApplication fanApplication = new FanApplication();
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // is teamRole
+    private String role;
     private List<String> fanMatchsList=new LinkedList<>();
     private List<String> allMatchsList=new LinkedList<>();
 
@@ -48,8 +49,9 @@ public class RegistrationGamesAlertsController {
 
 
     @FXML
-    public void initUser (String userName) {
+    public void initUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
         //update comoboxs
         updateMachesFollsComoBox();
 
@@ -93,9 +95,18 @@ public class RegistrationGamesAlertsController {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
-
+        String fxmlStr="";
+        if(role.equals("Fan")){
+            fxmlStr="HomePage.fxml";
+        }
+        else if( role.equals("Rfa")){
+            fxmlStr="RfaPage.fxml";
+        }
+        else{
+            fxmlStr="RefereePage.fxml";
+        }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);

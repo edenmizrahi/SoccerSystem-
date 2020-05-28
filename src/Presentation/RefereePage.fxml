@@ -66,9 +66,9 @@
                     <children>
                         <Button fx:id="addEvent" mnemonicParsing="false" onAction="#addEventToMatch" prefHeight="45.0" prefWidth="230.0" text="Add event to match" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Button fx:id="idReportbtn" mnemonicParsing="false" onAction="#createReport" prefHeight="45.0" prefWidth="230.0" text="Create Report" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Button fx:id="viewOrChangeSettingsBtn" mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="230.0" text="View\change settings " GridPane.rowIndex="2" />
-                        <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onMouseClicked="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.rowIndex="3" />
-                        <Button fx:id="MyAlertsBtn" mnemonicParsing="false" onMouseClicked="#MyAlertsFunction" prefHeight="45.0" prefWidth="230.0" text="My alerts as Fan" GridPane.rowIndex="4" />
+                        <Button fx:id="viewOrChangeSettingsBtn" mnemonicParsing="false" onAction="#RefereeDetailsEventClick" prefHeight="45.0" prefWidth="230.0" text="View\change settings " GridPane.rowIndex="2" />
+                        <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onAction="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.rowIndex="3" />
+                        <Button fx:id="MyAlertsBtn" mnemonicParsing="false" onAction="#MyAlertsFunction" prefHeight="45.0" prefWidth="230.0" text="My alerts as Fan" GridPane.rowIndex="4" />
                   <Button mnemonicParsing="false" text="My alerts as Referee" GridPane.columnIndex="2" prefHeight="45.0" prefWidth="230.0" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>

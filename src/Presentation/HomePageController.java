@@ -147,7 +147,7 @@ public class HomePageController {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
-        myRolesController.initAllertsUser(userName);
+        myRolesController.initAllertsUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -191,7 +191,7 @@ public class HomePageController {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyRolesController myRolesController=loader.getController();
-        myRolesController.initUser(userName);
+        myRolesController.initUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);

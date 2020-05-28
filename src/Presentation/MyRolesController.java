@@ -24,7 +24,8 @@ public class MyRolesController { //implements Initializable {
     private ChoiceBox myRolesCB = new ChoiceBox();
     @FXML
     private ChoiceBox becomeRoleCB = new ChoiceBox();
-    String userName; //= "Mike";
+    private String userName; //= "Mike";
+    private String role;
     private TeamManagementApplication tMApp = new TeamManagementApplication();
 
 //    @Override
@@ -33,7 +34,8 @@ public class MyRolesController { //implements Initializable {
 //    }
 
     @FXML
-    public void initUser(String userName){
+    public void initUser(String userName,String role){
+        this.role=role;
         this.userName = userName;
         initScene();
     }
@@ -103,7 +105,7 @@ public class MyRolesController { //implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("HomePage.fxml").openStream());
         HomePageController homeCont = loader.getController();
-        homeCont.initHomePage(userName);
+        homeCont.initHomePage(userName,role);
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -118,7 +120,7 @@ public class MyRolesController { //implements Initializable {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         TeamManagementUIController tMUICont = loader.getController();
-        tMUICont.initUser(userName);
+        tMUICont.initUser(userName,this.role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -137,7 +139,7 @@ public class MyRolesController { //implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

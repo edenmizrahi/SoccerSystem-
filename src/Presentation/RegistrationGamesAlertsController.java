@@ -37,12 +37,15 @@ public class RegistrationGamesAlertsController {
     private FanApplication fanApplication = new FanApplication();
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // is teamRole
+    private String role;
+
     private List<String> fanMatchsList=new LinkedList<>();
     private List<String> allMatchsList=new LinkedList<>();
 
     @FXML
-    public void initUser (String userName) {
+    public void initUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
         //update comoboxs
         updateMachesFollsComoBox();
     }
@@ -90,7 +93,7 @@ public class RegistrationGamesAlertsController {
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -129,7 +132,7 @@ public class RegistrationGamesAlertsController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

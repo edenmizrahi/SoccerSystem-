@@ -32,6 +32,7 @@ public class TeamManagementUIController { //implements Initializable {
     @FXML
     private TextField newTeamName;
     String userName;
+    String role;
     private TeamManagementApplication tMApp = new TeamManagementApplication();
 
 //    @Override
@@ -40,7 +41,8 @@ public class TeamManagementUIController { //implements Initializable {
 //    }
 
     @FXML
-    public void initUser(String userName) {
+    public void initUser(String userName,String role) {
+        this.role=role;
         this.userName = userName;
         activateScene();
     }
@@ -53,7 +55,7 @@ public class TeamManagementUIController { //implements Initializable {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         TeamManagementUIController tMUICont = loader.getController();
-        tMUICont.initUser(userName);
+        tMUICont.initUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -106,7 +108,7 @@ public class TeamManagementUIController { //implements Initializable {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController homeCont = loader.getController();
-        homeCont.initHomePage(userName);
+        homeCont.initHomePage(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -122,7 +124,7 @@ public class TeamManagementUIController { //implements Initializable {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyRolesController myRolesCont = loader.getController();
-        myRolesCont.initUser(userName);
+        myRolesCont.initUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);

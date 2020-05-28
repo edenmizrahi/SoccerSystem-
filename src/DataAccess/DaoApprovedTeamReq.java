@@ -27,7 +27,7 @@ import static DB.Tables.Tables.TEAM_OWNER_TEAMS;
 
 public class DaoApprovedTeamReq implements Dao<String> {
 
-    private static final Logger LOG = LogManager.getLogger("DaoApprovedTeamReq");
+    private final Logger LOG = LogManager.getLogger("DaoApprovedTeamReq");
 
     @Override
     public List<String> get(List<String> keys) throws ParseException {

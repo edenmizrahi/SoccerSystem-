@@ -39,7 +39,7 @@ public class HomePageController {
     private UserApplication userApplication= new UserApplication();
     private FanApplication fanApplication = new FanApplication();
     private String userName; // is teamRole
-    private String role="Fan";
+    private String role;
 
     //for notifications
     static CheckNotificationsTask scheduler=null;

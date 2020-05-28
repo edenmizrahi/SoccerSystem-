@@ -25,7 +25,7 @@ public class RfaNotificationController {
 
     private RfaApplication rfaApplication = new RfaApplication();
     private List<String> RfaRequestList=new LinkedList<>();
-    public String userName = "";
+    public String userName ;
 
     @FXML
     private ComboBox<String > requestsCombo;

@@ -42,8 +42,8 @@ public class RefereePageController extends HomePageController {
     private FanApplication fanApplication= new FanApplication();
     private UserApplication userApplication= new UserApplication();
 
-    private String userName = "dana123";
-    private String role="Referee";
+    private String userName;
+    private String role;
 
     @FXML
     @Override

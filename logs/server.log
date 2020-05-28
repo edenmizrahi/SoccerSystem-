@@ -8768,3 +8768,8 @@
 28.05.2020 10:05:19 ERROR DaoApprovedTeamReq - key noy found in table
 28.05.2020 10:07:07 INFO  DaoApprovedTeamReq - Succeeded  -  get from table #team_owner_approved_teams# DB - is activated
 28.05.2020 10:07:07 ERROR DaoApprovedTeamReq - key not found in table
+28.05.2020 11:01:48 INFO  DBHandler - Succeeded  - DB connected
+28.05.2020 11:01:48 INFO  DBHandler - Succeeded  - DB connected
+28.05.2020 11:01:51 INFO  DBHandler - Succeeded  - DB connected
+28.05.2020 11:04:03 ERROR DBHandler - connection in now null
+28.05.2020 11:04:24 ERROR DBHandler - connection in now null

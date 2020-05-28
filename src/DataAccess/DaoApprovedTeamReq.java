@@ -27,8 +27,6 @@ import static DB.Tables.Tables.TEAM_OWNER_TEAMS;
 
 public class DaoApprovedTeamReq implements Dao<String> {
 
-    private static final Logger LOG = LogManager.getLogger("DaoApprovedTeamReq");
-
     @Override
     public List<String> get(List<String> keys) throws ParseException {
         /** check connection to DB  **/
@@ -44,16 +42,12 @@ public class DaoApprovedTeamReq implements Dao<String> {
                 .fetchOne();
         /** key noy found in table  **/
         if (teamOwnerApprovedTeamsRecord== null || teamOwnerApprovedTeamsRecord.size()==0){
-            //return null;
-            LOG.error("key not found in table");
             throw new ParseException("key noy found in table",0);
         }
 
         for (int i = 0; i <teamOwnerApprovedTeamsRecord.size() ; i++) {
             result.add(teamOwnerApprovedTeamsRecord.get(i).toString());
         }
-
-        LOG.info(String.format("%s - %s", "Succeeded ", " get from table #team_owner_approved_teams# DB - is activated"));
         return result;
 
     }
@@ -82,7 +76,6 @@ public class DaoApprovedTeamReq implements Dao<String> {
                     ans.get(j).add(currCol.get(j));
                 }
             }
-            LOG.info(String.format("%s - %s", "Succeeded ", " getAll from table #team_owner_approved_teams# DB - is activated"));
             return ans;
 
         }
@@ -113,7 +106,6 @@ public class DaoApprovedTeamReq implements Dao<String> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        LOG.info(String.format("%s - %s", "Succeeded ", " getAll from table #team_owner_approved_teams# DB - is activated"));
         return ans;
     }
 
@@ -147,7 +139,6 @@ public class DaoApprovedTeamReq implements Dao<String> {
         else {
             throw new SQLException("added failed, key already exist.");
         }
-        LOG.info(String.format("%s - %s", "Succeeded", "save to table #team_owner_approved_teams# DB"));
 
     }
 
@@ -179,7 +170,6 @@ public class DaoApprovedTeamReq implements Dao<String> {
                 //e.printStackTrace();
                 System.out.println("foreign key not exist. need to change it");
             }
-            LOG.info(String.format("%s - %s", "Succeeded", "update row in table #team_owner_approved_teams# DB"));
         }
         // LOG.errors - not update ! key not found
 
@@ -198,7 +188,6 @@ public class DaoApprovedTeamReq implements Dao<String> {
                 .and(TEAM_OWNER_APPROVED_TEAMS.TEAM_NAME.eq(key1))
                 .execute();
 
-        LOG.info(String.format("%s - %s", "Succeeded", "delete from table #team_owner_approved_teams# DB"));
     }
 
 }

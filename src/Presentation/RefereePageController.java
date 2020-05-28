@@ -104,7 +104,7 @@ public class RefereePageController extends HomePageController {
             Scene scene = new Scene(root, 900, 600);
 
             eventsPageController eventsPageController = loader.getController();
-            eventsPageController.initUser(userName, match);
+            eventsPageController.initUser(userName, match,role);
 
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stageTheEventSourceNodeBelongs.setScene(scene);
@@ -148,13 +148,20 @@ public class RefereePageController extends HomePageController {
     }
 
     @FXML
-    public void MyAlertsFunction(MouseEvent mouseEvent) throws IOException {
+    public void MyAlertsFunctionAsRef(ActionEvent event) throws IOException {
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RefereeNotification.fxml"));
+        Parent root=loader.load();
+
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+
+        RefereeNotificationController controller=loader.getController();
+        controller.initAlertsUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
 
     }
 
@@ -215,5 +222,15 @@ public class RefereePageController extends HomePageController {
         HomePageController hpc=loader.getController();
         hpc.initHomePage(userName,"Referee");
         hpc.fanDetailsEventClick(actionEvent);
+    }
+
+    public void FanNotificationEventClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        Parent root=loader.load();
+        HomePageController hpc=loader.getController();
+        hpc.initHomePage(userName,"Referee");
+        hpc.fanAllertsEventClick(actionEvent);
+
     }
 }

@@ -49,8 +49,12 @@ public class ReportOfMatchController {
     @FXML
     public void BackToReferee(ActionEvent actionEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        RefereePageController controller = loader.getController();
+        controller.initUser(userName,"Referee");
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

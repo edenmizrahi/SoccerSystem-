@@ -70,13 +70,21 @@ public class RfaPageController extends HomePageController {
     }
 
     @FXML
-    public void MyAlertsFunction(MouseEvent mouseEvent) throws IOException {
+    public void MyAlertsFunctionAsRFA(ActionEvent event) throws IOException {
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RfaNotification.fxml"));
+        Parent root=loader.load();
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RfaNotification.fxml"));
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+
+        RfaNotificationController controller=loader.getController();
+        controller.initUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+
+
 
     }
 
@@ -166,5 +174,15 @@ public class RfaPageController extends HomePageController {
         HomePageController hpc=loader.getController();
         hpc.initHomePage(userName,"Rfa");
         hpc.fanDetailsEventClick(actionEvent);
+    }
+
+    public void FanNotificationEventClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        Parent root=loader.load();
+        HomePageController hpc=loader.getController();
+        hpc.initHomePage(userName,"Rfa");
+        hpc.fanAllertsEventClick(actionEvent);
+
     }
 }

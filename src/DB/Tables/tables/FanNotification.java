@@ -5,23 +5,15 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
-import DB.Tables.Keys;
 import DB.Tables.tables.records.FanNotificationRecord;
-
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
-import org.jooq.TableField;
 import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -32,7 +24,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FanNotification extends TableImpl<FanNotificationRecord> {
 
-    private static final long serialVersionUID = -1497556364;
+    private static final long serialVersionUID = 936917723;
 
     /**
      * The reference instance of <code>footballsystem_db.fan_notification</code>
@@ -46,36 +38,6 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     public Class<FanNotificationRecord> getRecordType() {
         return FanNotificationRecord.class;
     }
-
-    /**
-     * The column <code>footballsystem_db.fan_notification.match_date</code>.
-     */
-    public final TableField<FanNotificationRecord, LocalDateTime> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.fan_notification.home_team</code>.
-     */
-    public final TableField<FanNotificationRecord, String> HOME_TEAM = createField(DSL.name("home_team"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.fan_notification.away_team</code>.
-     */
-    public final TableField<FanNotificationRecord, String> AWAY_TEAM = createField(DSL.name("away_team"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.fan_notification.userName</code>.
-     */
-    public final TableField<FanNotificationRecord, String> USERNAME = createField(DSL.name("userName"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.fan_notification.event_id</code>.
-     */
-    public final TableField<FanNotificationRecord, Integer> EVENT_ID = createField(DSL.name("event_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>footballsystem_db.fan_notification.readed</code>.
-     */
-    public final TableField<FanNotificationRecord, Byte> READED = createField(DSL.name("readed"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * Create a <code>footballsystem_db.fan_notification</code> table reference
@@ -116,33 +78,6 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     }
 
     @Override
-    public UniqueKey<FanNotificationRecord> getPrimaryKey() {
-        return Keys.KEY_FAN_NOTIFICATION_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<FanNotificationRecord>> getKeys() {
-        return Arrays.<UniqueKey<FanNotificationRecord>>asList(Keys.KEY_FAN_NOTIFICATION_PRIMARY);
-    }
-
-    @Override
-    public List<ForeignKey<FanNotificationRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<FanNotificationRecord, ?>>asList(Keys.FK_FAN_NOTIFICATION_MATCHES, Keys.FK_FAN_NOTIFICATION_FANS, Keys.FK_FAN_NOTIFICATION_EVENTS);
-    }
-
-    public Matches matches() {
-        return new Matches(this, Keys.FK_FAN_NOTIFICATION_MATCHES);
-    }
-
-    public Fans fans() {
-        return new Fans(this, Keys.FK_FAN_NOTIFICATION_FANS);
-    }
-
-    public Events events() {
-        return new Events(this, Keys.FK_FAN_NOTIFICATION_EVENTS);
-    }
-
-    @Override
     public FanNotification as(String alias) {
         return new FanNotification(DSL.name(alias), this);
     }
@@ -166,14 +101,5 @@ public class FanNotification extends TableImpl<FanNotificationRecord> {
     @Override
     public FanNotification rename(Name name) {
         return new FanNotification(name, null);
-    }
-
-    // -------------------------------------------------------------------------
-    // Row6 type methods
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<LocalDateTime, String, String, String, Integer, Byte> fieldsRow() {
-        return (Row6) super.fieldsRow();
     }
 }

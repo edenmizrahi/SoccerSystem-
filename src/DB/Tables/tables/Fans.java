@@ -5,12 +5,9 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
-import DB.Tables.Keys;
 import DB.Tables.tables.records.FansRecord;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
@@ -21,7 +18,6 @@ import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -32,7 +28,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Fans extends TableImpl<FansRecord> {
 
-    private static final long serialVersionUID = 700992856;
+    private static final long serialVersionUID = -127442971;
 
     /**
      * The reference instance of <code>footballsystem_db.fans</code>
@@ -118,16 +114,6 @@ public class Fans extends TableImpl<FansRecord> {
     @Override
     public Schema getSchema() {
         return FootballsystemDb.FOOTBALLSYSTEM_DB;
-    }
-
-    @Override
-    public UniqueKey<FansRecord> getPrimaryKey() {
-        return Keys.KEY_FANS_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<FansRecord>> getKeys() {
-        return Arrays.<UniqueKey<FansRecord>>asList(Keys.KEY_FANS_PRIMARY);
     }
 
     @Override

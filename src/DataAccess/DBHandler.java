@@ -1,5 +1,7 @@
 package DataAccess;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Result;
 import org.jooq.SQLDialect;
@@ -21,17 +23,22 @@ public final class DBHandler  {
     private static String myDriver="org.mariadb.jdbc.Driver";
     private static String myUrl="jdbc:mysql://132.72.65.77:3306/footballsystem_db";
     private static Connection connection=null;
+    private static final Logger LOG = LogManager.getLogger("DBHandler");
 
 
     public DBHandler(){
         try{
             Class.forName(myDriver);
             connection= DriverManager.getConnection(myUrl,username,password);
-            System.out.println("DB connected");
+            LOG.info(String.format("%s - %s", "Succeeded ", "DB connected"));
+            //System.out.println("DB connected");
+
         }
         catch (SQLException e) {
+            LOG.error("connection in now null");
             System.out.println("Connection in now null");
         }catch (ClassNotFoundException e){
+            LOG.error("error connecting to server");
             System.out.println("error connecting to server");
         }
     }
@@ -62,11 +69,14 @@ public final class DBHandler  {
         try{
             Class.forName(myDriver);
             connection= DriverManager.getConnection(myUrl,username,password);
-            System.out.println("DB connected");
+            LOG.info(String.format("%s - %s", "Succeeded ", "DB connected"));
+            //System.out.println("DB connected");
         }
         catch (SQLException e) {
+            LOG.error("connection in now null");
             System.out.println("Connection in now null");
         }catch (ClassNotFoundException e){
+            LOG.error("error connecting to server");
             System.out.println("error connecting to server");
         }
     }
@@ -93,11 +103,11 @@ public final class DBHandler  {
 
 
 
-    public static void main( String[] args ) throws SQLException {
-        DBHandler db=new DBHandler();
-        conectToDB();
-        System.out.println(db.dslCheck());
-        System.out.println(db.dslCheckConfig());
-    }
+//    public static void main( String[] args ) throws SQLException {
+//        DBHandler db=new DBHandler();
+//        conectToDB();
+//        System.out.println(db.dslCheck());
+//        System.out.println(db.dslCheckConfig());
+//    }
 
 }

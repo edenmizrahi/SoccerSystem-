@@ -5,12 +5,9 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
-import DB.Tables.Keys;
 import DB.Tables.tables.records.EventsRecord;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
@@ -21,7 +18,6 @@ import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -32,7 +28,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events extends TableImpl<EventsRecord> {
 
-    private static final long serialVersionUID = -859212250;
+    private static final long serialVersionUID = 1743889302;
 
     /**
      * The reference instance of <code>footballsystem_db.events</code>
@@ -123,29 +119,6 @@ public class Events extends TableImpl<EventsRecord> {
     @Override
     public Schema getSchema() {
         return FootballsystemDb.FOOTBALLSYSTEM_DB;
-    }
-
-    @Override
-    public UniqueKey<EventsRecord> getPrimaryKey() {
-        return Keys.KEY_EVENTS_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<EventsRecord>> getKeys() {
-        return Arrays.<UniqueKey<EventsRecord>>asList(Keys.KEY_EVENTS_PRIMARY);
-    }
-
-    @Override
-    public List<ForeignKey<EventsRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<EventsRecord, ?>>asList(Keys.FK_EVENTS2_REFEREES, Keys.FK_EVENTS_MATCHES);
-    }
-
-    public Referees referees() {
-        return new Referees(this, Keys.FK_EVENTS2_REFEREES);
-    }
-
-    public Matches matches() {
-        return new Matches(this, Keys.FK_EVENTS_MATCHES);
     }
 
     @Override

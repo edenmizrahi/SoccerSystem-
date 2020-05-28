@@ -3,6 +3,7 @@ package Presentation;
 import Service.FanApplication;
 import Service.RefereeApplication;
 import Service.UserApplication;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,33 +56,21 @@ public class RefereePageController extends HomePageController {
                             scheduler.cancel();
                             connectionOK = false;
                         }
+                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new Notification about a game you are following !");
+                            chooseFile.show();
+                        }else if(scheduler.getValue().equals("gotRefereeNotification")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new notification about your match !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("multipleNotifications")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have multiple new notifications!");
+                            chooseFile.show();
+                        }
 
-                    /*
-
-                if(ans.equals("gotFanNotification")){//fan
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have a new Notification about a game you are following !");
-                    chooseFile.show();
-                }
-                else if(ans.equals("gotRFAnotification")){//rfa
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have a new team to approve !");
-                    chooseFile.show();
-                }
-                else if(ans.equals("gotRefereeNotification")){//referee
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have a new notification about your match !");
-                    chooseFile.show();
-                }
-                else if(ans.equals("multipleNotifications")){//referee
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have multiple new notifications!");
-                    chooseFile.show();
-                }
-
-
-            }
-        */
                     });
             scheduler.setOnFailed(e -> System.out.println("failed to run"));
             scheduler.start();
@@ -189,7 +178,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("Login.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root, 700, 400);
 
 
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -204,5 +193,12 @@ public class RefereePageController extends HomePageController {
             chooseFile.show();
         }
 
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
     }
 }

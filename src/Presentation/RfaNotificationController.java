@@ -3,6 +3,7 @@ package Presentation;
 import Service.RefereeApplication;
 import Service.RfaApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -62,6 +63,13 @@ public class RfaNotificationController {
     public void onApprove(ActionEvent actionEvent) {
         String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
         this.rfaApplication.answerRequest(userName,teamName,"true");
+    }
+
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
     }
 
     public void BackToRfa(ActionEvent actionEvent) throws IOException {

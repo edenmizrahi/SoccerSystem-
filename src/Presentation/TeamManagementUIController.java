@@ -1,6 +1,7 @@
 package Presentation;
 
 import Service.TeamManagementApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,31 +40,33 @@ public class TeamManagementUIController { //implements Initializable {
 //    }
 
     @FXML
-    public void initUser(String userName){
+    public void initUser(String userName) {
         this.userName = userName;
         activateScene();
     }
 
-    private void changeScene (ActionEvent event, String fxml) throws IOException{
-        FXMLLoader loader=new FXMLLoader();
+    private void changeScene(ActionEvent event, String fxml) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(fxml));
-        Parent root=loader.load();
+        Parent root = loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         TeamManagementUIController tMUICont = loader.getController();
         tMUICont.initUser(userName);
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
         stageTheEventSourceNodeBelongs.show();
     }
+
     @FXML
-    public void changeToRequestScene (ActionEvent event) throws IOException {
+    public void changeToRequestScene(ActionEvent event) throws IOException {
         changeScene(event, "RequestNewTeam.fxml");
     }
+
     @FXML
-    public void changeToActivateScene(ActionEvent event) throws IOException{
+    public void changeToActivateScene(ActionEvent event) throws IOException {
         String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
         //String approvedTeamsStr = ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName);
 
@@ -76,30 +80,28 @@ public class TeamManagementUIController { //implements Initializable {
 
         List<String> Coaches = Arrays.asList(CoachesStr.split(";"));
 
-        if (approvedTeamsStr == null || approvedTeamsStr.equals("")){
+        if (approvedTeamsStr == null || approvedTeamsStr.equals("")) {
             alertError("You do not have any teams to activate.");
-        }
-        else if (tempPlayers.size() < 11){
+        } else if (tempPlayers.size() < 11) {
             alertError("Cannot create a new team. There are less than 11 potential players in the system.");
-        }
-        else if (Coaches.size() < 1){
+        } else if (Coaches.size() < 1) {
             alertError("Cannot create a new team. There aren't any potential coaches in the system.");
-        }
-        else {
+        } else {
             List<String> approvedTeams = Arrays.asList(approvedTeamsStr.split(";"));
             changeScene(event, "ActivateTeam.fxml");
         }
     }
 
     @FXML
-    public void changeToTeamManagementScene(ActionEvent actionEvent) throws IOException{
-       changeScene(actionEvent, "TeamOwner.fxml");
+    public void changeToTeamManagementScene(ActionEvent actionEvent) throws IOException {
+        changeScene(actionEvent, "TeamOwner.fxml");
     }
+
     @FXML
-    public void changeToHomePage(ActionEvent actionEvent) throws IOException{
+    public void changeToHomePage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("HomePage.fxml"));
-        Parent root=loader.load();
+        Parent root = loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
@@ -107,34 +109,34 @@ public class TeamManagementUIController { //implements Initializable {
         //TODO send username
         //homeCont.initHomePage(userName);
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
         stageTheEventSourceNodeBelongs.show();
     }
 
     @FXML
-    public void changeToMyRolesScene(ActionEvent actionEvent) throws IOException{
+    public void changeToMyRolesScene(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MyRoles.fxml"));
-        Parent root=loader.load();
+        Parent root = loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyRolesController myRolesCont = loader.getController();
         myRolesCont.initUser(userName);
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
         stageTheEventSourceNodeBelongs.show();
     }
+
     @FXML
-    public void requestNewTeam(ActionEvent event) throws IOException{
+    public void requestNewTeam(ActionEvent event) throws IOException {
 
         String teamName = newTeamName.getText();
-        if (teamName == null || teamName.equals("")){
+        if (teamName == null || teamName.equals("")) {
             alertError("Please insert a team name.");
-        }
-        else {
+        } else {
             String message = tMApp.requestNewTeam(userName, teamName);
             //String message = ClientController.connectToServer("TeamManagementApplication", "requestNewTeam", userName, teamName);
 
@@ -149,9 +151,9 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
     @FXML
-    public void activateScene(){
-        if (tMApp.getMyApprovedTeams(userName) !=  null && tMApp.getMyApprovedTeams(userName).length() != 0) {
-        //if(ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName) != null && ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName).length() != 0){
+    public void activateScene() {
+        if (tMApp.getMyApprovedTeams(userName) != null && tMApp.getMyApprovedTeams(userName).length() != 0) {
+            //if(ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName) != null && ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName).length() != 0){
             String approvedTeamsStr = tMApp.getMyApprovedTeams(userName);
             //String approvedTeamsStr = ClientController.connectToServer("TeamManagementApplication", "getMyApprovedTeams", userName);
 
@@ -180,7 +182,7 @@ public class TeamManagementUIController { //implements Initializable {
 
         coachCB.getItems().clear();
         for (String coachUserName : Coaches) {
-        coachCB.getItems().add(coachUserName);
+            coachCB.getItems().add(coachUserName);
         }
     }
 
@@ -193,39 +195,32 @@ public class TeamManagementUIController { //implements Initializable {
         ObservableList<String> selectedPlayers = playersListView.getSelectionModel().getSelectedItems();
         HashSet<String> players = new HashSet<>(selectedPlayers);
         String playersStr = new String();
-        for (String p : players){
+        for (String p : players) {
             playersStr += p + ";";
         }
         String field = fieldName.getText();
 
         if (teamName == null) {
             alertError("Please choose a team name.");
-        }
-        else if (teamName.contains(";")){
+        } else if (teamName.contains(";")) {
             alertError("Team Name cannot contain: ;");
-        }
-        else if (selectedPlayers == null || selectedPlayers.size() < 11){
+        } else if (selectedPlayers == null || selectedPlayers.size() < 11) {
             alertError("Please choose at least 11 players.");
-        }
-        else if (coachUserName == null) {
+        } else if (coachUserName == null) {
             alertError("Please choose a coach.");
         } else if (field == null || field.equals("")) {
             alertError("Please insert a field name.");
-        }
-        else if (field.contains(";")){
+        } else if (field.contains(";")) {
             alertError("Field name cannot contain: ;");
-        }
-        else if(players == null || players.size() < 11){
+        } else if (players == null || players.size() < 11) {
             alertError("Please choose players.");
-        }
-        else {
+        } else {
             String message = tMApp.makeTeamActive(userName, teamName, playersStr, coachUserName, field);
             //String message = ClientController.connectToServer("TeamManagementApplication", "makeTeamActive", userName, teamName, playersStr, coachUserName, field);
 
-            if (message.equals("this team is not approved by RFA")){
+            if (message.equals("this team is not approved by RFA")) {
                 alertError("This team was not approved by the RFA.");
-            }
-            else {
+            } else {
                 changeToTeamManagementScene(actionEvent);
                 alertInformation("Congratulations! Your new team has been activated.");
             }
@@ -233,17 +228,23 @@ public class TeamManagementUIController { //implements Initializable {
     }
 
 
-    private void alertError(String message){
+    private void alertError(String message) {
         Alert chooseFile = new Alert(Alert.AlertType.ERROR);
         chooseFile.setHeaderText("Error");
         chooseFile.setContentText(message);
         chooseFile.show();
     }
 
-    private void alertInformation(String message){
+    private void alertInformation(String message) {
         Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
         chooseFile.setContentText(message);
         chooseFile.show();
     }
 
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
+    }
 }

@@ -5,22 +5,15 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
-import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereesRecord;
-
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row2;
 import org.jooq.Schema;
 import org.jooq.Table;
-import org.jooq.TableField;
 import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -31,7 +24,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Referees extends TableImpl<RefereesRecord> {
 
-    private static final long serialVersionUID = -16213438;
+    private static final long serialVersionUID = -1242056789;
 
     /**
      * The reference instance of <code>footballsystem_db.referees</code>
@@ -45,16 +38,6 @@ public class Referees extends TableImpl<RefereesRecord> {
     public Class<RefereesRecord> getRecordType() {
         return RefereesRecord.class;
     }
-
-    /**
-     * The column <code>footballsystem_db.referees.userName</code>.
-     */
-    public final TableField<RefereesRecord, String> USERNAME = createField(DSL.name("userName"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.referees.qualification</code>.
-     */
-    public final TableField<RefereesRecord, String> QUALIFICATION = createField(DSL.name("qualification"), org.jooq.impl.SQLDataType.VARCHAR(50).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * Create a <code>footballsystem_db.referees</code> table reference
@@ -95,25 +78,6 @@ public class Referees extends TableImpl<RefereesRecord> {
     }
 
     @Override
-    public UniqueKey<RefereesRecord> getPrimaryKey() {
-        return Keys.KEY_REFEREES_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<RefereesRecord>> getKeys() {
-        return Arrays.<UniqueKey<RefereesRecord>>asList(Keys.KEY_REFEREES_PRIMARY);
-    }
-
-    @Override
-    public List<ForeignKey<RefereesRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<RefereesRecord, ?>>asList(Keys.FK_REFEREES_FANS);
-    }
-
-    public Fans fans() {
-        return new Fans(this, Keys.FK_REFEREES_FANS);
-    }
-
-    @Override
     public Referees as(String alias) {
         return new Referees(DSL.name(alias), this);
     }
@@ -137,14 +101,5 @@ public class Referees extends TableImpl<RefereesRecord> {
     @Override
     public Referees rename(Name name) {
         return new Referees(name, null);
-    }
-
-    // -------------------------------------------------------------------------
-    // Row2 type methods
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row2<String, String> fieldsRow() {
-        return (Row2) super.fieldsRow();
     }
 }

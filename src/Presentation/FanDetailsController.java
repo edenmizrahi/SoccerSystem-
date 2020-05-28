@@ -2,6 +2,7 @@ package Presentation;
 
 import Service.FanApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -46,6 +47,8 @@ public class FanDetailsController { //implements Initializable
     private TextField updateEmailField; //V
     @FXML
     private Label welcomeUserNameField; //V
+    @FXML
+    private Button updateMyDetailsButton;
 
 
 
@@ -117,6 +120,8 @@ public class FanDetailsController { //implements Initializable
         updatePasswardField.setText(currPasswardLable.getText());
         updatePhonNumField.setText(currPhonNumberLabel.getText());
         updateEmailField.setText(currEmailLabel.getText());
+
+        updateMyDetailsButton.setVisible(false);
     }
 
     /**
@@ -190,4 +195,10 @@ public class FanDetailsController { //implements Initializable
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
+    }
 }

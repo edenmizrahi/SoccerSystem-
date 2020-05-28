@@ -5,23 +5,15 @@ package DB.Tables.tables;
 
 
 import DB.Tables.FootballsystemDb;
-import DB.Tables.Keys;
 import DB.Tables.tables.records.RefereeNotificationRecord;
-
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
-import org.jooq.TableField;
 import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
@@ -32,7 +24,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
 
-    private static final long serialVersionUID = -290506950;
+    private static final long serialVersionUID = -1867079302;
 
     /**
      * The reference instance of <code>footballsystem_db.referee_notification</code>
@@ -46,36 +38,6 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     public Class<RefereeNotificationRecord> getRecordType() {
         return RefereeNotificationRecord.class;
     }
-
-    /**
-     * The column <code>footballsystem_db.referee_notification.match_date</code>.
-     */
-    public final TableField<RefereeNotificationRecord, LocalDateTime> MATCH_DATE = createField(DSL.name("match_date"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.referee_notification.home_team</code>.
-     */
-    public final TableField<RefereeNotificationRecord, String> HOME_TEAM = createField(DSL.name("home_team"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false).defaultValue(org.jooq.impl.DSL.field("''", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
-
-    /**
-     * The column <code>footballsystem_db.referee_notification.away_team</code>.
-     */
-    public final TableField<RefereeNotificationRecord, String> AWAY_TEAM = createField(DSL.name("away_team"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false).defaultValue(org.jooq.impl.DSL.field("''", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
-
-    /**
-     * The column <code>footballsystem_db.referee_notification.referee</code>.
-     */
-    public final TableField<RefereeNotificationRecord, String> REFEREE = createField(DSL.name("referee"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false).defaultValue(org.jooq.impl.DSL.field("''", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
-
-    /**
-     * The column <code>footballsystem_db.referee_notification.notification_content</code>.
-     */
-    public final TableField<RefereeNotificationRecord, String> NOTIFICATION_CONTENT = createField(DSL.name("notification_content"), org.jooq.impl.SQLDataType.VARCHAR(500).nullable(false), this, "");
-
-    /**
-     * The column <code>footballsystem_db.referee_notification.readed</code>.
-     */
-    public final TableField<RefereeNotificationRecord, Byte> READED = createField(DSL.name("readed"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * Create a <code>footballsystem_db.referee_notification</code> table reference
@@ -116,29 +78,6 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     }
 
     @Override
-    public UniqueKey<RefereeNotificationRecord> getPrimaryKey() {
-        return Keys.KEY_REFEREE_NOTIFICATION_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<RefereeNotificationRecord>> getKeys() {
-        return Arrays.<UniqueKey<RefereeNotificationRecord>>asList(Keys.KEY_REFEREE_NOTIFICATION_PRIMARY);
-    }
-
-    @Override
-    public List<ForeignKey<RefereeNotificationRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<RefereeNotificationRecord, ?>>asList(Keys.FK_REFEREE_NOTIFICATION_MATCHES, Keys.FK_REFEREE_NOTIFICATION_FANS);
-    }
-
-    public Matches matches() {
-        return new Matches(this, Keys.FK_REFEREE_NOTIFICATION_MATCHES);
-    }
-
-    public Fans fans() {
-        return new Fans(this, Keys.FK_REFEREE_NOTIFICATION_FANS);
-    }
-
-    @Override
     public RefereeNotification as(String alias) {
         return new RefereeNotification(DSL.name(alias), this);
     }
@@ -162,14 +101,5 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     @Override
     public RefereeNotification rename(Name name) {
         return new RefereeNotification(name, null);
-    }
-
-    // -------------------------------------------------------------------------
-    // Row6 type methods
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<LocalDateTime, String, String, String, String, Byte> fieldsRow() {
-        return (Row6) super.fieldsRow();
     }
 }

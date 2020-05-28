@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
 
-    private static final long serialVersionUID = -601177989;
+    private static final long serialVersionUID = -290506950;
 
     /**
      * The reference instance of <code>footballsystem_db.referee_notification</code>
@@ -73,9 +73,9 @@ public class RefereeNotification extends TableImpl<RefereeNotificationRecord> {
     public final TableField<RefereeNotificationRecord, String> NOTIFICATION_CONTENT = createField(DSL.name("notification_content"), org.jooq.impl.SQLDataType.VARCHAR(500).nullable(false), this, "");
 
     /**
-     * The column <code>footballsystem_db.referee_notification.read</code>.
+     * The column <code>footballsystem_db.referee_notification.readed</code>.
      */
-    public final TableField<RefereeNotificationRecord, Byte> READ = createField(DSL.name("read"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
+    public final TableField<RefereeNotificationRecord, Byte> READED = createField(DSL.name("readed"), org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * Create a <code>footballsystem_db.referee_notification</code> table reference

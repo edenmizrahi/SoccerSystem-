@@ -1,13 +1,17 @@
 package Presentation;
 
+import Service.FanApplication;
+import Service.UserApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.*;
 import java.io.IOException;
@@ -25,7 +29,9 @@ public class RfaPageController extends HomePageController {
     @FXML
     public javafx.scene.control.Button definePolicyBtn;
 
-
+    //delete later!!!!!!!!
+    private FanApplication fanApplication=new FanApplication();
+    private UserApplication userApplication= new UserApplication();
     private String userName = "nadav124";
 
 
@@ -87,7 +93,61 @@ public class RfaPageController extends HomePageController {
         stageTheEventSourceNodeBelongs.show();
     }
 
-    public void onLogOut(ActionEvent actionEvent) {
+    public void onLogOut(ActionEvent actionEvent) throws IOException {
+        scheduler.cancel();
+        String ans= userApplication.logout(userName);
+        //String ans = ClientController.connectToServer("UserApplication", "logout", userName);
+        if(ans.equals("success")){
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("Login.fxml"));
+            Parent root=loader.load();
 
+            Scene scene = new Scene(root, 700, 400);
+
+            Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            stageTheEventSourceNodeBelongs.setScene(scene);
+            stageTheEventSourceNodeBelongs.show();
+        }
+
+        else{
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setContentText("Logout was unsuccessful");
+            chooseFile.show();
+        }
+
+    }
+
+    @FXML
+    public void initialize() {
+        if (connectionOK && scheduler == null) {
+            scheduler = new CheckNotificationsTask(userName, fanApplication);
+            scheduler.setPeriod(Duration.seconds(10));
+            scheduler.setOnSucceeded(
+                    e -> {
+                        System.out.println(scheduler.getValue());
+                        if (scheduler.getValue().equals("ERROR")) {
+                            scheduler.cancel();
+                            connectionOK = false;
+                        }
+                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new Notification about a game you are following !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("gotRFAnotification")){//rfa
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new team to approve !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("multipleNotifications")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have multiple new notifications!");
+                            chooseFile.show();
+                        }
+
+                    });
+            scheduler.setOnFailed(e -> System.out.println("failed to run"));
+            scheduler.start();
+        }
     }
 }

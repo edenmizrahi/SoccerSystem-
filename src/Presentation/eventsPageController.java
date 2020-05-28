@@ -1,6 +1,7 @@
 package Presentation;
 
 import Service.RefereeApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -142,62 +144,135 @@ public class eventsPageController {
     }
 
     //<editor-fold desc="on submit click">
+
     public void onClickGoalSubmit() {
         String player = playerForGoal.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createGoalEvent(userName,match,player);
+        String answer = this.refereeApplication.createGoalEvent(userName,match,player);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("Goal Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createGoalEvent", userName,match,player);
     }
 
     public void onClickInjurySubmit() {
         String player = playerForInjury.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createInjuryEvent(userName,match,player);
+        String answer = this.refereeApplication.createInjuryEvent(userName,match,player);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("Injury Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createInjuryEvent", userName,match,player);
     }
 
     public void onClickOffenseSubmit() {
         String player = playerForOffense.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createOffenseEvent(userName,match,player);
+        String answer = this.refereeApplication.createOffenseEvent(userName,match,player);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("Offense Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createOffenseEvent", userName,match,player);
     }
 
     public void onClickOffsideSubmit() {
         String player = playerForOffSide.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createOffSideEvent(userName,match,player);
+        String answer = this.refereeApplication.createOffSideEvent(userName,match,player);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("Offside Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createOffSideEvent", userName,match,player);
     }
 
     public void onClickReplaceSubmit() {
         String player1 = player1ForReplace.getSelectionModel().getSelectedItem();
         String player2 = player2ForReplace.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createReplaceEvent(userName,match,player1,player2);
+        String answer = this.refereeApplication.createReplaceEvent(userName,match,player1,player2);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("Replacement Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createReplaceEvent", userName,match,player1,player2);
     }
 
-
     public void onClickRedCardSubmit() {
         String player = playerForRedCard.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createRedCardEvent(userName,match,player);
+        String answer = this.refereeApplication.createRedCardEvent(userName,match,player);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("RedCard Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createRedCardEvent", userName,match,player);
     }
 
     public void onClickYellowCardSubmit() {
         String player = playerForYellowCard.getSelectionModel().getSelectedItem();
-        this.refereeApplication.createYellowCardEvent(userName,match,player);
+        String answer = this.refereeApplication.createYellowCardEvent(userName,match,player);
+        if(! answer.equals("ok")){
+            ErrorAlertForCreateEvent(answer);
+        }
+        else{
+            SuccessAlertForCreateEvent("YellowCard Event was created!");
+        }
         //String ans = ClientController.connectToServer("RefereeApplication", "createYellowCardEvent", userName,match,player);
 
     }
-
 
     public void onClickExtraTimeSubmit() {
         idNumOfMinute.setDisable(true);
         String numOfMinute = idNumOfMinute.getText();
          if(Pattern.matches("[0-9]+", numOfMinute)){
-             this.refereeApplication.createExtraTimeEvent(userName,match,numOfMinute);
+             String answer = this.refereeApplication.createExtraTimeEvent(userName,match,numOfMinute);
+             if(! answer.equals("ok")){
+                 ErrorAlertForCreateEvent(answer);
+             }
+             else{
+                 SuccessAlertForCreateEvent("ExtraTime Event was created!");
+             }
              //String ans = ClientController.connectToServer("RefereeApplication", "createExtraTimeEvent", userName,match,numOfMinute);
          }
         idNumOfMinute.setDisable(false);
     }
 
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
+    }
+
     //</editor-fold>
+
+    //<editor-fold desc="alerts">
+
+    public void ErrorAlertForCreateEvent(String error){
+        Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+        chooseFile.setHeaderText("Error");
+        chooseFile.setContentText(error);
+        chooseFile.show();
+    }
+
+    public void SuccessAlertForCreateEvent(String success){
+        Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
+        chooseFile.setHeaderText("Success");
+        chooseFile.setContentText(success);
+        chooseFile.show();
+    }
+
+    //</editor-fold>
+
 
 }

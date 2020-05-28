@@ -3,13 +3,20 @@ package Presentation;
 import Service.RefereeApplication;
 import Service.RfaApplication;
 import Service.SystemOperationsApplication;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -57,4 +64,19 @@ public class RfaNotificationController {
         String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
         this.rfaApplication.answerRequest(userName,teamName,"true");
     }
+
+    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent calcRoot = loader.load();
+        HomePageController controller = loader.getController();
+        controller.closeHandling(mouseEvent);
+    }
+
+    public void BackToRfa(ActionEvent actionEvent) throws IOException {
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("Rfa.fxml"));
+        Scene scene = new Scene(root, 900, 600);
+        stageTheEventSourceNodeBelongs.setScene(scene);
+    }
+
 }

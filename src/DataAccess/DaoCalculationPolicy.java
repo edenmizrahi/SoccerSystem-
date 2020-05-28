@@ -19,6 +19,11 @@ import java.util.List;
 import static DB.Tables.Tables.CALCULATIONPOLICYS;
 import static DB.Tables.Tables.COACHS;
 
+/**
+ * table name: calculationpolicys
+ * key - 1 values
+ * **/
+
 public class DaoCalculationPolicy implements Dao<String>{
     @Override
     public List<String> get(List<String> keys) throws ParseException {

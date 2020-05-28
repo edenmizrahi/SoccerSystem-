@@ -244,7 +244,7 @@ public class RefereeController {
     public void saveInOnePlayerEventTableDB(Event e, String player) throws SQLException {
         List<String> Record = new LinkedList<>();
         Record.add(0, String.valueOf(e.getId()));
-        Record.add(0, player);
+        Record.add(1, player);
         daoOnePlayerEvents.save(Record);
     }
 
@@ -253,14 +253,14 @@ public class RefereeController {
         Record.add(0, String.valueOf(e.getId()));
         Record.add(1, player1);
         Record.add(2, player2);
-        daoOnePlayerEvents.save(Record);
+        daoTwoPlayersEvents.save(Record);
     }
 
     public void saveInExtraTimeEventTableDB(Event e, String time) throws SQLException {
         List<String> Record = new LinkedList<>();
         Record.add(0, String.valueOf(e.getId()));
         Record.add(1, time);
-        daoOnePlayerEvents.save(Record);
+        daoExtraTimeEvent.save(Record);
     }
 
     //</editor-fold>

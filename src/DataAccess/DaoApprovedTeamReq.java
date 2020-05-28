@@ -2,6 +2,8 @@ package DataAccess;
 
 import DB.Tables.tables.records.TeamOwnerApprovedTeamsRecord;
 import DB.Tables.tables.records.TeamOwnerTeamsRecord;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
@@ -18,10 +20,13 @@ import java.util.List;
 import static DB.Tables.Tables.TEAM_OWNER_APPROVED_TEAMS;
 import static DB.Tables.Tables.TEAM_OWNER_TEAMS;
 
-/** table name: team_owner_approved_teams **/
+/**
+ * table name: team_owner_approved_teams
+ * key - 2 values
+ * **/
 
-/** key - 2 values**/
 public class DaoApprovedTeamReq implements Dao<String> {
+
     @Override
     public List<String> get(List<String> keys) throws ParseException {
         /** check connection to DB  **/
@@ -37,7 +42,6 @@ public class DaoApprovedTeamReq implements Dao<String> {
                 .fetchOne();
         /** key noy found in table  **/
         if (teamOwnerApprovedTeamsRecord== null || teamOwnerApprovedTeamsRecord.size()==0){
-            //return null;
             throw new ParseException("key noy found in table",0);
         }
 
@@ -167,6 +171,7 @@ public class DaoApprovedTeamReq implements Dao<String> {
                 System.out.println("foreign key not exist. need to change it");
             }
         }
+        // LOG.errors - not update ! key not found
 
     }
 
@@ -184,4 +189,5 @@ public class DaoApprovedTeamReq implements Dao<String> {
                 .execute();
 
     }
+
 }

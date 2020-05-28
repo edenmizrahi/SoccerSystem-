@@ -55,4 +55,30 @@
 23.05.2020 20:00:34 ERROR Event - <init> - invalid event creation
 27.05.2020 12:18:18 ERROR League - <init> - There is already league with the same name
 27.05.2020 13:44:22 ERROR Event - <init> - This player isn't in one of the participating teams
-27.05.2020 16:55:26 ERROR League - <init> - There is already league with the same name
+27.05.2020 17:32:11 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:36:47 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:37:00 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:45:56 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:47:51 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:47:53 ERROR MainSystem - logOut - fan is not logged in to system 
+27.05.2020 17:48:11 ERROR MainSystem - logOut - fan is not logged in to system 
+27.05.2020 17:50:15 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:51:20 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:52:14 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:53:35 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:54:29 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:56:25 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 17:57:59 ERROR MainSystem - logIn - details not correct, no fan in system
+27.05.2020 18:59:01 ERROR MainSystem - logOut - fan is not logged in to system 
+27.05.2020 19:01:32 ERROR Event - <init> - invalid event creation
+27.05.2020 19:01:48 ERROR Event - <init> - invalid event creation
+27.05.2020 19:01:59 ERROR Event - <init> - invalid event creation
+27.05.2020 19:02:11 ERROR Event - <init> - invalid event creation
+28.05.2020 09:57:32 ERROR DaoApprovedTeamReq - get - key noy found in table
+28.05.2020 10:05:19 ERROR DaoApprovedTeamReq - get - key noy found in table
+28.05.2020 10:07:07 ERROR DaoApprovedTeamReq - get - key not found in table
+28.05.2020 11:04:03 ERROR DBHandler - conectToDB - connection in now null
+28.05.2020 11:04:24 ERROR DBHandler - conectToDB - connection in now null
+28.05.2020 11:15:02 ERROR DBHandler - conectToDB - connection in now null
+28.05.2020 11:15:23 ERROR DBHandler - conectToDB - connection in now null
+28.05.2020 11:15:44 ERROR DBHandler - conectToDB - connection in now null

@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Fans extends TableImpl<FansRecord> {
 
-    private static final long serialVersionUID = 794336033;
+    private static final long serialVersionUID = 700992856;
 
     /**
      * The reference instance of <code>footballsystem_db.fans</code>
@@ -60,7 +60,7 @@ public class Fans extends TableImpl<FansRecord> {
     /**
      * The column <code>footballsystem_db.fans.password_hash</code>.
      */
-    public final TableField<FansRecord, String> PASSWORD_HASH = createField(DSL.name("password_hash"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+    public final TableField<FansRecord, String> PASSWORD_HASH = createField(DSL.name("password_hash"), org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false).defaultValue(org.jooq.impl.DSL.field("'bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a'", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>footballsystem_db.fans.phoneNumber</code>.
@@ -70,7 +70,7 @@ public class Fans extends TableImpl<FansRecord> {
     /**
      * The column <code>footballsystem_db.fans.email</code>.
      */
-    public final TableField<FansRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+    public final TableField<FansRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false).defaultValue(org.jooq.impl.DSL.field("'soccersystemuser@gmail.com'", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>footballsystem_db.fans.birthday</code>.

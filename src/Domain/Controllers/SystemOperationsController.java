@@ -449,6 +449,7 @@ public class SystemOperationsController {
 
             Match newMatch = new Match(Integer.parseInt(matchRec.get(3)), Integer.parseInt(matchRec.get(4)), away, home,
                     field, new HashSet<>(), new HashSet<>(), mainRef, matchRec.get(0));
+            newMatch.setNumOfMinutes(Integer.parseInt(matchRec.get(7)));
 
             matchesObject.add(newMatch);
 
@@ -1531,6 +1532,14 @@ public class SystemOperationsController {
                 pass.getBytes(StandardCharsets.UTF_8));
         String sha256hex = new String(Hex.encode(hash));
         return  sha256hex;
+    }
+
+
+    /** OR
+     * init external systems
+     */
+    public void initExternalSystems(){
+        MainSystem.getInstance().initMainSystem();
     }
 }
 

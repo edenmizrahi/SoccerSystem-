@@ -1449,7 +1449,7 @@ public class SystemOperationsController {
         //list of userName in Fan table - check if userName contains
         try {
             password=sha256(password);
-            int isPlayer=0;
+             int isPlayer=0;
             int isCoach=0;
             int isTeamOwner=0;
             LinkedList<String> details = new LinkedList<>();

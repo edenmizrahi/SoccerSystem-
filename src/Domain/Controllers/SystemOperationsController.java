@@ -461,9 +461,9 @@ public class SystemOperationsController {
             String date=MainSystem.simpleDateFormat.format(newMatch.getStartDate());
 
             for(List<String> record:fansFollow){
-                System.out.println("home:"+homeTeam+"="+record.get(2));
-                System.out.println("ayar:"+awayTeam+"="+record.get(3));
-                System.out.println("date:"+date+"="+record.get(1));
+//                System.out.println("home:"+homeTeam+"="+record.get(2));
+//                System.out.println("ayar:"+awayTeam+"="+record.get(3));
+//                System.out.println("date:"+date+"="+record.get(1));
                 if(record.get(2).equals(newMatch.getHomeTeam().getName())&&
                         record.get(3).equals(newMatch.getAwayTeam().getName())&&
                             record.get(1).equals(MainSystem.simpleDateFormat.format(newMatch.getStartDate()))){
@@ -504,7 +504,7 @@ public class SystemOperationsController {
                         newMatch.getReferees().add(refInMatch);
                         refInMatch.addMatchToList(newMatch);
                     }
-//                        //Referee notifications:
+                        //Referee notifications:
 //                        List<List<String>> refereeNotificationsRecords = daoNotificaionsReferee.getAll("referee", refInMatch.getUserName());
 //                        refereeNotificationsRecords = getMatchNotifications(refereeNotificationsRecords, newMatch);
 //                        for (List<String> rec : refereeNotificationsRecords) {
@@ -652,6 +652,34 @@ public class SystemOperationsController {
             }
         }
         /**********/
+
+        for (User f: ms.getUsers()) {
+            boolean isNoti=false;
+            if(f instanceof Referee){
+                HashSet<Notification> nof =((Referee) f).getNotificationsList();
+                if(!nof.isEmpty()){
+                    System.out.println(((Fan)(f)).getUserName()+" Notifications as referee:");
+                    isNoti=true;
+                }
+                for (Notification n: nof){
+                    System.out.println("sender: "+n.getSender());
+                    System.out.println("content: "+n.getContent());
+                    System.out.println("isRead: "+n.isRead());
+                }
+            }
+            HashSet<Notification> nofs=((Fan)(f)).getFanNotification();
+            if(!nofs.isEmpty()){
+                System.out.println(((Fan)(f)).getUserName()+" Notifications as Fan:");
+                isNoti=true;
+                for (Notification n: nofs){
+                    System.out.println("sender: "+n.getSender());
+                    System.out.println("content: "+n.getContent());
+                    System.out.println("isRead: "+n.isRead());
+                }
+            }
+           if(isNoti)
+               System.out.println("\n");
+        }
     }
 
     /***

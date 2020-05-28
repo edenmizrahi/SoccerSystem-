@@ -14,10 +14,13 @@ import org.apache.logging.log4j.Logger;
 
 public class Main {
 
-    private static final Logger LOG = LogManager.getLogger("LoginMain");
+    private static final Logger LOG = LogManager.getLogger("testLogger");
 
     public static void main(String [] args) throws Exception {
 
+        LOG.info("tryyyyyyyyyyy");
+
+        LOG.error("erorrrrr");
         SystemOperationsController systemOperationsController = new SystemOperationsController();
         systemOperationsController.initSystemFromDB();
 //        RfaApplication rfaApplication = new RfaApplication();

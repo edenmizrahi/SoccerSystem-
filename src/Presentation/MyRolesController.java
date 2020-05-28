@@ -103,10 +103,7 @@ public class MyRolesController { //implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("HomePage.fxml").openStream());
         HomePageController homeCont = loader.getController();
-        //TODO add init user
-        //homeCont.initUser(userName);
-        //secondController.setStage(mStage);
-        //stage.setTitle("second scene");
+        homeCont.initHomePage(userName);
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -140,6 +137,7 @@ public class MyRolesController { //implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
+        controller.initHomePage(userName);
         controller.closeHandling(mouseEvent);
     }
 }

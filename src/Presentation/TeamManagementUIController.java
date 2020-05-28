@@ -106,8 +106,7 @@ public class TeamManagementUIController { //implements Initializable {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController homeCont = loader.getController();
-        //TODO send username
-        //homeCont.initHomePage(userName);
+        homeCont.initHomePage(userName);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);

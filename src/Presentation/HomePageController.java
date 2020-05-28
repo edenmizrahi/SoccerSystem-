@@ -180,8 +180,6 @@ public class HomePageController {
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);
         }
-
-
     }
 
     @FXML

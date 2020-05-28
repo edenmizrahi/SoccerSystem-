@@ -28,6 +28,7 @@ public class RefereeController {
     DaoExtraTimeEvent daoExtraTimeEvent = new DaoExtraTimeEvent();
     DaoMatch daoMatch = new DaoMatch();
     DaoNotificaionsReferee daoNotificaionsReferee = new DaoNotificaionsReferee();
+    DaoNotificationFan daoNotificationFan = new DaoNotificationFan();
 
     public Referee getRefereeByUserName(String refName) {
         List<Referee> allReferees = MainSystem.getInstance().getAllReferees();
@@ -263,6 +264,17 @@ public class RefereeController {
         daoExtraTimeEvent.save(Record);
     }
 
+    public void saveInFanNotifications(Event e, String fanUserName, Match currentMatch) throws SQLException {
+        List<String> Record = new LinkedList<>();
+        Record.add(0,MainSystem.simpleDateFormat.format(currentMatch.getStartDate()));
+        Record.add(1,currentMatch.getHomeTeam().getName());
+        Record.add(2,currentMatch.getAwayTeam().getName());
+        Record.add(3,fanUserName);
+        Record.add(4,String.valueOf(e.getId()));
+        Record.add(5,"0");
+        daoNotificationFan.save(Record);
+    }
+
     //</editor-fold>
 
     //<editor-fold desc="create events">
@@ -292,6 +304,7 @@ public class RefereeController {
             matchRecord.add(3, currentMatch.getMainReferee().getUserName());
             matchRecord.add(4, String.valueOf(currentMatch.getNumOfMinutes()));
             daoMatch.update(matchKeys, matchRecord);
+
             return "ok";
 
         } catch (ParseException p){
@@ -301,7 +314,6 @@ public class RefereeController {
         }
 
     }
-
 
     public String createInjuryEvent(String referee, String match, String player) {
         try {

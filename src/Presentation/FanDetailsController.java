@@ -200,9 +200,13 @@ public class FanDetailsController { //implements Initializable
             fxmlStr="RefereePage.fxml";
         }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
+        Parent root = loader.load();
+        //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        HomePageController controller = loader.getController();
+        controller.initHomePage(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -210,6 +214,7 @@ public class FanDetailsController { //implements Initializable
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

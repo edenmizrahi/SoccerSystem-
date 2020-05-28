@@ -54,11 +54,13 @@ public class MyAlertsControllr {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
-
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        HomePageController controller = loader.getController();
+        controller.initHomePage(userName);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -66,6 +68,7 @@ public class MyAlertsControllr {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
+        controller.initHomePage(userName);
         controller.closeHandling(mouseEvent);
     }
 }

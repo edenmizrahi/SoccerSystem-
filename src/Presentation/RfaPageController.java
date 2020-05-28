@@ -129,33 +129,22 @@ public class RfaPageController extends HomePageController {
                             scheduler.cancel();
                             connectionOK = false;
                         }
+                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new Notification about a game you are following !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("gotRFAnotification")){//rfa
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new team to approve !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("multipleNotifications")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have multiple new notifications!");
+                            chooseFile.show();
+                        }
 
-                    /*
-
-                if(ans.equals("gotFanNotification")){//fan
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have a new Notification about a game you are following !");
-                    chooseFile.show();
-                }
-                else if(ans.equals("gotRFAnotification")){//rfa
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have a new team to approve !");
-                    chooseFile.show();
-                }
-                else if(ans.equals("gotRefereeNotification")){//referee
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have a new notification about your match !");
-                    chooseFile.show();
-                }
-                else if(ans.equals("multipleNotifications")){//referee
-                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("You have multiple new notifications!");
-                    chooseFile.show();
-                }
-
-
-            }
-        */
                     });
             scheduler.setOnFailed(e -> System.out.println("failed to run"));
             scheduler.start();

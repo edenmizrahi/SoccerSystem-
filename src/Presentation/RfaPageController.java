@@ -32,11 +32,15 @@ public class RfaPageController extends HomePageController {
     //delete later!!!!!!!!
     private FanApplication fanApplication=new FanApplication();
     private UserApplication userApplication= new UserApplication();
-    private String userName = "nadav124";
 
+
+
+    private String userName;
+    private String role="Rfa";
 
     @FXML
-    public void initUser (String userName) {
+    public void initUser (String userName,String role) {
+        this.role=role;
         this.userName=userName;
     }
 
@@ -86,7 +90,7 @@ public class RfaPageController extends HomePageController {
         Scene scene = new Scene(root, 900, 600);
 
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
-        registrationGamesAlertsController.initUser(userName);
+        registrationGamesAlertsController.initUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -118,7 +122,11 @@ public class RfaPageController extends HomePageController {
     }
 
     @FXML
+    @Override
     public void initialize() {
+        if(userName==null){
+            return;
+        }
         if (connectionOK && scheduler == null) {
             scheduler = new CheckNotificationsTask(userName, fanApplication);
             scheduler.setPeriod(Duration.seconds(10));
@@ -149,5 +157,14 @@ public class RfaPageController extends HomePageController {
             scheduler.setOnFailed(e -> System.out.println("failed to run"));
             scheduler.start();
         }
+    }
+
+    public void RFADetailsEventClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        Parent root=loader.load();
+        HomePageController hpc=loader.getController();
+        hpc.initHomePage(userName,"Rfa");
+        hpc.fanDetailsEventClick(actionEvent);
     }
 }

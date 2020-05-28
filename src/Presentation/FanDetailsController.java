@@ -55,7 +55,7 @@ public class FanDetailsController { //implements Initializable
     private FanApplication fanApplication = new FanApplication();
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // userName; set!!!!!!!!!!!!!!!!!!!!!!!!
-
+    private String role;
 
 /*
     @Override
@@ -78,9 +78,11 @@ public class FanDetailsController { //implements Initializable
     */
 
     @FXML
-    public void initUserDetails (String userName) {
+    public void initUserDetails (String userName, String role) {
         this.userName=userName;
+        this.role=role;
         showDetails();
+
     }
 
 
@@ -187,13 +189,24 @@ public class FanDetailsController { //implements Initializable
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+        String fxmlStr="";
+        if(role.equals("Fan")){
+            fxmlStr="HomePage.fxml";
+        }
+        else if( role.equals("Rfa")){
+            fxmlStr="RfaPage.fxml";
+        }
+        else{
+            fxmlStr="RefereePage.fxml";
+        }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
+        //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -201,7 +214,7 @@ public class FanDetailsController { //implements Initializable
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

@@ -25,10 +25,12 @@ public class MyAlertsControllr {
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private List<String> fanNotificationsList=new LinkedList<>();
     private String userName; // is teamRole
+    private String role;
 
     @FXML
-    public void initAllertsUser (String userName) {
+    public void initAllertsUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
         //update comoboxs
         updateNotificationsComoBox();
     }
@@ -58,7 +60,7 @@ public class MyAlertsControllr {
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -66,7 +68,7 @@ public class MyAlertsControllr {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
-        controller.initHomePage(userName);
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

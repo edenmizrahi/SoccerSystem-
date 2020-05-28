@@ -17,21 +17,23 @@ public class Main {
     private static final Logger LOG = LogManager.getLogger("LoginMain");
 
     public static void main(String [] args) throws Exception {
-
-        SystemOperationsController systemOperationsController = new SystemOperationsController();
-        systemOperationsController.initSystemFromDB();
+//        LOG.info("tryyyyyyyyyyy");
+//
+//        LOG.error("erorrrrr");
+//        SystemOperationsController systemOperationsController = new SystemOperationsController();
+//        systemOperationsController.initSystemFromDB();
 //        RfaApplication rfaApplication = new RfaApplication();
 //        rfaApplication.DefinePoliciesToSeason("2020","CalculateOption1","SchedualeOption1","amir");
 //
-        MainSystem ms = MainSystem.getInstance();
-        RefereeApplication refereeApplication = new RefereeApplication();
-        String matches = refereeApplication.displayAllMatches("or");
-//        refereeApplication.createGoalEvent("or",matches,"player26");
-        refereeApplication.createInjuryEvent("or",matches,"player26");
-        refereeApplication.createRedCardEvent("or",matches,"player26");
-        refereeApplication.createReplaceEvent("or",matches,"player26","player27");
-        refereeApplication.createExtraTimeEvent("or",matches,"10");
-        int x=0;
+//        MainSystem ms = MainSystem.getInstance();
+//        RefereeApplication refereeApplication = new RefereeApplication();
+//        String matches = refereeApplication.displayAllMatches("or");
+////        refereeApplication.createGoalEvent("or",matches,"player26");
+//        refereeApplication.createInjuryEvent("or",matches,"player26");
+//        refereeApplication.createRedCardEvent("or",matches,"player26");
+//        refereeApplication.createReplaceEvent("or",matches,"player26","player27");
+//        refereeApplication.createExtraTimeEvent("or",matches,"10");
+//        int x=0;
 //        SimpleDateFormat dt = new SimpleDateFormat("dd-mm-yyyy HH:MM:ss");
 //
 //       String s =  "04-06-2020 20:00:00";
@@ -155,9 +157,9 @@ public class Main {
 
         //SystemOperationsApplication.initSystemObjectsAdi();
         /**********/
-        SystemOperationsController sop =new SystemOperationsController();
-        sop.initSystemFromDB();
-        SystemOperationsApplication soa=new SystemOperationsApplication();
+//        SystemOperationsController sop =new SystemOperationsController();
+//        sop.initSystemFromDB();
+//        SystemOperationsApplication soa=new SystemOperationsApplication();
 //        System.out.println(soa.signUp("TeamOwner","eden","0526621646","eden04060925@gmail.com","ilan","e111111","04-04-1994","true"));
 //        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player46","e111111","04-04-1994","true"));
 //        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player47","e111111","04-04-1994","true"));

@@ -192,7 +192,8 @@ public class DaoNotificationFan implements Dao<String>{
                         FAN_NOTIFICATION.AWAY_TEAM,
                         FAN_NOTIFICATION.USERNAME,
                         FAN_NOTIFICATION.EVENT_ID,
-                        FAN_NOTIFICATION.READ)
+                        FAN_NOTIFICATION.READ
+                )
                         .values(local , strings.get(1), strings.get(2),strings.get(3), Integer.parseInt(strings.get(4)),
                                 Byte.valueOf(strings.get(5))).execute();
 
@@ -236,7 +237,7 @@ public class DaoNotificationFan implements Dao<String>{
         if(fanNotificationRecord != null) {
 
             /**update row in  DB **/
-            fanNotificationRecord.setRead(Byte.valueOf(string.get(0)));
+//            fanNotificationRecord.setRead(Byte.valueOf(string.get(0)));
             try{
                 fanNotificationRecord.store();
 

@@ -347,4 +347,12 @@ public class Fan extends User implements NotificationsUser {
                 '}';
     }
 
+
+    public HashSet<Notification> getFanNotification() {
+        gotFanNotification=false;
+        return notificationHashSet;
+    }
+
+
+
 }

@@ -21,8 +21,9 @@ public class DbMainTemp {
         List <String> values=new LinkedList<>();
         List <String> newRow=new LinkedList<>();
 
-        k.add("01-06-2020 20:00:00");
-        k.add("macabi TLV");
+        //k.add("01-06-2020 20:00:00");
+        k.add("shimi");
+        k.add("macabi hifa");
         k.add("hapoel TLV");
         k.add("or");
         k.add("The match time between macabi TLV to hapoel TLV changed to 2020-06-01");
@@ -45,6 +46,8 @@ public class DbMainTemp {
 //        values.add("CalculateOption1");
 //        values.add("0");
 
+
+        values.add("shimi");
         values.add("0");
 //        values.add("90");
 //        values.add("bashField2");
@@ -61,13 +64,14 @@ public class DbMainTemp {
 
 
 
-        DaoNotificaionsReferee daoNotificaionsReferee=new DaoNotificaionsReferee();
-//        daoNotificaionsReferee.get(k);
-//        List<List<String>> ans= daoNotificaionsReferee.getAll(null,null);
-//        ans=  daoNotificaionsReferee.getAll("readed","1");
-        daoNotificaionsReferee.save(newRow);
-        daoNotificaionsReferee.update(newRow,values);
-        daoNotificaionsReferee.delete(newRow);
+        DaoApprovedTeamReq x=new DaoApprovedTeamReq();
+        x.get(k);
+        x.get(values);
+        List<List<String>> ans= x.getAll(null,null);
+        ans=  x.getAll("readed","1");
+        x.save(newRow);
+        x.update(newRow,values);
+        x.delete(newRow);
 
 
 

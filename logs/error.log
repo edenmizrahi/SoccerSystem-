@@ -74,3 +74,6 @@
 27.05.2020 19:01:48 ERROR Event - <init> - invalid event creation
 27.05.2020 19:01:59 ERROR Event - <init> - invalid event creation
 27.05.2020 19:02:11 ERROR Event - <init> - invalid event creation
+28.05.2020 09:57:32 ERROR DaoApprovedTeamReq - get - key noy found in table
+28.05.2020 10:05:19 ERROR DaoApprovedTeamReq - get - key noy found in table
+28.05.2020 10:07:07 ERROR DaoApprovedTeamReq - get - key not found in table

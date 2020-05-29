@@ -298,21 +298,20 @@ public class RfaController {
     public void answerToRequest(String rfaUserName,String teamName, String decision) {
         try {
             Rfa rfa = this.getRfaByUserName(rfaUserName);
-            Team team = this.systemOperationsController.getTeambyTeamName(teamName);
+            Team team = rfa.getFromTeamRequests(teamName);
 
             List<String> listOfKeys = new LinkedList<>();
-            listOfKeys.add(0,team.getOwnerName());
+            listOfKeys.add(0,team.getFounder().getUserNameOfAction());
             listOfKeys.add(1,teamName);
 
             if (decision.equals("true")) {
                 rfa.answerRequest(team, true);
                 //remove from request team hash
-                getTeamRequest(rfa).remove(team);
+//                getTeamRequest(rfa).remove(team);
                 //remove from requestedTeams
                 daoTeamRequests.delete(listOfKeys);
                 //add to approved teams table
                 daoApprovedTeamReq.save(listOfKeys);
-
             } else {
                 if (decision.equals("false")) {
                     rfa.answerRequest(team, false);

@@ -55,18 +55,21 @@ public class LoginController{
                 alert.show();
             }
             if(userRole.equals("RFA")){
+
                 FXMLLoader loader=new FXMLLoader();
                 loader.setLocation(getClass().getResource("RfaPage.fxml"));
-                Parent root=loader.load();
-                Scene scene = new Scene(root, 900, 600);
+                Parent root2=loader.load();
+                Scene scene = new Scene(root2, 900, 600);
                 //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                 RfaPageController rfaC=loader.getController();
-                rfaC.initUser(txt_userName.getText());
+                rfaC.initUser(txt_userName.getText(),"Rfa");
+                rfaC.initialize();
                 Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                 stageTheEventSourceNodeBelongs.setScene(scene);
                 stageTheEventSourceNodeBelongs.show();
             }
             else if(userRole.equals("Referee")){
+
                     FXMLLoader loader=new FXMLLoader();
                     loader.setLocation(getClass().getResource("RefereePage.fxml"));
                     Parent root=loader.load();
@@ -74,7 +77,8 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     RefereePageController refereeController=loader.getController();
-                    refereeController.initUser(txt_userName.getText());
+                    refereeController.initUser(txt_userName.getText(),"Referee");
+                    refereeController.initialize();
 
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);
@@ -88,8 +92,8 @@ public class LoginController{
                     Scene scene = new Scene(root, 900, 600);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
-                    hpc.initHomePage(txt_userName.getText());
-
+                    hpc.initHomePage(txt_userName.getText(),"Fan");
+                    hpc.initialize();
                     Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
                     stageTheEventSourceNodeBelongs.setScene(scene);
                     stageTheEventSourceNodeBelongs.show();

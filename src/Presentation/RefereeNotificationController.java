@@ -26,12 +26,15 @@ public class RefereeNotificationController {
     private RefereeApplication refereeApplication = new RefereeApplication();
     private List<String> RefereeNotificationsList=new LinkedList<>();
     public String userName = "";
+    private String role;
 
     @FXML
     private ComboBox<String > myNotificationsCombo;
 
 
-    public void initAlertsUser(String userName) {
+    public void initAlertsUser(String userName,String role) {
+
+        this.role=role;
         this.userName = userName;
     }
 
@@ -66,9 +69,14 @@ public class RefereeNotificationController {
     }
 
     public void BackToReferee(ActionEvent actionEvent) throws IOException {
+
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        RefereePageController controller = loader.getController();
+        controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 }

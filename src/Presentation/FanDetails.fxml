@@ -3,9 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FanDetailsController">
+<AnchorPane prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FanDetailsController">
    <children>
       <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
          <font>
@@ -67,7 +64,7 @@
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
-                        <Label fx:id="currEmailLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label fx:id="currEmailLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
@@ -86,7 +83,7 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="136.0" text="passward:" GridPane.rowIndex="2">
+                        <Label prefHeight="17.0" prefWidth="136.0" text="Password:" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
@@ -96,7 +93,7 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
@@ -104,7 +101,7 @@
                         <TextField fx:id="updatePasswardField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update passward" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <TextField fx:id="updatePhonNumField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update phon nuber" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <TextField fx:id="updateEmailField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update email" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                        <Label fx:id="currDateOfBirthLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <Label fx:id="currDateOfBirthLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="243.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>

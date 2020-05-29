@@ -21,6 +21,7 @@ import java.util.List;
 
 import static DB.Tables.Tables.FAN_NOTIFICATION;
 import static DB.Tables.Tables.TEAMROLES;
+//import static DB.Tables.tables.FanNotification.FAN_NOTIFICATION;
 
 /**
  * table name : fan-notification
@@ -194,7 +195,7 @@ public class DaoNotificationFan implements Dao<String>{
                         FAN_NOTIFICATION.EVENT_ID,
                         FAN_NOTIFICATION.READED)
                         .values(local , strings.get(1), strings.get(2),strings.get(3), Integer.parseInt(strings.get(4)),
-                                Byte.valueOf(strings.get(5))).execute();
+                               Byte.valueOf(strings.get(5))).execute();
 
                 System.out.println("new row add"); // dell ! !
 

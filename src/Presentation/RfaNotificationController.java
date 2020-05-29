@@ -25,15 +25,17 @@ public class RfaNotificationController {
 
     private RfaApplication rfaApplication = new RfaApplication();
     private List<String> RfaRequestList=new LinkedList<>();
-    public String userName = "";
+    public String userName ;
+    private String role= "Rfa";
 
     @FXML
     private ComboBox<String > requestsCombo;
 
 
     @FXML
-    public void initUser (String userName) {
+    public void initUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
     }
 
     @FXML
@@ -74,8 +76,12 @@ public class RfaNotificationController {
 
     public void BackToRfa(ActionEvent actionEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Rfa.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        RfaPageController controller = loader.getController();
+        controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

@@ -162,6 +162,16 @@ public class  Match extends Observable {
         }
     }
 
+    public void addEventToListInInit(Event e) {
+        if (e != null) {
+            if (e instanceof Goal || e instanceof ExtraTime || e instanceof Injury || e instanceof Offense ||
+                    e instanceof RedCard || e instanceof OffSide || e instanceof Replacement || e instanceof YellowCard) {
+                this.getEvents().add(e);
+                LOG.info(String.format("%s - %s", e.getName(), "add event to match between " + getHomeTeam().getName() + " to ")
+                        + getAwayTeam().getName());
+            }
+        }
+    }
 
     /**** not supposed to be at referee ? just him legal to add event to his match ****/
     /**** hat about the player that did the event ? ****/

@@ -124,7 +124,14 @@ public class RegistrationGamesAlertsController {
     @FXML
     public void addFanMatchFollow (ActionEvent event){
         String matchToFollow = allMatchesInSystemCombo.getSelectionModel().getSelectedItem().toString();
-        if(fanMatchsList.contains(matchToFollow)){
+        //didn't choose anything
+        if(matchToFollow.equals("select a match you want to follow")){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a match to follow");
+            chooseFile.show();
+        }
+        else if(fanMatchsList.contains(matchToFollow)){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
             chooseFile.setContentText("You are already following this match. Please select another match.");
@@ -141,11 +148,19 @@ public class RegistrationGamesAlertsController {
                 chooseFile.show();
                 updateMachesFollsComoBox();
             }
-            else if(massage.equals("error- match not added")){
+            else if(massage.equals("Error - match not added")){
                 Alert chooseFile = new Alert(Alert.AlertType.ERROR);
                 chooseFile.setHeaderText("Error");
-                chooseFile.setContentText("error- match not added");
+                chooseFile.setContentText(massage);
                 chooseFile.show();
+            }
+            else{
+                if(massage.contains("Error")){
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setHeaderText("Error");
+                    chooseFile.setContentText(massage);
+                    chooseFile.show();
+                }
             }
         }
     }

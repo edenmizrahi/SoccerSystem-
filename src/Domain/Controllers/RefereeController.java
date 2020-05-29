@@ -30,6 +30,7 @@ public class RefereeController {
     DaoMatch daoMatch = new DaoMatch();
     DaoNotificaionsReferee daoNotificaionsReferee = new DaoNotificaionsReferee();
     DaoNotificationFan daoNotificationFan = new DaoNotificationFan();
+    DaoTeams daoTeams = new DaoTeams();
 
     public Referee getRefereeByUserName(String refName) {
         List<Referee> allReferees = MainSystem.getInstance().getAllReferees();
@@ -276,6 +277,25 @@ public class RefereeController {
         daoNotificationFan.save(Record);
     }
 
+    public void updateInTeamTable(Team team, Match currentMatch){
+        List<String> listKey = new LinkedList<>();
+        listKey.add(team.getName());
+
+        List<String> listRecord = new LinkedList<>();
+        if(team.getTeamManager()==null) {
+            listRecord.add(null);
+        }
+        else{
+            listRecord.add(team.getTeamManager().getUserNameOfAction());
+        }
+        listRecord.add(team.getFounder().getUserNameOfAction());
+        listRecord.add(team.getCoach().getTeamRole().getUserName());
+        listRecord.add(team.getField().getNameOfField());
+        listRecord.add(String.valueOf(team.getScore()));
+
+        daoTeams.update(listKey,listRecord);
+    }
+
     //</editor-fold>
 
     public LinkedList<Fan> allFansFollowsPerMatch(Match match){
@@ -312,8 +332,8 @@ public class RefereeController {
             matchKeys.add(2, currentMatch.getAwayTeam().getName());
 
             List<String> matchRecord = new LinkedList<>();
-            matchRecord.add(0, String.valueOf(currentMatch.getAwayTeam().getScore()));
-            matchRecord.add(1, String.valueOf(currentMatch.getHomeTeam().getScore()));
+            matchRecord.add(0, String.valueOf(currentMatch.getHomeScore()));
+            matchRecord.add(1, String.valueOf(currentMatch.getGuestScore()));
             matchRecord.add(2, currentMatch.getField().getNameOfField());
             matchRecord.add(3, currentMatch.getMainReferee().getUserName());
             matchRecord.add(4, String.valueOf(currentMatch.getNumOfMinutes()));
@@ -322,7 +342,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
             return "ok";
@@ -351,7 +371,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
             return "ok";
@@ -378,7 +398,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
             return "ok";
@@ -405,7 +425,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
              return "ok";
@@ -432,7 +452,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
             return "ok";
@@ -460,7 +480,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
             return "ok";
@@ -491,7 +511,7 @@ public class RefereeController {
                 //save in fan notifications table
                 LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
                 for (Fan fan: fanLinkedList){
-                    saveInFanNotifications(e,fan.getName(),currentMatch);
+                    saveInFanNotifications(e,fan.getUserName(),currentMatch);
                 }
 
             } else {
@@ -523,7 +543,7 @@ public class RefereeController {
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
             for (Fan fan: fanLinkedList){
-                saveInFanNotifications(e,fan.getName(),currentMatch);
+                saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
 
             return "ok";

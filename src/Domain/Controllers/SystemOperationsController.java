@@ -28,6 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Ref;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -1004,7 +1005,10 @@ public class SystemOperationsController {
 //        details.add(fan.getEmail());
         details += fan.getEmail() + ";";
 //        details.add(String.valueOf(fan.getDateOfBirth()));
-        details += fan.getDateOfBirth();
+
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String strDate = dateFormat.format(fan.getDateOfBirth());
+        details += strDate;
 
         return details;
     }
@@ -1567,6 +1571,7 @@ public class SystemOperationsController {
      * @throws NoSuchAlgorithmException
      */
     public String sha256(String pass) throws NoSuchAlgorithmException {
+
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(
                 pass.getBytes(StandardCharsets.UTF_8));

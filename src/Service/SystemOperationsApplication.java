@@ -43,4 +43,5 @@ public class SystemOperationsApplication {
                           @PathParam("sendByEmail")String sendEmail) {
        return systemOperationsController.signUp(role, name, phoneNumber, email, userName, password, dateOfBirth,sendEmail);
     }
+
 }

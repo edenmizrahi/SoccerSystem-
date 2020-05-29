@@ -2,7 +2,6 @@ package Presentation;
 
 import Service.FanApplication;
 import Service.SystemOperationsApplication;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -27,10 +25,12 @@ public class MyAlertsControllr {
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private List<String> fanNotificationsList=new LinkedList<>();
     private String userName; // is teamRole
+    private String role;
 
     @FXML
-    public void initAllertsUser (String userName) {
+    public void initAllertsUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
         //update comoboxs
         updateNotificationsComoBox();
     }
@@ -54,11 +54,34 @@ public class MyAlertsControllr {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
-
+        String fxmlStr="";
+        if(role.equals("Fan")){
+            fxmlStr="HomePage.fxml";
+        }
+        else if( role.equals("Rfa")){
+            fxmlStr="RfaPage.fxml";
+        }
+        else{
+            fxmlStr="RefereePage.fxml";
+        }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
+        Parent root = loader.load();
+        //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        if(role.equals("Fan")){
+            HomePageController controller = loader.getController();
+            controller.initHomePage(userName,role);
+        }
+        else if( role.equals("Rfa")){
+            RfaPageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+        else{
+            RefereePageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -66,6 +89,7 @@ public class MyAlertsControllr {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

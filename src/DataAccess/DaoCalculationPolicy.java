@@ -1,5 +1,4 @@
 package DataAccess;
-
 import DB.Tables.tables.Calculationpolicys;
 import DB.Tables.tables.records.CalculationpolicysRecord;
 import DB.Tables.tables.records.CoachsRecord;
@@ -7,7 +6,6 @@ import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
 import org.jooq.exception.DataAccessException;
-
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;

@@ -2,17 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RfaPageController">
     <children>
         <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
@@ -65,10 +62,10 @@
               </rowConstraints>
                <children>
                   <Button fx:id="definePolicyBtn" mnemonicParsing="false" onAction="#definePolicies" prefHeight="45.0" prefWidth="230.0" text="Define Policies to season" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button fx:id="viewOrChangeSettingsBtn" mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="230.0" text="View\change settings " GridPane.rowIndex="2" />
-                  <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onMouseClicked="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.rowIndex="3" />
-                  <Button fx:id="MyAlertsBtn" mnemonicParsing="false" onMouseClicked="#MyAlertsFunction" prefHeight="45.0" prefWidth="230.0" text="My alerts as fan" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" text="My alert as Rfa" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button fx:id="viewOrChangeSettingsBtn" mnemonicParsing="false" onAction="#RFADetailsEventClick" prefHeight="45.0" prefWidth="230.0" text="View\change settings " GridPane.rowIndex="2" />
+                  <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onAction="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.rowIndex="3" />
+                  <Button fx:id="MyAlertsBtnFan" mnemonicParsing="false" onAction="#FanNotificationEventClick" prefHeight="45.0" prefWidth="230.0" text="My alerts as Fan" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" prefHeight="45.0" onAction="#MyAlertsFunctionAsRFA" prefWidth="230.0" text="My alert as RFA" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </center>

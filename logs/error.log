@@ -86,5 +86,5 @@
 28.05.2020 15:48:51 ERROR Team - becomeActive -  number of players are less than 11
 28.05.2020 15:59:12 ERROR Team - becomeActive -  number of players are less than 11
 28.05.2020 16:03:19 ERROR Team - becomeActive - one of the players team is not null
-28.05.2020 21:49:29 DBHandler - conectToDB - connection in now null
-28.05.2020 21:49:50 DBHandler - conectToDB - connection in now null
+28.05.2020 18:21:51 MainSystem - logIn - details not correct, no fan in system
+28.05.2020 18:21:59 MainSystem - logIn - details not correct, no fan in system

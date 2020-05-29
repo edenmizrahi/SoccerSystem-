@@ -34,27 +34,21 @@ public class RegistrationGamesAlertsController {
     private ComboBox<String> allMatchesInSystemCombo;
     @FXML
     private Button followMatchButton;
-
-
-
     private FanApplication fanApplication = new FanApplication();
     private SystemOperationsApplication syOpApp =new SystemOperationsApplication();
     private String userName; // is teamRole
+    private String role;
+
     private List<String> fanMatchsList=new LinkedList<>();
     private List<String> allMatchsList=new LinkedList<>();
 
-
-
-
-
     @FXML
-    public void initUser (String userName) {
+    public void initUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
         //update comoboxs
         updateMachesFollsComoBox();
-
     }
-
 
     @FXML
     public void updateMachesFollsComoBox(){
@@ -93,14 +87,38 @@ public class RegistrationGamesAlertsController {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
-
+        String fxmlStr="";
+        if(role.equals("Fan")){
+            fxmlStr="HomePage.fxml";
+        }
+        else if( role.equals("Rfa")){
+            fxmlStr="RfaPage.fxml";
+        }
+        else{
+            fxmlStr="RefereePage.fxml";
+        }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        if(role.equals("Fan")){
+            HomePageController controller = loader.getController();
+            controller.initHomePage(userName,role);
+
+        }
+        else if( role.equals("Rfa")){
+            RfaPageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+        else{
+            RefereePageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+
+
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
-
 
 
     @FXML
@@ -130,7 +148,6 @@ public class RegistrationGamesAlertsController {
                 chooseFile.show();
             }
         }
-
     }
 
 
@@ -138,6 +155,7 @@ public class RegistrationGamesAlertsController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();
+        controller.initHomePage(userName,role);
         controller.closeHandling(mouseEvent);
     }
 }

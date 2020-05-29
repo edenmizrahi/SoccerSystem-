@@ -6,6 +6,7 @@ import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
+import Domain.Users.Fan;
 import Domain.Users.Player;
 import Domain.Users.Referee;
 import javafx.scene.control.Alert;
@@ -277,6 +278,19 @@ public class RefereeController {
 
     //</editor-fold>
 
+    public LinkedList<Fan> allFansFollowsPerMatch(Match match){
+        LinkedList<Fan> listOfFollowers = new LinkedList<>();
+
+        LinkedList<Fan> allFans = MainSystem.getInstance().getAllFans();
+        for (Fan fan: allFans) {
+            if(fan.getMatchesFollow().contains(match)){
+                listOfFollowers.add(fan);
+            }
+        }
+
+        return listOfFollowers;
+    }
+
     //<editor-fold desc="create events">
     public String createGoalEvent(String referee, String match, String player) {
         try {
@@ -304,6 +318,13 @@ public class RefereeController {
             matchRecord.add(3, currentMatch.getMainReferee().getUserName());
             matchRecord.add(4, String.valueOf(currentMatch.getNumOfMinutes()));
             daoMatch.update(matchKeys, matchRecord);
+
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
+
 
             return "ok";
 

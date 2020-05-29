@@ -38,7 +38,8 @@ public class HomePageController {
 
     private UserApplication userApplication= new UserApplication();
     private FanApplication fanApplication = new FanApplication();
-    private String userName="Ilan12"; // is teamRole
+    private String userName; // is teamRole
+    private String role;
 
     //for notifications
     static CheckNotificationsTask scheduler=null;
@@ -61,6 +62,9 @@ public class HomePageController {
      */
     @FXML
     public void initialize() {
+        if(userName==null){
+            return;
+        }
         if(connectionOK && scheduler==null) {
             scheduler = new CheckNotificationsTask(userName, fanApplication);
             scheduler.setPeriod(Duration.seconds(10));
@@ -99,7 +103,7 @@ public class HomePageController {
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         FanDetailsController fanDetailsController=loader.getController();
-        fanDetailsController.initUserDetails(userName);
+        fanDetailsController.initUserDetails(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -125,7 +129,7 @@ public class HomePageController {
         Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
-        registrationGamesAlertsController.initUser(userName);
+        registrationGamesAlertsController.initUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -143,7 +147,7 @@ public class HomePageController {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
-        myRolesController.initAllertsUser(userName);
+        myRolesController.initAllertsUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -168,15 +172,14 @@ public class HomePageController {
      * @param // userName
      */
     @FXML
-    public void initHomePage(String um){ // String userName
-        this.userName=um;
+    public void initHomePage(String userName,String role){ // String userName
+        this.userName=userName;
+        this.role=role;
         String isTeamRole= fanApplication.fanIsTeamRole(userName);
         //String ans = ClientController.connectToServer("FanApplication", "fanIsTeamRole", userName);
         if(isTeamRole.equals("true")){
             buttonMyRoles.setVisible(true);
         }
-
-
     }
 
     @FXML
@@ -188,7 +191,7 @@ public class HomePageController {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyRolesController myRolesController=loader.getController();
-        myRolesController.initUser(userName);
+        myRolesController.initUser(userName,role);
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(scene);

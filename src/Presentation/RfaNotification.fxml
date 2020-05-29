@@ -72,7 +72,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" text="Back" onAction="#BackToRfa" GridPane.rowIndex="3">
+                  <Button fx:id="back_btn" mnemonicParsing="false" onAction="#BackToRfa" text="Back" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin></Button>

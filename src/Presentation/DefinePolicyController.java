@@ -110,8 +110,12 @@ public class DefinePolicyController {
     @FXML
     public void BackToRfaPage(ActionEvent event) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        RfaPageController controller = loader.getController();
+        controller.initUser(userName,"Rfa");
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

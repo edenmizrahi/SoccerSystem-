@@ -49,7 +49,7 @@ public class MainSystem {
         this.userNames = new HashSet<>();
         this.teamNames = new HashSet<>();
         this.loginUsers= new LinkedList<>();
-        this.fields = new HashSet<>();
+        //this.fields = new HashSet<>();
         taxSystem=null;
         rfaBudgetControl=null;
     }

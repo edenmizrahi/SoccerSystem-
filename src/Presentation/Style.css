@@ -29,6 +29,12 @@
     -fx-text-fill: white;
 }
 
+.label:hover{
+    -fx-text-fill: #a3fff3;
+}
+
+
+
 .text-field{
     -fx-border-color: white;
     -fx-background-color: #E45652;
@@ -37,9 +43,4 @@
 .password-field{
     -fx-border-color: white;
     -fx-background-color: #E45652;
-}
-#X_btn{
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-border-color: white;
 }

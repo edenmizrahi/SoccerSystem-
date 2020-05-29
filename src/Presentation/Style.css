@@ -27,6 +27,7 @@
 
 .label{
     -fx-text-fill: white;
+    -fx-font-family: System;
 }
 
 .text-field{

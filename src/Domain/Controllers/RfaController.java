@@ -2,6 +2,7 @@ package Domain.Controllers;
 
 import DataAccess.DaoApprovedTeamReq;
 import DataAccess.DaoSeasons;
+import DataAccess.DaoTeamOwnersTeams;
 import DataAccess.DaoTeamRequests;
 import Domain.LeagueManagment.Calculation.CalculateOption1;
 import Domain.LeagueManagment.Calculation.CalculationPolicy;
@@ -27,7 +28,8 @@ public class RfaController {
     public SystemOperationsController systemOperationsController = new SystemOperationsController();
     public DaoTeamRequests daoTeamRequests = new DaoTeamRequests();
     public DaoApprovedTeamReq daoApprovedTeamReq = new DaoApprovedTeamReq();
-    public DaoSeasons daoSeasons = new DaoSeasons();
+    public DaoTeamOwnersTeams daoTeamOwnersTeams = new DaoTeamOwnersTeams();
+
     /**
      * create new league
      * @param leagueName
@@ -327,6 +329,7 @@ public class RfaController {
                 daoTeamRequests.delete(listOfKeys);
                 //add to approved teams table
                 daoApprovedTeamReq.save(listOfKeys);
+
             } else {
                 if (decision.equals("false")) {
                     rfa.answerRequest(team, false);

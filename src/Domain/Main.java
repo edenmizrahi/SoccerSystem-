@@ -163,23 +163,27 @@ public class Main {
         SystemOperationsController sop =new SystemOperationsController();
         sop.initSystemFromDB();
 //        System.out.println(uc.login("ilan","e111111"));
-//        SystemOperationsApplication soa=new SystemOperationsApplication();
+        SystemOperationsApplication soa=new SystemOperationsApplication();
 //        System.out.println(soa.signUp("TeamOwner","eden","0526621646","eden04060925@gmail.com","ilan","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player46","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player47","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player48","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player49","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player50","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player51","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player52","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player53","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player54","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player55","e111111","04-04-1994","true"));
-//        System.out.println(soa.signUp("Coach","eden","0526621646","eden04060925@gmail.com","coach12","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player66","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player57","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player58","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player59","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player60","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player61","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player62","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player63","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player64","e111111","04-04-1994","true"));
+//        System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player65","e111111","04-04-1994","true"));
+////        System.out.println(soa.signUp("Coach","eden","0526621646","eden04060925@gmail.com","coach12","e111111","04-04-1994","true"));
+//        for(int i=67; i<=167;i++){
+//            System.out.println(soa.signUp("Player","player","0526621646","eden04060925@gmail.com","player"+i,"e111111","04-04-1994","true"));
+//
+//        }
 
 //        String players="player46;player47;player48;player49;player50;player51;player52;player53;player54;player55;player56";
-        UserController uc=new UserController();
-        System.out.println(uc.login("ilan","e111111"));
+//        UserController uc=new UserController();
+//        System.out.println(uc.login("ilan","e111111"));
 //        fc.addMatchToFanMatchesFollow("ilan",)
         //        TeamManagementApplication te=new TeamManagementApplication();
 //        te.makeTeamActive("ilan","amazingTeam",players,"coach12","bashField1");

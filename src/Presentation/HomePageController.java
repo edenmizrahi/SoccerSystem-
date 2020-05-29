@@ -73,11 +73,20 @@ public class HomePageController {
                         System.out.println(scheduler.getValue());
                         if (scheduler.getValue().equals("ERROR")) {
                             scheduler.cancel();
-                            connectionOK=false;
+                            connectionOK = false;
                         }
-                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                        else if(scheduler.getValue().equals("gotFanNotification")){//fan
                             Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                             chooseFile.setContentText("You have a new Notification about a game you are following !");
+                            chooseFile.show();
+                        }else if(scheduler.getValue().equals("gotRefereeNotification")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new notification about your match !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("gotRFAnotification")){//rfa
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new team to approve !");
                             chooseFile.show();
                         }
                         else if(scheduler.getValue().equals("multipleNotifications")){//referee

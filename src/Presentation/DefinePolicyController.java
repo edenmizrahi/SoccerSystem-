@@ -123,8 +123,6 @@ public class DefinePolicyController {
         Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
         Scene scene = new Scene(root);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RfaPageController controller = loader.getController();
         controller.initUser(userName,"Rfa");

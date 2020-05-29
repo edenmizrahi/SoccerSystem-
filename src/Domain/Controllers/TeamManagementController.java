@@ -590,6 +590,38 @@ public class TeamManagementController {
     }
     public String becomeRole(String userName, String role){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
+        List<String> key=new LinkedList<>();
+        key.add(userName);
+        List<String> records= new LinkedList<>();
+        if(user.isPlayer()||role.equals("Player")){
+            records.add("1");
+        }
+        else{
+            records.add("0");
+
+        }
+        if(user.isCoach()||role.equals("Coach")){
+            records.add("1");
+        }
+        else{
+            records.add("0");
+
+        }
+        if(user.isTeamOwner()||role.equals("Team Owner")){
+            records.add("1");
+        }
+        else{
+            records.add("0");
+
+        }
+        if(user.isTeamManager()){
+            records.add("1");
+        }
+        else{
+            records.add("0");
+        }
+        daoTeamRole.update(key,records);
+
         if(role.equals("Team Owner")){
             return user.becomeTeamOwner();
         }

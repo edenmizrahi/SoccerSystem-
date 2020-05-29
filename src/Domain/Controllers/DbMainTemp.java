@@ -64,12 +64,12 @@ public class DbMainTemp {
 
 
 
-        DaoApprovedTeamReq x=new DaoApprovedTeamReq();
-        x.get(k);
-        x.get(values);
+        DaoFans x=new DaoFans();
+//        x.get(k);
+//        x.get(values);
         List<List<String>> ans= x.getAll(null,null);
         ans=  x.getAll("readed","1");
-        x.save(newRow);
+       // x.save(newRow);
         x.update(newRow,values);
         x.delete(newRow);
 

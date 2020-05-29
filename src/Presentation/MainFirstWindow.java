@@ -39,8 +39,8 @@ public class MainFirstWindow extends Application {
 ////        primaryStage.setTitle("Football System");
 ////        primaryStage.setScene(new Scene(root, 300, 275));
 ////        primaryStage.show();
-       // Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
-       // StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("Style.css").toString());
+        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+        StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("Style.css").toString());
         Scene scene;
     //--------------
     primaryStage.setTitle("Football System");

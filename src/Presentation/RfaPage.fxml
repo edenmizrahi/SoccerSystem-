@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Label?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RfaPageController">
     <children>
-        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" >
             <font>
                 <Font size="24.0" />
             </font>

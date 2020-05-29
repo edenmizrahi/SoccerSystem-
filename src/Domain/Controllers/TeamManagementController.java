@@ -26,6 +26,9 @@ public class TeamManagementController {
     DaoPlayer daoPlayer=new DaoPlayer();
     DaoCoaches daoCoaches=new DaoCoaches();
     DaoTeamOwnersTeams daoTeamOwnersTeams=new DaoTeamOwnersTeams();
+    DaoTeamRole daoTeamRole=new DaoTeamRole();
+    DaoFields daoFields =new DaoFields();
+
     private SystemOperationsController sOController = new SystemOperationsController();
 
     /**
@@ -68,7 +71,16 @@ public class TeamManagementController {
                     break;
                 }
             }
+            if(MainSystem.getInstance().checkIfFieldExists(nameOfNewField)){
+                return "Field name already exists";
+            }
+            Field field = new Field(nameOfNewField);
+            MainSystem.getInstance().addField(field);
 
+            /**add new field to fields table:**/
+            LinkedList<String> fieldRec=new LinkedList<>();
+            fieldRec.add(nameOfNewField);
+            daoFields.save(fieldRec);
             LinkedList<String> teamRecord=new LinkedList<>();
             teamRecord.add(teamName);
             teamRecord.add(null);
@@ -97,14 +109,58 @@ public class TeamManagementController {
             }
             TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
             /**coach- add team to db**/
+            List<String> keys=new LinkedList<>();
+            keys.add(coachUserName);
             LinkedList<String> records =new LinkedList<>();
             records.add(teamName);
             records.add(null);
             LinkedList<String> name=new LinkedList<>();
+            //coach not exist
+            try {
+                daoCoaches.get(keys);
+            }
+            catch(ParseException e){
+                List <String> teamRoleKey=new LinkedList<>();
+                teamRoleKey.add(coachUserName);
+
+                //update in team roles:
+                List<String> teamRoleRec=new LinkedList<>();
+                if(coach.isPlayer()){
+                    teamRoleRec.add("1");
+                }
+                else{
+                    teamRoleRec.add("0");
+                }
+                if(coach.isCoach()){
+                    teamRoleRec.add("1");
+                }
+                else{
+                    teamRoleRec.add("0");
+                }
+                if(coach.isTeamOwner()){
+                    teamRoleRec.add("1");
+                }
+                else{
+                    teamRoleRec.add("0");
+                }
+                if(coach.isTeamManager()){
+                    teamRoleRec.add("1");
+                }
+                else{
+                    teamRoleRec.add("0");
+                }
+                daoTeamRole.update(teamRoleKey,teamRoleRec);
+
+                //save new record in coach:
+                List <String> coachRec=new LinkedList<>();
+                coachRec.add(coachUserName);
+                coachRec.add(teamName);
+                coachRec.add(null);
+                daoCoaches.save(coachRec);
+            }
             name.add(coachUserName);
             daoCoaches.update(name,records);
 
-            Field field = new Field(nameOfNewField);
 
             user.getTeamOwner().makeTeamActive(team, players, coach, field);
 
@@ -118,7 +174,6 @@ public class TeamManagementController {
 //            List<String> team_key=new LinkedList<>();
 //            team_key.add(teamName);
 //            daoTeams.delete(team_key);
-            throw new Exception();
 
 
         }
@@ -168,7 +223,7 @@ public class TeamManagementController {
 
             return e.getMessage();
         }
-
+        return "ok";
     }
 
     public String getMyApprovedTeams(String userName){

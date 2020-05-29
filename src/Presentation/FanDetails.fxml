@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FanDetailsController">
    <children>
-      <Label layoutX="700.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+      <Label layoutX="700.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -88,16 +88,16 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="151.0" text="Phone Number:" GridPane.rowIndex="3">
+                        <Label prefHeight="17.0" prefWidth="151.0" text="PhoneNumber:" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
-                        <Button fx:id="UpdateButton" mnemonicParsing="false" onAction="#updateNameByUser" prefHeight="126.0" prefWidth="95.0" text="update details" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="UpdateButton" mnemonicParsing="false" onAction="#updateDetailsByUser" prefHeight="126.0" prefWidth="95.0" text="update details" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField fx:id="updatePasswardField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update passward" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <TextField fx:id="updatePhonNumField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update phon nuber" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <TextField fx:id="updateEmailField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update email" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
@@ -116,13 +116,13 @@
             </GridPane>
          </top>
       </BorderPane>
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="479.0" layoutY="57.0" prefHeight="39.0" prefWidth="98.0" text=":welcome">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="243.0" layoutY="51.0" prefHeight="39.0" prefWidth="98.0" text="Welcome">
          <font>
             <Font name="Aharoni Bold" size="18.0" />
          </font>
       </Label>
       <Button layoutX="25.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="33.0" prefWidth="58.0" text="back" />
-      <Label fx:id="welcomeUserNameField" layoutX="381.0" layoutY="58.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
+      <Label fx:id="welcomeUserNameField" layoutX="378.0" layoutY="51.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
          <font>
             <Font name="Aharoni Bold" size="15.0" />
          </font></Label>

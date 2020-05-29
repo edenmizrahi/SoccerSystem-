@@ -93,7 +93,7 @@ public class UserController{
             return Rfa.getTeamRequests().size()>0;
         }
         if(u instanceof Referee){
-            return ((Referee) u).getNotificationsList().size()>0;
+            return ((Referee) u).getUnReadNotifications().size()>0;
         }
         return false;
     }

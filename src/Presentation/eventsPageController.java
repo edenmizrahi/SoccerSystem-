@@ -175,7 +175,7 @@ public class eventsPageController {
                 SuccessAlertForCreateEvent("Goal Event was created!");
             }
         }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createGoalEvent", userName,match,player);
+
         clearAllComboBoxes();
     }
 
@@ -192,7 +192,7 @@ public class eventsPageController {
                 SuccessAlertForCreateEvent("Injury Event was created!");
             }
         }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createInjuryEvent", userName,match,player);
+
         clearAllComboBoxes();
     }
 
@@ -209,7 +209,7 @@ public class eventsPageController {
                 SuccessAlertForCreateEvent("Offense Event was created!");
             }
         }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createOffenseEvent", userName,match,player);
+
         clearAllComboBoxes();
     }
 
@@ -226,7 +226,7 @@ public class eventsPageController {
                 SuccessAlertForCreateEvent("Offside Event was created!");
             }
         }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createOffSideEvent", userName,match,player);
+
         clearAllComboBoxes();
     }
 
@@ -244,7 +244,7 @@ public class eventsPageController {
                 SuccessAlertForCreateEvent("Replacement Event was created!");
             }
         }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createReplaceEvent", userName,match,player1,player2);
+
         clearAllComboBoxes();
     }
 
@@ -254,13 +254,14 @@ public class eventsPageController {
         }else {
             String player = playerForRedCard.getSelectionModel().getSelectedItem();
             String answer = this.refereeApplication.createRedCardEvent(userName, match, player);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createRedCardEvent", userName,match,player);
             if (!answer.equals("ok")) {
                 ErrorAlertForCreateEvent(answer);
             } else {
                 SuccessAlertForCreateEvent("RedCard Event was created!");
             }
         }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createRedCardEvent", userName,match,player);
+
         clearAllComboBoxes();
     }
 

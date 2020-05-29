@@ -71,7 +71,12 @@ public class TeamManagementController {
                     break;
                 }
             }
+            if(MainSystem.getInstance().checkIfFieldExists(nameOfNewField)){
+                return "Field name already exists";
+            }
             Field field = new Field(nameOfNewField);
+            MainSystem.getInstance().addField(field);
+
             /**add new field to fields table:**/
             LinkedList<String> fieldRec=new LinkedList<>();
             fieldRec.add(nameOfNewField);
@@ -156,11 +161,6 @@ public class TeamManagementController {
             name.add(coachUserName);
             daoCoaches.update(name,records);
 
-            if(MainSystem.getInstance().checkIfFieldExists(nameOfNewField)){
-                return "Field name already exists";
-            }
-            Field field = new Field(nameOfNewField);
-            MainSystem.getInstance().addField(field);
 
             user.getTeamOwner().makeTeamActive(team, players, coach, field);
 

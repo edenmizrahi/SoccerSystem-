@@ -158,7 +158,7 @@ public class RefereePageController extends HomePageController {
         loader.setLocation(getClass().getResource("RegistrationGamesAlerts.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
         registrationGamesAlertsController.initUser(userName,role);
@@ -215,7 +215,6 @@ public class RefereePageController extends HomePageController {
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("MyAlerts.fxml"));
         Parent root=loader.load();
-        //Scene scene = new Scene(root, 900, 600);
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
@@ -233,7 +232,7 @@ public class RefereePageController extends HomePageController {
         loader.setLocation(getClass().getResource("RefereeNotification.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         RefereeNotificationController controller=loader.getController();
         controller.initAlertsUser(userName,role);

@@ -262,18 +262,20 @@ public class TeamManagementController {
 
     public String getMyApprovedTeams(String userName){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
-        if (user.getTeamOwner().getApprovedTeams() == null){
-            return null;
-        }
-        LinkedList<Team> teams =  user.getTeamOwner().getApprovedTeams();
-        if (teams != null && teams.size() != 0) {
-            //LinkedList<String> teamNames = new LinkedList<>();
-            String teamNames = new String();
-            for (Team t : teams) {
-                //teamNames.add(t.getName());
-                teamNames += t.getName() + ";";
+        if (user.isTeamOwner()) {
+            if (user.getTeamOwner().getApprovedTeams() == null) {
+                return null;
             }
-            return teamNames;
+            LinkedList<Team> teams = user.getTeamOwner().getApprovedTeams();
+            if (teams != null && teams.size() != 0) {
+                //LinkedList<String> teamNames = new LinkedList<>();
+                String teamNames = new String();
+                for (Team t : teams) {
+                    //teamNames.add(t.getName());
+                    teamNames += t.getName() + ";";
+                }
+                return teamNames;
+            }
         }
         return null;
     }

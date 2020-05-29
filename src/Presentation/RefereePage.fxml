@@ -36,9 +36,9 @@
                         <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onAction="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                         <Button fx:id="MyAlertsBtn" mnemonicParsing="false" onAction="#FanNotificationEventClick" prefHeight="45.0" prefWidth="230.0" text="My alerts as Fan" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   <Button mnemonicParsing="false" onAction="#MyAlertsFunctionAsRef" prefHeight="45.0" prefWidth="230.0" text="My alerts as Referee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <Label prefHeight="42.0" prefWidth="173.0" text="My home page " GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label prefHeight="42.0" prefWidth="176.0" text="My home page " GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
-                        <Font name="Book Antiqua Bold" size="24.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
                     </children>

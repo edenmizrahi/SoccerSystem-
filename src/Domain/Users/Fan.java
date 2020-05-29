@@ -347,6 +347,17 @@ public class Fan extends User implements NotificationsUser {
     }
     //</editor-fold>
 
+    public HashSet<Notification> getUnReadNotificationsAsFan(){
+        gotFanNotification=false;
+        HashSet<Notification> unRead=new HashSet<>();
+        for(Notification n: notificationHashSet){
+            if(n.isRead()==false){
+                unRead.add(n);
+            }
+        }
+        return unRead;
+    }
+
 
     /***just for test**/
     @Override

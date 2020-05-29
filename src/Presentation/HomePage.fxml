@@ -58,7 +58,8 @@
                                 <Font name="Book Antiqua Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Button fx:id="buttonMyRoles" mnemonicParsing="false" onAction="#myRolesEventClick" prefHeight="45.0" prefWidth="200.0" text="My roles" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Button fx:id="buttonMyRoles" mnemonicParsing="false" onAction="#myRolesEventClick" prefHeight="51.0" prefWidth="142.0" text="my rols" visible="false" GridPane.rowIndex="4" />
+                        <!--<Button fx:id="tempButtonTeamRole" mnemonicParsing="false" prefHeight="36.0" prefWidth="146.0" text="temp- check if teamRole" GridPane.columnIndex="1" GridPane.rowIndex="1" />-->
                     </children>
                     <opaqueInsets>
                         <Insets left="5.0" />

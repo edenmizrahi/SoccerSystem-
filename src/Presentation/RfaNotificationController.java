@@ -23,7 +23,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class RfaNotificationController {
-
     private RfaApplication rfaApplication = new RfaApplication();
     private List<String> RfaRequestList=new LinkedList<>();
     public String userName ;
@@ -31,7 +30,6 @@ public class RfaNotificationController {
 
     @FXML
     private ComboBox<String > requestsCombo;
-
 
     @FXML
     public void initUser (String userName,String role) {
@@ -90,8 +88,6 @@ public class RfaNotificationController {
             }
             initComboBox();
         }
-
-
     }
 
     public void onApprove(ActionEvent actionEvent) {
@@ -127,8 +123,6 @@ public class RfaNotificationController {
             }
             initComboBox();
         }
-
-
     }
 
     public void closeHandling(MouseEvent mouseEvent) throws IOException {
@@ -148,5 +142,4 @@ public class RfaNotificationController {
         controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
-
 }

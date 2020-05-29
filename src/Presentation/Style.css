@@ -34,13 +34,17 @@
 }
 
 
-
 .text-field{
     -fx-border-color: white;
     -fx-background-color: #E45652;
 }
 
 .password-field{
+    -fx-border-color: white;
+    -fx-background-color: #E45652;
+}
+
+.combo-box{
     -fx-border-color: white;
     -fx-background-color: #E45652;
 }

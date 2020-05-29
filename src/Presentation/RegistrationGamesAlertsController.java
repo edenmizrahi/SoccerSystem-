@@ -54,7 +54,7 @@ public class RegistrationGamesAlertsController {
     public void updateMachesFollsComoBox(){
         //for comboBox of fan matches
         fanMatchsList.clear();
-        fanMatchsList.add("Matches you are following and receive alerts");
+        fanMatchsList.add("matches you are following and receive alerts");
         String allFanMatchsStr = fanApplication.getUserMachesFollows(userName);
         //String allFanMatchsStr = ClientController.connectToServer("FanApplication", "getUserMachesFollows", userName);
 

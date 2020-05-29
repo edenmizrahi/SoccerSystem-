@@ -42,8 +42,8 @@ public class RefereePageController extends HomePageController {
     private FanApplication fanApplication= new FanApplication();
     private UserApplication userApplication= new UserApplication();
 
-    private String userName = "dana123";
-    private String role = "ds";
+    private String userName;
+    private String role;
 
     @FXML
     @Override
@@ -100,7 +100,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("eventsPage.fxml"));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root);
 
             eventsPageController eventsPageController = loader.getController();
             eventsPageController.initUser(userName, match,role);
@@ -129,7 +129,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("ReportOfMatch.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root);
 
             ReportOfMatchController reportOfMatchController = loader.getController();
             reportOfMatchController.initPage(userName, matches);
@@ -212,7 +212,7 @@ public class RefereePageController extends HomePageController {
         Parent root=loader.load();
         //Scene scene = new Scene(root, 900, 600);
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
         myRolesController.initAllertsUser(userName,role);
 

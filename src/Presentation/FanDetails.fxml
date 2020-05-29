@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FanDetailsController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FanDetailsController">
    <children>
-      <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+      <Label layoutX="700.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
          <font>
             <Font size="24.0" />
          </font>
@@ -88,12 +88,12 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="151.0" text="PhoneNumber:" GridPane.rowIndex="3">
+                        <Label prefHeight="17.0" prefWidth="151.0" text="Phone Number:" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="currPasswardLable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>

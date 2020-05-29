@@ -51,7 +51,7 @@ public class RfaPageController extends HomePageController {
         loader.setLocation(getClass().getResource("DefinePolicy.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         DefinePolicyController definePolicyController = loader.getController();
         definePolicyController.initUser(userName);
@@ -69,6 +69,16 @@ public class RfaPageController extends HomePageController {
 
     }
 
+    @FXML
+    public void MyAlertsFunction(MouseEvent mouseEvent) throws IOException {
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RfaNotification.fxml"));
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        stageTheEventSourceNodeBelongs.setScene(scene);
+
+    }
 
     @FXML
     public void registrationForGamesAlertsMouseClickHandling(ActionEvent event) throws IOException {
@@ -77,7 +87,7 @@ public class RfaPageController extends HomePageController {
         loader.setLocation(getClass().getResource("RegistrationGamesAlerts.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
         registrationGamesAlertsController.initUser(userName,role);
@@ -165,7 +175,7 @@ public class RfaPageController extends HomePageController {
         Parent root=loader.load();
         //Scene scene = new Scene(root, 900, 600);
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
         myRolesController.initAllertsUser(userName,role);
 

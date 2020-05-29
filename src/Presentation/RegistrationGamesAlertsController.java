@@ -100,8 +100,8 @@ public class RegistrationGamesAlertsController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         if(role.equals("Fan")){
             HomePageController controller = loader.getController();
             controller.initHomePage(userName,role);
@@ -147,12 +147,6 @@ public class RegistrationGamesAlertsController {
                 chooseFile.setContentText("match added to your followed matches.");
                 chooseFile.show();
                 updateMachesFollsComoBox();
-            }
-            else if(massage.equals("Error - match not added")){
-                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
-                chooseFile.setHeaderText("Error");
-                chooseFile.setContentText(massage);
-                chooseFile.show();
             }
             else{
                 if(massage.contains("Error")){

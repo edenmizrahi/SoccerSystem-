@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.HomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.HomePageController">
     <children>
-        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" >
             <font>
                 <Font size="24.0" />
             </font>
@@ -36,29 +36,29 @@
                     <rowConstraints>
                         <RowConstraints maxHeight="64.66665649414062" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="58.99997711181641" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="85.3333536783854" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="88.66665140787762" minHeight="0.0" prefHeight="68.33332316080728" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="62.333343505859375" minHeight="10.0" prefHeight="58.333343505859375" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="48.33331298828125" minHeight="10.0" prefHeight="37.666656494140625" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="91.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <BorderPane.margin>
                         <Insets left="5.0" top="10.0" />
                     </BorderPane.margin>
                     <children>
-                        <Button mnemonicParsing="false" onAction="#fanAllertsEventClick" prefHeight="38.0" prefWidth="203.0" text="My alerts" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <Button mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="200.0" text="View\change settings " GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" onAction="#registrationForGamesAlertsOnlickHandling" prefHeight="47.0" prefWidth="205.0" text="Registration for games alerts" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#fanAllertsEventClick" prefHeight="45.0" prefWidth="200.0" text="My alerts" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="200.0" text="View\change settings " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#registrationForGamesAlertsOnlickHandling" prefHeight="45.0" prefWidth="200.0" text="Registration for games alerts" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                         <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="31.0" prefWidth="109.0" text="log out">
                      <GridPane.margin>
                         <Insets top="15.0" />
                      </GridPane.margin></Button>
-                        <Label prefHeight="48.0" prefWidth="295.0" text="my home page " GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label prefHeight="42.0" prefWidth="173.0" text="my home page " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                             <font>
                                 <Font name="Book Antiqua Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Button fx:id="buttonMyRoles" mnemonicParsing="false" onAction="#myRolesEventClick" prefHeight="51.0" prefWidth="142.0" text="my rols" visible="false" GridPane.rowIndex="4" />
-                        <Button fx:id="tempButtonTeamRole" mnemonicParsing="false" prefHeight="36.0" prefWidth="146.0" text="temp- check if teamRole" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="buttonMyRoles" mnemonicParsing="false" onAction="#myRolesEventClick" prefHeight="45.0" prefWidth="200.0" text="My roles" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                     </children>
                     <opaqueInsets>
                         <Insets left="5.0" />

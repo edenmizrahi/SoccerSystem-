@@ -43,7 +43,7 @@ public class RefereeNotificationController {
         RefereeNotificationsList.clear();
         RefereeNotificationsList.add("All my unread alerts about matches");
         String RefereeAlertsAsReferee = refereeApplication.getRefereeUnreadNotifications(userName);
-        //String allRefereeAlertsStr = ClientController.connectToServer("refereeApplication", "getRefereeUnreadNotifications", userName);
+        //String RefereeAlertsAsReferee = ClientController.connectToServer("refereeApplication", "getRefereeUnreadNotifications", userName);
 
         List<String> allRefereeAlerts = Arrays.asList(RefereeAlertsAsReferee.split(";"));
         for (String str:allRefereeAlerts) {
@@ -65,6 +65,8 @@ public class RefereeNotificationController {
         }
         else{
             String answer = this.refereeApplication.markNotificationAsRead(notification, this.userName);
+            //String answer = ClientController.connectToServer("refereeApplication", "markNotificationAsRead", userName);
+
             if(answer.equals("ok")) {
                 initComboBox();
                 Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
@@ -93,8 +95,8 @@ public class RefereeNotificationController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RefereePageController controller = loader.getController();
         controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);

@@ -2,6 +2,7 @@ package Presentation;
 
 import Domain.Controllers.SystemOperationsController;
 import Domain.MainSystem;
+import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -38,7 +39,8 @@ public class MainFirstWindow extends Application {
 ////        primaryStage.setTitle("Football System");
 ////        primaryStage.setScene(new Scene(root, 300, 275));
 ////        primaryStage.show();
-
+       // Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+       // StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("Style.css").toString());
         Scene scene;
     //--------------
     primaryStage.setTitle("Football System");

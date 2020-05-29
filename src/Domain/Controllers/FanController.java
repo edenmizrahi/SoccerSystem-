@@ -1,6 +1,8 @@
 package Domain.Controllers;
 
 import DataAccess.DaoFanMatchesFollow;
+import DataAccess.DaoNotificationFan;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
@@ -18,7 +20,7 @@ import java.util.List;
 public class FanController {
     SystemOperationsController systemOperationsController=new SystemOperationsController();
     DaoFanMatchesFollow daoFanMatchesFollow = new DaoFanMatchesFollow();
-
+    DaoNotificationFan daoNotificationFan=new DaoNotificationFan();
 
     public String fanIsTeamRole(String userName) {
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
@@ -107,11 +109,24 @@ public class FanController {
         //LinkedList<String> fanNotificationsString=new LinkedList<>();
         String fanNotificationsString = new String();
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
-        HashSet<Notification> fanNotifications= fan.getNotificationsList();
+        HashSet<Notification> fanNotifications= fan.getFanNotification();
         for (Notification noti:fanNotifications) {
             //fanNotificationsString.add(noti.getContent().toString());
             fanNotificationsString += noti.getContent().toString() + ";";
             noti.setRead(true);
+            Match m= (Match)noti.getSender();
+
+            List<String> key=new LinkedList<>();
+            key.add(MainSystem.simpleDateFormat.format(m.getStartDate()));
+            key.add(m.getHomeTeam().getName());
+            key.add(m.getAwayTeam().getName());
+            key.add(userName);
+
+            List<String> recordData=new LinkedList<>();
+            key.add(((Event)(noti.getContent())).getId()+"");
+            recordData.add("1");
+
+            daoNotificationFan.update(key,recordData);
         }
 
         //markAsReadNotification
@@ -199,6 +214,9 @@ public class FanController {
      */
     public String checkForNewNotifications(String username){
         User user= systemOperationsController.getUserByUserName(username);
+        if(user==null){
+            return "user not found- delete later";
+        }
         if(user instanceof Referee){
             return ((Referee)user).checkNotificationAlert();
         }

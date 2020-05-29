@@ -95,8 +95,7 @@ public class FanDetailsController { //implements Initializable
         //list : name, Password, PhoneNumber, Email, DateOfBirth
         currNameLabel.setText(fanDetails.get(0));
         currPasswardLable.setText(fanDetails.get(1));
-        //TODO decrypt
-        // ClientController.connectToServer("SystemOperationsApplication", "decrypt", fanDetails.get(1));
+
         currPhonNumberLabel.setText(fanDetails.get(2));
         currEmailLabel.setText(fanDetails.get(3));
         currDateOfBirthLable.setText(fanDetails.get(4));
@@ -205,8 +204,8 @@ public class FanDetailsController { //implements Initializable
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
         //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
-        Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         if(role.equals("Fan")){
             HomePageController controller = loader.getController();
             controller.initHomePage(userName,role);

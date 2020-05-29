@@ -27,7 +27,7 @@ public class RfaController {
     public SystemOperationsController systemOperationsController = new SystemOperationsController();
     public DaoTeamRequests daoTeamRequests = new DaoTeamRequests();
     public DaoApprovedTeamReq daoApprovedTeamReq = new DaoApprovedTeamReq();
-
+    public DaoSeasons daoSeasons = new DaoSeasons();
     /**
      * create new league
      * @param leagueName
@@ -129,38 +129,53 @@ public class RfaController {
      * @param calc
      * @param sched
      */
-    public void DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
-        DaoSeasons daoSeasons = new DaoSeasons();
-        LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
-        int yearOfSeason = Integer.parseInt(year);
-        boolean seasonExist = false;
-        for (Season s: allSeasons) {
-            if(s.getYear()==yearOfSeason){
-                seasonExist = true;
-                s.setCalculationPolicy(this.calculationPolicyByString(calc) , rfaUserName);
-                s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
+    public String DefinePoliciesToSeason(String year, String calc, String sched, String rfaUserName){
+        try {
+            DaoSeasons daoSeasons = new DaoSeasons();
+            LinkedList<Season> allSeasons = MainSystem.getInstance().getSeasons();
+            int yearOfSeason = Integer.parseInt(year);
+            boolean seasonExist = false;
+            for (Season s : allSeasons) {
+                if (s.getYear() == yearOfSeason) {
+                    seasonExist = true;
+                    s.setCalculationPolicy(this.calculationPolicyByString(calc), rfaUserName);
+                    s.setSchedulingPolicy(this.schedulingPolicyByString(sched), rfaUserName);
 
-                //update DB - table DaoSeason
-                List<String> recordInSeasonTable = new LinkedList<>();
+                    //update DB - table DaoSeason
+                    List<String> recordInSeasonTable = new LinkedList<>();
 //                recordInSeasonTable.add(0,year);
-                recordInSeasonTable.add(0,sched);
-                recordInSeasonTable.add(1,calc);
-                if(MainSystem.getInstance().getCurrSeason().getYear() == s.getYear()){
-                    recordInSeasonTable.add(2,"1");
+                    recordInSeasonTable.add(0, sched);
+                    recordInSeasonTable.add(1, calc);
+                    if (MainSystem.getInstance().getCurrSeason().getYear() == s.getYear()) {
+                        recordInSeasonTable.add(2, "1");
+                    } else {
+                        recordInSeasonTable.add(2, "0");
+                    }
+                    LinkedList<String> keys = new LinkedList<>();
+                    keys.add(String.valueOf(s.getYear()));
+                    daoSeasons.update(keys, recordInSeasonTable);
+                }
+            }
+
+            if (!seasonExist) {
+                Season newSeason = new Season(MainSystem.getInstance(), this.schedulingPolicyByString(sched), this.calculationPolicyByString(calc), yearOfSeason);
+                //save into DB - table DaoSeason
+                List<String> seasonRec = new LinkedList<>();
+                seasonRec.add(0,String.valueOf(newSeason.getYear()));
+                seasonRec.add(1,newSeason.getSchedulingPolicy().getNameOfSchedulingPolicy());
+                seasonRec.add(2,newSeason.getCalculationPolicy().getNameOfCalculationPolicy());
+                if(MainSystem.getInstance().getCurrSeason().getYear()==newSeason.getYear()) {
+                    seasonRec.add(3, "1");
                 }
                 else{
-                    recordInSeasonTable.add(2,"0");
+                    seasonRec.add(3, "0");
                 }
-                LinkedList<String> keys=new LinkedList<>();
-                keys.add(String.valueOf(s.getYear()));
-                daoSeasons.update(keys, recordInSeasonTable);
+                daoSeasons.save(seasonRec);
             }
+            return "ok";
         }
-
-        if(!seasonExist){
-            Season newSeason = new Season(MainSystem.getInstance(),this.schedulingPolicyByString(sched),this.calculationPolicyByString(calc),yearOfSeason);
-            //save into DB - table DaoSeason
-
+        catch (Exception e){
+            return "error " +e.getMessage();
         }
 
     }

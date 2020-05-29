@@ -91,9 +91,18 @@ public class DefinePolicyController {
 
             String calcPolicySelected = chooseCalcPolicyBtn.getSelectionModel().getSelectedItem().toString();
             String schedPolicySelected = chooseSchedPolicyBtn.getSelectionModel().getSelectedItem().toString();
-            this.rfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            String answer = this.rfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            if(answer.equals("ok")){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Define policies was successful");
+                alert.show();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText(answer);
+                alert.show();
+            }
             //String ans = ClientController.connectToServer("RfaApplication", "DefinePoliciesToSeason", seasonSelected, calcPolicySelected, schedPolicySelected, userName);
-
         }
         else{
             //throw alert that the year of season incorrect syntax

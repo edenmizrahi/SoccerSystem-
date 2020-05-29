@@ -40,7 +40,7 @@ public class RfaNotificationController {
     }
 
     @FXML
-    private void initComboBox(MouseEvent event) {
+    private void initComboBox() {
         RfaRequestList.clear();
         RfaRequestList.add("All my unread alerts about matches");
         String RfaAlertsAsRfa = rfaApplication.getTeamRequests(userName);
@@ -88,6 +88,7 @@ public class RfaNotificationController {
                     chooseFile.show();
                 }
             }
+            initComboBox();
         }
 
 
@@ -124,6 +125,7 @@ public class RfaNotificationController {
                     chooseFile.show();
                 }
             }
+            initComboBox();
         }
 
 

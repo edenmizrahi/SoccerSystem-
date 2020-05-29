@@ -11291,3 +11291,653 @@
 29.05.2020 01:43:23 DBHandler - Succeeded  - DB connected
 29.05.2020 01:43:23 DBHandler - Succeeded  - DB connected
 29.05.2020 01:43:31 MainSystem - oralfasi - loged in to system
+29.05.2020 12:18:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 TeamRole - arnold - become team owner
+29.05.2020 12:18:41 TeamRole - coach12 - become coach
+29.05.2020 12:18:41 TeamRole - dan - become player
+29.05.2020 12:18:41 TeamRole - dan - become coach
+29.05.2020 12:18:41 TeamRole - gal1 - become player
+29.05.2020 12:18:41 TeamRole - ilan - become team owner
+29.05.2020 12:18:41 TeamRole - may2 - become player
+29.05.2020 12:18:41 TeamRole - player10 - become player
+29.05.2020 12:18:41 TeamRole - player11 - become player
+29.05.2020 12:18:41 TeamRole - player12 - become player
+29.05.2020 12:18:41 TeamRole - player13 - become player
+29.05.2020 12:18:41 TeamRole - player14 - become player
+29.05.2020 12:18:41 TeamRole - player15 - become player
+29.05.2020 12:18:41 TeamRole - player16 - become player
+29.05.2020 12:18:41 TeamRole - player17 - become player
+29.05.2020 12:18:41 TeamRole - player18 - become player
+29.05.2020 12:18:41 TeamRole - player19 - become player
+29.05.2020 12:18:41 TeamRole - player20 - become player
+29.05.2020 12:18:41 TeamRole - player21 - become player
+29.05.2020 12:18:41 TeamRole - player22 - become player
+29.05.2020 12:18:41 TeamRole - player23 - become player
+29.05.2020 12:18:41 TeamRole - player24 - become player
+29.05.2020 12:18:41 TeamRole - player25 - become player
+29.05.2020 12:18:41 TeamRole - player26 - become player
+29.05.2020 12:18:41 TeamRole - player27 - become player
+29.05.2020 12:18:41 TeamRole - player28 - become player
+29.05.2020 12:18:41 TeamRole - player29 - become player
+29.05.2020 12:18:41 TeamRole - player30 - become player
+29.05.2020 12:18:41 TeamRole - player31 - become player
+29.05.2020 12:18:41 TeamRole - player32 - become player
+29.05.2020 12:18:41 TeamRole - player33 - become player
+29.05.2020 12:18:41 TeamRole - player34 - become player
+29.05.2020 12:18:41 TeamRole - player35 - become player
+29.05.2020 12:18:41 TeamRole - player36 - become player
+29.05.2020 12:18:41 TeamRole - player37 - become player
+29.05.2020 12:18:41 TeamRole - player38 - become player
+29.05.2020 12:18:41 TeamRole - player39 - become player
+29.05.2020 12:18:41 TeamRole - player39 - become coach
+29.05.2020 12:18:41 TeamRole - player40 - become player
+29.05.2020 12:18:41 TeamRole - player41 - become player
+29.05.2020 12:18:41 TeamRole - player42 - become player
+29.05.2020 12:18:41 TeamRole - player43 - become player
+29.05.2020 12:18:41 TeamRole - player44 - become player
+29.05.2020 12:18:41 TeamRole - player45 - become player
+29.05.2020 12:18:41 TeamRole - player46 - become player
+29.05.2020 12:18:41 TeamRole - player47 - become player
+29.05.2020 12:18:41 TeamRole - player48 - become player
+29.05.2020 12:18:41 TeamRole - player49 - become player
+29.05.2020 12:18:41 TeamRole - player5 - become player
+29.05.2020 12:18:41 TeamRole - player50 - become player
+29.05.2020 12:18:41 TeamRole - player51 - become player
+29.05.2020 12:18:41 TeamRole - player52 - become player
+29.05.2020 12:18:41 TeamRole - player53 - become player
+29.05.2020 12:18:41 TeamRole - player54 - become player
+29.05.2020 12:18:41 TeamRole - player55 - become player
+29.05.2020 12:18:41 TeamRole - player56 - become player
+29.05.2020 12:18:41 TeamRole - player6 - become player
+29.05.2020 12:18:41 TeamRole - player7 - become player
+29.05.2020 12:18:41 TeamRole - player8 - become player
+29.05.2020 12:18:41 TeamRole - player9 - become player
+29.05.2020 12:18:41 TeamRole - shimi - become team owner
+29.05.2020 12:18:41 TeamRole - shon - become coach
+29.05.2020 12:18:41 TeamRole - tal4 - become player
+29.05.2020 12:18:41 TeamRole - tal4 - become team owner
+29.05.2020 12:18:41 TeamRole - test1 - become team owner
+29.05.2020 12:18:41 TeamRole - timor - become coach
+29.05.2020 12:18:41 TeamRole - timor - become team owner
+29.05.2020 12:18:41 TeamRole - tom3 - become player
+29.05.2020 12:18:41 TeamRole - tom3 - become coach
+29.05.2020 12:18:41 TeamRole - zipi - become team manager 
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 MainSystem - MainSystem - system was added new season:2020
+29.05.2020 12:18:42 Season -  - changed calculation policy of season 2020 to: CalculateOption1
+29.05.2020 12:18:42 Season -  - changed scheduling policy of season 2020 to: SchedualeOption1
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:43 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:43 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:43 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:43 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:43 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:44 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:44 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:44 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:44 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:45 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 Match - Replacement - add event to match between hapoel TLV to macabi bash
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:46 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 Match - Extra time - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 Match - Goal - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:47 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:48 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:49 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:49 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:49 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:49 DBHandler - Succeeded  - DB connected
+29.05.2020 12:18:49 DBHandler - Succeeded  - DB connected
+29.05.2020 12:19:04 MainSystem - details not correct, no fan in system
+29.05.2020 12:22:24 MainSystem - or - loged in to system
+29.05.2020 12:23:07 MainSystem - or - logged out from system
+29.05.2020 12:23:14 MainSystem - amir - loged in to system
+29.05.2020 12:30:49 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:31 TeamRole - arnold - become team owner
+29.05.2020 12:32:31 TeamRole - coach12 - become coach
+29.05.2020 12:32:31 TeamRole - dan - become player
+29.05.2020 12:32:31 TeamRole - dan - become coach
+29.05.2020 12:32:31 TeamRole - gal1 - become player
+29.05.2020 12:32:31 TeamRole - ilan - become team owner
+29.05.2020 12:32:31 TeamRole - may2 - become player
+29.05.2020 12:32:31 TeamRole - player10 - become player
+29.05.2020 12:32:31 TeamRole - player11 - become player
+29.05.2020 12:32:31 TeamRole - player12 - become player
+29.05.2020 12:32:31 TeamRole - player13 - become player
+29.05.2020 12:32:31 TeamRole - player14 - become player
+29.05.2020 12:32:31 TeamRole - player15 - become player
+29.05.2020 12:32:31 TeamRole - player16 - become player
+29.05.2020 12:32:31 TeamRole - player17 - become player
+29.05.2020 12:32:31 TeamRole - player18 - become player
+29.05.2020 12:32:31 TeamRole - player19 - become player
+29.05.2020 12:32:31 TeamRole - player20 - become player
+29.05.2020 12:32:31 TeamRole - player21 - become player
+29.05.2020 12:32:31 TeamRole - player22 - become player
+29.05.2020 12:32:31 TeamRole - player23 - become player
+29.05.2020 12:32:31 TeamRole - player24 - become player
+29.05.2020 12:32:31 TeamRole - player25 - become player
+29.05.2020 12:32:31 TeamRole - player26 - become player
+29.05.2020 12:32:31 TeamRole - player27 - become player
+29.05.2020 12:32:31 TeamRole - player28 - become player
+29.05.2020 12:32:31 TeamRole - player29 - become player
+29.05.2020 12:32:31 TeamRole - player30 - become player
+29.05.2020 12:32:31 TeamRole - player31 - become player
+29.05.2020 12:32:31 TeamRole - player32 - become player
+29.05.2020 12:32:31 TeamRole - player33 - become player
+29.05.2020 12:32:31 TeamRole - player34 - become player
+29.05.2020 12:32:31 TeamRole - player35 - become player
+29.05.2020 12:32:31 TeamRole - player36 - become player
+29.05.2020 12:32:31 TeamRole - player37 - become player
+29.05.2020 12:32:31 TeamRole - player38 - become player
+29.05.2020 12:32:31 TeamRole - player39 - become player
+29.05.2020 12:32:31 TeamRole - player39 - become coach
+29.05.2020 12:32:31 TeamRole - player40 - become player
+29.05.2020 12:32:31 TeamRole - player41 - become player
+29.05.2020 12:32:31 TeamRole - player42 - become player
+29.05.2020 12:32:31 TeamRole - player43 - become player
+29.05.2020 12:32:31 TeamRole - player44 - become player
+29.05.2020 12:32:31 TeamRole - player45 - become player
+29.05.2020 12:32:31 TeamRole - player46 - become player
+29.05.2020 12:32:31 TeamRole - player47 - become player
+29.05.2020 12:32:31 TeamRole - player48 - become player
+29.05.2020 12:32:31 TeamRole - player49 - become player
+29.05.2020 12:32:31 TeamRole - player5 - become player
+29.05.2020 12:32:31 TeamRole - player50 - become player
+29.05.2020 12:32:31 TeamRole - player51 - become player
+29.05.2020 12:32:31 TeamRole - player52 - become player
+29.05.2020 12:32:31 TeamRole - player53 - become player
+29.05.2020 12:32:31 TeamRole - player54 - become player
+29.05.2020 12:32:31 TeamRole - player55 - become player
+29.05.2020 12:32:31 TeamRole - player56 - become player
+29.05.2020 12:32:31 TeamRole - player6 - become player
+29.05.2020 12:32:31 TeamRole - player7 - become player
+29.05.2020 12:32:31 TeamRole - player8 - become player
+29.05.2020 12:32:31 TeamRole - player9 - become player
+29.05.2020 12:32:31 TeamRole - shimi - become team owner
+29.05.2020 12:32:31 TeamRole - shon - become coach
+29.05.2020 12:32:31 TeamRole - tal4 - become player
+29.05.2020 12:32:31 TeamRole - tal4 - become team owner
+29.05.2020 12:32:31 TeamRole - test1 - become team owner
+29.05.2020 12:32:31 TeamRole - timor - become coach
+29.05.2020 12:32:31 TeamRole - timor - become team owner
+29.05.2020 12:32:31 TeamRole - tom3 - become player
+29.05.2020 12:32:31 TeamRole - tom3 - become coach
+29.05.2020 12:32:31 TeamRole - zipi - become team manager 
+29.05.2020 12:32:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 MainSystem - MainSystem - system was added new season:2020
+29.05.2020 12:32:32 Season -  - changed calculation policy of season 2020 to: CalculateOption1
+29.05.2020 12:32:32 Season -  - changed scheduling policy of season 2020 to: SchedualeOption1
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:37 Match - Replacement - add event to match between hapoel TLV to macabi bash
+29.05.2020 12:32:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:38 Match - Extra time - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:32:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:38 Match - Goal - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:32:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:32:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:33:09 MainSystem - amir - loged in to system
+29.05.2020 12:34:25 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:25 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:26 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:27 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:27 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:28 TeamRole - arnold - become team owner
+29.05.2020 12:34:28 TeamRole - coach12 - become coach
+29.05.2020 12:34:28 TeamRole - dan - become player
+29.05.2020 12:34:28 TeamRole - dan - become coach
+29.05.2020 12:34:28 TeamRole - gal1 - become player
+29.05.2020 12:34:28 TeamRole - ilan - become team owner
+29.05.2020 12:34:28 TeamRole - may2 - become player
+29.05.2020 12:34:28 TeamRole - player10 - become player
+29.05.2020 12:34:28 TeamRole - player11 - become player
+29.05.2020 12:34:28 TeamRole - player12 - become player
+29.05.2020 12:34:28 TeamRole - player13 - become player
+29.05.2020 12:34:28 TeamRole - player14 - become player
+29.05.2020 12:34:28 TeamRole - player15 - become player
+29.05.2020 12:34:28 TeamRole - player16 - become player
+29.05.2020 12:34:28 TeamRole - player17 - become player
+29.05.2020 12:34:28 TeamRole - player18 - become player
+29.05.2020 12:34:28 TeamRole - player19 - become player
+29.05.2020 12:34:28 TeamRole - player20 - become player
+29.05.2020 12:34:28 TeamRole - player21 - become player
+29.05.2020 12:34:28 TeamRole - player22 - become player
+29.05.2020 12:34:28 TeamRole - player23 - become player
+29.05.2020 12:34:28 TeamRole - player24 - become player
+29.05.2020 12:34:28 TeamRole - player25 - become player
+29.05.2020 12:34:28 TeamRole - player26 - become player
+29.05.2020 12:34:28 TeamRole - player27 - become player
+29.05.2020 12:34:28 TeamRole - player28 - become player
+29.05.2020 12:34:28 TeamRole - player29 - become player
+29.05.2020 12:34:28 TeamRole - player30 - become player
+29.05.2020 12:34:28 TeamRole - player31 - become player
+29.05.2020 12:34:28 TeamRole - player32 - become player
+29.05.2020 12:34:28 TeamRole - player33 - become player
+29.05.2020 12:34:28 TeamRole - player34 - become player
+29.05.2020 12:34:28 TeamRole - player35 - become player
+29.05.2020 12:34:28 TeamRole - player36 - become player
+29.05.2020 12:34:28 TeamRole - player37 - become player
+29.05.2020 12:34:28 TeamRole - player38 - become player
+29.05.2020 12:34:28 TeamRole - player39 - become player
+29.05.2020 12:34:28 TeamRole - player39 - become coach
+29.05.2020 12:34:28 TeamRole - player40 - become player
+29.05.2020 12:34:28 TeamRole - player41 - become player
+29.05.2020 12:34:28 TeamRole - player42 - become player
+29.05.2020 12:34:28 TeamRole - player43 - become player
+29.05.2020 12:34:28 TeamRole - player44 - become player
+29.05.2020 12:34:28 TeamRole - player45 - become player
+29.05.2020 12:34:28 TeamRole - player46 - become player
+29.05.2020 12:34:28 TeamRole - player47 - become player
+29.05.2020 12:34:28 TeamRole - player48 - become player
+29.05.2020 12:34:28 TeamRole - player49 - become player
+29.05.2020 12:34:28 TeamRole - player5 - become player
+29.05.2020 12:34:28 TeamRole - player50 - become player
+29.05.2020 12:34:28 TeamRole - player51 - become player
+29.05.2020 12:34:28 TeamRole - player52 - become player
+29.05.2020 12:34:28 TeamRole - player53 - become player
+29.05.2020 12:34:28 TeamRole - player54 - become player
+29.05.2020 12:34:28 TeamRole - player55 - become player
+29.05.2020 12:34:28 TeamRole - player56 - become player
+29.05.2020 12:34:28 TeamRole - player6 - become player
+29.05.2020 12:34:28 TeamRole - player7 - become player
+29.05.2020 12:34:28 TeamRole - player8 - become player
+29.05.2020 12:34:28 TeamRole - player9 - become player
+29.05.2020 12:34:28 TeamRole - shimi - become team owner
+29.05.2020 12:34:28 TeamRole - shon - become coach
+29.05.2020 12:34:28 TeamRole - tal4 - become player
+29.05.2020 12:34:28 TeamRole - tal4 - become team owner
+29.05.2020 12:34:28 TeamRole - test1 - become team owner
+29.05.2020 12:34:28 TeamRole - timor - become coach
+29.05.2020 12:34:28 TeamRole - timor - become team owner
+29.05.2020 12:34:28 TeamRole - tom3 - become player
+29.05.2020 12:34:28 TeamRole - tom3 - become coach
+29.05.2020 12:34:28 TeamRole - zipi - become team manager 
+29.05.2020 12:34:28 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:28 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:28 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:28 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:29 MainSystem - MainSystem - system was added new season:2020
+29.05.2020 12:34:29 Season -  - changed calculation policy of season 2020 to: CalculateOption1
+29.05.2020 12:34:29 Season -  - changed scheduling policy of season 2020 to: SchedualeOption1
+29.05.2020 12:34:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:29 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:30 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:35 Match - Replacement - add event to match between hapoel TLV to macabi bash
+29.05.2020 12:34:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:37 Match - Extra time - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:34:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:37 Match - Goal - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:34:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:34:48 MainSystem - amir - loged in to system
+29.05.2020 12:38:20 DBHandler - Succeeded  - DB connected
+29.05.2020 12:39:21 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:51 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:51 System_Operation_Init - Init system ...  - Start uploading data from DB
+29.05.2020 12:50:51 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:52 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:52 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:53 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:53 TeamRole - arnold - become team owner
+29.05.2020 12:50:53 TeamRole - coach12 - become coach
+29.05.2020 12:50:53 TeamRole - dan - become player
+29.05.2020 12:50:53 TeamRole - dan - become coach
+29.05.2020 12:50:53 TeamRole - gal1 - become player
+29.05.2020 12:50:53 TeamRole - ilan - become team owner
+29.05.2020 12:50:53 TeamRole - may2 - become player
+29.05.2020 12:50:53 TeamRole - player10 - become player
+29.05.2020 12:50:53 TeamRole - player11 - become player
+29.05.2020 12:50:53 TeamRole - player12 - become player
+29.05.2020 12:50:53 TeamRole - player13 - become player
+29.05.2020 12:50:53 TeamRole - player14 - become player
+29.05.2020 12:50:53 TeamRole - player15 - become player
+29.05.2020 12:50:53 TeamRole - player16 - become player
+29.05.2020 12:50:53 TeamRole - player17 - become player
+29.05.2020 12:50:53 TeamRole - player18 - become player
+29.05.2020 12:50:53 TeamRole - player19 - become player
+29.05.2020 12:50:53 TeamRole - player20 - become player
+29.05.2020 12:50:53 TeamRole - player21 - become player
+29.05.2020 12:50:53 TeamRole - player22 - become player
+29.05.2020 12:50:53 TeamRole - player23 - become player
+29.05.2020 12:50:53 TeamRole - player24 - become player
+29.05.2020 12:50:53 TeamRole - player25 - become player
+29.05.2020 12:50:53 TeamRole - player26 - become player
+29.05.2020 12:50:53 TeamRole - player27 - become player
+29.05.2020 12:50:53 TeamRole - player28 - become player
+29.05.2020 12:50:53 TeamRole - player29 - become player
+29.05.2020 12:50:53 TeamRole - player30 - become player
+29.05.2020 12:50:53 TeamRole - player31 - become player
+29.05.2020 12:50:53 TeamRole - player32 - become player
+29.05.2020 12:50:53 TeamRole - player33 - become player
+29.05.2020 12:50:53 TeamRole - player34 - become player
+29.05.2020 12:50:53 TeamRole - player35 - become player
+29.05.2020 12:50:53 TeamRole - player36 - become player
+29.05.2020 12:50:53 TeamRole - player37 - become player
+29.05.2020 12:50:53 TeamRole - player38 - become player
+29.05.2020 12:50:53 TeamRole - player39 - become player
+29.05.2020 12:50:53 TeamRole - player39 - become coach
+29.05.2020 12:50:53 TeamRole - player40 - become player
+29.05.2020 12:50:53 TeamRole - player41 - become player
+29.05.2020 12:50:53 TeamRole - player42 - become player
+29.05.2020 12:50:53 TeamRole - player43 - become player
+29.05.2020 12:50:53 TeamRole - player44 - become player
+29.05.2020 12:50:53 TeamRole - player45 - become player
+29.05.2020 12:50:53 TeamRole - player46 - become player
+29.05.2020 12:50:53 TeamRole - player47 - become player
+29.05.2020 12:50:53 TeamRole - player48 - become player
+29.05.2020 12:50:53 TeamRole - player49 - become player
+29.05.2020 12:50:53 TeamRole - player5 - become player
+29.05.2020 12:50:53 TeamRole - player50 - become player
+29.05.2020 12:50:53 TeamRole - player51 - become player
+29.05.2020 12:50:53 TeamRole - player52 - become player
+29.05.2020 12:50:53 TeamRole - player53 - become player
+29.05.2020 12:50:53 TeamRole - player54 - become player
+29.05.2020 12:50:53 TeamRole - player55 - become player
+29.05.2020 12:50:53 TeamRole - player56 - become player
+29.05.2020 12:50:53 TeamRole - player6 - become player
+29.05.2020 12:50:53 TeamRole - player7 - become player
+29.05.2020 12:50:53 TeamRole - player8 - become player
+29.05.2020 12:50:53 TeamRole - player9 - become player
+29.05.2020 12:50:53 TeamRole - shimi - become team owner
+29.05.2020 12:50:53 TeamRole - shon - become coach
+29.05.2020 12:50:53 TeamRole - tal4 - become player
+29.05.2020 12:50:53 TeamRole - tal4 - become team owner
+29.05.2020 12:50:53 TeamRole - test1 - become team owner
+29.05.2020 12:50:53 TeamRole - timor - become coach
+29.05.2020 12:50:53 TeamRole - timor - become team owner
+29.05.2020 12:50:53 TeamRole - tom3 - become player
+29.05.2020 12:50:53 TeamRole - tom3 - become coach
+29.05.2020 12:50:53 TeamRole - zipi - become team manager 
+29.05.2020 12:50:53 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:53 DBHandler - Succeeded  - DB connected
+29.05.2020 12:50:53 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:31 System_Operation_Init - Init system ...  - Start uploading data from DB
+29.05.2020 12:53:31 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:32 TeamRole - arnold - become team owner
+29.05.2020 12:53:32 TeamRole - coach12 - become coach
+29.05.2020 12:53:32 TeamRole - dan - become player
+29.05.2020 12:53:32 TeamRole - dan - become coach
+29.05.2020 12:53:32 TeamRole - gal1 - become player
+29.05.2020 12:53:32 TeamRole - ilan - become team owner
+29.05.2020 12:53:32 TeamRole - may2 - become player
+29.05.2020 12:53:32 TeamRole - player10 - become player
+29.05.2020 12:53:32 TeamRole - player11 - become player
+29.05.2020 12:53:32 TeamRole - player12 - become player
+29.05.2020 12:53:32 TeamRole - player13 - become player
+29.05.2020 12:53:32 TeamRole - player14 - become player
+29.05.2020 12:53:32 TeamRole - player15 - become player
+29.05.2020 12:53:32 TeamRole - player16 - become player
+29.05.2020 12:53:32 TeamRole - player17 - become player
+29.05.2020 12:53:32 TeamRole - player18 - become player
+29.05.2020 12:53:32 TeamRole - player19 - become player
+29.05.2020 12:53:32 TeamRole - player20 - become player
+29.05.2020 12:53:32 TeamRole - player21 - become player
+29.05.2020 12:53:32 TeamRole - player22 - become player
+29.05.2020 12:53:32 TeamRole - player23 - become player
+29.05.2020 12:53:32 TeamRole - player24 - become player
+29.05.2020 12:53:32 TeamRole - player25 - become player
+29.05.2020 12:53:32 TeamRole - player26 - become player
+29.05.2020 12:53:32 TeamRole - player27 - become player
+29.05.2020 12:53:32 TeamRole - player28 - become player
+29.05.2020 12:53:32 TeamRole - player29 - become player
+29.05.2020 12:53:32 TeamRole - player30 - become player
+29.05.2020 12:53:32 TeamRole - player31 - become player
+29.05.2020 12:53:32 TeamRole - player32 - become player
+29.05.2020 12:53:32 TeamRole - player33 - become player
+29.05.2020 12:53:32 TeamRole - player34 - become player
+29.05.2020 12:53:32 TeamRole - player35 - become player
+29.05.2020 12:53:32 TeamRole - player36 - become player
+29.05.2020 12:53:32 TeamRole - player37 - become player
+29.05.2020 12:53:32 TeamRole - player38 - become player
+29.05.2020 12:53:32 TeamRole - player39 - become player
+29.05.2020 12:53:32 TeamRole - player39 - become coach
+29.05.2020 12:53:32 TeamRole - player40 - become player
+29.05.2020 12:53:32 TeamRole - player41 - become player
+29.05.2020 12:53:32 TeamRole - player42 - become player
+29.05.2020 12:53:32 TeamRole - player43 - become player
+29.05.2020 12:53:32 TeamRole - player44 - become player
+29.05.2020 12:53:32 TeamRole - player45 - become player
+29.05.2020 12:53:32 TeamRole - player46 - become player
+29.05.2020 12:53:32 TeamRole - player47 - become player
+29.05.2020 12:53:32 TeamRole - player48 - become player
+29.05.2020 12:53:32 TeamRole - player49 - become player
+29.05.2020 12:53:32 TeamRole - player5 - become player
+29.05.2020 12:53:32 TeamRole - player50 - become player
+29.05.2020 12:53:32 TeamRole - player51 - become player
+29.05.2020 12:53:32 TeamRole - player52 - become player
+29.05.2020 12:53:32 TeamRole - player53 - become player
+29.05.2020 12:53:32 TeamRole - player54 - become player
+29.05.2020 12:53:32 TeamRole - player55 - become player
+29.05.2020 12:53:32 TeamRole - player56 - become player
+29.05.2020 12:53:32 TeamRole - player6 - become player
+29.05.2020 12:53:32 TeamRole - player7 - become player
+29.05.2020 12:53:32 TeamRole - player8 - become player
+29.05.2020 12:53:32 TeamRole - player9 - become player
+29.05.2020 12:53:32 TeamRole - shimi - become team owner
+29.05.2020 12:53:32 TeamRole - shon - become coach
+29.05.2020 12:53:32 TeamRole - tal4 - become player
+29.05.2020 12:53:32 TeamRole - tal4 - become team owner
+29.05.2020 12:53:32 TeamRole - test1 - become team owner
+29.05.2020 12:53:32 TeamRole - timor - become coach
+29.05.2020 12:53:32 TeamRole - timor - become team owner
+29.05.2020 12:53:32 TeamRole - tom3 - become player
+29.05.2020 12:53:32 TeamRole - tom3 - become coach
+29.05.2020 12:53:32 TeamRole - zipi - become team manager 
+29.05.2020 12:53:32 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:33 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:34 MainSystem - MainSystem - system was added new season:2020
+29.05.2020 12:53:34 Season -  - changed calculation policy of season 2020 to: CalculateOption1
+29.05.2020 12:53:34 Season -  - changed scheduling policy of season 2020 to: SchedualeOption1
+29.05.2020 12:53:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:34 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:35 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:36 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:37 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:38 Match - Replacement - add event to match between hapoel TLV to macabi bash
+29.05.2020 12:53:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:38 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:39 Match - Extra time - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:53:39 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:39 Match - Goal - add event to match between macabi TLV to hapoel TLV
+29.05.2020 12:53:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:40 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:41 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:42 DBHandler - Succeeded  - DB connected
+29.05.2020 12:53:42 System_Operation_Init - Init system - Successfully initialized
+29.05.2020 12:55:44 MainSystem - amir - loged in to system
+29.05.2020 12:59:14 DBHandler - Succeeded  - DB connected
+29.05.2020 13:01:17 DBHandler - Succeeded  - DB connected
+29.05.2020 13:12:01 DBHandler - Succeeded  - DB connected

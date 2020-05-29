@@ -226,7 +226,7 @@ public class SystemOperationsController {
         fansList = daoFans.getAll(null, null);
         for (List<String> fan : fansList) {
             boolean isEmail=false;
-            if(fan.remove(6).equals(1)){
+            if(fan.remove(6).equals("1")){
                 isEmail=true;
             }
             String userName = fan.get(0);

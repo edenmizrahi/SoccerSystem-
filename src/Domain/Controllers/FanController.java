@@ -1,11 +1,13 @@
 package Domain.Controllers;
 
+import DataAccess.DaoFans;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
 import Domain.Users.*;
 
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,6 +17,7 @@ import java.util.List;
 
 public class FanController {
     SystemOperationsController systemOperationsController=new SystemOperationsController();
+    DaoFans daoFans= new DaoFans();
 
 
     public String fanIsTeamRole(String userName) {
@@ -54,6 +57,7 @@ public class FanController {
         List<String> changed = new LinkedList<>();
         //add name
         changed.add(name);
+
         user.setName(name);
         //password length is 6 or more
         if (password != null && password.length() >= 6) {
@@ -75,18 +79,44 @@ public class FanController {
             user.setDateOfBirth(date);
 
         }
+        List<String> key=new LinkedList<>();
+        List<String> detailsToInsert=new LinkedList<>();
+        key.add(user.getUserName());
+        List<String> oldDetialts =null;
+        try {
+            oldDetialts=daoFans.get(key);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+        if(password == null){
+            password=oldDetialts.get(2);
+        }
+        else{
+            try {
+                password= systemOperationsController.sha256(password);
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+        }
+
+        detailsToInsert.add(name);
+        detailsToInsert.add(password);
+        detailsToInsert.add(phoneNumber);
+        detailsToInsert.add(email);
+        detailsToInsert.add(oldDetialts.get(5));
+        detailsToInsert.add(oldDetialts.get(6));
+
+        daoFans.update(key,detailsToInsert);
+
         return changed;
 
     }
 
+    //
     public String setFanDetails(String userName,String name, String password, String phoneNumber, String email){
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         Date dateFormat= null;
-//        try {
-//            dateFormat = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
         List<String> changes= changePrivateDetails(fan,name,password,phoneNumber,email,dateFormat);
         if(changes.isEmpty()){
             return "noting is changed !! ";

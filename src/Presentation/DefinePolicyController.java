@@ -111,7 +111,7 @@ public class DefinePolicyController {
     public void BackToRfaPage(ActionEvent event) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

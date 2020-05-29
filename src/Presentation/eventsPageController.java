@@ -139,7 +139,7 @@ public class eventsPageController {
     public void BackToRefereePage(ActionEvent mouseEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

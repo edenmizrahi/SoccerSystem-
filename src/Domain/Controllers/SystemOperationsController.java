@@ -1000,8 +1000,9 @@ public class SystemOperationsController {
 //        details.add(fan.getEmail());
         details += fan.getEmail() + ";";
 //        details.add(String.valueOf(fan.getDateOfBirth()));
-        details += fan.getDateOfBirth();
-
+        Date birthdate = fan.getDateOfBirth();
+        details += new SimpleDateFormat("dd/MM/yyyy").format(birthdate);
+        //details += fan.getDateOfBirth();
         return details;
     }
 

@@ -101,7 +101,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("eventsPage.fxml"));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root);
 
             eventsPageController eventsPageController = loader.getController();
             eventsPageController.initUser(userName, match);
@@ -130,7 +130,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("ReportOfMatch.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root);
 
             ReportOfMatchController reportOfMatchController = loader.getController();
             reportOfMatchController.initPage(userName, matches);

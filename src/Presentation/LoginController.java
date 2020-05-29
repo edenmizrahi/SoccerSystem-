@@ -59,7 +59,7 @@ public class LoginController{
                 FXMLLoader loader=new FXMLLoader();
                 loader.setLocation(getClass().getResource("RfaPage.fxml"));
                 Parent root2=loader.load();
-                Scene scene = new Scene(root2, 900, 600);
+                Scene scene = new Scene(root2);
                 //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                 RfaPageController rfaC=loader.getController();
                 rfaC.initUser(txt_userName.getText(),"Rfa");
@@ -74,7 +74,7 @@ public class LoginController{
                     loader.setLocation(getClass().getResource("RefereePage.fxml"));
                     Parent root=loader.load();
                     // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-                    Scene scene = new Scene(root, 900, 600);
+                    Scene scene = new Scene(root);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     RefereePageController refereeController=loader.getController();
                     refereeController.initUser(txt_userName.getText(),"Referee");
@@ -89,7 +89,7 @@ public class LoginController{
                     loader.setLocation(getClass().getResource("HomePage.fxml"));
                     Parent root=loader.load();
                     // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-                    Scene scene = new Scene(root, 900, 600);
+                    Scene scene = new Scene(root);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
                     hpc.initHomePage(txt_userName.getText(),"Fan");

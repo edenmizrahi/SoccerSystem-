@@ -100,7 +100,7 @@ public class HomePageController {
         loader.setLocation(getClass().getResource("FanDetails.fxml"));
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         FanDetailsController fanDetailsController=loader.getController();
         fanDetailsController.initUserDetails(userName,role);
@@ -126,7 +126,7 @@ public class HomePageController {
         loader.setLocation(getClass().getResource("RegistrationGamesAlerts.fxml"));
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
         registrationGamesAlertsController.initUser(userName,role);
@@ -143,7 +143,6 @@ public class HomePageController {
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("MyAlerts.fxml"));
         Parent root=loader.load();
-        //Scene scene = new Scene(root, 900, 600);
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();

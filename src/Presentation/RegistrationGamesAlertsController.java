@@ -90,7 +90,7 @@ public class RegistrationGamesAlertsController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController controller = loader.getController();
         controller.initHomePage(userName,role);

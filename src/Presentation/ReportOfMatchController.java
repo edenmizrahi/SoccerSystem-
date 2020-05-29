@@ -50,7 +50,7 @@ public class ReportOfMatchController {
     public void BackToReferee(ActionEvent actionEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

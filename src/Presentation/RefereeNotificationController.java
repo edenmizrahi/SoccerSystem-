@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -33,7 +34,6 @@ public class RefereeNotificationController {
 
 
     public void initAlertsUser(String userName,String role) {
-
         this.role=role;
         this.userName = userName;
     }
@@ -55,10 +55,22 @@ public class RefereeNotificationController {
         myNotificationsCombo.getSelectionModel().selectFirst();
     }
 
-
     public void ClickOnMarkAsRead(ActionEvent actionEvent) {
         String notification = myNotificationsCombo.getSelectionModel().getSelectedItem();
-        this.refereeApplication.markNotificationAsRead(notification, this.userName);
+        if(notification.equals("All my unread alerts about matches")){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("error-choose valid notification");
+            chooseFile.show();
+        }
+        else{
+            this.refereeApplication.markNotificationAsRead(notification, this.userName);
+            Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
+            chooseFile.setHeaderText("Confirmation");
+            chooseFile.setContentText("notification marked as read");
+            chooseFile.show();
+        }
+
     }
 
     public void closeHandling(MouseEvent mouseEvent) throws IOException {
@@ -69,7 +81,6 @@ public class RefereeNotificationController {
     }
 
     public void BackToReferee(ActionEvent actionEvent) throws IOException {
-
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();

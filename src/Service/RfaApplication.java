@@ -46,9 +46,9 @@ public class RfaApplication {
     @Path("/DefinePoliciesToSeason/{year}/{calc}/{sched}/{rfausername}")
     @GET
     @Produces("text/plain")
-    public void DefinePoliciesToSeason(@PathParam("year")String year, @PathParam("calc")String calc,
+    public String DefinePoliciesToSeason(@PathParam("year")String year, @PathParam("calc")String calc,
                                        @PathParam("sched")String sched, @PathParam("rfausername")String rfaUserName){
-        rfaController.DefinePoliciesToSeason(year, calc, sched, rfaUserName);
+        return rfaController.DefinePoliciesToSeason(year, calc, sched, rfaUserName);
     }
 
     /**

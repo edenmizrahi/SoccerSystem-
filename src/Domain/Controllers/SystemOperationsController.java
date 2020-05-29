@@ -175,8 +175,6 @@ public class SystemOperationsController {
     public void initSystemFromDBTempAvital () throws Exception {
         DBHandler.conectToDB();
     }
-
-
     public void initSystemFromDB () throws Exception {
         FanAdapter fa = new FanAdapter();
         MainSystem ms = MainSystem.getInstance();

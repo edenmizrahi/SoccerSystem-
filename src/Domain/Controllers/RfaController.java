@@ -295,7 +295,7 @@ public class RfaController {
      * @param decision
      *  @codeBy Eden
      */
-    public void answerToRequest(String rfaUserName,String teamName, String decision) {
+    public String answerToRequest(String rfaUserName,String teamName, String decision) {
         try {
             Rfa rfa = this.getRfaByUserName(rfaUserName);
             Team team = rfa.getFromTeamRequests(teamName);
@@ -321,12 +321,13 @@ public class RfaController {
                     daoTeamRequests.delete(listOfKeys);
                 }
             }
+            return "ok";
         }
         catch (ParseException e){
-            System.out.println("parse error");
+            return "parse error";
         }
         catch (Exception e){
-            System.out.println("error"+ e.getMessage());
+            return "error :"+ e.getMessage();
         }
     }
 

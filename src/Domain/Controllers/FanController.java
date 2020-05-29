@@ -155,7 +155,7 @@ public class FanController {
     public String addMatchToFanMatchesFollow(String userName, String match) {
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
         HashSet<Match> allMatchesInSystem=systemOperationsController.getAllCurrMatchs();
-        String massage="eror- match not added";
+        String massage="error- match not added";
         //        String[] arrayOfTeamsAndDate = match.split(",");
 //        String date = arrayOfTeamsAndDate[1];
 //        String TeamsString = arrayOfTeamsAndDate[0];

@@ -71,8 +71,8 @@ public class RfaApplication {
     @Path("/markNotificationAsRead/{rfaUserName}/{teamName}/{decision}")
     @GET
     @Produces("text/plain")
-    public void answerRequest(@PathParam("rfaUserName") String rfaUserName, @PathParam("teamName") String teamName,
+    public String answerRequest(@PathParam("rfaUserName") String rfaUserName, @PathParam("teamName") String teamName,
                               @PathParam("decision") String decision) {
-        rfaController.answerToRequest(rfaUserName, teamName, decision);
+        return rfaController.answerToRequest(rfaUserName, teamName, decision);
     }
 }

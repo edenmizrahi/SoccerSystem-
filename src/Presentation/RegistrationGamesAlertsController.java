@@ -124,7 +124,14 @@ public class RegistrationGamesAlertsController {
     @FXML
     public void addFanMatchFollow (ActionEvent event){
         String matchToFollow = allMatchesInSystemCombo.getSelectionModel().getSelectedItem().toString();
-        if(fanMatchsList.contains(matchToFollow)){
+        //didn't choose anything
+        if(matchToFollow.equals("select a match you want to follow")){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a match to follow");
+            chooseFile.show();
+        }
+        else if(fanMatchsList.contains(matchToFollow)){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
             chooseFile.setContentText("You are already following this match. Please select another match.");

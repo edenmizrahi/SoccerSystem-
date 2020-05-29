@@ -98,7 +98,7 @@ public class DefinePolicyController {
         else{
             //throw alert that the year of season incorrect syntax
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Incorrect Syntax in season field, please insert only numbers.");
+            alert.setContentText("Incorrect Syntax in season field, please insert 4 numbers.");
             alert.show();
         }
 

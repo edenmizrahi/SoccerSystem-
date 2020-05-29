@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -57,14 +58,75 @@ public class RfaNotificationController {
 
 
     public void onDecline(ActionEvent actionEvent) {
-        String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
-        this.rfaApplication.answerRequest(userName,teamName,"false");
+        if(requestsCombo.getSelectionModel().getSelectedIndex() == -1){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a team to decline");
+            chooseFile.show();
+
+        }else{
+            String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
+            if(teamName.equals("All my unread alerts about matches")){
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText("You didn't choose a team to decline");
+                chooseFile.show();
+            }
+            else{
+                String ans= this.rfaApplication.answerRequest(userName,teamName,"false");
+                //String ans = ClientController.connectToServer("RfaApplication", "answerRequest", userName, teamName, "false");
+
+                if(ans.contains("error")){
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setHeaderText("Error");
+                    chooseFile.setContentText(ans);
+                    chooseFile.show();
+                }
+                else if(ans.equals("ok")){
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("Your decision has been accepted");
+                    chooseFile.show();
+                }
+            }
+        }
+
 
     }
 
     public void onApprove(ActionEvent actionEvent) {
-        String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
-        this.rfaApplication.answerRequest(userName,teamName,"true");
+        if(requestsCombo.getSelectionModel().getSelectedIndex() == -1){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a team to approve");
+            chooseFile.show();
+        }
+        else{
+            String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
+            if(teamName.equals("All my unread alerts about matches")){
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText("You didn't choose a team to approve");
+                chooseFile.show();
+            }
+            else{
+                String ans= this.rfaApplication.answerRequest(userName,teamName,"true");
+                //String ans = ClientController.connectToServer("RfaApplication", "answerRequest", userName, teamName, "true");
+
+                if(ans.contains("error")){
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setHeaderText("Error");
+                    chooseFile.setContentText(ans);
+                    chooseFile.show();
+                }
+                else if(ans.equals("ok")){
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("our decision has been accepted");
+                    chooseFile.show();
+                }
+            }
+        }
+
+
     }
 
     public void closeHandling(MouseEvent mouseEvent) throws IOException {

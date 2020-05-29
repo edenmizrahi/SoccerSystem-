@@ -1,6 +1,7 @@
 package Domain;
 
 import Domain.ExternalSystems.*;
+import Domain.LeagueManagment.Field;
 import Domain.LeagueManagment.League;
 import Domain.LeagueManagment.Season;
 import Domain.LeagueManagment.Team;
@@ -22,6 +23,7 @@ public class MainSystem {
     private LinkedList<League> leagues;//*
     private LinkedList<User> users;//*
     private LinkedList<Season> seasons;//*
+    private HashSet<Field> fields;//*
     private Season currSeason;
     private StubExternalSystem extSystem;
     private HashSet<Team> activeTeams;
@@ -47,6 +49,7 @@ public class MainSystem {
         this.userNames = new HashSet<>();
         this.teamNames = new HashSet<>();
         this.loginUsers= new LinkedList<>();
+        this.fields = new HashSet<>();
         taxSystem=null;
         rfaBudgetControl=null;
     }
@@ -202,6 +205,31 @@ public class MainSystem {
         }
         leagues.add(l);
         return true;
+    }
+    public boolean removeField(Field f) {
+        if (fields.contains(f)) {
+            fields.remove(f);
+            return true;
+        }
+        return false;
+    }
+
+    // or
+    //TODO test -V
+    public boolean addField(Field f) {
+        if (fields.contains(f)) {
+            return false;
+        }
+        fields.add(f);
+        return true;
+    }
+    public boolean checkIfFieldExists(String fieldName){
+        for (Field f : fields){
+            if (f.getNameOfField().equals(fieldName)){
+                return true;
+            }
+        }
+        return false;
     }
 
     // adi

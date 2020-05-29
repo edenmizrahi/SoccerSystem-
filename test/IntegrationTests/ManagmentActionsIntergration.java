@@ -270,8 +270,8 @@ public class ManagmentActionsIntergration {
 
         try {
             managmentActions.removeAndReplaceField(field, field2, team);
-            Assert.assertTrue(field2.getTeams().contains(team));
-            Assert.assertFalse(field.getTeams().contains(team));
+            Assert.assertTrue(field2.getTeam().equals(team));
+            Assert.assertFalse(field.getTeam().equals(team));
             Assert.assertEquals(field2,team.getField());
         } catch (Exception e) {
             Assert.fail();

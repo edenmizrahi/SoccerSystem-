@@ -390,7 +390,7 @@ public class SystemOperationsController {
 
             /**setField**/
             Field field = fieldsByFieldName.get(teamfield);
-            field.getTeams().add(team);
+            field.setTeam(team);
             team.setField(field);
 
             /**set team owners*/

@@ -221,7 +221,10 @@ public class TeamManagementUIController { //implements Initializable {
 
             if (message.equals("this team is not approved by RFA")) {
                 alertError("This team was not approved by the RFA.");
-            } else {
+            } else if (message.equals("Field name already exists")){
+                alertError("This field name already exists, please choose a different team name.");
+            }
+            else {
                 changeToTeamManagementScene(actionEvent);
                 alertInformation("Congratulations! Your new team has been activated.");
             }

@@ -131,12 +131,7 @@ public class TeamManagementController {
                 else{
                     teamRoleRec.add("0");
                 }
-                if(coach.isCoach()){
-                    teamRoleRec.add("1");
-                }
-                else{
-                    teamRoleRec.add("0");
-                }
+                teamRoleRec.add("1");
                 if(coach.isTeamOwner()){
                     teamRoleRec.add("1");
                 }

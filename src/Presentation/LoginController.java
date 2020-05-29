@@ -43,22 +43,33 @@ public class LoginController{
 
             lbl_error.setText("");
             /**notification*/
-            if(userRole.equals("Referee")||userRole.equals("Rfa")){
+            if(userRole.equals("Referee")||userRole.equals("RFA")){
                 boolean notFan=false;
                 String message="";
                 if(uc.haveUnreadNotifications(txt_userName.getText())){
                     message="You have unread notifications as fan";
                     notFan=true;
                 }
-                if(uc.haveUnreadNotifications(userRole,txt_userName.getText())){
-                   if(notFan) {
-                       message = message + ", and as" + userRole;
-                   }
-                   else{
-                       message="You have unread notifications as "+userRole;
-                   }
-                   notFan=true;
-                }
+//                if(userRole.equals("Referee")) {
+                    if (uc.haveUnreadNotifications(userRole, txt_userName.getText())) {
+                        if (notFan) {
+                            message = message + ", and as" + userRole;
+                        } else {
+                            message = "You have unread notifications as " + userRole;
+                        }
+                        notFan = true;
+                    }
+//                }
+//                if(userRole.equals("Rfa")) {
+//                    if (uc.haveTeamRequest(userRole, txt_userName.getText())) {
+//                        if (notFan) {
+//                            message = message + ", and as" + userRole;
+//                        } else {
+//                            message = "You have unread notifications as " + userRole;
+//                        }
+//                        notFan = true;
+//                    }
+//                }
                 if(notFan){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText("");
@@ -69,6 +80,8 @@ public class LoginController{
                     alert.show();
                 }
             }
+
+
             else {
                 if (uc.haveUnreadNotifications(txt_userName.getText())) {
                     //TODO change function so returns string instead of boolean!!!

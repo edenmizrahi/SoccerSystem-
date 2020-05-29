@@ -8780,3 +8780,7 @@
 28.05.2020 11:15:02 ERROR DBHandler - connection in now null
 28.05.2020 11:15:23 ERROR DBHandler - connection in now null
 28.05.2020 11:15:44 ERROR DBHandler - connection in now null
+28.05.2020 11:43:37 ERROR DBHandler - connection in now null
+28.05.2020 11:48:34 INFO  DBHandler - Succeeded  - DB connected
+28.05.2020 11:49:19 INFO  DBHandler - Succeeded  - DB connected
+28.05.2020 11:49:48 INFO  DBHandler - Succeeded  - DB connected

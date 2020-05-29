@@ -40,4 +40,8 @@ public class UserApplication {
         return userController.haveUnreadNotifications(userName);
     }
 
+    public boolean haveUnreadNotifications(String userRole, String userName) {
+        return userController.haveUnreadNotifications(userRole, userName);
+
+    }
 }

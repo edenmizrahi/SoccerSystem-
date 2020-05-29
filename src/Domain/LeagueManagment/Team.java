@@ -59,6 +59,32 @@ public class Team extends Observable implements PageOwner {
         mainSystem.addTeamName(name);
     }
 
+
+    public Team(String name, TeamOwner teamOwner,boolean isInitConstructor){
+        //TODO check the name in unique
+        this.name = name;
+        this.teamOwners = new HashSet<>();
+        teamOwners.add(teamOwner);
+        addObserver(teamOwner);
+        this.founder=teamOwner;
+        this.isActive=false;
+        this.mainSystem= MainSystem.getInstance();
+
+        this.leaguePerSeason = new HashMap<>();
+        this.players = new LinkedHashSet<>();
+        this.coach = null;
+        this.teamManager = null;
+        this.field = null;
+        this.budgetControl= new BudgetControl(this);
+        this.score = 0;
+        this.home= new HashSet<>();
+        this.away= new HashSet<>();
+
+        //send request
+        //add team name to hash set
+        mainSystem.addTeamName(name);
+    }
+
     //for DB
     public Team(String name, int score){
         this.name = name;

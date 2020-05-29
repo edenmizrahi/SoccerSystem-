@@ -19,6 +19,8 @@ import Domain.Notifications.Notification;
 import Domain.Users.*;
 import Stubs.StubExternalSystem;
 import Stubs.TeamStub;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.util.encoders.Hex;
 import sun.awt.image.ImageWatched;
@@ -64,6 +66,8 @@ public class SystemOperationsController {
     DaoTeams daoTeams = new DaoTeams();
     DaoTwoPlayersEvents daoTwoPlayersEvents = new DaoTwoPlayersEvents();
     //DBHandler dbHandler=new DBHandler();
+
+    private static final Logger LOG = LogManager.getLogger("System_Operation_Init");
 
     /**
      * return all matches in system that have not yet happened - match format
@@ -179,7 +183,7 @@ public class SystemOperationsController {
 
         /**--- connect to DB ---**/
         DBHandler.conectToDB();
-
+        LOG.info(String.format("%s - %s","Init system ... ", "Start uploading data from DB"));
         /***-----data structures for objects and DB records :------*/
 
         /**scheduling policies:*/
@@ -279,13 +283,26 @@ public class SystemOperationsController {
         }
 
         /**approved teams*/
+        HashSet<Team> rfas=Rfa.getTeamRequests();
+        for(Team t: rfas){
+            System.out.println("request to "+t.getName());
+        }
         List<List<String>> approvedTeas = daoApprovedTeamReq.getAll(null, null);
 //        HashMap<String, List<String>> approvedTeamsReacords = new HashMap<>();
         TeamAdapter ta = new TeamAdapter();
         for (List<String> teamRec : approvedTeas) {
             TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(0));
-            Team team =  new Team(teamRec.get(1),tr.getTeamOwner());
+
+            Team team =  new Team(teamRec.get(1),tr.getTeamOwner(),true);
+            rfas=Rfa.getTeamRequests();
+            for(Team t: rfas){
+                System.out.println("request to "+t.getName());
+            }
             tr.getTeamOwner().getApprovedTeams().add(team);
+            rfas=Rfa.getTeamRequests();
+            for(Team t: rfas){
+                System.out.println("request to "+t.getName());
+            }
         }
 
         /**request teams*/
@@ -651,6 +668,11 @@ public class SystemOperationsController {
         }
         /**********/
 
+        System.out.println("RFA notifications:");
+        rfas=Rfa.getTeamRequests();
+        for(Team t: rfas){
+            System.out.println("request to "+t.getName());
+        }
         for (User f: ms.getUsers()) {
             boolean isNoti=false;
             if(f instanceof Referee){
@@ -678,6 +700,9 @@ public class SystemOperationsController {
            if(isNoti)
                System.out.println("\n");
         }
+
+        LOG.info(String.format("%s - %s","Init system", "Successfully initialized"));
+
     }
 
     /***

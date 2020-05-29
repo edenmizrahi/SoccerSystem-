@@ -88,3 +88,8 @@
 28.05.2020 16:03:19 ERROR Team - becomeActive - one of the players team is not null
 28.05.2020 18:21:51 MainSystem - logIn - details not correct, no fan in system
 28.05.2020 18:21:59 MainSystem - logIn - details not correct, no fan in system
+29.05.2020 10:31:17 DBHandler - conectToDB - connection in now null
+29.05.2020 10:31:38 DBHandler - conectToDB - connection in now null
+29.05.2020 10:33:37 DBHandler - conectToDB - connection in now null
+29.05.2020 10:34:31 DBHandler - conectToDB - connection in now null
+29.05.2020 11:52:14 TeamOwner - makeTeamActive - this team is not approved by RFA

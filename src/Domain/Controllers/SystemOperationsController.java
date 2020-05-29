@@ -320,6 +320,7 @@ public class SystemOperationsController {
         for (List<String> fieldRec : fieldsList) {
             Field field = fieldAdapter.ToObj(fieldRec);
             fieldsByFieldName.put(fieldRec.get(0), field);
+            ms.getFields().add(field);
         }
 
 

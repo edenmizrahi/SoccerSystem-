@@ -151,88 +151,117 @@ public class eventsPageController {
     //<editor-fold desc="on submit click">
 
     public void onClickGoalSubmit() {
-        String player = playerForGoal.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createGoalEvent(userName,match,player);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
+        if(playerForGoal.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick a player");
+        }else{
+            String player = playerForGoal.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createGoalEvent(userName,match,player);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createGoalEvent", userName,match,player);
+            if(! answer.equals("ok")){
+                ErrorAlertForCreateEvent(answer);
+            }
+            else{
+                SuccessAlertForCreateEvent("Goal Event was created!");
+            }
         }
-        else{
-            SuccessAlertForCreateEvent("Goal Event was created!");
-        }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createGoalEvent", userName,match,player);
+
+
     }
 
     public void onClickInjurySubmit() {
-        String player = playerForInjury.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createInjuryEvent(userName,match,player);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
+        if(playerForInjury.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick a player");
+        }else {
+            String player = playerForInjury.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createInjuryEvent(userName, match, player);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createInjuryEvent", userName,match,player);
+            if (!answer.equals("ok")) {
+                ErrorAlertForCreateEvent(answer);
+            } else {
+                SuccessAlertForCreateEvent("Injury Event was created!");
+            }
         }
-        else{
-            SuccessAlertForCreateEvent("Injury Event was created!");
-        }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createInjuryEvent", userName,match,player);
+
     }
 
     public void onClickOffenseSubmit() {
-        String player = playerForOffense.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createOffenseEvent(userName,match,player);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
+        if(playerForOffense.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick a player");
+        }else {
+            String player = playerForOffense.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createOffenseEvent(userName, match, player);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createOffenseEvent", userName,match,player);
+            if (!answer.equals("ok")) {
+                ErrorAlertForCreateEvent(answer);
+            } else {
+                SuccessAlertForCreateEvent("Offense Event was created!");
+            }
         }
-        else{
-            SuccessAlertForCreateEvent("Offense Event was created!");
-        }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createOffenseEvent", userName,match,player);
+
     }
 
     public void onClickOffsideSubmit() {
-        String player = playerForOffSide.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createOffSideEvent(userName,match,player);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
+        if(playerForOffSide.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick a player");
+        }else {
+            String player = playerForOffSide.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createOffSideEvent(userName, match, player);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createOffSideEvent", userName,match,player);
+            if (!answer.equals("ok")) {
+                ErrorAlertForCreateEvent(answer);
+            } else {
+                SuccessAlertForCreateEvent("Offside Event was created!");
+            }
         }
-        else{
-            SuccessAlertForCreateEvent("Offside Event was created!");
-        }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createOffSideEvent", userName,match,player);
+
     }
 
     public void onClickReplaceSubmit() {
-        String player1 = player1ForReplace.getSelectionModel().getSelectedItem();
-        String player2 = player2ForReplace.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createReplaceEvent(userName,match,player1,player2);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
+        if(player1ForReplace.getSelectionModel().getSelectedIndex()==-1 || player2ForReplace.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick the players");
+        }else {
+            String player1 = player1ForReplace.getSelectionModel().getSelectedItem();
+            String player2 = player2ForReplace.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createReplaceEvent(userName, match, player1, player2);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createReplaceEvent", userName,match,player1,player2);
+            if (!answer.equals("ok")) {
+                ErrorAlertForCreateEvent(answer);
+            } else {
+                SuccessAlertForCreateEvent("Replacement Event was created!");
+            }
         }
-        else{
-            SuccessAlertForCreateEvent("Replacement Event was created!");
-        }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createReplaceEvent", userName,match,player1,player2);
+
     }
 
     public void onClickRedCardSubmit() {
-        String player = playerForRedCard.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createRedCardEvent(userName,match,player);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
-        }
-        else{
-            SuccessAlertForCreateEvent("RedCard Event was created!");
+        if(playerForRedCard.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick a player");
+        }else {
+            String player = playerForRedCard.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createRedCardEvent(userName, match, player);
+            if (!answer.equals("ok")) {
+                ErrorAlertForCreateEvent(answer);
+            } else {
+                SuccessAlertForCreateEvent("RedCard Event was created!");
+            }
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createRedCardEvent", userName,match,player);
     }
 
     public void onClickYellowCardSubmit() {
-        String player = playerForYellowCard.getSelectionModel().getSelectedItem();
-        String answer = this.refereeApplication.createYellowCardEvent(userName,match,player);
-        if(! answer.equals("ok")){
-            ErrorAlertForCreateEvent(answer);
+        if(playerForYellowCard.getSelectionModel().getSelectedIndex()==-1){
+            ErrorAlertForCreateEvent("You didn't pick a player");
+        }else {
+            String player = playerForYellowCard.getSelectionModel().getSelectedItem();
+            String answer = this.refereeApplication.createYellowCardEvent(userName, match, player);
+            //String answer = ClientController.connectToServer("RefereeApplication", "createYellowCardEvent", userName,match,player);
+            if (!answer.equals("ok")) {
+                ErrorAlertForCreateEvent(answer);
+            } else {
+                SuccessAlertForCreateEvent("YellowCard Event was created!");
+            }
         }
-        else{
-            SuccessAlertForCreateEvent("YellowCard Event was created!");
-        }
-        //String ans = ClientController.connectToServer("RefereeApplication", "createYellowCardEvent", userName,match,player);
+
 
     }
 
@@ -248,6 +277,9 @@ public class eventsPageController {
                  SuccessAlertForCreateEvent("ExtraTime Event was created!");
              }
              //String ans = ClientController.connectToServer("RefereeApplication", "createExtraTimeEvent", userName,match,numOfMinute);
+         }
+         else{
+             ErrorAlertForCreateEvent("Please insert a valid number of minutes");
          }
         idNumOfMinute.setDisable(false);
     }

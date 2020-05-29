@@ -69,24 +69,6 @@ public class RfaPageController extends HomePageController {
 
     }
 
-    @FXML
-    public void MyAlertsFunctionAsRFA(ActionEvent event) throws IOException {
-        FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("RfaNotification.fxml"));
-        Parent root=loader.load();
-
-        Scene scene = new Scene(root, 900, 600);
-
-        RfaNotificationController controller=loader.getController();
-        controller.initUser(userName,role);
-
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(scene);
-        stageTheEventSourceNodeBelongs.show();
-
-
-
-    }
 
     @FXML
     public void registrationForGamesAlertsMouseClickHandling(ActionEvent event) throws IOException {
@@ -176,13 +158,37 @@ public class RfaPageController extends HomePageController {
         hpc.fanDetailsEventClick(actionEvent);
     }
 
+    //<editor-fold desc="create events">
     public void FanNotificationEventClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        loader.setLocation(getClass().getResource("MyAlerts.fxml"));
         Parent root=loader.load();
-        HomePageController hpc=loader.getController();
-        hpc.initHomePage(userName,"Rfa");
-        hpc.fanAllertsEventClick(actionEvent);
+        //Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        MyAlertsControllr myRolesController=loader.getController();
+        myRolesController.initAllertsUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
 
     }
+
+    @FXML
+    public void MyAlertsFunctionAsRFA(ActionEvent event) throws IOException {
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RfaNotification.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = new Scene(root, 900, 600);
+
+        RfaNotificationController controller=loader.getController();
+        controller.initUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+    }
+    //</editor-fold>
 }

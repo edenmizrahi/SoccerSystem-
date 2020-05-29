@@ -554,15 +554,15 @@ public class RefereeController {
         return refereeNotificationsString;
     }
 
-    public void updateInRefereesNotificationTable(String refereeUserName, String notificationContent){
-        String[] notificationSplit = notificationContent.split("-");
-        String home = notificationSplit[1];
-        String away = notificationSplit[3];
-        String date = notificationSplit[5];
+    public void updateInRefereesNotificationTable(String refereeUserName, String notificationContent, Match match){
+//        String[] notificationSplit = notificationContent.split("-");
+//        String home = notificationSplit[1];
+//        String away = notificationSplit[3];
+//        String date = notificationSplit[5];
         List<String> NotificationsKeysList = new LinkedList<>();
-        NotificationsKeysList.add(0,date);
-        NotificationsKeysList.add(1,home);
-        NotificationsKeysList.add(2,away);
+        NotificationsKeysList.add(0, MainSystem.simpleDateFormat.format(match.getStartDate()));
+        NotificationsKeysList.add(1,match.getHomeTeam().getName());
+        NotificationsKeysList.add(2,match.getAwayTeam().getName());
         NotificationsKeysList.add(3,refereeUserName);
         NotificationsKeysList.add(4,notificationContent);
 
@@ -578,9 +578,9 @@ public class RefereeController {
             for (Notification notification : ref.getUnReadNotifications()) {
                 if (notification.getContent().equals(notificationContent)) {
                     notification.setRead(true);
-
+                    Match match = (Match) notification.getSender();
                     //update in table of referees notifications that notification is read
-                    updateInRefereesNotificationTable(referee, notificationContent);
+                    updateInRefereesNotificationTable(referee, notificationContent, match);
                     return "ok";
                 }
             }

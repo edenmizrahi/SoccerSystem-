@@ -68,6 +68,7 @@ public class RefereeNotificationController {
             //String answer = ClientController.connectToServer("refereeApplication", "markNotificationAsRead", userName);
 
             if(answer.equals("ok")) {
+                initComboBox();
                 Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
                 chooseFile.setHeaderText("Confirmation");
                 chooseFile.setContentText("notification marked as read");

@@ -84,4 +84,17 @@ public class UserController{
     }
 
 
+    public boolean haveUnreadNotifications(String userRole, String userName) {
+        User u = smc.getUserByUserName(userName);
+        if(u==null){
+            return false;
+        }
+        if(u instanceof Rfa){
+            return Rfa.getTeamRequests().size()>0;
+        }
+        if(u instanceof Referee){
+            return ((Referee) u).getNotificationsList().size()>0;
+        }
+        return false;
+    }
 }

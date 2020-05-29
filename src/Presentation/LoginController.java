@@ -43,16 +43,44 @@ public class LoginController{
 
             lbl_error.setText("");
             /**notification*/
-            if (uc.haveUnreadNotifications(txt_userName.getText())) {
-            //TODO change function so returns string instead of boolean!!!
-            //if (ClientController.connectToServer("UserApplication", "haveUnreadNotifications", txt_userName.getText()))
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("");
-                DialogPane dialogPane = alert.getDialogPane();
-                alert.setContentText("You have unread notifications!");
-                dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
-                dialogPane.getStyleClass().add("alert");
-                alert.show();
+            if(userRole.equals("Referee")||userRole.equals("Rfa")){
+                boolean notFan=false;
+                String message="";
+                if(uc.haveUnreadNotifications(txt_userName.getText())){
+                    message="You have unread notifications as fan";
+                    notFan=true;
+                }
+                if(uc.haveUnreadNotifications(userRole,txt_userName.getText())){
+                   if(notFan) {
+                       message = message + ", and as" + userRole;
+                   }
+                   else{
+                       message="You have unread notifications as "+userRole;
+                   }
+                   notFan=true;
+                }
+                if(notFan){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("");
+                    DialogPane dialogPane = alert.getDialogPane();
+                    alert.setContentText(message);
+                    dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
+                    dialogPane.getStyleClass().add("alert");
+                    alert.show();
+                }
+            }
+            else {
+                if (uc.haveUnreadNotifications(txt_userName.getText())) {
+                    //TODO change function so returns string instead of boolean!!!
+                    //if (ClientController.connectToServer("UserApplication", "haveUnreadNotifications", txt_userName.getText()))
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("");
+                    DialogPane dialogPane = alert.getDialogPane();
+                    alert.setContentText("You have unread notifications!");
+                    dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
+                    dialogPane.getStyleClass().add("alert");
+                    alert.show();
+                }
             }
             if(userRole.equals("RFA")){
 

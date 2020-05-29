@@ -1596,10 +1596,9 @@ public class SystemOperationsController {
      * @throws NoSuchAlgorithmException
      */
     public String sha256(String pass) throws NoSuchAlgorithmException {
-
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(
-                pass.getBytes(StandardCharsets.UTF_8));
+            pass.getBytes(StandardCharsets.UTF_8));
         String sha256hex = new String(Hex.encode(hash));
         return  sha256hex;
     }

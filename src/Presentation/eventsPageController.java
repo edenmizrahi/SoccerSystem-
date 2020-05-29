@@ -51,11 +51,12 @@ public class eventsPageController {
 
     private String userName;
     private String match;
+    private String role;
 
 
-    public void initUser(String userName, String match) {
+    public void initUser(String userName, String match, String role) {
         this.userName = userName;
-
+        this.role=role;
         this.match = match;
 
         List<String> list = new LinkedList<>();
@@ -134,12 +135,16 @@ public class eventsPageController {
         }
     }
 
-
     @FXML
     public void BackToRefereePage(ActionEvent mouseEvent) throws IOException {
+
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        RefereePageController controller = loader.getController();
+        controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -247,7 +252,7 @@ public class eventsPageController {
         idNumOfMinute.setDisable(false);
     }
 
-    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+    public void closeHandling(MouseEvent mouseEvent)  throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();

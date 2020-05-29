@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -26,18 +27,20 @@ public class RfaNotificationController {
     private RfaApplication rfaApplication = new RfaApplication();
     private List<String> RfaRequestList=new LinkedList<>();
     public String userName ;
+    private String role= "Rfa";
 
     @FXML
     private ComboBox<String > requestsCombo;
 
 
     @FXML
-    public void initUser (String userName) {
+    public void initUser (String userName,String role) {
         this.userName=userName;
+        this.role=role;
     }
 
     @FXML
-    private void initComboBox(MouseEvent event) {
+    private void initComboBox() {
         RfaRequestList.clear();
         RfaRequestList.add("All my unread alerts about matches");
         String RfaAlertsAsRfa = rfaApplication.getTeamRequests(userName);
@@ -55,14 +58,77 @@ public class RfaNotificationController {
 
 
     public void onDecline(ActionEvent actionEvent) {
-        String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
-        this.rfaApplication.answerRequest(userName,teamName,"false");
+        if(requestsCombo.getSelectionModel().getSelectedIndex() == -1){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a team to decline");
+            chooseFile.show();
+
+        }else{
+            String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
+            if(teamName.equals("All my unread alerts about matches")){
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText("You didn't choose a team to decline");
+                chooseFile.show();
+            }
+            else{
+                String ans= this.rfaApplication.answerRequest(userName,teamName,"false");
+                //String ans = ClientController.connectToServer("RfaApplication", "answerRequest", userName, teamName, "false");
+
+                if(ans.contains("error")){
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setHeaderText("Error");
+                    chooseFile.setContentText(ans);
+                    chooseFile.show();
+                }
+                else if(ans.equals("ok")){
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("Your decision has been accepted");
+                    chooseFile.show();
+                }
+            }
+            initComboBox();
+        }
+
 
     }
 
     public void onApprove(ActionEvent actionEvent) {
-        String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
-        this.rfaApplication.answerRequest(userName,teamName,"true");
+        if(requestsCombo.getSelectionModel().getSelectedIndex() == -1){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a team to approve");
+            chooseFile.show();
+        }
+        else{
+            String teamName = requestsCombo.getSelectionModel().getSelectedItem().toString();
+            if(teamName.equals("All my unread alerts about matches")){
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText("You didn't choose a team to approve");
+                chooseFile.show();
+            }
+            else{
+                String ans= this.rfaApplication.answerRequest(userName,teamName,"true");
+                //String ans = ClientController.connectToServer("RfaApplication", "answerRequest", userName, teamName, "true");
+
+                if(ans.contains("error")){
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setHeaderText("Error");
+                    chooseFile.setContentText(ans);
+                    chooseFile.show();
+                }
+                else if(ans.equals("ok")){
+                    Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                    chooseFile.setContentText("our decision has been accepted");
+                    chooseFile.show();
+                }
+            }
+            initComboBox();
+        }
+
+
     }
 
     public void closeHandling(MouseEvent mouseEvent) throws IOException {
@@ -74,8 +140,12 @@ public class RfaNotificationController {
 
     public void BackToRfa(ActionEvent actionEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        RfaPageController controller = loader.getController();
+        controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

@@ -91,14 +91,24 @@ public class DefinePolicyController {
 
             String calcPolicySelected = chooseCalcPolicyBtn.getSelectionModel().getSelectedItem().toString();
             String schedPolicySelected = chooseSchedPolicyBtn.getSelectionModel().getSelectedItem().toString();
-            this.rfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
-            //String ans = ClientController.connectToServer("RfaApplication", "DefinePoliciesToSeason", seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            String answer = this.rfaApplication.DefinePoliciesToSeason(seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            //String answer = ClientController.connectToServer("RfaApplication", "DefinePoliciesToSeason", seasonSelected, calcPolicySelected, schedPolicySelected, userName);
+            if(answer.equals("ok")){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Define policies was successful");
+                alert.show();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText(answer);
+                alert.show();
+            }
 
         }
         else{
             //throw alert that the year of season incorrect syntax
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Incorrect Syntax in season field, please insert only numbers.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Incorrect Syntax in season field, please insert 4 numbers.");
             alert.show();
         }
 
@@ -112,6 +122,12 @@ public class DefinePolicyController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
         Scene scene = new Scene(root);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        RfaPageController controller = loader.getController();
+        controller.initUser(userName,"Rfa");
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

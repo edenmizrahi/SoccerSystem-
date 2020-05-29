@@ -87,13 +87,36 @@ public class RegistrationGamesAlertsController {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+        String fxmlStr="";
+        if(role.equals("Fan")){
+            fxmlStr="HomePage.fxml";
+        }
+        else if( role.equals("Rfa")){
+            fxmlStr="RfaPage.fxml";
+        }
+        else{
+            fxmlStr="RefereePage.fxml";
+        }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
-        HomePageController controller = loader.getController();
-        controller.initHomePage(userName,role);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        if(role.equals("Fan")){
+            HomePageController controller = loader.getController();
+            controller.initHomePage(userName,role);
+
+        }
+        else if( role.equals("Rfa")){
+            RfaPageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+        else{
+            RefereePageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+
+
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
@@ -101,7 +124,14 @@ public class RegistrationGamesAlertsController {
     @FXML
     public void addFanMatchFollow (ActionEvent event){
         String matchToFollow = allMatchesInSystemCombo.getSelectionModel().getSelectedItem().toString();
-        if(fanMatchsList.contains(matchToFollow)){
+        //didn't choose anything
+        if(matchToFollow.equals("select a match you want to follow")){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("You didn't choose a match to follow");
+            chooseFile.show();
+        }
+        else if(fanMatchsList.contains(matchToFollow)){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
             chooseFile.setContentText("You are already following this match. Please select another match.");
@@ -118,11 +148,13 @@ public class RegistrationGamesAlertsController {
                 chooseFile.show();
                 updateMachesFollsComoBox();
             }
-            else if(massage.equals("error- match not added")){
-                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
-                chooseFile.setHeaderText("Error");
-                chooseFile.setContentText("error- match not added");
-                chooseFile.show();
+            else{
+                if(massage.contains("Error")){
+                    Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                    chooseFile.setHeaderText("Error");
+                    chooseFile.setContentText(massage);
+                    chooseFile.show();
+                }
             }
         }
     }

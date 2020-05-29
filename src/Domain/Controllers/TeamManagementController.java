@@ -11,6 +11,8 @@ import javafx.scene.control.Alert;
 import sun.awt.image.ImageWatched;
 
 import java.security.acl.Permission;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -112,13 +114,61 @@ public class TeamManagementController {
             key.add(teamName);
             daoTeamOwnersTeams.save(key);
 
+//            /**delete team*/
+//            List<String> team_key=new LinkedList<>();
+//            team_key.add(teamName);
+//            daoTeams.delete(team_key);
+            throw new Exception();
 
 
         }
+
         catch (Exception e){
-           return e.getMessage();
+            /********Role Back******/
+            List<String > approvedTeam=new LinkedList<>();
+            approvedTeam.add(userName);
+            approvedTeam.add(teamName);
+            try {
+                daoApprovedTeamReq.save(approvedTeam);
+            } catch (SQLException e1) {
+                return e.getMessage();
+            }
+            //teamOwnerTeam
+            List<String > teamOwnerTeam=new LinkedList<>();
+            teamOwnerTeam.add(userName);
+            teamOwnerTeam.add(teamName);
+            daoTeamOwnersTeams.delete(teamOwnerTeam);
+
+            //players
+            List<String> playerNames = Arrays.asList(playerNamesStr.split(";"));
+            HashSet<TeamRole> players = new HashSet<>();
+            for (String pName : playerNames) {
+                TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
+                players.add(p);
+                /**player- add team to db**/
+                LinkedList<String> name=new LinkedList<>();
+                LinkedList<String> records =new LinkedList<>();
+                name.add(pName);
+                records.add(null);
+                records.add(null);
+                daoPlayer.update(name,records);
+            }
+
+            //coach
+            LinkedList<String> records =new LinkedList<>();
+            records.add(null);
+            records.add(null);
+            LinkedList<String> name=new LinkedList<>();
+            name.add(coachUserName);
+            daoCoaches.update(name,records);
+
+            List<String > team_key=new LinkedList<>();
+            team_key.add(teamName);
+            daoTeams.delete(team_key);
+
+            return e.getMessage();
         }
-        return "";
+
     }
 
     public String getMyApprovedTeams(String userName){

@@ -128,13 +128,21 @@ public class DaoNotificaionsReferee implements Dao<String> {
                 ans.add(temp);
             }
             /** insert coll values to ans  **/
-            //List<?> coll=result.getValues(1);
-            //System.out.println(coll.get(1).toString());
             for(int i=0;i< numOfCols;i++){
                 List <?> currCol = result.getValues(i);
                 for (int j = 0; j <result.size() ; j++) {
-                    ans.get(j).add(currCol.get(j).toString());
-
+                    if(currCol.get(j) instanceof LocalDateTime){
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        ans.get(j).add(((LocalDateTime) currCol.get(j)).format(formatter));
+                    }
+                    if( currCol.get(j) instanceof Timestamp ){
+                        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        String formattedDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(currCol.get(j));
+                        ans.get(j).add((formattedDate));
+                    }
+                    else{
+                        ans.get(j).add(currCol.get(j).toString());
+                    }
                 }
             }
         } catch (SQLException e) {

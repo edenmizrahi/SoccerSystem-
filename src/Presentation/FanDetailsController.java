@@ -95,6 +95,7 @@ public class FanDetailsController { //implements Initializable
         //list : name, Password, PhoneNumber, Email, DateOfBirth
         currNameLabel.setText(fanDetails.get(0));
         currPasswardLable.setText(fanDetails.get(1));
+
         currPhonNumberLabel.setText(fanDetails.get(2));
         currEmailLabel.setText(fanDetails.get(3));
         currDateOfBirthLable.setText(fanDetails.get(4));
@@ -204,9 +205,19 @@ public class FanDetailsController { //implements Initializable
         Parent root = loader.load();
         //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
-        HomePageController controller = loader.getController();
-        controller.initHomePage(userName,role);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        if(role.equals("Fan")){
+            HomePageController controller = loader.getController();
+            controller.initHomePage(userName,role);
+        }
+        else if( role.equals("Rfa")){
+            RfaPageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+        else{
+            RefereePageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

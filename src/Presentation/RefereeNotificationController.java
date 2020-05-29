@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -26,17 +27,19 @@ public class RefereeNotificationController {
     private RefereeApplication refereeApplication = new RefereeApplication();
     private List<String> RefereeNotificationsList=new LinkedList<>();
     public String userName = "";
+    private String role;
 
     @FXML
     private ComboBox<String > myNotificationsCombo;
 
 
-    public void initAlertsUser(String userName) {
+    public void initAlertsUser(String userName,String role) {
+        this.role=role;
         this.userName = userName;
     }
 
     @FXML
-    private void initComboBox(MouseEvent event) {
+    private void initComboBox() {
         RefereeNotificationsList.clear();
         RefereeNotificationsList.add("All my unread alerts about matches");
         String RefereeAlertsAsReferee = refereeApplication.getRefereeUnreadNotifications(userName);
@@ -52,10 +55,30 @@ public class RefereeNotificationController {
         myNotificationsCombo.getSelectionModel().selectFirst();
     }
 
-
     public void ClickOnMarkAsRead(ActionEvent actionEvent) {
         String notification = myNotificationsCombo.getSelectionModel().getSelectedItem();
-        this.refereeApplication.markNotificationAsRead(notification, this.userName);
+        if(notification.equals("All my unread alerts about matches")){
+            Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+            chooseFile.setHeaderText("Error");
+            chooseFile.setContentText("error-choose valid notification");
+            chooseFile.show();
+        }
+        else{
+            String answer = this.refereeApplication.markNotificationAsRead(notification, this.userName);
+            if(answer.equals("ok")) {
+                Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
+                chooseFile.setHeaderText("Confirmation");
+                chooseFile.setContentText("notification marked as read");
+                chooseFile.show();
+            }
+            else{
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText(answer);
+                chooseFile.show();
+            }
+        }
+
     }
 
     public void closeHandling(MouseEvent mouseEvent) throws IOException {
@@ -67,8 +90,12 @@ public class RefereeNotificationController {
 
     public void BackToReferee(ActionEvent actionEvent) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RefereePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        RefereePageController controller = loader.getController();
+        controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 }

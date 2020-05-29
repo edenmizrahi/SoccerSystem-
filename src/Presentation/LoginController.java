@@ -113,7 +113,7 @@ public class LoginController{
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
         Scene scene = new Scene(root, 700, 400);
-        scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 }

@@ -141,8 +141,8 @@ public class RefereeApplication {
     @Path("/markNotificationAsRead/{notification}/{refereeUserName}")
     @GET
     @Produces("text/plain")
-    public void markNotificationAsRead(@PathParam("notification") String notification, @PathParam("refereeUserName") String refereeUserName){
-        refereeController.markNotificationAsRead(notification,refereeUserName);
+    public String markNotificationAsRead(@PathParam("notification") String notification, @PathParam("refereeUserName") String refereeUserName){
+        return refereeController.markNotificationAsRead(notification,refereeUserName);
     }
 
 }

@@ -54,13 +54,37 @@ public class MyAlertsControllr {
 
     @FXML
     public void HomePageMouseClickHandling(MouseEvent mouseEvent) throws IOException {
+        String fxmlStr="";
+        if(role.equals("Fan")){
+            fxmlStr="HomePage.fxml";
+        }
+        else if( role.equals("Rfa")){
+            fxmlStr="RfaPage.fxml";
+        }
+        else{
+            fxmlStr="RefereePage.fxml";
+        }
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         HomePageController controller = loader.getController();
         controller.initHomePage(userName,role);
+        //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        if(role.equals("Fan")){
+            HomePageController controller = loader.getController();
+            controller.initHomePage(userName,role);
+        }
+        else if( role.equals("Rfa")){
+            RfaPageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
+        else{
+            RefereePageController controller = loader.getController();
+            controller.initUser(userName,role);
+        }
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 

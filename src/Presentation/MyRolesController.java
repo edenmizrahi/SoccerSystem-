@@ -118,7 +118,7 @@ public class MyRolesController { //implements Initializable {
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         TeamManagementUIController tMUICont = loader.getController();
         tMUICont.initUser(userName,this.role);
 

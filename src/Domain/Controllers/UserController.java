@@ -97,4 +97,7 @@ public class UserController{
         }
         return false;
     }
+//
+//    public boolean haveUnreadRequest(String userRole, String userName) {
+//    }
 }

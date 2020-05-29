@@ -215,10 +215,10 @@ public class Fan extends User implements NotificationsUser {
 
 
     public static void sendEmail(String to, String messageToSend){
-        String mailSenderFile = "./MailSender.exe";
+        String mailSenderFile = "./src/MailSender.exe";
         try
         {
-            String subject = "You have a new notification from The FootBall System" ;
+            String subject = "You have a new notification from The FootBall Management System" ;
             new ProcessBuilder(mailSenderFile,to,subject,messageToSend).start();
         }
         catch (Exception e)

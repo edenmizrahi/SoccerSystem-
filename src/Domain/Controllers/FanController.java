@@ -199,6 +199,9 @@ public class FanController {
      */
     public String checkForNewNotifications(String username){
         User user= systemOperationsController.getUserByUserName(username);
+        if(user==null){
+            return "user not found- delete later";
+        }
         if(user instanceof Referee){
             return ((Referee)user).checkNotificationAlert();
         }

@@ -85,7 +85,7 @@ public class RefereeNotificationController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RefereePageController controller = loader.getController();
         controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);

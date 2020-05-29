@@ -43,23 +43,51 @@ public class LoginController{
 
             lbl_error.setText("");
             /**notification*/
-            if (uc.haveUnreadNotifications(txt_userName.getText())) {
-            //TODO change function so returns string instead of boolean!!!
-            //if (ClientController.connectToServer("UserApplication", "haveUnreadNotifications", txt_userName.getText()))
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("");
-                DialogPane dialogPane = alert.getDialogPane();
-                alert.setContentText("You have unread notifications!");
-                dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
-                dialogPane.getStyleClass().add("alert");
-                alert.show();
+            if(userRole.equals("Referee")||userRole.equals("Rfa")){
+                boolean notFan=false;
+                String message="";
+                if(uc.haveUnreadNotifications(txt_userName.getText())){
+                    message="You have unread notifications as fan";
+                    notFan=true;
+                }
+                if(uc.haveUnreadNotifications(userRole,txt_userName.getText())){
+                   if(notFan) {
+                       message = message + ", and as" + userRole;
+                   }
+                   else{
+                       message="You have unread notifications as "+userRole;
+                   }
+                   notFan=true;
+                }
+                if(notFan){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("");
+                    DialogPane dialogPane = alert.getDialogPane();
+                    alert.setContentText(message);
+                    dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
+                    dialogPane.getStyleClass().add("alert");
+                    alert.show();
+                }
+            }
+            else {
+                if (uc.haveUnreadNotifications(txt_userName.getText())) {
+                    //TODO change function so returns string instead of boolean!!!
+                    //if (ClientController.connectToServer("UserApplication", "haveUnreadNotifications", txt_userName.getText()))
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("");
+                    DialogPane dialogPane = alert.getDialogPane();
+                    alert.setContentText("You have unread notifications!");
+                    dialogPane.getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
+                    dialogPane.getStyleClass().add("alert");
+                    alert.show();
+                }
             }
             if(userRole.equals("RFA")){
 
                 FXMLLoader loader=new FXMLLoader();
                 loader.setLocation(getClass().getResource("RfaPage.fxml"));
                 Parent root2=loader.load();
-                Scene scene = new Scene(root2, 900, 600);
+                Scene scene = new Scene(root2);
                 //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                 RfaPageController rfaC=loader.getController();
                 rfaC.initUser(txt_userName.getText(),"Rfa");
@@ -74,7 +102,7 @@ public class LoginController{
                     loader.setLocation(getClass().getResource("RefereePage.fxml"));
                     Parent root=loader.load();
                     // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-                    Scene scene = new Scene(root, 900, 600);
+                    Scene scene = new Scene(root);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     RefereePageController refereeController=loader.getController();
                     refereeController.initUser(txt_userName.getText(),"Referee");
@@ -89,7 +117,7 @@ public class LoginController{
                     loader.setLocation(getClass().getResource("HomePage.fxml"));
                     Parent root=loader.load();
                     // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
-                    Scene scene = new Scene(root, 900, 600);
+                    Scene scene = new Scene(root);
                     //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
                     HomePageController hpc=loader.getController();
                     hpc.initHomePage(txt_userName.getText(),"Fan");
@@ -113,7 +141,7 @@ public class LoginController{
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
         Scene scene = new Scene(root, 700, 400);
-        scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 }

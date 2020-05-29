@@ -6,6 +6,7 @@ import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
 import Domain.Notifications.Notification;
+import Domain.Users.Fan;
 import Domain.Users.Player;
 import Domain.Users.Referee;
 import javafx.scene.control.Alert;
@@ -277,6 +278,19 @@ public class RefereeController {
 
     //</editor-fold>
 
+    public LinkedList<Fan> allFansFollowsPerMatch(Match match){
+        LinkedList<Fan> listOfFollowers = new LinkedList<>();
+
+        LinkedList<Fan> allFans = MainSystem.getInstance().getAllFans();
+        for (Fan fan: allFans) {
+            if(fan.getMatchesFollow().contains(match)){
+                listOfFollowers.add(fan);
+            }
+        }
+
+        return listOfFollowers;
+    }
+
     //<editor-fold desc="create events">
     public String createGoalEvent(String referee, String match, String player) {
         try {
@@ -305,12 +319,18 @@ public class RefereeController {
             matchRecord.add(4, String.valueOf(currentMatch.getNumOfMinutes()));
             daoMatch.update(matchKeys, matchRecord);
 
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
+
             return "ok";
 
         } catch (ParseException p){
             return "parse error";
         }catch (Exception e){
-            return  "error " +e.getMessage();
+            return  "error " + e.getMessage();
         }
 
     }
@@ -327,6 +347,12 @@ public class RefereeController {
             saveInEventTableDB(e, referee, currentMatch);
             //onePlayerEvent table
             saveInOnePlayerEventTableDB(e, player);
+
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
 
             return "ok";
         } catch (ParseException p){
@@ -349,6 +375,12 @@ public class RefereeController {
             //onePlayerEvent table
             saveInOnePlayerEventTableDB(e, player);
 
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
+
             return "ok";
         } catch (ParseException p){
             return "parse error";
@@ -369,6 +401,12 @@ public class RefereeController {
             saveInEventTableDB(e, referee, currentMatch);
             //onePlayerEvent table
             saveInOnePlayerEventTableDB(e, player);
+
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
 
              return "ok";
         } catch (ParseException p){
@@ -391,6 +429,12 @@ public class RefereeController {
             //onePlayerEvent table
             saveInOnePlayerEventTableDB(e, player);
 
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
+
             return "ok";
         } catch (ParseException p){
             return "parse error";
@@ -412,6 +456,12 @@ public class RefereeController {
             saveInEventTableDB(e, referee, currentMatch);
             //onePlayerEvent table
             saveInOnePlayerEventTableDB(e, player);
+
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
 
             return "ok";
         } catch (ParseException p){
@@ -438,6 +488,12 @@ public class RefereeController {
                 //TwoPlayersEvent table
                 saveInTwoPlayerEventTableDB(e, firstPlayer, secondPlayer);
 
+                //save in fan notifications table
+                LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+                for (Fan fan: fanLinkedList){
+                    saveInFanNotifications(e,fan.getName(),currentMatch);
+                }
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Notice that the players must be from the same team");
@@ -463,6 +519,13 @@ public class RefereeController {
             saveInEventTableDB(e, referee, currentMatch);
             //ExtraTime Event table
             saveInExtraTimeEventTableDB(e, time);
+
+            //save in fan notifications table
+            LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);
+            for (Fan fan: fanLinkedList){
+                saveInFanNotifications(e,fan.getName(),currentMatch);
+            }
+
             return "ok";
         } catch (ParseException p){
             return "parse error";
@@ -491,29 +554,40 @@ public class RefereeController {
         return refereeNotificationsString;
     }
 
-    public void markNotificationAsRead(String notificationContent, String referee){
-        Referee ref = this.getRefereeByUserName(referee);
-        for( Notification notification : ref.getUnReadNotifications()){
-            if(notification.getContent().equals(notificationContent)){
-                notification.setRead(true);
+    public void updateInRefereesNotificationTable(String refereeUserName, String notificationContent, Match match){
+//        String[] notificationSplit = notificationContent.split("-");
+//        String home = notificationSplit[1];
+//        String away = notificationSplit[3];
+//        String date = notificationSplit[5];
+        List<String> NotificationsKeysList = new LinkedList<>();
+        NotificationsKeysList.add(0, MainSystem.simpleDateFormat.format(match.getStartDate()));
+        NotificationsKeysList.add(1,match.getHomeTeam().getName());
+        NotificationsKeysList.add(2,match.getAwayTeam().getName());
+        NotificationsKeysList.add(3,refereeUserName);
+        NotificationsKeysList.add(4,notificationContent);
 
-                //update in table of referees notifications that notification is read
-                String[] notificationSplit = notificationContent.split("-");
-                String home = notificationSplit[1];
-                String away = notificationSplit[3];
-                String date = notificationSplit[5];
-                List<String> NotificationsKeysList = new LinkedList<>();
-                NotificationsKeysList.add(0,date);
-                NotificationsKeysList.add(1,home);
-                NotificationsKeysList.add(2,away);
-                NotificationsKeysList.add(3,referee);
-                NotificationsKeysList.add(4,notificationContent);
+        List<String> NotificationsIsReadOrNot = new LinkedList<>();
+        NotificationsIsReadOrNot.add(0,"1");
 
-                List<String> NotificationsIsReadOrNot = new LinkedList<>();
-                NotificationsIsReadOrNot.add(0,"1");
+        daoNotificaionsReferee.update(NotificationsKeysList,NotificationsIsReadOrNot);
+    }
 
-                daoNotificaionsReferee.update(NotificationsKeysList,NotificationsIsReadOrNot);
+    public String markNotificationAsRead(String notificationContent, String referee){
+        try {
+            Referee ref = this.getRefereeByUserName(referee);
+            for (Notification notification : ref.getUnReadNotifications()) {
+                if (notification.getContent().equals(notificationContent)) {
+                    notification.setRead(true);
+                    Match match = (Match) notification.getSender();
+                    //update in table of referees notifications that notification is read
+                    updateInRefereesNotificationTable(referee, notificationContent, match);
+                    return "ok";
+                }
             }
         }
+        catch (Exception e){
+            return "Error - "+ e.getMessage();
+        }
+        return "";
     }
 }

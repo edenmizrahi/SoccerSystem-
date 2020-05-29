@@ -215,8 +215,8 @@ public class FanDetailsController { //implements Initializable
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
         //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
-        Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         if(role.equals("Fan")){
             HomePageController controller = loader.getController();
             controller.initHomePage(userName,role);

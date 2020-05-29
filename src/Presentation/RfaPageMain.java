@@ -3,6 +3,7 @@ package Presentation;
 import Domain.Controllers.SystemOperationsController;
 import Domain.MainSystem;
 import Service.SystemOperationsApplication;
+import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,8 @@ public class RfaPageMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        //Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+       // StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("Style.css").toString());
         Parent root = FXMLLoader.load(getClass().getResource("RfaPage.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Rfa home page");

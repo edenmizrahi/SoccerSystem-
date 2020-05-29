@@ -3,6 +3,7 @@ package Service;
 import Domain.Controllers.FanController;
 
 import javax.ws.rs.*;
+import java.sql.SQLException;
 
 @Path("/FanApplication")
 public class FanApplication {
@@ -57,7 +58,7 @@ public class FanApplication {
     @Path("/addMatchToFanMatchesFollow/{username}/{match}")
     @GET
     @Produces("text/plain")
-    public String addMatchToFanMatchesFollow(@PathParam("username")String userName,@PathParam("match") String match) {
+    public String addMatchToFanMatchesFollow(@PathParam("username")String userName,@PathParam("match") String match)  {
         return fanController.addMatchToFanMatchesFollow(userName, match);
     }
 

@@ -1,6 +1,9 @@
 package Domain.Controllers;
 
 import DataAccess.DaoFans;
+import DataAccess.DaoFanMatchesFollow;
+import DataAccess.DaoNotificationFan;
+import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.LeagueManagment.Team;
 import Domain.MainSystem;
@@ -8,6 +11,7 @@ import Domain.Notifications.Notification;
 import Domain.Users.*;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,6 +23,8 @@ public class FanController {
     SystemOperationsController systemOperationsController=new SystemOperationsController();
     DaoFans daoFans= new DaoFans();
 
+    DaoFanMatchesFollow daoFanMatchesFollow = new DaoFanMatchesFollow();
+    DaoNotificationFan daoNotificationFan=new DaoNotificationFan();
 
     public String fanIsTeamRole(String userName) {
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
@@ -134,11 +140,24 @@ public class FanController {
         //LinkedList<String> fanNotificationsString=new LinkedList<>();
         String fanNotificationsString = new String();
         Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
-        HashSet<Notification> fanNotifications= fan.getNotificationsList();
+        HashSet<Notification> fanNotifications= fan.getFanNotification();
         for (Notification noti:fanNotifications) {
             //fanNotificationsString.add(noti.getContent().toString());
             fanNotificationsString += noti.getContent().toString() + ";";
             noti.setRead(true);
+            Match m= (Match)noti.getSender();
+
+            List<String> key=new LinkedList<>();
+            key.add(MainSystem.simpleDateFormat.format(m.getStartDate()));
+            key.add(m.getHomeTeam().getName());
+            key.add(m.getAwayTeam().getName());
+            key.add(userName);
+
+            List<String> recordData=new LinkedList<>();
+            key.add(((Event)(noti.getContent())).getId()+"");
+            recordData.add("1");
+
+            daoNotificationFan.update(key,recordData);
         }
 
         //markAsReadNotification
@@ -183,23 +202,39 @@ public class FanController {
      * @return
      */
     public String addMatchToFanMatchesFollow(String userName, String match) {
-        Fan fan= (Fan) systemOperationsController.getUserByUserName(userName);
-        HashSet<Match> allMatchesInSystem=systemOperationsController.getAllCurrMatchs();
-        String massage="eror- match not added";
-        //        String[] arrayOfTeamsAndDate = match.split(",");
+        String massage = "Error - match not added";
+        try {
+            Fan fan = (Fan) systemOperationsController.getUserByUserName(userName);
+            HashSet<Match> allMatchesInSystem = systemOperationsController.getAllCurrMatchs();
+
+            //        String[] arrayOfTeamsAndDate = match.split(",");
 //        String date = arrayOfTeamsAndDate[1];
 //        String TeamsString = arrayOfTeamsAndDate[0];
 //        String[] arrayOfTeams = TeamsString.split("-");
 //        Team homeTeam = this.systemOperationsController.getTeambyTeamName(arrayOfTeams[0]);
 //        Team awayTeam = this.systemOperationsController.getTeambyTeamName(arrayOfTeams[1]);
 //        Date matchDate = MainSystem.simpleDateFormat.parse(date);
-        for (Match m:allMatchesInSystem) {
-            if(m.toString().equals(match))  {
-                fan.addMatchFollow(m);
-                massage="ok";
-                return massage;
+
+            for (Match m : allMatchesInSystem) {
+                if (m.toString().equals(match)) {
+                    fan.addMatchFollow(m);
+                    //save in match follow table
+                    List<String> fanMatchesRecord = new LinkedList<>();
+                    fanMatchesRecord.add(0, fan.getUserName());
+                    fanMatchesRecord.add(1, MainSystem.simpleDateFormat.format(m.getStartDate()));
+                    fanMatchesRecord.add(2, m.getHomeTeam().getName());
+                    fanMatchesRecord.add(3, m.getAwayTeam().getName());
+                    daoFanMatchesFollow.save(fanMatchesRecord);
+
+                    massage = "ok";
+                    return massage;
+                }
             }
         }
+        catch (Exception e){
+            return "Error - "+e.getMessage();
+        }
+
         return massage;
     }
 
@@ -210,6 +245,9 @@ public class FanController {
      */
     public String checkForNewNotifications(String username){
         User user= systemOperationsController.getUserByUserName(username);
+        if(user==null){
+            return "user not found- delete later";
+        }
         if(user instanceof Referee){
             return ((Referee)user).checkNotificationAlert();
         }

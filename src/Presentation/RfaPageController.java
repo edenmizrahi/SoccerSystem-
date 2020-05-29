@@ -51,7 +51,7 @@ public class RfaPageController extends HomePageController {
         loader.setLocation(getClass().getResource("DefinePolicy.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         DefinePolicyController definePolicyController = loader.getController();
         definePolicyController.initUser(userName);
@@ -70,21 +70,13 @@ public class RfaPageController extends HomePageController {
     }
 
     @FXML
-    public void MyAlertsFunctionAsRFA(ActionEvent event) throws IOException {
-        FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("RfaNotification.fxml"));
-        Parent root=loader.load();
+    public void MyAlertsFunction(MouseEvent mouseEvent) throws IOException {
 
-        Scene scene = new Scene(root, 900, 600);
-
-        RfaNotificationController controller=loader.getController();
-        controller.initUser(userName,role);
-
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RfaNotification.fxml"));
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
-        stageTheEventSourceNodeBelongs.show();
-
-
 
     }
 
@@ -95,7 +87,7 @@ public class RfaPageController extends HomePageController {
         loader.setLocation(getClass().getResource("RegistrationGamesAlerts.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
         registrationGamesAlertsController.initUser(userName,role);
@@ -145,9 +137,13 @@ public class RfaPageController extends HomePageController {
                             scheduler.cancel();
                             connectionOK = false;
                         }
-                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                        else if(scheduler.getValue().equals("gotFanNotification")){//fan
                             Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                             chooseFile.setContentText("You have a new Notification about a game you are following !");
+                            chooseFile.show();
+                        }else if(scheduler.getValue().equals("gotRefereeNotification")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new notification about your match !");
                             chooseFile.show();
                         }
                         else if(scheduler.getValue().equals("gotRFAnotification")){//rfa
@@ -162,7 +158,11 @@ public class RfaPageController extends HomePageController {
                         }
 
                     });
-            scheduler.setOnFailed(e -> System.out.println("failed to run"));
+            scheduler.setOnFailed(e -> {
+                System.out.println("failed to run");
+                scheduler.cancel();
+                connectionOK=false;}
+            );
             scheduler.start();
         }
     }
@@ -176,13 +176,37 @@ public class RfaPageController extends HomePageController {
         hpc.fanDetailsEventClick(actionEvent);
     }
 
+    //<editor-fold desc="create events">
     public void FanNotificationEventClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        loader.setLocation(getClass().getResource("MyAlerts.fxml"));
         Parent root=loader.load();
-        HomePageController hpc=loader.getController();
-        hpc.initHomePage(userName,"Rfa");
-        hpc.fanAllertsEventClick(actionEvent);
+        //Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        MyAlertsControllr myRolesController=loader.getController();
+        myRolesController.initAllertsUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
 
     }
+
+    @FXML
+    public void MyAlertsFunctionAsRFA(ActionEvent event) throws IOException {
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RfaNotification.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = new Scene(root, 900, 600);
+
+        RfaNotificationController controller=loader.getController();
+        controller.initUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+    }
+    //</editor-fold>
 }

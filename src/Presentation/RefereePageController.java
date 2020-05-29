@@ -61,13 +61,18 @@ public class RefereePageController extends HomePageController {
                             scheduler.cancel();
                             connectionOK = false;
                         }
-                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                        else if(scheduler.getValue().equals("gotFanNotification")){//fan
                             Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                             chooseFile.setContentText("You have a new Notification about a game you are following !");
                             chooseFile.show();
                         }else if(scheduler.getValue().equals("gotRefereeNotification")){//referee
                             Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                             chooseFile.setContentText("You have a new notification about your match !");
+                            chooseFile.show();
+                        }
+                        else if(scheduler.getValue().equals("gotRFAnotification")){//rfa
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new team to approve !");
                             chooseFile.show();
                         }
                         else if(scheduler.getValue().equals("multipleNotifications")){//referee
@@ -88,7 +93,6 @@ public class RefereePageController extends HomePageController {
         this.userName=userName;
     }
 
-
     @FXML
     public void addEventToMatch(ActionEvent actionEvent) throws IOException {
 
@@ -101,7 +105,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("eventsPage.fxml"));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root);
 
             eventsPageController eventsPageController = loader.getController();
             eventsPageController.initUser(userName, match,role);
@@ -130,7 +134,7 @@ public class RefereePageController extends HomePageController {
             loader.setLocation(getClass().getResource("ReportOfMatch.fxml"));
             Parent root=loader.load();
 
-            Scene scene = new Scene(root, 900, 600);
+            Scene scene = new Scene(root);
 
             ReportOfMatchController reportOfMatchController = loader.getController();
             reportOfMatchController.initPage(userName, matches);
@@ -145,24 +149,6 @@ public class RefereePageController extends HomePageController {
                     " so you can not create a report");
             alert.show();
         }
-    }
-
-    @FXML
-    public void MyAlertsFunctionAsRef(ActionEvent event) throws IOException {
-
-        FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("RefereeNotification.fxml"));
-        Parent root=loader.load();
-
-        Scene scene = new Scene(root, 900, 600);
-
-        RefereeNotificationController controller=loader.getController();
-        controller.initAlertsUser(userName,role);
-
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(scene);
-        stageTheEventSourceNodeBelongs.show();
-
     }
 
     @FXML
@@ -224,13 +210,38 @@ public class RefereePageController extends HomePageController {
         hpc.fanDetailsEventClick(actionEvent);
     }
 
+    //<editor-fold desc="Notifications">
     public void FanNotificationEventClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader=new FXMLLoader();
-        loader.setLocation(getClass().getResource("HomePage.fxml"));
+        loader.setLocation(getClass().getResource("MyAlerts.fxml"));
         Parent root=loader.load();
-        HomePageController hpc=loader.getController();
-        hpc.initHomePage(userName,"Referee");
-        hpc.fanAllertsEventClick(actionEvent);
+        //Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+        MyAlertsControllr myRolesController=loader.getController();
+        myRolesController.initAllertsUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
+    }
+
+    @FXML
+    public void MyAlertsFunctionAsRef(ActionEvent event) throws IOException {
+
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("RefereeNotification.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = new Scene(root, 900, 600);
+
+        RefereeNotificationController controller=loader.getController();
+        controller.initAlertsUser(userName,role);
+
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.show();
 
     }
+    //</editor-fold>
 }

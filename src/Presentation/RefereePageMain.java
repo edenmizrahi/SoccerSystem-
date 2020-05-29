@@ -26,6 +26,7 @@ public class RefereePageMain extends Application {
     public static void main(String[] args) throws Exception {
 
         SystemOperationsController systemOperationsController = new SystemOperationsController();
+        systemOperationsController.initSystemFromDB();
         systemOperationsController.initSystemObjectsYardenRefereeForUI();
         MainSystem ma= MainSystem.getInstance();
 

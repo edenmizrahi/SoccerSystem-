@@ -53,7 +53,7 @@ public class TeamManagementUIController { //implements Initializable {
         Parent root = loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         TeamManagementUIController tMUICont = loader.getController();
         tMUICont.initUser(userName,role);
 
@@ -106,7 +106,7 @@ public class TeamManagementUIController { //implements Initializable {
         Parent root = loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         HomePageController homeCont = loader.getController();
         homeCont.initHomePage(userName,role);
 
@@ -122,7 +122,7 @@ public class TeamManagementUIController { //implements Initializable {
         Parent root = loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyRolesController myRolesCont = loader.getController();
         myRolesCont.initUser(userName,role);
 

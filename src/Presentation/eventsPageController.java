@@ -135,15 +135,14 @@ public class eventsPageController {
         }
     }
 
-
     @FXML
     public void BackToRefereePage(ActionEvent mouseEvent) throws IOException {
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RefereePageController controller = loader.getController();
         controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -253,7 +252,7 @@ public class eventsPageController {
         idNumOfMinute.setDisable(false);
     }
 
-    public void closeHandling(MouseEvent mouseEvent) throws IOException {
+    public void closeHandling(MouseEvent mouseEvent)  throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         Parent calcRoot = loader.load();
         HomePageController controller = loader.getController();

@@ -148,6 +148,17 @@ public class eventsPageController {
         stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
+    public void clearAllComboBoxes(){
+        playerForGoal.getItems().removeAll(playerForGoal.getItems());
+        playerForInjury.getItems().removeAll(playerForInjury.getItems());
+        playerForOffense.getItems().removeAll(playerForOffense.getItems());
+        playerForOffSide.getItems().removeAll(playerForOffSide.getItems());
+        player1ForReplace.getItems().removeAll(player1ForReplace.getItems());
+        player2ForReplace.getItems().removeAll(player2ForReplace.getItems());
+        playerForRedCard.getItems().removeAll(playerForRedCard.getItems());
+        playerForYellowCard.getItems().removeAll(playerForYellowCard.getItems());
+    }
+
     //<editor-fold desc="on submit click">
 
     public void onClickGoalSubmit() {
@@ -160,6 +171,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("Goal Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createGoalEvent", userName,match,player);
+        clearAllComboBoxes();
     }
 
     public void onClickInjurySubmit() {
@@ -172,6 +184,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("Injury Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createInjuryEvent", userName,match,player);
+        clearAllComboBoxes();
     }
 
     public void onClickOffenseSubmit() {
@@ -184,6 +197,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("Offense Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createOffenseEvent", userName,match,player);
+        clearAllComboBoxes();
     }
 
     public void onClickOffsideSubmit() {
@@ -196,6 +210,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("Offside Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createOffSideEvent", userName,match,player);
+        clearAllComboBoxes();
     }
 
     public void onClickReplaceSubmit() {
@@ -209,6 +224,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("Replacement Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createReplaceEvent", userName,match,player1,player2);
+        clearAllComboBoxes();
     }
 
     public void onClickRedCardSubmit() {
@@ -221,6 +237,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("RedCard Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createRedCardEvent", userName,match,player);
+        clearAllComboBoxes();
     }
 
     public void onClickYellowCardSubmit() {
@@ -233,6 +250,7 @@ public class eventsPageController {
             SuccessAlertForCreateEvent("YellowCard Event was created!");
         }
         //String ans = ClientController.connectToServer("RefereeApplication", "createYellowCardEvent", userName,match,player);
+        clearAllComboBoxes();
 
     }
 

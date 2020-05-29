@@ -165,7 +165,7 @@ public class RfaPageController extends HomePageController {
         Parent root=loader.load();
         //Scene scene = new Scene(root, 900, 600);
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
         myRolesController.initAllertsUser(userName,role);
 

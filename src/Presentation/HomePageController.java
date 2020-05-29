@@ -52,7 +52,7 @@ public class HomePageController {
 //        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
 //        Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
 //        Scene scene = new Scene(root, 900, 600);
-//        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+//        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
 //        stageTheEventSourceNodeBelongs.setScene(scene);
 //
 //    }
@@ -101,7 +101,7 @@ public class HomePageController {
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         FanDetailsController fanDetailsController=loader.getController();
         fanDetailsController.initUserDetails(userName,role);
 
@@ -118,7 +118,7 @@ public class HomePageController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("RegistrationGamesAlerts.fxml"));
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         stageTheEventSourceNodeBelongs.setScene(scene);
         */
 
@@ -127,7 +127,7 @@ public class HomePageController {
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RegistrationGamesAlertsController registrationGamesAlertsController=loader.getController();
         registrationGamesAlertsController.initUser(userName,role);
 
@@ -145,7 +145,7 @@ public class HomePageController {
         Parent root=loader.load();
         //Scene scene = new Scene(root, 900, 600);
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyAlertsControllr myRolesController=loader.getController();
         myRolesController.initAllertsUser(userName,role);
 
@@ -162,7 +162,7 @@ public class HomePageController {
 //        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
 //        Parent root = FXMLLoader.load(getClass().getResource("MyAlerts.fxml"));
 //        Scene scene = new Scene(root, 900, 600);
-//        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+//        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
 //        stageTheEventSourceNodeBelongs.setScene(scene);
 //*/
 //    }
@@ -189,7 +189,7 @@ public class HomePageController {
         Parent root=loader.load();
         // Parent root = FXMLLoader.load(getClass().getResource("FanDetails.fxml"));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         MyRolesController myRolesController=loader.getController();
         myRolesController.initUser(userName,role);
 

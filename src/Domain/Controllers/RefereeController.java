@@ -572,15 +572,22 @@ public class RefereeController {
         daoNotificaionsReferee.update(NotificationsKeysList,NotificationsIsReadOrNot);
     }
 
-    public void markNotificationAsRead(String notificationContent, String referee){
-        Referee ref = this.getRefereeByUserName(referee);
-        for( Notification notification : ref.getUnReadNotifications()){
-            if(notification.getContent().equals(notificationContent)){
-                notification.setRead(true);
+    public String markNotificationAsRead(String notificationContent, String referee){
+        try {
+            Referee ref = this.getRefereeByUserName(referee);
+            for (Notification notification : ref.getUnReadNotifications()) {
+                if (notification.getContent().equals(notificationContent)) {
+                    notification.setRead(true);
 
-                //update in table of referees notifications that notification is read
-                updateInRefereesNotificationTable(referee,notificationContent);
+                    //update in table of referees notifications that notification is read
+                    updateInRefereesNotificationTable(referee, notificationContent);
+                    return "ok";
+                }
             }
         }
+        catch (Exception e){
+            return "Error - "+ e.getMessage();
+        }
+        return "";
     }
 }

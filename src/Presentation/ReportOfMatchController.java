@@ -52,7 +52,7 @@ public class ReportOfMatchController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RefereePageController controller = loader.getController();
         controller.initUser(userName,"Referee");
         stageTheEventSourceNodeBelongs.setScene(scene);
@@ -71,25 +71,34 @@ public class ReportOfMatchController {
     public void createReportInline() {
         reportTable.setVisible(true);
         String match =  idMatches.getSelectionModel().getSelectedItem();
-        String reportStr = this.refereeApplication.createReportOfMatch(match,userName);
-        //String reportStr = ClientController.connectToServer("RefereeApplication", "createReportOfMatch", match, userName);
-        //check for error
-        if(reportStr.contains("error")){
+        if(idMatches.getSelectionModel().getSelectedIndex()==-1){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
-            chooseFile.setContentText(reportStr);
+            chooseFile.setContentText("No match selected. please try again");
             chooseFile.show();
         }
-        else{//else no problem
-            List<String> report = Arrays.asList(reportStr.split(";"));
+        else{
+            String reportStr = this.refereeApplication.createReportOfMatch(match,userName);
+            //String reportStr = ClientController.connectToServer("RefereeApplication", "createReportOfMatch", match, userName);
+            //check for error
+            if(reportStr.contains("error")){
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText(reportStr);
+                chooseFile.show();
+            }
+            else{//else no problem
+                List<String> report = Arrays.asList(reportStr.split(";"));
 
-            reportTable.getItems().addAll(report);
+                reportTable.getItems().addAll(report);
 
-            TableColumn<String,String> column1= new TableColumn<>("EventsAdapter");
-            column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+                TableColumn<String,String> column1= new TableColumn<>("EventsAdapter");
+                column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 
-            reportTable.getColumns().setAll(column1);
+                reportTable.getColumns().setAll(column1);
+            }
         }
+
 
     }
 

@@ -39,7 +39,7 @@ public class RefereeNotificationController {
     }
 
     @FXML
-    private void initComboBox(MouseEvent event) {
+    private void initComboBox() {
         RefereeNotificationsList.clear();
         RefereeNotificationsList.add("All my unread alerts about matches");
         String RefereeAlertsAsReferee = refereeApplication.getRefereeUnreadNotifications(userName);
@@ -64,11 +64,19 @@ public class RefereeNotificationController {
             chooseFile.show();
         }
         else{
-            this.refereeApplication.markNotificationAsRead(notification, this.userName);
-            Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
-            chooseFile.setHeaderText("Confirmation");
-            chooseFile.setContentText("notification marked as read");
-            chooseFile.show();
+            String answer = this.refereeApplication.markNotificationAsRead(notification, this.userName);
+            if(answer.equals("ok")) {
+                Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
+                chooseFile.setHeaderText("Confirmation");
+                chooseFile.setContentText("notification marked as read");
+                chooseFile.show();
+            }
+            else{
+                Alert chooseFile = new Alert(Alert.AlertType.ERROR);
+                chooseFile.setHeaderText("Error");
+                chooseFile.setContentText(answer);
+                chooseFile.show();
+            }
         }
 
     }
@@ -85,7 +93,7 @@ public class RefereeNotificationController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RefereePageController controller = loader.getController();
         controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);

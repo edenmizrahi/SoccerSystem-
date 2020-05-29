@@ -40,7 +40,7 @@ public class RfaNotificationController {
     }
 
     @FXML
-    private void initComboBox(MouseEvent event) {
+    private void initComboBox() {
         RfaRequestList.clear();
         RfaRequestList.add("All my unread alerts about matches");
         String RfaAlertsAsRfa = rfaApplication.getTeamRequests(userName);
@@ -88,6 +88,7 @@ public class RfaNotificationController {
                     chooseFile.show();
                 }
             }
+            initComboBox();
         }
 
 
@@ -124,6 +125,7 @@ public class RfaNotificationController {
                     chooseFile.show();
                 }
             }
+            initComboBox();
         }
 
 
@@ -141,7 +143,7 @@ public class RfaNotificationController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 900, 600);
-        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RfaPageController controller = loader.getController();
         controller.initUser(userName,role);
         stageTheEventSourceNodeBelongs.setScene(scene);

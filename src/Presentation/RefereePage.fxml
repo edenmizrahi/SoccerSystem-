@@ -2,24 +2,20 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RefereePageController">
     <children>
-        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
+        <Button fx:id="X_btn" layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#1e0d0d">
             <font>
                 <Font size="24.0" />
             </font>
-        </Label>
+        </Button>
         <BorderPane layoutX="2.0" layoutY="26.0" prefHeight="374.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="26.0">
             <opaqueInsets>
                 <Insets />
@@ -69,7 +65,7 @@
                         <Button fx:id="viewOrChangeSettingsBtn" mnemonicParsing="false" onAction="#RefereeDetailsEventClick" prefHeight="45.0" prefWidth="230.0" text="View\change settings " GridPane.rowIndex="2" />
                         <Button fx:id="registerForGamesAlertsBtn" mnemonicParsing="false" onAction="#registrationForGamesAlertsMouseClickHandling" prefHeight="45.0" prefWidth="230.0" text="Registration for games alerts" GridPane.rowIndex="3" />
                         <Button fx:id="MyAlertsBtn" mnemonicParsing="false" onAction="#FanNotificationEventClick" prefHeight="45.0" prefWidth="230.0" text="My alerts as Fan" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" text="My alerts as Referee" onAction="#MyAlertsFunctionAsRef" GridPane.columnIndex="2" prefHeight="45.0" prefWidth="230.0" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#MyAlertsFunctionAsRef" prefHeight="45.0" prefWidth="230.0" text="My alerts as Referee" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>
             </center>

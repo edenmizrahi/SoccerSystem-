@@ -127,9 +127,13 @@ public class RfaPageController extends HomePageController {
                             scheduler.cancel();
                             connectionOK = false;
                         }
-                        if(scheduler.getValue().equals("gotFanNotification")){//fan
+                        else if(scheduler.getValue().equals("gotFanNotification")){//fan
                             Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
                             chooseFile.setContentText("You have a new Notification about a game you are following !");
+                            chooseFile.show();
+                        }else if(scheduler.getValue().equals("gotRefereeNotification")){//referee
+                            Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
+                            chooseFile.setContentText("You have a new notification about your match !");
                             chooseFile.show();
                         }
                         else if(scheduler.getValue().equals("gotRFAnotification")){//rfa
@@ -144,7 +148,11 @@ public class RfaPageController extends HomePageController {
                         }
 
                     });
-            scheduler.setOnFailed(e -> System.out.println("failed to run"));
+            scheduler.setOnFailed(e -> {
+                System.out.println("failed to run");
+                scheduler.cancel();
+                connectionOK=false;}
+            );
             scheduler.start();
         }
     }

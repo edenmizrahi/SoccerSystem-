@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="error" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #201222;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.LoginController">
+<AnchorPane fx:id="error" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #201222;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.LoginController">
    <children>
       <AnchorPane layoutX="372.0" layoutY="52.0" prefHeight="311.0" prefWidth="303.0" style="-fx-background-color: #9C2B27;">
          <children>
-            <TextField fx:id="txt_userName" layoutX="21.0" layoutY="85.0" prefHeight="35.0" prefWidth="266.0" promptText="UserName" style="-fx-border-color: white; -fx-background-color: brown;">
+            <TextField fx:id="txt_userName" layoutX="21.0" layoutY="85.0" prefHeight="35.0" prefWidth="266.0" promptText="Username" style="-fx-border-color: white; -fx-background-color: brown;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -23,13 +23,13 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </PasswordField>
-            <Button layoutX="20.0" layoutY="232.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="266.0" style="-fx-background-color: #E45652;" text="Log In" textFill="WHITE" onMouseClicked="#validationHandling"/>
+            <Button layoutX="20.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#validationHandling" prefHeight="27.0" prefWidth="266.0" style="-fx-background-color: #E45652;" text="Log In" textFill="WHITE" />
             <Label layoutX="103.0" layoutY="38.0" text="Sign In" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label  fx:id="lbl_error" layoutX="60.0" layoutY="206.0" prefHeight="17.0" prefWidth="204.0" textFill="WHITE">
+            <Label fx:id="lbl_error" layoutX="60.0" layoutY="206.0" prefHeight="17.0" prefWidth="204.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -46,7 +46,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="134.0" prefHeight="83.0" prefWidth="353.0" text="The Football Association System" textFill="WHITE">
+      <Label layoutX="14.0" layoutY="134.0" prefHeight="83.0" prefWidth="353.0" text="The Football Management System" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
@@ -56,7 +56,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="21.0" layoutY="249.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="181.0" style="-fx-background-color: #E45652;" text="sign up" textFill="WHITE" onMouseClicked="#signUpMouseClickHandling"/>
+      <Button layoutX="21.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#signUpMouseClickHandling" prefHeight="27.0" prefWidth="181.0" style="-fx-background-color: #E45652;" text="Sign Up" textFill="WHITE" />
       <Label layoutX="676.0" onMouseClicked="#closeHandling" prefHeight="35.0" prefWidth="25.0" text="X" textFill="WHITE">
          <font>
             <Font size="26.0" />

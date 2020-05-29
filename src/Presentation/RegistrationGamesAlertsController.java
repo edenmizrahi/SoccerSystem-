@@ -100,7 +100,7 @@ public class RegistrationGamesAlertsController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         if(role.equals("Fan")){
             HomePageController controller = loader.getController();

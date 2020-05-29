@@ -67,20 +67,21 @@ public class MyAlertsControllr {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlStr));
         Parent root = loader.load();
+        Scene scene = new Scene(root);
+        //scene.getStylesheets().add(getClass().getResource("SignUp.css").toExternalForm());
         //Parent root = FXMLLoader.load(getClass().getResource(fxmlStr));
-        Scene scene = new Scene(root, 900, 600);
         //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         if(role.equals("Fan")){
-            HomePageController controller = loader.getController();
-            controller.initHomePage(userName,role);
+            HomePageController controllerHome = loader.getController();
+            controllerHome.initHomePage(userName,role);
         }
         else if( role.equals("Rfa")){
-            RfaPageController controller = loader.getController();
-            controller.initUser(userName,role);
+            RfaPageController controllerRFA = loader.getController();
+            controllerRFA.initUser(userName,role);
         }
         else{
-            RefereePageController controller = loader.getController();
-            controller.initUser(userName,role);
+            RefereePageController controllerReferee = loader.getController();
+            controllerReferee.initUser(userName,role);
         }
         stageTheEventSourceNodeBelongs.setScene(scene);
     }

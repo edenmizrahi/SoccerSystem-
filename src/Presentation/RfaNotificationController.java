@@ -142,7 +142,7 @@ public class RfaNotificationController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RfaPage.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RfaPageController controller = loader.getController();
         controller.initUser(userName,role);

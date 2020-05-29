@@ -68,6 +68,7 @@ public class RefereeNotificationController {
             //String answer = ClientController.connectToServer("refereeApplication", "markNotificationAsRead", userName);
 
             if(answer.equals("ok")) {
+                initComboBox();
                 Alert chooseFile = new Alert(Alert.AlertType.CONFIRMATION);
                 chooseFile.setHeaderText("Confirmation");
                 chooseFile.setContentText("notification marked as read");
@@ -94,7 +95,7 @@ public class RefereeNotificationController {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RefereePage.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
         //scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         RefereePageController controller = loader.getController();
         controller.initUser(userName,role);

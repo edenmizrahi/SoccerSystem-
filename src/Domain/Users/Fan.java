@@ -1,12 +1,15 @@
 package Domain.Users;
 
 import Domain.*;
+import Domain.Controllers.SystemOperationsController;
 import Domain.Events.Event;
 import Domain.LeagueManagment.Match;
 import Domain.Notifications.Notification;
 import Domain.Notifications.NotificationsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class Fan extends User implements NotificationsUser {
@@ -133,7 +136,12 @@ public class Fan extends User implements NotificationsUser {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        SystemOperationsController systemOperationsController=new SystemOperationsController();
+        try {
+            this.password =  systemOperationsController.sha256(password) ; //!!!!
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
     public Date getDateOfBirth() {

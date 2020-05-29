@@ -214,6 +214,14 @@ public class MainSystem {
         return false;
     }
 
+    public HashSet<Field> getFields() {
+        return fields;
+    }
+
+    public void setFields(HashSet<Field> fields) {
+        this.fields = fields;
+    }
+
     // or
     //TODO test -V
     public boolean addField(Field f) {

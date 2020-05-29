@@ -57,6 +57,7 @@ public class FanDetailsController { //implements Initializable
     private String userName; // userName; set!!!!!!!!!!!!!!!!!!!!!!!!
     private String role;
 
+
 /*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,13 +95,19 @@ public class FanDetailsController { //implements Initializable
         List<String> fanDetails = Arrays.asList(fanDetailsStr.split(";"));
         //list : name, Password, PhoneNumber, Email, DateOfBirth
         currNameLabel.setText(fanDetails.get(0));
-        currPasswardLable.setText(fanDetails.get(1));
-
+        //currPasswardLable.setText(fanDetails.get(1));
+        currPasswardLable.setText("******");
+        //TODO decrypt
+        // ClientController.connectToServer("SystemOperationsApplication", "decrypt", fanDetails.get(1));
         currPhonNumberLabel.setText(fanDetails.get(2));
         currEmailLabel.setText(fanDetails.get(3));
         currDateOfBirthLable.setText(fanDetails.get(4));
         fanUserName.setText(userName);
         welcomeUserNameField.setText(userName);
+
+        if(updatePasswardField.isVisible()== true){
+            updatePasswardField.setText("******");
+        }
     }
 
 
@@ -119,7 +126,8 @@ public class FanDetailsController { //implements Initializable
         //fanDateUpdateButton.setVisible(true);
 
         updateNameFeild.setText(currNameLabel.getText());
-        updatePasswardField.setText(currPasswardLable.getText());
+        //updatePasswardField.setText(currPasswardLable.getText()); !!
+        updatePasswardField.setText("******");
         updatePhonNumField.setText(currPhonNumberLabel.getText());
         updateEmailField.setText(currEmailLabel.getText());
 
@@ -132,7 +140,7 @@ public class FanDetailsController { //implements Initializable
      * @throws Exception
      */
     @FXML
-    public void updateNameByUser() {
+    public void updateDetailsByUser() {
         String newName=updateNameFeild.getText();
         String newPassward=updatePasswardField.getText();
         String newPhonNum=updatePhonNumField.getText();
@@ -143,7 +151,7 @@ public class FanDetailsController { //implements Initializable
             chooseFile.setContentText("The name field is empty. Please insert your name.");
             chooseFile.show();
         }//password length is 6 or more
-        else if(newPassward.equals("")|| newPassward ==null || newPassward.length() < 6){
+        else if(!newPassward.equals("******")&&(newPassward.equals("")|| newPassward ==null || newPassward.length() < 6) ){
             Alert chooseFile = new Alert(Alert.AlertType.ERROR);
             chooseFile.setHeaderText("Error");
             chooseFile.setContentText("Invalid password, please enter a valid password. Password length must be at least 6 characters.");
@@ -169,6 +177,9 @@ public class FanDetailsController { //implements Initializable
 //        }
 //            // all good!!
         else {
+            if(newPassward.equals("******")){
+                newPassward=null;
+            }
             String massage= fanApplication.setFanDetails(userName,newName,newPassward,newPhonNum,newEmail);
             //String massage = ClientController.connectToServer("FanApplication", "setFanDetails", userName,newName,newPassward,newPhonNum,newEmail);
 

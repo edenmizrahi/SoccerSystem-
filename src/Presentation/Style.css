@@ -29,11 +29,6 @@
     -fx-text-fill: white;
 }
 
-.label:hover{
-    -fx-text-fill: #a3fff3;
-}
-
-
 .text-field{
     -fx-border-color: white;
     -fx-background-color: #E45652;
@@ -48,3 +43,8 @@
     -fx-border-color: white;
     -fx-background-color: #E45652;
 }
+
+.radio-button{
+    -fx-text-fill: white;
+}
+

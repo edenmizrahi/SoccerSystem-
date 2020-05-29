@@ -88,15 +88,4 @@
 28.05.2020 16:03:19 ERROR Team - becomeActive - one of the players team is not null
 28.05.2020 18:21:51 MainSystem - logIn - details not correct, no fan in system
 28.05.2020 18:21:59 MainSystem - logIn - details not correct, no fan in system
-28.05.2020 23:46:49 DBHandler - conectToDB - connection in now null
-29.05.2020 00:11:19 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 11:08:27 DBHandler - conectToDB - connection in now null
-29.05.2020 12:42:05 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 12:42:10 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 12:42:11 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 13:37:36 MainSystem - logIn - userName empty
-29.05.2020 13:48:18 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 15:23:09 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 15:23:18 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 15:23:19 MainSystem - logIn - details not correct, no fan in system
-29.05.2020 15:23:21 MainSystem - logIn - details not correct, no fan in system
+29.05.2020 17:00:22 MainSystem - logIn - details not correct, no fan in system

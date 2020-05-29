@@ -307,7 +307,7 @@ public class SystemOperationsController {
         List<List<String>> requestsTeams = daoTeamRequests.getAll(null, null);
         for (List<String> teamRec : requestsTeams) {
             TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(0));
-            Team team =  new Team(teamRec.get(1),tr.getTeamOwner());
+            Team team =  new Team(teamRec.get(1),tr.getTeamOwner(),true);
             tr.getTeamOwner().getRequestedTeams().add(team);
             Rfa.getTeamRequests().add(team);
         }

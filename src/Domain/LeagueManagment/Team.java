@@ -60,6 +60,9 @@ public class Team extends Observable implements PageOwner {
     }
 
 
+
+
+
     public Team(String name, TeamOwner teamOwner,boolean isInitConstructor){
         //TODO check the name in unique
         this.name = name;
@@ -80,6 +83,9 @@ public class Team extends Observable implements PageOwner {
         this.home= new HashSet<>();
         this.away= new HashSet<>();
 
+        for (Rfa rfa:mainSystem.getRfas()) {
+            addObserver(rfa);
+        }
         //send request
         //add team name to hash set
         mainSystem.addTeamName(name);

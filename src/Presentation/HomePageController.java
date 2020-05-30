@@ -236,7 +236,9 @@ public class HomePageController {
 
     public void closeHandling(MouseEvent mouseEvent) throws IOException {
         HomePageController.scheduler.cancel();
-        String ans = ClientController.connectToServer("UserApplication", "logout", userName);
+
+        String ans="";
+        //String ans = ClientController.connectToServer("UserApplication", "logout", userName);
         if(ans.equals("success")){
             Platform.exit();
             System.exit(0);

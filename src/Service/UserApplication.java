@@ -40,7 +40,7 @@ public class UserApplication {
         return userController.haveUnreadNotifications(userName);
     }
 
-    @Path("/haveUnreadNotifications/{userName}/{userRole}")
+    @Path("/haveUnreadNotifications/{userRole}/{userName}")
     @GET
     @Produces("text/plain")
     public boolean haveUnreadNotifications(@PathParam("userRole")String userRole,@PathParam("userName") String userName) {

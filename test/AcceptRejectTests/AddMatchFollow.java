@@ -25,9 +25,11 @@ public class AddMatchFollow {
         LinkedList<Match> matches= new LinkedList<>(allMatchesInSystem);
         Match m=matches.get(0);
         int numM= f.getMatchesFollow().size();
+        
         controller.addMatchToFanMatchesFollow(f.getUserName(),m.toString());
         Assert.assertEquals(numM+1, f.getMatchesFollow().size());
-        //again
-    
+        //noo
+        controller.addMatchToFanMatchesFollow(f.getUserName(),"not good");
+        Assert.assertEquals(numM+1, f.getMatchesFollow().size());
     }
 }

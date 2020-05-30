@@ -49,6 +49,18 @@ public class RefereeApplication {
         return refereeController.getAllMatches(username);
     }
 
+    /**
+     * This function return referee's qualification
+     * @param username
+     * @return
+     */
+    @Path("/getQualificationOfReferee/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getQualificationOfReferee(@PathParam("username")String username) {
+        return refereeController.getQualificationOfReferee(username);
+    }
+
     @Path("/createReportOfMatch/{match}/{username}")
     @GET
     @Produces("text/plain")

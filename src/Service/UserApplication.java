@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-@Path("/TeamManagementApplication")
+@Path("/UserApplication")
 public class UserApplication {
     UserController userController = new UserController();
 
@@ -40,8 +40,15 @@ public class UserApplication {
         return userController.haveUnreadNotifications(userName);
     }
 
-    public boolean haveUnreadNotifications(String userRole, String userName) {
+    @Path("/haveUnreadNotifications/{userRole}/{userName}")
+    @GET
+    @Produces("text/plain")
+    public boolean haveUnreadNotifications(@PathParam("userRole")String userRole,@PathParam("userName") String userName) {
         return userController.haveUnreadNotifications(userRole, userName);
 
     }
+
+//    public boolean haveTeamRequest(String userRole, String userName) {
+//        return userController.haveUnreadRequest(userRole, userName);
+//    }
 }

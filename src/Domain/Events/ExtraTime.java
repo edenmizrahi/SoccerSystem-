@@ -13,7 +13,7 @@ public class ExtraTime extends Event {
     public ExtraTime(Referee referee, Match match, int minutesToAdd) throws Exception {
         super(referee, match);
         if (minutesToAdd > 0) {
-            super.setName("Extra time");
+            super.setName("Extra Time");
             this.extraMinute = minutesToAdd;
             match.setNumOfMinutes(match.getNumOfMinutes()+minutesToAdd);
         }
@@ -27,7 +27,7 @@ public class ExtraTime extends Event {
     public ExtraTime(int id, Referee referee, Match match, int minutesToAdd, Date date, int time) throws Exception {
         super(id, referee, match, date, time);
         if (minutesToAdd > 0) {
-            super.setName("Extra time");
+            super.setName("Extra Time");
             this.extraMinute = minutesToAdd;
             match.setNumOfMinutes(match.getNumOfMinutes()+minutesToAdd);
         }

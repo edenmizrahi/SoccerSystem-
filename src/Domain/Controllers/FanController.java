@@ -159,7 +159,6 @@ public class FanController {
 
             daoNotificationFan.update(key,recordData);
         }
-
         //markAsReadNotification
         return fanNotificationsString;
     }

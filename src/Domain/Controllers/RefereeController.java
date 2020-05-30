@@ -296,6 +296,22 @@ public class RefereeController {
         daoTeams.update(listKey,listRecord);
     }
 
+    public void updateInMatchTable(Match match){
+        List<String> listKey = new LinkedList<>();
+        listKey.add(MainSystem.simpleDateFormat.format(match.getStartDate()));
+        listKey.add(match.getHomeTeam().getName());
+        listKey.add(match.getAwayTeam().getName());
+
+        List<String> listRecord = new LinkedList<>();
+        listRecord.add(String.valueOf(match.getHomeScore()));
+        listRecord.add(String.valueOf(match.getGuestScore()));
+        listRecord.add(match.getField().getNameOfField());
+        listRecord.add(match.getMainReferee().getUserName());
+        listRecord.add(String.valueOf(match.getNumOfMinutes()));
+
+        daoMatch.update(listKey,listRecord);
+    }
+
     //</editor-fold>
 
     public LinkedList<Fan> allFansFollowsPerMatch(Match match){
@@ -377,7 +393,6 @@ public class RefereeController {
             for (Fan fan: fanLinkedList){
                 saveInFanNotifications(e,fan.getUserName(),currentMatch);
             }
-
             return "ok";
         } catch (ParseException p){
             return "parse error";
@@ -554,6 +569,8 @@ public class RefereeController {
             saveInEventTableDB(e, referee, currentMatch);
             //ExtraTime Event table
             saveInExtraTimeEventTableDB(e, time);
+            //save in match table - DB
+            updateInMatchTable(currentMatch);
 
             //save in fan notifications table
             LinkedList<Fan> fanLinkedList = this.allFansFollowsPerMatch(currentMatch);

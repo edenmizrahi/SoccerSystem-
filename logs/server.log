@@ -5529,3 +5529,706 @@
 30.05.2020 09:22:05 DBHandler - Succeeded  - DB connected
 30.05.2020 09:22:05 System_Operation_Init - Init system - Successfully initialized
 30.05.2020 09:22:45 MainSystem - oralfasi - loged in to system
+30.05.2020 21:07:40 Rfa - nadavS - Add referee by Rfa
+30.05.2020 21:07:40 Rfa - nadavS - Add referee by Rfa
+30.05.2020 21:07:40 Rfa - nadavS - Add referee by Rfa
+30.05.2020 21:07:40 Rfa - nadavS - Add referee by Rfa
+30.05.2020 21:07:40 TeamRole - coachM222 - become coach
+30.05.2020 21:07:40 TeamRole - owner123 - become team owner
+30.05.2020 21:07:40 TeamRole - owner222 - become team owner
+30.05.2020 21:07:40 TeamRole - owner333 - become team owner
+30.05.2020 21:07:40 TeamRole - owner444 - become team owner
+30.05.2020 21:07:40 TeamRole - player111 - become player
+30.05.2020 21:07:40 TeamRole - player222 - become player
+30.05.2020 21:07:40 TeamRole - player333 - become player
+30.05.2020 21:07:40 TeamRole - player444 - become player
+30.05.2020 21:07:40 TeamRole - player555 - become player
+30.05.2020 21:07:40 TeamRole - player666 - become player
+30.05.2020 21:07:40 TeamRole - player777 - become player
+30.05.2020 21:07:40 TeamRole - player888 - become player
+30.05.2020 21:07:40 TeamRole - player999 - become player
+30.05.2020 21:07:40 TeamRole - player100 - become player
+30.05.2020 21:07:40 TeamRole - player11 - become player
+30.05.2020 21:07:40 Team - beer sheva - team was activated
+30.05.2020 21:07:40 Rfa - nadavS - Create new league
+30.05.2020 21:07:40 Rfa - nadavS - Create new league
+30.05.2020 21:07:40 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 21:07:40 Team - beer sheva - add team to league:A and season2020
+30.05.2020 21:07:40 Team - team2 - add team to league:A and season2020
+30.05.2020 21:07:40 Team - beer sheva - add team to league:A and season2020
+30.05.2020 21:07:40 Team - team2 - add team to league:A and season2020
+30.05.2020 21:07:40 Rfa - nadavS - define season to Aby Rfa
+30.05.2020 21:07:40 Team - team4 - add team to league:B and season2020
+30.05.2020 21:07:40 Team - team3 - add team to league:B and season2020
+30.05.2020 21:07:40 Team - team4 - add team to league:B and season2020
+30.05.2020 21:07:40 Team - team3 - add team to league:B and season2020
+30.05.2020 21:07:40 Rfa - nadavS - define season to Bby Rfa
+30.05.2020 21:07:40 Rfa - nadavS - start scheduling policy by the rfa
+30.05.2020 21:08:19 SystemManager - systemManager - Added to system
+30.05.2020 21:08:19 MainSystem -  - system was started for the first time
+30.05.2020 21:08:19 TeamRole - Ilan - become team owner
+30.05.2020 21:08:19 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 21:08:19 TeamRole - Avi - become team owner
+30.05.2020 21:08:19 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 21:08:19 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 21:08:19 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 21:08:19 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 21:08:19 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 21:08:19 TeamRole - Moshe - become team owner
+30.05.2020 21:08:19 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 21:08:19 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 21:08:19 TeamRole - David - become team manager for team: hapoel
+30.05.2020 21:08:19 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 21:08:19 TeamRole - player:macabi0d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi1d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi2d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi3d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi4d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi5d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi6d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi7d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi8d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi9d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:macabi10d - become player
+30.05.2020 21:08:19 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 21:08:19 TeamRole - player:hapoel0d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel1d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel2d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel3d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel4d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel5d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel6d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel7d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel8d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel9d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel10d - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel0a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel1a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel2a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel3a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel4a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel5a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel6a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel7a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel8a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel9a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 21:08:19 TeamRole - player:hapoel10a - become player
+30.05.2020 21:08:19 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 21:08:19 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 21:08:19 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 21:08:19 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 21:08:19 SystemManager - ofer - Added to system
+30.05.2020 21:08:19 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 21:08:19 Rfa - DanaBandana - Create new league
+30.05.2020 21:08:19 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 21:08:19 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 21:08:19 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 21:08:19 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 21:08:19 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 21:08:19 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 21:08:19 Season - DanaBandana - changed calculation policy of season 2020 to: CalculateOption1
+30.05.2020 21:08:19 Season - DanaBandana - changed scheduling policy of season 2020 to: SchedualeOption1
+30.05.2020 21:08:40 DBHandler - connection in now null
+30.05.2020 21:09:15 SystemManager - systemManager - Added to system
+30.05.2020 21:09:15 MainSystem -  - system was started for the first time
+30.05.2020 21:09:15 TeamRole - Ilan - become team owner
+30.05.2020 21:09:15 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 21:09:15 TeamRole - Avi - become team owner
+30.05.2020 21:09:15 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 21:09:15 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 21:09:15 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 21:09:15 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 21:09:15 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 21:09:15 TeamRole - Moshe - become team owner
+30.05.2020 21:09:15 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 21:09:15 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 21:09:15 TeamRole - David - become team manager for team: hapoel
+30.05.2020 21:09:15 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 21:09:15 TeamRole - player:macabi0d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi1d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi2d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi3d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi4d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi5d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi6d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi7d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi8d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi9d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:macabi10d - become player
+30.05.2020 21:09:15 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 21:09:15 TeamRole - player:hapoel0d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel1d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel2d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel3d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel4d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel5d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel6d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel7d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel8d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel9d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel10d - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel0a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel1a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel2a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel3a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel4a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel5a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel6a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel7a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel8a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel9a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 21:09:15 TeamRole - player:hapoel10a - become player
+30.05.2020 21:09:15 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 21:09:15 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 21:09:15 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 21:09:15 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 21:09:15 SystemManager - ofer - Added to system
+30.05.2020 21:09:15 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 21:09:15 Rfa - DanaBandana - Create new league
+30.05.2020 21:09:15 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 21:09:15 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 21:09:15 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 21:09:15 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 21:09:15 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 21:09:15 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 21:09:15 Season - DanaBandana - changed calculation policy of season 2020 to: CalculateOption1
+30.05.2020 21:09:15 Season - DanaBandana - changed scheduling policy of season 2020 to: SchedualeOption1
+30.05.2020 21:09:36 DBHandler - connection in now null
+30.05.2020 23:15:35 SystemManager - systemManager - Added to system
+30.05.2020 23:15:35 MainSystem -  - system was started for the first time
+30.05.2020 23:15:35 TeamRole - Ilan - become team owner
+30.05.2020 23:15:35 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 23:15:35 TeamRole - Avi - become team owner
+30.05.2020 23:15:35 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 23:15:35 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 23:15:35 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 23:15:35 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 23:15:35 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 23:15:35 TeamRole - Moshe - become team owner
+30.05.2020 23:15:35 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 23:15:35 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 23:15:35 TeamRole - David - become team manager for team: hapoel
+30.05.2020 23:15:35 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 23:15:35 TeamRole - player:macabi0d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi1d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi2d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi3d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi4d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi5d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi6d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi7d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi8d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi9d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:macabi10d - become player
+30.05.2020 23:15:35 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 23:15:35 TeamRole - player:hapoel0d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel1d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel2d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel3d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel4d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel5d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel6d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel7d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel8d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel9d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel10d - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel0a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel1a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel2a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel3a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel4a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel5a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel6a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel7a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel8a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel9a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 23:15:35 TeamRole - player:hapoel10a - become player
+30.05.2020 23:15:35 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 23:15:35 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:15:35 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:15:35 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:15:35 SystemManager - ofer - Added to system
+30.05.2020 23:15:35 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 23:15:35 Rfa - DanaBandana - Create new league
+30.05.2020 23:15:35 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 23:15:35 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:15:35 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:15:35 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:15:35 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:15:35 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 23:15:35 Season - DanaBandana - changed calculation policy of season 2020 to: CalculateOption1
+30.05.2020 23:15:35 Season - DanaBandana - changed scheduling policy of season 2020 to: SchedualeOption1
+30.05.2020 23:15:35 DBHandler - Succeeded  - DB connected
+30.05.2020 23:28:29 SystemManager - systemManager - Added to system
+30.05.2020 23:28:29 MainSystem -  - system was started for the first time
+30.05.2020 23:28:29 TeamRole - Ilan - become team owner
+30.05.2020 23:28:29 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 23:28:29 TeamRole - Avi - become team owner
+30.05.2020 23:28:29 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 23:28:29 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 23:28:29 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 23:28:29 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 23:28:29 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 23:28:29 TeamRole - Moshe - become team owner
+30.05.2020 23:28:29 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 23:28:29 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 23:28:29 TeamRole - David - become team manager for team: hapoel
+30.05.2020 23:28:29 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 23:28:29 TeamRole - player:macabi0d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi1d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi2d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi3d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi4d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi5d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi6d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi7d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi8d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi9d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:macabi10d - become player
+30.05.2020 23:28:29 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 23:28:29 TeamRole - player:hapoel0d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel1d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel2d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel3d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel4d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel5d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel6d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel7d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel8d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel9d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel10d - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel0a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel1a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel2a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel3a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel4a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel5a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel6a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel7a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel8a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel9a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 23:28:29 TeamRole - player:hapoel10a - become player
+30.05.2020 23:28:29 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 23:28:29 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:29 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:29 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:29 SystemManager - ofer - Added to system
+30.05.2020 23:28:29 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 23:28:29 Rfa - DanaBandana - Create new league
+30.05.2020 23:28:29 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 23:28:29 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:28:29 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:28:29 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:28:29 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:28:29 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 23:28:29 TeamRole - yarden012 - become player
+30.05.2020 23:28:29 Match - Goal - add event to match between team4 to team3
+30.05.2020 23:28:34 SystemManager - systemManager - Added to system
+30.05.2020 23:28:34 MainSystem -  - system was started for the first time
+30.05.2020 23:28:34 TeamRole - Ilan - become team owner
+30.05.2020 23:28:34 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 23:28:34 TeamRole - Avi - become team owner
+30.05.2020 23:28:34 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 23:28:34 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 23:28:34 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 23:28:34 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 23:28:34 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 23:28:34 TeamRole - Moshe - become team owner
+30.05.2020 23:28:34 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 23:28:34 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 23:28:34 TeamRole - David - become team manager for team: hapoel
+30.05.2020 23:28:34 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 23:28:34 TeamRole - player:macabi0d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi1d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi2d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi3d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi4d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi5d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi6d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi7d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi8d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi9d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:macabi10d - become player
+30.05.2020 23:28:34 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 23:28:34 TeamRole - player:hapoel0d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel1d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel2d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel3d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel4d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel5d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel6d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel7d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel8d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel9d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel10d - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel0a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel1a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel2a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel3a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel4a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel5a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel6a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel7a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel8a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel9a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 23:28:34 TeamRole - player:hapoel10a - become player
+30.05.2020 23:28:34 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 23:28:34 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:34 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:34 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:34 SystemManager - ofer - Added to system
+30.05.2020 23:28:34 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 23:28:34 Rfa - DanaBandana - Create new league
+30.05.2020 23:28:34 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 23:28:34 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:28:34 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:28:34 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:28:34 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:28:34 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 23:28:34 TeamRole - yarden012 - become player
+30.05.2020 23:28:34 Match - Goal - add event to match between team4 to team3
+30.05.2020 23:28:53 SystemManager - systemManager - Added to system
+30.05.2020 23:28:53 MainSystem -  - system was started for the first time
+30.05.2020 23:28:53 TeamRole - Ilan - become team owner
+30.05.2020 23:28:53 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 23:28:53 TeamRole - Avi - become team owner
+30.05.2020 23:28:53 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 23:28:53 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 23:28:53 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 23:28:53 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 23:28:53 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 23:28:53 TeamRole - Moshe - become team owner
+30.05.2020 23:28:53 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 23:28:53 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 23:28:53 TeamRole - David - become team manager for team: hapoel
+30.05.2020 23:28:53 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 23:28:53 TeamRole - player:macabi0d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi1d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi2d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi3d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi4d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi5d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi6d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi7d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi8d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi9d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:macabi10d - become player
+30.05.2020 23:28:53 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 23:28:53 TeamRole - player:hapoel0d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel1d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel2d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel3d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel4d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel5d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel6d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel7d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel8d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel9d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel10d - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel0a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel1a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel2a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel3a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel4a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel5a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel6a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel7a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel8a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel9a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 23:28:53 TeamRole - player:hapoel10a - become player
+30.05.2020 23:28:53 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 23:28:53 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:53 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:53 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:28:53 SystemManager - ofer - Added to system
+30.05.2020 23:28:53 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 23:28:53 Rfa - DanaBandana - Create new league
+30.05.2020 23:28:53 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 23:28:53 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:28:53 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:28:53 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:28:53 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:28:53 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 23:28:53 TeamRole - yarden012 - become player
+30.05.2020 23:28:53 Match - Goal - add event to match between team4 to team3
+30.05.2020 23:31:27 SystemManager - systemManager - Added to system
+30.05.2020 23:31:27 MainSystem -  - system was started for the first time
+30.05.2020 23:31:27 TeamRole - Ilan - become team owner
+30.05.2020 23:31:27 TeamOwner - Ilan -  new team was added: macabi
+30.05.2020 23:31:27 TeamRole - Avi - become team owner
+30.05.2020 23:31:27 TeamOwner - Avi -  new team was added: hapoel
+30.05.2020 23:31:27 TeamOwner - Avi -  new team was added: macabi
+30.05.2020 23:31:27 ManagmentActions - Ilan - subscribe team Owner :Avito team: macabi
+30.05.2020 23:31:27 TeamRole - Moshe - become team manager for team: macabi
+30.05.2020 23:31:27 TeamOwner - Moshe -  add as team manager: Moshe, to team: macabi
+30.05.2020 23:31:27 TeamRole - Moshe - become team owner
+30.05.2020 23:31:27 TeamOwner - Moshe -  new team was added: macabi
+30.05.2020 23:31:27 ManagmentActions - Avi - subscribe team Owner :Mosheto team: macabi
+30.05.2020 23:31:27 TeamRole - David - become team manager for team: hapoel
+30.05.2020 23:31:27 TeamOwner - David -  add as team manager: David, to team: hapoel
+30.05.2020 23:31:27 TeamRole - player:macabi0d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi0dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi1d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi1dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi2d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi2dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi3d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi3dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi4d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi4dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi5d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi5dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi6d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi6dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi7d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi7dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi8d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi8dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi9d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi9dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:macabi10d - become player
+30.05.2020 23:31:27 ManagmentActions - Ilan - add player :player:macabi10dto team: macabi
+30.05.2020 23:31:27 TeamRole - player:hapoel0d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel0dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel1d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel1dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel2d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel2dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel3d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel3dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel4d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel4dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel5d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel5dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel6d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel6dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel7d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel7dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel8d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel8dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel9d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel9dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel10d - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel10dto team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel0a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel0ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel1a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel1ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel2a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel2ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel3a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel3ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel4a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel4ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel5a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel5ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel6a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel6ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel7a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel7ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel8a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel8ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel9a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel9ato team: hapoel
+30.05.2020 23:31:27 TeamRole - player:hapoel10a - become player
+30.05.2020 23:31:27 ManagmentActions - Avi - add player :player:hapoel10ato team: hapoel
+30.05.2020 23:31:27 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:31:27 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:31:27 Rfa - DanaBandana - Add referee by Rfa
+30.05.2020 23:31:27 SystemManager - ofer - Added to system
+30.05.2020 23:31:27 SystemManager - systemManager - add new System Manager , user name: ofer
+30.05.2020 23:31:27 Rfa - DanaBandana - Create new league
+30.05.2020 23:31:27 MainSystem - MainSystem - system was added new season:2020
+30.05.2020 23:31:27 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:31:27 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:31:27 Team - hapoel - add team to league:ligaA and season2020
+30.05.2020 23:31:27 Team - macabi - add team to league:ligaA and season2020
+30.05.2020 23:31:27 Rfa - DanaBandana - define season to ligaAby Rfa
+30.05.2020 23:31:27 TeamRole - yarden012 - become player
+30.05.2020 23:31:27 Referee - You do not have a permission to edit events right now

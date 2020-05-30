@@ -101,3 +101,6 @@
 30.05.2020 01:17:10 MainSystem - logIn - details not correct, no fan in system
 30.05.2020 09:37:29 DBHandler - conectToDB - connection in now null
 30.05.2020 09:37:50 DBHandler - conectToDB - connection in now null
+30.05.2020 21:08:40 DBHandler - conectToDB - connection in now null
+30.05.2020 21:09:36 DBHandler - conectToDB - connection in now null
+30.05.2020 23:31:27 Referee - createReport - You do not have a permission to edit events right now

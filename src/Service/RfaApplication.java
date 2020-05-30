@@ -55,7 +55,7 @@ public class RfaApplication {
      * mark notification as read
      * @param userName
      */
-    @Path("/markNotificationAsRead/{userName}")
+    @Path("/getTeamRequests/{userName}")
     @GET
     @Produces("text/plain")
     public String getTeamRequests(@PathParam("userName") String userName){
@@ -68,7 +68,7 @@ public class RfaApplication {
      * @param teamName
      * @param decision
      */
-    @Path("/markNotificationAsRead/{rfaUserName}/{teamName}/{decision}")
+    @Path("/answerRequest/{rfaUserName}/{teamName}/{decision}")
     @GET
     @Produces("text/plain")
     public String answerRequest(@PathParam("rfaUserName") String rfaUserName, @PathParam("teamName") String teamName,

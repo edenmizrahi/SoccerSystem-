@@ -1,3 +1,4 @@
+/*
 package Presentation;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
@@ -61,3 +62,4 @@ public class ClientController {
 
 
 }
+*/

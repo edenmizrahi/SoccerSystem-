@@ -14,7 +14,7 @@ public class OffSide extends Event {
     public OffSide(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
         if(p != null){
-            super.setName("OffSide");
+            super.setName("Off Side");
             this.player = p;
         }
         else{
@@ -26,7 +26,7 @@ public class OffSide extends Event {
     public OffSide(int id, Referee referee, Match match, Player p, Date date, int time) throws Exception {
         super(id, referee, match, date, time);
         if(p != null){
-            super.setName("OffSide");
+            super.setName("Off Side");
             this.player = p;
         }
         else{

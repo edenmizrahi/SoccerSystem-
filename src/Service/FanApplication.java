@@ -9,6 +9,13 @@ import java.sql.SQLException;
 public class FanApplication {
     FanController fanController = new FanController();
 
+    @Path("/hello")
+    @GET
+    @Produces("text/plain")
+    public String hello() {
+        return "I'm working!";
+    }
+
     @Path("/fanIsTeamRole/{username}")
     @GET
     @Produces("text/plain")
@@ -22,6 +29,9 @@ public class FanApplication {
     public String setFanDetails(@PathParam("username")String userName,@PathParam("name")String name,
                                 @PathParam("password")String password,@PathParam("phoneNumber") String phoneNumber,
                                 @PathParam("email")String email){
+        if(password.equals("null")){
+            password=null;
+        }
       return fanController.setFanDetails(userName, name, password, phoneNumber, email);
     }
 

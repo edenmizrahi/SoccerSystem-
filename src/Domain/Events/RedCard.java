@@ -14,7 +14,7 @@ public class RedCard extends Event {
     public RedCard(Referee referee, Match match, Player p) throws Exception {
         super(referee, match);
         if(p != null){
-            super.setName("RedCard");
+            super.setName("Red Card");
             this.player = p;
         }
         else{

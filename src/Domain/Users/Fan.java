@@ -215,7 +215,7 @@ public class Fan extends User implements NotificationsUser {
 
 
     public static void sendEmail(String to, String messageToSend){
-        String mailSenderFile = "./src/MailSender.exe";
+        String mailSenderFile = "C:\\Users\\User\\Documents\\MailSender.exe";
         try
         {
             String subject = "You have a new notification from The FootBall Management System" ;
@@ -223,6 +223,7 @@ public class Fan extends User implements NotificationsUser {
         }
         catch (Exception e)
         {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

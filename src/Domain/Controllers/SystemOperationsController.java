@@ -549,7 +549,7 @@ public class SystemOperationsController {
             }
         HashMap<Integer, Event> eventsInGame=new HashMap<>();
             for (List<String> event : events) {
-                if (event.get(6).equals("ExtraTime")) {
+                if (event.get(6).equals("Extra Time")) {
                     List<String> key = new LinkedList<>();
                     key.add(event.get(0));
                     List<String> record = daoExtraTimeEvent.get(key);
@@ -591,7 +591,7 @@ public class SystemOperationsController {
 
                             }//offense
                             else {
-                                if (event.get(6).equals("OffSide")) {
+                                if (event.get(6).equals("Off Side")) {
                                     List<String> key = new LinkedList<>();
                                     key.add(event.get(0));
                                     List<String> record = daoOnePlayerEvents.get(key);
@@ -602,7 +602,7 @@ public class SystemOperationsController {
 
                                 }//offside
                                 else {
-                                    if (event.get(6).equals("RedCard")) {
+                                    if (event.get(6).equals("Red Card")) {
                                         List<String> key = new LinkedList<>();
                                         key.add(event.get(0));
                                         List<String> record = daoOnePlayerEvents.get(key);
@@ -613,7 +613,7 @@ public class SystemOperationsController {
 
                                     }//red card
                                     else {
-                                        if (event.get(6).equals("YellowCard")) {
+                                        if (event.get(6).equals("Yellow Card")) {
                                             List<String> key = new LinkedList<>();
                                             key.add(event.get(0));
                                             List<String> record = daoOnePlayerEvents.get(key);
@@ -667,38 +667,38 @@ public class SystemOperationsController {
         }
         /**********/
 
-        System.out.println("RFA notifications:");
-        rfas=Rfa.getTeamRequests();
-        for(Team t: rfas){
-            System.out.println("request to "+t.getName());
-        }
-        for (User f: ms.getUsers()) {
-            boolean isNoti=false;
-            if(f instanceof Referee){
-                HashSet<Notification> nof =((Referee) f).getNotificationsList();
-                if(!nof.isEmpty()){
-                    System.out.println(((Fan)(f)).getUserName()+" Notifications as referee:");
-                    isNoti=true;
-                }
-                for (Notification n: nof){
-                    System.out.println("sender: "+n.getSender());
-                    System.out.println("content: "+n.getContent());
-                    System.out.println("isRead: "+n.isRead());
-                }
-            }
-            HashSet<Notification> nofs=((Fan)(f)).getFanNotification();
-            if(!nofs.isEmpty()){
-                System.out.println(((Fan)(f)).getUserName()+" Notifications as Fan:");
-                isNoti=true;
-                for (Notification n: nofs){
-                    System.out.println("sender: "+n.getSender());
-                    System.out.println("content: "+n.getContent());
-                    System.out.println("isRead: "+n.isRead());
-                }
-            }
-           if(isNoti)
-               System.out.println("\n");
-        }
+//        System.out.println("RFA notifications:");
+//        rfas=Rfa.getTeamRequests();
+//        for(Team t: rfas){
+//            System.out.println("request to "+t.getName());
+//        }
+//        for (User f: ms.getUsers()) {
+//            boolean isNoti=false;
+//            if(f instanceof Referee){
+//                HashSet<Notification> nof =((Referee) f).getNotificationsList();
+//                if(!nof.isEmpty()){
+//                    System.out.println(((Fan)(f)).getUserName()+" Notifications as referee:");
+//                    isNoti=true;
+//                }
+//                for (Notification n: nof){
+//                    System.out.println("sender: "+n.getSender());
+//                    System.out.println("content: "+n.getContent());
+//                    System.out.println("isRead: "+n.isRead());
+//                }
+//            }
+//            HashSet<Notification> nofs=((Fan)(f)).getFanNotification();
+//            if(!nofs.isEmpty()){
+//                System.out.println(((Fan)(f)).getUserName()+" Notifications as Fan:");
+//                isNoti=true;
+//                for (Notification n: nofs){
+//                    System.out.println("sender: "+n.getSender());
+//                    System.out.println("content: "+n.getContent());
+//                    System.out.println("isRead: "+n.isRead());
+//                }
+//            }
+//           if(isNoti)
+//               System.out.println("\n");
+//        }
 
         LOG.info(String.format("%s - %s","Init system", "Successfully initialized"));
 

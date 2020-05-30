@@ -13,12 +13,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FanDetailsController">
    <children>
-      <Label layoutX="700.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" >
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <BorderPane layoutX="6.0" layoutY="111.0" prefHeight="374.0" prefWidth="611.0">
+      <BorderPane layoutX="6.0" layoutY="31.0" prefHeight="341.0" prefWidth="611.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -34,13 +29,13 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="updateMyDetailsButton" mnemonicParsing="false" onMouseClicked="#showAllhideFiels" prefHeight="25.0" prefWidth="197.0" text="update my details " />
+                  <Button fx:id="updateMyDetailsButton" mnemonicParsing="false" onMouseClicked="#showAllhideFiels" prefHeight="25.0" prefWidth="117.0" text="update my details " GridPane.valignment="BOTTOM" />
                   <GridPane prefHeight="240.0" prefWidth="657.0" GridPane.rowIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="455.3332926432292" minWidth="10.0" prefWidth="130.33336130777997" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0000356038411" minWidth="10.0" prefWidth="168.33331298828122" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0000356038411" minWidth="10.0" prefWidth="109.66666666666669" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0000356038411" minWidth="10.0" prefWidth="207.66666666666663" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0000356038411" minWidth="10.0" prefWidth="194.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0000356038411" minWidth="10.0" prefWidth="103.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0000356038411" minWidth="10.0" prefWidth="184.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -64,7 +59,7 @@
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
-                        <Label fx:id="currEmailLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label fx:id="currEmailLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
@@ -88,7 +83,7 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="151.0" text="PhoneNumber:" GridPane.rowIndex="3">
+                        <Label prefHeight="17.0" prefWidth="151.0" text="Phone number:" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
@@ -97,7 +92,7 @@
                            <font>
                               <Font name="Aharoni Bold" size="15.0" />
                            </font></Label>
-                        <Button fx:id="UpdateButton" mnemonicParsing="false" onAction="#updateDetailsByUser" prefHeight="126.0" prefWidth="95.0" text="update details" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="UpdateButton" mnemonicParsing="false" onAction="#updateDetailsByUser" prefHeight="33.0" prefWidth="92.0" text="update details" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField fx:id="updatePasswardField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update passward" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <TextField fx:id="updatePhonNumField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update phon nuber" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <TextField fx:id="updateEmailField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="insert your update email" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
@@ -116,15 +111,20 @@
             </GridPane>
          </top>
       </BorderPane>
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="479.0" layoutY="57.0" prefHeight="39.0" prefWidth="98.0" text=":welcome">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="222.0" layoutY="18.0" prefHeight="35.0" prefWidth="122.0" text="Welcome">
          <font>
-            <Font name="Aharoni Bold" size="18.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="25.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="33.0" prefWidth="58.0" text="back" />
-      <Label fx:id="welcomeUserNameField" layoutX="381.0" layoutY="58.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
+      <Button layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="25.0" prefWidth="47.0" text="back" />
+      <Label fx:id="welcomeUserNameField" layoutX="350.0" layoutY="18.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0">
          <font>
-            <Font name="Aharoni Bold" size="15.0" />
+            <Font name="Aharoni Bold" size="24.0" />
          </font></Label>
+      <Label layoutX="676.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

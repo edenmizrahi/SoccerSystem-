@@ -3,9 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,22 +11,17 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.TeamManagementUIController">
+<AnchorPane prefHeight="401.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.TeamManagementUIController">
     <children>
-        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" >
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Label>
-        <BorderPane layoutX="2.0" layoutY="26.0" prefHeight="374.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="26.0">
+        <BorderPane layoutX="2.0" layoutY="2.0" prefHeight="400.0" prefWidth="695.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
             <top>
-                <GridPane prefHeight="436.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
+                <GridPane prefHeight="400.0" prefWidth="681.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="302.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="315.0" minWidth="10.0" prefWidth="298.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="332.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="370.0" minWidth="10.0" prefWidth="327.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -66,15 +58,23 @@
                         </Button>
                             </children>
                         </GridPane>
-                  <Label alignment="CENTER" text="Request New Team" textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                  <Label alignment="CENTER" text="Request New Team" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets top="8.0" />
+                     </GridPane.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#changeToTeamManagementScene" text="back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                  <Button mnemonicParsing="false" onAction="#changeToTeamManagementScene" text="back" GridPane.halignment="LEFT" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets right="5.0" top="5.0" />
                      </GridPane.margin></Button>
+                    <Label onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Label>
                     </children>
                 </GridPane>
             </top>

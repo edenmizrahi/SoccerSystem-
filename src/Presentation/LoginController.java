@@ -52,7 +52,7 @@ public class LoginController{
                 }
                 if(uc.haveUnreadNotifications(userRole,txt_userName.getText())){
                    if(notFan) {
-                       message = message + ", and as" + userRole;
+                       message = message + ", and as " + userRole;
                    }
                    else{
                        message="You have unread notifications as "+userRole;

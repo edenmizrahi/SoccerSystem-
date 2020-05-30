@@ -27,12 +27,8 @@
 
 .label{
     -fx-text-fill: white;
+    -fx-font-family: System;
 }
-
-.label:hover{
-    -fx-text-fill: #a3fff3;
-}
-
 
 .text-field{
     -fx-border-color: white;
@@ -48,3 +44,8 @@
     -fx-border-color: white;
     -fx-background-color: #E45652;
 }
+
+.radio-button{
+    -fx-text-fill: white;
+}
+

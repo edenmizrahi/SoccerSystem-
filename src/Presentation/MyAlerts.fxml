@@ -4,9 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,26 +11,29 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.MyAlertsControllr">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.MyAlertsControllr">
     <children>
-        <Label layoutX="876.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER" >
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Label>
-        <BorderPane layoutX="1.0" layoutY="26.0" prefHeight="471.0" prefWidth="600.0">
+        <BorderPane layoutX="1.0" prefHeight="400.0" prefWidth="700.0">
             <padding>
                 <Insets left="10.0" />
             </padding>
             <top>
                 <AnchorPane prefHeight="121.0" prefWidth="608.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label layoutX="190.0" layoutY="30.0" prefHeight="57.0" prefWidth="209.0" text="my notifications : ">
+                        <Label layoutX="279.0" layoutY="15.0" prefHeight="49.0" prefWidth="142.0" text="My Alerts: ">
                             <font>
-                                <Font name="Cambria" size="26.0" />
+                                <Font name="Cambria Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Button layoutX="23.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="25.0" prefWidth="55.0" text="back" />
+                        <Button layoutX="-6.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#HomePageMouseClickHandling" prefHeight="23.0" prefWidth="43.0" text="back">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Button>
+                    <Label layoutX="666.0" layoutY="-3.0" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="CENTER">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Label>
                     </children>
                 </AnchorPane>
             </top>

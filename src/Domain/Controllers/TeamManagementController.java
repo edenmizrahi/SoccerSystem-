@@ -99,13 +99,50 @@ public class TeamManagementController {
             for (String pName : playerNames) {
                 TeamRole p = (TeamRole) sOController.getUserByUserName(pName);
                 players.add(p);
-                /**player- add team to db**/
-                LinkedList<String> records =new LinkedList<>();
-                LinkedList<String> name=new LinkedList<>();
-                name.add(pName);
-                records.add(teamName);
-                records.add(null);
-                daoPlayer.update(name,records);
+                if (p.isPlayer()) {
+                    /**player- add team to db**/
+                    LinkedList<String> records = new LinkedList<>();
+                    LinkedList<String> name = new LinkedList<>();
+                    name.add(pName);
+                    records.add(teamName);
+                    records.add(null);
+                    daoPlayer.update(name, records);
+                }
+                else{
+                    LinkedList<String> records = new LinkedList<>();
+                    records.add(pName);
+                    records.add(teamName);
+                    records.add(null);
+                    daoPlayer.save(records);
+
+                    //update to teamRole :
+                    List <String> teamRoleKey=new LinkedList<>();
+                    teamRoleKey.add(p.getUserName());
+
+
+                    List<String> teamRoleRec=new LinkedList<>();
+                    teamRoleRec.add("1");
+                    if(p.isCoach()){
+                        teamRoleRec.add("1");
+                    }
+                    else{
+                        teamRoleRec.add("0");
+                    }
+
+                    if(p.isTeamOwner()){
+                        teamRoleRec.add("1");
+                    }
+                    else{
+                        teamRoleRec.add("0");
+                    }
+                    if(p.isTeamManager()){
+                        teamRoleRec.add("1");
+                    }
+                    else{
+                        teamRoleRec.add("0");
+                    }
+                    daoTeamRole.update(teamRoleKey,teamRoleRec);
+                }
             }
             TeamRole coach = (TeamRole) sOController.getUserByUserName(coachUserName);
             /**coach- add team to db**/
@@ -117,7 +154,10 @@ public class TeamManagementController {
             LinkedList<String> name=new LinkedList<>();
             //coach not exist
             try {
+                name.add(coachUserName);
                 daoCoaches.get(keys);
+                daoCoaches.update(name,records);
+
             }
             catch(ParseException e){
                 List <String> teamRoleKey=new LinkedList<>();
@@ -131,12 +171,7 @@ public class TeamManagementController {
                 else{
                     teamRoleRec.add("0");
                 }
-                if(coach.isCoach()){
-                    teamRoleRec.add("1");
-                }
-                else{
-                    teamRoleRec.add("0");
-                }
+                teamRoleRec.add("1");
                 if(coach.isTeamOwner()){
                     teamRoleRec.add("1");
                 }
@@ -149,6 +184,7 @@ public class TeamManagementController {
                 else{
                     teamRoleRec.add("0");
                 }
+                name.add(coachUserName);
                 daoTeamRole.update(teamRoleKey,teamRoleRec);
 
                 //save new record in coach:
@@ -158,8 +194,6 @@ public class TeamManagementController {
                 coachRec.add(null);
                 daoCoaches.save(coachRec);
             }
-            name.add(coachUserName);
-            daoCoaches.update(name,records);
 
 
             user.getTeamOwner().makeTeamActive(team, players, coach, field);
@@ -228,18 +262,20 @@ public class TeamManagementController {
 
     public String getMyApprovedTeams(String userName){
         TeamRole user = (TeamRole) sOController.getUserByUserName(userName);
-        if (user.getTeamOwner().getApprovedTeams() == null){
-            return null;
-        }
-        LinkedList<Team> teams =  user.getTeamOwner().getApprovedTeams();
-        if (teams != null && teams.size() != 0) {
-            //LinkedList<String> teamNames = new LinkedList<>();
-            String teamNames = new String();
-            for (Team t : teams) {
-                //teamNames.add(t.getName());
-                teamNames += t.getName() + ";";
+        if (user.isTeamOwner()) {
+            if (user.getTeamOwner().getApprovedTeams() == null) {
+                return null;
             }
-            return teamNames;
+            LinkedList<Team> teams = user.getTeamOwner().getApprovedTeams();
+            if (teams != null && teams.size() != 0) {
+                //LinkedList<String> teamNames = new LinkedList<>();
+                String teamNames = new String();
+                for (Team t : teams) {
+                    //teamNames.add(t.getName());
+                    teamNames += t.getName() + ";";
+                }
+                return teamNames;
+            }
         }
         return null;
     }

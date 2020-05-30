@@ -44,4 +44,8 @@ public class UserApplication {
         return userController.haveUnreadNotifications(userRole, userName);
 
     }
+
+//    public boolean haveTeamRequest(String userRole, String userName) {
+//        return userController.haveUnreadRequest(userRole, userName);
+//    }
 }

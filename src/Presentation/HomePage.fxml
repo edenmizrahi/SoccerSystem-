@@ -19,19 +19,18 @@
             <top>
                 <GridPane alignment="CENTER_LEFT" prefHeight="322.0" prefWidth="589.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="68.3333231608073" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="114.66666666666664" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="284.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.33331298828125" minWidth="10.0" prefWidth="112.33333333333337" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.99999999999994" minWidth="10.0" prefWidth="17.33331298828125" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="188.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="339.0" minWidth="10.0" prefWidth="308.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.33331298828125" minWidth="10.0" prefWidth="171.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints />
                         <RowConstraints />
                         <RowConstraints maxHeight="64.66665649414062" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="58.99997711181641" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="91.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
                     </rowConstraints>
@@ -39,20 +38,20 @@
                         <Insets left="5.0" top="10.0" />
                     </BorderPane.margin>
                     <children>
-                        <Button mnemonicParsing="false" onAction="#fanAllertsEventClick" prefHeight="45.0" prefWidth="200.0" text="My alerts" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                        <Button mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="200.0" text="View\change settings " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                        <Button mnemonicParsing="false" onAction="#registrationForGamesAlertsOnlickHandling" prefHeight="45.0" prefWidth="200.0" text="Registration for games alerts" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                        <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="31.0" prefWidth="109.0" text="log out" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#fanAllertsEventClick" prefHeight="45.0" prefWidth="200.0" text="My alerts" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                        <Button mnemonicParsing="false" onAction="#fanDetailsEventClick" prefHeight="45.0" prefWidth="200.0" text="View\change settings " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" onAction="#registrationForGamesAlertsOnlickHandling" prefHeight="45.0" prefWidth="200.0" text="Game alerts registration" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="25.0" prefWidth="60.0" text="Log Out" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets top="15.0" />
                      </GridPane.margin></Button>
-                        <Label prefHeight="42.0" prefWidth="173.0" text="my home page " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <Label prefHeight="38.0" prefWidth="179.0" text="My home page " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                             <font>
-                                <Font name="Book Antiqua Bold" size="24.0" />
+                                <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Button fx:id="buttonMyRoles" mnemonicParsing="false" onAction="#myRolesEventClick" prefHeight="45.0" prefWidth="200.0" text="My roles" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                    <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="RIGHT" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <Button fx:id="buttonMyRoles" mnemonicParsing="false" onAction="#myRolesEventClick" prefHeight="45.0" prefWidth="200.0" text="My roles" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                    <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" onMouseClicked="#closeHandling" prefHeight="27.0" prefWidth="20.0" text="X" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                         <font>
                             <Font size="24.0" />
                         </font>

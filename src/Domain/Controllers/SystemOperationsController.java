@@ -175,8 +175,6 @@ public class SystemOperationsController {
     public void initSystemFromDBTempAvital () throws Exception {
         DBHandler.conectToDB();
     }
-
-
     public void initSystemFromDB () throws Exception {
         FanAdapter fa = new FanAdapter();
         MainSystem ms = MainSystem.getInstance();
@@ -226,7 +224,7 @@ public class SystemOperationsController {
         fansList = daoFans.getAll(null, null);
         for (List<String> fan : fansList) {
             boolean isEmail=false;
-            if(fan.remove(6).equals(1)){
+            if(fan.remove(6).equals("1")){
                 isEmail=true;
             }
             String userName = fan.get(0);
@@ -309,7 +307,7 @@ public class SystemOperationsController {
         List<List<String>> requestsTeams = daoTeamRequests.getAll(null, null);
         for (List<String> teamRec : requestsTeams) {
             TeamRole tr= (TeamRole) getUserByUserName(teamRec.get(0));
-            Team team =  new Team(teamRec.get(1),tr.getTeamOwner());
+            Team team =  new Team(teamRec.get(1),tr.getTeamOwner(),true);
             tr.getTeamOwner().getRequestedTeams().add(team);
             Rfa.getTeamRequests().add(team);
         }
@@ -551,7 +549,7 @@ public class SystemOperationsController {
             }
         HashMap<Integer, Event> eventsInGame=new HashMap<>();
             for (List<String> event : events) {
-                if (event.get(6).equals("ExtraTime")) {
+                if (event.get(6).equals("Extra Time")) {
                     List<String> key = new LinkedList<>();
                     key.add(event.get(0));
                     List<String> record = daoExtraTimeEvent.get(key);
@@ -593,7 +591,7 @@ public class SystemOperationsController {
 
                             }//offense
                             else {
-                                if (event.get(6).equals("OffSide")) {
+                                if (event.get(6).equals("Off Side")) {
                                     List<String> key = new LinkedList<>();
                                     key.add(event.get(0));
                                     List<String> record = daoOnePlayerEvents.get(key);
@@ -604,7 +602,7 @@ public class SystemOperationsController {
 
                                 }//offside
                                 else {
-                                    if (event.get(6).equals("RedCard")) {
+                                    if (event.get(6).equals("Red Card")) {
                                         List<String> key = new LinkedList<>();
                                         key.add(event.get(0));
                                         List<String> record = daoOnePlayerEvents.get(key);
@@ -615,7 +613,7 @@ public class SystemOperationsController {
 
                                     }//red card
                                     else {
-                                        if (event.get(6).equals("YellowCard")) {
+                                        if (event.get(6).equals("Yellow Card")) {
                                             List<String> key = new LinkedList<>();
                                             key.add(event.get(0));
                                             List<String> record = daoOnePlayerEvents.get(key);

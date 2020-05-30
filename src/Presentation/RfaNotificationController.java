@@ -117,7 +117,7 @@ public class RfaNotificationController {
                 }
                 else if(ans.equals("ok")){
                     Alert chooseFile = new Alert(Alert.AlertType.INFORMATION);
-                    chooseFile.setContentText("our decision has been accepted");
+                    chooseFile.setContentText("Your decision has been accepted");
                     chooseFile.show();
                 }
             }

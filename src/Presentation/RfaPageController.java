@@ -199,7 +199,7 @@ public class RfaPageController extends HomePageController {
         loader.setLocation(getClass().getResource("RfaNotification.fxml"));
         Parent root=loader.load();
 
-        Scene scene = new Scene(root, 900, 600);
+        Scene scene = new Scene(root);
 
         RfaNotificationController controller=loader.getController();
         controller.initUser(userName,role);

@@ -318,6 +318,8 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createGoalEvent(playerMakeEvent, currentMatch);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
@@ -361,6 +363,8 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createInjuryEvent(playerMakeEvent, currentMatch);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
@@ -388,6 +392,8 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createOffenseEvent(playerMakeEvent, currentMatch);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
@@ -415,6 +421,8 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createOffSideCardEvent(playerMakeEvent, currentMatch);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
@@ -442,6 +450,8 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createRedCardEvent(playerMakeEvent, currentMatch);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
@@ -469,8 +479,9 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             Player playerMakeEvent = this.systemOperationsController.getPlayerByUserName(player);
             Event e = currentReferee.createYellowCardEvent(playerMakeEvent, currentMatch);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
-
             /**save in tables**/
             //Events table
             saveInEventTableDB(e, referee, currentMatch);
@@ -500,6 +511,8 @@ public class RefereeController {
             //choose that player1 and player2 different and exist in the same team
             if (checkIfAtTheSameTeam(firstPlayer, secondPlayer, referee, match)) {
                 Event e = currentReferee.createReplacementEvent(player1, player2, currentMatch);
+                int id = daoEvent.getMaxEventId()+1;
+                e.setId(id);
                 currentReferee.addEventsDuringMatch(currentMatch, e);
 
                 /**save in tables**/
@@ -533,6 +546,8 @@ public class RefereeController {
             Match currentMatch = this.matchObjectFromString(match, referee);
             int minutes = Integer.parseInt(time);
             Event e = currentReferee.createExtraTimeEvent(currentMatch, minutes);
+            int id = daoEvent.getMaxEventId()+1;
+            e.setId(id);
             currentReferee.addEventsDuringMatch(currentMatch, e);
             /**save in tables**/
             //Events table
@@ -573,6 +588,23 @@ public class RefereeController {
 
         return refereeNotificationsString;
     }
+
+    /**
+     * return referee qualification
+     * @param nameOfReferee
+     * @return
+     */
+    public String getQualificationOfReferee(String nameOfReferee){
+        try {
+            Referee ref = this.getRefereeByUserName(nameOfReferee);
+            return ref.getQualification();
+        }
+        catch (Exception e){
+            return "Error-"+e.getMessage();
+        }
+
+    }
+
 
     public void updateInRefereesNotificationTable(String refereeUserName, String notificationContent, Match match){
 //        String[] notificationSplit = notificationContent.split("-");

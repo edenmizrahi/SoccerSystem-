@@ -282,7 +282,7 @@
 29.05.2020 19:04:08 TeamRole - tom3 - become player
 29.05.2020 19:04:08 TeamRole - tom3 - become coach
 29.05.2020 19:04:08 TeamRole - zipi - become player
-29.05.2020 19:04:08 TeamRole - zipi - become team manager
+29.05.2020 19:04:08 TeamRole - zipi - become team manager 
 29.05.2020 19:04:08 DBHandler - Succeeded  - DB connected
 29.05.2020 19:04:08 DBHandler - Succeeded  - DB connected
 29.05.2020 19:04:08 DBHandler - Succeeded  - DB connected
@@ -574,7 +574,7 @@
 29.05.2020 19:06:49 TeamRole - tom3 - become player
 29.05.2020 19:06:49 TeamRole - tom3 - become coach
 29.05.2020 19:06:49 TeamRole - zipi - become player
-29.05.2020 19:06:49 TeamRole - zipi - become team manager
+29.05.2020 19:06:49 TeamRole - zipi - become team manager 
 29.05.2020 19:06:49 DBHandler - Succeeded  - DB connected
 29.05.2020 19:06:50 DBHandler - Succeeded  - DB connected
 29.05.2020 19:06:50 DBHandler - Succeeded  - DB connected
@@ -866,7 +866,7 @@
 29.05.2020 19:09:41 TeamRole - tom3 - become player
 29.05.2020 19:09:41 TeamRole - tom3 - become coach
 29.05.2020 19:09:41 TeamRole - zipi - become player
-29.05.2020 19:09:41 TeamRole - zipi - become team manager
+29.05.2020 19:09:41 TeamRole - zipi - become team manager 
 29.05.2020 19:09:41 DBHandler - Succeeded  - DB connected
 29.05.2020 19:09:41 DBHandler - Succeeded  - DB connected
 29.05.2020 19:09:41 DBHandler - Succeeded  - DB connected
@@ -1158,7 +1158,7 @@
 29.05.2020 19:27:31 TeamRole - tom3 - become player
 29.05.2020 19:27:31 TeamRole - tom3 - become coach
 29.05.2020 19:27:31 TeamRole - zipi - become player
-29.05.2020 19:27:31 TeamRole - zipi - become team manager
+29.05.2020 19:27:31 TeamRole - zipi - become team manager 
 29.05.2020 19:27:32 DBHandler - Succeeded  - DB connected
 29.05.2020 19:27:32 DBHandler - Succeeded  - DB connected
 29.05.2020 19:27:32 DBHandler - Succeeded  - DB connected
@@ -1451,7 +1451,7 @@
 29.05.2020 19:37:16 TeamRole - tom3 - become player
 29.05.2020 19:37:16 TeamRole - tom3 - become coach
 29.05.2020 19:37:16 TeamRole - zipi - become player
-29.05.2020 19:37:16 TeamRole - zipi - become team manager
+29.05.2020 19:37:16 TeamRole - zipi - become team manager 
 29.05.2020 19:37:16 DBHandler - Succeeded  - DB connected
 29.05.2020 19:37:16 DBHandler - Succeeded  - DB connected
 29.05.2020 19:37:16 DBHandler - Succeeded  - DB connected
@@ -1748,7 +1748,7 @@
 29.05.2020 23:48:39 TeamRole - tom3 - become player
 29.05.2020 23:48:39 TeamRole - tom3 - become coach
 29.05.2020 23:48:39 TeamRole - zipi - become player
-29.05.2020 23:48:39 TeamRole - zipi - become team manager
+29.05.2020 23:48:39 TeamRole - zipi - become team manager 
 29.05.2020 23:48:39 DBHandler - Succeeded  - DB connected
 29.05.2020 23:48:39 DBHandler - Succeeded  - DB connected
 29.05.2020 23:48:39 DBHandler - Succeeded  - DB connected
@@ -2050,7 +2050,7 @@
 30.05.2020 00:03:41 TeamRole - tom3 - become player
 30.05.2020 00:03:41 TeamRole - tom3 - become coach
 30.05.2020 00:03:41 TeamRole - zipi - become player
-30.05.2020 00:03:41 TeamRole - zipi - become team manager
+30.05.2020 00:03:41 TeamRole - zipi - become team manager 
 30.05.2020 00:03:41 DBHandler - Succeeded  - DB connected
 30.05.2020 00:03:41 DBHandler - Succeeded  - DB connected
 30.05.2020 00:03:41 DBHandler - Succeeded  - DB connected
@@ -2365,7 +2365,7 @@
 30.05.2020 00:21:11 TeamRole - tom3 - become player
 30.05.2020 00:21:11 TeamRole - tom3 - become coach
 30.05.2020 00:21:11 TeamRole - zipi - become player
-30.05.2020 00:21:11 TeamRole - zipi - become team manager
+30.05.2020 00:21:11 TeamRole - zipi - become team manager 
 30.05.2020 00:21:12 DBHandler - Succeeded  - DB connected
 30.05.2020 00:21:12 DBHandler - Succeeded  - DB connected
 30.05.2020 00:21:12 DBHandler - Succeeded  - DB connected
@@ -2570,7 +2570,7 @@
 30.05.2020 00:21:57 TeamRole - tom3 - become player
 30.05.2020 00:21:57 TeamRole - tom3 - become coach
 30.05.2020 00:21:57 TeamRole - zipi - become player
-30.05.2020 00:21:57 TeamRole - zipi - become team manager
+30.05.2020 00:21:57 TeamRole - zipi - become team manager 
 30.05.2020 00:21:57 DBHandler - Succeeded  - DB connected
 30.05.2020 00:21:57 DBHandler - Succeeded  - DB connected
 30.05.2020 00:25:12 DBHandler - Succeeded  - DB connected
@@ -2775,7 +2775,7 @@
 30.05.2020 00:25:14 TeamRole - tom3 - become player
 30.05.2020 00:25:14 TeamRole - tom3 - become coach
 30.05.2020 00:25:14 TeamRole - zipi - become player
-30.05.2020 00:25:14 TeamRole - zipi - become team manager
+30.05.2020 00:25:14 TeamRole - zipi - become team manager 
 30.05.2020 00:25:14 DBHandler - Succeeded  - DB connected
 30.05.2020 00:25:14 DBHandler - Succeeded  - DB connected
 30.05.2020 00:25:15 DBHandler - Succeeded  - DB connected
@@ -3075,7 +3075,7 @@
 30.05.2020 00:27:58 TeamRole - tom3 - become player
 30.05.2020 00:27:58 TeamRole - tom3 - become coach
 30.05.2020 00:27:58 TeamRole - zipi - become player
-30.05.2020 00:27:58 TeamRole - zipi - become team manager
+30.05.2020 00:27:58 TeamRole - zipi - become team manager 
 30.05.2020 00:27:58 DBHandler - Succeeded  - DB connected
 30.05.2020 00:27:58 DBHandler - Succeeded  - DB connected
 30.05.2020 00:27:58 DBHandler - Succeeded  - DB connected
@@ -3374,7 +3374,7 @@
 30.05.2020 00:30:48 TeamRole - tom3 - become player
 30.05.2020 00:30:48 TeamRole - tom3 - become coach
 30.05.2020 00:30:48 TeamRole - zipi - become player
-30.05.2020 00:30:48 TeamRole - zipi - become team manager
+30.05.2020 00:30:48 TeamRole - zipi - become team manager 
 30.05.2020 00:30:48 DBHandler - Succeeded  - DB connected
 30.05.2020 00:30:48 DBHandler - Succeeded  - DB connected
 30.05.2020 00:30:48 DBHandler - Succeeded  - DB connected
@@ -3682,7 +3682,7 @@
 30.05.2020 00:32:56 TeamRole - tom3 - become player
 30.05.2020 00:32:56 TeamRole - tom3 - become coach
 30.05.2020 00:32:56 TeamRole - zipi - become player
-30.05.2020 00:32:56 TeamRole - zipi - become team manager
+30.05.2020 00:32:56 TeamRole - zipi - become team manager 
 30.05.2020 00:32:56 DBHandler - Succeeded  - DB connected
 30.05.2020 00:32:56 DBHandler - Succeeded  - DB connected
 30.05.2020 00:32:56 DBHandler - Succeeded  - DB connected
@@ -4008,7 +4008,7 @@
 30.05.2020 00:42:25 TeamRole - tom3 - become player
 30.05.2020 00:42:25 TeamRole - tom3 - become coach
 30.05.2020 00:42:25 TeamRole - zipi - become player
-30.05.2020 00:42:25 TeamRole - zipi - become team manager
+30.05.2020 00:42:25 TeamRole - zipi - become team manager 
 30.05.2020 00:42:25 DBHandler - Succeeded  - DB connected
 30.05.2020 00:42:25 DBHandler - Succeeded  - DB connected
 30.05.2020 00:42:25 DBHandler - Succeeded  - DB connected
@@ -4310,7 +4310,7 @@
 30.05.2020 00:52:55 TeamRole - tom3 - become player
 30.05.2020 00:52:55 TeamRole - tom3 - become coach
 30.05.2020 00:52:55 TeamRole - zipi - become player
-30.05.2020 00:52:55 TeamRole - zipi - become team manager
+30.05.2020 00:52:55 TeamRole - zipi - become team manager 
 30.05.2020 00:52:56 DBHandler - Succeeded  - DB connected
 30.05.2020 00:52:56 DBHandler - Succeeded  - DB connected
 30.05.2020 00:52:56 DBHandler - Succeeded  - DB connected
@@ -4612,7 +4612,7 @@
 30.05.2020 00:54:15 TeamRole - tom3 - become player
 30.05.2020 00:54:15 TeamRole - tom3 - become coach
 30.05.2020 00:54:15 TeamRole - zipi - become player
-30.05.2020 00:54:15 TeamRole - zipi - become team manager
+30.05.2020 00:54:15 TeamRole - zipi - become team manager 
 30.05.2020 00:54:15 DBHandler - Succeeded  - DB connected
 30.05.2020 00:54:15 DBHandler - Succeeded  - DB connected
 30.05.2020 00:54:16 DBHandler - Succeeded  - DB connected
@@ -5111,7 +5111,7 @@
 30.05.2020 01:14:21 TeamRole - tom3 - become player
 30.05.2020 01:14:21 TeamRole - tom3 - become coach
 30.05.2020 01:14:21 TeamRole - zipi - become player
-30.05.2020 01:14:21 TeamRole - zipi - become team manager
+30.05.2020 01:14:21 TeamRole - zipi - become team manager 
 30.05.2020 01:14:21 DBHandler - Succeeded  - DB connected
 30.05.2020 01:14:21 DBHandler - Succeeded  - DB connected
 30.05.2020 01:14:21 DBHandler - Succeeded  - DB connected
@@ -5413,7 +5413,7 @@
 30.05.2020 09:22:04 TeamRole - tom3 - become player
 30.05.2020 09:22:04 TeamRole - tom3 - become coach
 30.05.2020 09:22:04 TeamRole - zipi - become player
-30.05.2020 09:22:04 TeamRole - zipi - become team manager
+30.05.2020 09:22:04 TeamRole - zipi - become team manager 
 30.05.2020 09:22:04 DBHandler - Succeeded  - DB connected
 30.05.2020 09:22:04 DBHandler - Succeeded  - DB connected
 30.05.2020 09:22:04 DBHandler - Succeeded  - DB connected
@@ -5529,39 +5529,3 @@
 30.05.2020 09:22:05 DBHandler - Succeeded  - DB connected
 30.05.2020 09:22:05 System_Operation_Init - Init system - Successfully initialized
 30.05.2020 09:22:45 MainSystem - oralfasi - loged in to system
-30.05.2020 23:52:24 SystemManager - systemManager - Added to system
-30.05.2020 23:52:24 MainSystem -  - system was started for the first time
-30.05.2020 23:52:25 DBHandler - Succeeded  - DB connected
-30.05.2020 23:54:24 SystemManager - systemManager - Added to system
-30.05.2020 23:54:24 MainSystem -  - system was started for the first time
-30.05.2020 23:54:24 DBHandler - Succeeded  - DB connected
-31.05.2020 00:03:55 SystemManager - systemManager - Added to system
-31.05.2020 00:03:55 MainSystem -  - system was started for the first time
-31.05.2020 00:04:55 SystemManager - systemManager - Added to system
-31.05.2020 00:04:55 MainSystem -  - system was started for the first time
-31.05.2020 00:05:44 SystemManager - systemManager - Added to system
-31.05.2020 00:05:44 MainSystem -  - system was started for the first time
-31.05.2020 00:06:25 SystemManager - systemManager - Added to system
-31.05.2020 00:06:25 MainSystem -  - system was started for the first time
-31.05.2020 00:08:51 SystemManager - systemManager - Added to system
-31.05.2020 00:08:51 MainSystem -  - system was started for the first time
-31.05.2020 00:09:28 DBHandler - Succeeded  - DB connected
-31.05.2020 00:09:40 DBHandler - Succeeded  - DB connected
-31.05.2020 00:11:09 SystemManager - systemManager - Added to system
-31.05.2020 00:11:09 MainSystem -  - system was started for the first time
-31.05.2020 00:11:19 DBHandler - Succeeded  - DB connected
-31.05.2020 00:11:26 DBHandler - Succeeded  - DB connected
-31.05.2020 00:12:31 SystemManager - systemManager - Added to system
-31.05.2020 00:12:31 MainSystem -  - system was started for the first time
-31.05.2020 00:12:32 DBHandler - Succeeded  - DB connected
-31.05.2020 00:12:34 DBHandler - Succeeded  - DB connected
-31.05.2020 00:13:20 SystemManager - systemManager - Added to system
-31.05.2020 00:13:20 MainSystem -  - system was started for the first time
-31.05.2020 00:13:21 DBHandler - Succeeded  - DB connected
-31.05.2020 00:13:24 DBHandler - Succeeded  - DB connected
-31.05.2020 00:15:10 SystemManager - systemManager - Added to system
-31.05.2020 00:15:10 MainSystem -  - system was started for the first time
-31.05.2020 00:15:11 DBHandler - Succeeded  - DB connected
-31.05.2020 00:15:12 DBHandler - Succeeded  - DB connected
-31.05.2020 00:15:19 DBHandler - Succeeded  - DB connected
-31.05.2020 00:15:19 DBHandler - Succeeded  - DB connected

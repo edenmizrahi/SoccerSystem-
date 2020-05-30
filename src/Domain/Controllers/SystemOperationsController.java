@@ -1063,6 +1063,10 @@ public class SystemOperationsController {
 
     }
 
+    public void initSystemObjectsYarden(){
+
+    }
+
     public static void initSystemObjectsYardenForUI() throws Exception {
         MainSystem system = MainSystem.getInstance();
         system.startSystem();

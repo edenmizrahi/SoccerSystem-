@@ -574,6 +574,23 @@ public class RefereeController {
         return refereeNotificationsString;
     }
 
+    /**
+     * return referee qualification
+     * @param nameOfReferee
+     * @return
+     */
+    public String getQualificationOfReferee(String nameOfReferee){
+        try {
+            Referee ref = this.getRefereeByUserName(nameOfReferee);
+            return ref.getQualification();
+        }
+        catch (Exception e){
+            return "Error-"+e.getMessage();
+        }
+
+    }
+
+
     public void updateInRefereesNotificationTable(String refereeUserName, String notificationContent, Match match){
 //        String[] notificationSplit = notificationContent.split("-");
 //        String home = notificationSplit[1];

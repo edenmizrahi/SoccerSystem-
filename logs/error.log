@@ -104,3 +104,7 @@
 30.05.2020 21:08:40 DBHandler - conectToDB - connection in now null
 30.05.2020 21:09:36 DBHandler - conectToDB - connection in now null
 30.05.2020 23:31:27 Referee - createReport - You do not have a permission to edit events right now
+31.05.2020 01:47:06 Referee - createReport - You do not have a permission to edit events right now
+31.05.2020 01:47:18 Referee - createReport - You do not have a permission to edit events right now
+31.05.2020 08:21:45 Referee - createReport - You do not have a permission to edit events right now
+31.05.2020 08:43:15 Referee - createReport - You can not create report until the match is over

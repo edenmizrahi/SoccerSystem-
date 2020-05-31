@@ -145,7 +145,6 @@ public class RfaController {
 
                     //update DB - table DaoSeason
                     List<String> recordInSeasonTable = new LinkedList<>();
-//                recordInSeasonTable.add(0,year);
                     recordInSeasonTable.add(0, sched);
                     recordInSeasonTable.add(1, calc);
                     if (MainSystem.getInstance().getCurrSeason().getYear() == s.getYear()) {

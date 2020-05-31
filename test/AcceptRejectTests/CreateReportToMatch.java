@@ -24,7 +24,7 @@ public class CreateReportToMatch {
     SystemOperationsController operationsController=new SystemOperationsController();
 
     @Test
-    public void decline() {
+    public void ApproveAndDecline() {
 
         try {
             /*****system init*****/
@@ -48,7 +48,6 @@ public class CreateReportToMatch {
             teamRole1.becomePlayer();
             t5.addPlayer(teamRole1.getPlayer());
             ref2.addMatchToList(match);
-
             HashSet<Event> events = ref2.createReport(match);
             fail();
         } catch (Exception e) {

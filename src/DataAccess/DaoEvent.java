@@ -11,7 +11,9 @@ import org.jooq.exception.DataAccessException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -80,6 +82,11 @@ public class DaoEvent implements Dao<String> {
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
                         ans.get(j).add(((LocalDateTime) currCol.get(j)).format(formatter));
                     }
+                    else if( currCol.get(j) instanceof Timestamp){
+                        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        String formattedDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(currCol.get(j));
+                        ans.get(j).add((formattedDate));
+                    }
                     else{
                         ans.get(j).add(currCol.get(j).toString());
                     }
@@ -119,6 +126,11 @@ public class DaoEvent implements Dao<String> {
                     if(currCol.get(j) instanceof  LocalDateTime){
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
                         ans.get(j).add(((LocalDateTime) currCol.get(j)).format(formatter));
+                    }
+                    else if( currCol.get(j) instanceof Timestamp){
+                        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        String formattedDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(currCol.get(j));
+                        ans.get(j).add((formattedDate));
                     }
                     else{
                         ans.get(j).add(currCol.get(j).toString());

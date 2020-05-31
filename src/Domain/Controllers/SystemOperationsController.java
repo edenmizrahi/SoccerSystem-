@@ -1230,6 +1230,15 @@ public class SystemOperationsController {
 
     }
 
+    public static void initSystemObjectsAvitalForTest() throws Exception {
+        MainSystem system = MainSystem.getInstance();
+        system.startSystem();
+        SystemManager marioSystemManager = system.getSystemManagers().get(0);//there is only one system manager now (the default)
+
+        Fan f1=new Fan(system, "avital zehavi", "0549716910","yossi@gmail.com", "Ilan", "Yossi123" ,MainSystem.birthDateFormat.parse("02-11-1996"));
+
+    }
+
     public static void initSystemObjectsAvital() throws Exception {
         MainSystem system = MainSystem.getInstance();
         system.startSystem();

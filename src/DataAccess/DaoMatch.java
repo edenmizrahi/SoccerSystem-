@@ -93,6 +93,11 @@ public class DaoMatch implements Dao<String> {
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
                         ans.get(j).add(((LocalDateTime) currCol.get(j)).format(formatter));
                     }
+                    else if( currCol.get(j) instanceof Timestamp){
+                        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        String formattedDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(currCol.get(j));
+                        ans.get(j).add((formattedDate));
+                    }
                     else{
                         ans.get(j).add(currCol.get(j).toString());
                     }
@@ -131,6 +136,10 @@ public class DaoMatch implements Dao<String> {
                         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
                         String formattedDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(currCol.get(j));
                         ans.get(j).add((formattedDate));
+                    }
+                    else if(currCol.get(j) instanceof LocalDateTime){
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        ans.get(j).add(((LocalDateTime) currCol.get(j)).format(formatter));
                     }
                     else{
                         ans.get(j).add(currCol.get(j).toString());

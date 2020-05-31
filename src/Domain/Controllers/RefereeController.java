@@ -659,4 +659,15 @@ public class RefereeController {
         }
         return "";
     }
+
+    public String getMatchScore(String match, String username) {
+        try {
+            Match currentMatch = this.matchObjectFromString(match, username);
+            String score = currentMatch.getHomeScore() +" - "+ currentMatch.getGuestScore();
+            return score;
+        }
+        catch (Exception e){
+            return  "error " +e.getMessage();
+        }
+    }
 }

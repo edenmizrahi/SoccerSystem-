@@ -68,6 +68,13 @@ public class RefereeApplication {
         return refereeController.createReportOfMatch(match, username);
     }
 
+    @Path("/getMatchScore/{match}/{username}")
+    @GET
+    @Produces("text/plain")
+    public String getMatchScore(@PathParam("match")String match, @PathParam("username")String username) {
+        return refereeController.getMatchScore(match, username);
+    }
+
     @Path("/createGoalEvent/{username}/{match}/{player}")
     @GET
     @Produces("text/plain")
